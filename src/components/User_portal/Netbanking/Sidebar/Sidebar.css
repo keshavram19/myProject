@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+.collapsible {
+  background-color: #f5f5f5; /* orange color */
+  color: #000; /* white text */
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 11px;
+  font-weight: 700;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  font-family: "poppins";
+  transition: background-color 0.5s ease, color 0.5s ease;
+  border-top: 1px solid #dfdfdf;
+  border-right: 1px solid #dfdfdf;
+  border-left: 1px solid #dfdfdf;
+  outline: none;
+}
+
+.sidebar_button:focus {
+  outline: none;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.collapsible:hover {
+  background-color: #002970;
+  color: #efffff;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  font-family: "poppins";
+  transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 13px;
+  display: none;
+  overflow: hidden;
+  font-family: "poppins";
+  background-color: #fff;
+  border-left: 1px solid #dfdfdf;
+  border-right: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf; 
+  transition: max-height 0.5s ease-in-out;
+}
+
+
+/* Style the links inside the collapsible content */
+.content a {
+  display: block;
+  padding: 6px;
+  font-size: 12px;
+  text-decoration: none;
+  font-family: "poppins";
+  color: #000; /* black text */
+}
+
+/* Change the color of the links on hover */
+.content a:hover {
+  color: #002970;
+  font-family: "poppins";
+}

@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+.afternav {
+  background-color: #002970; /* Replace with your desired background color */
+  color: #000; /* Replace with your desired text color */
+  padding: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.afternav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-family: "poppins";
+}
+
+.afternav li {
+  margin: 0 15px;
+  text-decoration: none;
+  font-family: "poppins";
+}
+
+.navhead {
+  text-decoration: none;
+  font-family: "poppins";
+  font-size: 11px;
+  color: #efffff;
+  font-weight: 600;
+}
+.navhead:hover {
+  color: white;
+  text-decoration: none;
+}
+/* Responsive adjustments for smaller screens */
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  text-align: center;
+}
+
+.dropdown-content .listItems1 {
+  color: #71737b;
+  display: block;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 400;
+  background-color: white;
+  padding: 7px 16px 
+}
+.dropdown-content .listItems1:hover {
+  color: #002970;
+}
+.listItems1 {
+  font-size: 12px;
+  border-bottom: 1px solid #CCC;
+}
