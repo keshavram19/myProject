@@ -1,4 +1,5 @@
 
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import './Accounts.css';
 import { useNavigate } from "react-router-dom";
 
@@ -14,12 +15,12 @@ const FixedDeposit = () => {
     return (
         <div>
            
-            <div className="container-fluid">
+            <div className="container-fluid" style={{marginTop:"90px"}}>
                 <div className="row">
-                    {/* <div className='col-xl-4 col-lg-4 col-md-12'>
-                        <Sidebar />
-                    </div> */}
-                    <div className="col-md-12 p-5">
+                    <div className='col-3'>
+                        <BankaccountSidebar />
+                    </div>
+                    <div className="col-9">
                         <div className="row">
                             
                             <h6 className="mt-3 col-md-2 text-center">Deposit Accounts</h6>

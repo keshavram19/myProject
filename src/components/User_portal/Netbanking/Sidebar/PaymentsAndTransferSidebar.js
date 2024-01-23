@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Sidebar.css';
 import Userdetails from '../UserDetails/UserDetails';
-
+import { Link } from 'react-router-dom';
 
 
 function PaymentSidebar() {
@@ -30,13 +30,13 @@ function PaymentSidebar() {
     };
     return (
         <div>
-           
+
 
             <Userdetails />
             <div className='container'>
-                <div className='row'>
+                <div className=''>
 
-                    <div className='col-3'>
+                    <div className=''>
                         <button
                             type="button"
                             className={`collapsible ${activeIndex === 0 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
@@ -48,13 +48,13 @@ function PaymentSidebar() {
                             className="content"
                             style={{ maxHeight: `${contentHeights[0]}px`, display: activeIndex === 0 ? 'block' : 'none' }}
                             ref={contentRefs[0]}
-                        >                            <a href="#">Money to World</a>
-                            <a href="#">Initiate Funds Transfer</a>
-                            <a href="#">Transcation Status</a>
-                            <a href="#">Quick Fund Transfer</a>
-                            <a href="#">Generate/Retrieve MMID</a>
-                            <a href="#">Manage Payees</a>
-                            <a href="#">Personalize Transcation Limits</a>
+                        >                            <Link to="/user/fundtransfer/mypayee">Money to World</Link>
+                            <Link to="">Initiate Funds Transfer</Link>
+                            <Link to="/user/fundtransfer/transaction-status">Transcation Status</Link>
+                            <Link to="/user/fundtransfer/quickfundtransfer">Quick Fund Transfer</Link>
+                            <Link to="/user/fundtransfer/generate-mmid">Generate/Retrieve MMID</Link>
+                            <Link to="/user/fundtransfer/manage-payees">Manage Payees</Link>
+                            <Link to="">Personalize Transcation Limits</Link>
                         </div>
 
                         <button
@@ -68,7 +68,7 @@ function PaymentSidebar() {
                             className="content"
                             style={{ maxHeight: `${contentHeights[1]}px`, display: activeIndex === 1 ? 'block' : 'none' }}
                             ref={contentRefs[1]}
-                        >                            <a href="#">Bill Payment</a>
+                        >                            <Link to="">Bill Payment</Link>
                         </div>
 
                         <button
@@ -76,7 +76,7 @@ function PaymentSidebar() {
                             className={`collapsible ${activeIndex === 2 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(2)}
                         >
-                            <span> Inward Remittance</span>
+                            <span> <Link to="/user/fundtransfer/inward-remitance"> Inward Remittance</Link></span>
                         </button>
 
 
@@ -91,9 +91,9 @@ function PaymentSidebar() {
                             className="content"
                             style={{ maxHeight: `${contentHeights[2]}px`, display: activeIndex === 3 ? 'block' : 'none' }}
                             ref={contentRefs[2]}
-                        >                            <a href="#">Recharge your DTH Connection</a>
-                            <a href="#">Recharge your Mobile/Data Card</a>
-                            <a href="#">Google play Recharge</a>
+                        >                            <Link to="">Recharge your DTH Connection</Link>
+                            <Link to="">Recharge your Mobile/Data Card</Link>
+                            <Link to="">Google play Recharge</Link>
                         </div>
 
                         <button
@@ -107,7 +107,7 @@ function PaymentSidebar() {
                             className="content"
                             style={{ maxHeight: `${contentHeights[3]}px`, display: activeIndex === 4 ? 'block' : 'none' }}
                             ref={contentRefs[3]}
-                        >                            <a href="#">Buy/Recharge Fastag</a>
+                        >                            <Link to="/user/fundtransfer/bill-recharge">Buy/Recharge Fastag</Link>
 
                         </div>
 
@@ -122,14 +122,14 @@ function PaymentSidebar() {
                             className="content"
                             style={{ maxHeight: `${contentHeights[4]}px`, display: activeIndex === 5 ? 'block' : 'none' }}
                             ref={contentRefs[4]}
-                        >                            <a href="#">View Tax Credit Statement - Form 26AS</a>
-                            <a href="#">TDS Certificate</a>
-                            <a href="#">eTax Challans</a>
-                            <a href="#">Form 15G/H</a>
-                            <a href="#">Interest Certificate</a>
-                            <a href="#">Pay Direct Tax</a>
-                            <a href="#">Pay Indirect Tax</a>
-                            <a href="#">Income Tax e-Filing</a>
+                        >                            <Link to="/user/fundtransfer/tax-center">View Tax Credit Statement - Form 26AS</Link>
+                            <Link to="/user/fundtransfer/tax-center">TDS Certificate</Link>
+                            <Link to="/user/fundtransfer/tax-payment">eTax Challans</Link>
+                            <Link to="/user/fundtransfer/tax-center">Form 15G/H</Link>
+                            <Link to="/user/fundtransfer/interest-certificate">Interest Certificate</Link>
+                            <Link to="/user/fundtransfer/tax-payment">Pay Direct Tax</Link>
+                            <Link to="/user/fundtransfer/disclaimer">Pay Indirect Tax</Link>
+                            <Link to="/user/fundtransfer/incometax-Efill">Income Tax e-Filing</Link>
                         </div>
 
                         <button
@@ -143,9 +143,9 @@ function PaymentSidebar() {
                             className="content"
                             style={{ maxHeight: `${contentHeights[5]}px`, display: activeIndex === 6 ? 'block' : 'none' }}
                             ref={contentRefs[5]}
-                        >                            <a href="#"> Scheduled Transactions</a>
-                            <a href="#"> Completed Transactions</a>
-                            <a href="#"> Payment Summary</a>
+                        >                            <Link to="/user/fundtransfer/scheduled-transaction"> Scheduled Transactions</Link>
+                            <Link to="/user/fundtransfer/completed-transaction"> Completed Transactions</Link>
+                            <Link to="/user/fundtransfer/payment-summary"> Payment Summary</Link>
                         </div>
 
                         <button
@@ -159,9 +159,9 @@ function PaymentSidebar() {
                             className="content"
                             style={{ maxHeight: `${contentHeights[6]}px`, display: activeIndex === 7 ? 'block' : 'none' }}
                             ref={contentRefs[6]}
-                        >                            <a href="#">Add Payee</a>
-                            <a href="#">Confirm Payee</a>
-                            <a href="#">Delete Payees</a>
+                        >                            <Link to="/user/fundtransfer/manage-payees">Add Payee</Link>
+                            <Link to="/user/fundtransfer/confirm-payee">Confirm Payee</Link>
+                            <Link to="">Delete Payees</Link>
                         </div>
 
                         <button
@@ -175,7 +175,7 @@ function PaymentSidebar() {
                             className="content"
                             style={{ maxHeight: `${contentHeights[7]}px`, display: activeIndex === 8 ? 'block' : 'none' }}
                             ref={contentRefs[7]}
-                        >                            <a href="#">Favourites</a>
+                        >                            <Link to="">Favourites</Link>
                         </div>
                     </div>
                 </div>

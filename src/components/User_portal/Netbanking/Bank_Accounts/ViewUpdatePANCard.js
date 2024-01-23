@@ -1,5 +1,6 @@
 import React from 'react';
 import './Accounts.css';
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 
 const UpdatePancard = () => {
@@ -8,10 +9,12 @@ const UpdatePancard = () => {
 
     <div>
       
-      <div className='pancard_container container-fluid mt-3'>
+      <div className='pancard_container container-fluid' style={{marginTop:"90px"}}>
         <div className='row'>
+          <div className='col-3'>
+            <BankaccountSidebar />
           </div>
-          <div className='col-sm-12'>
+          <div className='col-9'>
             <div className="container-fluid pancard my-2">
               <div className="d-flex">
                 <h3>5.View or Update PAN Card</h3>
@@ -111,6 +114,7 @@ const UpdatePancard = () => {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
 

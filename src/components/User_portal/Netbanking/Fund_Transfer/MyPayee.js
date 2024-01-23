@@ -10,12 +10,20 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { MdManageAccounts } from "react-icons/md";
 import { FaRupeeSign } from "react-icons/fa";
 import { BsSendFill } from "react-icons/bs";
+import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 
 const Mypayee = () => {
   const [activeTab, setActiveTab] = useState("mypayee");
   return (
     <>
-      <p className="estatement_heading">Fund Transfer</p>
+      
+      <div className="container-fluid" style={{ marginTop: "90px" }}>
+        <div className="row">
+          <div className="col-3">
+          <PaymentSidebar/>
+          </div>
+          <div className="col-9">
+          <p className="estatement_heading">Fund Transfer</p>
       <div className="mypayee_navmain">
         <li
           className={activeTab === "mypayee" ? "mypayee_buttonon" : ""}
@@ -393,6 +401,11 @@ const Mypayee = () => {
     
    
       )}
+          </div>
+
+        </div>
+      </div>
+      
     </>
   );
 };

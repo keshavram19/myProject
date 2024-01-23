@@ -5,6 +5,7 @@ import { FcCalendar } from "react-icons/fc";
 import DatePicker from 'react-datepicker';
 import React, { useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 const Statements = () => {
 
@@ -12,8 +13,13 @@ const Statements = () => {
     const [endDate, setEndDate] = useState(null);
 
     return (
-        <div className='container-fluid'>
-            <div className='savings_acct_statement_heading'>
+        <div className='container-fluid' style={{ marginTop: "90px" }}>
+            <div className='row'>
+                <div className='col-3'>
+                    <BankaccountSidebar/>
+                </div>
+                <div className='col-9'>
+                <div className='savings_acct_statement_heading'>
                 Current & Previous Months Account Statements:
             </div>
             <div className='acct_statements_months_cont'>
@@ -108,6 +114,9 @@ const Statements = () => {
                     </li>
                 </ul>
             </div>
+                    </div>
+            </div>
+            
         </div>
     )
 };

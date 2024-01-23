@@ -1,11 +1,15 @@
 import React from 'react';
+import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
+
 
 const ConfirmBiller = () => {
     return (
-        <div style={{ maginTop: '50px',fontSize:'11px'}} className="container-fluid">
+        <div  className="container-fluid" style={{marginTop:"90px"}}>
             <div class="row">
-                {/* <div class="col-md-4" ></div> */}
-                <div style={{ textAlign: 'start',}} class="col-md-12">
+                <div class="col-3" >
+                    <PaymentSidebar/>
+                </div>
+                <div style={{ textAlign: 'start',}} class="col-9">
                     <h6 style={{fontFamily:'poppins'}}>After ICICI bank payee add now</h6>
                     <div style={{ color: 'orange', textAlign: 'start',fontSize:'15px',fontWeight:'600',fontFamily:'poppins' }}>Confirm Payee/Biller</div>
                     <hr style={{ borderColor: 'black' }}></hr>

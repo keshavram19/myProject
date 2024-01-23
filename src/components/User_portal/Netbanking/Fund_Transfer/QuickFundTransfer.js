@@ -1,16 +1,20 @@
 import React from "react";
 import Select from "react-select";
 import './FundTransfer.css';
+import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 
 
 const QuickFundTransfer = () => {
 
 
     return (
-        <div className='card-details-container container-fluid'>
+        <div className='card-details-container container-fluid' style={{marginTop:"90px"}}>
             <div className='card-details-header'></div>
             <div className='row'>
-                <div className='col-sm-12 p-3 quickfund_transfer_note'>
+                <div className="col-3">
+                    <PaymentSidebar/>
+                </div>
+                <div className='col-9 p-3 quickfund_transfer_note'>
                     <div className="card p-3 quickfund_transfer_node">
                         <h1>QuickFundTransfer</h1>
                     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
+import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
 
 const BillRechargeFastag = ({ onPayNowClick }) => {
     const [activeTab, setActiveTab] = useState("purchase");
@@ -7,7 +8,15 @@ const BillRechargeFastag = ({ onPayNowClick }) => {
  
 
   return (
-    <div  className="container-fluid mt-4">
+    <div className="container-fluid" style={{ marginTop: "90px" }}>
+      
+
+
+      <div className='row'>
+        <div className='col-3'>
+        <PaymentSidebar />
+        </div>
+        <div className='col-9'>
         <div className='row'>
         <div className='col-md-6'><button onClick={(()=>setActiveTab("purchase"))}>Purchase</button></div>
         <div className='col-md-6'><button onClick={(()=>setActiveTab("recharge"))}>Recharge</button></div>
@@ -227,6 +236,10 @@ const BillRechargeFastag = ({ onPayNowClick }) => {
 
       </div>
       </div>
+        </div>
+       
+      </div>
+       
       </div>
     )
 }

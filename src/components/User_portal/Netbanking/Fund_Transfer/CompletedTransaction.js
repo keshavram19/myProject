@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './FundTransfer.css';
+import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
 
 const CompletedTransaction = () => {
   const [payeeName, setPayeeName] = useState('');
@@ -10,8 +11,14 @@ const CompletedTransaction = () => {
   const [transactions, setTransactions] = useState([]);
 
   return (
-    <div className="completed-transactions-page col-12">
-      <div className="empty-header " />
+    <>
+      <div className='container-fluid' style={{marginTop:"90px"}}>
+      <div className='row'>
+        <div className='col-3'>
+        <PaymentSidebar />
+        </div>
+        <div className='col-9'>
+        <div className="completed-transactions-page col-12">
       <div className="transaction-container" >
         <div className='transaction-heading'><h1>Type Of Transactions</h1></div>
         
@@ -72,6 +79,11 @@ const CompletedTransaction = () => {
         </div>
       </div>
     </div>
+        </div>
+      </div>
+      </div>
+    </>
+    
   );
 };
 

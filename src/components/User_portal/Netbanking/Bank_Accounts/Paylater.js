@@ -1,11 +1,18 @@
 import './Accounts.css';
 import paylaterimage from '../../../../Images/paylaterimage.jpg'
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 
 const PayLater = () => {
   return (
     <>
-      <div className="paylater_container">
+      <div className='container-fluid' style={{marginTop:"90px"}}>
+        <div className='row'>
+          <div className='col-3'>
+          <BankaccountSidebar />
+          </div>
+          <div className='col-9'>
+          <div className="paylater_container">
         <p className="paylater_heading">View and manage my PayLater</p>
         <hr />
         <div>
@@ -134,6 +141,10 @@ const PayLater = () => {
 
 
       </div>
+          </div>
+        </div>
+        </div>
+      
 
     </>
   )

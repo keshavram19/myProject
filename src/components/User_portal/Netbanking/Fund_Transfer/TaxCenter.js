@@ -1,9 +1,18 @@
 import React from "react";
 import "./FundTransfer.css";
+import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 
 const TaxCenter = () => {
   return (
-    <div className="tax_centerbank_page col-sm-12">
+
+    <>
+      <div className="container-fluid" style={{marginTop:"90px"}}>
+        <div className="row">
+          <div className="col-3">
+            <PaymentSidebar/>
+          </div>
+          <div className="col-9">
+          <div className="tax_centerbank_page col-sm-12">
       {/* <div className='inwardbank-header'></div> */}
 
       <p className="ptax_for_tax text-left">Under tax center, View</p>
@@ -65,7 +74,13 @@ const TaxCenter = () => {
           </button>
         </div>
       </div>
+      </div>
+          </div>
+          </div>
+        
     </div>
+   
+      </>
   );
 };
 

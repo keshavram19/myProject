@@ -1,16 +1,19 @@
 import React from "react";
 import Select from 'react-select'
 import './FundTransfer.css';
+import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 
 const GenerateMMID = () => {
 
 
     return (
-        <div className='card-details-container container-fluid'>
+        <div className='card-details-container container-fluid' style={{marginTop:"90px"}}>
             <div className='card-details-header'></div>
             <div className='row'>
-
-                <div className='col-sm-12 p-2 mt-4 generate_retrive_code' >
+                <div className="col-3">
+                    <PaymentSidebar/>
+                    </div>
+                <div className='col-9 p-2 mt-4 generate_retrive_code' >
                     <div className="container-fluid">
                     <h2>Inquire On IMPS Registration</h2>
                     <div className="card p-3 generate_retrive_node">

@@ -1,12 +1,15 @@
 import React, {Link} from "react";
 import './FundTransfer.css'
+import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 
 const TaxPayment = () => {
   return (
-    <div className="TaxPayment_container_fluid">
+    <div className="TaxPayment_container_fluid container-fluid" style={{marginTop:"90px"}}>
       <div className="row">
-       
-        <div className="TaxPayment_all col-sm-12">
+        <div className="col-3">
+          <PaymentSidebar/>
+       </div>
+        <div className=" col-9">
           <div className="TaxPayment_border">
             <div className="TaxPayment_pera">
               <h5 className="TaxPayment_pera_heading5">Tax Payment</h5>

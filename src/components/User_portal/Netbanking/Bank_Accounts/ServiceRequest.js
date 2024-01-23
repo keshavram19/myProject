@@ -1,3 +1,4 @@
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import './Accounts.css';
 
 
@@ -5,12 +6,12 @@ const ServiceRequest = () => {
     return (
         <div>
            
-            <div className="container-fluid">
+            <div className="container-fluid" style={{marginTop:"90px"}}>
                 <div className="row">
-                    {/* <div className='col-xl-4 col-lg-4 col-md-12'>
-                        <Sidebar />
-                    </div> */}
-                    <div className="col-md-12 p-5">
+                    <div className='col-3'>
+                       <BankaccountSidebar/>
+                    </div>
+                    <div className="col-9">
                         <input type="text" placeholder="Serch for Service Request" className='service_input'/>
                         <div className='row'>
                             <div className='col-md-7'>

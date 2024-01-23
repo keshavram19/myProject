@@ -1,5 +1,6 @@
 import React from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -7,47 +8,47 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className='afternav'>
+            <nav className='afternav fixed-top'>
                 <ul>
                     <li className="dropdown">
-                            <a href="#" className='navhead'>OVERVIEW</a> <i style={{fontSize:"12px", paddingRight:"10px", color:'white'}} class="fa-solid fa-caret-down"></i>
+                            <Link to="/user/overview" className='navhead'>OVERVIEW</Link> <i style={{fontSize:"12px", paddingRight:"10px", color:'white'}} class="fa-solid fa-caret-down"></i>
                         <div className="dropdown-content" style={{width:"max-content"}}>
                             <div>
-                                <a href="#" className='listItems1'>My View</a>
-                                <a href="#" className='listItems1'>Account Summary</a>
-                                <a href="#" className='listItems1'>Personal Details</a>
-                                <a href="#" className='listItems1'>Financial Journey</a>
+                                <Link to="/user/overview" className='listItems1'>My View</Link>
+                                <Link to="/user/accountsummary/viewsummary" className='listItems1'>Account Summary</Link>
+                                <Link to="/user/viewprofile" className='listItems1'>Personal Details</Link>
+                                <Link to="" className='listItems1'>Financial Journey</Link>
                             </div>
                         </div>
                     </li>
                     <li className="dropdown">
-                        <a href="#" className='navhead'>BANK ACCOUNTS</a> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
+                        <Link to="" className='navhead'>BANK ACCOUNTS</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
                         <div className="dropdown-content" style={{width:"max-content"}}>
                             <div>
-                                <a href="#" className='listItems1'>Accounts</a>
-                                <a href="#" className='listItems1'>Pockets</a>
-                                <a href="#" className='listItems1'>PayLater</a>
-                                <a href="#" className='listItems1'>PPF Accounts</a>
-                                <a href="#" className='listItems1'>SSy Accounts</a>
-                                <a href="#" className='listItems1'>e-Statements and accounts</a>
-                                <a href="#" className='listItems1'>iFinance</a>
-                                <a href="#" className='listItems1'>Deposits</a>
-                                <a href="#" className='listItems1'>iWish Goals</a>
+                                <Link to="/user/account" className='listItems1'>Accounts</Link>
+                                <Link to="" className='listItems1'>Pockets</Link>
+                                <Link to="/user/account/paylater" className='listItems1'>PayLater</Link>
+                                <Link to="" className='listItems1'>PPF Accounts</Link>
+                                <Link to="" className='listItems1'>SSy Accounts</Link>
+                                <Link to="/user/account/e-statement" className='listItems1'>e-Statements and accounts</Link>
+                                <Link to="" className='listItems1'>iFinance</Link>
+                                <Link to="/user/account/fixed-deposits" className='listItems1'>Deposits</Link>
+                                <Link to="/user/account/iwish-deposits" className='listItems1'>iWish Goals</Link>
                             </div>
                         </div>
                     </li>
-                    <li className="dropdown"><a href="#" className='navhead'>PAYMENTS & TRANSFER</a> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
+                    <li className="dropdown"><Link to="" className='navhead'>PAYMENTS & TRANSFER</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
                         <div className="dropdown-content" style={{width:"max-content"}}>
                             <div >
-                                <a href="#" className='listItems1'>Pay Bills</a>
-                                <a href="#" className='listItems1'>Recharge</a>
-                                <a href="#" className='listItems1'>Buy/Recharge fastag</a>
-                                <a href="#" className='listItems1'>Fund Transfer</a>
-                                <a href="#" className='listItems1'>Inward Remittance</a>
-                                <a href="#" className='listItems1'>My Transcations</a>
-                                <a href="#" className='listItems1'>Manage Payees</a>
-                                <a href="#" className='listItems1'>Favourites</a>
-                                <a href="#" className='listItems1'>Tax Centre</a>
+                                <Link to="" className='listItems1'>Pay Bills</Link>
+                                <Link to="" className='listItems1'>Recharge</Link>
+                                <Link to="/user/fundtransfer/bill-recharge" className='listItems1'>Buy/Recharge fastag</Link>
+                                <Link to="" className='listItems1'>Fund Transfer</Link>
+                                <Link to="/user/fundtransfer/inward-remitance" className='listItems1'>Inward Remittance</Link>
+                                <Link to="" className='listItems1'>My Transcations</Link>
+                                <Link to="/user/fundtransfer/manage-payees" className='listItems1'>Manage Payees</Link>
+                                <Link to="" className='listItems1'>Favourites</Link>
+                                <Link to="/user/fundtransfer/tax-center" className='listItems1'>Tax Centre</Link>
 
 
                             </div>
@@ -55,44 +56,20 @@ const Navbar = () => {
 
                         </div>
                     </li>
-                    <li className="dropdown"><a href="#" className='navhead'>CARDS & LOANS</a> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
+                    <li className="dropdown"><Link to="" className='navhead'>CARDS & LOANS</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
                         <div className="dropdown-content" style={{width:"max-content"}}>
                             <div>
 
-                                <a href="#" className='listItems1'>Credit cards</a>
-                                <a href="#" className='listItems1'>Debit/ATM Card</a>
-                                <a href="#" className='listItems1'>Forex & Prepaid Cards</a>
-                                <a href="#" className='listItems1'>Prepaid Cards</a>
-                                <a href="#" className='listItems1'>Bank Rewards</a>
-                                <a href="#" className='listItems1'>Manage Subscription</a>
+                                <Link to="" className='listItems1'>Credit cards</Link>
+                                <Link to="" className='listItems1'>Debit/ATM Card</Link>
+                                <Link to="" className='listItems1'>Forex & Prepaid Cards</Link>
+                                <Link to="" className='listItems1'>Prepaid Cards</Link>
+                                <Link to="" className='listItems1'>Bank Rewards</Link>
+                                <Link to="" className='listItems1'>Manage Subscription</Link>
 
 
-                                <a href="#" className='listItems1'>Loans</a>
-                                <a href="#" className='listItems1'>Apply Online</a>
-
-                            </div>
-
-
-                        </div>
-                    </li>
-                    <li className="dropdown">
-                        <a href="#" className='navhead'>INVESTMENTS & INSURANCE</a> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
-                        <div className="dropdown-content" style={{width:"max-content"}}>
-                            <div >
-
-                                <a href="#" className='listItems1'>Invest Online</a>
-                                <a href="#" className='listItems1'>Buy Mutual Funds</a>
-                                <a href="#" className='listItems1'>Demat</a>
-                                <a href="#" className='listItems1'>National Pension System</a>
-                                <a href="#" className='listItems1'>PPF Accounts</a>
-                                <a href="#" className='listItems1'>SSY Accounts</a>
-                                <a href="#" className='listItems1'>Guaranteed Pension Plan</a>
-                                <a href="#" className='listItems1'>Retirement Journey</a>
-
-                                <a href="#" className='listItems1'>Term Life Insurance</a>
-                                <a href="#" className='listItems1'>Cancer Cover</a>
-                                <a href="#" className='listItems1'>General Insurance</a>
-                                <a href="#" className='listItems1'>PMJJBY Scheme</a>
+                                <Link to="" className='listItems1'>Loans</Link>
+                                <Link to="" className='listItems1'>Apply Online</Link>
 
                             </div>
 
@@ -100,15 +77,39 @@ const Navbar = () => {
                         </div>
                     </li>
                     <li className="dropdown">
-                        <a href="#" className='navhead'>CUSTOMER SERVICE</a> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
+                        <Link to="" className='navhead'>INVESTMENTS & INSURANCE</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
                         <div className="dropdown-content" style={{width:"max-content"}}>
                             <div >
-                                <a href="#" className='listItems1'>Service Requests</a>
-                                <a href="#" className='listItems1'>My Mailbox</a>
-                                <a href="#" className='listItems1'>e-Locker</a>
-                                <a href="#" className='listItems1'>Tax Center</a>
-                                <a href="#" className='listItems1'>Offers Near You</a>
-                                <a href="#" className='listItems1'>Campus Power</a>
+
+                                <Link to="" className='listItems1'>Invest Online</Link>
+                                <Link to="" className='listItems1'>Buy Mutual Funds</Link>
+                                <Link to="" className='listItems1'>Demat</Link>
+                                <Link to="" className='listItems1'>National Pension System</Link>
+                                <Link to="" className='listItems1'>PPF Accounts</Link>
+                                <Link to="" className='listItems1'>SSY Accounts</Link>
+                                <Link to="" className='listItems1'>Guaranteed Pension Plan</Link>
+                                <Link to="" className='listItems1'>Retirement Journey</Link>
+
+                                <Link to="" className='listItems1'>Term Life Insurance</Link>
+                                <Link to="" className='listItems1'>Cancer Cover</Link>
+                                <Link to="" className='listItems1'>General Insurance</Link>
+                                <Link to="" className='listItems1'>PMJJBY Scheme</Link>
+
+                            </div>
+
+
+                        </div>
+                    </li>
+                    <li className="dropdown">
+                        <Link to="" className='navhead'>CUSTOMER SERVICE</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
+                        <div className="dropdown-content" style={{width:"max-content"}}>
+                            <div >
+                                <Link to="" className='listItems1'>Service Requests</Link>
+                                <Link to="" className='listItems1'>My Mailbox</Link>
+                                <Link to="" className='listItems1'>e-Locker</Link>
+                                <Link to="" className='listItems1'>Tax Center</Link>
+                                <Link to="" className='listItems1'>Offers Near You</Link>
+                                <Link to="" className='listItems1'>Campus Power</Link>
 
                             </div>
 

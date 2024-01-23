@@ -5,13 +5,17 @@ import { TbRefresh } from "react-icons/tb";
 import { TbSettingsCog } from "react-icons/tb";
 import { CiCreditCardOff } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 const DebitAndAtm = () => {
 
     return (
-        <div className='card_details_container container-fluid'>
+        <div className='card_details_container container-fluid' style={{marginTop:'90px'}}>
             <div className='row'>
-                <div className='col-12' >
+                <div className='col-3'>
+                    <BankaccountSidebar />
+                </div>
+                <div className='col-9' >
                     <div className='card atm_card_details_heading'>
                         <h6>Virtual Debit Card</h6>
                     </div>

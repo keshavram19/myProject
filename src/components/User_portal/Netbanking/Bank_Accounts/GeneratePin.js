@@ -2,14 +2,19 @@ import React from 'react';
 import Select from 'react-select';
 
 import './Accounts.css';
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 
 const GeneratePin = () => {
- 
+
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid' style={{ marginTop: "90px" }}>
             <div className='row'>
-                <div className='col-sm-12'>
+
+                <div className='col-3'>
+                    <BankaccountSidebar />
+                </div>
+                <div className='col-9'>
                     <div className="container-fluid generate_pin mt-1">
                         <hr />
                         <div className="card mt-1">
@@ -21,13 +26,13 @@ const GeneratePin = () => {
                                     </div>
                                     <div className="col-sm-4">
                                         <Select
-                                       
+
                                             name=""
                                             id=""
                                             options={[
                                                 { value: "Please select", label: "Please select" },
                                             ]}
-                                          
+
                                         />
                                     </div>
                                 </div>
@@ -37,7 +42,7 @@ const GeneratePin = () => {
                                     </div>
                                     <div className="col-sm-4">
                                         <Select
-                                        type='select'
+                                            type='select'
                                             name=""
                                             id=""
                                             options={[

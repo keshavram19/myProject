@@ -6,7 +6,7 @@ import './FundTransfer.css';
 const Calandar = () => {
   const [date, setDate] = useState(new Date());
 
-  return (
+  return (  
     <div className='calandar-main'>
       <div className='calendar-container col-12'>
         <Calendar

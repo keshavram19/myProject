@@ -2,13 +2,14 @@
 .afternav {
   background-color: #002970; /* Replace with your desired background color */
   color: #000; /* Replace with your desired text color */
-  padding: 7px;
+  padding: 17px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
-  z-index: 1000;
+  
+  /* z-index: 1000; */
 }
 
 .afternav ul {
@@ -28,9 +29,9 @@
 .navhead {
   text-decoration: none;
   font-family: "poppins";
-  font-size: 11px;
+  font-size: 13px;
   color: #efffff;
-  font-weight: 600;
+  font-weight: 500;
 }
 .navhead:hover {
   color: white;

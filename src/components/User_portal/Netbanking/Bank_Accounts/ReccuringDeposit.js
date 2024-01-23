@@ -1,4 +1,5 @@
 
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import './Accounts.css';
 import { Link, useNavigate } from "react-router-dom";
 
@@ -12,14 +13,14 @@ const RecurringDeposit = () => {
     return (
         <div>
            
-            <div className="container-fluid">
+            <div className="container-fluid" style={{marginTop:"90px"}}>
                 <div className="row">
-                    {/* <div className='col-xl-4 col-lg-4 '>
-                        <Sidebar />
-                    </div> */}
-                    <div className="col-md-12 p-5">
+                    <div className='col-3 '>
+                       <BankaccountSidebar />
+                    </div>
+                    <div className="col-9 ">
                         <div className="row">
-                            <p className="col-xl-7 col-lg-6 col-md-6"></p>
+                          
                             <p className="mt-3 text-end">How to manage your fixed Deposits?</p>
                             <button className="recurring_btn">Watch iplay demo</button>
 

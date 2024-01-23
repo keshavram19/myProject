@@ -1,11 +1,15 @@
 import React from "react";
 import './FundTransfer.css'
+import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 
 const Disclaimer = () => {
   return (
-    <div className="Disclaimer_container_fluid">
+    <div className="Disclaimer_container_fluid container-fluid" style={{marginTop:"90px"}}>
       <div className="row">  
-        <div className="col-sm-12">
+        <div className="col-3">
+          <PaymentSidebar/>
+        </div>
+        <div className="col-9">
           <div className="Disclainer_pera">
             <div className="Disclainer_border">
               <h5 className="Disclainer_border_heading5">Disclaimer</h5>

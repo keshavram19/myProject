@@ -1,5 +1,6 @@
 import React from 'react';
 import './Accounts.css'; 
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 
 
@@ -7,12 +8,13 @@ import './Accounts.css';
 function UpdateForm60() {
   return (
     <>
-    <div className='container-fluid'>
-     <div className='nav_section'></div>
+    <div className='container-fluid' style={{marginTop:"90px"}}>
      <div className='side_bar_section'>
         <div className='row'>
-           
-            <div className='col-md-12'>
+            <div className='col-3'>
+            <BankaccountSidebar />
+            </div>
+            <div className='col-9'>
                 <div className='update_form_container ' style={{backgroundColor:'rgb(255, 250, 244)'}}>
                 
                     <div className='update_form_heading_Container'>

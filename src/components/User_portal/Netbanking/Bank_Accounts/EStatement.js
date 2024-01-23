@@ -4,6 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useState } from 'react';
 import { MdArrowDropDownCircle } from "react-icons/md";
 import { FcCalendar } from "react-icons/fc";
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 const Estatement = () => {
 
@@ -36,7 +37,15 @@ const Estatement = () => {
 
     return (
         <>
-            <div className="estatement_container">
+            <div className='container-fluid' style={{marginTop:"90px"}}>
+                <div className='row'>
+                    <div className='col-3'>
+                        <div>
+                            <BankaccountSidebar />
+                        </div>
+                        </div>
+                    <div className='col-9'>
+                    <div className="estatement_container">
                 <p className='estatement_heading'>e-Statement</p>
                 <div className='container-fluid estatement_accountmain'>
                     <div className='estatement_accounttype'>
@@ -157,6 +166,10 @@ const Estatement = () => {
 
                 </div>
             </div>
+                        </div>
+                    </div>
+            </div>
+           
 
         </>
     )

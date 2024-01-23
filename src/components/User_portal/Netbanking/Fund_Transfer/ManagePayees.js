@@ -1,14 +1,17 @@
 import React from 'react'
 import './FundTransfer.css'
+import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar'
 
 
 const ManagePayees = () => {
   return (
-    <div  className='container-fluid' style={{alignItems:'center'}}>
+    <div  className='container-fluid' style={{alignItems:'center', marginTop:"90px"}}>
     
           <div className='row' style={{marginTop:'20px'}}>
-            {/* <div  className='col-md-4'></div> */}
-            <div style={{paddingLeft:'30px',alignItems:'center',}} className='col-md-12'>
+        <div className='col-3'>
+          <PaymentSidebar />
+            </div>
+            <div style={{paddingLeft:'30px',alignItems:'center',}} className='col-9'>
               <div className='row'>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <h6 style={{fontFamily:'poppins'}}>E.MANAGE PAYEES</h6>

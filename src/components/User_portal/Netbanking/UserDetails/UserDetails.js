@@ -5,9 +5,9 @@ function Userdetails() {
     return (
         <div>
             <div class="container userContainer">
-                <div className='row'>
+                <div className=''>
                     
-                    <div className='col-3 mt-5'>
+                    <div className=''>
                         <div class="name">Kavati Deepak Kumar</div>
                         <div className='d-flex'>
                             <div class="icon">

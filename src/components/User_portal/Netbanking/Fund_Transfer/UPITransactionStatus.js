@@ -1,16 +1,19 @@
 import React from "react";
 import Select from 'react-select'
 import './FundTransfer.css';
+import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 
 const UpiTransaction = () => {
 
 
     return (
-        <div className='card-details-container container-fluid'>
+        <div className='card-details-container container-fluid' style={{marginTop:"90px"}}>
             <div className='card-details-header'></div>
             <div className='row'>
-                
-                <div className='col-sm-12 p-2 upi_transaction_date' >
+                <div className="col-3">
+                <PaymentSidebar/>
+                </div>
+                <div className='col-9 upi_transaction_date' >
                     <h2>UPI Transaction Status</h2>
                     <div className="card p-2 upi_transaction_node">
                         <h4>Check Status</h4>

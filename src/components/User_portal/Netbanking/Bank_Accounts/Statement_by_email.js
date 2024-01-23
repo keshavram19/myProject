@@ -1,9 +1,16 @@
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import './Accounts.css';
 
 const StatementByMail = ()=> {
-    return(
-        <div className='container-fluid'>
-            <div className='savings_acct_user_auth_heading'>User Authentication Details:</div>
+    return (
+        <div>
+            <div className='container-fluid' style={{ marginTop: "90px" }}>
+                <div className='row'>
+                    <div className='col-3'>
+        <BankaccountSidebar />
+                    </div>
+                    <div className='col-9'>
+                    <div className='savings_acct_user_auth_heading'>User Authentication Details:</div>
             <div className='savings_acct_user_auth_container'>
                 <div className='savings_acct_user_auth_container_header'>Please Enter OTP To Authorize</div>
                 <div className='savings_acct_user_auth_details_container'>
@@ -46,7 +53,11 @@ const StatementByMail = ()=> {
                     </div>
                 </div>
             </div>
-        </div>
+                    </div>
+                </div>
+           
+            </div>
+            </div>
     )
 };
 export default StatementByMail;

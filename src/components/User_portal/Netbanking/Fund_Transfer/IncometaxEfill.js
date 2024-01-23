@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import './FundTransfer.css'
+import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 
 const IncomeTaxEfill = () => {
   const [accountNumber, setAccountNumber] = useState("Select account Number");
@@ -9,10 +10,13 @@ const IncomeTaxEfill = () => {
   };
 
   return (
-    <div className="incometax_container_fluid">
+    <div className="incometax_container_fluid container-fluid" style={{marginTop:"90px"}}>
       <div className="row">
-        <div className="col-sm-12">
-          <div className="incometax_account">
+        <div className="col-3">
+      <PaymentSidebar />
+        </div>
+        <div className="col-9">
+          <div className="">
             <h1>Income Tax e-Filling</h1>
             <div className="incometax_filling card">
               <h4 className="incometax_filling_heading4">e-Fille your Income Tax Return</h4>

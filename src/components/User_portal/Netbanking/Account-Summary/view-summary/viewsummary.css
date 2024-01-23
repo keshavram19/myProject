@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+.viewSummary h1 {
+  font-size: 24px;
+  color: #f88d2a;
+  font-weight: 400;
+}
+
+.viewSummary .selectSummaryCategory {
+  color: #000;
+  cursor: pointer;
+
+  font-size: 12px;
+  height: 30px;
+  outline: medium none;
+  padding: 5px 0 0 5px;
+  text-align: left;
+  margin: 0px 15px;
+}
+
+.viewSummary .goButton {
+  font-weight: 500;
+  font-size: 10px;
+  color: #fff;
+  width: auto;
+  /* background: url(../images/BackgroundImage_OrangeButton.jpg) repeat-x top left #eb6c18; */
+  display: inline;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 24px !important;
+  text-align: center;
+  background-color: #eb6c18;
+  border: 1px solid #ce6200;
+  padding: 14px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.viewSummary p {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.viewSummary_total {
+  background: #d4d4d4;
+  margin-top: 15px;
+
+  padding: 15px;
+  line-height: 20px;
+  width: 100%;
+  float: left;
+}
+
+.viewSummary_total p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 550;
+}
+
+.viewSummary_totalLiabilities {
+  background: #d4d4d4;
+  margin-top: 15px;
+  padding: 15px;
+  line-height: 20px;
+  width: 100%;
+  float: left;
+}
+.viewSummary_totalLiabilities p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 550;
+  text-align: center;
+}
+
+.viewSummary_totalAssets {
+  background: #d4d4d4;
+  margin-top: 15px;
+  padding: 15px;
+  line-height: 20px;
+  width: 100%;
+  float: left;
+  border-right: 1px solid #e7e7e7;
+}
+.viewSummary_totalAssets p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 550;
+  text-align: center;
+}
+
+.viewSummary_totalAssets_value {
+  /* background: #d4d4d4; */
+  /* margin-top: 15px; */
+  padding: 15px;
+  line-height: 20px;
+  width: 100%;
+  float: left;
+  border: 1px solid #e7e7e7;
+}
+.viewSummary_totalAssets_value p {
+  /* background: #d4d4d4; */
+  /* margin-top: 15px; */
+  margin: 0;
+  font-size: 15px;
+  /* font-weight: 550; */
+  text-align: center;
+}
+
+.viewSummary_totalLiabilities_value {
+  padding: 15px;
+  line-height: 20px;
+  width: 100%;
+  float: left;
+  border: 1px solid #e7e7e7;
+  border-left: none;
+}
+
+.viewSummary_totalLiabilities_value p {
+  /* background: #d4d4d4; */
+  /* margin-top: 15px; */
+  margin: 0;
+  font-size: 15px;
+  /* font-weight: 550; */
+  text-align: center;
+}
+
+.offers_heading {
+  padding: 10px 15px;
+  background-color: #dcdcdc;
+  margin-top: 1rem;
+  /* border-radius: 10px; */
+}
+
+.offers_heading p {
+  margin: 0;
+}
+
+.offer_cards {
+  padding: 15px 8px;
+
+  background: #ffffff;
+  /* border: 0.803922px solid rgba(121, 121, 121, 0.1); */
+  box-shadow: 0px 1px 3px rgb(7 7 7 / 10%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.offers_top h6 {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  margin-left: 6px;
+  color: #414141;
+  text-transform: capitalize;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.offers_top P {
+  font-size: 12px;
+  line-height: 15px;
+  color: #6c6c6c;
+}
+.offers_bottom {
+  background: #ffebdf;
+  text-align: center;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  color: #f27b1a;
+  padding: 8px 15px;
+  
+}
+
+.offers_bottom span {
+font-size: 11px;
+}
+
+.col-3 .offer_cards{
+  margin-top: 1rem;
+}

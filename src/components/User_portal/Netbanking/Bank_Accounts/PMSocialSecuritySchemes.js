@@ -1,15 +1,17 @@
 import React from 'react';
 import './Accounts.css';
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 function PMSocialSecuritySchemes() {
   return (
    <>
-   <div className='container-fluid'>
-     <div className='nav_section'></div>
+   <div className='container-fluid' style={{marginTop:"90px"}}>
      <div className='side_bar_section'>
         <div className='row'>
-           
-            <div className='col-md-12'>
+            <div className='col-3'>
+              <BankaccountSidebar />
+              </div>
+            <div className='col-9'>
                 <div className='PMSSS_form_Container' style={{backgroundColor:' rgb(255, 250, 244)'}}>
                 
                     <div className='PMSSS_form_heading'>

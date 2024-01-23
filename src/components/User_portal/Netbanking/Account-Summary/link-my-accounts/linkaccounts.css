@@ -1,0 +1,110 @@
+.link-accounts .form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da !important;
+  outline: 0;
+  box-shadow: none !important;
+  font-size: small;
+}
+.link-accounts .form-control:placeholder-shown {
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da !important;
+  outline: 0;
+  box-shadow: none !important;
+  font-size: small;
+}
+
+.link-accounts .services-heading {
+  color: #4a4a4a;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.714286px;
+  margin-bottom: 14px;
+  margin-top: 14px;
+}
+
+.link-accounts .table-head {
+  /* background-color: #f2f3f2; */
+  width: 100%;
+  font-size: 13px;
+  color: #4a4a4a;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+
+  box-shadow: 0 1.90246px 4.75615px #a8b4bf;
+}
+
+.link-accounts .table-content td {
+  /* background-color: #f2f3f2; */
+  width: 100%;
+  font-size: 13px;
+  color: #4a4a4a;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+
+  box-shadow: none;
+}
+.link-accounts .table-head .table-headings th {
+  padding: 15px 8px;
+  background-color: #f2f3f2;
+  width: 30%;
+  font-weight: 600;
+}
+
+.link-accounts .table-head .table-content td {
+  padding: 4px 8px;
+  width: 30%;
+  color: #4a4a4aa4;
+}
+
+.table-headings th:first-child,
+.table-content td:first-child {
+  width: 10% !important;
+}
+
+.deliverables-headings th {
+  padding: 15px 8px;
+  background-color: #f2f3f2;
+  width: 30%;
+  font-weight: 600;
+}
+
+.deliverables-headings th:first-child,
+.deliverables-content td:first-child {
+  width: 20% !important;
+}
+
+.deliverables-content td {
+  padding: 4px 8px;
+  width: 30%;
+  color: #4a4a4aa4;
+}
+
+.account-tabs .nav-tabs .nav-link.active {
+  color: #495057;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #e7a054;
+}
+
+a {
+  color: #495057c1;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: small;
+}
+
+/* Remove hover color and text decoration for anchor tag */
+a:hover {
+    color: #272b2e; /* or any other color you want for the hover state */
+    text-decoration: none;
+  }
+  

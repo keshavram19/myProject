@@ -2,6 +2,7 @@ import React from 'react';
 import './FundTransfer.css';
 import {useNavigate} from 'react-router-dom'
 import { Link } from 'react-router-dom';
+import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
 
 function TransactionStatus() {
     const navigate=useNavigate();
@@ -15,8 +16,14 @@ function TransactionStatus() {
       
         <div>  
       
-        <div className="container mt-4">
-          <div className="row">
+        <div className="container-fluid" style={{ marginTop: "90px" }}>
+          
+          <div className='row'>
+            <div className='col-3'>
+              <PaymentSidebar />
+            </div>
+            <div className='col-9'>
+            <div className="row">
             <div className="col-md-4 mb-4">
               <div className="card h-100">
                 <div className="card-body">
@@ -117,6 +124,9 @@ function TransactionStatus() {
               </div>
             </div>
           </div>
+            </div>
+            </div>
+         
     
     
         </div>

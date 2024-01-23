@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './FundTransfer.css';
+import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
 
 const WireTransaction = () => {
   const [accountNumber, setAccountNumber] = useState('');
@@ -9,7 +10,14 @@ const WireTransaction = () => {
   };
 
   return (
-    <div className="wire-transaction-container col-12">
+    <>
+      <div className='container-fluid' style={{marginTop:"90px"}}>
+        <div className='row'>
+          <div className='col-3'>
+            <PaymentSidebar/>
+          </div>
+          <div className='col-9'>
+          <div className="wire-transaction-container col-12">
       <header>
         <h1>View Status/Submit One Time Declaration</h1>
       </header>
@@ -30,7 +38,12 @@ const WireTransaction = () => {
           Submit
         </button>
       </div>
-    </div>
+      </div>
+          </div>
+        </div>
+      </div>
+    
+      </>
   );
 };
 export default WireTransaction;

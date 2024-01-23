@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import './Accounts.css';
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 
 const ManageCardLimit = () => {
@@ -31,9 +32,13 @@ const ManageCardLimit = () => {
 
     <div>
 
-      <div className='card_limit-details-container container-fluid mt-3'>
+      <div className='card_limit-details-container container-fluid 'style={{marginTop:"90px"}}>
         <div className='row'>
-          <div className='col-sm-12'>
+          <div className='col-3'>
+            <BankaccountSidebar />
+      </div>
+          
+          <div className='col-9'>
             <div className="container-fluid card_limit mt-2">
               <div className="d-flex">
                 <h3>3.4 Manage Card Limit</h3>

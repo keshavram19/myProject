@@ -1,6 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 import './Accounts.css';
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 
 const steps = [
@@ -27,9 +28,12 @@ const Reissuecard = () => {
       
   
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid' style={{marginTop:"90px"}}>
             <div className='row'>
-                <div className='col-sm-12'>
+                <div className='col-3'>
+                    <BankaccountSidebar />
+                </div>
+                <div className='col-9'>
                     <div className="container-fluid reissue_card">
                         <h5 className="">Reissue  of Lost ATM/debit Card</h5>
                         <div className='col-sm-12'>

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Sidebar.css'
 import Userdetails from '../UserDetails/UserDetails';
+import { Link } from 'react-router-dom';
 
 
 function OverviewSidebar() {
@@ -32,9 +33,9 @@ function OverviewSidebar() {
            
             <Userdetails />
             <div className='container'>
-                <div className='row'>
+                <div className=''>
 
-                    <div className='col-3'>
+                    <div className=''>
 
                         <button
                             type="button"
@@ -48,7 +49,7 @@ function OverviewSidebar() {
                             style={{ maxHeight: `${contentHeights[0]}px`, display: activeIndex === 0 ? 'block' : 'none' }}
                             ref={contentRefs[0]}
                         >
-                            <a href="#">My view</a>
+                            <Link to="/user/overview">My view</Link>
                         </div>
 
                         <button
@@ -56,28 +57,28 @@ function OverviewSidebar() {
                             className={`collapsible ${activeIndex === 1 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(1)}
                         >
-                            <span> Personal Details </span> <span> {getButtonContent(1)}</span>
+                            <span> <Link to="/user/viewprofile"> Personal Details</Link> </span> <span> {getButtonContent(1)}</span>
                         </button>
                         <div
                             className="content"
                             style={{ maxHeight: `${contentHeights[1]}px`, display: activeIndex === 1 ? 'block' : 'none' }}
                             ref={contentRefs[1]}
                         >
-                            <a href="#">Account Nickname</a>
-                            <a href="#">View Customer ID</a>
-                            <a href="#">Change Password</a>
-                            <a href="#">Date & Amount Format</a>
-                            <a href="#">Favourite Acounts</a>
-                            <a href="#">Favourite Activities</a>
-                            <a href="#">Personalize Transcation Limits</a>
-                            <a href="#">Primary Account</a>
-                            <a href="#">Update email ID</a>
-                            <a href="#">Link My Account</a>
-                            <a href="#">Manage Quick Checkout</a>
-                            <a href="#">update User ID</a>
-                            <a href="#">Update Profile Photo</a>
-                            <a href="#">Generate Debit / Credit Card PIN</a>
-                            <a href="#">Share My Account Details</a>
+                            <Link to="/user/profile/changenickname">Account Nickname</Link>
+                            <Link to="">View Customer ID</Link>
+                            <Link to="/user/profile/changepassword">Change Password</Link>
+                            <Link to="/user/profile/changeformat">Date & Amount Format</Link>
+                            <Link to="">Favourite Acounts</Link>
+                            <Link to="">Favourite Activities</Link>
+                            <Link to="">Personalize Transcation Limits</Link>
+                            <Link to="">Primary Account</Link>
+                            <Link to="/user/profile/changeemail">Update email ID</Link>
+                            <Link to="">Link My Account</Link>
+                            <Link to="">Manage Quick Checkout</Link>
+                            <Link to="/user/profile/changeuserid">update User ID</Link>
+                            <Link to="/user/profile/changeprofilephoto">Update Profile Photo</Link>
+                            <Link to="/user/profile/generatepin">Generate Debit / Credit Card PIN</Link>
+                            <Link to="">Share My Account Details</Link>
                         </div>
 
                         <button
@@ -92,8 +93,8 @@ function OverviewSidebar() {
                             style={{ maxHeight: `${contentHeights[2]}px`, display: activeIndex === 2 ? 'block' : 'none' }}
                             ref={contentRefs[2]}
                         >
-                            <a href="#">View Account Summary</a>
-                            <a href="#">Link My Accounts</a>
+                            <Link to="/user/accountsummary/viewsummary">View Account Summary</Link>
+                            <Link to="/user/accountsummary/linkaccounts">Link My Accounts</Link>
                         </div>
 
                         <button
@@ -108,7 +109,7 @@ function OverviewSidebar() {
                             style={{ maxHeight: `${contentHeights[3]}px`, display: activeIndex === 3 ? 'block' : 'none' }}
                             ref={contentRefs[3]}
                         >
-                            <a href="#">Financial Journey</a>
+                            <Link to="">Financial Journey</Link>
                             {/* Add more links as needed */}
                         </div>
 

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import './FundTransfer.css'
+import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 
 
 
@@ -27,9 +28,12 @@ const InterestCertificate = () => {
   };
 
   return (
-    <div className="interest_container_fluid">
+    <div className="interest_container_fluid container-fluid" style={{marginTop:"90px"}}>
       <div class="row">
-        <div class="interest_certificate_all col-sm-12">
+        <div className="col-3">
+          <PaymentSidebar/>
+          </div>
+        <div class=" col-9">
           <div className="interest_head">
             <h1>Download Interest & TDS Certificate</h1>
           </div>

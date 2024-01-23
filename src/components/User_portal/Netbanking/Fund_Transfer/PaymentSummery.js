@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './FundTransfer.css';
 import Calandar from './Calender';
+import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
 
 const PaymentSummary = () => {
   const [totalPendingAmount, setTotalPendingAmount] = useState(5000);
@@ -11,7 +12,15 @@ const PaymentSummary = () => {
   };
 
   return (
-    <div className="payment-container col-12">
+    <>
+      <div className='container-fluid' style={{ marginTop: "90px" }}>
+        <div className='row'>
+        <div className='col-3'>
+          <PaymentSidebar/>
+          
+          </div>
+        <div className='col-9'>
+        <div className="payment-container col-12">
       <div className="payment-header">
         <div className='box-container col-12'>
         <div className="header-box"> 
@@ -42,7 +51,12 @@ const PaymentSummary = () => {
             <Calandar />
           </div>
         )}
-    </div>
+      </div>
+          </div>
+          </div>
+  </div>
+   
+      </>
   );
 };
 

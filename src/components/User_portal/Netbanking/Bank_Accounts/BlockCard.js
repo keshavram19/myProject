@@ -1,13 +1,17 @@
 import React from 'react';
 import Select from 'react-select';
 import './Accounts.css';
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 const BlockCard = () => {
     return (
-        <div className='card_details_container container-fluid'>
+        <div className='card_details_container container-fluid' style={{marginTop:"90px"}}>
             <div className='card_details_header'></div>
             <div className='row'>
-                <div className='col-sm-12'>
+            <div className='col-3'>
+                <BankaccountSidebar />
+          </div>
+                <div className='col-9'>
                     <div className="card_details_block_card_hotlisting container-fluid">
                         <div className="card">
                             <p className="d-flex h3">ATM / Debit Card HotListing-Confirm</p>

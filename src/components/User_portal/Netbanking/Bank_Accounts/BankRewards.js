@@ -1,18 +1,21 @@
 import React from 'react';
 import './Accounts.css';
  import BankRewardBgImg from '../../../../Images/bank_rewards.jpeg'
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
  function BankRewardPoints() {
   return (
     <>
-   <div className='container-fluid'>
+   <div className='container-fluid' style={{marginTop:"90px"}}>
      <div className='nav-section'><h2 className='text-center'>BankRewardPoints</h2></div>
      <div className='side-bar-section'>
         <div className='row'>
-          
-            <div className='col-md-12 ' >
+            <div className='col-3'>
+                <BankaccountSidebar />
+          </div>
+            <div className='col-9 ' >
             <div className='bank-reward-sec-2'>
-                <img src={BankRewardBgImg} style={{height:'300px',width:'100%'}} />
+                <img src={BankRewardBgImg} style={{height:'300px',width:'100%'}} alt='bank reward img'/>
                  </div>
                 <div className='bank-reward-section p-5'>
                 

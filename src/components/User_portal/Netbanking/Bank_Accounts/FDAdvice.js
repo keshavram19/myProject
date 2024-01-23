@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './Accounts.css';
 import { Col, Container, Row } from "reactstrap";
+import BankaccountSidebar from "../Sidebar/BankaccountSidebar";
 
 const Fdadvice = () => {
   const [selectedAccountType, setSelectedAccountType] =
@@ -18,17 +19,22 @@ const Fdadvice = () => {
 
   return (
     <section>
-      <Container>
+      <div className="container-fluid">
         <Row>
-          <Col lg="12">
+          <Col sm="3">
+          </Col>
+          <Col sm="9">
             <div className="fixed_hero_container"></div>
           </Col>
         </Row>
-      </Container>
+      </div>
 
-      <Container>
+      <div className="container-fluid">
         <Row>
-          <Col lg="12">
+          <Col sm="3">
+            <BankaccountSidebar/>
+          </Col>
+          <Col sm="9">
             <div className="Fixed_container ">
               {/* <div className="fixed-deposit-container"> */}
                 <div className="fixed_deposit">
@@ -98,7 +104,7 @@ const Fdadvice = () => {
         
           </Col>
         </Row>
-      </Container>
+      </div>
       </section>
     // </section>
   );

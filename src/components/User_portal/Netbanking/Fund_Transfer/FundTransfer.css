@@ -239,15 +239,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 .payment-container {
-  height: 90vh;
   justify-content: center;
   padding: 50px;
   border-radius: 10px;
   flex-wrap: wrap;
-  width: 65%;
+
   margin: auto;
   background-color: #c4c7bf ;
-  margin-top: 50px;
+
 }
 
 .header-box {
@@ -412,12 +411,9 @@ abbr[title] {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 .wire-transaction-container {
-    max-width: 600px;
-    margin: 50px auto;
     padding: 0px 0px 5px 0px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding-bottom: 10px;
     background-color: #c4c7bf;
   }
