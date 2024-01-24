@@ -1,0 +1,374 @@
+/* loans css starts */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.loan_icon{
+    text-align: right;
+    font-size: 7px;
+    margin-top: 5px;
+}
+
+.loans_list{
+    margin-left: 60px;
+}
+
+.loans_card1{
+    border: 10px solid yellow;
+    border-radius: 50%;
+    padding:30px 5px;
+    text-align: center;
+}
+.loans_card2{
+    border: 10px solid yellow;
+    border-radius: 50%;
+    padding:30px 5px;
+    text-align: center;
+    border-left:10px solid gray;
+}
+.loans_card3{
+    border: 10px solid yellow;
+    border-radius: 50%;
+    padding:30px 5px;
+    text-align: center;
+    border-left:10px solid gray;
+    border-top:10px solid gray;
+}
+.loans_card4{
+    border: 10px solid gray;
+    border-radius: 50%;
+    padding:35px 5px;
+    text-align: center;
+}
+.loans_card5{
+    background-color:maroon;
+    border-radius: 50%;
+    padding:30px 20px;
+    text-align: center;
+    color: white;
+}
+.loan_card_para{
+    font-size: x-small;
+}
+.loans_maincard{
+    background-color: rgb(199, 192, 192);
+}
+.loans_subcard{
+    background-image: url(https://d39l2hkdp2esp1.cloudfront.net/img/photo/214650/214650_00_2x.jpg?20200810002354);
+    background-position: center;
+    background-size: cover;
+}
+.loans_usericon{
+    padding: 10px 10px;
+    background-color: maroon;
+    color: white;
+}
+
+.tooltip-inner {
+    background-color:maroon; 
+    color: #fff; 
+  }
+
+  .loans_subcard_para{
+    font-size:8px;
+    margin-left: 10px;
+
+  }
+  .loans_subcard_para1{
+    font-size:8px;
+    margin-left: 20px;
+  }
+  .loans_subcard_para2{
+    font-size:8px;
+    margin-left: 20px;
+  }
+  .loans_subcard_icon{
+    font-size: 20px;
+  }
+  .loans_main_icon{
+    font-size:20px;
+  }
+
+
+  /* loans css ends */
+
+  /* applyforloan css starts */
+.applyforloan_buttonon{
+    color: #8f3737;
+    border-bottom: 2px solid #8f3737;
+}
+.applyforloan_content{
+    margin-top: 3%;
+    
+}
+
+.applyforloan_navmain{
+    display: flex;
+    
+    list-style-type: none;
+    text-align: center;
+    font-size: 13px;
+    background-color: lightgray;
+    height: 8vh;
+}
+.applyforloan_navmain li{
+    cursor: pointer;
+    border-left: 1px solid white;
+    width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.applyforloan_heading{
+    color: #8f3737;
+}
+.applyforloan_icon{
+    font-size: x-large;
+    margin-right: 2%;
+}
+.applyforloan_para1{
+    font-size: small;
+   
+}
+.applyforloan_benefits{
+    display: flex;
+    align-items: center;
+    margin-top: 1%;
+}
+.applyforloan_benefitsicon{
+    color: #8f3737;
+    margin-right: 1%;
+    
+}
+.applyforloan_para2{
+    font-size: small;
+    text-decoration: underline;
+    color: #8f3737;
+    
+}
+.applyforloan_para3{
+    font-size: small;
+    margin-top: 2%;
+}
+.applyforloan_divbutton{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+.applyforloan_btn{
+    width: 100px;
+    height: 30px;
+    background-color: #8f3737;
+    color: whitesmoke;
+    border: none;
+    border-radius: 5px;
+}
+.applyforloan_banner{
+    height: 150px;
+    background: linear-gradient(rgba(0, 0, 0, 0.9),rgba(0, 0, 0, 0.7));
+    margin-bottom: 2%;
+    border-radius: 10px;
+    text-align: center;
+    padding: 2%;
+    color: white;
+}
+.applyforloan_bannericon{
+    font-size: 50px;
+    color: white;
+    margin-right: 3%;
+}
+.applyforloan_bannericon1{
+    margin-right: 1%;
+}
+.applyforloan_bannercontent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    color: white;
+    margin-bottom: 2%;
+}
+.applyforloan_litres{
+    font-size: xx-large;
+    color: #8f3737;
+}
+.applyforloan_homeloanbanner{
+  height: 175px;
+  margin-bottom: 1%;
+  background-image:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.6)), url(https://t3.ftcdn.net/jpg/03/40/79/60/360_F_340796093_arRYqCCyRv95ISY6oNA4zNSTUWyg9CQa.jpg);
+  border-radius: 10px;
+border: 2px solid lightgray;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+color: white;
+display: flex;
+justify-content: flex-end;
+  
+  
+}
+.applyforloan_homeloanbannercontent{
+    margin-right: 3%;
+    padding: 1%;
+}
+.applyforloan_instantbtn{
+    background-color: #8f3737;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    width: 150px;
+    height: 30px;
+}
+.applyforloan_carloanbanner{
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://financehub.co.in/wp-content/uploads/2021/03/Car-Loan.jpg);
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+/* applyforloan css ends */
+/* loanapplication css starts */
+.loanapptracking_head{
+    height: 40px;
+    background-color: #8f3737;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+
+}
+.loanapptracking_content{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+.loanapptracking_input1{
+    margin-right: 3%;
+}
+.loanapptracking_input2{
+    width: 400px;
+    padding-left: 2%;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #8f3737;
+    
+}
+.loanapptracking_input2:focus{
+    outline: none;
+    
+}
+.loanapptracking_proceedbtn{
+    width: 100px;
+    height: 30px;
+    background-color: #8f3737;
+    color: white;
+    border-radius: 5px;
+   border: none;
+}
+.loanapptracking_para1{
+    font-size: small;
+}
+.loanapptracking_paramain{
+    font-size: 15px;
+}
+.loanapptracking_status{
+    margin-top: 5%;
+}
+.loanapptracking_icon{
+    color: #8f3737;
+    margin-right: 1%;
+    font-size: 10px;
+}
+.loanapptracking_mainhead{
+    color: #8f3737;
+}
+
+
+/* loanapplication css ends */
+
+/* apply online css starts */
+
+
+.applyonline_mainheading{
+    color: #8f3737;
+    }
+    .applyonline_mainrow{
+        width: 96%;
+        margin-left: 2%;
+        margin-top: 3%;
+        
+    }
+    .applyonline_maincontainer{
+        border: 1px solid #8f3737;
+        height: 370px;
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .applyonline_heading{
+        background-color: #8f3737;
+        color: white;
+        padding-left: 2%;
+        height: 40px;
+        line-height: 40px;
+        display: flex;
+        align-items: center;
+    }
+    .applyonline_badge{
+        margin-left:5px;
+    }
+    .applyonline_headcontent{
+        display: flex;
+        align-items: center;
+        margin-top: 4%;
+        padding-left: 3%;
+    }
+    .applyonline_icons{
+        font-size: x-large;
+        color: #8f3737;
+    }
+    .applyonline_bodycontent{
+        height: 120px;
+        margin-top: 10%;
+        padding-left: 3%;
+        font-size: small;
+    }
+    .applyonline_divbutton{
+        background-color: #8f3737;
+        display: flex;
+        justify-content: center;
+        height: 40px;
+        
+    }
+    .applyonline_applybtn{
+        background-color: #8f3737;
+        color: white;
+        border: none;
+    }
+    .applyonline_mainrow .card{
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .applyonline_knowbtn{
+        margin-top: 10%;
+        border: none;
+        color: #8f3737;
+        background-color: transparent;
+    }
+    .applyonline_para1{
+        height: 50px;
+    }
+    
+    
+    /* apply online css ends */

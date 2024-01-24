@@ -39,7 +39,7 @@ function PaymentSidebar() {
                     <div className=''>
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 0 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 0 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(0)}
                         >
                             <span> Fund Transfer </span> <span> {getButtonContent(0)} </span>
@@ -59,7 +59,7 @@ function PaymentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 1 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 1 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(1)}
                         >
                             <span> Pay Bills </span> <span> {getButtonContent(1)}</span>
@@ -73,7 +73,7 @@ function PaymentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 2 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 2 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(2)}
                         >
                             <span> <Link to="/user/fundtransfer/inward-remitance"> Inward Remittance</Link></span>
@@ -82,7 +82,7 @@ function PaymentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 3 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 3 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(3)}
                         >
                             <span> Recharge</span>   <span>{getButtonContent(3)}</span>
@@ -98,7 +98,7 @@ function PaymentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 4 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 4 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(4)}
                         >
                             <span>  Buy/Recharge Fastag</span>   <span>{getButtonContent(4)}</span>
@@ -113,7 +113,7 @@ function PaymentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 5 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 5 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(5)}
                         >
                             <span> Tax Centre</span>   <span>{getButtonContent(5)}</span>
@@ -134,7 +134,7 @@ function PaymentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 6 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 6 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(6)}
                         >
                             <span>  My Transactions</span>   <span>{getButtonContent(6)}</span>
@@ -150,7 +150,7 @@ function PaymentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 7 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 7 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(7)}
                         >
                             <span>  Manage Payees</span>   <span>{getButtonContent(7)}</span>
@@ -166,7 +166,7 @@ function PaymentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 8 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 8 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(8)}
                         >
                             <span>  Favourites</span> <span>{getButtonContent(8)}</span>

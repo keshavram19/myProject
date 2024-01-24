@@ -54,6 +54,23 @@ import ChangePassword from "./components/User_portal/Netbanking/Profile/change-p
 import GenerateDebitOrCreditPin from "./components/User_portal/Netbanking/Profile/generate-card-pin/GeneratePin";
 import ChangeUserId from "./components/User_portal/Netbanking/Profile/change-userID/ChangeUserId";
 import UpdateProfilePhoto from "./components/User_portal/Netbanking/Profile/update-profile-photo/UpdateProfilePhoto";
+import CreditCard from "./components/User_portal/Netbanking/CreditCards/CreditCard";
+import RegisteredBillers from "./components/User_portal/Netbanking/CreditCards/RegisteredBillers";
+import ConvertToEMI from "./components/User_portal/Netbanking/CreditCards/CoverttoEmi";
+import EMISubmit from "./components/User_portal/Netbanking/CreditCards/EmiSubmit";
+import AutoDebitInstructions from "./components/User_portal/Netbanking/CreditCards/Autodebitsetup";
+import VirtualCreditCards from "./components/User_portal/Netbanking/CreditCards/VirtualCreditCard";
+import BillingCycleChange from "./components/User_portal/Netbanking/CreditCards/BillingCycleChange";
+import GenerateCreditCardPin from "./components/User_portal/Netbanking/CreditCards/GenerateCreditCardPin";
+import BlockCreditCard from "./components/User_portal/Netbanking/CreditCards/Blockyourcreditcard";
+import AlertSubscription from "./components/User_portal/Netbanking/CreditCards/AlertSubscription";
+import PhysicalPin from "./components/User_portal/Netbanking/CreditCards/Physicalpin";
+import Viewlastcredit from "./components/User_portal/Netbanking/CreditCards/Viewlastcreditcard";
+import CreditcardRewards from "./components/User_portal/Netbanking/CreditCards/CreditcardRewards";
+import Loanaccounts from "./components/User_portal/Netbanking/Loans/Loanaccounts";
+import ApplyForLoan from "./components/User_portal/Netbanking/Loans/Applyforloan";
+import LoanApplicationTracking from "./components/User_portal/Netbanking/Loans/Loanapplicationtracking";
+import ApplyOnline from "./components/User_portal/Netbanking/Loans/Applyonline";
 
 function App() {
   return (
@@ -248,7 +265,34 @@ function App() {
           exact
           path="/user/profile/changeprofilephoto"
           element={<UpdateProfilePhoto />}
+          
         />
+
+        {/* CARDS & LOANS Started */}
+
+        <Route exact path="/user/credit-cards" element={<CreditCard />} />
+        <Route exact path="/user/registered-billers" element={<RegisteredBillers/>}/>
+        <Route exact path="/user/covert-to-emi" element={<ConvertToEMI/>}/>
+        <Route exact path="/user/emi-submit" element={<EMISubmit/>}/>
+        <Route exact path="/user/auto-debit-instructions" element={<AutoDebitInstructions/>}/>
+        <Route exact path="/user/virtual-credit-cards" element={<VirtualCreditCards/>}/>
+        <Route exact path="/user/request-billing-cycle-change" element={<BillingCycleChange/>}/>
+        <Route exact path="/user/generate-credit-card-pin" element={<GenerateCreditCardPin/>}/>
+        <Route exact path="/user/blockcreditcard" element={<BlockCreditCard/>}/>
+        <Route exact path="/user/alertsubscription" element={<AlertSubscription/>}/>
+        <Route exact path="/user/physicalpin" element={<PhysicalPin/>}/>
+        <Route exact path="/user/viewlastcreditcard" element={<Viewlastcredit/>}/>
+        <Route exact path="/user/creditcardrewards" element={<CreditcardRewards/>}/>
+        <Route exact path="/user/loanaccounts" element={<Loanaccounts/>}/>
+        <Route exact path="/user/applyforloan" element={<ApplyForLoan/>}/>
+        <Route exact path="/user/loanapplicationtracking" element={<LoanApplicationTracking/>}/>
+        <Route exact path="/user/applyonline" element={<ApplyOnline/>}/>
+
+
+
+
+
+        {/* CARDS & LOANS ends */}
 
         {/* user portal ends */}
       </Routes>

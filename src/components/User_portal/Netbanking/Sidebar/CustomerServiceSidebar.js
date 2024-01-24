@@ -39,7 +39,7 @@ function CustomerserviceSidebar() {
                     <div className='col-3'>
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 0 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 0 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(0)}
                         >
                             <span>Service Requests </span>
@@ -48,7 +48,7 @@ function CustomerserviceSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 1 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 1 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(1)}
                         >
                             <span> My Mailbox </span> <span> {getButtonContent(1)}</span>
@@ -66,7 +66,7 @@ function CustomerserviceSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 2 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 2 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(2)}
                         >
                             <span>e-Locker</span>  <span> {getButtonContent(2)}</span>
@@ -81,7 +81,7 @@ function CustomerserviceSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 4 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 4 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(4)}
                         >
                             <span> Tax Centre</span> 
@@ -90,7 +90,7 @@ function CustomerserviceSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 5 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 5 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(5)}
                         >
                             <span>Offers Near You</span>
@@ -99,7 +99,7 @@ function CustomerserviceSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 6 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 6 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(6)}
                         >
                             <span>Campus Power</span>

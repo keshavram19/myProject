@@ -56,11 +56,11 @@ const Navbar = () => {
 
                         </div>
                     </li>
-                    <li className="dropdown"><Link to="" className='navhead'>CARDS & LOANS</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
+                    <li className="dropdown"><Link to="/user/credit-cards" className='navhead'>CARDS & LOANS</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
                         <div className="dropdown-content" style={{width:"max-content"}}>
                             <div>
 
-                                <Link to="" className='listItems1'>Credit cards</Link>
+                                <Link to="/user/credit-cards" className='listItems1'>Credit cards</Link>
                                 <Link to="" className='listItems1'>Debit/ATM Card</Link>
                                 <Link to="" className='listItems1'>Forex & Prepaid Cards</Link>
                                 <Link to="" className='listItems1'>Prepaid Cards</Link>
@@ -68,7 +68,7 @@ const Navbar = () => {
                                 <Link to="" className='listItems1'>Manage Subscription</Link>
 
 
-                                <Link to="" className='listItems1'>Loans</Link>
+                                <Link to="/user/loanaccounts" className='listItems1'>Loans</Link>
                                 <Link to="" className='listItems1'>Apply Online</Link>
 
                             </div>

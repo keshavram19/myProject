@@ -36,7 +36,7 @@ function InvestmentSidebar() {
                     <div className='col-3'>
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 0 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 0 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(0)}
                         >
                             <span> Invest Online </span> <span> {getButtonContent(0)} </span>
@@ -54,7 +54,7 @@ function InvestmentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 1 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 1 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(1)}
                         >
                             <span> Buy Mutual Funds</span>
@@ -62,7 +62,7 @@ function InvestmentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 2 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 2 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(2)}
                         >
                             <span>  Demat</span>   <span> {getButtonContent(2)} </span>
@@ -88,7 +88,7 @@ function InvestmentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 3 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 3 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(3)}
                         >
                             <span>  National Pension System</span>
@@ -96,7 +96,7 @@ function InvestmentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 4 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 4 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(4)}
                         >
                             <span>  PPF Accounts</span>
@@ -104,7 +104,7 @@ function InvestmentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 5 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 5 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(5)}
                         >
                             <span>  SSY Accounts</span>
@@ -113,7 +113,7 @@ function InvestmentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 6 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 6 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(6)}
                         > 
                             <span> Guarnteed Pension Plan</span>
@@ -121,7 +121,7 @@ function InvestmentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 7 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 7 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(7)}
                         >
                             <span>  iWish-Flexible RD</span>   <span>{getButtonContent(7)}</span>
@@ -135,7 +135,7 @@ function InvestmentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 8 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 8 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(8)}
                         >
                             <span>  Term Life Insurance </span>
@@ -143,7 +143,7 @@ function InvestmentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 9 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 9 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(9)}
                         >
                             <span>   Cancer Cover</span>
@@ -151,7 +151,7 @@ function InvestmentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 10 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 10 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(10)}
                         >
                             <span>  General Insurance</span>   <span>{getButtonContent(10)}</span>
@@ -167,7 +167,7 @@ function InvestmentSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 11 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 11 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(11)}
                         >
                             <span>   PMJJBY Scheme</span>
@@ -176,7 +176,7 @@ function InvestmentSidebar() {
                         
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 12 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 12 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(12)}
                         >
                             <span>   Retirement Journey</span>

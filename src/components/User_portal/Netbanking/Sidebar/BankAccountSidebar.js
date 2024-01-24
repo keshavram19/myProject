@@ -46,7 +46,7 @@ function BankaccountSidebar() {
           <div className="">
             <button
               type="button"
-              className={`collapsible ${activeIndex === 0 ? "active" : ""
+              className={`collapsible sidebarButton ${activeIndex === 0 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(0)}
             >
@@ -79,7 +79,7 @@ function BankaccountSidebar() {
 
             <button
               type="button"
-              className={`collapsible ${activeIndex === 1 ? "active" : ""
+              className={`collapsible sidebarButton ${activeIndex === 1 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(1)}
             >
@@ -104,7 +104,7 @@ function BankaccountSidebar() {
 
             <button
               type="button"
-              className={`collapsible ${activeIndex === 2 ? "active" : ""
+              className={`collapsible sidebarButton ${activeIndex === 2 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(2)}
             >
@@ -124,7 +124,7 @@ function BankaccountSidebar() {
 
             <button
               type="button"
-              className={`collapsible ${activeIndex === 3 ? "active" : ""
+              className={`collapsible sidebarButton ${activeIndex === 3 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(3)}
             >
@@ -146,7 +146,7 @@ function BankaccountSidebar() {
 
             <button
               type="button"
-              className={`collapsible ${activeIndex === 4 ? "active" : ""
+              className={`collapsible sidebarButton ${activeIndex === 4 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(4)}
             >
@@ -166,7 +166,7 @@ function BankaccountSidebar() {
 
             <button
               type="button"
-              className={`collapsible ${activeIndex === 5 ? "active" : ""
+              className={`collapsible sidebarButton ${activeIndex === 5 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(5)}
             >
@@ -186,7 +186,7 @@ function BankaccountSidebar() {
 
             <button
               type="button"
-              className={`collapsible ${activeIndex === 6 ? "active" : ""
+              className={`collapsible sidebarButton ${activeIndex === 6 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(6)}
             >
@@ -206,7 +206,7 @@ function BankaccountSidebar() {
 
             <button
               type="button"
-              className={`collapsible ${activeIndex === 7 ? "active" : ""
+              className={`collapsible sidebarButton ${activeIndex === 7 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(7)}
             >
@@ -229,7 +229,7 @@ function BankaccountSidebar() {
 
             <button
               type="button"
-              className={`collapsible ${activeIndex === 8 ? "active" : ""
+              className={`collapsible sidebarButton ${activeIndex === 8 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(8)}
             >
