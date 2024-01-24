@@ -2,11 +2,12 @@
 import React from "react";
 import "./linkaccounts.css";
 import OverviewSidebar from "../../Sidebar/OverViewSidebar";
+import { Link } from "react-router-dom";
 
 const Linkaccounts = () => {
   return (
     <div>
-      <section className="container-fluid" style={{marginTop:"90px"}}>
+      <section className="container-fluid linkAccounts" style={{marginTop:"90px"}}>
         <div className="row">
           <div className="col-3">
             <div className="">
@@ -167,30 +168,30 @@ const Linkaccounts = () => {
                     aria-labelledby="v-pills-Bank-Accounts-tab"
                   >
                     <div className="d-flex flex-column">
-                      <a href="#" className="mt-2">
+                      <Link href="#" className="mt-2">
                         Update Profile
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Transfer Your account to nearest branch
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         PAN updation
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Account Statement
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Block or Unblock ATM/Debit card
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Reissue of Lost ATM/Debit Card
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Cheque Book Request
-                      </a>
-                      {/* <a href="#" className="mt-2">
+                      </Link>
+                      {/* <Link href="#" className="mt-2">
                         Reissue of Lost ATM/Debit Card
-                      </a> */}
+                      </Link> */}
                     </div>
                   </div>
                   <div
@@ -200,30 +201,30 @@ const Linkaccounts = () => {
                     aria-labelledby="v-pills-Credit-Cards-tab"
                   >
                     <div className="d-flex flex-column">
-                      <a href="#" className="mt-2">
+                      <Link href="#" className="mt-2">
                         Generate Credit Card PIN
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Block Credit Card
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Upgrade your credit card
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Merchant EMI Related
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Request Statement
-                      </a>
-                      {/* <a href="#" className="mt-2">
+                      </Link>
+                      {/* <Link href="#" className="mt-2">
                         Reissue of Lost ATM/Debit Card
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Cheque Book Request
-                      </a> */}
-                      {/* <a href="#" className="mt-2">
+                      </Link> */}
+                      {/* <Link href="#" className="mt-2">
                         Reissue of Lost ATM/Debit Card
-                      </a> */}
+                      </Link> */}
                     </div>
                   </div>
                   <div
@@ -233,22 +234,22 @@ const Linkaccounts = () => {
                     aria-labelledby="v-pills-Deposits-tab"
                   >
                     <div className="d-flex flex-column">
-                      <a href="#" className="mt-2">
+                      <Link href="#" className="mt-2">
                         Standard Fixed Deposit
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Tax Saver Fixed Deposit : Lock-in Period of 5 years
-                      </a>
+                      </Link>
 
-                      <a href="#" className="mt-2">
+                      <Link href="#" className="mt-2">
                         Closure/Renewal of Fixed Deposit
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Recurring Deposit
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Closure/Renewal of Recurring Deposit
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div
@@ -258,20 +259,20 @@ const Linkaccounts = () => {
                     aria-labelledby="v-pills-Loan-tab"
                   >
                     <div className="d-flex flex-column">
-                      <a href="#" className="mt-2">
+                      <Link href="#" className="mt-2">
                         Link my loan accounts
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Request for Re dispatch of Home Loan Document
-                      </a>
+                      </Link>
 
-                      <a href="#" className="mt-2">
+                      <Link href="#" className="mt-2">
                         Request of NOC for Vehicle Loans
-                      </a>
+                      </Link>
 
-                      <a href="#" className="mt-2">
+                      <Link href="#" className="mt-2">
                         Request for IT Certificate for Closed Home Loan
-                      </a>
+                      </Link>
                     </div>{" "}
                   </div>
                   <div
@@ -281,12 +282,12 @@ const Linkaccounts = () => {
                     aria-labelledby="v-pills-Demat-tab"
                   >
                     <div className="d-flex flex-column">
-                      <a href="#" className="mt-2">
+                      <Link href="#" className="mt-2">
                         Open Demat Account
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Link Demat User ID to existing User ID
-                      </a>
+                      </Link>
                     </div>{" "}
                   </div>
                   <div
@@ -296,15 +297,15 @@ const Linkaccounts = () => {
                     aria-labelledby="v-pills-Link-Accounts-Policies-tab"
                   >
                     <div className="d-flex flex-column">
-                      <a href="#" className="mt-2">
+                      <Link href="#" className="mt-2">
                         Link my loan accounts
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Link my Credit card
-                      </a>
-                      <a href="#" className="mt-2">
+                      </Link>
+                      <Link href="#" className="mt-2">
                         Link Demat Account
-                      </a>
+                      </Link>
                     </div>{" "}
                   </div>
                 </div>

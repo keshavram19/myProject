@@ -1,0 +1,101 @@
+.accounts_preferences .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da !important;
+    outline: 0;
+    box-shadow: none !important;
+    font-size: small;
+  }
+  .accounts_preferences .form-control:placeholder-shown {
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da !important;
+    outline: 0;
+    box-shadow: none !important;
+    font-size: small;
+  }
+  
+  .accounts_preferences .account_preferences_heading {
+    color: #4a4a4a;
+    font-family: Helvetica;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.714286px;
+    margin-bottom: 14px;
+    margin-top: 14px;
+  }
+  
+  .accounts_preferences .account_preferences_table_content td {
+    /* background-color: #f2f3f2; */
+    width: 100%;
+    font-size: 13px;
+    color: #4a4a4a;
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+  
+    box-shadow: none;
+  }
+  
+  
+  
+  .accounts_preferences .account_preferences_table_head {
+    /* background-color: #f2f3f2; */
+    width: 100%;
+    font-size: 13px;
+    color: #4a4a4a;
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+  
+    box-shadow: 0 1.90246px 4.75615px #a8b4bf;
+  }
+  
+  
+  .accounts_preferences .account_preferences_table_head .account_preferences_table_headings th {
+    padding: 15px 8px;
+    background-color: #f2f3f2;
+    /* width: 30%; */
+    font-weight: 600;
+  }
+  
+  .accounts_preferences .account_preferences_table_content td {
+    padding: 4px 8px;
+    width: 23%;
+    color: #4a4a4aeb;
+  }
+
+  .account_preferences_table_headings th:first-child,
+.account_preferences_table_content td:first-child {
+  width: 10% !important;
+}
+
+.account_preferences_button
+{
+    padding: 3px 15px;
+    font-weight: 500;
+    font-size: small;
+    color: #fff;
+    /* letter-spacing: 0.1rem; */
+    background: #eb6c18c8;
+    display: inline;
+    cursor: pointer;
+    text-transform: uppercase;
+  
+    text-align: center;
+    border: 1px solid #eb6c18c8;
+}
+  
+
+
+.account_preferences_button a:hover {
+    color: #ffffff; /* or any other color you want for the hover state */
+    text-decoration: none;
+  }
+
+  .account_preferences_button a{
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: small;
+  }

@@ -95,16 +95,23 @@
   background-color: #e7a054;
 }
 
-a {
+/* a {
   color: #495057c1;
   text-decoration: none;
   background-color: transparent;
   font-size: small;
-}
+} */
 
 /* Remove hover color and text decoration for anchor tag */
-a:hover {
+.linkAccounts  a:hover {
     color: #272b2e; /* or any other color you want for the hover state */
     text-decoration: none;
+  }
+
+  .linkAccounts a{
+    color: #495057c1;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: small;
   }
   

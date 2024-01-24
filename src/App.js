@@ -54,6 +54,8 @@ import ChangePassword from "./components/User_portal/Netbanking/Profile/change-p
 import GenerateDebitOrCreditPin from "./components/User_portal/Netbanking/Profile/generate-card-pin/GeneratePin";
 import ChangeUserId from "./components/User_portal/Netbanking/Profile/change-userID/ChangeUserId";
 import UpdateProfilePhoto from "./components/User_portal/Netbanking/Profile/update-profile-photo/UpdateProfilePhoto";
+import UpdateAccountPreferences from "./components/User_portal/Netbanking/Profile/update-account-preferences/UpdateAccountPreferences";
+import FavouriteActivities from "./components/User_portal/Netbanking/Profile/favourite-activites/FavouriteActivities";
 
 function App() {
   return (
@@ -193,9 +195,9 @@ function App() {
           element={<BillRechargeFastag />}
         />
 
-        
 
-        
+
+
         {/* Account summary */}
 
         <Route
@@ -249,7 +251,16 @@ function App() {
           path="/user/profile/changeprofilephoto"
           element={<UpdateProfilePhoto />}
         />
-
+        <Route
+          exact
+          path="/user/profile/updateaccountpreferences"
+          element={<UpdateAccountPreferences />}
+        />
+         <Route
+          exact
+          path="/user/profile/favouriteactivities"
+          element={<FavouriteActivities />}
+        />
         {/* user portal ends */}
       </Routes>
     </div>

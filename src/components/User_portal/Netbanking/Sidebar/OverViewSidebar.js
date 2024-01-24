@@ -71,7 +71,7 @@ function OverviewSidebar() {
                             <Link to="">Favourite Acounts</Link>
                             <Link to="">Favourite Activities</Link>
                             <Link to="">Personalize Transcation Limits</Link>
-                            <Link to="">Primary Account</Link>
+                            <Link to="/user/profile/updateaccountpreferences">Primary Account</Link>
                             <Link to="/user/profile/changeemail">Update email ID</Link>
                             <Link to="">Link My Account</Link>
                             <Link to="">Manage Quick Checkout</Link>
