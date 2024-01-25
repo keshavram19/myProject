@@ -39,7 +39,7 @@ const ServiceRequest = () => {
                                 <div className='row'>
                                     <h6 className='mt-2 col-xl-10 col-lg-10 col-md-10 col-8'>Deliverables</h6>
                                     <p className='col-xl-2 col-lg-2 col-md-2 col-4'>View all</p>
-                                    <table class="table" style={{marginLeft:'15px'}}>
+                                    <table class="table" style={{marginLeft:'16px'}}>
                                         <thead>
                                             <tr className='' style={{backgroundColor:'#d3d0cbff'}}>
                                                 <th>SR.NO</th>
