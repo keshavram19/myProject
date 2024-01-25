@@ -346,8 +346,9 @@
 /* Registeredbillers.css starts */
 
 
-.registered_billers_card{
+.registered_billers_card .card{
     border: none;
+    background-color: #f8f9fa;
 }
 
 .registered_billers_heading{
@@ -360,23 +361,23 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgb(243, 238, 238);
-    background-color: rgb(212, 206, 206);
-    color: #0c0404;
+    border: 1px solid rgb(241, 231, 231);
+    background-color: #faede2;
+    color: #f18121;
 }
 
-.registered_biller_item{
+.registered_biller_item{    
     padding : 10px;
     text-align: center;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgb(243, 238, 238);
-    background-color: rgb(212, 206, 206);
-    color: #0c0404;
+    border: 1px solid rgb(241, 231, 231);
+    background-color: #faede2;
+    color: #f18121;
 }
 
 .registered_billers_card h3{
-    color: rgb(144, 44, 226);
+    color: #f18121;
 }
 
 .registered_billers_card p{
@@ -403,7 +404,6 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: rgb(245, 240, 240);
     padding: 15px;
 }
 .registered_billers_download_button{
@@ -420,15 +420,26 @@
     justify-content: space-between;
 }
 .registered_billers_select_tag{
-    width: 350px;
+    width: 280px;
 }
 .registered_billers_ok_buttton{
     border: none;
     padding: 5px 10px;
-    background-color: rgb(90, 125, 179);
-    color: white;
+    background-color: #ffc492;
+    color: #f18121;
     border-radius: 5px;
 }
+
+.registered_billers_biller_download .registered_billers_select_tag:focus{
+    border: none;
+    padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      width: 100%;
+}
+
+
 
 /* Registeredbillers.css ends */
 
@@ -437,15 +448,15 @@
 
 
 .convert_to_emi_card h3{
-    color: rgb(144, 44, 226);
+    color: #f18121;
 }
 
 
 .convert_to_emi_button{
     border: none;
     padding: 5px 10px;
-    background-color: rgb(90, 125, 179);
-    color: white;
+    background-color: #ffc492;
+    color: #f18121;
     border-radius: 5px;
 }
 
@@ -460,7 +471,7 @@
 /* ConvertToEmiSubmit.css starts */
 
 .convert_to_emi_submit_button h3{
-    color: rgb(144, 44, 226);
+    color: #f18121;
 }
 
 .convert_to_emi_submit_button .card{
@@ -472,9 +483,9 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgb(243, 238, 238);
-    background-color: rgb(212, 206, 206);
-    color: #0c0404;
+    border: 1px solid rgb(241, 231, 231);
+    background-color: #faede2;
+    color: #f18121;
 }
 
 .convert_to_emi_ref{
@@ -482,9 +493,9 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgb(243, 238, 238);
-    background-color: rgb(212, 206, 206);
-    color: #0c0404;
+    border: 1px solid rgb(241, 231, 231);
+    background-color: #faede2;
+    color: #f18121;
 }
 
 .convert_to_emi_coloumn{
@@ -496,7 +507,7 @@
 }
 
 .convert_to_emi_date{
-    padding: 1px;
+    padding: 1px 5px;
     padding-top:15px;
     text-align: center;
     align-items:center;
@@ -513,11 +524,11 @@
 
 
 
-.convert_to_emi_button{
+.convert_to_emi_button_submit{
     border: none;
     padding: 5px 10px;
-    background-color: rgb(90, 125, 179);
-    color: white;
+    background-color:#ffc492;
+    color: #f18121;
     border-radius: 5px;
 }
 

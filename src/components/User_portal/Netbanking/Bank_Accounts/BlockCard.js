@@ -5,18 +5,18 @@ import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 const BlockCard = () => {
     return (
-        <div className='card_details_container container-fluid' style={{marginTop:"90px"}}>
+        <div className='card_details_container container-fluid' style={{ marginTop: "90px" }}>
             <div className='card_details_header'></div>
             <div className='row'>
-            <div className='col-3'>
-                <BankaccountSidebar />
-          </div>
+                <div className='col-3'>
+                    <BankaccountSidebar />
+                </div>
                 <div className='col-9'>
                     <div className="card_details_block_card_hotlisting container-fluid">
                         <div className="card">
-                            <p className="d-flex h3">ATM / Debit Card HotListing-Confirm</p>
+                            <h3 className="d-flex">ATM / Debit Card Hotlisting-Confirm</h3>
                             <p className="my-3">Please verify and confirm your request for hotlisting your card</p>
-                            <div className="row card_details_block_card_fields ">
+                            <div className="row p-1 card_details_block_card_fields ">
                                 <div className="col-sm-3">
                                     <label>Card No:</label>
                                 </div>
@@ -24,25 +24,25 @@ const BlockCard = () => {
                                     <p>5419XXXXXXXXXXX0411</p>
                                 </div>
                             </div>
-                            <div className='row card_details_block_card_fields '>
+                            <div className='row p-1 card_details_block_card_fields '>
                                 <div className="col-sm-3">
                                     <label htmlFor="reason">Reason:</label>
                                 </div>
                                 <div className='col-sm-4'>
-                                    <Select
+                                    <select
+                                        className="form-control"
                                         name="reason"
                                         id="reason"
-                                        options={[
-                                            { value: "select a reason", label: "select a reason" },
-                                            { value: "Card Lost", label: "Card Lost" },
-                                            { value: "card Damaged", label: "card Damaged" },
-                                            { value: "card Not Received", label: "card Not Received" },
-                                            { value: "Card Destroyed", label: "Card Destroyed" }
-                                        ]}
-                                    /></div>
+                                    >
+                                        <option value="select a reason">select a reason</option>
+                                        <option value="Card Lost">Card Lost</option>
+                                        <option value="Card Damaged">Card Damaged</option>
+                                        <option value="card Not Received">card Not Received</option>
+                                        <option value="Card Destroyed">Card Destroyed</option>
+                                    </select>
+                                </div>
                             </div>
-
-                            <div className="row card_details_block_card_fields card_details_block_card_input_tag ">
+                            <div className="row p-1 card_details_block_card_fields card_details_block_card_input_tag ">
                                 <div className="col-sm-3">
                                     <label htmlFor="remarks">Remarks:</label>
 
