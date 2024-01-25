@@ -1345,7 +1345,7 @@ body {
 }
 .fixed_button_container button {
   padding: 10px;
-  background-color: #3498db;
+  background-color: rgb(235, 106, 60);
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -1356,7 +1356,7 @@ body {
 }
 .fixed_button_now {
   padding: 10px;
-  background-color: #3498db;
+  background-color:rgb(235, 106, 60);
   color: #312b2b;
   border: none;
   border-radius: 10px;
