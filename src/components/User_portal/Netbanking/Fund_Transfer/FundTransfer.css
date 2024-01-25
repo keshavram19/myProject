@@ -479,20 +479,21 @@ abbr[title] {
   justify-content: space-around;
   display: flex;
   align-items: center;
-  background-color: rgb(141, 159, 175);
-
+   Background-color : #f8f9fa
 }
 .upi_transaction_date{
-  background-color:rgb(223, 241, 242);
-}
+   Background-color : #f8f9fa}
 .upi_transaction_node{
-  
-  background-color:rgb(232, 243, 244);
+   Background-color : #f8f9fa
 }
 .upi_transaction_value{
   border-radius:5px;
   padding: 5px;
   border: none;
+  color : #f18121
+
+
+
 }
 /* upi transaction css ends*/
 
