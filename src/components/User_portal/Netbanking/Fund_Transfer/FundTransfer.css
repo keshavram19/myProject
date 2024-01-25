@@ -925,7 +925,7 @@ margin-top: 0px;
 }
 
 .interest_certificate_heading5 {
-  background-color: lightgray;
+  background-color: #faede2;
   padding: 10px;
 }
 
@@ -965,7 +965,7 @@ margin-top: 0px;
 .btn_interest_button {
   outline: none;
   overflow: hidden;
-  background-color: blue;
+  background-color: #f18121;
   font-weight: 500;
   color: white;
 }
@@ -1023,6 +1023,7 @@ margin-top: 0px;
 }
 .Disclainer_border_heading5{
   text-align: center;
+  color: #f18121;
 }
 .Disclaimer_button{
   text-align: center;
@@ -1031,7 +1032,7 @@ margin-top: 0px;
   justify-items: center;
 }
 .btn_Disclaimer_button{
-  background-color: blue;
+  background-color: #f18121;
   font-weight: 500;
   border-style: none;
   color: white;
@@ -1068,6 +1069,7 @@ padding: 2%;
 
 .TaxPayment_pera_heading5{
   text-align: center;
+  color: #f18121;
 }
 
 .taxpayment_button{
@@ -1077,7 +1079,7 @@ padding: 2%;
 }
 
 .btn_taxpayment_button{
-  background-color: blue;
+  background-color: #f18121;
   color: white;
   
 }
@@ -1115,7 +1117,7 @@ padding: 2%;
   padding: 3%;
 }
 .incometax_filling_heading4{
-  background-color: lightgray;
+  background-color: #faede2;
   padding: 1%;
   
 }
@@ -1133,7 +1135,7 @@ padding: 2%;
 
 .btn_incometax_button{
   margin: 4%;
-  background-color: blue;
+  background-color: #f18121;
   font-weight: 500;
   color: white;
 }
