@@ -6,8 +6,12 @@
   list-style-type: none;
   text-align: center;
   font-size: 13px;
-  background-color: lightgray;
+  background-color: rgb(236, 236, 236);
   height: 8vh;
+}
+.mypayee_heading{
+  color: #f18121;
+  font-size: x-large;
 }
 .mypayee_navmain li{
   cursor: pointer;
@@ -18,11 +22,11 @@
   justify-content: center;
 }
 .mypayee_buttonon{
-  color: #8f3737;
-  border-bottom: 2px solid #8f3737;
+  color: #f18121;
+  border-bottom: 2px solid #f18121;
 }
 .mypayee_content{
-  background-color: rgb(241, 241, 241);
+  background-color: rgb(251, 250, 250);
 }
 .mypayee_text{
   display: flex;
@@ -49,11 +53,13 @@
 .mypayee_input1{
   width: 100%;
 }
-.mypayee_input2{
+.mypayee_input22{
   border: none;
   background-color: transparent;
+  width: 100%;
+  margin-left: 2%;
 }
-.mypayee_input2:focus{
+.mypayee_input22:focus{
   outline: none;
   box-shadow: none;
   background-color: transparent;
@@ -62,16 +68,17 @@
 .mypayee_addbtn{
   width: 160px;
   height: 30px;
-  background-color: #8f3737;
-  color: white;
+  background-color: #faede2;
+  color: #f18121;
   border: none;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: small;
 }
 .mypayee_search{
-  color: #8f3737;
+  color: #f18121;
 }
 .mypayee_icons{
   font-size: large;
@@ -86,7 +93,7 @@
 }
 .mypayee_click{
   text-decoration: underline;
-  color: #8f3737;
+  color: #f18121;
 }
 
 

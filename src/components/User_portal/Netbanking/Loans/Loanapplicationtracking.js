@@ -1,7 +1,7 @@
 
 import { FaCircle } from "react-icons/fa";
 const LoanApplicationTracking = ()=>{
-    return(<>
+    return(<div className="container-fluid">
     <h4 className='loanapptracking_mainhead'>Loan Application Tracking</h4>
     <hr/>
     <div className="loanapptracking_head">
@@ -17,8 +17,10 @@ const LoanApplicationTracking = ()=>{
 
     </div>
     <div className='loanapptracking_status'>
-        <h4>How to Check Loan Status</h4>
+      <div className="container-fluid">
+      <h4>How to Check Loan Status</h4>
         <p className='loanapptracking_paramain'>You may use several methods to keep tabs on the current state of your  loan. You can get a sense of what you’ll need to monitor the progress of your application for a loan from the list below:</p>
+      </div>
         <div className='container'>
             <h6><FaCircle className='loanapptracking_icon'/>Mobile Phone Number:</h6>
             <p className='loanapptracking_para1'>Never forget to give your registered mobile number to the bank when applying for a personal loan. Several banks and NBFCs enable applicants to determine their loan application status via their mobile phone numbers. Not only can you use the mobile number to chat with a customer rep, but also for online monitoring.</p>
@@ -42,7 +44,7 @@ const LoanApplicationTracking = ()=>{
         </div>
     </div>
     
-    </>)
+    </div>)
 }
 
 export default LoanApplicationTracking;
