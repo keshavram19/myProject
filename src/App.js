@@ -56,6 +56,42 @@ import ChangeUserId from "./components/User_portal/Netbanking/Profile/change-use
 import UpdateProfilePhoto from "./components/User_portal/Netbanking/Profile/update-profile-photo/UpdateProfilePhoto";
 import UpdateAccountPreferences from "./components/User_portal/Netbanking/Profile/update-account-preferences/UpdateAccountPreferences";
 import FavouriteActivities from "./components/User_portal/Netbanking/Profile/favourite-activites/FavouriteActivities";
+import CreditCard from "./components/User_portal/Netbanking/CreditCards/CreditCard";
+import RegisteredBillers from "./components/User_portal/Netbanking/CreditCards/RegisteredBillers";
+import ConvertToEMI from "./components/User_portal/Netbanking/CreditCards/CoverttoEmi";
+import EMISubmit from "./components/User_portal/Netbanking/CreditCards/EmiSubmit";
+import AutoDebitInstructions from "./components/User_portal/Netbanking/CreditCards/Autodebitsetup";
+import VirtualCreditCards from "./components/User_portal/Netbanking/CreditCards/VirtualCreditCard";
+import BillingCycleChange from "./components/User_portal/Netbanking/CreditCards/BillingCycleChange";
+import GenerateCreditCardPin from "./components/User_portal/Netbanking/CreditCards/GenerateCreditCardPin";
+import BlockCreditCard from "./components/User_portal/Netbanking/CreditCards/Blockyourcreditcard";
+import AlertSubscription from "./components/User_portal/Netbanking/CreditCards/AlertSubscription";
+import PhysicalPin from "./components/User_portal/Netbanking/CreditCards/Physicalpin";
+import Viewlastcredit from "./components/User_portal/Netbanking/CreditCards/Viewlastcreditcard";
+import CreditcardRewards from "./components/User_portal/Netbanking/CreditCards/CreditcardRewards";
+import Loanaccounts from "./components/User_portal/Netbanking/Loans/Loanaccounts";
+import ApplyForLoan from "./components/User_portal/Netbanking/Loans/Applyforloan";
+import LoanApplicationTracking from "./components/User_portal/Netbanking/Loans/Loanapplicationtracking";
+import ApplyOnline from "./components/User_portal/Netbanking/Loans/Applyonline";
+import ForexCardSection from "./components/User_portal/Netbanking/CreditCards/Forexcards";
+import PrepaidCard from "./components/User_portal/Netbanking/CreditCards/Prepaidcards";
+import MerchantstandingInstructions from "./components/User_portal/Netbanking/CreditCards/MerchantstandingInstructions";
+import DematAccountPage from "./components/User_portal/Netbanking/Investments/Demat";
+import NationalpensionServiceRequestsPage from "./components/User_portal/Netbanking/Investments/Nationalpensionsystem";
+import GuaranteedPensionPlan from "./components/User_portal/Netbanking/Investments/GuranteedPensionPlan";
+import TermLifeInsurance from "./components/User_portal/Netbanking/Investments/TermLifeInsurance";
+import EasyClaimSettlement from "./components/User_portal/Netbanking/Investments/Easyclaimsettlement";
+import PersonalizeTransactionlimits from "./components/User_portal/Netbanking/Bank_Accounts/PersonalizeTranscationslimits";
+import PayBills from "./components/User_portal/Netbanking/Bank_Accounts/Paybills";
+import ConfirmPaye from "./components/User_portal/Netbanking/Bank_Accounts/ConfirmPayee";
+import ViewPayee from "./components/User_portal/Netbanking/Bank_Accounts/Viewordeletepayee";
+import CancerCover from "./components/User_portal/Netbanking/Investments/CancerCover";
+import GeneralInsurance from "./components/User_portal/Netbanking/Investments/GeneralInsurnace";
+import MyMailBox from "./components/User_portal/Netbanking/Customerservice.js/Mymailbox";
+import ELocker from "./components/User_portal/Netbanking/Customerservice.js/ELocker";
+import DropDownBankAccount from "./components/User_portal/Netbanking/Customerservice.js/Servierequestdropdown";
+import Servicerequest from "./components/User_portal/Netbanking/Customerservice.js/Servicerequest";
+import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Customerservice.js/Taxcenter";
 
 function App() {
   return (
@@ -82,6 +118,22 @@ function App() {
         <Route
           path="/user/account/statement-by-email"
           element={<StatementByMail />}
+        />
+        <Route
+          path="/user/account/personalizetranscationlimits"
+          element={<PersonalizeTransactionlimits />}
+        />
+        <Route
+          path="/user/account/paybills"
+          element={<PayBills />}
+        />
+         <Route
+          path="/user/account/confirmpaye"
+          element={<ConfirmPaye/>}
+        />
+        <Route
+          path="/user/account/Viewpayee"
+          element={<ViewPayee/>}
         />
         <Route path="/user/account/debit-atm-card" element={<DebitAndAtm />} />
         <Route
@@ -250,17 +302,75 @@ function App() {
           exact
           path="/user/profile/changeprofilephoto"
           element={<UpdateProfilePhoto />}
+
         />
         <Route
           exact
           path="/user/profile/updateaccountpreferences"
           element={<UpdateAccountPreferences />}
         />
-         <Route
+        <Route
           exact
           path="/user/profile/favouriteactivities"
           element={<FavouriteActivities />}
         />
+
+        {/* CARDS & LOANS Started */}
+
+        <Route exact path="/user/credit-cards" element={<CreditCard />} />
+        <Route exact path="/user/registered-billers" element={<RegisteredBillers />} />
+        <Route exact path="/user/covert-to-emi" element={<ConvertToEMI />} />
+        <Route exact path="/user/emi-submit" element={<EMISubmit />} />
+        <Route exact path="/user/auto-debit-instructions" element={<AutoDebitInstructions />} />
+        <Route exact path="/user/virtual-credit-cards" element={<VirtualCreditCards />} />
+        <Route exact path="/user/request-billing-cycle-change" element={<BillingCycleChange />} />
+        <Route exact path="/user/generate-credit-card-pin" element={<GenerateCreditCardPin />} />
+        <Route exact path="/user/blockcreditcard" element={<BlockCreditCard />} />
+        <Route exact path="/user/alertsubscription" element={<AlertSubscription />} />
+        <Route exact path="/user/physicalpin" element={<PhysicalPin />} />
+        <Route exact path="/user/viewlastcreditcard" element={<Viewlastcredit />} />
+        <Route exact path="/user/creditcardrewards" element={<CreditcardRewards />} />
+        <Route exact path="/user/loanaccounts" element={<Loanaccounts />} />
+        <Route exact path="/user/applyforloan" element={<ApplyForLoan />} />
+        <Route exact path="/user/loanapplicationtracking" element={<LoanApplicationTracking />} />
+        <Route exact path="/user/applyonline" element={<ApplyOnline />} />
+        <Route exact path="/user/forexcards" element={<ForexCardSection />} />
+        <Route exact path="/user/prepaidcards" element={<PrepaidCard />} />
+        <Route exact path="/user/merchantstandinginstructions" element={<MerchantstandingInstructions />} />
+        <Route exact path="/user/demataccount" element={<DematAccountPage />} />
+
+        {/* CARDS & LOANS ends */}
+
+
+        {/* Investments starts */}
+
+        <Route exact path="/user/demataccount" element={<DematAccountPage />} />
+        <Route exact path="/user/nps" element={<NationalpensionServiceRequestsPage />} />
+        <Route exact path="/user/guranteedpensionplan" element={<GuaranteedPensionPlan />} />
+        <Route exact path="/user/termlifeinsurance" element={<TermLifeInsurance />} />
+        <Route exact path="/user/easyclaimsettlement" element={<EasyClaimSettlement />} />
+        <Route exact path="/user/cancercover" element={<CancerCover />} />
+        <Route exact path="/user/generalinsurnace" element={<GeneralInsurance />} />
+        
+
+
+
+
+        {/* Investments ends */}
+
+
+        {/* Customer service starts */}
+        <Route exact path="/user/customerservice/servicerequestslist" element={<DropDownBankAccount />} />
+        <Route exact path="/user/customerservice/servicerequests" element={<Servicerequest />} />
+        <Route exact path="/user/customerservice/mymailbox" element={<MyMailBox />} />
+        <Route exact path="/user/customerservice/elocker" element={<ELocker />} />
+        <Route exact path="/user/customerservice/taxcenter" element={<CustomerserviceTaxCentre />} />
+
+
+
+        {/* customer service ends */}
+
+
         {/* user portal ends */}
       </Routes>
     </div>

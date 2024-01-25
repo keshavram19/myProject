@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Sidebar.css'
 
 import Userdetails from '../UserDetails/UserDetails';
@@ -39,7 +40,7 @@ function CustomerserviceSidebar() {
                     <div className='col-3'>
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 0 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 0 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(0)}
                         >
                             <span>Service Requests </span>
@@ -48,7 +49,7 @@ function CustomerserviceSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 1 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 1 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(1)}
                         >
                             <span> My Mailbox </span> <span> {getButtonContent(1)}</span>
@@ -57,40 +58,40 @@ function CustomerserviceSidebar() {
                             className="content"
                             style={{ maxHeight: `${contentHeights[0]}px`, display: activeIndex === 1 ? 'block' : 'none' }}
                             ref={contentRefs[0]}
-                        >                            <a href="#">Mailbox</a>
-                            <a href="#">Inbox</a>
-                            <a href="#">Sent Mails</a>
-                            <a href="#">Broadcast Messages</a>
-                            <a href="#">Trash</a>
+                        >                            <Link to="/user/customerservice/mymailbox">Mailbox</Link>
+                            <Link to="">Inbox</Link>
+                            <Link to="">Sent Mails</Link>
+                            <Link to="">Broadcast Messages</Link>
+                            <Link to="">Trash</Link>
                         </div>
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 2 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 2 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(2)}
                         >
-                            <span>e-Locker</span>  <span> {getButtonContent(2)}</span>
+                            <span><Link to="/user/customerservice/elocker">e-Locker</Link></span>  <span> {getButtonContent(2)}</span>
                         </button>
                         <div
                             className="content"
                             style={{ maxHeight: `${contentHeights[1]}px`, display: activeIndex === 2 ? 'block' : 'none' }}
                             ref={contentRefs[1]}
-                        >                            <a href="#">e-Locker</a>
+                        >                            <Link to="">e-Locker</Link>
 
                         </div>
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 4 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 4 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(4)}
                         >
-                            <span> Tax Centre</span> 
+                            <span> <Link to={"/user/customerservice/taxcenter"}>Tax Centre</Link></span> 
                         </button>
         
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 5 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 5 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(5)}
                         >
                             <span>Offers Near You</span>
@@ -99,7 +100,7 @@ function CustomerserviceSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 6 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 6 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(6)}
                         >
                             <span>Campus Power</span>

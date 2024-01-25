@@ -56,11 +56,11 @@ const Navbar = () => {
 
                         </div>
                     </li>
-                    <li className="dropdown"><Link to="" className='navhead'>CARDS & LOANS</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
+                    <li className="dropdown"><Link to="/user/credit-cards" className='navhead'>CARDS & LOANS</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
                         <div className="dropdown-content" style={{width:"max-content"}}>
                             <div>
 
-                                <Link to="" className='listItems1'>Credit cards</Link>
+                                <Link to="/user/credit-cards" className='listItems1'>Credit cards</Link>
                                 <Link to="" className='listItems1'>Debit/ATM Card</Link>
                                 <Link to="" className='listItems1'>Forex & Prepaid Cards</Link>
                                 <Link to="" className='listItems1'>Prepaid Cards</Link>
@@ -68,7 +68,7 @@ const Navbar = () => {
                                 <Link to="" className='listItems1'>Manage Subscription</Link>
 
 
-                                <Link to="" className='listItems1'>Loans</Link>
+                                <Link to="/user/loanaccounts" className='listItems1'>Loans</Link>
                                 <Link to="" className='listItems1'>Apply Online</Link>
 
                             </div>
@@ -83,16 +83,16 @@ const Navbar = () => {
 
                                 <Link to="" className='listItems1'>Invest Online</Link>
                                 <Link to="" className='listItems1'>Buy Mutual Funds</Link>
-                                <Link to="" className='listItems1'>Demat</Link>
-                                <Link to="" className='listItems1'>National Pension System</Link>
+                                <Link to="/user/demataccount" className='listItems1'>Demat</Link>
+                                <Link to="/user/nps" className='listItems1'>National Pension System</Link>
                                 <Link to="" className='listItems1'>PPF Accounts</Link>
                                 <Link to="" className='listItems1'>SSY Accounts</Link>
-                                <Link to="" className='listItems1'>Guaranteed Pension Plan</Link>
+                                <Link to="user/guranteedpensionplan" className='listItems1'>Guaranteed Pension Plan</Link>
                                 <Link to="" className='listItems1'>Retirement Journey</Link>
 
-                                <Link to="" className='listItems1'>Term Life Insurance</Link>
-                                <Link to="" className='listItems1'>Cancer Cover</Link>
-                                <Link to="" className='listItems1'>General Insurance</Link>
+                                <Link to="/user/termlifeinsurance" className='listItems1'>Term Life Insurance</Link>
+                                <Link to="/user/cancercover" className='listItems1'>Cancer Cover</Link>
+                                <Link to="/user/generalinsurnace" className='listItems1'>General Insurance</Link>
                                 <Link to="" className='listItems1'>PMJJBY Scheme</Link>
 
                             </div>
@@ -104,10 +104,10 @@ const Navbar = () => {
                         <Link to="" className='navhead'>CUSTOMER SERVICE</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
                         <div className="dropdown-content" style={{width:"max-content"}}>
                             <div >
-                                <Link to="" className='listItems1'>Service Requests</Link>
-                                <Link to="" className='listItems1'>My Mailbox</Link>
-                                <Link to="" className='listItems1'>e-Locker</Link>
-                                <Link to="" className='listItems1'>Tax Center</Link>
+                                <Link to="/user/customerservice/servicerequests" className='listItems1'>Service Requests</Link>
+                                <Link to="/user/customerservice/mymailbox" className='listItems1'>My Mailbox</Link>
+                                <Link to="/user/customerservice/elocker" className='listItems1'>e-Locker</Link>
+                                <Link to="/user/customerservice/taxcenter" className='listItems1'>Tax Center</Link>
                                 <Link to="" className='listItems1'>Offers Near You</Link>
                                 <Link to="" className='listItems1'>Campus Power</Link>
 

@@ -39,7 +39,7 @@ function OverviewSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 0 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 0 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(0)}
                         >
                             <span> My View </span> <span> {getButtonContent(0)} </span>
@@ -54,7 +54,7 @@ function OverviewSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 1 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 1 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(1)}
                         >
                             <span> <Link to="/user/viewprofile"> Personal Details</Link> </span> <span> {getButtonContent(1)}</span>
@@ -83,7 +83,7 @@ function OverviewSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 2 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 2 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(2)}
                         >
                             <span>  Account Summary</span> <span>{getButtonContent(2)} </span>
@@ -99,7 +99,7 @@ function OverviewSidebar() {
 
                         <button
                             type="button"
-                            className={`collapsible ${activeIndex === 3 ? 'active' : ''} d-flex justify-content-between sidebar_button`}
+                            className={`collapsible sidebarButton ${activeIndex === 3 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(3)}
                         >
                             <span>  Financial Journey</span>   <span>{getButtonContent(3)}</span>

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-.collapsible {
+.sidebarButton {
   background-color: #f5f5f5; /* orange color */
   color: #000; /* white text */
   cursor: pointer;
@@ -27,8 +27,8 @@
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active,
-.collapsible:hover {
+.buttonActive,
+.sidebarButton:hover {
   background-color: #002970;
   color: #efffff;
   height: 45px;

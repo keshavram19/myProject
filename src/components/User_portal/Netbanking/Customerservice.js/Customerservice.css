@@ -1,0 +1,482 @@
+/* Drop down css Starts */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  font-family: 'Poppins';
+ }
+
+.DropDown_Main_Division_BankingAPP{
+ 
+  border: 1px solid rgb(219, 216, 216);
+}
+.dropdown_arrow_down{
+font-size: small;
+margin-left: 100px;
+}
+.dropdown_cc_arrow_down{
+ font-size: small;
+ margin-left: 117px;
+ }
+ .dropdown_dep_arrow_down{
+   font-size: small;
+ margin-left: 149px;
+ }
+.Drop_down_ICo{
+ width: 30px;
+}
+.DropDownMain_BAnkingApp_FullDIv{
+ overflow-x: hidden;
+}
+.dropdown_header_sub_header{
+ font-size: medium;
+ font-weight: 500;
+} 
+.DropDown_Main_BankAccts_BankingAPP{
+padding: 20px 10px;
+text-align: left;
+width: 300px;
+border: 1px solid gray;
+border-top: none;
+border-left: none;
+cursor: pointer;
+ }
+ .DropDown_Main_BankAccts_BankingAPP:hover ,
+ .DropDown_Main_CreditCards_BankingAPP:hover,
+ .DropDown_Main_Deposits_BankingAPP:hover,
+  .DropDown_Main_Loan_BankingAPP:hover,
+ .DropDown_Demat_Header_BankingAPP:hover,
+ .DropDown_LinkAcctPol_Header_BankingAPP:hover,
+ .DropDown_Forextrav_Header_BankingAPP:hover,
+ .DropDown_Pockets_Header_BankingAPP:hover{
+   background-color: rgb(240, 240, 240);
+ }
+.DropDown_Main_CreditCards_BankingAPP{
+ padding: 20px 10px;
+ width: 300px;
+border: 1px solid gray;
+ border-left: none;
+cursor: pointer;
+text-align: left;
+cursor: pointer;
+ }
+.DropDown_Main_Deposits_BankingAPP{
+ padding: 20px 10px;
+ width: 300px;
+border: 1px solid gray;
+ border-left: none;
+cursor: pointer;
+text-align: left;
+cursor: pointer;
+ }
+ .DropDown_Main_Loan_BankingAPP{
+   padding: 20px 10px;
+ width: 300px;
+border: 1px solid gray;
+ border-left: none;
+cursor: pointer;
+text-align: left;
+cursor: pointer;
+ }
+ .DropDown_Demat_Header_BankingAPP{
+   padding: 20px 10px;
+   width: 300px;
+  border: 1px solid gray;
+   border-left: none;
+ cursor: pointer;
+  text-align: left;
+ cursor: pointer;
+ }
+ .DropDown_LinkAcctPol_Header_BankingAPP{
+   padding: 20px 10px;
+   width: 300px;
+  border: 1px solid gray;
+   border-left: none;
+ cursor: pointer;
+  text-align: left;
+ cursor: pointer;
+ }
+ .DropDown_Forextrav_Header_BankingAPP{
+   padding: 20px 10px;
+   width: 300px;
+  border: 1px solid gray;
+   border-left: none;
+ cursor: pointer;
+  text-align: left;
+ cursor: pointer;
+ }
+ .DropDown_Pockets_Header_BankingAPP{
+   padding: 20px 10px;
+ width: 300px;
+border: 1px solid gray;
+ border-left: none;
+cursor: pointer;
+text-align: left;
+cursor: pointer;
+ }
+
+.DropDown_Sub_Bank_acct_BankingAPP{
+  text-align: center;
+ border: 1px solid gainsboro;
+ font-size: small;
+ font-weight: 400;
+ border-left: none;
+  padding: 10px 0px;
+   }
+ .DropDown_Sub_Credit_card_BankingAPP{
+    text-align: center;
+   border: 1px solid gainsboro;
+   font-size: small;
+   font-weight: 400;
+   border-left: none;
+    padding: 10px 0px;
+   margin-left: 0px;
+ }
+ .DropDown_Sub_Division_deposits_BankingAPP{
+    text-align: center;
+   border: 1px solid gainsboro;
+   font-size: small;
+   font-weight: 400;
+   border-left: none;
+    padding: 10px 0px;
+   margin-left: 0px;}
+.DropDown_Sub_bank_aact_modify_BankingAPP ,
+.DropDown_Sub_bank_aact_Statement_BankingAPP ,
+.DropDown_Sub_bank_aact_Transaction_BankingAPP ,
+.DropDown_Sub_bank_aact_Debit_card_BankingAPP ,
+.DropDown_Sub_bank_aact_cheque_BankingAPP ,
+.DropDown_Sub_bank_aact_govt_BankingAPP{
+  cursor: pointer;
+  }
+.DropDown_Sub_Credit_modify_BankingAPP,
+.DropDown_Sub_Credit_cardRelated_BankingAPP ,
+.DropDown_Sub_Credit_statementRel_BankingAPP{
+ cursor: pointer;
+}
+.DropDown_Sub_Division_FXdeposits_BankingAPP ,
+.DropDown_Sub_Division_Recurrdeposits_BankingAPP{
+ cursor: pointer;
+}
+.DropDown_Main_Loan_BankingAPP{
+ font-size: medium;
+ font-weight: 500;
+}
+.DropDown_Demat_Header_BankingAPP{
+ font-size: medium;
+ font-weight: 500;
+}
+.DropDown_LinkAcctPol_Header_BankingAPP{
+ font-size: medium;
+ font-weight: 500;
+}
+.DropDown_Forextrav_Header_BankingAPP{
+ font-size: medium;
+ font-weight: 500;
+}
+.DropDown_Pockets_Header_BankingAPP{
+ font-size: medium;
+ font-weight: 500;
+}
+.DropDown_Acct_list_items ,
+.DropDown_Creditcard_list_items ,
+.DropDown_fixeddeposits_list_items,
+.DropDown_loan_list_subitems , 
+.DropDown_demat_list_subitems ,
+.DropDown_LinkAcctpol_list_subitems ,
+.DropDown_lForex_list_subitems ,
+.DropDown_Pockets_list_subitems{
+ text-align: left;
+}
+.DropDown_Sub_UNORD_Lists_Loan_BankingAPP{
+ list-style: none;
+ cursor: pointer;
+ }
+ .DropDown_Sub_Lists_Loan_BankingAPP{
+   color: black;
+   cursor: pointer;
+   padding: 5px;
+   text-decoration: none;
+ }
+ .DropDown_Sub_Lists_Loan_BankingAPP:hover{
+   color: black;
+   padding: 5px;
+   text-decoration: none;
+ }
+ .DropDown_Direct_sub_content_BankingAPP{
+   margin-top: 50px;
+   margin-bottom: -210px;
+ }
+ .DropDown_Direct_sloanb_content_BankingAPP{
+   margin-top: -10px;
+   margin-bottom: -45px;
+ }
+ .DropDown_Direct_sfdb_content_BankingAPP{
+margin-top: -80px;
+margin-bottom: -35px; 
+}
+.DropDown_Direct_smainloanb_Loan_BankingAPP{
+ margin-top: -150px;
+}
+.DropDown_Direct_sdematb_content_BankingAPP{
+ margin-top: -215px;
+}
+.DropDown_Direct_sLAPb_content_BankingAPP{
+ margin-top: -280px;
+}
+.DropDown_Direct_sforexb_content_BankingAPP{
+ margin-top: -345px;
+}
+.DropDown_Direct_spocketsb_content_BankingAPP{
+ margin-top: -410px;
+}
+
+  
+
+
+
+.dropdown_flex_trial{
+ display: flex;
+ flex-direction: row;
+  } 
+
+.dropdown_header_sub_header{
+ display: flex;
+  flex-direction: column;
+} 
+
+
+
+/* Drop down css ends */
+
+
+/* service request */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    font-family: Poppins;
+
+}
+
+
+
+
+.Service_input{
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid silver;
+    padding: 2px;
+    padding-left: 12px;
+    width: 45%;
+   
+}
+.ServiceRequest{
+    border: none;
+    background-color:rgb(237, 237, 238);
+   padding: 14px;
+}
+@media screen  and (max-width:320px){
+    h6{
+        font-size: 14px;
+    }
+}
+.ServiceRequest_down{
+    border: 1px solid rgb(245, 245, 245);
+    /* background-color:whitesmoke; */
+}
+.View_all{
+    color: rgb(2, 2, 100);
+    border: none;
+    background: none;
+
+}
+.QuickLinks_buttons{
+    color: rgb(226, 140, 108);
+    border: 1px solid rgb(226, 137, 104);
+    border-radius: 30px;
+    background: none;
+    margin-top: 10px;
+    /* margin-right: 4px; */
+    font-size: 15px;
+}
+.drop_downs_service_request{
+    border: none;
+}
+.drop_down_bank{
+    height: 40px;
+    margin-top: 10px;
+    border-bottom: 2px solid silver;
+}
+.card_right_service{
+    margin-top: 20px;
+    font-size: 15px;
+}
+@media screen and (max-width:768px) {
+    .service_bank_dropdown{
+        font-size: 12px;
+    }
+    .service_bank_dropdown1{
+        font-size: 12px;
+    }
+    .Service_input{
+        width: 70%;
+    }
+}
+@media screen and (max-width:767px) {
+    .service_bank_dropdown{
+        font-size: 16px;
+    }
+    .Service_input{
+        width: 90%;
+    }
+    .service_bank_dropdown1{
+        font-size: 16px;
+    }
+    .View_all{
+        font-size: 13px;
+    }
+}
+.col-small_screen_font{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* service request css ends */
+
+/* Tax Center css start */
+
+.TaxCenter_Container{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 8%;
+   
+}
+.TaxCanter_heading_h2{
+    color: orange;
+}
+.TaxCentre_firsttext{
+    padding: 10px;
+}
+.TaxCanter_heading_h4{
+    padding-top: 30px;
+}
+
+.TaxCenter_Card_inform {
+    display: flex;
+    flex-wrap: wrap;
+    height: 180px;
+    background: rgb(250, 248, 248);
+   
+  }
+  .TaxCenter_Card_inform2{
+    /* margin-right: 50px; */
+    height: 180px;
+    background: rgb(250, 248, 248);
+
+  }
+  .TaxCentre_buttonOverflow{
+    background-color: orange;
+    color: white;
+    font-weight: 500;
+    outline: none;
+    border-color: initial;
+    border: none;
+    box-shadow: none;
+    margin-left: 20px;
+    
+  }
+  .TaxCentre_buttonOverflow:hover{
+    color: white; 
+  }  
+  .TaxCentre_buttonOverflow:focus{
+    border-color: initial;
+    box-shadow: none;
+    outline: none;
+  }
+.TaxCenter_Cardsetting{
+    padding: 20px;
+   
+}
+.TaxCentre_space_btnknow{
+    padding-top: 20px;
+}
+.TaxCentre_PayTaxgap{
+    padding: 10px;
+}
+.TaxCentre_Cardgap{
+    padding: 10px;
+    
+}
+
+.TaxCentre_more_Links{
+    margin-left: 65%;
+}
+.TaxCentre_more_Links2{
+    margin-left: 62%;
+}
+.TaxCentre_paynow_Links{
+    margin-left: 58%;
+}
+
+
+/* Tax Center css end */
+
+/* Footer css start */
+
+.Footer_height_toall{
+    height: 10px;
+    padding-top: 5%;
+    text-align: justify;
+    word-spacing: normal;
+    text-justify: inter-word;
+    word-spacing: 0px;
+}
+
+.footer_container_fluid{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    /* line-height: 1.5; */
+  
+}
+
+.footer_fix_row{
+    padding: 3%;
+    background: rgb(245, 241, 241);
+    
+}
+.Footer_gapColumn{
+    margin-right: 35%;
+    
+}
+.Footer_gapColumn1{
+    margin-right: 32%; 
+}
+
+.footer_under_line{
+    list-style: none;   
+}
+.footer_under_line .footer_links{
+    font-size: 14px;
+    color: black;
+    position: relative;
+
+}
+
+.footer_under_line .footer_links:hover{
+    color: rgb(68, 68, 219);  
+}
+
+.footer_allcolumns_headings{
+    font-size: 18px;
+    text-transform: capitalize;
+    color: black;
+}
+.footer_terms_conditions{
+    padding-top: 90px;
+    
+}
+
+.footer_custom_column_spacing {
+    padding-left: 5%; 
+  }
+
+
+  /* Footer css end */

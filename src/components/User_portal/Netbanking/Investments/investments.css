@@ -1,0 +1,628 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.demat-account-page-container {
+    text-align: left;
+    border: solid black 1px;
+    width: 60%;
+    /* margin: auto; */
+    padding: 60px;
+    border-right:none ;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+  }
+  .demat-account-page-container h5{
+    display: flex;
+    flex-direction: column;
+  }
+  .demat_account_icons{
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+  }
+  .demat-account-page-container button{
+    background-color: #f2570a;
+    border-radius: 40px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin-left: 20px;
+  }
+  .demat_image{
+    border: solid black 1px;
+    width: 400px;
+    height: 484px;
+    margin-right: 50px;
+    border-top-right-radius:90px;
+    border-left:none ;
+  }
+  .demat_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-top-right-radius:90px;
+  }
+  .button-container{
+    /* border: solid black 2px; */
+    width:61.5%;
+    height: 300px;
+   margin-top: 5px;
+   text-align: left;
+   margin: auto;
+   padding: 0px;
+   margin-left: 17.5%;
+  }
+ .banking_header {
+  /* border: solid black 2px; */
+  height: 60px;
+  width: 100%;
+  margin-top: 30px;
+  font-weight: bolder;
+  padding-top: 15px;
+  background-color: #dbd1d0;
+  padding-left: 3px;
+ }
+ .button-container h5{
+  font-weight: bold;
+ }
+ .button-container a{
+  font-size: 20px;
+  margin-top: 100px;
+ }
+.internet_banking{
+  border: none;
+  margin-top: 20px;
+}
+.internet_banking a{
+  font-weight: bold;
+}
+.col-md-8{
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+.demat_account_page_main-container{
+  margin: 0px;
+}
+
+/* nps css starts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+.service-requests-page {
+  background-color: #dbd1d0;
+  display: inline-block;
+  width: 100%;
+  max-width: 800px;
+  text-align: start;
+}
+
+.service-requests-form-group {
+  margin-bottom: 15px;
+  display: inline-block;
+  width: 100%;
+  max-width: 800px;
+  text-align: start;
+  display: flex;
+  flex-direction: row;
+}
+
+.service-requests-page-header {
+  background-color: #dbd1d0;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  text-align: center;
+}
+
+.service-requests-form-group textarea {
+  font-size: 14px;
+}
+
+.service-requests-form-group label {
+  width: 250px;
+  display: inline-block;
+
+}
+
+.service-requests-form-group input[type="checkbox"],
+.service-requests-form-group input[type="radio"] {
+  height: 15px;
+  width: 15px;
+  margin: 0px;
+}
+.service-requests-form-group input[type="file"] {
+  width: 250px;
+  height: 25px;
+  border: none;
+}
+
+.service-requests-form-group input,
+.service-requests-form-group select,
+.service-requests-form-group textarea {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 4px;
+  height: 35px;
+  width: 300px;
+  margin: 10px;
+}
+
+.service-requests-form-group input[type="file"] {
+  width: 300px;
+  height: 45px;
+  border: 1px solid #ccc;
+}
+
+
+.service-requests-form-group input[type="checkbox"],
+.service-requests-form-group input[type="radio"] {
+  height: 20px;
+  width: 20px;
+  margin: 0;
+}
+
+
+.service-requests-form-group button {
+  background-color: #f2570a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  height: 40px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.service-requests {
+  display: flex;
+  align-items: center;
+  padding: 0px;
+}
+.service-requests input{
+  margin-left: 10px;
+}
+.service-requests label {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.service-requests input[type="radio"] {
+  margin-bottom: 5px;
+  margin-left: 140px;
+}
+
+.service-requests input[type="radio"]:checked + label {
+  font-weight: bold;
+  color: #007bff;
+  margin-left: 15px;
+  padding: 10px;
+}
+
+.service-requests-form-asset {
+  display: inline-block;
+}
+
+.service-requests-form-asset p {
+  margin-bottom: 10px;
+align-items: center;
+}
+
+.service-requests-form-asset div {
+  display: inline-block;
+  flex-direction: row;
+}
+
+.service-requests-form-asset label {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.service-requests-form-asset input {
+  width: 150px;
+  padding: 5px;
+  display: block;
+}
+.investment_option{
+  /* border: solid black 2px; */
+  margin-left: 50px;
+}
+.asset_allocation {
+  margin-bottom: 15px;
+  display: inline-block;
+  width: 100%;
+  text-align: start;
+  margin-left: 260px;
+}
+.asset_allocation label {
+  margin-bottom: 5px;
+}
+.asset_allocation input {
+  width: 150px; 
+  padding: 5px;
+}
+.investment_options{
+  border: solid black 2px;
+  width: 100%;
+  display: inline-block;
+}
+
+/* nps css ends */
+/* guranteed pension plan css starts */
+
+.Guaranteed_Pension_plan_card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color:whitesmoke;
+
+  }
+  .Guaranteed_Pension_plan_list{
+    padding: 10px;
+    border-left: 1px solid grey;
+  }
+  .Guaranteed_Pension_plan_radio{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  /* guranteed pension plan css ends */
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+  font-family: Poppins;
+}
+
+/* termlifeinsurance.css starts */
+
+.termlifeinsurance_navbar .row .col-sm-4{
+  padding: 0px 1px;
+}
+
+.termlifeinsurance_buttonoff{
+  background-color: lightgray;
+  text-align: center;
+  align-items: center;
+}
+
+
+.termlifeinsurance_buttonon{
+  color: orange;
+  border-bottom: 2px solid orange;
+}
+
+.termlifeinsurance_plan{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.termlifeinsurance_sign{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  color: orange;
+}
+
+.termlifeinsurance_term{
+  padding-left: 25px;
+  border-left: 1px solid black ;
+  color: orange;
+}
+.term_insurance_img{
+  width: 100%;
+  height: 40vh;
+}
+.termlifeinsurance_button{
+  border: none;
+  background-color: orange;
+  color: whitesmoke;
+  border-radius: 10px;
+  padding: 5px 15px;
+}
+
+.term_life_insurance_cards{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 8px;
+}
+.term_life_insurance_common{
+  background-color: whitesmoke;
+}
+
+.term_life_insurance_buttons{
+  border: none;
+}
+
+.term_life_insurance_logos{
+  width: 60px;
+  height: 5vh;
+  color: orange;
+
+  
+}
+
+.term_life_insurance_btn{
+  border: none;
+  background: none;
+  color: orange;
+}
+.term_life_insurance_download{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: whitesmoke;
+
+
+}
+
+.term_life_insurance_assistance{
+  height: 30vh;
+}
+
+/* termlifeinsurance.css ends */
+
+/* easyclaimsettlement.css starts */
+
+.easy_claim_settlement_button{
+    border: none;
+    background-color: orange;
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 5px 60px;
+  }
+  
+  .easy_claim_settlement_button_down{
+    border: none;
+    background-color: lightblue ;
+    border-radius: 20px ;
+  }
+  
+  .easy_claim_cards{
+    position: relative;
+  
+  }
+  .easy_claim_cards p{
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .easy_claim_settlement_para p{
+    font-size: 14px;
+    font-style: italic;
+  }
+  
+  .easy_claim_settlement_logos{
+    width: 60px;
+    height: 8vh;
+    color: orange;
+    
+  }
+  
+  .easy_claim_cards .easy_claim_settlement_button_down{
+    position: absolute;
+    left: 50%;
+    top: 85%;
+  }
+  
+  /* easyclaimsettlement.css ends */
+
+  /* cancer cover starts */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.cancer_coverlist{
+    list-style-type: square;
+    font-family: 'poppins';
+    padding-left: 40px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+.cover_page1{
+    background-color: rgb(21, 167, 167);
+    font-family: "poppins";
+    padding-left: 20px;
+    color: white;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    width: 1300px;
+}
+.cover_page2{
+    background-color:rgb(21, 167, 167);
+    font-family: "poppins";
+    padding-left: 10px;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-top: 9px;
+}
+.hospital_covercancer1{
+    font-family: "poppins";
+    font-size: 16px;
+    margin-top: 30px;
+    font-weight: 400;
+}
+.hospital_covercancer11{
+    font-family: "poppins";
+    font-size: 16px;
+    margin-top: 30px;
+    text-size-adjust: 300px;
+}
+.hospital_covercancer2{
+    font-family: "poppins";
+    font-size: 16px;
+    margin-top: 20px;
+    text-size-adjust: 300px;
+    list-style-type: square;
+    font-weight: 350;
+}
+.hospital_covercancer25{
+    margin-top: 25px;
+   font-family: "poppins";
+   color: orange;
+}
+.button_cancercover{
+    border: none;
+    margin-top: 20px;
+    background-color: rgb(68, 68, 121);
+    color: rgb(124, 169, 211);
+    width: 450px;
+    height: 40px;
+    margin-bottom: 80px;
+}
+.bottom_cancercover{
+    font-family: "poppins";
+    font-weight: 400;
+    font-size:smaller;
+}
+.hospital_covercancer999{
+    font-family: "poppins";
+  height: 18px;
+    width: 25px;
+}
+.hospital_covercancer9900{
+    font-family: "poppins";
+  padding-left: 20px;
+  margin-top: 15px;
+  font-weight: 300;
+
+}
+
+
+/* cancer cover ends */
+
+/* general insurance starts */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+.general_insurance1{
+  list-style-type: square;
+  font-family: "poppins";
+  margin-top: 50px;
+}
+.general_list1{
+  font-family: "poppins";
+  padding-left: 30px;
+  margin-top: 20px;
+}
+.general_list2{
+  font-family: "poppins";
+  padding-left: 50px;
+}
+.general_insurance2{
+  list-style-type: square;
+  font-family: "poppins";
+  margin-top: 30px;
+  padding-left: 15px;
+}
+.general_insurance3{
+  font-family: "poppins";
+  background-color: pink;
+  width: 180px;
+  position: relative;top: 20px;
+  text-align: start;
+  padding-left: 10px;
+
+
+
+}
+.general_insurance4{
+  font-family: "poppins";
+  font-weight: 500;
+ font-size: 22px;
+  margin-top: 2px;
+  width: 600px;
+  color: aliceblue;
+  padding-left: 10px;
+
+
+
+
+}
+.general_insurance5{
+ margin-top: 20px;
+font-family: "poppins";
+color: aliceblue;
+
+}
+.dashed-line {
+  border: 1px dashed #f7f3f3; /* 1px width, dashed style, black color */
+  width: 200px; /* Adjust the width as needed */
+  color: aliceblue;
+}
+
+.general_insurance6{
+  font-family: "poppins";
+  margin-left: 40px;
+  
+}
+.insurance_rupee{
+  color: rgb(221, 16, 16);
+  padding: 1px;
+  margin-right: 2px;
+  background-color: white;
+  margin-left: 40px;
+  margin-top: 75px;
+  height: 100px;
+  width: 60px;
+  font-family: "poppins";
+}
+.green_tick_generalinsurance{
+  font-family: "poppins";
+  height: 18px;
+    width: 25px;
+
+}
+.green_tick_with_text{
+  font-family: "poppins";
+  padding-left: 20px;
+  margin-top: 15px
+
+
+
+}
+.button_insurance{
+  font-family: "poppins";
+  border: none;
+  background-color: none;
+  color: rgb(255, 165, 0);
+  margin-top: 30px;
+
+}
+.enroll_name_generalinsurance{
+  font-family: "poppins";
+  border: none;
+  background-color: rgb(25, 25, 71);
+  color: white;
+  width: 180px;
+  height: 35px;
+  margin-top: 40px;
+}
+.policy_generalinsurance{
+  font-family: "poppins";
+  color: orange;
+
+
+
+}
+/* general insurance ends */
