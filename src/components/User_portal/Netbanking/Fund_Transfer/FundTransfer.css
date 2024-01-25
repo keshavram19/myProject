@@ -470,81 +470,87 @@ abbr[title] {
 
   /* Upi transaction starts css*/
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-*{
-  font-family: Poppins;
-}
-.upi_transaction_range{
-  justify-content: space-around;
-  display: flex;
-  align-items: center;
+  *{
+    font-family: Poppins;
+  }
+  .upi_transaction_range{
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+     Background-color : #f8f9fa
+  }
+  .upi_transaction_date{
+     Background-color : #f8f9fa}
+  .upi_transaction_node{
    Background-color : #f8f9fa
-}
-.upi_transaction_date{
-   Background-color : #f8f9fa}
-.upi_transaction_node{
-   Background-color : #f8f9fa
-}
-.upi_transaction_value{
-  border-radius:5px;
-  padding: 5px;
-  border: none;
-  color : #f18121
-
-
-
-}
-/* upi transaction css ends*/
-
-/* /quickfund tranfer starts css/ */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-*{
-  font-family: Poppins;
-}
-.quickfund_transfer_note{
-    background-color: rgb(235, 242, 244);
-}
-
-.quickfund_transfer_code{
-    background-color:rgb(223, 235, 239);
-}
-.quickfund_transfer_node{
-    background-color:rgb(221, 228, 230);
-}
-.quickfund_transfer_turn{
-    border-radius:5px;
-
-  border: none;
-}
-.quickfund_transfer_join{
-    border-radius:5px;
   
-  border: none;
-}
-/* qickfund transfer ends */
-
-/* /get retrivev mmiv css starts/ */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-*{
-  font-family: Poppins;
-}
- .generate_retrive_code{
-    background-color:rgb(229, 234, 236);
- } 
- .generate_retrive_node{
-    background-color:rgb(224, 224, 227);    
- }
- .generate_retrive_mern{
-        color:rgb(237, 245, 248);
-          border-radius:5px;
-         padding: 5px;
-         border: none;
-       }
-       /* /get retrive css ends/ */
-       /* manage payee stars */
+  }
+  .upi_transaction_value{
+    border-radius:5px;
+    padding: 5px;
+    border: none;
+    
+    background-color:#f18121
+  
+  }
+  /* upi transaction css ends*/
+  
+  /* /quickfund tranfer starts css/ */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  
+  *{
+    font-family: Poppins;
+  }
+  .quickfund_transfer_note{
+     Background : #faede2;
+     color:#f18121;
+     ;
+  }
+  
+  .quickfund_transfer_code{
+     Background-color : #f8f9fa}
+  .quickfund_transfer_node{
+     Background-color : #f8f9fa;
+    
+    
+    }
+  .quickfund_transfer_turn{
+      border-radius:5px;
+       background-color : #faede2;
+  
+    border: none;
+  }
+  .quickfund_transfer_join{
+      border-radius:5px;
+      background-color : #faede2;
+  
+  
+    
+    border: none;
+  }
+  /* quickfund transfer ends */
+  
+  /* /get retrivev mmiv css starts/ */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  
+  *{
+    font-family: Poppins;
+  }
+   .generate_retrive_code{
+    background-color : #faede2
+  } 
+   .generate_retrive_node{
+    color : #f18121}
+   .generate_retrive_mern{
+     background-color : #f18121   ;
+           border-radius:5px;
+           padding: 5px;
+           border: none;
+         }
+         /* /get retrive css ends/ */
+         /* manage payee stars */
        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 
