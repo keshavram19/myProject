@@ -14,7 +14,8 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
+  background-color: #faede2;
   border-bottom: 1px solid #cdc2c2;
   padding: 10px 5px;
   font-size: 17px;
@@ -36,7 +37,8 @@
 }
 .account_statement_view_btn {
   border-radius: 5px;
-  background-color: rgb(16, 218, 16);
+  /* background-color: rgb(16, 218, 16); */
+  background-color: #f18121;
   color: #fff;
   padding: 3px 15px;
   border: 1px solid lightgray;
@@ -92,16 +94,12 @@
   font-weight: 500;
   font-size: 18px;
 }
-.savings_account_note_points {
-  margin-left: 25px;
-}
 .savings_acct_note_points {
   line-height: 1.5;
   margin: 5px 0px;
 }
 .savings_acct_note_order_list {
   font-size: 15px;
-  margin-left: 20px;
 }
 .savings_acc_note_atag {
   color: #4094ef;
@@ -235,12 +233,13 @@
   height: auto;
   background-color: rgb(254, 253, 253);
   box-shadow: 0px 0px 5px rgb(152, 150, 150);
-  padding: 20px 0px;
+  padding: 0px 0px 20px 0px;
 }
 .savings_acct_user_auth_container_header {
   font-size: 20px;
   font-weight: 500;
-  background-color: floralwhite;
+  /* background-color: floralwhite; */
+  background-color: #faede2;
   padding: 10px 20px;
   color: rgb(82, 75, 75);
 }
@@ -289,7 +288,8 @@
   border: none;
   outline: none;
   color: #fff;
-  background-color: #4094ef;
+  /* background-color: #4094ef; */
+  background-color: orange;
   border-radius: 5px;
   padding: 5px;
 }
