@@ -17,11 +17,10 @@ const UpdatePancard = () => {
           <div className='col-9'>
             <div className="container-fluid pancard my-2">
               <div className="d-flex">
-                <h3>5.View or Update PAN Card</h3>
+                <h3 className='update_pancard_heading'>View or Update PAN Card</h3>
               </div>
               <div className="card my-3">
                 <h6 className="pancard_heading p-3">View/Update PAN Card</h6>
-
                 <div className="container-fluid pancard_details p-3">
 
                   <div className="row">
@@ -29,7 +28,12 @@ const UpdatePancard = () => {
                       <label for="text">Account Number*</label>
                     </div>
                     <div className="col-sm-3">
-                      <input type="number" placeholder='Please select' className="form_input" id="text" />
+                      <select className="form_input">
+                        <option value="">Please select</option>
+                        <option value="account1">Account1</option>
+                        <option value="account2">Account2</option>
+                        <option value="account3">Account3</option>
+                      </select>
                     </div>
                   </div>
                   <div className="row mt-3">
@@ -67,7 +71,7 @@ const UpdatePancard = () => {
                 </div>
                 <div className='mandatory_field'>
                   <p className="pl-3">*Mandatory Fields</p>
-                  <p className="pl-3">By clicking "Submit,you are agreeing to all the terms indicated below</p>
+                  <p className="pl-3">By clicking "Submit",you are agreeing to all the terms indicated below</p>
                 </div>
                 <hr />
                 <div className="row pl-2 otp_container mb-3">
@@ -99,7 +103,7 @@ const UpdatePancard = () => {
                 </div>
               </div>
               <div className='pancard_notes'>
-                <h6 className='ml-4'>Notes:</h6>
+                <h6 className='ml-3'>Notes:</h6>
                 <div>
                   <ol>
                     <li>The PAN number should be a valid PAN and should be in 541 format i.e 5 Alphabets, 4 Numeric and 1 Alphabet</li>
