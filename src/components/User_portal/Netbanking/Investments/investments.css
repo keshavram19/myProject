@@ -265,122 +265,121 @@ align-items: center;
 /* guranteed pension plan css starts */
 
 .Guaranteed_Pension_plan_card{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color:whitesmoke;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ Background : #faede2
 
-  }
-  .Guaranteed_Pension_plan_list{
-    padding: 10px;
-    border-left: 1px solid grey;
-  }
-  .Guaranteed_Pension_plan_radio{
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-  }
+}
+.Guaranteed_Pension_plan_list{
+  padding: 10px;
+  border-left: 4px  solid grey;
+  ;
+  
 
-  /* guranteed pension plan css ends */
-
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-*{
-  font-family: Poppins;
+  
+}
+.Guaranteed_Pension_plan_radio{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
+/* guranteed pension plan css ends */
 /* termlifeinsurance.css starts */
 
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+font-family: Poppins;
+}
+
+
 .termlifeinsurance_navbar .row .col-sm-4{
-  padding: 0px 1px;
+padding: 0px 1px;
 }
 
 .termlifeinsurance_buttonoff{
-  background-color: lightgray;
-  text-align: center;
-  align-items: center;
+background-color : #faede2
+;
+text-align: center;
+align-items: center;
 }
 
 
 .termlifeinsurance_buttonon{
-  color: orange;
-  border-bottom: 2px solid orange;
+color : #f18121;
+border-bottom: 2px solid orange;
 }
 
 .termlifeinsurance_plan{
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  align-items: center;
-  justify-content: space-around;
+display: flex;
+flex-direction: row;
+text-align: center;
+align-items: center;
+justify-content: space-around;
 }
 
 .termlifeinsurance_sign{
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: space-around;
-  color: orange;
+display: flex;
+text-align: center;
+align-items: center;
+justify-content: space-around;
+color : #f18121;
 }
 
 .termlifeinsurance_term{
-  padding-left: 25px;
-  border-left: 1px solid black ;
-  color: orange;
+padding-left: 25px;
+border-left: 1px solid black ;
+color : #f18121;
 }
 .term_insurance_img{
-  width: 100%;
-  height: 40vh;
+width: 100%;
+height: 40vh;
 }
 .termlifeinsurance_button{
-  border: none;
-  background-color: orange;
-  color: whitesmoke;
-  border-radius: 10px;
-  padding: 5px 15px;
+border: none;
+ Background-color : #f8f9fa;
+ color : #f18121;
+ border-radius: 10px;
+padding: 5px 15px;
 }
 
-.term_life_insurance_cards{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  margin-top: 8px;
-}
 .term_life_insurance_common{
-  background-color: whitesmoke;
+ Background : #faede2
 }
 
 .term_life_insurance_buttons{
-  border: none;
+border: none;
+border-radius: 50px;
 }
 
 .term_life_insurance_logos{
-  width: 60px;
-  height: 5vh;
-  color: orange;
+width: 60px;
+height: 10vh;
+color : #f18121;
 
-  
+
 }
 
 .term_life_insurance_btn{
-  border: none;
-  background: none;
-  color: orange;
+border: none;
+background: none;
+color : #f18121;
 }
 .term_life_insurance_download{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: whitesmoke;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+ Background : #faede2
 
 
 }
 
 .term_life_insurance_assistance{
-  height: 30vh;
+height: 40vh;
 }
 
 /* termlifeinsurance.css ends */
@@ -388,49 +387,47 @@ align-items: center;
 /* easyclaimsettlement.css starts */
 
 .easy_claim_settlement_button{
-    border: none;
-    background-color: orange;
-    color: whitesmoke;
-    border-radius: 10px;
-    padding: 5px 60px;
-  }
-  
-  .easy_claim_settlement_button_down{
-    border: none;
-    background-color: lightblue ;
-    border-radius: 20px ;
-  }
-  
-  .easy_claim_cards{
-    position: relative;
-  
-  }
-  .easy_claim_cards p{
-    font-weight: 500;
-    font-size: 16px;
-  }
-  
-  .easy_claim_settlement_para p{
-    font-size: 14px;
-    font-style: italic;
-  }
-  
-  .easy_claim_settlement_logos{
-    width: 60px;
-    height: 8vh;
-    color: orange;
-    
-  }
-  
-  .easy_claim_cards .easy_claim_settlement_button_down{
-    position: absolute;
-    left: 50%;
-    top: 85%;
-  }
-  
-  /* easyclaimsettlement.css ends */
+  border: none;
+   background-color : #faede2;
+   color : #f18121;
+       border-radius: 10px;
+  padding: 5px 60px;
+}
 
-  /* cancer cover starts */
+.easy_claim_settlement_button_down{
+  border: none;
+   Background-color : #f8f9fa ;
+      border-radius: 20px ;
+}
+
+.easy_claim_cards{
+  position: relative;
+
+}
+.easy_claim_cards p{
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.easy_claim_settlement_para p{
+  font-size: 14px;
+  font-style: italic;
+}
+
+.easy_claim_settlement_logos{
+  width: 60px;
+  height: 8vh;
+  color : #f18121    
+}
+
+.easy_claim_cards .easy_claim_settlement_button_down{
+  position: absolute;
+  left: 50%;
+  top: 85%;
+}
+
+/* easyclaimsettlement.css ends */
+/* cancer cover starts */
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 .cancer_coverlist{

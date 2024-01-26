@@ -21,7 +21,7 @@ import { IoIosArrowForward } from "react-icons/io";
 const TermLifeInsurance = () => {
     const [activeTab, setActiveTab] = useState('Buy Now');
     return (
-        <div className="container-fluid">
+        <div className="container-fluid" style={{marginTop:"90px"}}>
             <div className="row">
                 <div className="col-sm-12">
                     <div>
@@ -46,7 +46,7 @@ const TermLifeInsurance = () => {
                                 <div className="card p-2 bg-light">
                                     <div className="row mt-4">
                                         <div className="col-sm-12 ">
-                                            <div className="card termlifeinsurance_plan">
+                                            <div className="card d-flex flex-row align-items-center text-center justify-content-around">
                                                 <div className="termlifeinsurance_start">
                                                     <img src="https://img.freepik.com/free-vector/big-family-meeting_74855-5220.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705968000&semt=sph" alt="family_image" className="term_insurance_img" />
                                                 </div>
@@ -74,17 +74,17 @@ const TermLifeInsurance = () => {
                                     </div>
 
                                     <div className="mt-2">
-                                        <h4>Benefits for tou and your family</h4>
+                                        <h4>Benefits for you and your family</h4>
                                         <div className="row ">
                                             <div className="col-sm-6 ">
-                                                <div className="card  term_life_insurance_cards">
+                                                <div className="card  p-5 mt-3 d-flex flex-row align-items-center text-center justify-content-between">
                                                     <p><FaRegHandshake className="term_life_insurance_logos" /></p>
                                                     <p>Protect You against <b>34 critical illenesses</b>  with fixed premium</p>
                                                     <button className="term_life_insurance_buttons"><IoIosArrowForward /></button>
                                                 </div>
                                             </div>
                                             <div className="col-sm-6">
-                                                <div className="card term_life_insurance_cards">
+                                                <div className="card  p-5 mt-3 d-flex flex-row align-items-center text-center justify-content-between">
                                                     <p><BiCheckShield className="term_life_insurance_logos" /></p>
                                                     <p>Extra Cover against <b>accidental death</b></p>
                                                     <button className="term_life_insurance_buttons"><IoIosArrowForward /></button>
@@ -95,14 +95,14 @@ const TermLifeInsurance = () => {
                                         </div>
                                         <div className="row">
                                             <div className="col-sm-6">
-                                                <div className="card term_life_insurance_cards">
+                                                <div className="card  p-5 mt-3 d-flex flex-row align-items-center text-center justify-content-between">
                                                     <p><FaHandHoldingUsd className="term_life_insurance_logos" /></p>
                                                     <p><b> 100% payout</b> on diagonsis of terminal illeness </p>
                                                     <button className="term_life_insurance_buttons"><IoIosArrowForward /></button>
                                                 </div>
                                             </div>
                                             <div className="col-sm-6">
-                                                <div className="card term_life_insurance_cards">
+                                                <div className="card  p-5 mt-3 d-flex flex-row align-items-center text-center justify-content-between">
                                                     <p><MdAlignVerticalBottom className="term_life_insurance_logos" /></p>
                                                     <p><b>Tax Benifits</b> u/s 80c,80D & 10(10D)</p>
                                                     <button className="term_life_insurance_buttons"><IoIosArrowForward /></button>
@@ -113,14 +113,14 @@ const TermLifeInsurance = () => {
                                         </div>
                                         <div className="row">
                                             <div className="col-sm-6">
-                                                <div className="card term_life_insurance_cards">
+                                                <div className="card  p-5 mt-3 d-flex flex-row align-items-center text-center justify-content-between">
                                                     <p><FaFloppyDisk className="term_life_insurance_logos" /></p>
                                                     <p>Guaranted <b> 1-Day Claim Settlement</b></p>
                                                     <button className="term_life_insurance_buttons"><IoIosArrowForward /></button>
                                                 </div>
                                             </div>
                                             <div className="col-sm-6">
-                                                <div className="card term_life_insurance_cards">
+                                                <div className="card  p-5 mt-3 d-flex flex-row align-items-center text-center justify-content-between">
                                                     <p><HiOutlineClipboardDocumentList className="term_life_insurance_logos" /></p>
                                                     <p><b>Waiver of Premium</b> On Permenantly disabilty</p>
                                                     <button className="term_life_insurance_buttons"><IoIosArrowForward /></button>
@@ -136,13 +136,13 @@ const TermLifeInsurance = () => {
                                         <div className="conatiner-fluid text-center">
                                         <div className="row">
                                             <div className="col-sm-3">
-                                                <div className="card term_life_insurance_assistance  p-4">
+                                                <div className="card  p-4" style={{height:"30vh"}}>
                                                     <p><TbFileStack className="term_life_insurance_logos" /></p>
                                                     <p>Buy In just 3 minutes</p>
                                                 </div>
                                             </div>
                                             <div className="col-sm-3">
-                                                <div className="card term_life_insurance_assistance p-4">
+                                                <div className="card  p-4" style={{height:"30vh"}}>
                                                     <p><BsCardChecklist className="term_life_insurance_logos" /></p>
                                                     <p>Manage your policy through internet banking and imobile app</p>
 
@@ -150,14 +150,14 @@ const TermLifeInsurance = () => {
 
                                             </div>
                                             <div className="col-sm-3">
-                                                <div className="card term_life_insurance_assistance p-4">
+                                                <div className="card p-4" style={{height:"30vh"}}>
                                                     <p><RiCustomerService2Line className="term_life_insurance_logos" /></p>
                                                     <p>On-call assistance by our certified officers</p>
                                                 </div>
 
                                             </div>
                                             <div className="col-sm-3">
-                                                <div className="card term_life_insurance_assistance p-4">
+                                                <div className="card  p-4" style={{height:"30vh"}}>
                                                     <p><LuBuilding2 className="term_life_insurance_logos" /></p>
                                                     <p>Wide network of Royal Islamic Bank At our service</p>
                                                 </div>
@@ -169,7 +169,7 @@ const TermLifeInsurance = () => {
                                     <div className="card mt-3 p-2 text-center term_life_insurance_common">
                                         <p>You are trusting <b>Royal Islamic Prudentiual</b> along with the  over the 3 crore the other custmores   </p>
                                     </div>
-                                    <div className="card mt-3 p-2 term_life_insurance_download">
+                                    <div className="card mt-3 p-2 d-flex flex-row text-center align-items-center justify-content-center">
                                     <HiDocumentDownload className="term_life_insurance_logos" />
                                         <button className="term_life_insurance_btn">Download product Guide</button>
                                     </div>
