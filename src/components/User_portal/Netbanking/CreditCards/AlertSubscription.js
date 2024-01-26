@@ -11,8 +11,8 @@ import React from 'react';
           <h4 className='alert_subscription-form_heading2 p-3' style={{ backgroundColor:'#e7e3e3'}}>Alert Subscription</h4>
           <label for="creditCardNumber" className='form-inline'>
                      <span className='col-md-3'>Select Your Card Number*</span>
-                     <select name="cardNumber" className="custom-select custom-select-sm col-md-3">
-                          <option selected>Please Select</option>
+                     <select name="cardNumber" className="custom-select custom-select-sm col-md-3 w-25">
+                          <option selected>---Please Select---</option>
                               <option value="option1">123456789012</option>
                               <option value="option2">123456789012</option>
                               <option value="option3">123456789012</option>
@@ -20,18 +20,18 @@ import React from 'react';
                      </label>
                      <label for="EmailAddress" className='form-inline'>
                      <span className='col-md-3'>E-Mail Address</span>
-                     <input type="text" className='form-control form-control-sm col-md-3' placeholder='XXXXXXXXXX@gmail.com'/>
+                     <input type="text" className='form-control form-control-sm col-md-3 w-25' placeholder='XXXXXXXXXX@gmail.com' />
                    </label>
                    <label for="MobileNumber" className='form-inline'>
                      <span className='col-md-3'>Mobile Number</span>
-                     <input type="text" className='form-control form-control-sm col-md-3' placeholder='XXXXXX2345'/>
+                     <input type="text" className='form-control form-control-sm col-md-3 w-25' placeholder='XXXXXX2345'/>
                    </label>
                     <a href="#" style={{textDecoration:'underline', fontSize:'14px', color:'black'}} className='p-3'>VIEW SAMPLE</a>
                    
                    <hr/>
                    <div className='alert_Subscription_Btns p-3'> 
-                   <button className='alert_Subscription_ResetBtn'>RESET</button>
-                   <button className='alert_Subscription_SubmitBtn'>SUBMIT</button>
+                   <button className='alert_Subscription_ResetBtn p-2'>RESET</button>
+                   <button className='alert_Subscription_SubmitBtn p-2'>SUBMIT</button>
                    </div> 
                    </div>
                    <div className='alert_Subscription_Notes p-2'>

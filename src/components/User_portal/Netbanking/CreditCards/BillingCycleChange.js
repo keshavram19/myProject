@@ -6,11 +6,11 @@ const BillingCycleChange = () => {
     return (
 
         <div>
-            <div className='billing_cycle container-fluid mt-3'>
+            <div className='billing_cycle container-fluid' style={{marginTop:'80px'}}>
                 <div className='col-sm-12'>
                     <div className="container-fluid billing_cycle my-2">
                         <div className="d-flex">
-                            <h3>Request For Billing Cycle Change</h3>
+                            <h3 className='request_heading'>Request For Billing Cycle Change</h3>
                         </div>
                         <div className="card my-3">
                             <div className="card container-fluid billing_cycle_details p-3">
@@ -79,7 +79,7 @@ const BillingCycleChange = () => {
                             </div>
                         </div>
                         <div className='billing_cycle_notes'>
-                            <h6 className='ml-4'>Notes:</h6>
+                            <h6 className='ml-3'>Notes:</h6>
                             <div>
                                 <ol>
                                     <li>If you would like to change the billing cycle date of your Credit Card.please use this option.</li>
