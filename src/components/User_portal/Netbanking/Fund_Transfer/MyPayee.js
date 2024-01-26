@@ -98,9 +98,10 @@ const Mypayee = () => {
         <div
           className="row"
           style={{
-            backgroundColor: "lightgrey",
+            backgroundColor: "#f8f9fa",
             paddingBottom: "80px",
             paddingLeft: "15px",
+            marginTop:'20px'
           }}
         >
           <div
@@ -120,7 +121,7 @@ const Mypayee = () => {
               </select>
               <p
                 style={{
-                  color: "darkorange",
+                  color: "#f18121",
                   fontSize: "500",
                   fontFamily: "poppins",
                   fontWeight: "500",
@@ -159,11 +160,13 @@ const Mypayee = () => {
               <div>
                 <button
                   style={{
-                    backgroundColor: "orange",
+                    backgroundColor: "#faede2",
                     marginTop: "30px",
                     marginLeft: "150px",
                     padding: "0px 40px 0px 40px",
                     borderRadius: "5px",
+                    color:'#f18121',
+                    border:'none'
                   }}
                 >
                   PROCEED
@@ -182,7 +185,7 @@ const Mypayee = () => {
             <div
               className="row"
               style={{
-                backgroundColor: "lightgrey",
+                backgroundColor: "#f8f9fa",
                 paddingBottom: "80px",
                 paddingLeft: "15px",
               }}
@@ -207,7 +210,7 @@ const Mypayee = () => {
                   </select>
                   <p
                     style={{
-                      color: "darkorange",
+                      color: "#f18121",
                       fontSize: "500",
                       fontFamily: "poppins",
                       fontWeight: "500",
@@ -236,11 +239,13 @@ const Mypayee = () => {
                   <div>
                     <button
                       style={{
-                        backgroundColor: "orange",
+                        backgroundColor: "#faede2",
                         marginTop: "30px",
                         marginLeft: "150px",
                         padding: "0px 40px 0px 40px",
                         borderRadius: "5px",
+                        color:'#f18121',
+                        border:'none'
                       }}
                     >
                       PROCEED

@@ -47,7 +47,7 @@ const UpiTransaction = () => {
                             </div>
                         </div>
                         <div className="col-sm-12 mt-4">
-                            <button className="btn btn-primary upi_transaction_value">
+                            <button className=" upi_transaction_value">
                             GET Transaction</button></div>
                     </div>
                 </div>

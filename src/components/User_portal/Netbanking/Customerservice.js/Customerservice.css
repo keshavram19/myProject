@@ -446,13 +446,12 @@ display: flex;
     display: flex;
     flex-wrap: wrap;
     height: 180px;
-    background: rgb(250, 248, 248);
+    background: #faede2;
    
   }
   .TaxCenter_Card_inform2{
-    /* margin-right: 50px; */
     height: 180px;
-    background: rgb(250, 248, 248);
+    background: #faede2;
 
   }
   .TaxCentre_buttonOverflow{
@@ -464,9 +463,11 @@ display: flex;
     border: none;
     box-shadow: none;
     margin-left: 20px;
+
     
   }
   .TaxCentre_buttonOverflow:hover{
+    background-color: orange;
     color: white; 
   }  
   .TaxCentre_buttonOverflow:focus{
@@ -511,12 +512,13 @@ display: flex;
     word-spacing: normal;
     text-justify: inter-word;
     word-spacing: 0px;
+    text-decoration: none;
 }
 
 .footer_container_fluid{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    /* line-height: 1.5; */
+  
   
 }
 
@@ -540,6 +542,7 @@ display: flex;
     font-size: 14px;
     color: black;
     position: relative;
+    text-decoration: none;
 
 }
 
