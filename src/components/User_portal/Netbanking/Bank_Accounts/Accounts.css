@@ -862,24 +862,29 @@
   font-size: 15px;
 }
 .update_form_back_btn {
-  width: 80px;
-  height: 35px;
+  width: auto;
+  height: auto;
   outline: none;
   border: 1px solid rgba(144, 146, 122, 0.5);
   background-color: rgb(177, 192, 192);
   border-radius: 2px;
   font-weight: 600;
+  font-size:15px;
+  text-align: center;
 }
 .update_form_submit_btn {
-  width: 100px;
-  height: 35px;
+  width: auto;
+  height: auto;
   outline: none;
   border: 1px solid rgba(128, 123, 123, 0.5);
-  background-color: rgb(37, 184, 62);
+  /* background-color: rgb(37, 184, 62); */
   border-radius: 2px;
   font-weight: 600;
   color: white;
   margin-left: 30px;
+  font-size:15px;
+  text-align: center;
+  background-color: #f18121 ;
 }
 .update_form_heading {
   background-color: rgb(228, 239, 241);
@@ -900,28 +905,33 @@
   text-decoration: underline;
 }
 .PMSSS_form_back_btn {
-  width: 80px;
-  height: 35px;
+  width: auto;
+  height: auto;
   outline: none;
   border: 1px solid rgba(144, 146, 122, 0.5);
   background-color: rgb(177, 192, 192);
   border-radius: 2px;
   font-weight: 600;
+  font-size:15px;
+  text-align: center;
 }
 .PMSSS_form_section span {
   font-weight: 420;
   font-size: 15px;
 }
 .PMSSS_form_submit_btn {
-  width: 100px;
-  height: 35px;
+  width: auto;
+  height: auto;
   outline: none;
-  border: 1px solid rgba(78, 76, 76, 0.5);
-  background-color: rgb(37, 184, 62);
+  border: 1px solid rgba(128, 123, 123, 0.5);
+  /* background-color: rgb(37, 184, 62); */
   border-radius: 2px;
   font-weight: 600;
   color: white;
   margin-left: 30px;
+  font-size:15px;
+  text-align: center;
+  background-color: #f18121 ;
 }
 .PMSSS_form_section label {
   margin-top: 15px;
@@ -942,6 +952,7 @@
 .PMSSS_form_section .custom-select:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
+  
 }
 .PMSSS_form_section .form-control:focus {
   /* border-color: inherit; */
