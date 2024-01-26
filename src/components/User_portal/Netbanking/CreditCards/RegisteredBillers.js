@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const RegisteredBillers = () => {
     return (
-        <div className="container-fluid">
+        <div className="container-fluid registered_billers_card"  style={{marginTop:"90px"}}>
             <div className="row mt-2">
                 <div className="col-sm-12">
-                    <div className="card registered_billers_card">
+                    <div className="card ">
                         <div>
                             <h3>Registered Billers</h3>
                             <hr />

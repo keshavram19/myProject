@@ -26,7 +26,7 @@ const CreditCard = () => {
                         View Your Card
                     </div>
                 </li>
-                <li class="nav-item w-50">
+                <li class="nav-item1 w-50">
                     <div class="nav-link credit_card_tabs_text" data-toggle="pill" href="#manageyourcard">
                         Manage Your Card
                     </div>
@@ -237,7 +237,7 @@ const CreditCard = () => {
 
                         <div className='manage_your_card_inner_cont'>
                             <div>
-                                <div>Select Credit Card Number:</div>
+                                <div className='mb-1'>Select Credit Card Number:</div>
                                 <div>
                                     <select required className='credit_cards_lists'>
                                         <option value=''>1234567812345678</option>
@@ -263,7 +263,7 @@ const CreditCard = () => {
                                             onChange={handleRangeChange}
                                         />
                                         <div>Selected Credit Limit: {creditLimit * 100} INR</div>
-                                        <div>
+                                        <div className='mt-3'>
                                             <button type='button' className='credit_limit_generate_otp_btn'>
                                                 Generate OTP
                                             </button>
