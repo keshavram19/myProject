@@ -6,14 +6,15 @@ import { FaCarAlt } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 
 const ApplyOnline = ()=>{
-    return(<>
+    return(<div className="container-fluid">
     <h4 className='applyonline_mainheading'>Apply Online</h4>
     <hr/>
     <div className='applyonline_maincontainer'>
         <div className='applyonline_heading'>
-             Offers For You<span className="badge badge-light applyonline_badge">4</span>
+             Offers For You<span className="badge  applyonline_badge">4</span>
         </div>
-        <div className='row applyonline_mainrow'>
+        <div className=" applyonline_mainrow">
+        <div className='row '>
             <div className='col-md-3'>
                 <div className='card'>
                     <div className='applyonline_headcontent'>
@@ -79,10 +80,11 @@ const ApplyOnline = ()=>{
             </div>
 
         </div>
+        </div>
 
     </div>
     
-    </>)
+    </div>)
 }
 
 export default ApplyOnline;

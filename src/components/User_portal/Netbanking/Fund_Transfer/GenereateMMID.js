@@ -34,7 +34,7 @@ const GenerateMMID = () => {
                                 />                            </div>
                         </div>
                         
-                        <div className="col-sm-12 mt-4 "><button className="btn btn-primary generate_retrive_mern">
+                        <div className="col-sm-12 mt-4 "><button className=" generate_retrive_mern">
                             GENERATE RETRIVE MMID</button></div>
                     </div>
                     </div>

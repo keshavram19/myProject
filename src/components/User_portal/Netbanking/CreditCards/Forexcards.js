@@ -5,7 +5,7 @@ import './Creditcard.css'
 
 const ForexCardSection = () => {
   return (
-    <div className="container  col-md-12" style={{marginTop:"90px"}}>
+    <div className="container  col-md-12" style={{marginTop:"90px",backgroundColor:'#f8f9fa'}}>
       <div className="row">
         <div className="col-md-12">
             

@@ -45,9 +45,9 @@ const Fdadvice = () => {
                   Select Fixed Deposit Account{" "}
                 </label>
                 <select className="fixed_selectOption1" class="your-dropdown-class">
-                  <option value="Please select">Please select</option>
-                  <option value="Please select">Please select</option>
-                  <option value="Please select">Please select</option>
+                  <option value="Please select">Please select 1</option>
+                  <option value="Please select">Please select 2</option>
+                  <option value="Please select">Please select 3</option>
                 </select>
 
                 <form onSubmit={handleSubmit} className=" fixed_deposit_form">

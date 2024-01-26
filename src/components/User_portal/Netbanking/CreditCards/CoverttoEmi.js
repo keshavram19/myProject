@@ -1,12 +1,13 @@
 import React from "react";
 import Select from "react-select";
 import { Link } from "react-router-dom";
+import './Creditcard.css';
 
 
 const ConvertToEMI = () => {
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid" style={{marginTop:"90px"}}>
             <div className="row mt-2">
                 <div className="col-md-12">
                     <div className="convert_to_emi_card">

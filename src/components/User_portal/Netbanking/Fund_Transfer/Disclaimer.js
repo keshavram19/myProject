@@ -28,7 +28,7 @@ const Disclaimer = () => {
                 visiting<a href="#"> www.royalislamicbank.com.</a>
               </p>
               <div className="Disclaimer_button">
-                <button type="button" class="btn btn_Disclaimer_button">
+                <button type="button" class="btn btn_Disclaimer_button" style={{background: "#f18121", color: "white"}}>
                   I agree
                 </button>
               </div>

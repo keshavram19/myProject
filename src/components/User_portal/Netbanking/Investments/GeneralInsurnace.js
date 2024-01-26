@@ -3,24 +3,9 @@ import './investments.css'
 
 function GeneralInsurance() {
   return (
-    <div className='container-fluid'>
-      <div className='general_insurance1'>
-        <h6>8) General Insurance</h6>
-        <li className='general_list1'>In this section create a navbar for(Buy now , link your policy, Existing policy) </li>
-      </div>
-      <div className='general_insurance2'>
-        <h6>8.1) Buy Now Section</h6>
-        <li className='general_list2'>Add a customer favourite </li>
-        <li className='general_list2'>Health Shield 360 Top Up </li>
-        <li className='general_list2'>Travel Insurane</li>
-        <li className='general_list2'>Car Insurance </li>
-        <li className='general_list2'> Two wheeler insurance</li>
-      </div>
-      <div className='general_insurance3'>
-        <p>Customer Favourite</p>
-      </div>
+    <div className='container-fluid' style={{marginTop:'70px'}}>
       <div className='row'>
-        <div className='col-md-12'style={{backgroundColor:'darkorange',fontWeight:'200',height:'40px'}}>
+        <div className='col-md-12'style={{backgroundColor:'#f18121',fontWeight:'200',height:'40px'}}>
         <h6 className='general_insurance4'>Health Shield 360 Top Up</h6>
       </div>
       </div>
@@ -37,7 +22,7 @@ function GeneralInsurance() {
                 <div>at ₹8/day*</div>
       </div>
       </div>
-      <div className='col-md-5'>
+      <div className='col-md-5' style={{backgroundColor:'#f8f9fa'}}>
       <div className='general_insurance6'>
       <div>
                   {" "}
@@ -72,7 +57,7 @@ function GeneralInsurance() {
       </div>
       </div>
 
-      <div className='col-md-3'>
+      <div className='col-md-3' style={{backgroundColor:'#f8f9fa'}}>
       <div className='general_insurance7'>
       <button className="enroll_name_generalinsurance">ENROLL NOW</button>
                 <div className="label_gi">

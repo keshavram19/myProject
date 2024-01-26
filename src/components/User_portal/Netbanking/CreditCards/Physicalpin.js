@@ -15,8 +15,8 @@ import { Link } from 'react-router-dom';
             </div>
             <label for="creditCardNumber" className='form-inline pt-4'>
                      <span className='col-md-3'>Credit Card Number* :</span>
-                     <select name="cardNumber" className="custom-select custom-select-sm col-md-3">                                                       
-                          <option selected>Please Select</option>
+                     <select name="cardNumber" className="custom-select custom-select-sm col-md-3 w-25">                                                       
+                          <option selected>----Please Select----</option>
                               <option value="option1">123456789012</option>
                               <option value="option2">123456789012</option>
                               <option value="option3">123456789012</option>
@@ -26,7 +26,7 @@ import { Link } from 'react-router-dom';
                     
         
         <hr/>
-          <button className='physicalPin_SubmitBtn m-3'>SUBMIT</button>
+          <button className='physicalPin_SubmitBtn m-3 p-2'>SUBMIT</button>
 
           </div>
           <div className='PhysicalPin_notes  pt-2'>
