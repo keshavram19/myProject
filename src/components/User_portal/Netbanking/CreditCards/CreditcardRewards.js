@@ -6,7 +6,7 @@ const CreditcardRewards = () => {
     return (
         <div>
 
-            <div className="container">
+            <div className="container-fluid p-5" style={{paddingTop:'40px',backgroundColor:'#f8f9fa'}}>
                 <div className="row rewards_main" style={{ marginTop: '120px'}}>
                     <div className="col-xl-3 col-3">
                         <img src="https://a.cdn-hotels.com/gdcs/production171/d1558/d5250534-92b6-413c-bedf-2b9ac96e96fe.jpg?impolicy=fcrop&w=800&h=533&q=medium" className="rewards_img1" />
@@ -25,7 +25,7 @@ const CreditcardRewards = () => {
 
                     </div>
                     <div className="col-xl-12" style={{ marginTop: '80px' }}>
-                        <h4>Your Savings Account/Credit Card Points</h4>
+                        <h4 className="rewards_startheading">Your Savings Account/Credit Card Points</h4>
 
                         <table class="table mt-3">
                             <thead>
@@ -44,7 +44,7 @@ const CreditcardRewards = () => {
                                 </tr>
                             </tbody>
                         </table>
-                        <p className="mt-4"><b>Note :</b> The above-mentioned Reward Points are not eligible for cards such as Amazon Pay Credit Card,MakeMy Trip ISLAMIC Bank Platinum Credit Card, MakeMy Trip ISLAMIC Bank Signature Credit Card etc.For a detailed list of cards, <b> CLICK HERE</b> </p>
+                        <p className="mt-4"><b className="rewards_startheading">Note :</b> The above-mentioned Reward Points are not eligible for cards such as Amazon Pay Credit Card,MakeMy Trip ISLAMIC Bank Platinum Credit Card, MakeMy Trip ISLAMIC Bank Signature Credit Card etc.For a detailed list of cards, <b className="rewards_startheading"> CLICK HERE</b> </p>
                     </div>
                 </div>
             </div>

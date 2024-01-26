@@ -6,7 +6,7 @@ const ServiceRequest = () => {
     return (
         <div>
            
-            <div className="container-fluid" style={{marginTop:"90px"}}>
+            <div className="container-fluid service_background_main pt-5" style={{marginTop:"50px"}}>
                 <div className="row">
                     <div className='col-3'>
                        <BankaccountSidebar/>
@@ -16,8 +16,8 @@ const ServiceRequest = () => {
                         <div className='row'>
                             <div className='col-md-7'>
                                 <div className='row'>
-                                    <h6 className='mt-2 col-xl-12'>Service Requests</h6>
-                                    <table class="table mt-1 " style={{marginLeft:'15px'}}>
+                                    <h6 className='mt-2 col-xl-12 service_table_heading'>Service Requests</h6>
+                                    <table class="table mt-1 " style={{marginLeft:'15px',width:'95%'}}>
                                         <thead>
                                             <tr className='' style={{backgroundColor:'#d3d0cbff'}}>
                                                 <th>SR.NO</th>
@@ -37,9 +37,9 @@ const ServiceRequest = () => {
                                 </div>
 
                                 <div className='row'>
-                                    <h6 className='mt-2 col-xl-10 col-lg-10 col-md-10 col-8'>Deliverables</h6>
-                                    <p className='col-xl-2 col-lg-2 col-md-2 col-4'>View all</p>
-                                    <table class="table" style={{marginLeft:'16px'}}>
+                                    <h6 className='mt-2 col-xl-10 col-lg-10 col-md-10 col-8 service_table_heading'>Deliverables</h6>
+                                    <h6 className='col-xl-2 col-lg-2 col-md-2 col-4 service_table_heading'>View all</h6>
+                                    <table class="table" style={{marginLeft:'15px',width:'95%'}}>
                                         <thead>
                                             <tr className='' style={{backgroundColor:'#d3d0cbff'}}>
                                                 <th>SR.NO</th>
@@ -63,13 +63,13 @@ const ServiceRequest = () => {
                                             <div className='card shadow'>
                                                 <div className='row p-2'>
                                                     <i class="fa-solid fa-building-columns col-xl-2 col-lg-2 col-md-2 col-2 mt-1 service_icon"></i>
-                                                    <p className='col-xl-8 col-lg-8 col-md-8 col-8'>Bank Accounts</p>
-                                                    <i class="fa-solid fa-angle-up col-xl-2 col-lg-2 col-md-2 col-2 mt-2 service_icon"></i>
+                                                    <p className='col-xl-8 col-lg-8 col-md-8 col-8 service_table_heading'>Bank Accounts</p>
+                                                    <i class="fa-solid fa-angle-up col-xl-2 col-lg-2 col-md-2 col-2 mt-2 service_icon"></i><br></br><br></br>
                                                     <i class="fa-solid fa-credit-card col-xl-2 col-lg-2 col-md-2 col-2 mt-1 service_icon"></i>
-                                                    <p className='col-xl-8 col-lg-8 col-md-8 col-8'>Credit Cards</p>
-                                                    <i class="fa-solid fa-angle-up col-xl-2 col-lg-2 col-md-2 col-2 mt-2 service_icon"></i>
+                                                    <p className='col-xl-8 col-lg-8 col-md-8 col-8 service_table_heading'>Credit Cards</p>
+                                                    <i class="fa-solid fa-angle-up col-xl-2 col-lg-2 col-md-2 col-2 mt-2 service_icon"></i><br></br><br></br>
                                                     <i class="fa-solid fa-hand-holding-dollar col-xl-2 col-lg-2 col-2 col-md-2 mt-1 service_icon"></i>
-                                                    <p className='col-xl-8 col-lg-8 col-md-8 col-8'>Deposits</p>
+                                                    <p className='col-xl-8 col-lg-8 col-md-8 col-8 service_table_heading'>Deposits</p>
                                                     <i class="fa-solid fa-angle-up col-xl-2 col-lg-2 col-md-2 col-2 mt-2 service_icon"></i>
                                                 </div>
 
@@ -78,30 +78,30 @@ const ServiceRequest = () => {
                                                 <div className='row p-2'>
 
                                                 <i class="fa-solid fa-hand-holding-dollar col-xl-2 col-lg-2 col-md-2 col-2 mt-1 service_icon"></i>
-                                                    <p className='col-xl-10 col-lg-10 col-md-10 col-10'>Loan</p>
+                                                    <p className='col-xl-10 col-lg-10 col-md-10 col-10 service_table_heading'>Loan</p>
                                                     <i class="fa-solid fa-hand-holding-dollar col-xl-2 col-lg-2 col-md-2 col-2 mt-1 service_icon"></i>
-                                                    <p className='col-xl-10 col-lg-10 col-md-10 col-10'>Demat</p>
+                                                    <p className='col-xl-10 col-lg-10 col-md-10 col-10 service_table_heading'>Demat</p>
                                                 </div>
 
                                             </div>
                                             <div className='card shadow'>
                                             <div className='row p-2'>
                                             <i class="fa-solid fa-link col-xl-2 col-lg-2 col-md-2 col-2 mt-1 service_icon"></i>
-                                                <p className='col-xl-10 col-lg-10 col-md-10 col-10'>Link Accounts/Policies</p>
+                                                <p className='col-xl-10 col-lg-10 col-md-10 col-10 service_table_heading'>Link Accounts/Policies</p>
                                             </div>
 
                                             </div>
                                             <div className='card shadow'>
                                             <div className='row p-2'>
                                                 <i class="fa-solid fa-money-bill-transfer col-xl-2 col-lg-2 col-md-2 col-2 mt-1 service_icon"></i>
-                                                <p className='col-xl-10 col-lg-10 col-md-10 col-10'>Free & Travel exis </p>
+                                                <p className='col-xl-10 col-lg-10 col-md-10 col-10 service_table_heading'>Free & Travel exis </p>
                                             </div>
 
                                             </div>
                                             <div className='card shadow'>
                                             <div className='row p-2'>
                                             <i class="fa-solid fa-hand-holding-dollar col-xl-2 col-lg-2 col-md-2 col-2 mt-1 service_icon"></i>
-                                                <p className='col-xl-10 col-lg-10 col-md-10 col-10'>Pockets</p>
+                                                <p className='col-xl-10 col-lg-10 col-md-10 col-10 service_table_heading'>Pockets</p>
 
 
                                             </div>
@@ -144,8 +144,8 @@ const ServiceRequest = () => {
                                 <button className='service_btn'>Block or Unblock ATM/Debit Card</button>
                                 <button className='service_btn'>Positive Pay</button>
                                 <div className='card p-3 mt-3 shadow'>
-                                    <div className='card p-3 bg-light shadow service_card'>
-                                        <h5 className='text-center'>Do  you need help with any of the following?</h5>
+                                    <div className='card p-3  shadow servicerequest_subcard'>
+                                        <h5 className='text-center service_table_heading'>Do  you need help with any of the following?</h5>
                                         <hr></hr>
                                         <p>Open your savings Accounts now</p>
                                         <hr></hr>
