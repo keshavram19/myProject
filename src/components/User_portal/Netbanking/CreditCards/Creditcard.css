@@ -1063,49 +1063,54 @@ body {
 /* forex card css starts here */
 .forex_button{
     border:none;
-    color: white;
-    background-color: rgb(232, 159, 22);
+    color: #f18121;
+    background-color: #faede2;
     width:150px;
     height:35px;
    border-radius: 10px;
    font-family: 'poppins';
    margin-left: 65px;
+   padding-top: 6px;
    
     
 }
 .forex_button2{
     border:none;
-    color: white;
-    background-color: rgb(232, 159, 22);
+    color:  #f18121;
+    background-color: #faede2;
     width:150px;
     height:35px;
    border-radius: 10px;
    font-family: 'poppins';
    margin-left: 65px;
+   padding-top: 6px;
    
     
 }
 .forex_button3{
     border:none;
-    color: white;
-    background-color: rgb(232, 159, 22);
+    color:  #f18121;
+    background-color: #faede2;
     width:150px;
     height:35px;
    border-radius: 10px;
    font-family: 'poppins';
    margin-left: 70px;
+   padding-top: 6px;
    
     
 }
 .forex_button4{
     border:none;
-    color: white;
-    background-color: rgb(232, 159, 22);
+    color:  #f18121;
+    background-color: #faede2;
     width:150px;
     height:35px;
    border-radius: 10px;
    font-family: 'poppins';
    margin-left: 65px;
+   padding-top: 6px;
+   
    
     
 }
@@ -1180,11 +1185,11 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 /* prepaid card css starts here */
 .prepaidcard_id{
-    background-color: rgb(240, 240, 243);
+    background-color: #f8f9fe;
     font-family: 'poppins';
 }
 .prepaidcard_heading{
-    background-color: lightgrey;
+    background-color: #faede2;
     font-family: 'poppins';
 }
 
@@ -1194,8 +1199,8 @@ font-family: 'poppins';
 }
 .prepaidcard_button{
     border: none;
-    background-color: orange;
-    color: white;
+    background-color: #faede2;
+    color: #f18121;
     font-family: 'poppins';
 }
 /* prepaid card css ends here */
@@ -1204,12 +1209,12 @@ font-family: 'poppins';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 /* merchant css starts here */
 .merchant_heading{
-    color: rgb(227, 153, 15);
+    color: #f18121;
     font-family: 'poppins';
     
 }
 .merchant_list{
-    background-color: rgb(237, 246, 246);
+    background-color: #f8f9fa;
     color: black;
     display: grid;
     text-align: center;
@@ -1225,8 +1230,8 @@ font-family: 'poppins';
 .merchant_button1{
     margin-left: 15px;
     border:none;
-    color: white;
-    background-color: rgb(232, 159, 22);
+    color: #f18121;
+    background-color: #faede2;
     border-radius: 10px;
     font-family: 'poppins';
     
@@ -1234,8 +1239,8 @@ font-family: 'poppins';
 }
 .merchant_button{
     border:none;
-    color: white;
-    background-color: rgb(232, 159, 22);
+    color: #f18121;
+    background-color: #faede2;
     margin-left: 10px;
     border-radius: 10px;
     font-family: 'poppins';
