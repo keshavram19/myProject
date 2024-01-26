@@ -4,7 +4,7 @@ const PrepaidCard = () => {
 
 
     return (
-        <div className='prepaidcard container-fluid'>
+        <div className='prepaidcard container-fluid' style={{marginTop:'90px'}}>
             <div className='Prepaidcard_header'></div>
             <div className='row'>
                 
