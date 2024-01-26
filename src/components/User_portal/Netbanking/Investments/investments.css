@@ -83,11 +83,7 @@
 .internet_banking a{
   font-weight: bold;
 }
-.col-md-8{
-  display: flex;
-  flex-direction: row;
-  margin: auto;
-}
+
 .demat_account_page_main-container{
   margin: 0px;
 }
