@@ -971,11 +971,14 @@ body {
 
 .service_input {
   width: 25vw;
-  height: 4vh;
-  border-radius: 5px;
+  height: 5vh;
+  border-radius: 3px;
   margin-top: 10px;
   font-size: small;
   border: 1px solid #d3d0cbff;
+}
+.service_table_heading{
+  color: #f18121;
 }
 
 .service_input:focus {
@@ -999,7 +1002,7 @@ body {
   background-color: transparent;
   border: none;
   border-radius: 4px;
-  color: black;
+  color:  #f18121;
   display: inline-block;
   font-family: revert;
   margin: 5px;
@@ -1008,7 +1011,7 @@ body {
   transition-duration: 0.3s;
   transition-property: background-color, color, opacity;
   transition-timing-function: linear;
-  outline: 2px solid lightgray;
+  outline: 2px solid #f18121
 }
 
 .service_btn:hover {
@@ -1031,12 +1034,16 @@ body {
 }
 
 .service_icon {
-  color: gray;
+  color:#f18121;
 }
 
-.service_card {
+.servicerequest_subcard {
   border-left: 4px solid gray;
   border-bottom: 4px solid gray;
+  background-color:#faede2!important;
+}
+.service_background_main{
+  background-color:#f8f9fa;
 }
 
 /* service reqest ends */
@@ -1055,8 +1062,8 @@ body {
 
 .deposit_btn {
   border: none;
-  border-radius: 4px;
-  color: black;
+  border-radius: 14px;
+  color:#f18121;
   display: inline-block;
   font-family: revert;
   margin: 5px;
@@ -1066,6 +1073,7 @@ body {
   transition-property: background-color, color, opacity;
   transition-timing-function: linear;
   padding: 10px 20px;
+  background-color:#fac294;
 }
 
 .deposit_cardbtn {
@@ -1073,11 +1081,16 @@ body {
   width: 50%;
   padding: 10px 20px;
   border: none;
+  background-color: #fac294;
+  color: #f18121;
 }
 .deposit_card {
   border-radius: 10px;
-  background-color: lightgray;
+  background-color:#faede2!important;
   color: black;
+}
+.deposit_fixedheading{
+  color: #f18121;
 }
 
 .deposit_card1 {
@@ -1089,15 +1102,15 @@ body {
 }
 .deposit_icon {
   font-size: 40px;
-  color: gray;
+  color:#f18121;
 }
 
 .deposit_btn1 {
-  background-color: lightgray;
+  background-color:#fac294;
   border: none;
-  border-bottom: 4px solid #d3d0cbff;
+  border-bottom: 4px solid #f18121;
   border-radius: 4px;
-  color: black;
+  color:#f18121;
   display: inline-block;
   font-family: revert;
   margin: 5px;
@@ -1109,7 +1122,7 @@ body {
   padding: 10px 40px;
 }
 .deposit_btn1:hover {
-  background-color: #d3d0cbff;
+  background-color:#f18121;
   color: black;
 }
 
@@ -1119,12 +1132,15 @@ body {
 
 .deposit_card2 {
   border-radius: 10px;
-  background-color: #d3d0cbff;
+  background-color:#faede2!important;
   border-left: 4px solid gray;
 }
 
-/* fixed deposit ends */
+.fixed_deposit_background_main{
+  background-color:#f8f9fa;
+}
 
+/* fixed deposit ends */
 /* recurring deposit starts */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
@@ -1133,12 +1149,16 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.recurring_rupeeicon{
+  color: #f18121;
+}
+
 .recurring_btn {
-  background-color: lightgray;
+  background-color:#fac294;
   border: none;
-  border-bottom: 4px solid #d3d0cbff;
+  border-bottom: 4px solid #f18121;
   border-radius: 4px;
-  color: black;
+  color:#f18121;
   display: inline-block;
   font-family: revert;
   margin: 5px;
@@ -1151,11 +1171,11 @@ body {
 }
 
 .recurring_btn1 {
-  background-color: lightgray;
+  background-color:#fac294;
   border: none;
-  border-bottom: 4px solid #d3d0cbff;
+  border-bottom: 4px solid #f18121;
   border-radius: 14px;
-  color: black;
+  color:#f18121;
   display: inline-block;
   font-family: revert;
   margin: auto;
@@ -1168,11 +1188,11 @@ body {
 }
 
 .recurring_btn2 {
-  background-color: lightgray;
+  background-color: #fac294;
   border: none;
-  border-bottom: 4px solid #d3d0cbff;
+  border-bottom: 4px solid #f18121;
   border-radius: 14px;
-  color: black;
+  color:#f18121;
   display: inline-block;
   font-family: revert;
   text-decoration: none;
@@ -1183,20 +1203,27 @@ body {
 }
 
 .recurring_btn2:hover {
-  background-color: #d3d0cbff;
+  background-color: #f18121;
   color: black;
 }
 .recurring_btn1:hover {
-  background-color: #d3d0cbff;
+  background-color: #f18121;
   color: black;
 }
 .recurring_para {
-  color: gray;
+  color:#f18121;
 }
 
 .recurring_amount {
   font-size: small;
   margin-bottom: 60px;
+}
+.recurring_sideheading{
+  color: #f18121;
+}
+
+.recurring_background_main{
+  background-color:#f8f9fa;
 }
 
 /* recurring deposit ends */
