@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
@@ -32,16 +30,16 @@ const ManageCardLimit = () => {
 
     <div>
 
-      <div className='card_limit-details-container container-fluid 'style={{marginTop:"90px"}}>
+      <div className='card_limit-details-container container-fluid ' style={{ marginTop: "90px" }}>
         <div className='row'>
           <div className='col-3'>
             <BankaccountSidebar />
-      </div>
-          
+          </div>
+
           <div className='col-9'>
             <div className="container-fluid card_limit mt-2">
               <div className="d-flex">
-                <h3>3.4 Manage Card Limit</h3>
+                <h3 className='manage_card_heading'>Manage Card Limit</h3>
               </div>
               <div className="card mt-3">
                 <h6 className="card_limit_heading p-3">Increase/Decrease Debit card Limit</h6>
@@ -53,16 +51,27 @@ const ManageCardLimit = () => {
                       <label for="text">Select the Account*</label>
                     </div>
                     <div className="col-sm-3">
-                      <input type="number" placeholder='Please select' id="text" className="form_input" />
+                      <select className="form_input">
+                        <option value="">Please select</option>
+                        <option value="account1">Account1</option>
+                        <option value="account2">Account2</option>
+                        <option value="account3">Account3</option>
+                      </select>
                     </div>
                   </div>
 
-                  <div className="row mt-3">
+                  <div className="row mt-4">
                     <div className="col-sm-4">
                       <label for="text">Select the Debit Card*</label>
                     </div>
                     <div className="col-sm-3">
-                      <input type="number" placeholder='Select' id="text" className="form_input" />
+                      <select className="form_input">
+                        <option value="">Please select</option>
+                        <option value="account1">Account1</option>
+                        <option value="account2">Account2</option>
+                        <option value="account3">Account3</option>
+                      </select>
+
                     </div>
                   </div>
 
@@ -70,10 +79,10 @@ const ManageCardLimit = () => {
 
 
                   <div className="row mt-4">
-                    <div className="col-xl-2">
+                    <div className="col-sm-4">
                       <input type="radio" id="domestic" name="option" value="options" /><label for="domestic">Domestic Limits</label>
                     </div>
-                    <div className="col-xl-2">
+                    <div className="col-sm-4">
                       <input type="radio" id="international" name="option" value="options" /><label for="international" >International Limits</label>
                     </div>
                   </div>
@@ -82,10 +91,10 @@ const ManageCardLimit = () => {
 
                   <div class="domestic container-fluid mt-5">
                     <div class="row">
-                      <div class="col-sm-2">
+                      <div class="col-sm-3">
                         <p>Domestic</p>
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-sm-5">
                         <div class="input_range">
 
                           <span class="zero">Min</span>
@@ -97,16 +106,16 @@ const ManageCardLimit = () => {
                       <div class="col-sm-2">
 
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-sm-2">
                         <p>Enable/Disable</p>
                       </div>
                     </div>
 
                     <div class="row">
-                      <div class="col-sm-2">
+                      <div class="col-sm-3">
                         <p>Limit for cash withdrawal</p>
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-sm-5">
                         <div class="input_range">
                           <input
                             type="range"
@@ -123,7 +132,7 @@ const ManageCardLimit = () => {
                       </div>
 
                       <div class="col-sm-2">
-                      <input type="text" className='form-control' />
+                        <input type="text" className='form-control' />
                       </div>
 
                       <div class="col-sm-2">
@@ -141,10 +150,10 @@ const ManageCardLimit = () => {
                     </div>
 
                     <div class="row mt-3">
-                      <div class="col-sm-2">
+                      <div class="col-sm-3">
                         <p>Limit for retail transactions</p>
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-sm-5">
                         <div class="input_range">
                           <input
                             type="range"
@@ -177,10 +186,10 @@ const ManageCardLimit = () => {
                     </div>
 
                     <div class="row mt-3">
-                      <div class="col-sm-2">
+                      <div class="col-sm-3">
                         <p>Limit for E-commerce transactions</p>
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-sm-5">
                         <div class="input_range">
                           <input
                             type="range"
@@ -213,10 +222,10 @@ const ManageCardLimit = () => {
                     </div>
 
                     <div class="row mt-2">
-                      <div class="col-sm-2">
+                      <div class="col-sm-3">
                         <p>Limit for ContactLess payments</p>
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-sm-5">
                         <div class="input_range">
                           <input
                             type="range"
@@ -301,8 +310,8 @@ const ManageCardLimit = () => {
                   </button>
                 </div>
               </div>
-              <div className='card_limit_notes'>
-                <h6 className='ml-4'>Notes:</h6>
+              <div className='card_limit_notes mt-2'>
+                <h6 className='ml-3'>Notes:</h6>
                 <div>
                   <ol>
                     <li>For NRO account only Domestic limits can be changed.</li>

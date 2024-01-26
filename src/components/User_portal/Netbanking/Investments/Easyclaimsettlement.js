@@ -8,7 +8,7 @@ import { FaHandHoldingUsd } from "react-icons/fa";
 
 const EasyClaimSettlement = () => {
     return (
-        <div className="container-fluid ">
+        <div className="container-fluid " style={{marginTop:"90px"}}>
             <div className="row">
                 <div className="col-sm-12 mt-1">
                     <div className="card bg-light p-3">

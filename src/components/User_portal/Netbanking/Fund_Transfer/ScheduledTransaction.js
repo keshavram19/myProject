@@ -14,9 +14,9 @@ const ScheduledTransaction = () => {
           <div className='col-9'>
           <div className="My_sch_transaction">
              
-             <div className="sub_heading_myschedule_Trans">
+             {/* <div className="sub_heading_myschedule_Trans">
             <h6 className="sub_heading_myschedule_trans_htag">a. Scheduled transactions</h6> 
-            </div>  
+            </div>   */}
              
             {/* <hr/> */} 
       
@@ -41,7 +41,7 @@ const ScheduledTransaction = () => {
                 </select>
              </div>
              <hr/>
-             <button className="btn btn-primary mya_sch_searchbtn" type='submit'  >
+             <button className="mya_sch_searchbtn" type='submit'  >
                Search
              </button>
              <hr/>

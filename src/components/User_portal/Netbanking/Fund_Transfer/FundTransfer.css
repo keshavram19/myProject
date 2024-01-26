@@ -6,8 +6,12 @@
   list-style-type: none;
   text-align: center;
   font-size: 13px;
-  background-color: lightgray;
+  background-color: rgb(236, 236, 236);
   height: 8vh;
+}
+.mypayee_heading{
+  color: #f18121;
+  font-size: x-large;
 }
 .mypayee_navmain li{
   cursor: pointer;
@@ -18,11 +22,11 @@
   justify-content: center;
 }
 .mypayee_buttonon{
-  color: #8f3737;
-  border-bottom: 2px solid #8f3737;
+  color: #f18121;
+  border-bottom: 2px solid #f18121;
 }
 .mypayee_content{
-  background-color: rgb(241, 241, 241);
+  background-color: rgb(251, 250, 250);
 }
 .mypayee_text{
   display: flex;
@@ -49,11 +53,13 @@
 .mypayee_input1{
   width: 100%;
 }
-.mypayee_input2{
+.mypayee_input22{
   border: none;
   background-color: transparent;
+  width: 100%;
+  margin-left: 2%;
 }
-.mypayee_input2:focus{
+.mypayee_input22:focus{
   outline: none;
   box-shadow: none;
   background-color: transparent;
@@ -62,16 +68,17 @@
 .mypayee_addbtn{
   width: 160px;
   height: 30px;
-  background-color: #8f3737;
-  color: white;
+  background-color: #faede2;
+  color: #f18121;
   border: none;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: small;
 }
 .mypayee_search{
-  color: #8f3737;
+  color: #f18121;
 }
 .mypayee_icons{
   font-size: large;
@@ -86,7 +93,7 @@
 }
 .mypayee_click{
   text-decoration: underline;
-  color: #8f3737;
+  color: #f18121;
 }
 
 
@@ -99,7 +106,7 @@
   font-family: 'poppins';
 }
 .overseas-row1{
-  background-color:lightgray    ;
+  background-color:#f8f9fa   ;
   margin-top: 5%;
   padding: 10px;
   font-family: 'poppins';
@@ -140,13 +147,14 @@
   width: 65%;
   margin: auto;
   padding: 50px;
-  background-color:#c4c7bf;
+  background-color:#f8f9fa;
+  color: #f18121;
 }
 
 .transaction-heading {
   width: 100%;
   /* height: 150px; */
-  background-color: #d9d9d9;
+  background-color: #faede2;
   padding: 10px;
 }
 
@@ -243,9 +251,8 @@
   padding: 50px;
   border-radius: 10px;
   flex-wrap: wrap;
-
   margin: auto;
-  background-color: #c4c7bf ;
+  background-color: #f8f9fa ;
 
 }
 
@@ -258,6 +265,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color:  #faede2;
 }
 
 .payment-summary-page h1 {
@@ -269,6 +277,7 @@
 .header-box h2 {
   font-size: 28px;
   margin-bottom: 10px;
+  color: #000;
 }
 .header-box p{
   font-size: 20px;
@@ -281,10 +290,13 @@
   margin-bottom: 10px;
   color: #333;
   font-size: 16px;
+  color: #f18121;
 }
 .payment-radios {
   display: flex;
   flex-direction: column;
+  margin-left: 330px;
+  justify-content: end;
 }
 .payment-header{
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -303,31 +315,33 @@
 .calandar-main {
   width: 100%;
   max-width: 100%;
-  color: #222;
+  color:#f18121;
   line-height: 1.125em;
+  
 }
 
 .calendar-container {
-  color: #0d0d0e;
+  color: black;
   min-width: 44px;
   background: none;
   font-size: 25px;
   margin-top: 8px;
   /* border: solid black 1px; */
+  background-color:  #faede2;
 }
 
 .calendar-container:enabled:hover,
 .calendar-container:enabled:focus {
-  background-color: #f8f8fa;
+  background-color:  #faede2;
 }
 
 .calendar-container[disabled] {
   background-color: #f0f0f0;
 }
-
+/* 
 abbr[title] {
   text-decoration: none;
-}
+} */
 
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
@@ -357,15 +371,16 @@ abbr[title] {
 }
 
 .react-calendar__tile--active {
-  background: #6f48eb;
+  background: #f18121;
   border-radius: 6px;
   font-weight: bold;
   color: white;
+  background-color: #faede2;
 }
 
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
-  background: #6f48eb;
+  background: #f18121;
   color: white;
 }
 
@@ -374,8 +389,8 @@ abbr[title] {
 }
 
 .react-calendar__tile--range {
-  background: #f8f8fa;
-  color: #6f48eb;
+  background: #faede2;
+  color:#f18121;
   border-radius: 0;
 }
 
@@ -403,6 +418,11 @@ abbr[title] {
 }
 .react-calendar{
   width: 100% !important;
+  background-color:  #faede2;
+}
+.calendar_text_center{
+  text-align: center;
+  padding: 10px;
 }
  /* calendar.css ends*/
 
@@ -415,7 +435,8 @@ abbr[title] {
     border: 1px solid #ccc;
     border-radius: 10px;
     padding-bottom: 10px;
-    background-color: #c4c7bf;
+    background-color: #faede2;
+    color:  #f18121;
   }
   
   .wire-transaction-container h1 {
@@ -427,8 +448,9 @@ abbr[title] {
     padding: 10px;
     margin-right: 15px;
     padding-left: 5px;
-    background-color: #d9d9d9;
+    background-color: #faede2;
     padding-top: 10px;
+    color: #000;
 }
 
   .transaction-form {
@@ -470,80 +492,87 @@ abbr[title] {
 
   /* Upi transaction starts css*/
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-*{
-  font-family: Poppins;
-}
-.upi_transaction_range{
-  justify-content: space-around;
-  display: flex;
-  align-items: center;
-  background-color: rgb(141, 159, 175);
-
-}
-.upi_transaction_date{
-  background-color:rgb(223, 241, 242);
-}
-.upi_transaction_node{
+  *{
+    font-family: Poppins;
+  }
+  .upi_transaction_range{
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+     Background-color : #f8f9fa
+  }
+  .upi_transaction_date{
+     Background-color : #f8f9fa}
+  .upi_transaction_node{
+   Background-color : #f8f9fa
   
-  background-color:rgb(232, 243, 244);
-}
-.upi_transaction_value{
-  border-radius:5px;
-  padding: 5px;
-  border: none;
-}
-/* upi transaction css ends*/
-
-/* /quickfund tranfer starts css/ */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-*{
-  font-family: Poppins;
-}
-.quickfund_transfer_note{
-    background-color: rgb(235, 242, 244);
-}
-
-.quickfund_transfer_code{
-    background-color:rgb(223, 235, 239);
-}
-.quickfund_transfer_node{
-    background-color:rgb(221, 228, 230);
-}
-.quickfund_transfer_turn{
+  }
+  .upi_transaction_value{
     border-radius:5px;
-
-  border: none;
-}
-.quickfund_transfer_join{
-    border-radius:5px;
+    padding: 5px;
+    border: none;
+    
+    background-color:#f18121
   
-  border: none;
-}
-/* qickfund transfer ends */
-
-/* /get retrivev mmiv css starts/ */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-*{
-  font-family: Poppins;
-}
- .generate_retrive_code{
-    background-color:rgb(229, 234, 236);
- } 
- .generate_retrive_node{
-    background-color:rgb(224, 224, 227);    
- }
- .generate_retrive_mern{
-        color:rgb(237, 245, 248);
-          border-radius:5px;
-         padding: 5px;
-         border: none;
-       }
-       /* /get retrive css ends/ */
-       /* manage payee stars */
+  }
+  /* upi transaction css ends*/
+  
+  /* /quickfund tranfer starts css/ */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  
+  *{
+    font-family: Poppins;
+  }
+  .quickfund_transfer_note{
+     Background : #faede2;
+     color:#f18121;
+     ;
+  }
+  
+  .quickfund_transfer_code{
+     Background-color : #f8f9fa}
+  .quickfund_transfer_node{
+     Background-color : #f8f9fa;
+    
+    
+    }
+  .quickfund_transfer_turn{
+      border-radius:5px;
+       background-color : #faede2;
+  
+    border: none;
+  }
+  .quickfund_transfer_join{
+      border-radius:5px;
+      background-color : #faede2;
+  
+  
+    
+    border: none;
+  }
+  /* quickfund transfer ends */
+  
+  /* /get retrivev mmiv css starts/ */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  
+  *{
+    font-family: Poppins;
+  }
+   .generate_retrive_code{
+    background-color : #faede2
+  } 
+   .generate_retrive_node{
+    color : #f18121}
+   .generate_retrive_mern{
+     background-color : #f18121   ;
+           border-radius:5px;
+           padding: 5px;
+           border: none;
+         }
+         /* /get retrive css ends/ */
+         /* manage payee stars */
        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 
@@ -563,10 +592,25 @@ abbr[title] {
    
     
 }
+.buttons_managepay11{
+  margin-Right:'5px';
+  height: 38px;
+  margin-right: 5px;
+  width: 90px;
+  font-size: 14px;
+  background-color: rgb(247, 144, 10);
+  border-width: 0.5px;
+  color: rgb(241, 236, 236);
+  margin-top: 5px;
+  font-family: "poppins";
+  border: none;
+  align-items: center;
+ 
+  
+}
 .manage_payee{
     background-color: rgb(230, 238, 238);
     font-family: "poppins";
-    height: 130px;
 }
 .content_managepay{
     width:500px ;
@@ -610,10 +654,11 @@ abbr[title] {
   font-weight: 300;
   }
   .Inwbenifits_tag_hfive{
-    color: #f08080;
+    color : #f18121 ;
   }
   .inward_ullist{
     display: flex;
+    margin-left: 10px;
   }
   .inward_remitance_flex{
     list-style-type: none;
@@ -626,22 +671,26 @@ abbr[title] {
     .inward_span_tag_main{
       font-size: 12px;
       font-weight:500;
+      color : #f18121;
+
       }
       .icons_inwardrem{
-        color: #ffa7a7;width: 30px;
+        color : #f18121;
+        width: 30px;
       margin-bottom:30px;
      }
      .Inward_box_type_border{
       margin-top: 0px;
+      margin-left: 10px;
     }
     .Inward_box_type_select{
       margin: 0px 0px ;
     }
    .Inward_pink_box_request{
-    color: #f08080;
+    color : #f18121;
     border: 1px solid rgb(230, 228, 228);
     border-right: none;
-    background-color: #fff6f6;
+      background-color:#faede2 ;
     }
     .Inward_four_main_lists{
       color: #000f00;
@@ -682,18 +731,22 @@ abbr[title] {
       flex-direction: row;
      }
      .Inward_sel_Inacct_numbr{
-      width: 180px;
-      margin-left: 20px;
+      width: 160px;
+      margin-left: 5px;
       background-color: #f1ecec;
-      height: 23px;
+      height: 25px;
        outline: none;
       font-size: small;
       padding: 0px 0px;
     }
+    .ptag_inward_acct_num{
+      font-size: small;
+      margin-top: 2px;
+    }
 .inward_submit_app {
     padding: 10px;
-    background-color: #3498db;
-    color: #fff;
+    background-color: #faede2;
+    color : #f18121;
     /* width: 40%; */
     font-size: smaller;
     cursor: pointer;
@@ -701,7 +754,7 @@ abbr[title] {
     border-radius: 4px;
   }
   .inward_submit_app:hover {
-    background-color: #2980b9;
+    background-color: #fde2ca;
   } 
  
   /* InwardRemitance CSS Ends */
@@ -732,7 +785,7 @@ abbr[title] {
 
   }
   .user_header_tax_color{
-    color: #fcb99b;
+    color : #f18121;
      font-size: 20px;
   }
   .Tax_hrline_box_shadow{
@@ -740,12 +793,12 @@ abbr[title] {
     border: none;
   }
   .light_bg_color_tax{
-    background-color: #f0f0f0;
+    background-color:  #fdefef;
    }
   .ptag_tax_center{
      padding: 5px 10px;
      font-weight: 400;
-    background-color: #e7e6e6 ;
+    background-color:#fae2e5 ;
     color: #000;
   }
   .Tax_ptag_please_para{
@@ -782,7 +835,8 @@ abbr[title] {
   .Tax_center_but_app {
     margin-bottom: 10px;
     padding: 8px;
-     color: #fff;
+     color:#000000;
+     background-color:#f5b176 ;
     cursor: pointer;
      font-size: small;
     margin-left: 10px;
@@ -800,9 +854,8 @@ abbr[title] {
   }
   
   .Tax_center_but_app:hover {
-    background-color: #3498db;
-     border: none;
-     
+    background-color: #fa9a46;
+color: #000;     
   } 
   .Tax_center_but_app:focus{
     outline: none;
@@ -810,7 +863,7 @@ abbr[title] {
   }
   
   /* Tax Center CSS Ends  */
-  /* MyTransaction CSS Starts */
+/* MyTransaction CSS Starts */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 /* *{
@@ -828,7 +881,7 @@ abbr[title] {
     margin-left: 30px;
   }
   .main_my_scheduled_tran{
-    color:  #d19071;
+    color:    #f18121;
     font-size: 20px;
     font-weight: 400;
   }
@@ -843,8 +896,9 @@ abbr[title] {
  }
 .search_section_mainheader_mytran{
   margin-top: 10px;
-  background-color: #e9e6e6;
-     padding: 10px 10px;
+  background-color: #faede2;
+
+      padding: 10px 10px;
 }
 .myalabel_trans_type_sch{
   display: flex;
@@ -853,23 +907,29 @@ abbr[title] {
 .mya_sch_transaction_Type{
   margin-left: 10px;
   font-size: small;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 12px;
+  margin-bottom: 5px;
 }
 .my_Tatransaction_Type{
   margin-left:10px;
-  margin-top: 10px;
-    height: 20px;
+   margin-top: 10px;
+    height: 25px;
+    padding: 0px 10px;
+    font-size: small;
     outline: none;
-    font-size: smaller;
-   width: 150px;
+    width: 150px;
 }
 .mya_sch_searchbtn{
   margin:0px 8px ;
   border: none;
   outline: none;
+  background-color: #f18121;
+  border-radius: 10px;
   cursor: pointer;    
   font-size: small;
+}
+.mya_sch_searchbtn:hover{
+  background-color: #ff7700;
 }
 .mya_Trasch_download_detail{
   display: flex;
@@ -878,25 +938,27 @@ abbr[title] {
   justify-content: right;
 }
 .my_sch_tra_label_downl{
-  margin-right: 5px;
+  margin-right: 7px;
  font-size: small;
-margin-top: 0px;
+margin-top: 3px;
 }
   .my_tran_sel_downl{
     margin-right: 10px;
     width: 150px;
+    padding: 0px 5px;
     outline: none;
     font-size: smaller;
-    height: 20px;
+    height: 25px;
    }
   .My_transac_download_ok_button{
-    background-color: #ff7d31;
+    background-color:  #f18121;
     color: #fff;
     cursor: pointer;
     border-radius: 3px;
     width: 35px;
+    padding: 0px 2px;
     font-size: smaller;
-    height: 20px;
+    height: 25px;
     border: none;
   }
   
@@ -925,7 +987,7 @@ margin-top: 0px;
 }
 
 .interest_certificate_heading5 {
-  background-color: lightgray;
+  background-color: #faede2;
   padding: 10px;
 }
 
@@ -965,7 +1027,7 @@ margin-top: 0px;
 .btn_interest_button {
   outline: none;
   overflow: hidden;
-  background-color: blue;
+  background-color: #f18121;
   font-weight: 500;
   color: white;
 }
@@ -1023,6 +1085,7 @@ margin-top: 0px;
 }
 .Disclainer_border_heading5{
   text-align: center;
+  color: #f18121;
 }
 .Disclaimer_button{
   text-align: center;
@@ -1031,7 +1094,7 @@ margin-top: 0px;
   justify-items: center;
 }
 .btn_Disclaimer_button{
-  background-color: blue;
+  background-color: #f18121;
   font-weight: 500;
   border-style: none;
   color: white;
@@ -1068,6 +1131,7 @@ padding: 2%;
 
 .TaxPayment_pera_heading5{
   text-align: center;
+  color: #f18121;
 }
 
 .taxpayment_button{
@@ -1077,7 +1141,7 @@ padding: 2%;
 }
 
 .btn_taxpayment_button{
-  background-color: blue;
+  background-color: #f18121;
   color: white;
   
 }
@@ -1115,7 +1179,7 @@ padding: 2%;
   padding: 3%;
 }
 .incometax_filling_heading4{
-  background-color: lightgray;
+  background-color: #faede2;
   padding: 1%;
   
 }
@@ -1133,7 +1197,7 @@ padding: 2%;
 
 .btn_incometax_button{
   margin: 4%;
-  background-color: blue;
+  background-color: #f18121;
   font-weight: 500;
   color: white;
 }

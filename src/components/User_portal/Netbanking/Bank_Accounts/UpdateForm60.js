@@ -15,7 +15,7 @@ function UpdateForm60() {
             <BankaccountSidebar />
             </div>
             <div className='col-9'>
-                <div className='update_form_container ' style={{backgroundColor:'rgb(255, 250, 244)'}}>
+                <div className='update_form_container ' style={{backgroundColor:' rgb(255, 250, 244)'}}>
                 
                     <div className='update_form_heading_Container'>
                     <h3 className='update_form_heading p-2'>Update Form 60</h3>
@@ -23,75 +23,75 @@ function UpdateForm60() {
                     <form className='update_form_section'>
                    <label for="savingsAccountNumber" className='form-inline'>
                      <span className='col-md-5'>Savings Account Number*</span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-5 w-25'/>
                    </label>
                    <label for="declarentsName" className='form-inline'>
                      <span className='col-md-5'>Declarent's Name</span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="declarentsDOB" className='form-inline'>
                      <span className='col-md-5'>Declarent's Date Of Birth</span>
-                     <input type="date" className='form-control form-control-sm col-md-4'/>
+                     <input type="date" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="fathersName" className='form-inline'>
                      <span className='col-md-5'>Father's Name*</span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="addressLine1" className='form-inline'>
                      <span className='col-md-5'>Address Line1</span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="addressLine2" className='form-inline'>
                      <span className='col-md-5'>Address Line2</span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="town/City" className='form-inline'>
                      <span className='col-md-5'>Town/City</span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="State" className='form-inline'>
                      <span className='col-md-5'>State</span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="pincode" className='form-inline'>
                      <span className='col-md-5'>Pin Code</span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="amountOfTransaction" className='form-inline'>
                      <span className='col-md-5'>Amount Of Transaction</span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="dateOfTransaction" className='form-inline'>
                      <span className='col-md-5'>Date Of Transaction</span>
-                     <input type="Date" className='form-control form-control-sm col-md-4'/>
+                     <input type="Date" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="agriculturalIncome" className='form-inline'>
                      <span className='col-md-5'>Agricultural Income*<br/><span style={{ fontSize: "11px" }}>(Income Taxable In India)</span></span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="incomefromothersource" className='form-inline'>
                      <span className='col-md-5'>Income From Other Source*<br/><span style={{ fontSize: "11px" }}>(Income Taxable In India)</span></span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="panAcknowledgeNumber" className='form-inline'>
                      <span className='col-md-5'>PAN Acknowledge Number</span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="panApplicationDate" className='form-inline'>
                      <span className='col-md-5'>PAN Application Date</span>
-                     <input type="date" className='form-control form-control-sm col-md-4'/>
+                     <input type="date" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="telephoneNumber" className='form-inline'>
                      <span className='col-md-5'>Telephone Number</span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="mobileNumber" className='form-inline'>
                      <span className='col-md-5'>Mobile Number</span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <label for="emailId" className='form-inline'>
                      <span className='col-md-5'>E-mail ID</span>
-                     <input type="text" className='form-control form-control-sm col-md-4'/>
+                     <input type="text" className='form-control form-control-sm col-md-4 w-25'/>
                    </label>
                    <h6>*Mandatory Fields</h6>
                    <div className="form-check">
@@ -141,8 +141,8 @@ function UpdateForm60() {
         </form>
         <hr/>
         <div className='p-1'>
-        <button className='update_form_back_btn '>BACK</button>
-        <button className='update_form_submit_btn'>SUBMIT</button>
+        <button className='update_form_back_btn p-2'>BACK</button>
+        <button className='update_form_submit_btn p-2'>SUBMIT</button>
         </div>
                 </div>
             </div>

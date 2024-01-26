@@ -1,11 +1,11 @@
  
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import{Link} from 'react-router-dom';
 import './Customerservice.css' 
 
     const DropDownBankAccount = () => {
-    const [bankAccountDropdown, setBankAccountDropdown] = useState(false);
-    const [selectedSubHeader, setSelectedSubHeader] = useState('');
+    const [bankAccountDropdown, setBankAccountDropdown] = useState(true);
+    const [selectedSubHeader, setSelectedSubHeader] = useState('accountModification');
     const [creditCardDropdown, setCreditCardDropdown] = useState(false);
     const [depositsDropdown, setDepositsDropdown] = useState(false);
     const [loanDropdown, setLoanDropdown] = useState(false);
@@ -14,8 +14,11 @@ import './Customerservice.css'
     const [forexTravelCardsDropdown, setForexTravelCardsDropdown] = useState(false);
     const [pocketsDropdown, setPocketsDropdown] = useState(false);  
 
+    useEffect(() => {
+      setSelectedSubHeader('accountModification');
+   }, []); 
 // 
-const [bankAccountArrowUp, setBankAccountArrowUp] = useState(false);
+const [bankAccountArrowUp, setBankAccountArrowUp] = useState(true);
 const [creditCardArrowUp, setCreditCardArrowUp] = useState(false);
 const [depositsArrowUp, setDepositsArrowUp] = useState(false);
 
@@ -172,43 +175,37 @@ const toggleDepositsDropdown = () => {
             onClick={() => handleSubHeaderClick('accountModification')}
           >
              Account Modification Related  
-             <hr className='DropDown_hr_line'/>
-          </div>
+           </div>
           <div
             className={`DropDown_Sub_bank_aact_Statement_BankingAPP ${selectedSubHeader === 'accountStatement' ? 'active' : ''}`}
             onClick={() => handleSubHeaderClick('accountStatement')}
           >
             Account Statement Related
-            <hr/>
-          </div>
+           </div>
           <div
             className={`DropDown_Sub_bank_aact_Transaction_BankingAPP ${selectedSubHeader === 'accountTransaction' ? 'active' : ''}`}
             onClick={() => handleSubHeaderClick('accountTransaction')}
           >
             Account Transaction Related
-            <hr/>
-          </div>
+           </div>
           <div
             className={`DropDown_Sub_bank_aact_Debit_card_BankingAPP ${selectedSubHeader === 'accountDebitCard' ? 'active' : ''}`}
             onClick={() => handleSubHeaderClick('accountDebitCard')}
           >
             ATM/Debit Card related  
-            <hr/>
-          </div>
+           </div>
           <div
             className={`DropDown_Sub_bank_aact_cheque_BankingAPP ${selectedSubHeader === 'accountChequeBook' ? 'active' : ''}`}
             onClick={() => handleSubHeaderClick('accountChequeBook')}
           >
              Cheque Book/DD related
-            <hr/>
-          </div>
+           </div>
           <div
             className={`DropDown_Sub_bank_aact_govt_BankingAPP ${selectedSubHeader === 'accountGovtSchemes' ? 'active' : ''}`}
             onClick={() => handleSubHeaderClick('accountGovtSchemes')}
           >
              NPS and other Government schemes 
-             {/* <hr/> */}
-           </div>
+            </div>
         </div>
       )}
         </div>
@@ -327,15 +324,13 @@ const toggleDepositsDropdown = () => {
             onClick={() => handleSubHeaderClick('creditCardModification')}
           >
             Modification Related
-            <hr/>
-          </div>
+           </div>
           <div
             className={`DropDown_Sub_Credit_cardRelated_BankingAPP ${selectedSubHeader === 'creditCardQueries' ? 'active' : ''}`}
             onClick={() => handleSubHeaderClick('creditCardQueries')}
           >
             Card Related Queries
-            <hr/>
-          </div>
+           </div>
           <div
             className={`DropDown_Sub_Credit_statementRel_BankingAPP ${selectedSubHeader === 'creditCardStatement' ? 'active' : ''}`}
             onClick={() => handleSubHeaderClick('creditCardStatement')}
@@ -404,8 +399,7 @@ const toggleDepositsDropdown = () => {
             Fixed Deposit 
             {/* {bankAccountArrowUp ? <i className="dropdown_arrow_down fa-solid fa-chevron-up"></i>  */}
             {/* : <i className="dropdown_arrow_down fa-solid fa-chevron-down"></i>} */}
-            <hr/>
-           </div>
+            </div>
           <div
             className={`DropDown_Sub_Division_Recurrdeposits_BankingAPP ${selectedSubHeader === 'recurringDeposit' ? 'active' : ''}`}
             onClick={() => handleSubHeaderClick('recurringDeposit')}
