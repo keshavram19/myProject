@@ -49,16 +49,20 @@ const activities = [
 const FavouriteActivities = () => {
 
     const [favouriteActivities, setFavouriteActivities] = useState([]);
-    const handleCheckboxChange = (activity) => {
-    const isSelected = favouriteActivities.includes(activity);
+    const [activity, setActivity] = useState('')
+    const handleCheckboxChange = () => {
+        const isSelected = favouriteActivities.includes(activity);
 
-    if (isSelected) {
-        setFavouriteActivities(favouriteActivities.filter(selected => selected !== activity));
-    } 
-    else {
-        setFavouriteActivities([...favouriteActivities, activity]);
+        if (isSelected) {
+            setFavouriteActivities(favouriteActivities.filter(selected => selected !== activity));
+        }
+        else {
+            setFavouriteActivities([...favouriteActivities, activity]);
+        }
     }
-}
+
+    
+
     return (
         <>
             <div className='container-fluid' style={{ marginTop: "90px" }}>
@@ -97,12 +101,11 @@ const FavouriteActivities = () => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {activities.map((eachActivity, index)=> (
+                                                {activities.map((eachActivity, index) => (
                                                     <tr key={index}>
                                                         <td>
                                                             <input type='checkbox'
-                                                                onClick={() => handleCheckboxChange(eachActivity)}
-                                                            >
+                                                                onClick={()=>setActivity(eachActivity)}                                                            >
                                                             </input>
                                                         </td>
                                                         <td>{eachActivity.listOfActivities}</td>
@@ -116,10 +119,10 @@ const FavouriteActivities = () => {
 
                                 <div>
                                     <div>
-                                        <button><MdKeyboardArrowLeft /></button>
+                                        <button ><MdKeyboardArrowLeft /></button>
                                     </div>
                                     <div>
-                                        <button><MdKeyboardArrowRight /></button>
+                                        <button onClick={handleCheckboxChange}><MdKeyboardArrowRight /></button>
                                     </div>
                                 </div>
 
@@ -137,20 +140,20 @@ const FavouriteActivities = () => {
                                             <tbody>
                                                 {
                                                     favouriteActivities.map((selectedActivity, index) => (
-                                                      <tr>
-                                                        <td>
-                                                            <input type='checkbox'></input>
-                                                        </td>
-                                                        <td>{selectedActivity.listOfActivities}</td>
-                                                        <td>{selectedActivity.typeOfActivity}</td>
-                                                      </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <input type='checkbox'></input>
+                                                            </td>
+                                                            <td>{selectedActivity.listOfActivities}</td>
+                                                            <td>{selectedActivity.typeOfActivity}</td>
+                                                        </tr>
                                                     ))
                                                 }
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                         </div>
                     </div>
                 </div>
