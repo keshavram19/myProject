@@ -1,14 +1,18 @@
 .credit_card_tabs_text{
     text-align: center;
-    font-weight: 500;
-    font-size: 18px;
+    font-weight: 500 !important;
+    font-size: 18px !important;
     cursor: pointer;
 }
-.nav-link.credit_card_tabs_text.active{
-    background-color: orange;
+.nav-link.active.credit_card_tabs_text {
+    background-color: orange !important;
 }
 .nav-link.credit_card_tabs_text{
-    background-color: #f1eded;
+    background-color: #f1eded !important;
+    color: gray;
+}
+.nav-link.credit_card_tabs_text:hover{
+    color: gray;
 }
 
 /* View Your Card */
@@ -37,10 +41,11 @@
     margin-top: 15px;
 }
 .all_credit_cards_container{
-    background-color: #dad5d5;
+    /* background-color: #dad5d5; */
+    background-color: #faede2;
     padding: 10px 0px;
     border-radius: 10px;
-    height: 180px;
+    height: 175px;
 }
 .all_credit_cards_slider{
   width: 250px;
@@ -84,7 +89,8 @@
 .credit_card_pay_bill_btn{
     border: none;
     outline: none;
-    background-color: orange;
+    /* background-color: orange; */
+    background-color: #f18121;
     color: #fff;
     padding: 5px 20px;
     border-radius: 20px;
@@ -104,13 +110,15 @@
 }
 .credit_card_details_btns:hover{
     color: #fff;
-    background-color: orange;
+    /* background-color: orange; */
+    background-color: #f18121;
     border: 0px;
     transition: 0.8s;
 }
 
 .credit_card_manage_subscr_cont{
-    background-color: #ebebeb;
+    /* background-color: #ebebeb; */
+    background-color: #faede2;
     padding: 15px 20px;
     margin: 20px 0px;
     border-radius: 5px;
@@ -137,7 +145,8 @@
 .manage_subscript_btns{
     border: none;
     outline: none;
-    background-color: orange;
+    /* background-color: orange; */
+    background-color: #f18121;
     color: #fff;
     padding: 7px 25px;
     border-radius: 20px;
@@ -151,7 +160,8 @@
     box-shadow: 0px 0px 5px #b2b9bf;
 }
 .manage_credit_limits_header{
-    background-color: #e9e9e9;
+    /* background-color: #e9e9e9; */
+    background-color: #faede2;
     width: 100%;
     height: 50px;
     display: flex;
@@ -181,7 +191,8 @@
 }
 .credit_limit_generate_otp_btn{
     border: none;
-    background-color: #b869e6;
+    /* background-color: #b869e6; */
+    background-color: #f18121;
     color: #fff;
     border-radius: 20px;
     padding: 5px 20px;
@@ -189,17 +200,21 @@
 
 /* Manage Credit Card Usage */
 .nav-link.active.card_usage_tabs_text {
-    background-color: orange;
+    background-color: orange !important;
 }
 .nav-link.card_usage_tabs_text{
-    background-color: #f1eded;
+    background-color: #f1eded !important;
+    color: gray;
+}
+.nav-link.card_usage_tabs_text:hover{
+    color: gray;
 }
 .card_usage_tabs_cont{
     width: 35%;
 }
 .card_usage_tabs_text{
     text-align: center;
-    font-weight: 500;
+    font-weight: 500 !important;
     font-size: 16px;
     cursor: pointer;
 }
@@ -280,17 +295,18 @@
     display: block;
     width: 51px;
     height: 25px;
-    box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, rgba(0, 0, 0, 0.21) 0px 0px 0px 24px inset,
-          #22cc3f 0px 0px 0px 0px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+    box-shadow: rgb(214 209 209 / 62%) 0px 0px 5px inset, 
+        rgb(43 41 41 / 21%) 0px 0px 0px 24px inset, 
+        #22cc3f 0px 0px 0px 0px inset, rgb(242 227 227 / 45%) 0px 1px 0px 0px;
 } 
 .toggle_pay_switch_btn::after {
     content: "";
     display: flex;
-    top: 2.3px;
+    top: 3px;
     left: 2px;
     width: 19px;
     height: 19px;
-    background-color: #efecec;
+    background-color: #f9f5f5;
     border-radius: 200px;
     position: absolute;
     box-shadow: #848080 0px 0px 0px 2px, rgb(192 186 186 / 30%) 0px 6px 6px;
@@ -337,7 +353,8 @@
 }
 .card_usage_submit_btn{
     border: 0px;
-    background-color: orange;
+    /* background-color: orange; */
+    background-color: #f18121;
     color: #fff;
     border-radius: 15px;
     padding: 5px 20px;
