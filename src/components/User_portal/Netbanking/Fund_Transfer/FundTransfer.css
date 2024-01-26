@@ -592,10 +592,25 @@ abbr[title] {
    
     
 }
+.buttons_managepay11{
+  margin-Right:'5px';
+  height: 38px;
+  margin-right: 5px;
+  width: 90px;
+  font-size: 14px;
+  background-color: rgb(247, 144, 10);
+  border-width: 0.5px;
+  color: rgb(241, 236, 236);
+  margin-top: 5px;
+  font-family: "poppins";
+  border: none;
+  align-items: center;
+ 
+  
+}
 .manage_payee{
     background-color: rgb(230, 238, 238);
     font-family: "poppins";
-    height: 130px;
 }
 .content_managepay{
     width:500px ;
