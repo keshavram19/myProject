@@ -69,7 +69,10 @@ const TaxCenter = () => {
             </p>
           </div>
           <hr />
-          <button className="btn btn-primary Tax_center_but_app" type="button" >
+
+          <button className=" Tax_center_but_app" type="button">
+
+
             Submit
           </button>
         </div>
