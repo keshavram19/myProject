@@ -3,17 +3,8 @@ import React from 'react'
 import './investments.css'
 const CancerCover = () =>   {
   return (
-    <div className='container-fluid'>
-      <div className='row'>
-        <div className='col-md-12'>
-          <h5 style={{marginBottom:'20px'}}>
-           7.Cancer Cover
-          </h5>
-          <li className='cancer_coverlist'>Add a title cover for cancer ailments up to 50 lakhs</li>
-          <li className='cancer_coverlist'>Add Highlights of the product.</li>
-          <li className='cancer_coverlist'>And advantages of buying this plan online and <span>buy now button</span></li>
-        </div>
-        <div className='container-fluid' >
+    <div className='container-fluid' style={{marginTop:'70px'}}>
+        <div className='container-fluid' style={{marginTop:'70px'}} >
          <div className='row'>
          <div className='cover_page1'>
          <div><i class="fa-solid fa-heart-pulse" style={{color:'white'}}></i></div>
@@ -23,14 +14,14 @@ const CancerCover = () =>   {
           </div>
           <div className='container-fluid'>
             <div className='row' style={{ border:'1px solid black'}}>
-              <div className='col-md-6'style={{backgroundColor:"white",paddingLeft:'40px'}}>
+              <div className='col-md-6'style={{backgroundColor:"#f8f9fa",paddingLeft:'40px'}}>
                 <h5 className='hospital_covercancer1'>HIGHLIGHTS OF THE PRODUCT</h5>
                 <li className='hospital_covercancer2'>Upfront payment cover amount before <br style={{paddingLeft:'20px'}}></br>hospitalization</li>
                 <li className='hospital_covercancer2'>No restriction of Network Hospitals</li>
                 <li className='hospital_covercancer2'>Lumpsum payout upto $ 50 lakhs </li>
                 <h6 className='hospital_covercancer25'>Download Brochure</h6>
               </div>
-              <div className='col-md-5'>
+              <div className='col-md-5' style={{backgroundColor:'#f8f9fa'}}>
               <div className='hospital_covercancer99'>
                <div>
                <h5 className='hospital_covercancer1'>Advantages of buying this plan online</h5>
@@ -87,8 +78,7 @@ const CancerCover = () =>   {
             </div>
 
       </div>
-      
-    </div>
+
          
   )
 }
