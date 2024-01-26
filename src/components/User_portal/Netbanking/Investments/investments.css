@@ -7,6 +7,7 @@
     /* margin: auto; */
     padding: 60px;
     border-right:none ;
+    background-color:  #faede2;
   }
   
   button {
@@ -26,6 +27,7 @@
     display: flex;
     margin: 20px;
     justify-content: center;
+    color: #f18121;
   }
   .demat-account-page-container button{
     background-color: #f2570a;
@@ -58,6 +60,8 @@
    margin: auto;
    padding: 0px;
    margin-left: 17.5%;
+   background-color:  #faede2;
+
   }
  .banking_header {
   /* border: solid black 2px; */
@@ -79,6 +83,7 @@
 .internet_banking{
   border: none;
   margin-top: 20px;
+  color: #f18121;
 }
 .internet_banking a{
   font-weight: bold;
@@ -97,7 +102,7 @@
 
 
 .service-requests-page {
-  background-color: #dbd1d0;
+ background-color: #a5abb5;
   display: inline-block;
   width: 100%;
   max-width: 800px;
@@ -115,7 +120,7 @@
 }
 
 .service-requests-page-header {
-  background-color: #dbd1d0;
+  background-color: black;
   margin-bottom: 10px;
   width: 100%;
   height: 50px;
