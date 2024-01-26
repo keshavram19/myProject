@@ -1491,7 +1491,7 @@ body {
 
 .paylater_heading {
   font-size: x-large;
-  color: #8f3737;
+  color: #f18121;
 }
 
 .paylater_image1 {
@@ -1500,7 +1500,7 @@ body {
 }
 
 .paylater_tablehead {
-  background-color: lightgray;
+  background-color: #f8f9fa;
   font-size: 10px;
 }
 
@@ -1510,6 +1510,7 @@ body {
 
 .paylater_table {
   margin-top: 5%;
+
 }
 
 .paylater_table::-webkit-scrollbar,
@@ -1526,44 +1527,54 @@ body {
 
 .paylater_paynow {
   border: 1px solid white;
-  font-size: 15px;
-  color: white;
-  font-size: 13px;
-  background-color: #8f3737;
+  font-size: 10px;
+  color: #f18121;
+  background-color: #faede2;
+  height: 35px;
+  border-radius: 5px;
+  
+
 }
 
 .paylater_bill,
 .paylater_statement {
-  border: 1px solid black;
-  font-size: 15px;
-  color: black;
-  font-size: 13px;
+  font-size: 10px;
+  color: #f18121;
+  background-color: #faede2;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  
+
 }
 
 .paylater_paynow:focus,
 .paylater_bill:focus,
 .paylater_statement:focus {
   box-shadow: none;
+
 }
 
 .paylater_paynow:hover {
-  color: white;
+  color: #f18121;
+
 }
 
 .paylater_bill:hover,
 .paylater_statement:hover {
-  color: black;
+  color: #f18121;
 }
 
 .paylater_transactions {
-  background-color: #8f3737;
-  color: white;
+  background-color: #faede2;
+  color: #f18121;
   display: flex;
   align-items: center;
   margin-top: 5%;
   height: 40px;
   padding-left: 2%;
   font-size: 14px;
+
 }
 
 /* paylater css ends */
@@ -1572,7 +1583,7 @@ body {
 
 .estatement_heading {
   font-size: x-large;
-  color: #8f3737;
+  color: #f18121;
 }
 .estatement_container {
   font-size: small;
@@ -1592,7 +1603,7 @@ body {
   display: flex;
   width: 230px;
   position: relative;
-  height: 30px;
+  height: 40px;
   justify-content: space-between;
 }
 
@@ -1619,7 +1630,8 @@ body {
 }
 .estatement_icon1 {
   font-size: xx-large;
-  color: #8f3737;
+  color: #f18121;
+  margin-top: 20%;
 }
 
 .estatement_statementtype {
@@ -1641,6 +1653,7 @@ body {
 }
 .estatement_datepick {
   padding-left: 3%;
+  margin-top: 6%;
 }
 .estatement_datepick:focus {
   outline: none;
@@ -1692,24 +1705,32 @@ body {
 }
 .estatement_view {
   width: 60px;
-  background-color: rgb(59, 59, 139);
+  background-color:#faede2;
   border: none;
   border-radius: 5px;
-  color: white;
+  color: #f18121;
   height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 .estatement_download {
   margin-left: 4%;
   width: 80px;
-  background-color: #8f3737;
+  background-color: #faede2;
   border: none;
   border-radius: 5px;
-  color: white;
+  color: #f18121;
   height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 .estatement_note {
   margin-top: 5%;
-  color: #8f3737;
+  color: #f18121;
 }
 
 /* estatement css ends */

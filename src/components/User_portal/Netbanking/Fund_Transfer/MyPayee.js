@@ -23,7 +23,7 @@ const Mypayee = () => {
           <PaymentSidebar/>
           </div>
           <div className="col-9">
-          <p className="estatement_heading">Fund Transfer</p>
+          <p className="mypayee_heading">Fund Transfer</p>
       <div className="mypayee_navmain">
         <li
           className={activeTab === "mypayee" ? "mypayee_buttonon" : ""}
@@ -79,7 +79,7 @@ const Mypayee = () => {
               <div className="mypayee_input1">
                 <input
                   type="text"
-                  className="form-control mypayee_input2 "
+                  className=" mypayee_input22"
                   placeholder="Search for Payee by name,account,mobile number.."
                 ></input>
               </div>
