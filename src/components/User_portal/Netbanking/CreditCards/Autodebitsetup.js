@@ -4,7 +4,7 @@ import Select from "react-select";
 
 const AutoDebitInstructions = () => {
     return(
-        <div className="container-fluid">
+        <div className="container-fluid" style={{marginTop:"90px"}}>
             <div className="row  mt-2">
                 <div className="col-sm-12 auto_debit_instructions ">
                     <div>

@@ -4,15 +4,15 @@ import { MdOutlineCurrencyRupee } from "react-icons/md";
 
 const EMISubmit = () => {
     return (
-        <div className="container-fluid convert_to_emi_submit_button">
-            <div className="row mt-2">
+        <div className="container-fluid convert_to_emi_submit_button" style={{marginTop:"90px"}}>
+            <div className="row ">
                 <div className="col-sm-12">
                     <div>
                         <h3>Convert To EMI</h3>
                         <hr />
                     </div>
                     <div className="convert_to_emi_faqs">
-                        <button className="convert_to_emi_button">FAQS</button>
+                        <button className="convert_to_emi_button_submit">FAQS</button>
                     </div>
                     <div className="d-flex">
                         <p>Credit Card Selected</p>
@@ -64,7 +64,7 @@ const EMISubmit = () => {
                         <div className="card">
                             <div className="row">
                                 <div className="col-sm-1 convert_to_emi_date">
-                                    <p>30/12/2023</p>
+                                    <p>01/01/2024</p>
                                 </div>
                                 <div className="col-sm-1 convert_to_emi_coloumn">
 
@@ -84,7 +84,7 @@ const EMISubmit = () => {
                     </div>
                     </div>
                     <div className="mt-3">
-                        <button className="convert_to_emi_button">Back</button>
+                        <button className="convert_to_emi_button_submit">Back</button>
                     </div>
                     <div className="mt-4">
                         <h6>Note :</h6>
