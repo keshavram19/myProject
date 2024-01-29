@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import './Accounts.css';
+import axios from 'axios';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 
@@ -10,6 +11,9 @@ const steps = [
 ];
 
 const Reissuecard = () => {
+
+    const [userDetails, setUserDetails] = useState([]);
+    const [selectedAccount, setSelectedAccount] = useState('');
 
     const Step = ({ title, isCompleted }) => {
       
@@ -22,6 +26,36 @@ const Reissuecard = () => {
           </div>
         );
       };
+
+      const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:4444/api/userDetails/1124563456');
+            const userDetailsData = response.data.details;
+
+            if (Array.isArray(userDetailsData)) {
+                setUserDetails(userDetailsData);
+            } else if (typeof userDetailsData === 'object') {
+                setUserDetails([userDetailsData]);
+            } else {
+                console.error('Invalid user details format:', userDetailsData);
+            }
+
+        } catch (error) {
+            console.error('Error fetching user details:', error);
+        }
+        console.log('User Details:', userDetails);
+
+    };
+
+    useEffect(() => {
+        if (selectedAccount === '') {
+            fetchData();
+        }
+    }, [selectedAccount]);
+
+    const handleAccountChange = (event) => {
+        setSelectedAccount(event.target.value);
+    };
       
   
     return (
@@ -50,9 +84,16 @@ const Reissuecard = () => {
                                 </div>
                                 <div className="col-sm-5">
                                 <select
-                                        className="form-control"
+                                            className="form-control"
+                                            value={selectedAccount}
+                                            onChange={handleAccountChange}
                                         >
-                                            <option value="Please select">Please Select</option>
+                                            <option value="">Select Account Number</option>
+                                            {userDetails.map((account, index) => (
+                                                <option key={index} value={account.userAccountNumber}>
+                                                    {account.userAccountNumber}
+                                                </option>
+                                            ))}
                                         </select>
                                 </div>
                             </div>
