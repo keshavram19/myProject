@@ -9,6 +9,7 @@
 .accounts_container {
   border: 1px solid #cdc2c2;
   margin-bottom: 20px;
+  font-size: 13px;
 }
 .savings_account_header {
   width: 100%;
@@ -97,9 +98,10 @@
 .savings_acct_note_points {
   line-height: 1.5;
   margin: 5px 0px;
+  font-size: 13px;
 }
 .savings_acct_note_order_list {
-  font-size: 15px;
+  font-size: 13px;
 }
 .savings_acc_note_atag {
   color: #4094ef;
@@ -119,6 +121,7 @@
   box-shadow: 0px 0px 5px #b2b9bf;
   margin: 15px 0px;
   background-color: rgb(253, 253, 253);
+  font-size: 13px;
 }
 .acct_type_cont {
   display: flex;
@@ -128,6 +131,8 @@
 .acct_type_text {
   width: 190px;
   font-weight: 410;
+  display: flex;
+  align-items: center;
 }
 .acct_type_drop_down_list {
   border: none;
@@ -201,18 +206,20 @@
   border: none;
   outline: none;
   padding: 5px 20px;
+  background-color: #f18121;
   color: #fff;
-  background-color: cornflowerblue;
   border-radius: 5px;
 }
 .savings_acct_statement_note {
   font-size: 18px;
   font-weight: 500;
+  font-size: 13px;
 }
 .savings_acct_statement_note_points {
   color: #7d7d7d;
   font-size: 16px;
   margin: 5px 0px;
+  font-size: 13px;
 }
 .savings_acct_statement_note_points_atag {
   color: #4094ef;
@@ -224,7 +231,7 @@
 /* Statement By Email CSS Starts */
 
 .savings_acct_user_auth_heading {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 500;
   margin-bottom: 10px;
 }
@@ -234,6 +241,7 @@
   background-color: rgb(254, 253, 253);
   box-shadow: 0px 0px 5px rgb(152, 150, 150);
   padding: 0px 0px 20px 0px;
+  font-size: 13px;
 }
 .savings_acct_user_auth_container_header {
   font-size: 20px;
@@ -289,7 +297,7 @@
   outline: none;
   color: #fff;
   /* background-color: #4094ef; */
-  background-color: orange;
+  background-color: #f18121;
   border-radius: 5px;
   padding: 5px;
 }
@@ -320,7 +328,7 @@
   color: #fff;
   padding: 5px 15px;
   border-radius: 5px;
-  background-color: darkorange;
+  background-color: #f18121;
 }
 
 /* Statement By Email CSS ends */
@@ -332,7 +340,7 @@
 * {
   font-family: Poppins;
 }
-.atm_card_details .card  {
+.atm_card_details .card {
   width: auto;
   margin: 0 auto;
   padding: 20px;
@@ -340,9 +348,12 @@
 }
 
 .atm_card_details_debit_card h6 {
-  color: #f18121 ;
+  color: #f18121;
 }
 
+.atm_card_details_debit_card p {
+font-size: 13px;
+}
 .atm_card_details_button_container {
   margin: 10px 0;
   align-items: center;
@@ -350,14 +361,13 @@
 }
 
 .atm_card_details_button {
-  font-size: 14px;
+  font-size: 13px;
   border: none;
   cursor: pointer;
   color: #f18121;
   background: none;
   padding-left: 5px;
 }
-
 
 .atm_card_details_button_upgrade {
   font-size: 14px;
@@ -369,7 +379,7 @@
   padding: 10px;
 }
 
-.atm_card_details_para_upgrade {  
+.atm_card_details_para_upgrade {
   display: inline-block;
   text-align: center;
   margin: 0;
@@ -377,7 +387,7 @@
 
 .atm_card_details_logo {
   font-size: 30px;
-  color : #f18121;
+  color: #f18121;
 }
 
 /* ATMDetails.css ends */
@@ -386,6 +396,7 @@
 
 .generate_pin .card {
   border: none;
+  font-size: 14px;
 }
 .genrate_pin_buttons {
   color: #f18121;
@@ -417,13 +428,13 @@
   width: 100%;
 }
 
-.card_details_generate_pin_select_tag .form-control:focus{
+.card_details_generate_pin_select_tag .form-control:focus {
   border: none;
   padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  width: 100%;
 }
 
 /* Generatepin.css ends */
@@ -434,7 +445,7 @@
   border: none;
 }
 
-.card_details_block_card_hotlisting h3{
+.card_details_block_card_hotlisting h3 {
   color: #f18121;
 }
 
@@ -458,10 +469,12 @@
   border: 1px solid rgb(230, 221, 221);
   padding: 3px;
   align-items: center;
+  font-size: 13px;
 }
 
 .card_details_notes {
-  font-size: 14px;
+  font-size: 13px;
+  color: #7d7d7d;
 }
 
 .card_details_block_card_hotlisting .form-control:focus {
@@ -472,7 +485,6 @@
   line-height: 1.5;
   width: 100%;
   border: none;
-
 }
 
 /* BlockCard.css ends */
@@ -488,7 +500,7 @@
   font-weight: 700;
 }
 
-.reissue_card_heading{
+.reissue_card_heading {
   color: #f18121;
 }
 
@@ -551,13 +563,13 @@
   border-color: #4caf50;
 }
 
-.card_details_select .form-control:focus{
+.card_details_select .form-control:focus {
   border: none;
   padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  width: 100%;
 }
 
 /* Reissuecard.css ends */
@@ -569,7 +581,7 @@
   font-family: Poppins;
 }
 
-.card_limit .manage_card_heading{
+.card_limit .manage_card_heading {
   color: #f18121;
 }
 .card_limit .card .form_container {
@@ -583,7 +595,7 @@
   box-shadow: inset 0 0 2px rgba(131, 128, 128, 0.3);
   font-size: 13px;
   border-radius: 5px;
-  border: 1px solid #CDCDE7;
+  border: 1px solid #cdcde7;
   outline: none;
   padding-left: 5px;
 }
@@ -726,17 +738,17 @@
 }
 
 .bookrequest .card .pancard_details {
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 13px;
 }
 
-.bookrequest .check_book_heading{
+.bookrequest .check_book_heading {
   color: #f18121;
 }
 
 .bookrequest .bookrequest_heading {
   background-color: #ffc492;
-  color: #f18121;
+
 }
 
 .bookrequest .form_input {
@@ -745,7 +757,7 @@
   box-shadow: inset 0 0 2px rgba(131, 128, 128, 0.3);
   font-size: 13px;
   border-radius: 5px;
-  border: 1px solid #CDCDE7;
+  border: 1px solid #cdcde7;
   outline: none;
   padding-left: 5px;
 }
@@ -770,7 +782,7 @@
   font-family: Poppins;
 }
 
-.pancard .update_pancard_heading{
+.pancard .update_pancard_heading {
   color: #f18121;
 }
 
@@ -783,7 +795,7 @@
   box-shadow: inset 0 0 2px rgba(131, 128, 128, 0.3);
   font-size: 14px;
   border-radius: 5px;
-  border: 1px solid #CDCDE7;
+  border: 1px solid #cdcde7;
   outline: none;
   padding-left: 5px;
 }
@@ -794,7 +806,7 @@
   box-shadow: inset 0 0 2px rgba(131, 128, 128, 0.3);
   font-size: 13px;
   border-radius: 5px;
-  border: 1px solid #CDCDE7;
+  border: 1px solid #cdcde7;
   outline: none;
   padding-left: 5px;
 }
@@ -805,8 +817,7 @@
   cursor: pointer;
 }
 
-
-.pancard .pancard_heading{
+.pancard .pancard_heading {
   background-color: #ffc492;
   color: #f18121;
 }
@@ -869,7 +880,7 @@
   background-color: rgb(177, 192, 192);
   border-radius: 2px;
   font-weight: 600;
-  font-size:15px;
+  font-size: 15px;
   text-align: center;
 }
 .update_form_submit_btn {
@@ -882,9 +893,9 @@
   font-weight: 600;
   color: white;
   margin-left: 30px;
-  font-size:15px;
+  font-size: 15px;
   text-align: center;
-  background-color: #f18121 ;
+  background-color: #f18121;
 }
 .update_form_heading {
   background-color: rgb(228, 239, 241);
@@ -912,7 +923,7 @@
   background-color: rgb(177, 192, 192);
   border-radius: 2px;
   font-weight: 600;
-  font-size:15px;
+  font-size: 15px;
   text-align: center;
 }
 .PMSSS_form_section span {
@@ -929,9 +940,9 @@
   font-weight: 600;
   color: white;
   margin-left: 30px;
-  font-size:15px;
+  font-size: 15px;
   text-align: center;
-  background-color: #f18121 ;
+  background-color: #f18121;
 }
 .PMSSS_form_section label {
   margin-top: 15px;
@@ -952,7 +963,6 @@
 .PMSSS_form_section .custom-select:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
-  
 }
 .PMSSS_form_section .form-control:focus {
   /* border-color: inherit; */
@@ -977,7 +987,7 @@ body {
   font-size: small;
   border: 1px solid #d3d0cbff;
 }
-.service_table_heading{
+.service_table_heading {
   color: #f18121;
 }
 
@@ -1002,7 +1012,7 @@ body {
   background-color: transparent;
   border: none;
   border-radius: 4px;
-  color:  #f18121;
+  color: #f18121;
   display: inline-block;
   font-family: revert;
   margin: 5px;
@@ -1011,7 +1021,7 @@ body {
   transition-duration: 0.3s;
   transition-property: background-color, color, opacity;
   transition-timing-function: linear;
-  outline: 2px solid #f18121
+  outline: 2px solid #f18121;
 }
 
 .service_btn:hover {
@@ -1034,16 +1044,16 @@ body {
 }
 
 .service_icon {
-  color:#f18121;
+  color: #f18121;
 }
 
 .servicerequest_subcard {
   border-left: 4px solid gray;
   border-bottom: 4px solid gray;
-  background-color:#faede2!important;
+  background-color: #faede2 !important;
 }
-.service_background_main{
-  background-color:#f8f9fa;
+.service_background_main {
+  background-color: #f8f9fa;
 }
 
 /* service reqest ends */
@@ -1063,7 +1073,7 @@ body {
 .deposit_btn {
   border: none;
   border-radius: 14px;
-  color:#f18121;
+  color: #f18121;
   display: inline-block;
   font-family: revert;
   margin: 5px;
@@ -1073,7 +1083,7 @@ body {
   transition-property: background-color, color, opacity;
   transition-timing-function: linear;
   padding: 10px 20px;
-  background-color:#fac294;
+  background-color: #fac294;
 }
 
 .deposit_cardbtn {
@@ -1086,10 +1096,10 @@ body {
 }
 .deposit_card {
   border-radius: 10px;
-  background-color:#faede2!important;
+  background-color: #faede2 !important;
   color: black;
 }
-.deposit_fixedheading{
+.deposit_fixedheading {
   color: #f18121;
 }
 
@@ -1102,15 +1112,15 @@ body {
 }
 .deposit_icon {
   font-size: 40px;
-  color:#f18121;
+  color: #f18121;
 }
 
 .deposit_btn1 {
-  background-color:#fac294;
+  background-color: #fac294;
   border: none;
   border-bottom: 4px solid #f18121;
   border-radius: 4px;
-  color:#f18121;
+  color: #f18121;
   display: inline-block;
   font-family: revert;
   margin: 5px;
@@ -1122,7 +1132,7 @@ body {
   padding: 10px 40px;
 }
 .deposit_btn1:hover {
-  background-color:#f18121;
+  background-color: #f18121;
   color: black;
 }
 
@@ -1132,12 +1142,12 @@ body {
 
 .deposit_card2 {
   border-radius: 10px;
-  background-color:#faede2!important;
+  background-color: #faede2 !important;
   border-left: 4px solid gray;
 }
 
-.fixed_deposit_background_main{
-  background-color:#f8f9fa;
+.fixed_deposit_background_main {
+  background-color: #f8f9fa;
 }
 
 /* fixed deposit ends */
@@ -1149,16 +1159,16 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.recurring_rupeeicon{
+.recurring_rupeeicon {
   color: #f18121;
 }
 
 .recurring_btn {
-  background-color:#fac294;
+  background-color: #fac294;
   border: none;
   border-bottom: 4px solid #f18121;
   border-radius: 4px;
-  color:#f18121;
+  color: #f18121;
   display: inline-block;
   font-family: revert;
   margin: 5px;
@@ -1171,11 +1181,11 @@ body {
 }
 
 .recurring_btn1 {
-  background-color:#fac294;
+  background-color: #fac294;
   border: none;
   border-bottom: 4px solid #f18121;
   border-radius: 14px;
-  color:#f18121;
+  color: #f18121;
   display: inline-block;
   font-family: revert;
   margin: auto;
@@ -1192,7 +1202,7 @@ body {
   border: none;
   border-bottom: 4px solid #f18121;
   border-radius: 14px;
-  color:#f18121;
+  color: #f18121;
   display: inline-block;
   font-family: revert;
   text-decoration: none;
@@ -1211,19 +1221,19 @@ body {
   color: black;
 }
 .recurring_para {
-  color:#f18121;
+  color: #f18121;
 }
 
 .recurring_amount {
   font-size: small;
   margin-bottom: 60px;
 }
-.recurring_sideheading{
+.recurring_sideheading {
   color: #f18121;
 }
 
-.recurring_background_main{
-  background-color:#f8f9fa;
+.recurring_background_main {
+  background-color: #f8f9fa;
 }
 
 /* recurring deposit ends */
@@ -1440,7 +1450,7 @@ body {
 }
 .fixed_button_now {
   padding: 10px;
-  background-color:rgb(235, 106, 60);
+  background-color: rgb(235, 106, 60);
   color: #312b2b;
   border: none;
   border-radius: 10px;
@@ -1510,7 +1520,6 @@ body {
 
 .paylater_table {
   margin-top: 5%;
-
 }
 
 .paylater_table::-webkit-scrollbar,
@@ -1532,8 +1541,6 @@ body {
   background-color: #faede2;
   height: 35px;
   border-radius: 5px;
-  
-
 }
 
 .paylater_bill,
@@ -1544,20 +1551,16 @@ body {
   height: 35px;
   border-radius: 5px;
   border: none;
-  
-
 }
 
 .paylater_paynow:focus,
 .paylater_bill:focus,
 .paylater_statement:focus {
   box-shadow: none;
-
 }
 
 .paylater_paynow:hover {
   color: #f18121;
-
 }
 
 .paylater_bill:hover,
@@ -1574,7 +1577,6 @@ body {
   height: 40px;
   padding-left: 2%;
   font-size: 14px;
-
 }
 
 /* paylater css ends */
@@ -1705,7 +1707,7 @@ body {
 }
 .estatement_view {
   width: 60px;
-  background-color:#faede2;
+  background-color: #faede2;
   border: none;
   border-radius: 5px;
   color: #f18121;
@@ -1713,7 +1715,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .estatement_download {
   margin-left: 4%;
@@ -1726,7 +1727,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .estatement_note {
   margin-top: 5%;
@@ -2168,381 +2168,375 @@ body {
   background-color: rgb(61, 55, 55);
 }
 
-
-.ViewPayee-container{
-	overflow: hidden !important;
+.ViewPayee-container {
+  overflow: hidden !important;
 }
-.BankAccount_navbar{
+.BankAccount_navbar {
   display: flex;
-  background-color:lightgray;
+  background-color: lightgray;
   justify-content: space-around;
   margin-top: 20px;
-  font-family: 'poppins';
+  font-family: "poppins";
   padding: 10px;
 }
-.deletePayee_buttonon{
+.deletePayee_buttonon {
   border-bottom: 2px solid orange;
   color: orange;
 }
 
-.deletePayee_buttonon:hover{
-	
-	color: orange;
+.deletePayee_buttonon:hover {
+  color: orange;
 }
 
-.BankAccount_Serach_container{
-	font-family:'poppins';
-	background-color: lightgrey;
-	width: 1150px;
-	margin-left: 85px;
-	height: 50px;
-	padding-top: 15px;
-	padding-left: 15px;
+.BankAccount_Serach_container {
+  font-family: "poppins";
+  background-color: lightgrey;
+  width: 1150px;
+  margin-left: 85px;
+  height: 50px;
+  padding-top: 15px;
+  padding-left: 15px;
 }
 
-.BankAccount_frompages_container{
-	background-color: rgb(241, 231, 231); 
-	justify-content: 'flex-start'; 
-	width: 1150px;
-	margin-top: -8px;
-	margin-left: 85px;
-	padding-top: 15px;
-	padding-left: 15px;
-	height: 260px;
+.BankAccount_frompages_container {
+  background-color: rgb(241, 231, 231);
+  justify-content: "flex-start";
+  width: 1150px;
+  margin-top: -8px;
+  margin-left: 85px;
+  padding-top: 15px;
+  padding-left: 15px;
+  height: 260px;
 }
 
-.BankAccount_AccountNumber_container{
-	width: 250px;
-	font-family:'poppins';
-	font-weight: 500;
-	font-size: 14px;
-} 
-
-.BankAccount_inputAccount_container{
-	width: 350px; 
-	height: 33px;
-	margin-left: 60px;
-	outline: none;
+.BankAccount_AccountNumber_container {
+  width: 250px;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
 }
 
-.BankAccount_AccountNickName_container{
-	width: 250px;
-	font-family:'poppins';
-	font-weight: 500;
-	font-size: 14px;
-	padding-left: 16px;
+.BankAccount_inputAccount_container {
+  width: 350px;
+  height: 33px;
+  margin-left: 60px;
+  outline: none;
 }
 
-.BankAccount_inputNickName_container{
-	width: 350px; 
-	height: 33px;
-	margin-left: 20px;
-	outline: none;
+.BankAccount_AccountNickName_container {
+  width: 250px;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
+  padding-left: 16px;
 }
 
-.BankAccount_buttonNext_container{
-	background-color: orange; 
-	color: white; 
-	/* margin-left: 30px; */
-	width: 75px;
-	border:none;
-	height: 35px;
-	font-family:'poppins';
-	font-weight:'500';
-	font-size: 14px; 
-	border-radius: 5px;
+.BankAccount_inputNickName_container {
+  width: 350px;
+  height: 33px;
+  margin-left: 20px;
+  outline: none;
 }
 
-.BankAccount_NoteParagraph_container{
-	margin-left: 85px;
+.BankAccount_buttonNext_container {
+  background-color: orange;
+  color: white;
+  /* margin-left: 30px; */
+  width: 75px;
+  border: none;
+  height: 35px;
+  font-family: "poppins";
+  font-weight: "500";
+  font-size: 14px;
+  border-radius: 5px;
 }
 
-.BankAccount_details_container{
-	margin-left: 800px;
-	margin-top: 5px;
+.BankAccount_NoteParagraph_container {
+  margin-left: 85px;
 }
 
-.BankAccount_download_container{
-	font-weight: 500;
+.BankAccount_details_container {
+  margin-left: 800px;
+  margin-top: 5px;
 }
 
-.BankAccount_selecttype_container{
-	margin-left: 15px;
-	padding-right: 60px;
-	border-radius: 3px;
+.BankAccount_download_container {
+  font-weight: 500;
 }
 
-.button_selectAccount_container{
-	background-color: orange; 
-	color: white;
-	width: 75px;
-	border:none;
-	height: 35px;
-	border-radius: 5px;
-	margin-left: 50px;
-	
+.BankAccount_selecttype_container {
+  margin-left: 15px;
+  padding-right: 60px;
+  border-radius: 3px;
 }
 
+.button_selectAccount_container {
+  background-color: orange;
+  color: white;
+  width: 75px;
+  border: none;
+  height: 35px;
+  border-radius: 5px;
+  margin-left: 50px;
+}
 
-
-.Payment_container_fluid{
-	margin-top: 10px;
-	font-size: 11px;
-	overflow: hidden !important;
+.Payment_container_fluid {
+  margin-top: 10px;
+  font-size: 11px;
+  overflow: hidden !important;
 }
 
 .Payment_heading_container {
-	font-family: "Poppins";
-	padding-left: 5px;
+  font-family: "Poppins";
+  padding-left: 5px;
 }
 
-.Payment_Summary_container{
-	color:orange;
-	 text-align: 'start'; 
-	 font-size:'15px';
-	 font-weight:'600';
-	 font-family:'poppins';
-	 padding-left: 5px;
+.Payment_Summary_container {
+  color: orange;
+  text-align: "start";
+  font-size: "15px";
+  font-weight: "600";
+  font-family: "poppins";
+  padding-left: 5px;
 }
 
-.Payment_hr_container{
-	border-color: black;
+.Payment_hr_container {
+  border-color: black;
 }
 
-.Payment_section_continer{
-	justify-content: 'flex-start';
-	background-color: darkgrey; 
-	padding: "8px" ;
-	padding-top: 18px;
-	padding-left: 5px;
+.Payment_section_continer {
+  justify-content: "flex-start";
+  background-color: darkgrey;
+  padding: "8px";
+  padding-top: 18px;
+  padding-left: 5px;
 }
 
 .Payment_details_container {
-	color: orange;
-	padding-right:'40px';
-	font-family:'poppins';
+  color: orange;
+  padding-right: "40px";
+  font-family: "poppins";
 }
 
-.payment_confirm_container{
-	text-align:'start';
-	font-family:'poppins';
+.payment_confirm_container {
+  text-align: "start";
+  font-family: "poppins";
 }
 
-.payment_islamicpayee_container{
-	font-family:'poppins';
+.payment_islamicpayee_container {
+  font-family: "poppins";
 }
 
- .payment_payee_container{
-	padding-left: 750px;
-	font-family:'poppins';
-	font-weight: 400;
-} 
-
-.payment_frompages_container{
-	background-color: lightgray; 
-	justify-content: 'flex-start'; 
-	padding: 25px;
+.payment_payee_container {
+  padding-left: 750px;
+  font-family: "poppins";
+  font-weight: 400;
 }
 
- .Payment_AccountNumber_container{
-	width: 250px;
-	font-family:'poppins';
-	font-weight: 500;
-	font-size: 14px;
-} 
-
-.payment_inputAccount_container{
-	width: 350px; 
-	height: 33px;
-	margin-left: 40px;
-	outline: none;
+.payment_frompages_container {
+  background-color: lightgray;
+  justify-content: "flex-start";
+  padding: 25px;
 }
 
-.Payment_AccountNickName_container{
-	width: 250px;
-	font-family:'poppins';
-	font-weight: 500;
-	font-size: 14px;
-	padding-left: 16px;
+.Payment_AccountNumber_container {
+  width: 250px;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
 }
 
-.payment_inputNickName_container{
-	width: 350px; 
-	height: 33px;
-	margin-left: 20px;
-	outline: none;
+.payment_inputAccount_container {
+  width: 350px;
+  height: 33px;
+  margin-left: 40px;
+  outline: none;
 }
 
-.Payment_AccountType_container{
-	width: 250px;
-	font-family:'poppins';
-	font-weight: 500;
-	font-size: 14px;
-
+.Payment_AccountNickName_container {
+  width: 250px;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
+  padding-left: 16px;
 }
 
-.payment_selecttype_container{
-	width: 350px; 
-	height:36px; 
-	font-family:'poppins';
-	background:'white'; 
-	font-size:14px;
-	margin-left: 58px;
-	outline: none;
+.payment_inputNickName_container {
+  width: 350px;
+  height: 33px;
+  margin-left: 20px;
+  outline: none;
 }
 
-.Payment_PayeeBank_container{
-	width: 250px;
-	font-family:'poppins';
-	font-weight: 500;
-	font-size: 14px;
+.Payment_AccountType_container {
+  width: 250px;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
 }
 
-.payment_inputPayeeBank_container{
-	width: 350px;
-	font-family:'poppins';
-	height:33px;
-	margin-left: 56px;
-	outline: none;
+.payment_selecttype_container {
+  width: 350px;
+  height: 36px;
+  font-family: "poppins";
+  background: "white";
+  font-size: 14px;
+  margin-left: 58px;
+  outline: none;
 }
 
-.button_PayeeBank_container{
-	background-color: orange;
-	font-family:'poppins';
-	color: white;
-	border:none;
-	font-weight:500;
-	font-size:14px;
-	height:30px;
-	border-radius: 4px;
+.Payment_PayeeBank_container {
+  width: 250px;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
 }
 
-.Payment_AccountNumber_container{
-	width: 250px;
-	font-family:'poppins';
-	font-weight: 500;
-	font-size: 14px;
+.payment_inputPayeeBank_container {
+  width: 350px;
+  font-family: "poppins";
+  height: 33px;
+  margin-left: 56px;
+  outline: none;
 }
 
-.payment_inputAccountNumber_container{
-	width: 350px; 
-	height:36px; 
-	font-family:'poppins';
-	background:'white'; 
-	font-size:14px;
-	margin-left: 43px;
-	outline: none;
+.button_PayeeBank_container {
+  background-color: orange;
+  font-family: "poppins";
+  color: white;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  height: 30px;
+  border-radius: 4px;
 }
 
-.Payment_ConfirmNumber_container{
-	width: 250px;
-	font-family:'poppins';
-	font-weight: 500;
-	font-size: 14px;
-	padding-left: 18px;
+.Payment_AccountNumber_container {
+  width: 250px;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
 }
 
-.payment_inputConfirmNumber_container{
-	width: 350px; 
-	height:35px; 
-	font-family:'poppins';
-	background:'white'; 
-	font-size:14px;
-	margin-left: 23px;
-	outline: none;
-	/* padding-inline-end: 50px; */
+.payment_inputAccountNumber_container {
+  width: 350px;
+  height: 36px;
+  font-family: "poppins";
+  background: "white";
+  font-size: 14px;
+  margin-left: 43px;
+  outline: none;
 }
 
-.Payment_PayeeTransferred_container{
-	font-family:'poppins';
-	margin-left:10px;
-	font-weight:300;
-	font-size:14px;
-	padding-top:5px;
-	padding-left: 8px;
-	color:red;
+.Payment_ConfirmNumber_container {
+  width: 250px;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
+  padding-left: 18px;
 }
 
-.Payment_PayeeVirtualaccount_container{
-	font-weight:500;
-	font-size:14px;
-	font-family:'poppins';
-	padding-left: 20px;
+.payment_inputConfirmNumber_container {
+  width: 350px;
+  height: 35px;
+  font-family: "poppins";
+  background: "white";
+  font-size: 14px;
+  margin-left: 23px;
+  outline: none;
+  /* padding-inline-end: 50px; */
 }
 
-.Payment_PayeeRegistration_container{
-	width: 250px;
-	font-family:'poppins';
-	font-weight:500;
-	font-size:14px;
-	padding-left: 8px;
+.Payment_PayeeTransferred_container {
+  font-family: "poppins";
+  margin-left: 10px;
+  font-weight: 300;
+  font-size: 14px;
+  padding-top: 5px;
+  padding-left: 8px;
+  color: red;
 }
 
-.Payment_inputRegisteredPayee_container{
-	width: 350px;
-	height: 33px;
-	margin-left: 63px;
-	outline: none;
+.Payment_PayeeVirtualaccount_container {
+  font-weight: 500;
+  font-size: 14px;
+  font-family: "poppins";
+  padding-left: 20px;
 }
 
-.Payment_mandatory_container{
-	margin-bottom:5px;
+.Payment_PayeeRegistration_container {
+  width: 250px;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
+  padding-left: 8px;
 }
 
-.Payment_paragraph_container{
-	padding-bottom: 1px; 
-	margin-top:-2px;
-	font-family:'poppins';
-	padding-left: -5px;
+.Payment_inputRegisteredPayee_container {
+  width: 350px;
+  height: 33px;
+  margin-left: 63px;
+  outline: none;
 }
 
-.Payment_background_container{
-	background-color: darkgray; 
-	padding: 10px; 
-	flex-direction: "row";
+.Payment_mandatory_container {
+  margin-bottom: 5px;
 }
 
-.Payment_buttonback_container{
-	border:none;
-	width:75px;
-	height:35px;
-	font-family:'poppins';
-	font-weight:500;
-	font-size:14px;
-	border-radius: 5px;
+.Payment_paragraph_container {
+  padding-bottom: 1px;
+  margin-top: -2px;
+  font-family: "poppins";
+  padding-left: -5px;
 }
 
-.Payment_buttonNext_container{
-	background-color: orange; 
-	color: white; 
-	margin-left: 30px;
-	width: 75px;
-	border:none;
-	height: 35px;
-	font-family:'poppins';
-	font-weight:'500';
-	font-size: 14px; 
-	border-radius: 5px;
+.Payment_background_container {
+  background-color: darkgray;
+  padding: 10px;
+  flex-direction: "row";
 }
 
-.Payment_backgroundNotes_container{
-	background-color: white; 
-	padding: 1px ; 
-	margin-top: -5px;
+.Payment_buttonback_container {
+  border: none;
+  width: 75px;
+  height: 35px;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 5px;
 }
 
-.Payment_Notes_container{
-	font-size:12px;
-	font-weight: 900;
-	font-family:'poppins';
+.Payment_buttonNext_container {
+  background-color: orange;
+  color: white;
+  margin-left: 30px;
+  width: 75px;
+  border: none;
+  height: 35px;
+  font-family: "poppins";
+  font-weight: "500";
+  font-size: 14px;
+  border-radius: 5px;
 }
 
-.Payment_groundnotes_container{
-	padding: 0px;
-	margin: 0px;
+.Payment_backgroundNotes_container {
+  background-color: white;
+  padding: 1px;
+  margin-top: -5px;
 }
 
-.Payment_paragraphbank_container{
-	margin-bottom: 0px;
-	font-family:'poppins';
+.Payment_Notes_container {
+  font-size: 12px;
+  font-weight: 900;
+  font-family: "poppins";
+}
+
+.Payment_groundnotes_container {
+  padding: 0px;
+  margin: 0px;
+}
+
+.Payment_paragraphbank_container {
+  margin-bottom: 0px;
+  font-family: "poppins";
 }
