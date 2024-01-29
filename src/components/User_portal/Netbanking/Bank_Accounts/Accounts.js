@@ -146,7 +146,7 @@ const Accounts = () => {
                     <div>
                         <div className='savings_account_note'>Note:</div>
                         <ul className='savings_account_note_points'>
-                            <li className='savings_acct_note_first_point'>
+                            <li className='savings_acct_note_points'>
                                 The available balance displayed includes the credit balance and overdraft limit (if any) in your account.
                             </li>
                             <ol type='i'>
