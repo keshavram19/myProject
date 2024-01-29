@@ -1,9 +1,9 @@
 import './Accounts.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MdCurrencyRupee } from "react-icons/md";
 import { AiFillPrinter } from "react-icons/ai";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar'
 import Navbar from '../Overview/Navbar';
 
@@ -22,7 +22,24 @@ const Accounts = () => {
         }
     }
 
+    useEffect(()=> {
+        getUserAccountDetails()
+    },[]);
+    let accountNumber = 123456789;
+    const [accountDetails, setAccountDetails] = useState()
+    const getUserAccountDetails = async ()=> {
 
+        const url = `http://localhost:4444/api/userDetails/${accountNumber}`;
+        const options = {
+            method: 'GET'
+        };
+        const response = await fetch(url, options);
+        const data = await response.json();
+        setAccountDetails(data.details)
+    };
+    //console.log(accountDetails);
+    
+    
     return (
         <div className='container-fluid' style={{ marginTop: "90px" }}>
             {/* <Navbar /> */}
@@ -34,40 +51,40 @@ const Accounts = () => {
                     </div>
                 </div>
                 <div className='col-9'>
-
+                {accountDetails && (
                     <div className='accounts_container'>
                         <div className='savings_account_header'>
                             <div>
-                                <span className='savings_acct_type_heading'>Account Type</span>: Savings
+                                <span className='savings_acct_type_heading'>Account Type</span>: {accountDetails.userAccountType}
                             </div>
                             <div>
-                                <span className='savings_acct_avail_bal'>Available Balance:</span> <MdCurrencyRupee />2,122.46
+                                <span className='savings_acct_avail_bal'>Available Balance:</span> <MdCurrencyRupee />{accountDetails.userAccountBalance}
                             </div>
                         </div>
                         <div className='savings_account_user_details_cont'>
                             <div>
                                 <div className='savings_acct_user_headings'>Account No:</div>
-                                <div>XXXXXXX1234</div>
+                                <div>{accountDetails.userAccountNumber}</div>
                             </div>
                             <div>
                                 <div className='savings_acct_user_headings'>Name</div>
-                                <div>Giribabu</div>
+                                <div>{accountDetails.accountHolderName}</div>
                             </div>
                             <div>
                                 <div className='savings_acct_user_headings'>Date of Birth</div>
-                                <div>01/01/1994</div>
+                                <div>{accountDetails.userDateOfBirth}</div>
                             </div>
                             <div>
                                 <div className='savings_acct_user_headings'>PAN</div>
-                                <div>FAFPG7351A</div>
+                                <div>{accountDetails.accountHolderPAN}</div>
                             </div>
                             <div>
                                 <div className='savings_acct_user_headings'>Branch</div>
-                                <div>Kukatpally</div>
+                                <div>{accountDetails.bankBranchName}</div>
                             </div>
                             <div>
                                 <div className='savings_acct_user_headings'>Balance</div>
-                                <div className='d-flex align-items-center'><MdCurrencyRupee />2,122.46</div>
+                                <div className='d-flex align-items-center'><MdCurrencyRupee />{accountDetails.userAccountBalance}</div>
                             </div>
                             <div>
                                 <button onClick={accountStatement} className='account_statement_view_btn'>
@@ -76,9 +93,9 @@ const Accounts = () => {
                             </div>
                         </div>
                     </div>
-
+                )}
                     {viewAccStatement === 'true' ?
-                        <div className='w3-animate-zoom'>
+                        <div>
                             <div className='d-flex justify-content-between savings_acct_statement'>
                                 <div className='savings_acc_statement_cont_heading'>View/Download Account Statement</div>
                                 <div className='d-flex'>
@@ -87,7 +104,7 @@ const Accounts = () => {
                                 </div>
                             </div>
                             <div>
-                                <div><span className='acct_statement_acct_num'>Account Number:</span> XXXXXXX1234, Kukatpally</div>
+                                <div><span className='acct_statement_acct_num'>Account Number:</span> {accountDetails.userAccountNumber}, {accountDetails.bankBranchName}</div>
                             </div>
                             <div className='d-flex justify-content-between savings_acc_another_acct'>
                                 <div><Link to='/user/account/statement'>Select Another Account/Period</Link></div>
@@ -95,16 +112,16 @@ const Accounts = () => {
                             </div>
                             <div className='d-flex justify-content-end'>
                                 <div className='d-flex align-items-center'>
-                                    <span className='savings_acct_mybalnace'>My Balance:</span> <MdCurrencyRupee />2,122.46
+                                    <span className='savings_acct_mybalnace'>My Balance:</span> <MdCurrencyRupee />{accountDetails.userAccountBalance}
                                 </div>
                             </div>
                             <div className='table table-bordered savings_acct_trans_table'>
                                 <thead className='savings_acct_trans_table_header'>
                                     <tr>
                                         <th>Date</th>
-                                        <th>Description</th>
-                                        <th>Debit</th>
-                                        <th>Credit</th>
+                                        <th>Narration</th>
+                                        <th>Withdrawal</th>
+                                        <th>Deposit</th>
                                         <th>Balance</th>
                                     </tr>
                                 </thead>
