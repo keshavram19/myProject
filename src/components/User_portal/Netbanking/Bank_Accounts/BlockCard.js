@@ -45,13 +45,12 @@ const BlockCard = () => {
 
     const blockCard = async () => {
         try {
-            // Assuming you have selected a reason and entered remarks
             if (blockReason && blockRemarks) {
                 await axios.put('http://localhost:4444/api/blockCard/1124563456', {
                     reason: blockReason,
                     remarks: blockRemarks,
                 });
-                // Optionally, you can fetch updated user details here
+                alert('Card blocked successfully');
                 console.log('Card blocked successfully');
             } else {
                 console.error('Please select a reason and provide remarks');

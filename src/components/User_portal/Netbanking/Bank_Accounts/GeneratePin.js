@@ -96,7 +96,7 @@ const GeneratePin = () => {
                 });
 
                 console.log(otpResponse.data);
-                navigate('/user/account/block-debit-card-pin-otp');
+                navigate('/user/account/generate-debit-card-pin-otp');
             } else {
                 console.error('Invalid user details:', userDetails);
             }

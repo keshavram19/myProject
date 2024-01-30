@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Accounts.css';
-import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+
 import { MdOutlineMessage } from "react-icons/md";
 import { MdOutlineMail } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
@@ -28,7 +28,6 @@ const OTPPage = () =>{
 
             if (Array.isArray(userDetailsData)) {
                 setUserDetails(userDetailsData);
-
                 setLastFourDigits(userDetailsData[0].userMobileNumber);
             } else if (typeof userDetailsData === 'object') {
                 setUserDetails([userDetailsData]);
@@ -122,7 +121,7 @@ const OTPPage = () =>{
             const response = await axios.post('http://localhost:4444/api/validate-otp', { accountNumber, otp });
 
             console.log(response.data);
-            navigate("/pin");
+            navigate("/user/account/generate-debit-card-pin");
         } catch (error) {
             console.error('Error validating OTP:', error);
             setValidationError('Invalid OTP. Please try again.');

@@ -93,6 +93,7 @@ import DropDownBankAccount from "./components/User_portal/Netbanking/Customerser
 import Servicerequest from "./components/User_portal/Netbanking/Customerservice.js/Servicerequest";
 import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Customerservice.js/Taxcenter";
 import GenerateDebitCardPinOTP from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitPinOtp";
+import GenerateDebitCardPin from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitCardPin";
 
 
 
@@ -143,7 +144,8 @@ function App() {
           path="/user/account/generate-debitcard-pin"
           element={<GeneratePin />}
         />
-        <Route path="/user/account/block-debit-card-pin-otp" element={<GenerateDebitCardPinOTP />} />
+        <Route path="/user/account/generate-debit-card-pin-otp" element={<GenerateDebitCardPinOTP />} />
+        <Route path="/user/account/generate-debit-card-pin" element={<GenerateDebitCardPin />} />
         <Route path="/user/account/block-debit-card" element={<BlockCard />} />
         <Route path="/user/account/reissue-card" element={<Reissuecard />} />
         <Route
