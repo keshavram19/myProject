@@ -35,7 +35,7 @@ const InterestCertificate = () => {
           </div>
         <div class=" col-9">
           <div className="interest_head">
-            <h1>Download Interest & TDS Certificate</h1>
+            <h1 style={{color: "#f18121"}}>Download Interest & TDS Certificate</h1>
           </div>
           <div className="interest_certificate_baground card">
             <div className="interest_certificate_heading5">
@@ -94,44 +94,41 @@ const InterestCertificate = () => {
             </div>
             <div className="interest_form_label_radio_period row">
               <label class="interest_form_radio_label col-sm-3">
-               <input  type="radio"
-                id="interestPeriodDate"
-                name="interestOption"
-                value="interestPeriodDate"
-                /> Interest Period Date
+                <input
+                  type="radio"
+                  id="interestPeriodDate"
+                  name="interestOption"
+                  value="interestPeriodDate"
+                />{" "}
+                Interest Period Date
               </label>
-              <div>
-                <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <div style={{ marginRight: "10px" }}>
-                    <label  className="m-2">from</label>
-                    <input
-                      type="date"
-                      className="interest_period"
-                      id="date"
-                      placeholder="dd-mm-yyyy"
-                      value={startDate}
-                      onChange={handleStartDate}
-                    />
-                  </div>
-                  <div>
-                    <label className="m-2">to</label>
-                    <input
-                      type="date"
-                      className="interest_period"
-                      id="id"
-                      placeholder="dd-mm-yyyy"
-                      value={endDate}
-                      onChange={handleEndDate}
-                    />
-                  </div>
-                </div>
+
+              <div className="col-sm-4">
+                <label style={{ marginRight: '20px' }}>from</label>
+                <input
+                  type="date"
+                  className="interest_period"
+                  id="date"
+                  placeholder="dd-mm-yyyy"
+                  value={startDate}
+                  onChange={handleStartDate}
+                />
+              </div>
+              <div className="col-sm-3">
+                <label className=" " style={{ marginRight: '10px' }}>to</label>
+                <input
+                  type="date"
+                  className="interest_period"
+                  id="id"
+                  placeholder="dd-mm-yyyy"
+                  value={endDate}
+                  onChange={handleEndDate}
+                />
               </div>
             </div>
             </div>
             <div className="interet_buuton">
-              <button type="button" class="btn btn_interest_button">
+              <button type="button" class="btn btn_interest_button" style={{background: "#f18121", color: "white"}}>
                 Download OAD PDF
               </button>
             </div>

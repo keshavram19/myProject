@@ -1,6 +1,5 @@
 import React from 'react';
-import Select from 'react-select';
-
+import { Link } from 'react-router-dom';
 import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
@@ -20,38 +19,33 @@ const GeneratePin = () => {
                         <div className="card mt-1">
                             <h5 className="header card_details_generate_pin_heading p-3">Generate Debit Card PIN</h5>
                             <div className="container-fluid p-2">
-                                <div className="row">
+                                <div className="row card_details_generate_pin_select_tag">
                                     <div className="col-sm-6">
                                         <label for="ac_number">Select Account Number*</label>
                                     </div>
-                                    <div className="col-sm-4">
-                                        <Select
-
-                                            name=""
-                                            id=""
-                                            options={[
-                                                { value: "Please select", label: "Please select" },
-                                            ]}
-
-                                        />
+                                    <div className="col-sm-4 ">
+                                    <select
+                                        className="form-control"
+                                        >
+                                            <option value="Please select">Please Select</option>
+                                            <option value="Please select">9182XXXXXXXXXXXXX9222</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div className="row mt-1">
+                                <div className="row card_details_generate_pin_select_tag mt-2">
                                     <div className="col-sm-6">
                                         <label for="card_number">Debit Card Number*</label>
                                     </div>
                                     <div className="col-sm-4">
-                                        <Select
-                                            type='select'
-                                            name=""
-                                            id=""
-                                            options={[
-                                                { value: "Please select", label: "Please select" }
-                                            ]}
-                                        />
+                                        <select
+                                        className="form-control"
+                                        >
+                                            <option value="Please select">Please Select</option>
+                                            <option value="Please select">5419XXXXXXXXXXXX2668</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div className="row card_details_generate_pin_input_tag mt-1">
+                                <div className="row card_details_generate_pin_input_tag mt-2">
                                     <div className="col-sm-6">
                                         <label for="text">CVV Number*</label>
                                     </div>
@@ -59,7 +53,7 @@ const GeneratePin = () => {
                                         <input type="number" className="form-control" id="text" />
                                     </div>
                                 </div>
-                                <div className="row mt-1 card_details_generate_pin_input_tag">
+                                <div className="row mt-2 card_details_generate_pin_input_tag">
                                     <div className="col-sm-6">
                                         <label for="text">Mobile Number*</label>
                                     </div>
@@ -83,9 +77,11 @@ const GeneratePin = () => {
                                             <input type="radio" id="call" name="options" value="option" /><label for="call" className="ml-2">Call</label>
                                         </div>
                                     </div>
-                                    <p>OTP will be sent to registered mobile number XXXXXXX233  </p>
+                                    
                                 </div>
-                            </div><hr />
+                            </div>
+                            <p className='pl-2'>OTP will be sent to registered mobile number XXXXXXX233  </p>
+                            <hr />
                             <div className="d-flex mb-3">
                                 <button type="button" className="genrate_pin_buttons ml-3">BACK</button>
                                 <button type="submit" className="genrate_pin_submits ml-5">SUBMIT</button>
@@ -94,7 +90,7 @@ const GeneratePin = () => {
                         <div className='card_details_generate_pin_notes'>
                             <h6>Notes:</h6>
                             <ol>
-                                <li>Active debit Card is required to generate PIN online <a href="#">Click here</a> to apply for Debit Card.</li>
+                                <li>Active debit Card is required to generate PIN online <Link to='/'>Click here</Link> to apply for Debit Card.</li>
                                 <li>This facility is available for resident customer having an Indian mobile number registered in their savings bank account and NRI customer/ mandate holders having a registered email ID.</li>
                                 <li>OTP will be sent to the registered mobile number/email ID.</li>
                                 <li>Resident Savings Account holders can add/update mobile number by visiting the nearest ICICI Bank tiranch or ATM NRI customers can update their email ID by contacting our 24 hour Customer Care.</li>

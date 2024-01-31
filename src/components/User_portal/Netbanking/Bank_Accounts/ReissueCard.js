@@ -1,5 +1,4 @@
 import React from 'react';
-import Select from 'react-select';
 import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
@@ -18,8 +17,6 @@ const Reissuecard = () => {
           <div className="reissue_card_step">
             <div className="reissue_card_circle_container ">
               <div className={`reissue_card_circle ${isCompleted ? 'reissue_card_completed' : 'reissue_card_circle'}`}></div>
-          
-            {isCompleted}
               </div>
             <p className="title">{title}</p>
           </div>
@@ -35,7 +32,7 @@ const Reissuecard = () => {
                 </div>
                 <div className='col-9'>
                     <div className="container-fluid reissue_card">
-                        <h5 className="">Reissue  of Lost ATM/debit Card</h5>
+                        <h3 className="reissue_card_heading">Reissue  of Lost ATM/debit Card</h3>
                         <div className='col-sm-12'>
                             <div className="reissue_card_steps">
                                 <div className="reissue_card_steps_container">
@@ -52,13 +49,11 @@ const Reissuecard = () => {
                                     <p>Select Savings Account Number*</p>
                                 </div>
                                 <div className="col-sm-5">
-                                    <Select
-                                        name=""
-                                        id=""
-                                        options={[
-                                            { value: "select a reason", label: "select a reason" }
-                                        ]}
-                                    />
+                                <select
+                                        className="form-control"
+                                        >
+                                            <option value="Please select">Please Select</option>
+                                        </select>
                                 </div>
                             </div>
                         </div>

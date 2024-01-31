@@ -88,24 +88,16 @@ const Estatement = () => {
                         <div className='estatement_anumber'>Period:</div>
                         <div className='estatement_select'>
                             <div className='estatement_option'>
-
                                 <DatePicker className='estatement_datepick'
                                     selected={selectedDate}
                                     onChange={handleDateChange}
                                     popperPlacement="top-end"
-                                    popperModifiers={{
-                                        preventOverflow: {
-                                            enabled: true,
-                                            escapeWithReference: false,
-                                            boundariesElement: 'viewport',
-                                        },
-                                    }}
                                     open={isCalendarOpen}
                                     onClickOutside={() => setIsCalendarOpen(false)}
                                     dateFormat="MMMM d, yyyy"
                                     showYearDropdown
                                     placeholderText='From'
-                                    isClearable
+                                    
                                 />
                             </div>
                             <div className='estatement_downicon1'>
@@ -126,19 +118,12 @@ const Estatement = () => {
                                     selected={selectedDate1}
                                     onChange={handleDateChange1}
                                     popperPlacement="top-end"
-                                    popperModifiers={{
-                                        preventOverflow: {
-                                            enabled: true,
-                                            escapeWithReference: false,
-                                            boundariesElement: 'viewport',
-                                        },
-                                    }}
                                     open={isCalendarOpen1}
                                     onClickOutside={() => setIsCalendarOpen1(false)}
                                     dateFormat="MMMM d, yyyy"
                                     showYearDropdown
                                     placeholderText='To'
-                                    isClearable
+                                    
                                 />
                             </div>
                             <div className='estatement_downicon1'>

@@ -22,8 +22,8 @@ function PMSocialSecuritySchemes() {
                       <form className='PMSSS_form_section'>
                       <label for="selectsavingsAccountNumber" className='form-inline'>
                      <span className='col-md-6'>Select Savings Account Number*</span>
-                     <select name="cars" className="custom-select custom-select-sm col-md-4">
-                          <option selected>--Please Select--</option>
+                     <select name="cars" className="custom-select custom-select-sm col-md-4 w-25">
+                          <option selected>---Please Select----</option>
                               <option value="option1">option1</option>
                               <option value="option2">option2</option>
                               <option value="option3">option3</option>
@@ -35,25 +35,25 @@ function PMSocialSecuritySchemes() {
                    </label>
                    <label for="gender" className='form-inline'>
                      <span className='col-md-6'>Gender*</span>
-                     <select name="gender" className="custom-select custom-select-sm col-md-4">
-                          <option selected>--Please Select--</option>
+                     <select name="gender" className="custom-select custom-select-sm col-md-4 w-25">
+                          <option selected>---Please Select----</option>
                               <option value="male">Male</option>
                               <option value="female">Female</option>              
                       </select>
                      </label>
                      <label for="AadharNumber" className='form-inline'>
                      <span className='col-md-6'>Aadhar Number <br/><span style={{ fontSize: "11px" }}>(optional)</span></span>
-                     <input type="text" className='form-control form-control-md col-md-4'/>
+                     <input type="text" className='form-control form-control-md col-md-4 w-25' placeholder='XXXX-XXXX-XXXX'/>
                      <a href='#' className='PMSSS_update_email'>Update Aadhar</a>
                    </label>
                    <label for="NomineeName" className='form-inline'>
                      <span className='col-md-6'>Nominee Name* </span>
-                     <input type="text" className='form-control form-control-md col-md-4' placeholder='Name'/>
+                     <input type="text" className='form-control form-control-md col-md-4 w-25' placeholder='Name'/>
                    </label>
                    <label for="NomineeRelation" className='form-inline'>
                      <span className='col-md-6'>Nominee Relation</span>
-                     <select name="nomineerelation" className="custom-select custom-select-sm col-md-4">
-                          <option selected>--Please Select--</option>
+                     <select name="nomineerelation" className="custom-select custom-select-sm col-md-4 w-25">
+                          <option selected>---Please Select----</option>
                           <option value="friend">Friend</option>
                        <option value="family">Family Member</option>
                           <option value="colleague">Colleague</option>
@@ -62,12 +62,12 @@ function PMSocialSecuritySchemes() {
                      </label>
                      <label for="GuardianName" className='form-inline'>
                      <span className='col-md-6'>Guardian Name <br/><span style={{ fontSize: "11px" }}>(only if nominee is minor)</span></span>
-                     <input type="text" className='form-control form-control-md col-md-4'/>
+                     <input type="text" className='form-control form-control-md col-md-4 w-25' placeholder='Guardian Name'/>
                     
                    </label>
                    <label for="email" className='form-inline'>
                      <span className='col-md-6'>E-mail ID**</span>
-                     <input type="text" className='form-control form-control-md col-md-4' placeholder='E-mail'/>
+                     <input type="text" className='form-control form-control-md col-md-4 w-25' placeholder='E-mail'/>
                      <a href="#" className='PMSSS_update_email'>Update E-mail ID</a>
                      </label> 
                      <div className="form-check">
@@ -79,8 +79,8 @@ function PMSocialSecuritySchemes() {
                 </div>
                       </form>
                       <hr/>
-                      <button className='PMSSS_form_back_btn '>BACK</button>
-        <button className='PMSSS_form_submit_btn'>SUBMIT</button>
+                      <button className='PMSSS_form_back_btn p-2'>BACK</button>
+        <button className='PMSSS_form_submit_btn p-2'>SUBMIT</button>
                     </div>
                 </div>
             </div>

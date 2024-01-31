@@ -5,7 +5,7 @@ import './Loans.css'
 const Loanaccounts = () => {
     return (
         <div>
-            <div className="container-fluid">
+            <div className="container-fluid" style={{marginTop:'60px',backgroundColor:'#f8f9fa',paddingBottom:'130px'}}>
                 <div className="row">
                     {/* <i class="fa-solid fa-circle loan_icon col-xl-1"></i><span className="col-xl-11"> Create a side bar for Cards and Loans. In that section we have some main categories or<br></br>
                         sections displayed in the sidebar. Each main category can be expanded to reveal<br></br>
@@ -51,35 +51,35 @@ const Loanaccounts = () => {
 
                 </div> */}
 
-                <div className="card mt-5 loans_maincard">
+                <div className="card mt-5 loansAccount_maincard">
                     <div className="row">
-                        <h3 className="col-xl-12 text-center">Here is an overview of your loan Accounts with us</h3>
+                        <h3 className="col-xl-12 text-center mt-3 mb-5 loans_main_heading">Here is an overview of your loan Accounts with us</h3>
                         <p className="col-xl-1 col-1"></p>
                         <div className="col-xl-2 col-2 mx-3">
                             <div className="card loans_card1">
                                 <i class="fa-solid fa-hand-holding-dollar loans_main_icon"></i>
-                                <p className="loan_card_para mt-3">Toatal Sanctioned<br></br> Amount<br></br>$3,00,000</p>
+                                <p className="loan_card_para mt-3">Toatal Sanctioned<br></br> Amount<br></br><i class="fa-solid fa-indian-rupee-sign"></i> 3,00,000</p>
                             </div>
 
                         </div>
                         <div className="col-xl-2 col-2 mx-3">
                             <div className="card loans_card2">
                             <i class="fa-solid fa-circle loans_main_icon"></i>
-                                <p className="loan_card_para mt-3">Toatal Principal<br></br> Outstanding<br></br>$2,83,000</p>
+                                <p className="loan_card_para mt-3">Toatal Principal<br></br> Outstanding<br></br><i class="fa-solid fa-indian-rupee-sign"></i> 2,83,000</p>
                             </div>
 
                         </div>
                         <div className="col-xl-2 col-2 mx-3">
                             <div className="card loans_card3">
                             <i class="fa-solid fa-wallet loans_main_icon"></i>
-                                <p className="loan_card_para mt-3">Toatal Current<br></br> Overdues<br></br>$9,451</p>
+                                <p className="loan_card_para mt-3">Toatal Current<br></br> Overdues<br></br><i class="fa-solid fa-indian-rupee-sign"></i> 9,451</p>
                             </div>
 
                         </div>
                         <div className="col-xl-2 col-2 mx-3">
                             <div className="card loans_card4">
                             <i class="fa-solid fa-bell loans_main_icon"></i>
-                                <p className="loan_card_para mt-2">Amount Available for<br></br> Disbursement<br></br>$0</p>
+                                <p className="loan_card_para mt-2">Amount Available for<br></br> Disbursement<br></br><i class="fa-solid fa-indian-rupee-sign"></i> 0</p>
                             </div>
 
                         </div>
@@ -92,7 +92,7 @@ const Loanaccounts = () => {
                                 <div className="card loans_card5">
                                 <i class="fa-solid fa-magnifying-glass loans_subcard_icon"></i>
                                 </div>
-                                <p className="loans_subcard_para2">view account summary</p>
+                                <p className="loans_subcard_para2 mt-3">view account summary</p>
 
                             </div>
                             
@@ -101,7 +101,7 @@ const Loanaccounts = () => {
                                 <div className="card loans_card5">
                                 <i class="fa-solid fa-pencil loans_subcard_icon"></i>
                                 </div>
-                                <p className="loans_subcard_para">Request a service</p>
+                                <p className="loans_subcard_para mt-3">Request a service</p>
 
                             </div>
                             <p className="col-xl-1 col-1"></p>
@@ -109,10 +109,11 @@ const Loanaccounts = () => {
                                 <div className="card loans_card5">
                                 <i class="fa-solid fa-download loans_subcard_icon"></i>
                                 </div>
-                                <p className="loans_subcard_para1">View Report</p>
+                                <p className="loans_subcard_para1 mt-3">View Report</p>
 
                             </div>
-                            <p className="col-xl-1 col-1">How<br></br> can<br></br> we<br></br> help<br></br> you? <span>  <a  data-toggle="tooltip" title="How can we help you!"><i class="fa-solid fa-user loans_usericon card"></i></a></span></p>
+                            <p className="col-xl-1"></p>
+                            <p className="col-xl-1 col-1">How can<br></br> we help<br></br> you?<span>  <a  data-toggle="tooltip" title="How can we help you!"><i class="fa-solid fa-user loans_usericon card w-50"></i></a></span> </p>
                            
                            
 

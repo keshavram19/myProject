@@ -23,7 +23,7 @@ const ManagePayees = () => {
                     <div className='manage_payee' >
                       <h6 className='headers_manage' style={{ padding: '10px',fontFamily:'poppins' }}>ICICI Bank Payee</h6>
                       <div  className='btn-text'>
-                        <div><button className='buttons_managepay'>ADD NOW</button></div>
+                        <div><button className='buttons_managepay11'>ADD NOW</button></div>
                         <p  className='content_managepay'>To transer funds to other accounts in ICICI Bank</p>
                       </div>
                       
@@ -31,7 +31,7 @@ const ManagePayees = () => {
                     <div className='manage_payee' >
                       <h6  className='headers_manage' style={{ padding: '10px' ,fontFamily:'poppins'}}>Other Bank Payee</h6>
                       <div  className='btn-text'>
-                        <div><button className='buttons_managepay'>ADD NOW</button></div>
+                        <div><button className='buttons_managepay11'>ADD NOW</button></div>
                         <p  className='content_managepay'>To transer funds to  accounts of other banks using NEFT/RTGS/IMPS </p>
                       </div>
     
@@ -42,12 +42,14 @@ const ManagePayees = () => {
                 </div>
               </div>
               <div className='row mt-4'>
+                <div className='col-md-5'>
                 <div className='manage_payee' >
                   <h6  className='headers_manage' style={{ padding: '10px',fontFamily:'poppins' }}>ICICI Bank Virtual Payee</h6>
                   <div  className='btn-text' >
-                    <div><button className='buttons_managepay'>ADD NOW</button></div>
+                    <div><button className='buttons_managepay11'>ADD NOW</button></div>
                     <p  className='content_managepay'>To transer funds to  Virtual accounts in ICICI Bank (E-collections)
                     </p>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -69,7 +71,6 @@ const ManagePayees = () => {
                     <p className='content_managepay'>You can view/confirm/delete all payees registered by you
                     </p>
                   </div>
-    
                 </div>
               </div>
           </div>

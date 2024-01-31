@@ -9,7 +9,7 @@ const TaxPayment = () => {
         <div className="col-3">
           <PaymentSidebar/>
        </div>
-        <div className=" col-9">
+        <div className=" col-9" style={{marginTop:"70px"}}>
           <div className="TaxPayment_border">
             <div className="TaxPayment_pera">
               <h5 className="TaxPayment_pera_heading5">Tax Payment</h5>
@@ -22,7 +22,7 @@ const TaxPayment = () => {
                 button next to 'Register' on the proceed page.
               </p>
               <div className="taxpayment_button">
-              <button type="button" class="btn btn_taxpayment_button">
+              <button type="button" class="btn btn_taxpayment_button" style={{background: "#f18121", color: "white"}}>
                 Proceed
               </button>
               </div>
