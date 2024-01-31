@@ -60,7 +60,7 @@ const allTransactionsList = [
         balance: '613.43'
     },
     {
-        date: '18 Jan 2024',
+        date: '17 Jan 2024',
         narration: 'UPI-FAMOUS CHICKEN CENTER-paytmqr1r7sb4s8ks@paytm-PYTM0123456-401897267622-Payment from Phone',
         withdrawl: '45.00',
         deposite: '',
@@ -70,37 +70,50 @@ const allTransactionsList = [
 
 const Statements = () => {
 
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
+    const [savingsAccNumber, setAccountNumber] = useState('');
+    const [accountType, setAccountType] = useState('');
+    const [fromDate, setFromDate] = useState(null);
+    const [toDate, setToDate] = useState(null);
+    const [transactionType, setTransactionType] = useState('');
+    const [perPageTransactions, setPerPageTransactions] = useState('');
+    const [accountTypeDetails, setAccountTypeDetails] = useState();
+    const [viewTransStatement, setViewTransStatement] = useState();
+
 
     const handleStartDateChange = (date) => {
-        setStartDate(date);
-        if (endDate && endDate < date) {
-            setEndDate(null);
+        setFromDate(date);
+        if (toDate && toDate < date) {
+            setToDate(null);
         }
     };
-
     const handleEndDateChange = (date) => {
-        if (!startDate) {
-            setStartDate(date);
+        if (!fromDate) {
+            setFromDate(date);
         } else {
-            setEndDate(date);
+            setToDate(date);
         }
     };
-    console.log(startDate);
-    console.log(endDate);
 
+    const handleAccountNumber = (event) => {
+        setAccountNumber(event.target.value)
+    };
 
-    const [accountType, setAccountType] = useState('')
     const handleAccountType = (event) => {
         setAccountType(event.target.value)
+    };
+
+    const handleTransactionType = (event) => {
+        setTransactionType(event.target.value)
+    };
+
+    const handlePerPageTransactions = (event) => {
+        setPerPageTransactions(event.target.value)
     };
 
     useEffect(() => {
         getAccountTypeDetails()
     }, []);
     let accountNumber = 123456789;
-    const [accountTypeDetails, setAccountTypeDetails] = useState()
     const getAccountTypeDetails = async () => {
         const url = `http://localhost:4444/api/userDetails/${accountNumber}`;
         const options = {
@@ -111,7 +124,6 @@ const Statements = () => {
         setAccountTypeDetails(data.details)
     };
 
-    const [viewTransStatement, setViewTransStatement] = useState()
     const handleTransStatement = () => {
         if (viewTransStatement === 'true') {
             setViewTransStatement('false')
@@ -119,7 +131,25 @@ const Statements = () => {
         else {
             setViewTransStatement('true')
         }
-    }
+    };
+
+
+    const filteredTransactions = allTransactionsList.filter((transaction) => {
+        const transactionDate = new Date(transaction.date);
+        if (fromDate && toDate && accountType) {
+            const from = new Date(fromDate);
+            const to = new Date(toDate);
+            return transactionDate >= from && transactionDate <= to;
+        }
+        else if (fromDate && accountType) {
+            const from = new Date(fromDate);
+            return transactionDate >= from;
+        }
+        else if (toDate && accountType) {
+            const to = new Date(toDate);
+            return transactionDate <= to;
+        }
+    });
 
 
     return (
@@ -136,7 +166,7 @@ const Statements = () => {
                         <div className='acct_type_cont'>
                             <div className='acct_type_text'>Account Type:</div>
                             <div>
-                                <select required className='acct_type_drop_down_list' onChange={handleAccountType}>
+                                <select className='form-control statement_select_format' onChange={handleAccountType}>
                                     <option hidden> Select Account Type </option>
                                     <option value='Savings'>Savings</option>
                                     <option value='Current'>Current</option>
@@ -147,7 +177,8 @@ const Statements = () => {
                             <div className='acct_num_cont'>
                                 <div className='acct_num_text'>Account Number:</div>
                                 <div>
-                                    <select required className='acct_type_drop_down_list' disabled={accountType === 'Current'}>
+                                    <select className='form-control statement_select_format'
+                                        disabled={accountType === 'Current'} onChange={handleAccountNumber}>
                                         <option hidden>Select Account Number</option>
                                         <option>{accountTypeDetails.userAccountNumber}</option>
                                     </select>
@@ -182,9 +213,10 @@ const Statements = () => {
                                     <label className='period_from_to'>From:</label>
                                     <div className='d-flex align-items-center'>
                                         <DatePicker
-                                            selected={startDate} onChange={handleStartDateChange}
+
+                                            selected={fromDate} onChange={handleStartDateChange}
                                             className='from_date_period' disabled={accountType === 'Current'}
-                                            selectsStart dateFormat="dd MMM yyyy" startDate={startDate} endDate={endDate}
+                                            selectsStart dateFormat="dd MMM yyyy" fromDate={fromDate} toDate={toDate}
                                         />
                                         <FcCalendar className='calender_icon' />
                                     </div>
@@ -192,20 +224,24 @@ const Statements = () => {
                                 <div className='d-flex align-items-center'>
                                     <label className='period_from_to'>To:</label>
                                     <div className='d-flex align-items-center'>
-                                        <DatePicker selected={endDate} dateFormat="dd MMM yyyy" onChange={handleEndDateChange} className='from_date_period'
-                                            disabled={accountType === 'Current'} selectsEnd startDate={startDate}
-                                            endDate={endDate} minDate={startDate}>
+                                        <DatePicker
+
+                                            selected={toDate} dateFormat="dd MMM yyyy" onChange={handleEndDateChange}
+                                            disabled={accountType === 'Current'} selectsEnd fromDate={fromDate}
+                                            toDate={toDate} minDate={fromDate} className='from_date_period'>
+
                                         </DatePicker>
                                         <FcCalendar className='calender_icon' />
                                     </div>
                                 </div>
-                               
+
                             </div>
                         </div>
                         <div className='show_transactions_cont'>
                             <div className='show_transactions_text'>Show Transactions:</div>
                             <div className='show_all_transa'>
-                                <select className='form-control'>
+                                <select className='form-control statement_select_format'
+                                    disabled={accountType === 'Current'} onChange={handleTransactionType}>
                                     <option>All Transactions</option>
                                     <option>Only Withdrawals</option>
                                     <option>Only Deposits</option>
@@ -214,15 +250,16 @@ const Statements = () => {
                             </div>
 
                             <div className='per_page_tarns'>
-                                <div>Per Page</div>
-
-                                <select className='form-control'>
-                                    <option>10</option>
-                                    <option>20</option>
-                                    <option>30</option>
-                                    <option>40</option>
-                                </select>
-
+                                <div>Page</div>
+                                <div>
+                                    <select className='form-control statement_select_format'
+                                        disabled={accountType === 'Current'} onChange={handlePerPageTransactions}>
+                                        <option>10</option>
+                                        <option>20</option>
+                                        <option>30</option>
+                                        <option>40</option>
+                                    </select>
+                                </div>
                                 <div> Transactions</div>
                                 <div>
                                     <IoCaretDownCircleOutline className='all_trans_icon' />
@@ -237,19 +274,21 @@ const Statements = () => {
                     </div>
                     {
                         viewTransStatement === 'true' ?
-                            (<div>
+                            (<div className='my-5'>
                                 <div>
                                     <div className='d-flex justify-content-between'>
-                                        <div>View / Download Account Statement</div>
+                                        <div className='savings_acc_statement_cont_heading'>
+                                            View/Download Account Statement
+                                        </div>
                                         <div className='d-flex'>
-                                            <div><AiFillPrinter /></div>
-                                            <div>Print This Page</div>
+                                            <div><AiFillPrinter className='acct_statement_printer_icon' /></div>
+                                            <div className='acct_statement_printer_text'>Print This Page</div>
                                         </div>
                                     </div>
-                                    <div className='d-flex'>
-                                        <div>Savings Account No: </div>
+                                    <div className='d-flex statement_savings_acct_num_cont'>
+                                        <div className='statement_savings_acct_num'>Savings Account No: </div>
                                         {accountTypeDetails &&
-                                            <div>
+                                            <div className='statement_savings_acct_branch'>
                                                 {accountTypeDetails.userAccountNumber}, {accountTypeDetails.bankBranchName}
                                             </div>
                                         }
@@ -269,9 +308,9 @@ const Statements = () => {
                                         Closing Balance : INR {accountTypeDetails.userAccountBalance}
                                     </div>
                                 }
-                                <div>
+                                <div className='my-3'>
                                     <table className='table table-bordered'>
-                                        <thead>
+                                        <thead className='tran_statement_table_header'>
                                             <tr>
                                                 <th>Date</th>
                                                 <th>Narration</th>
@@ -282,18 +321,30 @@ const Statements = () => {
                                         </thead>
                                         <tbody>
                                             {
-                                                allTransactionsList.map((eachTrans) => (
-                                                    <tr>
-                                                        <td>{eachTrans.date}</td>
-                                                        <td>{eachTrans.narration}</td>
-                                                        <td>{eachTrans.withdrawl}</td>
-                                                        <td>{eachTrans.deposite}</td>
-                                                        <td>{eachTrans.balance}</td>
+                                                filteredTransactions.map((transaction, index) => (
+                                                    <tr key={index}>
+                                                        <td>{transaction.date}</td>
+                                                        <td>{transaction.narration}</td>
+                                                        <td>{transaction.withdrawl}</td>
+                                                        <td>{transaction.deposite}</td>
+                                                        <td>{transaction.balance}</td>
                                                     </tr>
                                                 ))
                                             }
                                         </tbody>
                                     </table>
+                                </div>
+                                <div className='d-flex align-items-center'>
+                                    <div>Select Format:</div>
+                                    <div>
+                                        <select className='form-control statement_select_format'>
+                                            <option>PDF</option>
+                                            <option>Word</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type='button' className='statement_download_btn'>Download</button>
                                 </div>
                             </div>)
                             : ''
@@ -302,7 +353,7 @@ const Statements = () => {
 
                     <div>
                         <div className='savings_acct_statement_note'>Note:</div>
-                        <ul className='ml-4'>
+                        <ul className=''>
                             <li className='savings_acct_statement_note_points'>
                                 Transactions for the current and previous months only can be viewed or downloaded through this option.
                             </li>
