@@ -92,6 +92,7 @@ import ELocker from "./components/User_portal/Netbanking/Customerservice.js/ELoc
 import DropDownBankAccount from "./components/User_portal/Netbanking/Customerservice.js/Servierequestdropdown";
 import Servicerequest from "./components/User_portal/Netbanking/Customerservice.js/Servicerequest";
 import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Customerservice.js/Taxcenter";
+import BillDetails from "./components/User_portal/Netbanking/Bank_Accounts/BillDetails";
 
 
 
@@ -181,6 +182,7 @@ function App() {
         <Route path="/user/account/fd-advice" element={<Fdadvice />} />
         <Route path="/user/account/renew-fd" element={<RenewFD />} />
         <Route path="/user/account/paylater" element={<PayLater />} />
+        <Route path="/user/account/billDetails" element={<BillDetails />} />
         <Route path="/user/account/e-statement" element={<Estatement />} />
 
         {/* fund transfer */}
