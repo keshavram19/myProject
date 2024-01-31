@@ -15,7 +15,6 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  /* background-color: lightcyan; */
   background-color: #faede2;
   border-bottom: 1px solid #cdc2c2;
   padding: 10px 5px;
@@ -38,7 +37,6 @@
 }
 .account_statement_view_btn {
   border-radius: 5px;
-  /* background-color: rgb(16, 218, 16); */
   background-color: #f18121;
   color: #fff;
   padding: 3px 15px;
@@ -49,7 +47,7 @@
   margin: 5px 0px;
 }
 .savings_acc_statement_cont_heading {
-  font-weight: 550;
+  font-weight: 500;
   font-size: 18px;
 }
 .acct_statement_printer_icon {
@@ -61,6 +59,7 @@
   font-size: 18px;
   color: blue;
   text-decoration: underline;
+  cursor: pointer;
 }
 .acct_statement_acct_num {
   font-weight: 410;
@@ -73,22 +72,15 @@
 }
 
 .savings_acct_trans_table {
-  width: fit-content;
-  height: fit-content;
   border-collapse: collapse;
 }
 .savings_acct_trans_table_header {
   font-size: 16px;
-  background-color: #d8d5d5;
 }
 .savings_acct_trans_table th {
-  padding: 5px 8px;
   font-weight: 500;
-  width: 150px;
-}
-.savings_acct_trans_table td {
-  font-size: 14px;
-  padding: 5px 8px;
+  background-color: #faede2 !important;
+  color: #51504f !important;
 }
 
 .savings_account_note {
@@ -125,6 +117,7 @@
 }
 .acct_type_cont {
   display: flex;
+  align-items: center;
   border-bottom: 1px solid #dee2e6;
   padding: 10px 20px;
 }
@@ -134,14 +127,9 @@
   display: flex;
   align-items: center;
 }
-.acct_type_drop_down_list {
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  padding-right: 10px;
-}
 .acct_num_cont {
   display: flex;
+  align-items: center;
   border-bottom: 1px solid #dee2e6;
   padding: 10px 20px;
 }
@@ -185,6 +173,7 @@
 }
 .show_transactions_cont {
   display: flex;
+  align-items: center;
   padding: 10px 20px;
   border-bottom: 1px solid #dee2e6;
 }
@@ -194,7 +183,17 @@
 }
 .show_all_transa {
   width: 190px;
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
 }
+
+.per_page_tarns{
+  width: 210px;
+  display: flex;
+  align-items: center;
+}
+
 .all_trans_icon {
   font-size: 22px;
   color: darkcyan;
@@ -210,6 +209,37 @@
   color: #fff;
   border-radius: 5px;
 }
+
+.statement_savings_acct_num_cont{
+  border: 1px solid #cec9c9;
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin: 10px 0px;
+}
+.statement_savings_acct_num{
+  font-weight: 410;
+  margin-right: 7px;
+}
+.statement_savings_acct_branch{
+  font-weight: 450;
+  font-size: 17px;
+}
+.tran_statement_table_header th{
+  font-weight: 500;
+  background-color: #faede2 !important;
+  color: #51504f !important;
+}
+select.form-control.statement_select_format {
+  font-size: 15px;
+}
+.statement_download_btn{
+  border: none;
+  background-color: cornflowerblue;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
 .savings_acct_statement_note {
   font-size: 18px;
   font-weight: 500;
@@ -217,7 +247,7 @@
 }
 .savings_acct_statement_note_points {
   color: #7d7d7d;
-  font-size: 16px;
+  font-size: 15px;
   margin: 5px 0px;
   font-size: 13px;
 }
@@ -284,6 +314,14 @@
 .otp_code_box1 {
   margin-left: 0px;
 }
+.valid_otp_msg{
+  color: green;
+  font-size: 20px;
+}
+.invalid_otp_msg{
+  color: red;
+  font-size: 20px;
+}
 .resend_code_text {
   color: #4094ef;
   cursor: pointer;
@@ -296,8 +334,10 @@
   border: none;
   outline: none;
   color: #fff;
+
   /* background-color: #4094ef; */
   background-color: #f18121;
+
   border-radius: 5px;
   padding: 5px;
 }
