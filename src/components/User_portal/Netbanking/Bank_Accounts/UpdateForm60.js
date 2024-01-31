@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Accounts.css';
 import axios from 'axios';
+import apiList from '../../../../lib/apiList';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 function UpdateForm60() {
@@ -56,7 +57,7 @@ function UpdateForm60() {
    
     try {
       // Make a POST request to your server endpoint with the form data
-      const response = await axios.post( `http://localhost:4444/form60Userdetails/`, formData);
+      const response = await axios.post( apiList.form60UserDetails, formData);
       console.log(response.data); // Handle the response as needed
       alert('Form submitted successfully!');
       // Optionally, you can reset the form data after a successful submission
@@ -90,7 +91,7 @@ function UpdateForm60() {
   const handleVerifyOtp = async () => {
     
     try {
-      const response = await axios.post(`http://localhost:4444/form60Userdetails/verify-otp/${formData.EmailID}`, { enteredOtp });
+      const response = await axios.post(apiList.form60OtpVerification, { enteredOtp });
       console.log(response.data);
       alert('OTP verification successful!');
       setOtpVerificationSuccess(true);
@@ -107,7 +108,7 @@ function UpdateForm60() {
     console.log('hello')
     try {
       
-      const response = await axios.post(`http://localhost:4444/form60Userdetails/send-otp`, { EmailID: formData.EmailID },
+      const response = await axios.post(apiList.form60OTPSend, { EmailID: formData.EmailID },
       {
         headers:{
           "Content-Type":"application/json",
@@ -378,7 +379,7 @@ function UpdateForm60() {
                                 <div className='d-flex justify-content-center'>
                                     <div>
                                         <div className='otp_verifi_text'>OTP Verification</div>
-                                        <div className='otp_code_mobile'>Enter OTP Code sent to +91 9876XXXX00</div>
+                                        <div className='otp_code_mobile'> OTP Code sent to your EmailID usxxxxxxxxx@gmail.com</div>
                                         <div>
                                         <input 
     type="text" 
