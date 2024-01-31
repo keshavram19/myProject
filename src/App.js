@@ -7,6 +7,7 @@ import GeneratePin from "./components/User_portal/Netbanking/Bank_Accounts/Gener
 import BlockCard from "./components/User_portal/Netbanking/Bank_Accounts/BlockCard";
 import Reissuecard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCard";
 import ManageCardLimit from "./components/User_portal/Netbanking/Bank_Accounts/ManageCardLimit";
+import OtpPage from "./components/User_portal/Netbanking/Bank_Accounts/OtpPage";
 import ChequeBookReq from "./components/User_portal/Netbanking/Bank_Accounts/ChequeBookReq";
 import ViewAndUpdatePancard from "./components/User_portal/Netbanking/Bank_Accounts/ViewUpdatePANCard";
 import UpdateForm60 from "./components/User_portal/Netbanking/Bank_Accounts/UpdateForm60";
@@ -92,6 +93,7 @@ import ELocker from "./components/User_portal/Netbanking/Customerservice.js/ELoc
 import DropDownBankAccount from "./components/User_portal/Netbanking/Customerservice.js/Servierequestdropdown";
 import Servicerequest from "./components/User_portal/Netbanking/Customerservice.js/Servicerequest";
 import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Customerservice.js/Taxcenter";
+import UpdatePancardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/UpdatePancardOtp";
 
 
 
@@ -148,6 +150,17 @@ function App() {
           path="/user/account/manage-cardlimit"
           element={<ManageCardLimit />}
         />
+      <Route
+          path="/user/account/manage-card-limit-otp"
+          element={<OtpPage />}
+        />
+
+      <Route
+          path="/user/account/update-pancard-otp"
+          element={<UpdatePancardOtpPage />}
+        />
+        
+
         <Route
           path="/user/account/chequebook-req"
           element={<ChequeBookReq />}
