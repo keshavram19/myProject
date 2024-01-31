@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { MdCurrencyRupee } from "react-icons/md";
 import { AiFillPrinter } from "react-icons/ai";
 import { Link } from 'react-router-dom';
-import BankaccountSidebar from '../Sidebar/BankaccountSidebar'
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+
 import Navbar from '../Overview/Navbar';
 
 

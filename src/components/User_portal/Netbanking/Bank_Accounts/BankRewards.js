@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react";
 import './Accounts.css';
  import BankRewardBgImg from '../../../../Images/bank_rewards.jpeg'
-import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+ import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+
 
  function BankRewardPoints() {
   return (
