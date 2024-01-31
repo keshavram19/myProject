@@ -608,6 +608,11 @@
     width: 100%;
 }
 
+.reissue_card_button_disabled{
+  color: #b2b9bf;
+  border: 1px solid #b2b9bf;
+}
+
 /* Reissuecard.css ends */
 
 /* card limit css starts */
