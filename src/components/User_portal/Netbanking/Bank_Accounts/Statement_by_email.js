@@ -4,6 +4,7 @@ import './Accounts.css';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import apiList from '../../../../lib/apiList';
 
 const StatementByMail = () => {
 
@@ -26,7 +27,6 @@ const StatementByMail = () => {
             console.error('Error Fetching Authentication Details:', error);
         }
     };
-    //console.log(authDetails);
 
 
     useEffect(()=> {
@@ -38,8 +38,6 @@ const StatementByMail = () => {
             console.error('User email is not available');
             return;
         }
-
-        const url = `http://localhost:4444/api/otp-send`;
         const options = {
             method: 'POST',
             headers: {
@@ -48,9 +46,8 @@ const StatementByMail = () => {
             body: JSON.stringify({ email: authDetails.userEmailId }),
         };
         try {
-            const response = await fetch(url, options);
+            const response = await fetch(apiList.userAuthentication, options);
             const result = await response.json();
-            //console.log(result);
         } catch (error) {
             console.error('Error sending OTP:', error);
         }
@@ -62,11 +59,9 @@ const StatementByMail = () => {
       newOtp[index] = value;
       setOtp(newOtp.join(''));
     };
-    // console.log(otp);
 
 
     const verifyOTP = async ()=> {
-        const url = `http://localhost:4444/api/verify-otp`;
         const options = {
             method: 'POST',
             headers: {
@@ -75,7 +70,7 @@ const StatementByMail = () => {
             body: JSON.stringify({email: authDetails.userEmailId, gmailOTP: otp})
         };
         try{
-            const response = await fetch(url, options);
+            const response = await fetch(apiList.userAuthVerification, options);
             if(response.status === 200){
                 const data = await response.json();
                 toast.success('Successfully verified!', {
