@@ -92,6 +92,7 @@ import ELocker from "./components/User_portal/Netbanking/Customerservice.js/ELoc
 import DropDownBankAccount from "./components/User_portal/Netbanking/Customerservice.js/Servierequestdropdown";
 import Servicerequest from "./components/User_portal/Netbanking/Customerservice.js/Servicerequest";
 import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Customerservice.js/Taxcenter";
+import OTPPage from "./components/User_portal/Netbanking/Fund_Transfer/OTPpage";
 
 function App() {
   return (
@@ -211,6 +212,8 @@ function App() {
           path="/user/fundtransfer/quickfundtransfer"
           element={<QuickFundTransfer />}
         />
+        <Route exact path ="/user/fundtransfer/quickfundtransfer-otp-page" element={< OTPPage/>} />
+
         <Route
           path="/user/fundtransfer/generate-mmid"
           element={<GenerateMMID />}
