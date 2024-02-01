@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+import apiList from '../../../../lib/apiList';
 
 
 const GeneratePin = () => {
@@ -14,11 +15,12 @@ const GeneratePin = () => {
     const [cvv, setCvv] = useState('');
     const [otpMethod, setOtpMethod] = useState('sms');
     const [formError, setFormError] = useState('');
+    const accountNumber = 1124563456;
 
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:4444/api/userDetails/1124563456');
+            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
             const userDetailsData = response.data.details;
 
             if (Array.isArray(userDetailsData)) {
@@ -87,7 +89,7 @@ const GeneratePin = () => {
                     return;
                 }
 
-                const otpResponse = await axios.post('http://localhost:4444/api/generate-otp', {
+                const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
                     accountNumber: selectedAccount,
                     debitCardNumber: selectedDebitCard,
                     cvv: cvv,

@@ -3,16 +3,18 @@ import axios from 'axios';
 import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import OTPPage from './OTPpage';
+import apiList from '../../../../lib/apiList';
 
 
 const GenerateDebitCardPinOTP = () => {
     const [userDetails, setUserDetails] = useState([]);
     const [lastFourDigits, setLastFourDigits] = useState('');
+    const accountNumber = 1124563456;
 
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:4444/api/userDetails/1124563456');
+            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
             const userDetailsData = response.data.details;
 
             if (Array.isArray(userDetailsData)) {

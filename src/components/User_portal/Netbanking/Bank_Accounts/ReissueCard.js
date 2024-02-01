@@ -3,6 +3,7 @@ import './Accounts.css';
 import axios from 'axios';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import { useNavigate } from 'react-router-dom';
+import apiList from '../../../../lib/apiList';
 
 
 const steps = [
@@ -15,6 +16,7 @@ const Reissuecard = () => {
 
     const navigate = useNavigate();
     const [userDetails, setUserDetails] = useState([]);
+    const accountNumber = 1124563456;
 
     const Step = ({ title, isCompleted }) => {
       
@@ -30,7 +32,7 @@ const Reissuecard = () => {
 
       const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:4444/api/userDetails/1124563456');
+            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
             const userDetailsData = response.data.details;
 
             if (Array.isArray(userDetailsData)) {

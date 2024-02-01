@@ -2,16 +2,18 @@ import React, { useState, useEffect } from 'react';
 import './Accounts.css';
 import axios from 'axios';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+import apiList from '../../../../lib/apiList';
 
 const BlockCard = () => {
 
     const [userDetails, setUserDetails] = useState([]);
     const [blockReason, setBlockReason] = useState('');
     const [blockRemarks, setBlockRemarks] = useState('');
+    const accountNumber = 1124563456;
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:4444/api/userDetails/1124563456');
+            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
             const userDetailsData = response.data.details;
 
             if (Array.isArray(userDetailsData)) {
@@ -46,7 +48,7 @@ const BlockCard = () => {
     const blockCard = async () => {
         try {
             if (blockReason && blockRemarks) {
-                await axios.put('http://localhost:4444/api/blockCard/1124563456', {
+                await axios.put(`${apiList.blockATMCard}${accountNumber}`, {
                     reason: blockReason,
                     remarks: blockRemarks,
                 });

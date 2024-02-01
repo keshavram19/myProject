@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Accounts.css';
-
+import apiList from '../../../../lib/apiList';
 import { MdOutlineMessage } from "react-icons/md";
 import { MdOutlineMail } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
@@ -18,12 +18,13 @@ const OTPPage = () =>{
     const [validationError, setValidationError] = useState('');
     const [timer, setTimer] = useState(100);
     const [buttonsDisabled, setButtonsDisabled] = useState(true);
+    const accountNumber = 1124563456;
 
 
     
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:4444/api/userDetails/1124563456');
+            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
             const userDetailsData = response.data.details;
 
             if (Array.isArray(userDetailsData)) {
@@ -92,7 +93,7 @@ const OTPPage = () =>{
             await fetchData();
 
             if (Array.isArray(userDetails) && userDetails.length > 0) {
-                const otpResponse = await axios.post('http://localhost:4444/api/generate-otp', {
+                const otpResponse = await axios.post(`${apiList.GenerateCardPin}`, {
                     accountNumber: userDetails[0].userAccountNumber,
                     debitCardNumber: formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber),
                     mobileNumber: lastFourDigits,
@@ -118,7 +119,7 @@ const OTPPage = () =>{
             await fetchData();
             const accountNumber = userDetails[0].userAccountNumber;
             console.log(accountNumber);
-            const response = await axios.post('http://localhost:4444/api/validate-otp', { accountNumber, otp });
+            const response = await axios.post(`${apiList.authenticateOTP}`, { accountNumber, otp });
 
             console.log(response.data);
             navigate("/user/account/generate-debit-card-pin");
