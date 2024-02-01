@@ -85,7 +85,7 @@
 
 .savings_account_note {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
 }
 .savings_acct_note_points {
   line-height: 1.5;
@@ -126,6 +126,10 @@
   font-weight: 410;
   display: flex;
   align-items: center;
+}
+.statement_acct_type_icon{
+  color: #f18121;
+  font-size: 25px;
 }
 .acct_num_cont {
   display: flex;
@@ -195,8 +199,12 @@
 }
 
 .all_trans_icon {
-  font-size: 22px;
-  color: darkcyan;
+  font-size: 25px;
+  color: #f18121;
+}
+.page_trans_icon{
+  color: #f18121;
+  font-size: 15px;
 }
 .transactions_view_btn_cont {
   padding: 10px 20px;
@@ -230,11 +238,11 @@
   color: #51504f !important;
 }
 select.form-control.statement_select_format {
-  font-size: 15px;
+  font-size: 13px;
 }
 .statement_download_btn{
   border: none;
-  background-color: cornflowerblue;
+  background-color: #f18121;
   color: #fff;
   border-radius: 5px;
   padding: 5px 15px;
