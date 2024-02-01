@@ -1,8 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FundTransfer.css";
+import axios from 'axios';
 import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
-
-const TaxCenter = () => {
+ 
+  // taxcenter starts 
+  const TaxCenter = () => {
+    
+    const [mobileNumber, setMobileNumber] = useState('');
+    const [otp, setOTP] = useState('');
+    const [message, setMessage] = useState('');
+  
+    const generateOTP = async () => {
+      
+      try {
+        const response = await axios.post('http://localhost:4444/api/send', { mobileNumber });
+        setMessage(response.data.message);
+      } catch (error) {
+        console.error('Error sending OTP:', error);
+        setMessage('Failed to send OTP.');
+      }
+    };
+    const verifyOTP = async () => {
+    //   
+    try {
+      const response = await axios.post('http://localhost:4444/api/verify', { mobileNumber, otp });
+      setMessage(response.data.message);
+    } catch (error) {
+      console.error('Error verifying OTP:', error);
+      setMessage('Error verifying OTP.');
+    }
+  };
+  //   taxcenter ends 
+ 
+  
+  
   return (
 
     <>
@@ -13,18 +44,9 @@ const TaxCenter = () => {
           </div>
           <div className="col-9">
           <div className="tax_centerbank_page col-sm-12">
-      {/* <div className='inwardbank-header'></div> */}
-
+ 
       <p className="ptax_for_tax text-left">Under tax center, View</p>
-      <p className="tax_center_options_pfull">
-        <p className="ptag_view_yag_center">
-          a. View Tax Credit Statement - Form 26AS
-          <p>
-            b. TDS Certificate
-            <p>c. Form 15G/H</p>
-          </p>
-        </p>
-      </p>
+     
 
       <div className="user_authenti_tax_header ">
         <h5 className="user_header_tax_color">User Authentication Details</h5>
@@ -38,19 +60,23 @@ const TaxCenter = () => {
               Please enter these details to authorize the transaction
             </p>
             <div className=" Tax_ptag_please_para">
-              <label htmlFor="otp">One Time Password</label>
-              <div className="otp_button_Tax_icon">
-                <input
-                  className="otp_Tax_div_label"
-                  type="text"
-                  id="otp"
-                  name="otp"
-                />
-                <button className="but_Tax_on_icon_otp">
-                  <i class="fa-solid fa-keyboard fa-xl"></i>{" "}
-                </button>
-              </div>
+              
             </div>
+              {/* tac center starts */}
+              <div>
+              
+       <div>
+                    <input className="otp_Tax_div_label" type="text" placeholder="Mobile Number" value={mobileNumber} onChange={(e) => setMobileNumber(e.target.value)} />
+                    <button className="Tax_center_but_appGen" onClick={generateOTP}>Generate OTP</button>
+                  </div>
+      <br />
+ 
+      <input className="otp_Tax_div_label" type="text" placeholder="Enter OTP" value={otp} onChange={(e) => setOTP(e.target.value)} />
+                  <button className="Tax_center_but_appGen" onClick={verifyOTP}>Verify OTP</button>
+                  <br />
+      {message && <p>{message}</p>}
+      </div>
+      {/* taxcenter ends  */}
             <p className="otp_tax_matters">
               OTP has been generated with a validity of 100 seconds and sent to
               your registered mobile number.
@@ -71,10 +97,11 @@ const TaxCenter = () => {
           <hr />
 
           <button className=" Tax_center_but_app" type="button">
-
+ 
 
             Submit
           </button>
+ 
         </div>
       </div>
       </div>
@@ -87,4 +114,4 @@ const TaxCenter = () => {
   );
 };
 
-export default TaxCenter;
+export default TaxCenter ;
