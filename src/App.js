@@ -7,6 +7,7 @@ import GeneratePin from "./components/User_portal/Netbanking/Bank_Accounts/Gener
 import BlockCard from "./components/User_portal/Netbanking/Bank_Accounts/BlockCard";
 import Reissuecard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCard";
 import ManageCardLimit from "./components/User_portal/Netbanking/Bank_Accounts/ManageCardLimit";
+import OtpPage from "./components/User_portal/Netbanking/Bank_Accounts/OtpPage";
 import ChequeBookReq from "./components/User_portal/Netbanking/Bank_Accounts/ChequeBookReq";
 import ViewAndUpdatePancard from "./components/User_portal/Netbanking/Bank_Accounts/ViewUpdatePANCard";
 import UpdateForm60 from "./components/User_portal/Netbanking/Bank_Accounts/UpdateForm60";
@@ -92,7 +93,20 @@ import ELocker from "./components/User_portal/Netbanking/Customerservice.js/ELoc
 import DropDownBankAccount from "./components/User_portal/Netbanking/Customerservice.js/Servierequestdropdown";
 import Servicerequest from "./components/User_portal/Netbanking/Customerservice.js/Servicerequest";
 import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Customerservice.js/Taxcenter";
+
 import BillDetails from "./components/User_portal/Netbanking/Bank_Accounts/BillDetails";
+
+import FinancialJourney from "./components/User_portal/Netbanking/Profile/Financial_Journey/FinancialJourney";
+
+import UpdatePancardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/UpdatePancardOtp";
+
+import GenerateDebitCardPinOTP from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitPinOtp";
+import GenerateDebitCardPin from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitCardPin";
+import ReissueLostATMcard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueLostATM";
+import GenerateRequestLostATM from "./components/User_portal/Netbanking/Bank_Accounts/GenerateRequestLostATM";
+import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCardRequest";
+
+
 
 
 
@@ -143,12 +157,28 @@ function App() {
           path="/user/account/generate-debitcard-pin"
           element={<GeneratePin />}
         />
+        <Route path="/user/account/generate-debit-card-pin-otp" element={<GenerateDebitCardPinOTP />} />
+        <Route path="/user/account/generate-debit-card-pin" element={<GenerateDebitCardPin />} />
         <Route path="/user/account/block-debit-card" element={<BlockCard />} />
         <Route path="/user/account/reissue-card" element={<Reissuecard />} />
+        <Route path="/user/account/reissue-lost-atm-card" element={<ReissueLostATMcard />} />
+        <Route path="/user/account/generate-request-lost-atm-card" element={<GenerateRequestLostATM />} />
+        <Route path="/user/account/generate-request-lost-service-atm" element={<ReissueCardRequest />} />
         <Route
           path="/user/account/manage-cardlimit"
           element={<ManageCardLimit />}
         />
+      <Route
+          path="/user/account/manage-card-limit-otp"
+          element={<OtpPage />}
+        />
+
+      <Route
+          path="/user/account/update-pancard-otp"
+          element={<UpdatePancardOtpPage />}
+        />
+        
+
         <Route
           path="/user/account/chequebook-req"
           element={<ChequeBookReq />}
@@ -319,6 +349,15 @@ function App() {
           element={<FavouriteActivities />}
         />
 
+        
+        <Route
+          exact
+          path="/user/profile/financialjourney"
+          element={<FinancialJourney />}
+        />
+
+
+
         {/* CARDS & LOANS Started */}
 
         <Route exact path="/user/credit-cards" element={<CreditCard />} />
@@ -382,3 +421,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
