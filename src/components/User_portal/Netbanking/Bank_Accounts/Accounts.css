@@ -487,6 +487,54 @@ font-size: 13px;
 
 /* Generatepin.css ends */
 
+
+/* Generatedebitpinotp.css starts */
+
+.generate_debit_pin_button_logos{
+  font-size: 20px;
+}
+
+.generate_debit_pin_button{
+  color: #f18121;
+  border: 1px solid #f18121;
+  outline: none;
+  align-items: center;
+  background-color: none;
+  font-size: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+}
+
+.generate_debit_pin_para{
+  font-size: small;
+  font-weight:  400;
+}
+
+.generate_debit_pin_icon{
+  display: flex;
+  flex-direction: row;
+}
+
+.generate_debit_pin_div_label{
+  display: flex;
+  flex-direction:column;
+  width: 150px;
+  outline: none;
+  height: 24px;
+  /* width: 200px; */
+  }
+
+  .generate_debit_pin_icon_otp{
+    border: 1px solid rgb(207, 203, 203);
+    margin: 0px 5px;
+    height: 25px;
+    width: 30px;
+    padding:1px 1px;
+}
+
+/* Generatedebitpinotp.css ends */
+
 /* BlockCard.css starts */
 
 .card_details_block_card_hotlisting .card {
@@ -618,6 +666,11 @@ font-size: 13px;
   font-weight: 400;
   line-height: 1.5;
   width: 100%;
+}
+
+.reissue_card_button_disabled{
+  color: #b2b9bf;
+  border: 1px solid #b2b9bf;
 }
 
 /* Reissuecard.css ends */

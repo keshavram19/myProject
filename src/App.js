@@ -93,6 +93,11 @@ import DropDownBankAccount from "./components/User_portal/Netbanking/Customerser
 import Servicerequest from "./components/User_portal/Netbanking/Customerservice.js/Servicerequest";
 import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Customerservice.js/Taxcenter";
 import FinancialJourney from "./components/User_portal/Netbanking/Profile/Financial_Journey/FinancialJourney";
+import GenerateDebitCardPinOTP from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitPinOtp";
+import GenerateDebitCardPin from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitCardPin";
+import ReissueLostATMcard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueLostATM";
+import GenerateRequestLostATM from "./components/User_portal/Netbanking/Bank_Accounts/GenerateRequestLostATM";
+import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCardRequest";
 
 
 
@@ -143,8 +148,13 @@ function App() {
           path="/user/account/generate-debitcard-pin"
           element={<GeneratePin />}
         />
+        <Route path="/user/account/generate-debit-card-pin-otp" element={<GenerateDebitCardPinOTP />} />
+        <Route path="/user/account/generate-debit-card-pin" element={<GenerateDebitCardPin />} />
         <Route path="/user/account/block-debit-card" element={<BlockCard />} />
         <Route path="/user/account/reissue-card" element={<Reissuecard />} />
+        <Route path="/user/account/reissue-lost-atm-card" element={<ReissueLostATMcard />} />
+        <Route path="/user/account/generate-request-lost-atm-card" element={<GenerateRequestLostATM />} />
+        <Route path="/user/account/generate-request-lost-service-atm" element={<ReissueCardRequest />} />
         <Route
           path="/user/account/manage-cardlimit"
           element={<ManageCardLimit />}
