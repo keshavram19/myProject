@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Accounts from "./components/User_portal/Netbanking/Bank_Accounts/Accounts";
 import Statements from "./components/User_portal/Netbanking/Bank_Accounts/Statements";
 import StatementByMail from "./components/User_portal/Netbanking/Bank_Accounts/Statement_by_email";
-import DebitAndAtm from "./components/User_portal/Netbanking/Bank_Accounts/DebitAndAtm";
+import  DebitAndAtm from "./components/User_portal/Netbanking/Bank_Accounts/DebitAndAtm";
 import GeneratePin from "./components/User_portal/Netbanking/Bank_Accounts/GeneratePin";
 import BlockCard from "./components/User_portal/Netbanking/Bank_Accounts/BlockCard";
 import Reissuecard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCard";
@@ -97,6 +97,9 @@ import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Custom
 import BillDetails from "./components/User_portal/Netbanking/Bank_Accounts/BillDetails";
 
 import FinancialJourney from "./components/User_portal/Netbanking/Profile/Financial_Journey/FinancialJourney";
+
+import Renewfixedform from "./components/User_portal/Netbanking/Bank_Accounts/Renewfixedform";
+
 import Fixed_recurring_Form from "./components/User_portal/Netbanking/Bank_Accounts/Fixed_recurringForm";
 import Recurring_form from "./components/User_portal/Netbanking/Bank_Accounts/Recurring_deposit_form";
 
@@ -108,6 +111,7 @@ import GenerateDebitCardPin from "./components/User_portal/Netbanking/Bank_Accou
 import ReissueLostATMcard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueLostATM";
 import GenerateRequestLostATM from "./components/User_portal/Netbanking/Bank_Accounts/GenerateRequestLostATM";
 import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCardRequest";
+
 
 
 
@@ -225,6 +229,9 @@ function App() {
         />
         <Route path="/user/account/fd-advice" element={<Fdadvice />} />
         <Route path="/user/account/renew-fd" element={<RenewFD />} />
+         <Route path="/user/account/renewfixed" element={<Renewfixedform />} />
+       
+
         <Route path="/user/account/paylater" element={<PayLater />} />
         <Route path="/user/account/billDetails" element={<BillDetails />} />
         <Route path="/user/account/e-statement" element={<Estatement />} />

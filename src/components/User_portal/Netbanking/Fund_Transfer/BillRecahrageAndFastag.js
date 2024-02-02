@@ -1,12 +1,74 @@
 import React, { useState } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button, Row, Col,  } from 'react-bootstrap';
 import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
 
 const BillRechargeFastag = ({ onPayNowClick }) => {
     const [activeTab, setActiveTab] = useState("purchase");
+    const [showSuccessAlert, setShowSuccessAlert] = useState(false); 
+    const [errorMessage, setErrorMessage] = useState('');
+    const [purchaseSuccess, setPurchaseSuccess] = useState(false);
+    const [rechargeSuccess, setRechargeSuccess] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
 
- 
+    const handlePurchaseSubmit = async (e) => {
+      e.preventDefault();
+  
+      try {
+        // Your existing purchase submission logic
+  
+        // Assuming success, set purchaseSuccess to true
+        setPurchaseSuccess(true);
+        setRechargeSuccess(false);
+        setShowSuccessAlert(true);
+        setAlertMessage('Successfully stored!');
+      } catch (error) {
+        console.error('API Error:', error);
+        setErrorMessage('Error during form submission');
+        setPurchaseSuccess(false);
+        setRechargeSuccess(false);
+        setShowSuccessAlert(false);
+        setAlertMessage('Error during form submission');
+      }
+    };
+  
+    const handleRechargeSubmit = async (e) => {
+      e.preventDefault();
+  
+      try {
+        // Your existing recharge submission logic
+  
+        // Assuming success, set rechargeSuccess to true
+        setRechargeSuccess(true);
+        setPurchaseSuccess(false);
+        setShowSuccessAlert(true);
+        setAlertMessage('Successfully stored!');
+      } catch (error) {
+        console.error('API Error:', error);
 
+        if (error.response && error.response.status === 400 && error.response.data.error === 'DuplicateData') {
+          setErrorMessage('Error: Duplicate data. Please check your input.');
+        } else {
+          setErrorMessage('Error during form submission');
+        }
+        setErrorMessage('Error during form submission');
+        setPurchaseSuccess(false);
+        setRechargeSuccess(false);
+        setShowSuccessAlert(false);
+        setAlertMessage('Error during form submission');
+      }
+    };
+  
+    const closeSuccessAlert = () => {
+      setShowSuccessAlert(false);
+      setPurchaseSuccess(false);
+      setRechargeSuccess(false);
+      setAlertMessage('Error during form submission');
+    };
+  
+    
+
+
+  
   return (
     <div className="container-fluid" style={{ marginTop: "90px" }}>
       
@@ -25,7 +87,7 @@ const BillRechargeFastag = ({ onPayNowClick }) => {
         {activeTab === "purchase" &&
         <div className="card-body">
          
-        <Form>
+        <Form onSubmit={handlePurchaseSubmit}>
           
           <Row>
             <Col sm={12}>
@@ -164,7 +226,7 @@ const BillRechargeFastag = ({ onPayNowClick }) => {
                 type="submit"
                 className="btn btn-primary btn-block mt-3"
               >
-                Proceed
+                PayNow
               </Button>
             </Col>
           </Row>
@@ -173,7 +235,7 @@ const BillRechargeFastag = ({ onPayNowClick }) => {
         }
         {activeTab === "recharge" && 
         <div className="card-body">
-        <Form >
+        <Form onSubmit={handleRechargeSubmit}>
           <Form.Group as={Row} className="mb-3">
             <Form.Label column md={6}>
               Recharge Type
@@ -236,12 +298,22 @@ const BillRechargeFastag = ({ onPayNowClick }) => {
 
       </div>
       </div>
-        </div>
+      {showSuccessAlert && (
+      <div className="alert alert-success mt-3" role="alert">
+        Successfully stored! 
+       <button type="button" className="close" onClick={closeSuccessAlert}>
+        <span aria-hidden="true">&times;</span>
+       </button>
        
       </div>
+      )}
+       </div>
+      
+      </div>
+      
        
       </div>
-    )
+    );
 }
 
 export default BillRechargeFastag;
