@@ -11,7 +11,7 @@ const apiList ={
 
    
     fixeddepositeform:`${server}/api/fixeddeposites`,
-    fixedadvice:`${server}/api/generate-pdf`
+    fixedadvice:`${server}/api/generate-pdf`,
 
     quickFundTransfer: `${server}/api/quickFundTransfer`,
     userAuthVerification: `${server}/api/verify-otp`,
@@ -24,7 +24,7 @@ const apiList ={
     userAuthVerification: `${server}/api/verify-otp`,
     form60OTPSend:`${server}/form60Userdetails/send-otp`,
     form60OtpVerification:`${server}/form60Userdetails/verify-otp`,
-    form60UserDetails:`${server}/form60Userdetails/userdetails`
+    form60UserDetails:`${server}/form60Userdetails/userdetails`,
     createVerificationCode: `${server}/api/generate-otp`,
     authenticateOTP: `${server}/api/validate-otp`,
     updateDomesticLimits: `${server}/api/updateDomesticLimits/`,
