@@ -32,14 +32,18 @@ function InwardRemitance () {
       !transferDetails.purposeOfRemittance
   ) {
       // Set alert message to prompt the user to complete all details
-      setAlertMessage('Please complete all details before submitting.');
+      // setAlertMessage('Please complete all details before submitting.');
+      alert("Fill all the details completely");
+
       return; // Prevent form submission
   }
     try {
         //  const response = await axios.post('http://localhost:4444/api/submitForm', transferDetails);
         const response = await axios.post(apiList.inwardRemittance, transferDetails);
         console.log(response.data);
-             setAlertMessage('Request sent to the email ID.');
+        alert("user registered succeesfully");
+
+            //  setAlertMessage('Request sent to the email ID.');
 
              setTransferDetails({
               accountNumber: '',
@@ -268,11 +272,11 @@ function InwardRemitance () {
         {/* Other fields for request form... */}
       </form>
     </div>
-    {alertMessage && (
+    {/* {alertMessage && (
                 <div className="alert alert-success mt-2" role="alert">
                   {alertMessage}
                 </div>
-              )}
+              )} */}
 
           </div>
          
