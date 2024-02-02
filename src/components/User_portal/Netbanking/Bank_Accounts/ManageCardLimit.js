@@ -3,27 +3,26 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+import apiList from '../../../../lib/apiList';
 
 
 
 const ManageCardLimit = () => {
-  
+
+  const accountNumber = 1234567890;
 
   const [otpMethod, setOtpMethod] = useState('');
 
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Function to send form data to backend
-  // Function to send form data to backend
   const handleSubmit = async () => {
     try {
       if (otpMethod !== 'sms' && otpMethod !== 'email') {
-        // If neither SMS nor email is selected, display an alert
         setErrorMessage('Please select SMS or email for OTP generation.');
         return;
       }
 
-      // Update domestic limits
+
       const updatedDomesticLimits = {
         cashWithdrawalLimit: domesticLimit1,
         retailTransactionLimit: domesticLimit2,
@@ -31,7 +30,7 @@ const ManageCardLimit = () => {
         contactlessPaymentLimit: domesticLimit4
       };
 
-      // Update international limits
+
       const updatedInternationalLimits = {
         cashWithdrawalLimit: internationalLimit1,
         retailTransactionLimit: internationalLimit2,
@@ -39,17 +38,16 @@ const ManageCardLimit = () => {
         contactlessPaymentLimit: internationalLimit4
       };
 
-      // Make put request to update domestic limits
-      await axios.put('http://localhost:4444/api/updateDomesticLimits/1234567890', {
+
+      await axios.put(`${apiList.updateDomesticLimits}${accountNumber}`, {
         newDomesticLimits: updatedDomesticLimits
       });
 
-      // Make put request to update international limits
-      await axios.put('http://localhost:4444/api/updateInternationalLimits/1234567890', {
+      await axios.put(`${apiList.updateInternationalLimits}${accountNumber}`, {
         newInternationalLimits: updatedInternationalLimits
       });
 
-      // Call handleOtpGeneration after updating limits
+
       await handleOtpGeneration();
 
 
@@ -59,8 +57,6 @@ const ManageCardLimit = () => {
     }
   };
 
-
-  //state variables for domestic limits
   const [isChecked1, setChecked1] = useState(false);
   const [isChecked2, setChecked2] = useState(false);
   const [isChecked3, setChecked3] = useState(false);
@@ -112,7 +108,6 @@ const ManageCardLimit = () => {
     setDomesticLimit4(parseInt(event.target.value));
   };
 
-  //state variables for international limits
 
   const [isChecked5, setChecked5] = useState(false);
   const [isChecked6, setChecked6] = useState(false);
@@ -150,9 +145,9 @@ const ManageCardLimit = () => {
 
 
   const fetchData = async () => {
-  
+
     try {
-      const response = await axios.get('http://localhost:4444/api/userDetails/1234567890');
+      const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
       const userDetailsData = response.data.details;
 
       if (Array.isArray(userDetailsData)) {
@@ -187,12 +182,12 @@ const ManageCardLimit = () => {
     console.log('Selected Account:', event.target.value);
   };
 
-  // Function to format the debit card number
+
   const formatDebitCardNumber = (cardNumber) => {
-    // Convert the card number to a string
+
     const cardNumberString = String(cardNumber);
 
-    // Assuming the card number is a string
+
     const firstFourDigits = cardNumberString.substring(0, 4);
     const lastFourDigits = cardNumberString.substring(cardNumberString.length - 4);
     const maskedDigits = 'X'.repeat(cardNumberString.length - 8);
@@ -210,17 +205,17 @@ const ManageCardLimit = () => {
 
   const handleOtpMethodChange = (event) => {
     setOtpMethod(event.target.value);
-    setErrorMessage(''); // Clear error message when OTP method is changed
+    setErrorMessage('');
   };
 
 
   const handleOtpGeneration = async () => {
     try {
-      
+
       await fetchData();
 
       if (Array.isArray(userDetails) && userDetails.length > 0) {
-        const otpResponse = await axios.post('http://localhost:4444/api/generate-otp', {
+        const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
           accountNumber: userDetails[0].userAccountNumber,
           debitCardNumber: selectedDebitCard,
           mobileNumber: lastFourDigits,
@@ -247,13 +242,11 @@ const ManageCardLimit = () => {
 
   };
 
-
-
   return (
 
     <div>
 
-      <div className='card_limit-details-container container-fluid' style={{marginTop:'80px'}}>
+      <div className='card_limit-details-container container-fluid' style={{ marginTop: '80px' }}>
         <div className='row'>
           <div className='col-3'>
             <BankaccountSidebar />
@@ -300,7 +293,6 @@ const ManageCardLimit = () => {
                         onChange={(event) => setSelectedDebitCard(event.target.value)}
                       >
 
-
                         {userDetails.length > 0 && (
                           <option value={formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber)}>
                             {formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber)}
@@ -314,10 +306,9 @@ const ManageCardLimit = () => {
 
                   {/* radio-btn */}
 
-
                   <div className="row mt-4">
                     <div className="col-sm-4">
-                      {/* <input type="radio" id="domestic" name="option" value="options" /> */}
+
                       <input
                         type="radio"
                         id="domestic"
@@ -329,7 +320,7 @@ const ManageCardLimit = () => {
                       <label for="domestic">Domestic Limits</label>
                     </div>
                     <div className="col-sm-4">
-                      {/* <input type="radio" id="international" name="option" value="options" /> */}
+
                       <input
                         type="radio"
                         id="international"
@@ -341,9 +332,6 @@ const ManageCardLimit = () => {
                       <label for="international" >International Limits</label>
                     </div>
                   </div>
-
-                  {/* DEBITCARD_LIMITS*/}
-
 
                   {showDomestic ? (
                     /* Domestic container */
@@ -748,10 +736,7 @@ const ManageCardLimit = () => {
                     </div>
                   </div>
                 </div>
-
-
                 {/* mandatory */}
-
                 <div className='mandatory_field'>
                   <p className="pl-3">*Mandatory Fields</p>
                 </div>
@@ -821,9 +806,7 @@ const ManageCardLimit = () => {
           </div>
         </div>
       </div>
-
     </div>
-
   );
 };
 

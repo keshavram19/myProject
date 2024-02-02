@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
-
-
+import apiList from '../../../../lib/apiList';
 
 
 
 const ChequeBookReq = () => {
 
+  const accountNumber = 1234567890;
+  
   const [userDetails, setUserDetails] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState('');
   const [checkMsg, setCheckMsg] = useState('');
@@ -19,7 +20,7 @@ const ChequeBookReq = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:4444/api/userDetails/1234567832');
+      const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
       const userDetailsData = response.data.details;
 
       if (Array.isArray(userDetailsData)) {
@@ -41,14 +42,14 @@ const ChequeBookReq = () => {
   };
 
   const handleSubmit = async () => {
-    setCheckMsg('Your checkbook request has been submitted successfully'); // Set the message
+    setCheckMsg('Your checkbook request has been submitted successfully');
   };
 
   return (
     <div>
       <div className='bookrequest_container container-fluid' style={{ marginTop: "90px" }}>
         <div className='row'>
-        <div className='col-3'>
+          <div className='col-3'>
             <BankaccountSidebar />
           </div>
           <div className='col-9'>
@@ -100,7 +101,6 @@ const ChequeBookReq = () => {
                   <button className='back_button mt-5 ml-3' size="sm" onClick={handleSubmit}>SUBMIT</button>
                 </div>
               </div>
-              {/* Display checkMsg if it's not empty */}
               {checkMsg && (
                 <p className="text-success pl-3">{checkMsg}</p>
               )}

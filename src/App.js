@@ -93,6 +93,7 @@ import ELocker from "./components/User_portal/Netbanking/Customerservice.js/ELoc
 import DropDownBankAccount from "./components/User_portal/Netbanking/Customerservice.js/Servierequestdropdown";
 import Servicerequest from "./components/User_portal/Netbanking/Customerservice.js/Servicerequest";
 import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Customerservice.js/Taxcenter";
+import FinancialJourney from "./components/User_portal/Netbanking/Profile/Financial_Journey/FinancialJourney";
 import UpdatePancardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/UpdatePancardOtp";
 
 
@@ -330,6 +331,15 @@ function App() {
           element={<FavouriteActivities />}
         />
 
+        
+        <Route
+          exact
+          path="/user/profile/financialjourney"
+          element={<FinancialJourney />}
+        />
+
+
+
         {/* CARDS & LOANS Started */}
 
         <Route exact path="/user/credit-cards" element={<CreditCard />} />
@@ -393,3 +403,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
