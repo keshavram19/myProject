@@ -1,25 +1,110 @@
-import React, {useState} from "react";
-import './FundTransfer.css'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./FundTransfer.css";
 import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
+import apiList from "../../../../lib/apiList";
 
 const IncomeTaxEfill = () => {
-  const [accountNumber, setAccountNumber] = useState("Select account Number");
+  const accountNumber = 12456389;
+  const [userDetails, setUserDetails] = useState([]);
+  const [selectedAccount, setSelectedAccount] = useState("");
+  const [accountHolderPAN, setAccountHolderPAN] = useState("");
+  const [panInput, setPanInput] = useState("");
+  const [formError, setFormError] = useState("");
 
-  const handleAccountNumber = (event) => {
-    setAccountNumber(event.target.value);
+  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
+
+  
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `${apiList.customerAccountDetails}${accountNumber}`
+      );
+      const userDetailsData = response.data.details;
+
+      if (Array.isArray(userDetailsData)) {
+        setUserDetails(userDetailsData);
+      } else if (typeof userDetailsData === "object") {
+        setUserDetails([userDetailsData]);
+      } else {
+        console.error("Invalid user details format:", userDetailsData);
+      }
+    } catch (error) {
+      console.error("Error fetching user details:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (selectedAccount === "") {
+      fetchData();
+    }
+  }, [selectedAccount]);
+
+  const handleAccountChange = (event) => {
+    const selectedAccountValue = event.target.value;
+    setSelectedAccount(selectedAccountValue);
+  };
+
+
+
+  const handleCheckboxChange = () => {
+    setIsCheckboxChecked(!isCheckboxChecked);
+  };
+
+
+  const handleSubmit = async () => {
+    try {
+     
+      await fetchData();
+
+      if (userDetails.length === 0) {
+        console.error("User details not available yet");
+        return;
+      }
+
+      
+      
+      if (!isCheckboxChecked) {
+        setFormError("Please agree to the Terms and Conditions.");
+        return;
+      }
+
+      const selectedUser = userDetails.find((user) => {
+        return user.userAccountNumber == selectedAccount;
+      });
+
+      if (
+        selectedUser &&
+        selectedUser.accountHolderPAN.toUpperCase() === panInput.toUpperCase()
+      ) {
+        
+        window.location.href =
+          "https://incometaxindia.gov.in/Pages/tax-services/file-income-tax-return.aspx";
+      } else {
+        
+        setFormError("Invalid PAN number. Please check and try again.");
+      }
+    } catch (error) {
+      console.error("Error in handleSubmit:", error);
+    }
   };
 
   return (
-    <div className="incometax_container_fluid container-fluid" style={{marginTop:"90px"}}>
+    <div
+      className="incometax_container_fluid container-fluid"
+      style={{ marginTop: "90px" }}
+    >
       <div className="row">
         <div className="col-3">
-      <PaymentSidebar />
+          <PaymentSidebar />
         </div>
         <div className="col-9">
           <div className="">
-            <h1 style={{color: "#f18121"}}>Income Tax e-Filling</h1>
+            <h1 style={{ color: "#f18121" }}>Income Tax e-Filling</h1>
             <div className="incometax_filling card">
-              <h4 className="incometax_filling_heading4">e-Fille your Income Tax Return</h4>
+              <h4 className="incometax_filling_heading4">
+                e-Fille your Income Tax Return
+              </h4>
               <div className="incometax_form_information">
                 <div className="incometax_from_account  row">
                   <label className="col-sm-4 incometax_form_label">
@@ -28,13 +113,19 @@ const IncomeTaxEfill = () => {
                   <div className="incometax_information col-sm-6">
                     <select
                       className="incometax_information form-control"
-                      value={accountNumber}
-                      onChange={handleAccountNumber}
+                      value={selectedAccount}
+                      onChange={handleAccountChange}
                     >
-                      <option value="Select account Number" disabled="accountnumber">
-                        Select account Number
-                      </option>
-                      <option value="RIB">RIB-21465792</option>
+                      <option value="">Select Account Number</option>
+                      {userDetails.map((account, index) => (
+                        <option
+                          key={index}
+                          value={account.userAccountNumber}
+                          defaultChecked
+                        >
+                          {account.userAccountNumber}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
@@ -45,9 +136,10 @@ const IncomeTaxEfill = () => {
                   <div className="col-sm-6">
                     <input
                       type="text"
-                      className="incometax_information form-control "
+                      className="incometax_information form-control"
                       placeholder="Enter Pan Number"
-                      value=""
+                      value={panInput}
+                      onChange={(e) => setPanInput(e.target.value)}
                     />
                   </div>
                 </div>
@@ -57,16 +149,24 @@ const IncomeTaxEfill = () => {
                   type="checkbox"
                   className="incometax_check_box m-2"
                   value="byclick"
+                  checked={isCheckboxChecked}
+                  onChange={handleCheckboxChange}
                 />
                 By clicking Submit button, you agree to the{" "}
                 <a href="#">Terms and Conditions.</a>
               </div>
             </div>
             <div className="incometax_button">
-              <button type="button" class="btn btn_incometax_button" style={{background: "#f18121", color: "white"}}>
+              <button
+                type="button"
+                class="btn btn_incometax_button"
+                style={{ background: "#f18121", color: "white" }}
+                onClick={handleSubmit}
+              >
                 SUBMIT
               </button>
             </div>
+            {formError && <p style={{ color: "red" }}>{formError}</p>}
 
             <p>
               <strong>Notes:</strong>
