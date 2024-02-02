@@ -11,13 +11,16 @@ import { MdManageAccounts } from "react-icons/md";
 import { FaRupeeSign } from "react-icons/fa";
 import { BsSendFill } from "react-icons/bs";
 import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
+import { Link,useNavigate } from "react-router-dom";
+// import { use } from "../../../../../../Royal_Islamic_Bank_Server/routes/apiRoutes";
 
 const Mypayee = () => {
+  let navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("mypayee");
   return (
     <>
       
-      <div className="container-fluid" style={{ marginTop: "90px" }}>
+  <div className="container-fluid" style={{ marginTop: "90px" }}>
         <div className="row">
           <div className="col-3">
           <PaymentSidebar/>
@@ -67,7 +70,7 @@ const Mypayee = () => {
           <div className="mypayee_text">
             <div>
               Doing a one time transfer?Use quick transfer upto 25000 no need to
-              add payee <span className="mypayee_click">Click here</span>
+              add payee <span className="mypayee_click" onClick={()=>navigate('/user/fundtransfer/quickfundtransfer')} >Click here</span>
             </div>
           </div>
           <h5>Select Payee</h5>
@@ -86,10 +89,10 @@ const Mypayee = () => {
             </div>
             <div className="mypayee_or">OR</div>
             <div className="mypayee_add">
-              <button className="mypayee_addbtn">
+             <Link to='/user/fundtransfer/manage-payees' className="mypayee_addpayeelink"> <button className="mypayee_addbtn">
                 <FaPlus />
                 ADD NEW PAYEE
-              </button>
+              </button></Link>
             </div>
           </div>
         </div>
@@ -410,6 +413,10 @@ const Mypayee = () => {
 
         </div>
       </div>
+
+
+
+
       
     </>
   );
