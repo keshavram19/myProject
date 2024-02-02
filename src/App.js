@@ -97,6 +97,9 @@ import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Custom
 import BillDetails from "./components/User_portal/Netbanking/Bank_Accounts/BillDetails";
 
 import FinancialJourney from "./components/User_portal/Netbanking/Profile/Financial_Journey/FinancialJourney";
+import Fixed_recurring_Form from "./components/User_portal/Netbanking/Bank_Accounts/Fixed_recurringForm";
+import Recurring_form from "./components/User_portal/Netbanking/Bank_Accounts/Recurring_deposit_form";
+
 
 import UpdatePancardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/UpdatePancardOtp";
 
@@ -144,13 +147,13 @@ function App() {
           path="/user/account/paybills"
           element={<PayBills />}
         />
-         <Route
+        <Route
           path="/user/account/confirmpaye"
-          element={<ConfirmPaye/>}
+          element={<ConfirmPaye />}
         />
         <Route
           path="/user/account/Viewpayee"
-          element={<ViewPayee/>}
+          element={<ViewPayee />}
         />
         <Route path="/user/account/debit-atm-card" element={<DebitAndAtm />} />
         <Route
@@ -205,6 +208,16 @@ function App() {
           path="/user/account/reccuring-deposits"
           element={<RecurringDeposit />}
         />
+        <Route
+          path="/user/account/fixed-reccuring-form"
+          element={<Fixed_recurring_Form />}
+        />
+
+        <Route
+          path="/user/account/reccuring-form"
+          element={<Recurring_form/>}
+        />
+
         <Route
           path="/user/account/iwish-deposits"
           element={<IWishDeposits />}
@@ -349,7 +362,7 @@ function App() {
           element={<FavouriteActivities />}
         />
 
-        
+
         <Route
           exact
           path="/user/profile/financialjourney"
@@ -394,7 +407,7 @@ function App() {
         <Route exact path="/user/easyclaimsettlement" element={<EasyClaimSettlement />} />
         <Route exact path="/user/cancercover" element={<CancerCover />} />
         <Route exact path="/user/generalinsurnace" element={<GeneralInsurance />} />
-        
+
 
 
 
