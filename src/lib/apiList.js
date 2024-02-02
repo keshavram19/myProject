@@ -1,7 +1,7 @@
 export const server = "http://localhost:4444";
 
 const apiList ={
-    
+
     customerAccountDetails: `${server}/api/userDetails/`,
     userAuthentication: `${server}/api/otp-send`,
     userAuthVerification: `${server}/api/verify-otp`,
@@ -9,6 +9,8 @@ const apiList ={
     authenticateOTP: `${server}/api/validate-otp`,
     updateDomesticLimits: `${server}/api/updateDomesticLimits/`,
     updateInternationalLimits: `${server}/api/updateInternationalLimits/`,   
+    GenerateCardPin : `${server}/api/generate-Debit-Card-Pin`,
+    blockATMCard : `${server}/api/blockCard/`
 
 }
 

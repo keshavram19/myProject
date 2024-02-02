@@ -8,6 +8,9 @@ import React, { useState, useEffect } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+import apiList from '../../../../lib/apiList';
+import { format } from 'date-fns';
+import { Link } from 'react-router-dom';
 
 const allTransactionsList = [
     {
@@ -78,6 +81,8 @@ const Statements = () => {
     const [perPageTransactions, setPerPageTransactions] = useState('');
     const [accountTypeDetails, setAccountTypeDetails] = useState();
     const [viewTransStatement, setViewTransStatement] = useState();
+    const [formattedFromDate, setFormattedFromDate] = useState(null);
+    const [formattedToDate, setFormattedToDate] = useState(null);
 
 
     const handleStartDateChange = (date) => {
@@ -85,6 +90,8 @@ const Statements = () => {
         if (toDate && toDate < date) {
             setToDate(null);
         }
+        const fromFormatted = format(date, 'dd MMM yyyy');
+        setFormattedFromDate(fromFormatted)
     };
     const handleEndDateChange = (date) => {
         if (!fromDate) {
@@ -92,6 +99,8 @@ const Statements = () => {
         } else {
             setToDate(date);
         }
+        const toFormatted = format(date, 'dd MMM yyyy');
+        setFormattedToDate(toFormatted)
     };
 
     const handleAccountNumber = (event) => {
@@ -115,11 +124,10 @@ const Statements = () => {
     }, []);
     let accountNumber = 123456789;
     const getAccountTypeDetails = async () => {
-        const url = `http://localhost:4444/api/userDetails/${accountNumber}`;
         const options = {
             method: 'GET'
         };
-        const response = await fetch(url, options);
+        const response = await fetch(`${apiList.customerAccountDetails}${accountNumber}`, options);
         const data = await response.json()
         setAccountTypeDetails(data.details)
     };
@@ -165,23 +173,25 @@ const Statements = () => {
                     <div className='acct_statements_months_cont' >
                         <div className='acct_type_cont'>
                             <div className='acct_type_text'>Account Type:</div>
-                            <div>
+                            <div className='d-flex align-items-center'>
                                 <select className='form-control statement_select_format' onChange={handleAccountType}>
                                     <option hidden> Select Account Type </option>
                                     <option value='Savings'>Savings</option>
                                     <option value='Current'>Current</option>
                                 </select>
+                                <IoCaretDownCircleOutline className='statement_acct_type_icon'/>
                             </div>
                         </div>
                         {accountTypeDetails &&
                             <div className='acct_num_cont'>
                                 <div className='acct_num_text'>Account Number:</div>
-                                <div>
+                                <div className='d-flex align-items-center'>
                                     <select className='form-control statement_select_format'
                                         disabled={accountType === 'Current'} onChange={handleAccountNumber}>
                                         <option hidden>Select Account Number</option>
                                         <option>{accountTypeDetails.userAccountNumber}</option>
                                     </select>
+                                    <IoCaretDownCircleOutline className='statement_acct_type_icon'/>
                                 </div>
                             </div>
                         }
@@ -262,7 +272,7 @@ const Statements = () => {
                                 </div>
                                 <div> Transactions</div>
                                 <div>
-                                    <IoCaretDownCircleOutline className='all_trans_icon' />
+                                    <IoCaretDownCircleOutline className='page_trans_icon' />
                                 </div>
                             </div>
                         </div>
@@ -294,9 +304,14 @@ const Statements = () => {
                                         }
                                     </div>
                                     <div className='d-flex justify-content-between'>
-                                        <div className='d-flex'>
-                                            <div>Period: </div>
-                                            <div>Select Another Account / Period</div>
+                                        <div className='d-flex align-items-center'>
+                                            <div className='mr-2'>Period: </div>
+                                            <div className='mr-2'>{formattedFromDate} to {formattedToDate}</div>
+                                            <div>
+                                                <Link>
+                                                    Select Another Account / Period
+                                                </Link>
+                                            </div>
                                         </div>
                                         <div>
                                             <div>Page 1 of 1</div>
@@ -335,7 +350,7 @@ const Statements = () => {
                                     </table>
                                 </div>
                                 <div className='d-flex align-items-center'>
-                                    <div>Select Format:</div>
+                                    <div className='mr-2'>Select Format:</div>
                                     <div>
                                         <select className='form-control statement_select_format'>
                                             <option>PDF</option>
