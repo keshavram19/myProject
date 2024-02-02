@@ -14,12 +14,11 @@ const StatementByMail = () => {
     const [authDetails, setAuthDetails] = useState()
     let accountNumber = 123456789;
     const getAuthenticatioDetails = async ()=> {
-        const url = `http://localhost:4444/api/userDetails/${accountNumber}`;
         const options = {
             method: 'GET'
         };
         try {
-            const response = await fetch(url, options);
+            const response = await fetch(`${apiList.customerAccountDetails}${accountNumber}`, options);
             const data = await response.json();
             setAuthDetails(data.details);
         } 
@@ -82,9 +81,7 @@ const StatementByMail = () => {
                     draggable: true,
                     progress: undefined,
                     theme: "colored"
-                    
                     });
-                //console.log(data);
             }
             else{
                 const data = await response.json();
@@ -97,8 +94,7 @@ const StatementByMail = () => {
                     draggable: true,
                     progress: undefined,
                     theme: "colored"
-                    });
-                //console.log(data);
+                });
             }   
         }
         catch(error){
