@@ -13,6 +13,10 @@
   color: #f18121;
   font-size: x-large;
 }
+.mypayee_addpayeelink{
+  text-decoration: none;
+}
+
 .mypayee_navmain li{
   cursor: pointer;
   border-left: 1px solid white;
@@ -94,6 +98,60 @@
 .mypayee_click{
   text-decoration: underline;
   color: #f18121;
+  cursor: pointer;
+}
+.mypayee_quick_details{
+  height: 50px;
+  background-color: #faede2;
+  color: #f18121;
+  display: flex;
+  align-items: center;
+}
+.mypayee_quick_inputs{
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3%;
+}
+.mypayee_quick_input1{
+  border:none;
+  border-bottom: 1px solid #000;
+}
+.mypayee_quick_input1:focus{
+  outline: none;
+
+}
+.mypayee_quick_buttons{
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6%;
+}
+.mypayee_quick_backbtn{
+  border: 1px solid #f18121;
+  background-color: transparent;
+  color: #f18121;
+  font-size: small;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+.mypayee_quick_proceedbtn{
+  background-color:#faede2 ;
+  color: #f18121;
+  font-size: small;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  border: none;
+}
+.mypayee_quick_input1::-webkit-outer-spin-button,
+.mypayee_quick_input1::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 
@@ -815,7 +873,6 @@ abbr[title] {
     width: 150px;
     outline: none;
     height: 24px;
-    /* width: 200px; */
     }
     .but_Tax_on_icon_otp{
       border: 1px solid rgb(207, 203, 203);
