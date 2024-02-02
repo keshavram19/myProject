@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./FundTransfer.css";
 import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
+import apiList from "../../../../lib/apiList";
 
 const IncomeTaxEfill = () => {
+  const accountNumber = 12456389;
   const [userDetails, setUserDetails] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState("");
   const [accountHolderPAN, setAccountHolderPAN] = useState("");
@@ -13,13 +15,10 @@ const IncomeTaxEfill = () => {
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
 
   
-
- 
-
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4444/api/userDetails/12456389"
+        `${apiList.customerAccountDetails}${accountNumber}`
       );
       const userDetailsData = response.data.details;
 

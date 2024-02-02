@@ -8,7 +8,7 @@ import { BsFillFuelPumpDieselFill } from "react-icons/bs";
 const ApplyForLoan = () => {
   const [loan, setLoan] = useState("personalloan");
   return (
-    <>
+    <div className="container-fluid">
       <h4 className="applyforloan_heading">Apply For Loans</h4>
       <hr />
       <div className=" applyforloan_navmain">
@@ -389,7 +389,7 @@ const ApplyForLoan = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

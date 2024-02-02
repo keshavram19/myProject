@@ -7,19 +7,20 @@ import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
   return (
     <>
    <div className='container-fluid' style={{marginTop:"90px"}}>
-     <div className='nav-section'><h2 className='text-center'>BankRewardPoints</h2></div>
-     <div className='side-bar-section'>
+     
+     <div className='side_bar_section'>
         <div className='row'>
             <div className='col-3'>
                 <BankaccountSidebar />
           </div>
             <div className='col-9 ' >
-            <div className='bank-reward-sec-2'>
+            <div className='bank_reward_sec-2'>
+            <div><h3 className='text-center'>Bank Rewards</h3></div>
                 <img src={BankRewardBgImg} style={{height:'300px',width:'100%'}} alt='bank reward img'/>
                  </div>
-                <div className='bank-reward-section p-5'>
+                <div className='bank_reward_section p-5'>
                 
-                <h4>Your Savings Account/ Credit Card Points</h4>
+                <h5>Your Savings Account/ Credit Card Points</h5>
                 <table className='table table-bordered text-center'> 
                  <thead className='thead-light'>
                  <tr>
@@ -28,7 +29,7 @@ import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
                    <th>Redeem Now</th>
                  </tr>
                  </thead>
-                 <tbody>
+                 <tbody style={{fontWeight:'400',fontSize:'15px'}}>
                     <tr>
                     <td>123456789012</td>
                       <td>150.0</td>

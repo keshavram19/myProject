@@ -13,8 +13,8 @@ import React from 'react';
                         
          <label for='crediCardNumber' className='form-inline pt-4'>
           <span className='col-md-3'>Credit Card Number:</span>
-          <select name="cardNumber" className="custom-select custom-select-sm col-md-3">
-                          <option selected>Please Select</option>
+          <select name="cardNumber" className="custom-select custom-select-sm col-md-3 w-25">
+                          <option selected>-----Please Select-----</option>
                               <option value="option1">123456789012</option>
                               <option value="option2">123456789012</option>
                               <option value="option3">123456789012</option>
@@ -22,7 +22,7 @@ import React from 'react';
          </label>
           </div>
           <hr/>
-          <button className='Block_Credit_Card_submitBtn m-3'>SUBMIT</button>
+          <button className='Block_Credit_Card_submitBtn p-2 m-3'>SUBMIT</button>
         
 
 

@@ -26,9 +26,9 @@ const GenerateCreditCardPin = () => {
                                     <div className="col-sm-3">
                                         <select className="credit_card_input" id="creditCardNumber">
                                             <option value="">Please select</option>
-                                            <option value="** ** ** 1234">XXXX XXXX XXXX 1234</option>
-                                            <option value="** ** ** 5678">XXXX XXXX XXXX 5678</option>
-                                            <option value="** ** ** 9012">XXXX XXXX XXXX 9012</option>
+                                            <option value="* * ** 1234">XXXX XXXX XXXX 1234</option>
+                                            <option value="* * ** 5678">XXXX XXXX XXXX 5678</option>
+                                            <option value="* * ** 9012">XXXX XXXX XXXX 9012</option>
                                         </select>
                                     </div>
                                 </div>
@@ -59,17 +59,16 @@ const GenerateCreditCardPin = () => {
                             <div className="row pl-2 otp_container mb-3">
                                 <div className="col-sm-6">
                                     <h6 className="my-2 p-2">How would you like to get OTP?</h6>
-                                    <div className="form-check-inline ml-2">
-                                        <input type="radio" className="form-check-input" name="optradio" />
-                                        <label className="form-check-label">SMS </label>
-                                    </div>
-                                    <div className="form-check-inline ml-3">
-                                        <input type="radio" className="form-check-input" name="optradio" />
-                                        <label className="form-check-label">Email</label>
-                                    </div>
-                                    <div className="form-check-inline ml-3">
-                                        <input type="radio" className="form-check-input" name="optradio" />
-                                        <label className="form-check-label">Call</label>
+                                    <div className="p-2 d-flex">
+                                        <div className="pr-3">
+                                            <input type="radio" id="sms" name="options" value="option" /><label for="sms">SMS</label>
+                                        </div>
+                                        <div className="pr-3">
+                                            <input type="radio" id="email" name="options" value="option" /><label for="email" >Email</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="call" name="options" value="option" /><label for="call">Call</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
