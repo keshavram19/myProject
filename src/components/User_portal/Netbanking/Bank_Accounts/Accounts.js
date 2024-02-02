@@ -3,9 +3,12 @@ import './Accounts.css';
 import { useEffect, useState } from 'react';
 import { MdCurrencyRupee } from "react-icons/md";
 import { AiFillPrinter } from "react-icons/ai";
+
 import { Link, useParams } from 'react-router-dom';
-import BankaccountSidebar from '../Sidebar/BankaccountSidebar'
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+
 import Navbar from '../Overview/Navbar';
+import apiList from '../../../../lib/apiList';
 
 
 const allTransactionsList = [
@@ -85,16 +88,13 @@ const Accounts = () => {
     let accountNumber = 123456789;
     const [accountDetails, setAccountDetails] = useState()
     const getUserAccountDetails = async () => {
-
-        const url = `http://localhost:4444/api/userDetails/${accountNumber}`;
         const options = {
             method: 'GET'
         };
-        const response = await fetch(url, options);
+        const response = await fetch(`${apiList.customerAccountDetails}${accountNumber}`, options);
         const data = await response.json();
         setAccountDetails(data.details)
     };
-    //console.log(accountDetails);
 
     const latestTransactions = allTransactionsList.slice(0, 3)
 
