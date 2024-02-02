@@ -1,7 +1,7 @@
 
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import './Accounts.css';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const FixedDeposit = () => {
     let navigate = useNavigate();
@@ -9,6 +9,11 @@ const FixedDeposit = () => {
     const Recurringpage=()=>{
         navigate('/user/account/reccuring-deposits')
     }
+
+    const iwishpage=()=>{
+        navigate('/user/account/iwish-deposits')
+    }
+
 
 
 
@@ -52,7 +57,7 @@ const FixedDeposit = () => {
 
 
                             </div>
-                            <div className="col-xl-4 col-lg-4 col-md-4">
+                            <div className="col-xl-4 col-lg-4 col-md-4"  onClick={iwishpage}>
                                 <div className="card text-center p-2 h-100  deposit_card1 shadow">
                                     <h6 className='deposit_fixedheading'>Iwish Deposit  0</h6>
                                     <p><i class="fa-solid fa-indian-rupee-sign deposit_fixedheading"></i> 0</p>
@@ -103,7 +108,7 @@ const FixedDeposit = () => {
                                     </div>
 
                                 </div>
-                                <button className="deposit_btn1 mt-3 col-2">Create FD</button>
+                                <Link to='/user/account/fixed-reccuring-form'><button className="deposit_btn1 mt-3 col-2">Create FD</button></Link>
 
                             </div>
 
