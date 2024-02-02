@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Accounts from "./components/User_portal/Netbanking/Bank_Accounts/Accounts";
 import Statements from "./components/User_portal/Netbanking/Bank_Accounts/Statements";
 import StatementByMail from "./components/User_portal/Netbanking/Bank_Accounts/Statement_by_email";
-import DebitAndAtm from "./components/User_portal/Netbanking/Bank_Accounts/DebitAndAtm";
+import  DebitAndAtm from "./components/User_portal/Netbanking/Bank_Accounts/DebitAndAtm";
 import GeneratePin from "./components/User_portal/Netbanking/Bank_Accounts/GeneratePin";
 import BlockCard from "./components/User_portal/Netbanking/Bank_Accounts/BlockCard";
 import Reissuecard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCard";
@@ -93,7 +93,16 @@ import ELocker from "./components/User_portal/Netbanking/Customerservice.js/ELoc
 import DropDownBankAccount from "./components/User_portal/Netbanking/Customerservice.js/Servierequestdropdown";
 import Servicerequest from "./components/User_portal/Netbanking/Customerservice.js/Servicerequest";
 import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Customerservice.js/Taxcenter";
+
+import BillDetails from "./components/User_portal/Netbanking/Bank_Accounts/BillDetails";
+
 import FinancialJourney from "./components/User_portal/Netbanking/Profile/Financial_Journey/FinancialJourney";
+
+import Renewfixedform from "./components/User_portal/Netbanking/Bank_Accounts/Renewfixedform";
+
+import Fixed_recurring_Form from "./components/User_portal/Netbanking/Bank_Accounts/Fixed_recurringForm";
+import Recurring_form from "./components/User_portal/Netbanking/Bank_Accounts/Recurring_deposit_form";
+
 
 import UpdatePancardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/UpdatePancardOtp";
 
@@ -105,6 +114,9 @@ import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Account
 
 
 
+
+
+import OTPPage from "./components/User_portal/Netbanking/Fund_Transfer/OTPpage";
 
 function App() {
   return (
@@ -140,13 +152,13 @@ function App() {
           path="/user/account/paybills"
           element={<PayBills />}
         />
-         <Route
+        <Route
           path="/user/account/confirmpaye"
-          element={<ConfirmPaye/>}
+          element={<ConfirmPaye />}
         />
         <Route
           path="/user/account/Viewpayee"
-          element={<ViewPayee/>}
+          element={<ViewPayee />}
         />
         <Route path="/user/account/debit-atm-card" element={<DebitAndAtm />} />
         <Route
@@ -202,12 +214,26 @@ function App() {
           element={<RecurringDeposit />}
         />
         <Route
+          path="/user/account/fixed-reccuring-form"
+          element={<Fixed_recurring_Form />}
+        />
+
+        <Route
+          path="/user/account/reccuring-form"
+          element={<Recurring_form/>}
+        />
+
+        <Route
           path="/user/account/iwish-deposits"
           element={<IWishDeposits />}
         />
         <Route path="/user/account/fd-advice" element={<Fdadvice />} />
         <Route path="/user/account/renew-fd" element={<RenewFD />} />
+         <Route path="/user/account/renewfixed" element={<Renewfixedform />} />
+       
+
         <Route path="/user/account/paylater" element={<PayLater />} />
+        <Route path="/user/account/billDetails" element={<BillDetails />} />
         <Route path="/user/account/e-statement" element={<Estatement />} />
 
         {/* fund transfer */}
@@ -240,6 +266,8 @@ function App() {
           path="/user/fundtransfer/quickfundtransfer"
           element={<QuickFundTransfer />}
         />
+        <Route exact path ="/user/fundtransfer/quickfundtransfer-otp-page" element={< OTPPage/>} />
+
         <Route
           path="/user/fundtransfer/generate-mmid"
           element={<GenerateMMID />}
@@ -344,7 +372,7 @@ function App() {
           element={<FavouriteActivities />}
         />
 
-        
+
         <Route
           exact
           path="/user/profile/financialjourney"
@@ -389,7 +417,7 @@ function App() {
         <Route exact path="/user/easyclaimsettlement" element={<EasyClaimSettlement />} />
         <Route exact path="/user/cancercover" element={<CancerCover />} />
         <Route exact path="/user/generalinsurnace" element={<GeneralInsurance />} />
-        
+
 
 
 

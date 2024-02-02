@@ -1,6 +1,6 @@
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import './Accounts.css';
-
+import { Link } from 'react-router-dom';
 
 const ServiceRequest = () => {
     return (
@@ -74,7 +74,7 @@ const ServiceRequest = () => {
                                                 </div>
 
                                             </div>
-                                            <div className='card shadow'>
+                                            <div className='card shadow mt-2'>
                                                 <div className='row p-2'>
 
                                                 <i class="fa-solid fa-hand-holding-dollar col-xl-2 col-lg-2 col-md-2 col-2 mt-1 service_icon"></i>
@@ -84,21 +84,21 @@ const ServiceRequest = () => {
                                                 </div>
 
                                             </div>
-                                            <div className='card shadow'>
+                                            <div className='card shadow mt-2'>
                                             <div className='row p-2'>
                                             <i class="fa-solid fa-link col-xl-2 col-lg-2 col-md-2 col-2 mt-1 service_icon"></i>
                                                 <p className='col-xl-10 col-lg-10 col-md-10 col-10 service_table_heading'>Link Accounts/Policies</p>
                                             </div>
 
                                             </div>
-                                            <div className='card shadow'>
+                                            <div className='card shadow mt-2'>
                                             <div className='row p-2'>
                                                 <i class="fa-solid fa-money-bill-transfer col-xl-2 col-lg-2 col-md-2 col-2 mt-1 service_icon"></i>
                                                 <p className='col-xl-10 col-lg-10 col-md-10 col-10 service_table_heading'>Free & Travel exis </p>
                                             </div>
 
                                             </div>
-                                            <div className='card shadow'>
+                                            <div className='card shadow mt-2'>
                                             <div className='row p-2'>
                                             <i class="fa-solid fa-hand-holding-dollar col-xl-2 col-lg-2 col-md-2 col-2 mt-1 service_icon"></i>
                                                 <p className='col-xl-10 col-lg-10 col-md-10 col-10 service_table_heading'>Pockets</p>
@@ -138,10 +138,10 @@ const ServiceRequest = () => {
                             <div className='col-md-5'>
                                 <h6>Quick Links</h6>
                                 <button className='service_btn'>Stop Cheques</button>
-                                <button className='service_btn'>Generate Card PIN</button>
-                                <button className='service_btn'>Block Credit Card</button>
-                                <button className='service_btn'>Cheque Book Request</button>
-                                <button className='service_btn'>Block or Unblock ATM/Debit Card</button>
+                                <Link to='/user/account/generate-debitcard-pin' > <button className='service_btn'>Generate Card PIN</button></Link>
+                                <Link to='/user/account/block-debit-card'><button className='service_btn'>Block Credit Card</button></Link>
+                                <Link to='/user/account/chequebook-req'><button className='service_btn'>Cheque Book Request</button></Link>
+                                <Link to='/user/account/block-debit-card'><button className='service_btn'>Block or Unblock ATM/Debit Card</button></Link>
                                 <button className='service_btn'>Positive Pay</button>
                                 <div className='card p-3 mt-3 shadow'>
                                     <div className='card p-3  shadow servicerequest_subcard'>
