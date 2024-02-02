@@ -85,7 +85,7 @@
 
 .savings_account_note {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
 }
 .savings_acct_note_points {
   line-height: 1.5;
@@ -126,6 +126,10 @@
   font-weight: 410;
   display: flex;
   align-items: center;
+}
+.statement_acct_type_icon{
+  color: #f18121;
+  font-size: 25px;
 }
 .acct_num_cont {
   display: flex;
@@ -195,8 +199,12 @@
 }
 
 .all_trans_icon {
-  font-size: 22px;
-  color: darkcyan;
+  font-size: 25px;
+  color: #f18121;
+}
+.page_trans_icon{
+  color: #f18121;
+  font-size: 15px;
 }
 .transactions_view_btn_cont {
   padding: 10px 20px;
@@ -230,11 +238,11 @@
   color: #51504f !important;
 }
 select.form-control.statement_select_format {
-  font-size: 15px;
+  font-size: 13px;
 }
 .statement_download_btn{
   border: none;
-  background-color: cornflowerblue;
+  background-color: #f18121;
   color: #fff;
   border-radius: 5px;
   padding: 5px 15px;
@@ -479,6 +487,54 @@ font-size: 13px;
 
 /* Generatepin.css ends */
 
+
+/* Generatedebitpinotp.css starts */
+
+.generate_debit_pin_button_logos{
+  font-size: 20px;
+}
+
+.generate_debit_pin_button{
+  color: #f18121;
+  border: 1px solid #f18121;
+  outline: none;
+  align-items: center;
+  background-color: none;
+  font-size: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+}
+
+.generate_debit_pin_para{
+  font-size: small;
+  font-weight:  400;
+}
+
+.generate_debit_pin_icon{
+  display: flex;
+  flex-direction: row;
+}
+
+.generate_debit_pin_div_label{
+  display: flex;
+  flex-direction:column;
+  width: 150px;
+  outline: none;
+  height: 24px;
+  /* width: 200px; */
+  }
+
+  .generate_debit_pin_icon_otp{
+    border: 1px solid rgb(207, 203, 203);
+    margin: 0px 5px;
+    height: 25px;
+    width: 30px;
+    padding:1px 1px;
+}
+
+/* Generatedebitpinotp.css ends */
+
 /* BlockCard.css starts */
 
 .card_details_block_card_hotlisting .card {
@@ -612,6 +668,11 @@ font-size: 13px;
   width: 100%;
 }
 
+.reissue_card_button_disabled{
+  color: #b2b9bf;
+  border: 1px solid #b2b9bf;
+}
+
 /* Reissuecard.css ends */
 
 /* card limit css starts */
@@ -621,9 +682,10 @@ font-size: 13px;
   font-family: Poppins;
 }
 
-.card_limit .manage_card_heading {
+.card_limit .manage_card_heading{
   color: #f18121;
 }
+
 .card_limit .card .form_container {
   font-weight: 600;
   font-size: 15px;
@@ -656,8 +718,7 @@ font-size: 13px;
 }
 
 .card_limit .card_limit_heading {
-  background-color: #ffc492;
-  color: #f18121;
+  background-color: #faede2;
 }
 
 .card_limit .mandatory_field {
@@ -759,15 +820,99 @@ font-size: 13px;
   transition: 0.4s;
 }
 
-.toggle_container .toggle_input:checked + .toggle_slider {
+.toggle_container .toggle_input:checked+.toggle_slider {
   background-color: #2196f3;
 }
 
-.toggle_container .toggle_input:checked + .toggle_slider:before {
+.toggle_container .toggle_input:checked+.toggle_slider:before {
   transform: translateX(26px);
 }
 
 /* card limit css ends */
+
+
+/* manage-cardlimit-otppage starts*/
+.limit_request_confirmation_btn_logos{
+  font-size: 20px;
+}
+
+.limit_request_confirmation_btn{
+  color: #f18121;
+  border: 1px solid #f18121;
+  outline: none;
+  align-items: center;
+  background-color: none;
+  font-size: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+}
+
+.limit_request_confirmation_para{
+  font-size: small;
+  font-weight:  400;
+}
+
+.limit_request_confirmation_icon{
+  display: flex;
+  flex-direction: row;
+}
+
+.limit_request_confirmation_div_label{
+  display: flex;
+  flex-direction:column;
+  width: 150px;
+  outline: none;
+  height: 24px;
+  /* width: 200px; */
+  }
+
+  .limit_request_confirmation_icon_otp{
+    border: 1px solid rgb(207, 203, 203);
+    margin: 0px 5px;
+    height: 25px;
+    width: 30px;
+    padding:1px 1px;
+}
+
+.limit_request_confirmation_submits {
+  border: none;
+  color: #f18121;
+  background-color: #ffc492;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.limit_request_confirmation_buttons {
+  color: #f18121;
+  background-color: #ffc492;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.limit_request_confirmation_heading .card .form_container {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.limit_request_confirmation_heading{
+  background-color: #faede2;
+}
+
+.request_confirmation_heading{
+  color: #f18121;
+}
+.limit_request_confirmation .bacKBtn_link{
+  text-decoration: none;
+  color: #f18121;
+}
+
+.limit_request_confirmation .text{
+  font-size: 14px;
+}
+
+/* manage-cardlimit-otppage ends*/
 
 /* checkbook-request css starts */
 
@@ -787,8 +932,7 @@ font-size: 13px;
 }
 
 .bookrequest .bookrequest_heading {
-  background-color: #ffc492;
-
+  background-color: #faede2;
 }
 
 .bookrequest .form_input {
@@ -815,7 +959,7 @@ font-size: 13px;
 /* checkbook-request css ends */
 
 /* update pancard css starts */
-
+  
 .pancard .card {
   border: none;
   font-weight: 400;
@@ -857,9 +1001,9 @@ font-size: 13px;
   cursor: pointer;
 }
 
-.pancard .pancard_heading {
-  background-color: #ffc492;
-  color: #f18121;
+
+.pancard .pancard_heading{
+  background-color: #faede2;
 }
 
 .pancard .mandatory_field {

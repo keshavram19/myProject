@@ -1,16 +1,104 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+import apiList from '../../../../lib/apiList';
 
 
 const UpdatePancard = () => {
 
-  return (
+  const accountNumber = 1234567890;
 
+  const [otpMethod, setOtpMethod] = useState('');
+  const [userDetails, setUserDetails] = useState([]);
+  const [selectedAccount, setSelectedAccount] = useState('');
+  const [lastFourDigits, setLastFourDigits] = useState('');
+  const [userEmailId, setUserEmailId] = useState('');
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
+      const userDetailsData = response.data.details;
+
+      if (Array.isArray(userDetailsData)) {
+        setUserDetails(userDetailsData);
+        setLastFourDigits(userDetailsData[0].userMobileNumber);
+        setUserEmailId(userDetailsData[0].userEmailId);
+      } else if (typeof userDetailsData === 'object') {
+        setUserDetails([userDetailsData]);
+        setLastFourDigits(userDetailsData.userMobileNumber);
+        setUserEmailId(userDetailsData.userEmailId)
+      } else {
+        console.error('Invalid user details format:', userDetailsData);
+      }
+    } catch (error) {
+      console.error('Error fetching user details:', error);
+    }
+  };
+
+  useEffect(() => {
+    if (selectedAccount === '') {
+      fetchData();
+    }
+  }, [selectedAccount]);
+
+  const handleAccountChange = (event) => {
+    setSelectedAccount(event.target.value);
+  };
+
+  const maskEmail = (email) => {
+    const atIndex = email.indexOf('@');
+    const maskedPart = email.substring(0, atIndex).replace(/./g, 'X');
+    const visiblePart = email.substring(atIndex);
+    return `${maskedPart}${visiblePart}`;
+  };
+
+  const handleOtpMethodChange = (event) => {
+    setOtpMethod(event.target.value);
+  };
+
+  const handleOtpGeneration = async () => {
+    try {
+      await fetchData();
+
+      if (Array.isArray(userDetails) && userDetails.length > 0) {
+        const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
+          accountNumber: userDetails[0].userAccountNumber,
+          mobileNumber: lastFourDigits,
+          otpMethod: otpMethod,
+        });
+
+        console.log(otpResponse.data);
+
+        const { message } = otpResponse.data;
+
+        if (message === 'OTP sent successfully') {
+          toast.success('Your OTP has been successfully generated!', {
+            onClose: () => window.location.href = '/user/account/update-pancard-otp'
+          });
+        } else {
+          toast.error('Failed to generate OTP. Please try again.');
+        }
+      } else {
+        console.error('Invalid user details:', userDetails);
+      }
+    } catch (error) {
+      console.error('Error generating OTP:', error);
+      toast.error('An error occurred while generating OTP. Please check your mobile for the OTP.');
+    }
+  };
+
+  return (
     <div>
-      
-      <div className='pancard_container container-fluid' style={{marginTop:"90px"}}>
+
+      <div className='pancard_container container-fluid' style={{ marginTop: "90px" }}>
         <div className='row'>
+          <ToastContainer />
           <div className='col-3'>
             <BankaccountSidebar />
           </div>
@@ -28,11 +116,17 @@ const UpdatePancard = () => {
                       <label for="text">Account Number*</label>
                     </div>
                     <div className="col-sm-3">
-                      <select className="form_input">
-                        <option value="">Please select</option>
-                        <option value="account1">Account1</option>
-                        <option value="account2">Account2</option>
-                        <option value="account3">Account3</option>
+                      <select
+                        className="form_input"
+                        value={selectedAccount}
+                        onChange={handleAccountChange}
+                      >
+                        {userDetails.map((account, index) => (
+                          <option key={index} value={account.userAccountNumber}>
+                            {account.userAccountNumber}
+                            <p>-{account.accountHolderName}</p>
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>
@@ -41,7 +135,10 @@ const UpdatePancard = () => {
                       <label for="text">Applicants Name*</label>
                     </div>
                     <div className="col-sm-3">
-                      <input type="text" className="form_input" id="text" />
+
+                      {userDetails.map((account, index) => (
+                        <input type="text" className="form_input" id="text" value={account.accountHolderName} />
+                      ))}
                     </div>
                   </div>
                   <div className="row mt-3">
@@ -49,7 +146,15 @@ const UpdatePancard = () => {
                       <label for="text">PAN Number*</label>
                     </div>
                     <div className="col-sm-3">
-                      <input type="text" className="form_input" id="text" />
+                      {userDetails.map((account, index) => {
+                        const panNumber = account.accountHolderPAN;
+                        const maskedPart = 'X'.repeat(panNumber.length - 4);
+                        const formattedPAN = `${panNumber.substring(0, 2)}${maskedPart}${panNumber.substring(panNumber.length - 2)}`;
+
+                        return (
+                          <input type="text" className="form_input" id="text" value={formattedPAN} key={index} />
+                        );
+                      })}
                     </div>
                   </div>
                   <div className="row mt-3">
@@ -57,7 +162,12 @@ const UpdatePancard = () => {
                       <label for="text">Mobile Number*</label>
                     </div>
                     <div className="col-sm-3">
-                      <input type="text" placeholder='XXXXXX8263' className="form_input" id="text" />
+                      <input
+                        type="text"
+                        className="form_input"
+                        id="text"
+                        value={`XXXXXX${String(lastFourDigits).slice(-4)}`}
+                      />
                     </div>
                   </div>
                   <div className="row mt-3">
@@ -65,7 +175,13 @@ const UpdatePancard = () => {
                       <label for="text">E-mail Id*</label>
                     </div>
                     <div className="col-sm-3">
-                      <input type="text" placeholder='XXXXXXXXXXXXX@gmail.com' className="form_input" id="text" />
+                      <input
+                        type="text"
+
+                        className="form_input"
+                        id="text"
+                        value={maskEmail(userEmailId)}
+                      />
                     </div>
                   </div>
                 </div>
@@ -74,32 +190,54 @@ const UpdatePancard = () => {
                   <p className="pl-3">By clicking "Submit",you are agreeing to all the terms indicated below</p>
                 </div>
                 <hr />
-                <div className="row pl-2 otp_container mb-3">
+                <div className="row pl-2 otp_container mb-1">
                   <div className="col-sm-6">
                     <h6 className="my-2 p-2">How would you like to get OTP?</h6>
-                    <div className="p-2 d-flex">
+                    <div className="d-flex pl-2">
                       <div className="pr-3">
-                        <input type="radio" id="sms" name="options" value="option" /><label for="sms">SMS</label>
+                        <input type="radio" id="sms" name="options" value="sms"
+                          checked={otpMethod === 'sms'}
+                          onChange={handleOtpMethodChange} /><label htmlFor="sms" >SMS</label>
                       </div>
                       <div className="pr-3">
-                        <input type="radio" id="email" name="options" value="option" /><label for="email" >Email</label>
+                        <input type="radio" name="options" id="email"
+                          value="email"
+                          checked={otpMethod === 'email'}
+                          onChange={handleOtpMethodChange} /><label htmlFor="email" >Email</label>
                       </div>
                       <div>
-                        <input type="radio" id="call" name="options" value="option" /><label for="call">Call</label>
+                        <input type="radio" id="call"
+                          name="options"
+                          value="call"
+                          checked={otpMethod === 'call'}
+                          onChange={handleOtpMethodChange} /><label htmlFor="call">Call</label>
                       </div>
+                    </div>
+                    <div className='pl-2 mt-2'>
+                      <i className='otp_container'>
+                        {otpMethod === 'sms' && (
+                          <p>OTP will be sent to registered mobile number XXXXXX{String(lastFourDigits).slice(-4)}</p>
+                        )}
+                        {otpMethod === 'email' && (
+                          <p>OTP will be sent to your email {maskEmail(userEmailId)}</p>
+                        )}
+                        {otpMethod === 'call' && (
+                          <p>You will receive a call for OTP</p>
+                        )}
+                      </i>
                     </div>
                   </div>
                 </div>
-                <i className='pl-3 otp_container'>OTP will be sent to registered mobile number</i>
+
                 <hr />
                 <div className="d-flex mb-3 ml-3">
 
-                <button className='back_Btn'>
-                  BACK
-                </button>
-                <button className='ml-3 submit_Btn'>
-                  SUBMIT
-                </button>
+                  <button className='back_Btn'>
+                    BACK
+                  </button>
+                  <button className='ml-3 submit_Btn' onClick={handleOtpGeneration}>
+                    SUBMIT
+                  </button>
                 </div>
               </div>
               <div className='pancard_notes'>
@@ -119,11 +257,10 @@ const UpdatePancard = () => {
               </div>
             </div>
           </div>
-          </div>
         </div>
-
       </div>
+    </div>
   );
 };
 
-export default UpdatePancard;
+export default UpdatePancard;

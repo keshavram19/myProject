@@ -3,7 +3,6 @@ import './Accounts.css';
 import axios from 'axios';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import { useNavigate } from 'react-router-dom';
-import apiList from '../../../../lib/apiList';
 
 
 const steps = [
@@ -12,11 +11,10 @@ const steps = [
     { title: "Request Generated", isCompleted: false},
 ];
 
-const Reissuecard = () => {
+const ReissueCardRequest = () => {
 
     const navigate = useNavigate();
     const [userDetails, setUserDetails] = useState([]);
-    const accountNumber = 1124563456;
 
     const Step = ({ title, isCompleted }) => {
       
@@ -32,7 +30,7 @@ const Reissuecard = () => {
 
       const fetchData = async () => {
         try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
+            const response = await axios.get('http://localhost:4444/api/userDetails/1124563456');
             const userDetailsData = response.data.details;
 
             if (Array.isArray(userDetailsData)) {
@@ -54,9 +52,10 @@ const Reissuecard = () => {
             fetchData();
     }, []);
 
-    const handleSubmitCard = () =>{
-        navigate('/user/account/reissue-lost-atm-card')
+    const handleBackChange = () =>{
+        navigate('/user/account/debit-atm-card');
     }
+   
       
   
     return (
@@ -66,7 +65,7 @@ const Reissuecard = () => {
                     <BankaccountSidebar />
                 </div>
                 <div className='col-9'>
-                    <div className="container-fluid reissue_card">
+                    <div className="container-fluid reissue_card ">
                         <h3 className="reissue_card_heading">Reissue  of Lost ATM/debit Card</h3>
                         <div className='col-sm-12'>
                             <div className="reissue_card_steps">
@@ -77,33 +76,15 @@ const Reissuecard = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="card card_details_select p-2">
-                            <h6>Generate Request</h6>
-                            <div className="row my-3 align-items-center">
-                                <div className="col-sm-5 ml-3  ">
-                                    <p>Select Savings Account Number*</p>
-                                </div>
-                                <div className="col-sm-5">
-                                <select
-                                            className="form-control"
-                                            value={userDetails.userAccountNumber}
-                                            defaultChecked
-                                        >
-                                            {userDetails.map((account, index) => (
-                                                <option key={index} value={account.userAccountNumber}>
-                                                    {account.userAccountNumber}
-                                                </option>
-                                            ))}
-                                        </select>
-                                </div>
+                        <div className="card card_details_select  p-3">
+                            <h6> Request Generated successfully </h6>
+                            <div className="row my-3 text-center align-items-center">
+                            <p>Your SRN Number : {userDetails[0]?.userDebitCardDetails?.reissueCard?.srn}</p>
+
                             </div>
                         </div>
                         <div className="d-flex my-3">
-                            <button type="button" className="reissue_card_button ml-2">BACK</button>
-                            <button type="submit" className="reissue_card_button_submit ml-4" onClick={handleSubmitCard}>SUBMIT</button>
-                        </div>
-                        <div className="note">
-                            <p>Note: Upon submission system will validate your account details, please wait for a while</p>
+                            <button type="button" className="reissue_card_button ml-2" onClick={handleBackChange}>BACK</button>
                         </div>
                     </div>
                 </div>
@@ -112,4 +93,4 @@ const Reissuecard = () => {
     );
 };
 
-export default Reissuecard;
+export default ReissueCardRequest;
