@@ -1391,7 +1391,7 @@ body {
 
 /* fixed advice start*/
 .fixed_deposit {
-  margin-left: 5px;
+  margin-left: 15px;
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
@@ -1401,7 +1401,7 @@ body {
 }
 
 .fixed_deposit h1 {
-  color: #312b2b;
+  color: orange;
   margin-right: 650px;
   font-size: x-large;
 }
@@ -1490,7 +1490,7 @@ body {
 }
 .fixed_button_now {
   padding: 10px;
-  background-color: rgb(235, 106, 60);
+  background-color:rgb(235, 106, 60);
   color: #312b2b;
   border: none;
   border-radius: 10px;
@@ -1505,11 +1505,12 @@ body {
 .renew_container {
   padding: 20px;
   text-align: center;
+  background-color: rgb(219, 215, 215);
 }
 .renew_container h1 {
-  color: black;
+  color: orange;
   font-size: x-large;
-  margin-right: 150px;
+  margin-right: 750px;
 }
 .renew_deposits_container {
   margin-top: 20px;
@@ -1531,6 +1532,33 @@ body {
 }
 
 /* renew advice end*/
+/* fixed deposite start */
+.fixed_form_section span {
+  font-weight: 420;
+  font-size: 15px;
+}
+.fixed_form_section label {
+  margin-top: 15px;
+}
+.fixed_form_heading {
+  background-color: rgb(211, 214, 214);
+}
+.fixed_form_submit_btn{
+width: auto;
+height: auto;
+outline: none;
+border: 1px solid rgba(128, 123, 123, 0.5);
+
+border-radius: 2px;
+font-weight: 600;
+color: white;
+margin-left: 30px;
+font-size:15px;
+text-align: center;
+background-color: #f18121 ;
+margin-left: 500px;
+}
+/* fixed deposite end */
 
 /* paylater css starts */
 * {

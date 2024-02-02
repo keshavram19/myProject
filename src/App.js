@@ -93,6 +93,7 @@ import DropDownBankAccount from "./components/User_portal/Netbanking/Customerser
 import Servicerequest from "./components/User_portal/Netbanking/Customerservice.js/Servicerequest";
 import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Customerservice.js/Taxcenter";
 import FinancialJourney from "./components/User_portal/Netbanking/Profile/Financial_Journey/FinancialJourney";
+import Renewfixedform from "./components/User_portal/Netbanking/Bank_Accounts/Renewfixedform";
 
 
 
@@ -181,6 +182,9 @@ function App() {
         />
         <Route path="/user/account/fd-advice" element={<Fdadvice />} />
         <Route path="/user/account/renew-fd" element={<RenewFD />} />
+         <Route path="/user/account/renewfixed" element={<Renewfixedform />} />
+       
+
         <Route path="/user/account/paylater" element={<PayLater />} />
         <Route path="/user/account/e-statement" element={<Estatement />} />
 
