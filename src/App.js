@@ -93,6 +93,9 @@ import ELocker from "./components/User_portal/Netbanking/Customerservice.js/ELoc
 import DropDownBankAccount from "./components/User_portal/Netbanking/Customerservice.js/Servierequestdropdown";
 import Servicerequest from "./components/User_portal/Netbanking/Customerservice.js/Servicerequest";
 import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Customerservice.js/Taxcenter";
+
+import BillDetails from "./components/User_portal/Netbanking/Bank_Accounts/BillDetails";
+
 import FinancialJourney from "./components/User_portal/Netbanking/Profile/Financial_Journey/FinancialJourney";
 
 import UpdatePancardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/UpdatePancardOtp";
@@ -102,6 +105,7 @@ import GenerateDebitCardPin from "./components/User_portal/Netbanking/Bank_Accou
 import ReissueLostATMcard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueLostATM";
 import GenerateRequestLostATM from "./components/User_portal/Netbanking/Bank_Accounts/GenerateRequestLostATM";
 import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCardRequest";
+
 
 
 
@@ -208,6 +212,7 @@ function App() {
         <Route path="/user/account/fd-advice" element={<Fdadvice />} />
         <Route path="/user/account/renew-fd" element={<RenewFD />} />
         <Route path="/user/account/paylater" element={<PayLater />} />
+        <Route path="/user/account/billDetails" element={<BillDetails />} />
         <Route path="/user/account/e-statement" element={<Estatement />} />
 
         {/* fund transfer */}

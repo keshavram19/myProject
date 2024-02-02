@@ -1765,6 +1765,70 @@ body {
 
 /* paylater css ends */
 
+/* billdetails css starts */
+
+.billDetails_mybill{
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  align-items: center;
+}
+.billDetails_okbtn{
+  border: none;
+  height: 30px;
+  background: #faede2;
+  color: #f18121;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+.billDetails_input1:focus{
+outline: none;
+}
+.billDetails_cont1{
+  height: 50px;
+  background-color: #faede2;
+  color: #f18121;
+  display: flex;
+  align-items: center;
+}
+.dillDetails_billcontent{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+.dillDetails_billcontent1{
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+
+}
+.billDetails_backbtn{
+  border: none;
+  height: 30px;
+  border: 1px solid #f18121;
+  color: #f18121;
+  display: flex;
+  align-items: center;
+  margin-right: 5%;
+  border-radius: 5px;
+}
+.billDetails_pay{
+  border: none;
+  background-color: #f18121;
+  color: #fffefe;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+.billDetails_link{
+  text-decoration: none;
+}
+
+/* billdetails css ends */
+
 /* .estatement css starts */
 
 .estatement_heading {
@@ -1915,6 +1979,11 @@ body {
 .estatement_note {
   margin-top: 5%;
   color: #f18121;
+}
+.estatement_noFound{
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
 }
 
 /* estatement css ends */
