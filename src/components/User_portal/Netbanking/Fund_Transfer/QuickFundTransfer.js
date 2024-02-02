@@ -1,18 +1,146 @@
-import React from "react";
-import Select from "react-select";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import './FundTransfer.css';
 import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
+import { useNavigate } from "react-router-dom";
+import apiList from "../../../../lib/apiList";
 
 
 const QuickFundTransfer = () => {
+    const [otpMethod, setOtpMethod] = useState('sms');
+
+    const navigate= useNavigate()
+    const [userDetails, setUserDetails] = useState([]);
+    const [selectedAccount, setSelectedAccount] = useState('');
+    const [selectedTransferType, setSelectedTransferType] = useState('royal');
+const  accountNumber=1124563456;
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
+            const userDetailsData = response.data.details;
+
+            if (Array.isArray(userDetailsData)) {
+                setUserDetails(userDetailsData);
+            } else if (typeof userDetailsData === 'object') {
+                setUserDetails([userDetailsData]);
+            } else {
+                console.error('Invalid user details format:', userDetailsData);
+            }
+
+        } catch (error) {
+            console.error('Error fetching user details:', error);
+        }
+        
+
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const [formData, setFormData] = useState({
+        transferType: '',
+        transferForm: selectedAccount,
+        toAccountNumber: 0,
+        confirmAccountNumber: 0,
+        payeeName: '',
+        amount: 0,
+        remarks: 'Please Select',
+    });
+
+
+    const handleTransferTypeChange = (event) => {
+        setSelectedTransferType(event.target.value);
+    };
+
+
+    const resetFormData = () => {
+        setFormData({
+            transferType: '',
+            transferForm: selectedAccount,
+            toAccountNumber: 0,
+            confirmAccountNumber: 0,
+            payeeName: '',
+            amount: 0,
+            remarks: 'Please Select',
+        });
+    };
+
+    const sendFormDataToServer = async (formData) => {
+        try {
+            const response = await fetch(`${apiList.quickFundTransfer}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                alert("otp generated successfully");
+                console.log('Data saved successfully');
+                const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
+                    accountNumber: selectedAccount,
+                     otpMethod: otpMethod,
+                });
+
+                console.log(otpResponse.data);
+                navigate ('/user/fundtransfer/quickfundtransfer-otp-page')
+
+// Reset form data after successful transfer
+resetFormData();
+            
+               
+            } else {
+                console.error('Error saving data');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    useEffect(() => {
+        if (formData.transferType) {
+            sendFormDataToServer();
+        }
+    }, [formData.transferType, formData.toAccountNumber]);
+
+
+    const handleFormSubmit = () => {
+        const toAccountNumber = parseInt(document.getElementById('toAccountNumber').value, 10);
+        const confirmAccountNumber = parseInt(document.getElementById('confirmAccountNumber').value, 10);
+    
+        if (toAccountNumber === confirmAccountNumber) {
+            const updatedFormData = {
+                transferType: document.getElementById('royal').checked
+                    ? 'To Royal Islamic Bank Account number'
+                    : 'To Other Bank Account(using IMPS)',
+                transferForm: selectedAccount,
+                toAccountNumber: toAccountNumber,
+                confirmAccountNumber: confirmAccountNumber,
+                payeeName: document.getElementById('payeeName').value,
+                amount: parseInt(document.getElementById('amount').value, 10),
+                remarks: document.getElementById('remarks').value,
+            };
+            sendFormDataToServer(updatedFormData);
+        } else {
+            alert("Error: To Account Number and Confirm Account Number do not match.");
+        }
+    };
+    
+
+
+    const handleAccountChange = (event) => {
+        setSelectedAccount(event.target.value);
+    };
 
 
     return (
-        <div className='card-details-container container-fluid' style={{marginTop:"90px"}}>
+        <div className='card-details-container container-fluid' style={{ marginTop: "90px" }}>
             <div className='card-details-header'></div>
             <div className='row'>
                 <div className="col-3">
-                    <PaymentSidebar/>
+                    <PaymentSidebar />
                 </div>
                 <div className='col-9 p-3 quickfund_transfer_note'>
                     <div className="card p-3 quickfund_transfer_node">
@@ -24,10 +152,24 @@ const QuickFundTransfer = () => {
                         </div>
                         <div className="p-3 d-flex ">
                             <div className="sms">
-                                <input type="radio" id="sms" /><label for="transfer" className="ml-2"><b>To Royal Islamic Bank Account number</b></label>
+                                <input
+                                    type="radio"
+                                    id="royal"
+                                    value="royal"
+                                    checked={selectedTransferType === 'royal'}
+                                    onChange={handleTransferTypeChange}
+                                />
+                                <label htmlFor="royal" className="ml-2"><p>To Royal Islamic Bank Account number</p></label>
                             </div>
                             <div className="Email ml-3">
-                                <input type="radio" id="sms" /><label for="transfer" className="ml-2"><b>To Other Bank Account(using IMPS)</b></label>
+                                <input
+                                    type="radio"
+                                    id="other"
+                                    value="other"
+                                    checked={selectedTransferType === 'other'}
+                                    onChange={handleTransferTypeChange}
+                                />
+                                <label htmlFor="other" className="ml-2"><p>To Other Bank Account(using IMPS)</p></label>
                             </div>
 
                         </div>
@@ -35,47 +177,67 @@ const QuickFundTransfer = () => {
                         <div className="row ">
                             <div className="col-sm-4">
                                 <label for="text">Transfer form*</label>
-                                <Select
-                                    name=""
-                                    id=""
-                                    options={[
-                                        { value: "Please Select", label: "Please Select " },
-                                    ]} 
-                                /> 
-                                <p className="basic text-danger">Total Available amount is</p>                                   </div>
+                                <select
+                                    className="form-control"
+                                    value={selectedAccount}
+                                    onChange={handleAccountChange}
+                                >
+                                    <option value="">Select Account Number</option>
+                                    {userDetails.map((account, index) => (
+                                        <option key={index} value={account.userAccountNumber}>
+                                            {account.userAccountNumber}
+                                        </option>
+                                    ))}
+                                </select>
+                                <p className="quick_fund_transfer_paragraph text-danger">Total Available amount is {userDetails.length > 0 && selectedAccount !== '' && (
+                                    <p className="ml-1">
+                                        {userDetails[0].userAccountBalance}
+                                    </p>
+                                )}
+                                </p>
+                            </div>
                             <div className="col-sm-4">
                                 <label for="text">To Account Number*</label>
-                                <input type="number" className="form-control" id="text" />
+                                <input type="number" className="form-control" id="toAccountNumber" />
                             </div>
                             <div className="col-sm-4">
                                 <label for="text">Confirm Account Number*</label>
-                                <input type="number" className="form-control" id="text" />
+                                <input type="number" className="form-control" id="confirmAccountNumber" />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-sm-4">
                                 <label for="text">Payee Name*</label>
-                                <input type="number" className="form-control" id="text" />
+                                <input type="text" className="form-control" id="payeeName" />
 
                             </div>
                             <div className="col-sm-4">
                                 <label for="text">Amount*</label>
-                                <input type="number" className="form-control" id="text" />
+                                <input type="text" className="form-control" id="amount" />
                             </div>
                             <div className="col-sm-4">
                                 <label for="text">Remarks(optional)*</label>
-                                <Select
+                                <select
                                     name=""
-                                    id=""
-                                    options={[
-                                        { value: "Please Select", label: "Please Select " },
-                                    ]}
-                                />                                    </div>
+                                    id="remarks"
+                                    className="form-control"
+                                    value={formData.remarks ? { label: formData.remarks, value: formData.remarks } : null}
+                                    onChange={(selectedOption) => setFormData((prevFormData) => ({ ...prevFormData, remarks: selectedOption.label }))}
+                                >
+                                    <option value="Please Select">Please Select</option>
+                                    <option value="Gift">Gift</option>
+                                    <option value="Donation">Donation</option>
+                                    <option value="Family">Family</option>
+                                    <option value="Friends">Friends</option>
+                                    <option value="Rent">Rent</option>
+                                </select>
+
+                            </div>
                         </div>
 
                         <div className="d-flex mb-3">
                             <button type="button" className="ml-3 mt-3 btn btn-info quickfund_transfer_turn">Back</button>
-                            <button type="submit" className="ml-5 mt-3 btn btn-info quickfund_transfer_join">Proceed to Pay</button>
+                            <button type="submit" className="ml-5 mt-3 btn btn-info quickfund_transfer_join" onClick={handleFormSubmit}>Proceed to Pay</button>
                         </div>
                     </div>
                     <div className="card p-3">
