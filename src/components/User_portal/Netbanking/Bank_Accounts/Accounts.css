@@ -1165,11 +1165,11 @@ body {
 
 .service_input {
   width: 25vw;
-  height: 5vh;
   border-radius: 3px;
   margin-top: 10px;
   font-size: small;
   border: 1px solid #d3d0cbff;
+  padding: 5px;
 }
 .service_table_heading {
   color: #f18121;
@@ -1195,8 +1195,10 @@ body {
 .service_btn {
   background-color: transparent;
   border: none;
+
   border-radius: 4px;
   color: #f18121;
+
   display: inline-block;
   font-family: revert;
   margin: 5px;
@@ -1209,8 +1211,8 @@ body {
 }
 
 .service_btn:hover {
-  background-color: #d3d0cbff;
-  color: black;
+  background-color:#f18121;
+  color:white;
 }
 
 .service_sendicon {
@@ -1535,7 +1537,7 @@ body {
 
 /* fixed advice start*/
 .fixed_deposit {
-  margin-left: 5px;
+  margin-left: 15px;
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
@@ -1545,7 +1547,7 @@ body {
 }
 
 .fixed_deposit h1 {
-  color: #312b2b;
+  color: orange;
   margin-right: 650px;
   font-size: x-large;
 }
@@ -1634,7 +1636,7 @@ body {
 }
 .fixed_button_now {
   padding: 10px;
-  background-color: rgb(235, 106, 60);
+  background-color:rgb(235, 106, 60);
   color: #312b2b;
   border: none;
   border-radius: 10px;
@@ -1649,11 +1651,12 @@ body {
 .renew_container {
   padding: 20px;
   text-align: center;
+  background-color: rgb(219, 215, 215);
 }
 .renew_container h1 {
-  color: black;
+  color: orange;
   font-size: x-large;
-  margin-right: 150px;
+  margin-right: 750px;
 }
 .renew_deposits_container {
   margin-top: 20px;
@@ -1675,6 +1678,33 @@ body {
 }
 
 /* renew advice end*/
+/* fixed deposite start */
+.fixed_form_section span {
+  font-weight: 420;
+  font-size: 15px;
+}
+.fixed_form_section label {
+  margin-top: 15px;
+}
+.fixed_form_heading {
+  background-color: rgb(211, 214, 214);
+}
+.fixed_form_submit_btn{
+width: auto;
+height: auto;
+outline: none;
+border: 1px solid rgba(128, 123, 123, 0.5);
+
+border-radius: 2px;
+font-weight: 600;
+color: white;
+margin-left: 30px;
+font-size:15px;
+text-align: center;
+background-color: #f18121 ;
+margin-left: 500px;
+}
+/* fixed deposite end */
 
 /* paylater css starts */
 * {
@@ -2789,7 +2819,112 @@ outline: none;
   margin: 0px;
 }
 
-.Payment_paragraphbank_container {
-  margin-bottom: 0px;
-  font-family: "poppins";
+
+.Payment_paragraphbank_container{
+	margin-bottom: 0px;
+	font-family:'poppins';
 }
+
+
+/* fixedform css starts */
+
+.fdform_leftheading{
+  color: #f18121;
+  font-size: 80px;
+}
+
+.fdform_rightheading{
+  color: #f18121;
+}
+.fdform_accountnbrinput:focus{
+  outline: none;
+}
+.fdform_accountnbrinput{
+  border: 1px solid #f18121;
+}
+.fdform_addressinput{
+  width: 58.5%;
+  border: 1px solid #f18121;
+}
+.fdform_addressinput:focus{
+  outline: none;
+}
+
+.fdform_addressinput4{
+  width: 21.5%;
+  border: 1px solid #f18121;
+}
+.fdform_addressinput4:focus{
+ outline: none;
+}
+.fdform_addressinput5{
+  width: 20.5%;
+  border: 1px solid #f18121;
+}
+.fdform_addressinput5:focus{
+  outline: none;
+}
+.fdform_input{
+  border: 1px solid #f18121;
+}
+.fdform_input:focus{
+  outline: none;
+}
+.fdform_subheading{
+  color: #f18121;
+}
+.fdform_fdinput{
+  width: 45.5%;
+  border: 1px solid #f18121;
+}
+.fdform_fdinput:focus{
+  outline: none;
+}
+.fdform_yearinput{
+  width: 14.5%;
+  border: 1px solid #f18121;
+}
+.fdform_yearinput:focus{
+  outline: none;
+}
+.fdform_fundingheading{
+  color: #f18121;
+}
+.fdform_fundinginput{
+  border: 1px solid #f18121;
+}
+.fdform_fundinginput:focus{
+ outline: none;
+}
+.fdform_rateinput{
+  border: 1px solid #f18121;
+}
+.fdform_rateinput:focus{
+  outline: none;
+}
+.fdform_main{
+  background-color:#faede2;
+  padding-top: 30px;
+  
+}
+.fdform_submitbtn{
+  background-color:#fac294 ;
+  border:none;
+  color: #f18121;
+  border-radius: 15px;
+  padding: 20px 80px;
+  border-bottom: 4px solid #f18121;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  transition-property: background-color, color, opacity;
+  transition-timing-function: linear;
+}
+.fdform_submitbtn:hover{
+  background-color: #f18121;
+  color: white;
+}
+
+
+/* fixedform css ends */
+

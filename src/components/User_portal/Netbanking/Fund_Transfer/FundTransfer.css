@@ -610,7 +610,73 @@ abbr[title] {
     
     border: none;
   }
+  .quick_fund_transfer_paragraph{
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+  
+  }
   /* quickfund transfer ends */
+  
+  /* otppage.css starts */
+
+.generate_debit_pin_button_logos{
+  font-size: 20px;
+}
+
+.generate_debit_pin_button{
+  color: #f18121;
+  border: 1px solid #f18121;
+  outline: none;
+  align-items: center;
+  background-color: none;
+  font-size: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+}
+
+.generate_debit_pin_para{
+  font-size: small;
+  font-weight:  400;
+}
+
+.generate_debit_pin_icon{
+  display: flex;
+  flex-direction: row;
+}
+
+.generate_debit_pin_div_label{
+  display: flex;
+  flex-direction:column;
+  width: 150px;
+  outline: none;
+  height: 24px;
+  /* width: 200px; */
+  }
+
+  .generate_debit_pin_icon_otp{
+    border: 1px solid rgb(207, 203, 203);
+    margin: 0px 5px;
+    height: 25px;
+    width: 30px;
+    padding:1px 1px;
+}
+
+.genrate_pin_buttons {
+  color: #f18121;
+  background-color: #ffc492;
+  padding: 5px 10px;
+  border: none;
+}
+.genrate_pin_submits {
+  border: none;
+  color: #f18121;
+  background-color: #ffc492;
+  padding: 5px 10px;
+}
+
+/*otppage.css ends */
   
   /* /get retrivev mmiv css starts/ */
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');

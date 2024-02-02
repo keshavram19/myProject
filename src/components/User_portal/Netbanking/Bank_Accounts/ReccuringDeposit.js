@@ -10,6 +10,9 @@ const RecurringDeposit = () => {
     const Backtodepositepage=()=>{
         navigate('/user/account/fixed-deposits')
     }
+    const iwishpage=()=>{
+        navigate('/user/account/iwish-deposits')
+    }
     return (
         <div>
            
@@ -31,7 +34,7 @@ const RecurringDeposit = () => {
                             <button className="col-xl-2 col-lg-2 col-md-2 recurring_btn1 " onClick={Backtodepositepage}>Fixed Deposit</button>
                             <button className="col-xl-2 col-lg-3 col-md-3 recurring_btn1">Credit card against FD</button>
                             <button className="col-xl-2 col-lg-2 col-md-2 recurring_btn1">Recurring Deposit</button>
-                            <button className="col-xl-2 col-lg-2 col-md-2 recurring_btn1">iwish</button>
+                            <button className="col-xl-2 col-lg-2 col-md-2 recurring_btn1" onClick={iwishpage}>iwish</button>
                             <p className="col-xl-1 col-lg-1"></p>
 
                         </div>
@@ -66,7 +69,7 @@ const RecurringDeposit = () => {
                                 <p className="col-xl-6">Maturity date</p>
                                 <p className="col-xl-12 recurring_para">Debit Date <i class="fa-solid fa-angle-down"></i> </p>
                                 <p className="col-xl-12 mt-3"><input type="checkbox"/> I agree to <b className='recurring_para'>Terms and conditions</b></p>
-                                <button className="recurring_btn2 col-xl-4">Submit</button>
+                                <Link to='/user/account/reccuring-form'><button className="recurring_btn2 col-xl-4">Create RD</button></Link>
                                 <p className="col-xl-12 mt-3">First installment would be <b className='recurring_para'>deducted today</b> and then as per the date selected</p>
                                 <p className="col-xl-12 mt-3">Nominee will be the same as your savings account.To change or update <b className='recurring_para'>click here</b></p>
 
