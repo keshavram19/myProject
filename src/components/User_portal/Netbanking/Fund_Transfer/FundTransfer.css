@@ -757,12 +757,7 @@ abbr[title] {
 /* InwardRemitance CSS Starts */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
- /* *{
-  font-family: 'Poppins';
- } */
- /* .inwardbank-header{
-  height: 10vh;
- } */
+ 
 
  .Inward_Remitance_container{   
   text-align: left;
@@ -871,8 +866,7 @@ abbr[title] {
     padding: 10px;
     background-color: #faede2;
     color : #f18121;
-    /* width: 40%; */
-    font-size: smaller;
+     font-size: smaller;
     cursor: pointer;
       border: none;
     border-radius: 4px;
@@ -881,6 +875,91 @@ abbr[title] {
     background-color: #fde2ca;
   } 
  
+  /* Inward form transfer */
+ 
+ 
+.Inward_remittance_Request_Form_one{
+  font-size: large;
+  font-weight: 600;
+}
+.Inward_remittance_Request_Form_one_Sub{
+  font-size: medium;
+  margin-top: 20px;
+  font-weight: 500;
+}
+.Inward_remittance_Request_one{
+  font-size: medium;
+  margin-top: 20px;
+  font-weight: bold;
+  }
+
+
+/* Styles for form labels */
+.Inward_remittance_Request_Label {
+  margin-top: 10px;
+  font-weight: 500;
+ }
+ .Inward_remittance_Request_form_Option{
+  margin-top: -32px;
+  margin-left: 20px;
+ }
+
+/* Styles for input fields */
+.Inward_remittance_Request_input_form {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+}
+.Inward_remittance_Request_form_ptag_Del{
+  padding: 10px 5px;
+  margin-top: 15px;
+ }
+.Inward_remittance_Request_form_ptag_Pur{
+margin-top: -20px;
+}
+
+ .Inward_remittance_Request_form_checkbox {
+  display: flex;
+  margin-top: -15px;
+  align-items: center;
+ }
+
+ 
+.acctnum_inward_head{
+  font-size: small;
+}
+
+/* Styles for submit button */
+ 
+
+/* Styles for submit button */
+.Inward_remittance_Request_form_ptag{
+  padding: 10px 10px;
+ 
+  font-size: smaller;
+  background-color:  #f18121 ;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Inward_remittance_Request_form_ptag:hover{
+  background-color:  #f18121;
+  color: #000;
+  font-size: smaller;
+  padding: 10px 10px;
+
+
+}
+
+
+
   /* InwardRemitance CSS Ends */
 
   /* Tax Center css Starts */
@@ -939,7 +1018,9 @@ abbr[title] {
     width: 150px;
     outline: none;
     height: 24px;
+
     }
+
     .but_Tax_on_icon_otp{
       border: 1px solid rgb(207, 203, 203);
       margin: 0px 5px;
@@ -963,6 +1044,17 @@ abbr[title] {
     cursor: pointer;
      font-size: small;
     margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+  }
+  .Tax_center_but_appGen{
+    margin-bottom: 10px;
+    padding: 8px;
+     color:#000000;
+     background-color:#f5b176 ;
+    cursor: pointer;
+     font-size: small;
+    margin-top: 10px;
     border: none;
     border-radius: 4px;
   }
@@ -992,7 +1084,12 @@ color: #000;
 /* *{
   font-family: 'Poppins';
  } */
-
+.Transaction_type_Table_row{
+   font-size: 13px;
+}
+.Transaction_type_row_data{
+  font-size: 13px;
+}
 .My_sch_transaction{
   text-align: left;
   padding: 20px 20px;

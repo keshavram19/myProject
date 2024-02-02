@@ -22,6 +22,14 @@ const apiList ={
     customerAccountDetails: `${server}/api/userDetails/`,
     userAuthentication: `${server}/api/otp-send`,
     userAuthVerification: `${server}/api/verify-otp`,
+
+    inwardRemittance:`${server}/api/submitForm`,
+    taxOTPVerify:`${server}/api/verify-OneTP`,
+    taxOTPSend:`${server}/api/send-OneTP`,
+  
+    paymentTransaction:`${server}/api/payment-Type`,
+    transferTransaction:`${server}/api/transfer-Type`
+
     form60OTPSend:`${server}/form60Userdetails/send-otp`,
     form60OtpVerification:`${server}/form60Userdetails/verify-otp`,
     form60UserDetails:`${server}/form60Userdetails/userdetails`,
@@ -36,5 +44,7 @@ const apiList ={
 
 
 }
+
+
 
 export default apiList;
