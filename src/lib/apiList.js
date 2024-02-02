@@ -8,6 +8,11 @@ const apiList ={
 
     customerAccountDetails: `${server}/api/userDetails/`,
     userAuthentication: `${server}/api/otp-send`,
+
+   
+    fixeddepositeform:`${server}/api/fixeddeposites`,
+    fixedadvice:`${server}/api/generate-pdf`
+
     quickFundTransfer: `${server}/api/quickFundTransfer`,
     userAuthVerification: `${server}/api/verify-otp`,
     createVerificationCode: `${server}/api/generate-otp`,
@@ -26,6 +31,7 @@ const apiList ={
     updateInternationalLimits: `${server}/api/updateInternationalLimits/`,   
     GenerateCardPin : `${server}/api/generate-Debit-Card-Pin`,
     blockATMCard : `${server}/api/blockCard/`
+
 
 
 
