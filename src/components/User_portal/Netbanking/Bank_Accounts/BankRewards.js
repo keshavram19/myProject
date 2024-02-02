@@ -1,8 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Accounts.css';
 import BankRewardBgImg from '../../../../Images/bank_rewards.jpeg';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+
 
 function BankRewardPoints() {
   const [userDetails, setUserDetails] = useState({});

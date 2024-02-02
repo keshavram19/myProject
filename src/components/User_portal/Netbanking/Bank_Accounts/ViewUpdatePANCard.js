@@ -10,6 +10,7 @@ import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import apiList from '../../../../lib/apiList';
 
 
+
 const UpdatePancard = () => {
 
   const accountNumber = 1234567890;
