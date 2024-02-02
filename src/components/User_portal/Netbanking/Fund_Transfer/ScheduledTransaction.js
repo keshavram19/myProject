@@ -5,6 +5,8 @@ import html2canvas from 'html2canvas';
  import 'jspdf-autotable';
  import './FundTransfer.css'
 import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
+// import apilist from '../../../../lib/apiList';
+import apiList from '../../../../lib/apiList';
 
 const ScheduledTransaction = () => {
   const [transactions, setTransactions] = useState([]);
@@ -13,24 +15,30 @@ const ScheduledTransaction = () => {
   const transactionsRef = useRef(null);
 
 
-  // 
   const handleSearch = async () => {
     if (transactionType === '') {
-        setErrorMessage('Please select a transaction type and click Search.');
-        setTransactions([]); // Clear transactions if there's an error
-        return;
+      setErrorMessage('Please select a transaction type and click Search.');
+      setTransactions([]); // Clear transactions if there's an error
+      return;
     }
 
     try {
-        const response = await axios.get(`http://localhost:4444/api/${transactionType}`);
-        setTransactions(response.data);
-        setErrorMessage(''); // Clear any previous error messages
-    } catch (error) {
-        setErrorMessage('Error retrieving transactions');
-    }
-};
+      let apiUrl = '';
+      if (transactionType === 'payment') {
+        apiUrl = apiList.paymentTransaction;
+      } else if (transactionType === 'transfer') {
+        apiUrl = apiList.transferTransaction;
+      }
 
-  
+      const response = await axios.get(apiUrl);
+      setTransactions(response.data);
+      setErrorMessage(''); // Clear any previous error messages
+    } catch (error) {
+      console.error('Error retrieving transactions:', error.message);
+      setErrorMessage('Error retrieving transactions');
+    }
+  };
+
 
   const handleDownloadPDF = () => {
     const input = transactionsRef.current;

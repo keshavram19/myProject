@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./FundTransfer.css";
 import axios from 'axios';
 import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
+import apiList from "../../../../lib/apiList";
  
   // taxcenter starts 
   const TaxCenter = () => {
@@ -13,7 +14,9 @@ import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
     const generateOTP = async () => {
       
       try {
-        const response = await axios.post('http://localhost:4444/api/send', { mobileNumber });
+        // const response = await axios.post('http://localhost:4444/api/send-OneTP', { mobileNumber });
+        const response = await axios.post(apiList.taxOTPSend, { mobileNumber });
+
         setMessage(response.data.message);
       } catch (error) {
         console.error('Error sending OTP:', error);
@@ -23,7 +26,8 @@ import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
     const verifyOTP = async () => {
     //   
     try {
-      const response = await axios.post('http://localhost:4444/api/verify', { mobileNumber, otp });
+      // const response = await axios.post('http://localhost:4444/api/verify-OneTP', { mobileNumber, otp });
+      const response = await axios.post(apiList.taxOTPVerify, { mobileNumber, otp });
       setMessage(response.data.message);
     } catch (error) {
       console.error('Error verifying OTP:', error);

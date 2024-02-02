@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './FundTransfer.css';
 import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
 import axios from 'axios';  
-
+import apiList from '../../../../lib/apiList';
 
 // 
 function InwardRemitance () {
@@ -22,9 +22,23 @@ function InwardRemitance () {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (
+      !transferDetails.accountNumber ||
+      !transferDetails.beneficiaryName ||
+      !transferDetails.beneficiaryAddress ||
+      !transferDetails.beneficiaryAccountNumber ||
+      !transferDetails.beneficiaryIfscCode ||
+      !transferDetails.PhoneNumber ||
+      !transferDetails.purposeOfRemittance
+  ) {
+      // Set alert message to prompt the user to complete all details
+      setAlertMessage('Please complete all details before submitting.');
+      return; // Prevent form submission
+  }
     try {
-         const response = await axios.post('http://localhost:4444/api/submitForm', transferDetails);
-             console.log(response.data);
+        //  const response = await axios.post('http://localhost:4444/api/submitForm', transferDetails);
+        const response = await axios.post(apiList.inwardRemittance, transferDetails);
+        console.log(response.data);
              setAlertMessage('Request sent to the email ID.');
 
              setTransferDetails({
