@@ -15,7 +15,7 @@ const FixedDeposit = () => {
     return (
         <div>
            
-            <div className="container-fluid" style={{marginTop:"90px"}}>
+            <div className="container-fluid fixed_deposit_background_main pt-5" style={{marginTop:"60px"}}>
                 <div className="row">
                     <div className='col-3'>
                         <BankaccountSidebar />
@@ -33,9 +33,9 @@ const FixedDeposit = () => {
                         <div className="row mt-3">
                             <div className="col-xl-4 col-lg-4 col-md-4">
                                 <div className="card text-center p-2 h-100 deposit_card shadow">
-                                    <h6>Fixed Deposit  0</h6>
-                                    <p><i class="fa-solid fa-indian-rupee-sign"></i> 0</p>
-                                    <p>Take control of your savings by investing in Fixed Deposit.<br></br><b>JUST IN A CLICK!!!</b></p>
+                                    <h6 className='deposit_fixedheading'>Fixed Deposit  0</h6>
+                                    <p><i class="fa-solid fa-indian-rupee-sign deposit_fixedheading"></i> 0</p>
+                                    <p>Take control of your savings by investing in Fixed Deposit.<br></br><b className='deposit_fixedheading'>JUST IN A CLICK!!!</b></p>
 
                                 </div>
 
@@ -43,8 +43,8 @@ const FixedDeposit = () => {
                             </div>
                             <div className="col-xl-4 col-lg-4 col-md-4" onClick={Recurringpage}>
                                 <div className="card text-center p-2 h-100  deposit_card1 shadow">
-                                    <h6>Recurring Deposit  0</h6>
-                                    <p><i class="fa-solid fa-indian-rupee-sign"></i> 0</p>
+                                    <h6 className='deposit_fixedheading'>Recurring Deposit  0</h6>
+                                    <p><i class="fa-solid fa-indian-rupee-sign deposit_fixedheading"></i> 0</p>
                                     <div className="text-center">
                                         <button className="mt-4 deposit_cardbtn">Create RD</button>
                                     </div>
@@ -54,8 +54,8 @@ const FixedDeposit = () => {
                             </div>
                             <div className="col-xl-4 col-lg-4 col-md-4">
                                 <div className="card text-center p-2 h-100  deposit_card1 shadow">
-                                    <h6>Iwish Deposit  0</h6>
-                                    <p><i class="fa-solid fa-indian-rupee-sign"></i> 0</p>
+                                    <h6 className='deposit_fixedheading'>Iwish Deposit  0</h6>
+                                    <p><i class="fa-solid fa-indian-rupee-sign deposit_fixedheading"></i> 0</p>
                                     <div className="text-center">
                                         <button className="mt-4 deposit_cardbtn">Create iwish</button>
                                     </div>
@@ -71,7 +71,7 @@ const FixedDeposit = () => {
                             <div className="row" style={{paddingLeft:'55px'}}>
                                 
                                 <div className="col-xl-7 col-lg-7 col-md-7 mt-5">
-                                    <h5>Fixed Deposit</h5>
+                                    <h5 className='deposit_fixedheading'>Fixed Deposit</h5>
                                     <p className="mt-5">Looking for a safe investment option that also provides attractive returns?Then ICICI Bank Fixed Deposit is an ideal investment choice for you.Invest and watch your funds grow safely and steadily.</p>
 
                                 </div>
@@ -103,7 +103,7 @@ const FixedDeposit = () => {
                                     </div>
 
                                 </div>
-                                <button className="deposit_btn1 mt-3">Create FD</button>
+                                <button className="deposit_btn1 mt-3 col-2">Create FD</button>
 
                             </div>
 
@@ -115,7 +115,7 @@ const FixedDeposit = () => {
                                 <div className='card h-100 deposit_card2 p-2 shadow'>
                                     <div className="row">
                                         <i class="fa-solid fa-hand-holding-dollar col-xl-2 col-md-12 col-2 mt-1 deposit_icon"></i>
-                                        <p className="col-xl-9 col-md-12 col-10"><b>Upgrade your card</b><br></br>upgrade your credit card to a card that matches your lifestyle!</p>
+                                        <p className="col-xl-9 col-md-12 col-10"><b className='deposit_fixedheading'>Upgrade your card</b><br></br>upgrade your credit card to a card that matches your lifestyle!</p>
                                     </div>
                                 </div>
                             </div>
@@ -123,7 +123,7 @@ const FixedDeposit = () => {
                                 <div className='card h-100 deposit_card2 p-2 shadow'>
                                     <div className="row">
                                         <i class="fa-solid fa-hand-holding-dollar col-xl-2 col-md-12 col-2 mt-1 deposit_icon"></i>
-                                        <p className="col-xl-9 col-md-12 col-10"><b>Credit card</b><br></br>Get a feature packed ICICI Bank Credit card on the fly.</p>
+                                        <p className="col-xl-9 col-md-12 col-10"><b className='deposit_fixedheading'>Credit card</b><br></br>Get a feature packed ICICI Bank Credit card on the fly.</p>
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@ const FixedDeposit = () => {
                                 <div className='card h-100 deposit_card2 p-2 shadow'>
                                     <div className="row">
                                         <i class="fa-solid fa-hand-holding-dollar col-xl-2 col-md-12 col-2 mt-1 deposit_icon"></i>
-                                        <p className="col-xl-9 col-md-12 col-10"><b>Two Wheeler Loan</b><br></br>Avail upto 100% on road Funding with pre approved offer of RS.2,50,000</p>
+                                        <p className="col-xl-9 col-md-12 col-10"><b className='deposit_fixedheading'>Two Wheeler Loan</b><br></br>Avail upto 100% on road Funding with pre approved offer of RS.2,50,000</p>
                                     </div>
                                 </div>
                             </div>

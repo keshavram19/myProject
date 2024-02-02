@@ -5,13 +5,15 @@ import { Link } from 'react-router-dom';
 import { MdCurrencyRupee } from "react-icons/md";
 import { AiFillPrinter } from "react-icons/ai";
 import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
+import apiList from '../../../../lib/apiList';
 
 const UpiTransaction = () => {
     const [userDetails, setUserDetails] = useState([]);
     const [selectedAccount, setSelectedAccount] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
-    const [viewAccStatement, setViewAccStatement] = useState()
+    const [viewAccStatement, setViewAccStatement] = useState();
+    const accountNumber= 1124563456;
 
     const accountStatement = () => {
         if (selectedAccount && startDate && endDate) {
@@ -25,7 +27,7 @@ const UpiTransaction = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:4444/api/userDetails/1124563456');
+            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
             const userDetailsData = response.data.details;
 
             if (Array.isArray(userDetailsData)) {

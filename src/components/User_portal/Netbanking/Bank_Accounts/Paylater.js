@@ -45,9 +45,9 @@ const PayLater = () => {
           </table>
         </div>
         <div className="paylater_payment">
-          <div><button className=" btn paylater_paynow">PAY NOW</button></div>
-          <div><button className="btn paylater_statement">DETAILED STATEMENT</button></div>
-          <div><button className="btn paylater_bill">BILL DETAILS</button></div>
+          <div><button className="paylater_paynow">PAY NOW</button></div>
+          <div><button className="paylater_statement">DETAILED STATEMENT</button></div>
+          <div><button className="paylater_bill">BILL DETAILS</button></div>
         </div>
         <div className="paylater_transactions">
           <div>LAST 10 TRANSACTIONS</div>

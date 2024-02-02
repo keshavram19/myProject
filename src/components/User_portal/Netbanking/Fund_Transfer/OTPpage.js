@@ -122,7 +122,8 @@ const OTPPage = () =>{
             const response = await axios.post('http://localhost:4444/api/validate-otp', { accountNumber, otp });
 
             console.log(response.data);
-            navigate("/user/account/generate-debit-card-pin");
+            alert('Transaction successfull')
+            navigate("/user/fundtransfer/quickfundtransfer");
         } catch (error) {
             console.error('Error validating OTP:', error);
             setValidationError('Invalid OTP. Please try again.');

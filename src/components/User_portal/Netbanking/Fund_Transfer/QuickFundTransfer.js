@@ -3,6 +3,7 @@ import axios from 'axios';
 import './FundTransfer.css';
 import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 import { useNavigate } from "react-router-dom";
+import apiList from "../../../../lib/apiList";
 
 
 const QuickFundTransfer = () => {
@@ -12,10 +13,10 @@ const QuickFundTransfer = () => {
     const [userDetails, setUserDetails] = useState([]);
     const [selectedAccount, setSelectedAccount] = useState('');
     const [selectedTransferType, setSelectedTransferType] = useState('royal');
-
+const  accountNumber=1124563456;
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:4444/api/userDetails/1124563456');
+            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
             const userDetailsData = response.data.details;
 
             if (Array.isArray(userDetailsData)) {
@@ -67,7 +68,7 @@ const QuickFundTransfer = () => {
 
     const sendFormDataToServer = async (formData) => {
         try {
-            const response = await fetch('http://localhost:4444/api/quickFundTransfer', {
+            const response = await fetch(`${apiList.quickFundTransfer}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -78,7 +79,7 @@ const QuickFundTransfer = () => {
             if (response.ok) {
                 alert("otp generated successfully");
                 console.log('Data saved successfully');
-                const otpResponse = await axios.post('http://localhost:4444/api/generate-otp', {
+                const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
                     accountNumber: selectedAccount,
                      otpMethod: otpMethod,
                 });
