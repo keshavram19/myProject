@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Accounts from "./components/User_portal/Netbanking/Bank_Accounts/Accounts";
 import Statements from "./components/User_portal/Netbanking/Bank_Accounts/Statements";
 import StatementByMail from "./components/User_portal/Netbanking/Bank_Accounts/Statement_by_email";
-import DebitAndAtm from "./components/User_portal/Netbanking/Bank_Accounts/DebitAndAtm";
+import  DebitAndAtm from "./components/User_portal/Netbanking/Bank_Accounts/DebitAndAtm";
 import GeneratePin from "./components/User_portal/Netbanking/Bank_Accounts/GeneratePin";
 import BlockCard from "./components/User_portal/Netbanking/Bank_Accounts/BlockCard";
 import Reissuecard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCard";
