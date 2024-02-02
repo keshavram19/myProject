@@ -112,6 +112,7 @@ import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Account
 
 
 
+import OTPPage from "./components/User_portal/Netbanking/Fund_Transfer/OTPpage";
 
 function App() {
   return (
@@ -258,6 +259,8 @@ function App() {
           path="/user/fundtransfer/quickfundtransfer"
           element={<QuickFundTransfer />}
         />
+        <Route exact path ="/user/fundtransfer/quickfundtransfer-otp-page" element={< OTPPage/>} />
+
         <Route
           path="/user/fundtransfer/generate-mmid"
           element={<GenerateMMID />}
