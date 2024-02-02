@@ -10,10 +10,13 @@ const RecurringDeposit = () => {
     const Backtodepositepage=()=>{
         navigate('/user/account/fixed-deposits')
     }
+    const iwishpage=()=>{
+        navigate('/user/account/iwish-deposits')
+    }
     return (
         <div>
            
-            <div className="container-fluid" style={{marginTop:"90px"}}>
+            <div className="container-fluid recurring_background_main pt-5" style={{marginTop:"60px"}}>
                 <div className="row">
                     <div className='col-3 '>
                        <BankaccountSidebar />
@@ -21,28 +24,31 @@ const RecurringDeposit = () => {
                     <div className="col-9 ">
                         <div className="row">
                           
-                            <p className="mt-3 text-end">How to manage your fixed Deposits?</p>
-                            <button className="recurring_btn">Watch iplay demo</button>
+                            <p className="mt-3 text-end col-9">How to manage your fixed Deposits?</p>
+                            <button className="recurring_btn col-2">Watch iplay demo</button>
 
                         </div>
                         <div className="row">
-                           <p className="col-12" onClick={Backtodepositepage}>{'<'} Back to Deposit Page</p>
+                           <p className="col-12 recurring_sideheading" onClick={Backtodepositepage}>{'<'} Back to Deposit Page</p>
                            <p className="col-xl-1 col-lg-1"></p>
                             <button className="col-xl-2 col-lg-2 col-md-2 recurring_btn1 " onClick={Backtodepositepage}>Fixed Deposit</button>
                             <button className="col-xl-2 col-lg-3 col-md-3 recurring_btn1">Credit card against FD</button>
                             <button className="col-xl-2 col-lg-2 col-md-2 recurring_btn1">Recurring Deposit</button>
-                            <button className="col-xl-2 col-lg-2 col-md-2 recurring_btn1">iwish</button>
+                            <button className="col-xl-2 col-lg-2 col-md-2 recurring_btn1" onClick={iwishpage}>iwish</button>
                             <p className="col-xl-1 col-lg-1"></p>
 
                         </div>
                         <div className="row">
                             <div className="col-xl-8 col-lg-8 col-md-8 mt-5">
+                            <div classname="row">
+
                                 <p className="col-12">How much do you want to invest(min 500 and max 10,00,000)</p>
-                                <p className="col-12"><i class="fa-solid fa-indian-rupee-sign"></i></p>
+                                <p className="col-12"><i class="fa-solid fa-indian-rupee-sign recurring_rupeeicon"></i></p>
                                 <hr style={{borderBottom: '2px solid black'}}></hr>
-                                <p className="col-12 recurring_amount"><i class="fa-solid fa-indian-rupee-sign"></i> 220000.00 balance available</p>
+                                <p className="col-12 recurring_amount"><i class="fa-solid fa-indian-rupee-sign recurring_rupeeicon"></i> 220000.00 balance available</p>
                                 <hr style={{borderBottom: '1px solid black'}}></hr>
                                 <p className="col-12">Tenure(Minimum 6 months and maximum 10 years and in multiples of 3)</p>
+                    
 
 
                                 <div className="row col-12">
@@ -63,25 +69,26 @@ const RecurringDeposit = () => {
                                 <p className="col-xl-6">Maturity date</p>
                                 <p className="col-xl-12 recurring_para">Debit Date <i class="fa-solid fa-angle-down"></i> </p>
                                 <p className="col-xl-12 mt-3"><input type="checkbox"/> I agree to <b className='recurring_para'>Terms and conditions</b></p>
-                                <button className="recurring_btn2 col-xl-4">Submit</button>
-                                <p className="col-xl-12 mt-3">First installment would be <b>deducted today</b> and then as per the date selected</p>
+                                <Link to='/user/account/reccuring-form'><button className="recurring_btn2 col-xl-4">Create RD</button></Link>
+                                <p className="col-xl-12 mt-3">First installment would be <b className='recurring_para'>deducted today</b> and then as per the date selected</p>
                                 <p className="col-xl-12 mt-3">Nominee will be the same as your savings account.To change or update <b className='recurring_para'>click here</b></p>
 
                                 </div>
                                
 
 
-
+</div>
 
                             </div>
+                           
                             <div className="col-xl-4 col-lg-4 col-md-4 mt-5">
-                                <h5>Tax saver Fixed Deposit</h5>
+                                <h5 className='recurring_sideheading'>Tax saver Fixed Deposit</h5>
                                 <p>Save Tax on your income and earn interest the same time.</p>
-                                <p className='recurring_para'><b>KNOW MORE</b> |<b> APPLY NOW</b> </p>
+                                <p className='recurring_para'><b className='recurring_sideheading'>KNOW MORE</b> |<b className='recurring_sideheading'> APPLY NOW</b> </p>
                                 <hr></hr>
-                                <h5>Tax saver Fixed Deposit</h5>
+                                <h5 className='recurring_sideheading'>Tax saver Fixed Deposit</h5>
                                 <p>Save Tax on your income and earn interest the same time.</p>
-                                <p className='recurring_para'><b>KNOW MORE</b> |<b> APPLY NOW</b></p>
+                                <p className='recurring_para'><b className='recurring_sideheading'>KNOW MORE</b> |<b className='recurring_sideheading'> APPLY NOW</b></p>
                                 <hr></hr>
 
                             </div>

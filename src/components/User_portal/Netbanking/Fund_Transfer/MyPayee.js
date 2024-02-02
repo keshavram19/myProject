@@ -11,19 +11,22 @@ import { MdManageAccounts } from "react-icons/md";
 import { FaRupeeSign } from "react-icons/fa";
 import { BsSendFill } from "react-icons/bs";
 import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
+import { Link,useNavigate } from "react-router-dom";
+// import { use } from "../../../../../../Royal_Islamic_Bank_Server/routes/apiRoutes";
 
 const Mypayee = () => {
+  let navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("mypayee");
   return (
     <>
       
-      <div className="container-fluid" style={{ marginTop: "90px" }}>
+  <div className="container-fluid" style={{ marginTop: "90px" }}>
         <div className="row">
           <div className="col-3">
           <PaymentSidebar/>
           </div>
           <div className="col-9">
-          <p className="estatement_heading">Fund Transfer</p>
+          <p className="mypayee_heading">Fund Transfer</p>
       <div className="mypayee_navmain">
         <li
           className={activeTab === "mypayee" ? "mypayee_buttonon" : ""}
@@ -67,7 +70,7 @@ const Mypayee = () => {
           <div className="mypayee_text">
             <div>
               Doing a one time transfer?Use quick transfer upto 25000 no need to
-              add payee <span className="mypayee_click">Click here</span>
+              add payee <span className="mypayee_click" onClick={()=>navigate('/user/fundtransfer/quickfundtransfer')} >Click here</span>
             </div>
           </div>
           <h5>Select Payee</h5>
@@ -79,17 +82,17 @@ const Mypayee = () => {
               <div className="mypayee_input1">
                 <input
                   type="text"
-                  className="form-control mypayee_input2 "
+                  className=" mypayee_input22"
                   placeholder="Search for Payee by name,account,mobile number.."
                 ></input>
               </div>
             </div>
             <div className="mypayee_or">OR</div>
             <div className="mypayee_add">
-              <button className="mypayee_addbtn">
+             <Link to='/user/fundtransfer/manage-payees' className="mypayee_addpayeelink"> <button className="mypayee_addbtn">
                 <FaPlus />
                 ADD NEW PAYEE
-              </button>
+              </button></Link>
             </div>
           </div>
         </div>
@@ -98,9 +101,10 @@ const Mypayee = () => {
         <div
           className="row"
           style={{
-            backgroundColor: "lightgrey",
+            backgroundColor: "#f8f9fa",
             paddingBottom: "80px",
             paddingLeft: "15px",
+            marginTop:'20px'
           }}
         >
           <div
@@ -120,7 +124,7 @@ const Mypayee = () => {
               </select>
               <p
                 style={{
-                  color: "darkorange",
+                  color: "#f18121",
                   fontSize: "500",
                   fontFamily: "poppins",
                   fontWeight: "500",
@@ -159,11 +163,13 @@ const Mypayee = () => {
               <div>
                 <button
                   style={{
-                    backgroundColor: "orange",
+                    backgroundColor: "#faede2",
                     marginTop: "30px",
                     marginLeft: "150px",
                     padding: "0px 40px 0px 40px",
                     borderRadius: "5px",
+                    color:'#f18121',
+                    border:'none'
                   }}
                 >
                   PROCEED
@@ -182,7 +188,7 @@ const Mypayee = () => {
             <div
               className="row"
               style={{
-                backgroundColor: "lightgrey",
+                backgroundColor: "#f8f9fa",
                 paddingBottom: "80px",
                 paddingLeft: "15px",
               }}
@@ -207,7 +213,7 @@ const Mypayee = () => {
                   </select>
                   <p
                     style={{
-                      color: "darkorange",
+                      color: "#f18121",
                       fontSize: "500",
                       fontFamily: "poppins",
                       fontWeight: "500",
@@ -236,11 +242,13 @@ const Mypayee = () => {
                   <div>
                     <button
                       style={{
-                        backgroundColor: "orange",
+                        backgroundColor: "#faede2",
                         marginTop: "30px",
                         marginLeft: "150px",
                         padding: "0px 40px 0px 40px",
                         borderRadius: "5px",
+                        color:'#f18121',
+                        border:'none'
                       }}
                     >
                       PROCEED
@@ -405,6 +413,10 @@ const Mypayee = () => {
 
         </div>
       </div>
+
+
+
+
       
     </>
   );

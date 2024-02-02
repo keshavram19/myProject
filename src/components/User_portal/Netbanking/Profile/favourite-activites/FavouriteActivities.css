@@ -1,4 +1,17 @@
-.activities{
-    display: flex;
-    justify-content: space-around;
+.fav_activity_editmy_profile{
+    font-size: 23px;
+    color: orange;
+}
+.fav_activity_payments_transfer_dropdown{
+    border: none;
+    outline: none;
+    box-shadow: 0px 1px 3px #4b4949;
+    padding: 4px 5px;
+}
+.fav_activity_search_btn{
+    color: #fff;
+    background-color: orange;
+    font-weight: 410;
+    border: none;
+    padding: 3px 10px;
 }

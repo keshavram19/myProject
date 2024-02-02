@@ -11,6 +11,7 @@
     font-size: 12px;
     color: #f18121;
     font-weight: 600;
+    text-decoration: none;
   }
   
   .overview_col_3_card2 {
@@ -160,7 +161,7 @@
   }
   
   .overview_col_6_row1_card_2 {
-    background-color: #faede2;
+    background-color: #faede2 !important  ;
     border-radius: 10px;
   }
   
@@ -187,7 +188,6 @@
   .overview_col_6_row1_card_3 a {
     font-size: 12px;
     color: #000;
-    text-decoration: underline;
   }
   
   .overview_col_6_row1 .overview_arrow_button {

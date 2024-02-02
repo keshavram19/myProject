@@ -30,7 +30,8 @@ const InwardRemitance = () => {
               <p className='Inwbenifits_tag_hfive'>Benefits of Inward Wire Transfer</p>
               <div className='inward_ullist'>
                 <ul className='inward_remitance_flex'>
-                  <li ><span className='inward_span_tag_main'><i class="icons_inwardrem fa-solid fa-clock-rotate-left fa-xl"></i>
+                  <li ><span className='inward_span_tag_main'>
+                    <i class="icons_inwardrem fa-solid fa-clock-rotate-left fa-xl"></i>
                     Fast & secure</span> money transfer</li>
                   <li><span className='inward_span_tag_main'><i class=" icons_inwardrem fa-solid fa-jar fa-xl"></i>Pre-filled </span> information</li>
 
@@ -59,7 +60,7 @@ const InwardRemitance = () => {
                   <p className='Inward_four_lists'>Select account number for receiving the remittance</p>
 
                   <div className='Inward_part_two'>
-                    <p>Account Number</p>
+                    <p className='ptag_inward_acct_num'>Account Number :</p>
                     <select className='Inward_sel_Inacct_numbr' id="InwardaccountNumber"
                       name="accountNumber">
                       <option value="">Select</option>

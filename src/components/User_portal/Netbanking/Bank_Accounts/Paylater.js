@@ -1,9 +1,89 @@
 import './Accounts.css';
 import paylaterimage from '../../../../Images/paylaterimage.jpg'
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
-
+import { useState,useEffect } from "react";
+import { Link } from 'react-router-dom';
+const allTransactionsList = [
+  {
+      date: '25 Jan 2024',
+      narration: 'UPI-BADE NAGARAJU-Q857498653@ybl-YESBOYBLUPI-439140239946-Payment from Phone',
+      withdrawl: '20.00',
+      deposite: '',
+      balance: '1.48'
+  },
+  {
+      date: '24 Jan 2024',
+      narration: 'UPI-Mr RAVI TEJA-7032256838@ybl-IDIB000M160-402484923876-Payment to 7032256',
+      withdrawl: '10,000.00',
+      deposite: '',
+      balance: '21.48'
+  },
+  {
+      date: '23 Jan 2024',
+      narration: 'UPI-PRATHI PAWAN KALYAN-89788426211@ybl-SBIN0011101-438930608914-Payment from Phone',
+      withdrawl: '',
+      deposite: '10,000.00',
+      balance: '10,021.48'
+  },
+  {
+      date: '21 Jan 2024',
+      narration: 'UPI-KANDRA SUNIL-9676350447@ybl-IOBA0003640-402376683037-Payment to 9676350',
+      withdrawl: '10,000.00',
+      deposite: '',
+      balance: '21.48'
+  },
+  {
+      date: '20 Jan 2024',
+      narration: 'UPI-Mr SAI TEJA-7032256838@ybl-IDIB000M160-438905881961-Payment from Phone',
+      withdrawl: '',
+      deposite: '10,000.00',
+      balance: '10,021.48'
+  },
+  {
+      date: '19 Jan 2024',
+      narration: 'UPI-Southern Power Distr-TELANGANASSPDCL-@ybl-YESBOYBLUPI-438578208304-Payment from Phone',
+      withdrawl: '579.00',
+      deposite: '',
+      balance: '34.43'
+  },
+  {
+      date: '18 Jan 2024',
+      narration: 'UPI-S J ENTERPRISES-paytmqr281005050101ohcg3wn30uhq@paytm-PYTM0123456-401914284585-Payment from Phone',
+      withdrawl: '30.00',
+      deposite: '',
+      balance: '613.43'
+  },
+  {
+      date: '17 Jan 2024',
+      narration: 'UPI-FAMOUS CHICKEN CENTER-paytmqr1r7sb4s8ks@paytm-PYTM0123456-401897267622-Payment from Phone',
+      withdrawl: '45.00',
+      deposite: '',
+      balance: '643.43'
+  }
+];
 
 const PayLater = () => {
+  const [payLater,setPayLater] = useState([]);
+  const [payLaterTransaction,setTransaction] = useState([]);
+  useEffect(()=>{
+    getPayLater()
+  },[])
+  const getPayLater = async()=>{
+    const url = 'http://localhost:4444/api/payLaterAccount';
+
+    const options = {
+      method:'GET'
+    }
+
+    const response = await fetch(url,options)
+    if(response.ok===true){
+      const data = await response.json()
+      setPayLater(data.payLater[0])
+      setTransaction(data.payLater[0].payLaterTransaction)
+    }
+  }
+
+  
   return (
     <>
       <div className='container-fluid' style={{marginTop:"90px"}}>
@@ -32,22 +112,24 @@ const PayLater = () => {
               </tr>
             </thead>
             <tbody className="paylater_body">
+           
               <tr>
-                <td><input type="radio" /></td>
-                <td>987654356353121</td>
-                <td>25000.00</td>
-                <td>-10000.89</td>
-                <td>14999.11</td>
-                <td>0.0</td>
-                <td>15-01-2024</td>
-              </tr>
+              <td><input type="radio" checked/></td>
+              <td>{payLater.accountNumber}</td>
+              <td>{payLater.totalCreditLimit}</td>
+              <td>{payLater.utilisedLimit}</td>
+              <td>{payLater.availableLimit}</td>
+              <td>{payLater.amountDue}</td>
+              <td>{payLater.dueDate}</td>
+            </tr>
+              
             </tbody>
           </table>
         </div>
         <div className="paylater_payment">
-          <div><button className=" btn paylater_paynow">PAY NOW</button></div>
-          <div><button className="btn paylater_statement">DETAILED STATEMENT</button></div>
-          <div><button className="btn paylater_bill">BILL DETAILS</button></div>
+          <div><Link to='/user/account/billDetails'><button className="paylater_paynow">PAY NOW</button></Link></div>
+          <div><Link to="/user/account/statement"><button className="paylater_statement">DETAILED STATEMENT</button></Link></div>
+          <div><Link to='/user/account/billDetails'><button className="paylater_bill">BILL DETAILS</button></Link></div>
         </div>
         <div className="paylater_transactions">
           <div>LAST 10 TRANSACTIONS</div>
@@ -56,84 +138,24 @@ const PayLater = () => {
           <table className="table table-bordered ">
             <thead className="paylater_tablehead">
               <tr >
-                <th>Serial Number</th>
-                <th>Transaction Date</th>
+                <th>Date</th>
                 <th>Transaction Remark</th>
-                <th>CR/DR</th>
+    <th>DR</th>
+                <th>CR</th>
                 <th>Amount(INR)</th>
               </tr>
             </thead>
             <tbody className="paylater_body">
-              <tr>
-                <td>1</td>
-                <td>01/01/24</td>
-                <td>UPI Payment - Grocery Store</td>
-                <td>Dr.</td>
-                <td>1000.50</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>02/01/24</td>
-                <td>Salary/perfex</td>
-                <td>Cr.</td>
-                <td>22850.22</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>03/01/24</td>
-                <td>UPI Payment -Fruits/Store</td>
-                <td>Dr.</td>
-                <td>568.50</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>04/01/24</td>
-                <td>tollfee/sapathagiri_toll</td>
-                <td>Dr.</td>
-                <td>120.00</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>05/01/24</td>
-                <td>UPI Payment - Grocery Store</td>
-                <td>Dr.</td>
-                <td>1000.50</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>06/01/24</td>
-                <td>imps/icici/vasu</td>
-                <td>Cr.</td>
-                <td>22850.22</td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>07/01/24</td>
-                <td>UPI Payment -Fruits/Store</td>
-                <td>Dr.</td>
-                <td>568.50</td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td>08/01/24</td>
-                <td>tollfee/sapathagiri_toll</td>
-                <td>Dr.</td>
-                <td>120.00</td>
-              </tr>
-              <tr>
-                <td>9</td>
-                <td>09/01/24</td>
-                <td>UPI Payment - Grocery Store</td>
-                <td>Dr.</td>
-                <td>1000.50</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>10/01/24</td>
-                <td>Ramu/netbanking/imps/hdfc</td>
-                <td>Cr.</td>
-                <td>22850.22</td>
-              </tr>
+              
+            {allTransactionsList.map((transaction, index) => (
+                                                    <tr key={index}>
+                                                        <td>{transaction.date}</td>
+                                                        <td>{transaction.narration}</td>
+                                                        <td>{transaction.withdrawl}</td>
+                                                        <td>{transaction.deposite}</td>
+                                                        <td>{transaction.balance}</td>
+                                                    </tr>
+                                                ))}
             </tbody>
           </table>
 

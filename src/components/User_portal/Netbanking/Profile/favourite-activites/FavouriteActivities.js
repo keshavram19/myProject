@@ -1,8 +1,68 @@
-import React from 'react'
+import React from 'react';
 import './FavouriteActivities.css'
 import OverviewSidebar from '../../Sidebar/OverViewSidebar'
 
+import { MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
+import { useState } from 'react';
+import { MdKeyboardArrowLeft } from "react-icons/md";
+import { MdKeyboardArrowRight } from "react-icons/md";
+
+const activities = [
+    {
+        listOfActivities: 'Buy/Recharge Fastag',
+        typeOfActivity: 'Non-Financial'
+    },
+    {
+        listOfActivities: 'Financial Journey',
+        typeOfActivity: 'Non-Financial'
+    },
+    {
+        listOfActivities: 'Pay Bills',
+        typeOfActivity: 'Financial'
+    },
+    {
+        listOfActivities: 'Fund Transfer',
+        typeOfActivity: 'Financial'
+    },
+    {
+        listOfActivities: 'Tax Center',
+        typeOfActivity: 'Non-Financial'
+    },
+    {
+        listOfActivities: 'Favourities',
+        typeOfActivity: 'Non-Financial'
+    },
+    {
+        listOfActivities: 'Quick Pay',
+        typeOfActivity: 'Financial'
+    },
+    {
+        listOfActivities: 'My Transactions',
+        typeOfActivity: 'Financial'
+    },
+    {
+        listOfActivities: 'Manage Payees',
+        typeOfActivity: 'Financial'
+    }
+];
+
 const FavouriteActivities = () => {
+
+    const [favouriteActivities, setFavouriteActivities] = useState([]);
+    const [activity, setActivity] = useState('')
+    const handleCheckboxChange = () => {
+        const isSelected = favouriteActivities.includes(activity);
+
+        if (isSelected) {
+            setFavouriteActivities(favouriteActivities.filter(selected => selected !== activity));
+        }
+        else {
+            setFavouriteActivities([...favouriteActivities, activity]);
+        }
+    }
+
+    
+
     return (
         <>
             <div className='container-fluid' style={{ marginTop: "90px" }}>
@@ -12,98 +72,94 @@ const FavouriteActivities = () => {
                     </div>
                     <div className='col-9'>
                         <div className="container">
-                            <h2 style={{ color: "orange" }}>Edit my Profile: Favourite Activities</h2>
-                            <p>Select a module to add your favourite Activity: PAYMENTS & TRANSFER.</p>
-
-                            <div className="activities">
-                                <div className="all-activities">
-                                    <h3>Activities</h3>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                
-                                            <th><input type="checkbox" /></th>
-                                                <th>List of Activities</th>
-                                                <th>Type of Activity</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><input type="checkbox" /></td>
-                                                <td>Buy / Recharge Fastag</td>
-                                                <td>Non-Financial</td>
-
-                                            </tr>
-                                            <tr>
-                                                
-                                            <td><input type="checkbox" /></td>
-                                                <td>Bill Payment</td>
-                                                <td>Financial</td>
-                                            </tr>
-                                            <tr>
-                                                
-                                            <td><input type="checkbox" /></td>
-                                                <td>Transfer Funds</td>
-                                                <td>Financial</td>
-                                            </tr>
-                                            <tr>
-                                                
-                                            <td><input type="checkbox" /></td>
-                                                <td>Mobile Recharge</td>
-                                                <td>Non-Financial</td>
-                                        
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div className='fav_activity_editmy_profile'>Edit My Profile: Favourite Activities</div>
+                            <div className='d-flex align-items-center my-2'>
+                                <div>Select a module to add your favourite activity: </div>
+                                <div className='ml-3'>
+                                    <select required className='fav_activity_payments_transfer_dropdown'>
+                                        <option value=''>PAYMENTS & TRANSFER</option>
+                                    </select>
                                 </div>
-                                <div className='d-flex flex-column justify-content-evenly'>
-                                    <button>
-                                        left
-                                    </button>
-                                    <button>
-                                       right
-                                    </button>
-                                </div>
-                                <div className="favourite-activities">
-                                    <h3>Favourite Activities</h3>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                            <th><input type="checkbox" /></th>
-
-                                                <th>List of Activities</th>
-                                                <th>Type of Activity</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><input type="checkbox" /></td>
-                                                <td>Bank Accounts</td>
-                                                <td>Non-Financial</td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" /></td>
-                                                <td>Mobile Recharge</td>
-                                                <td>Non-Financial</td>
-                             
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div className='ml-3'>
+                                    <button className='fav_activity_search_btn'>SEARCH</button>
                                 </div>
                             </div>
+                            <div>
+                                Choose upto 15 favourite activities. Select an account and use the arrow button to move them around.
+                                Click Update button to confirm.
+                            </div>
+                            <div className='d-flex justify-content-between'>
+                                <div>
+                                    <div>Activities</div>
+                                    <div>
+                                        <table className='table table-bordered'>
+                                            <thead>
+                                                <tr>
+                                                    <th><MdOutlineCheckBoxOutlineBlank /></th>
+                                                    <th>List of Activities</th>
+                                                    <th>Type of Activity</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {activities.map((eachActivity, index) => (
+                                                    <tr key={index}>
+                                                        <td>
+                                                            <input type='checkbox'
+                                                                onClick={()=>setActivity(eachActivity)}                                                            >
+                                                            </input>
+                                                        </td>
+                                                        <td>{eachActivity.listOfActivities}</td>
+                                                        <td>{eachActivity.typeOfActivity}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
 
-                           
+                                <div>
+                                    <div>
+                                        <button ><MdKeyboardArrowLeft /></button>
+                                    </div>
+                                    <div>
+                                        <button onClick={handleCheckboxChange}><MdKeyboardArrowRight /></button>
+                                    </div>
+                                </div>
 
-                            <button style={{ backgroundColor: "orange", color: "white", padding: "10px", borderRadius: "5px", border: "none" }}>UPDATE</button>
-
+                                <div>
+                                    <div>Favourite Activities</div>
+                                    <div>
+                                        <table className='table table-bordered'>
+                                            <thead>
+                                                <tr>
+                                                    <th><MdOutlineCheckBoxOutlineBlank /></th>
+                                                    <th>List of Activities</th>
+                                                    <th>Type of Activity</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {
+                                                    favouriteActivities.map((selectedActivity, index) => (
+                                                        <tr>
+                                                            <td>
+                                                                <input type='checkbox'></input>
+                                                            </td>
+                                                            <td>{selectedActivity.listOfActivities}</td>
+                                                            <td>{selectedActivity.typeOfActivity}</td>
+                                                        </tr>
+                                                    ))
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </>
     )
-}
+};
 
-export default FavouriteActivities
+export default FavouriteActivities;

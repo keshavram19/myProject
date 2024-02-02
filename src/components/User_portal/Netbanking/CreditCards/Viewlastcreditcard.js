@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Creditcard.css'
 
 const Viewlastcredit = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,18 +20,18 @@ const Viewlastcredit = () => {
   };
   return (
     <div>
-      <div className="container-fluid">
+      <div className="container-fluid pt-5" style={{marginTop:'60px' , backgroundColor:'#f8f9fa'}}>
         <div className="row">
-          <h3 className="viewcredit_heading" style={{ marginLeft: "17px" }}>
+          <h3 className="viewcredit_heading p-3">
             Last Credit Received
           </h3>
         </div>
         <div className="row mt-5" style={{ marginLeft: "7px" }}>
-          <p className="viewcredit_para col-xl-2 col-3">I want to see my</p>
-          <div className="viewcredit_dropdown col-xl-5 col-9">
+          <p className="viewcredit_para col-xl-2 col-3 mt-2">I want to see my</p>
+          <div className="viewcredit_dropdown col-xl-6 col-9">
             <input
               placeholder="Bank Account"
-              className="mx-5 w-75 viewcredit_input"
+              className="mx-5 w-75 p-2 viewcredit_input"
               onClick={() => setIsOpen(!isOpen)}
               value={selectedOption}
               readOnly
@@ -52,16 +53,17 @@ const Viewlastcredit = () => {
             )}
             <button className="viewcredit_btn">Go</button>
           </div>
+          
         </div>
         <hr style={{ borderBottom: "1px solid black" }}></hr>
         <div className="row mt-3" style={{ marginLeft: "7px" }}>
-          <p className="viewcredit_para col-xl-3 col-3">
+          <p className="viewcredit_para col-xl-3 col-3 mt-2">
             My Credit Card Details for
           </p>
-          <div className="viewcredit_dropdown col-xl-5 col-9">
+          <div className="viewcredit_dropdown col-xl-6 col-9">
             <input
               placeholder=""
-              className="mx-5 w-75 viewcredit_input"
+              className="mx-5 w-75 p-2 viewcredit_input"
               onClick={() => setIsOpen1(!isOpen1)}
               value={selectedOption1}
               readOnly
@@ -109,16 +111,21 @@ const Viewlastcredit = () => {
         </div>
         <div className="col-xl-12 viewcredit_pdf mt-3 mb-5">
           <div className="row justify-content-end">
-            <p className="viewcredit_para">Download Details As:</p>
+          <div className="col-xl-12 d-flex flex-row justify-content-end">
+            <p className="viewcredit_para mt-2">Download Details As:</p>
             <input
               placeholder="pdf file"
-              className="mx-2 viewcredit_input"
+              className="mx-2 w-25 viewcredit_input"
               type="text"
             />
             <div class="viewcredit_dropdown-symbol">&#9660;</div>
             <button className="viewcredit_btn">Go</button>
           </div>
+          </div>
         </div>
+        
+
+
       </div>
     </div>
   );
