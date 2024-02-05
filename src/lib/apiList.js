@@ -6,8 +6,7 @@ const apiList ={
     generateCertificate: `${server}/api/generateCertificate`,
 
 
-    customerAccountDetails: `${server}/api/userDetails/`,
-    userAuthentication: `${server}/api/otp-send`,
+    
 
    
     fixeddepositeform:`${server}/api/fixeddeposites`,
@@ -20,8 +19,9 @@ const apiList ={
 
 
     customerAccountDetails: `${server}/api/userDetails/`,
-    userAuthentication: `${server}/api/otp-send`,
-    userAuthVerification: `${server}/api/verify-otp`,
+    userAuthentication: `${server}/api/otpsend`,
+    userAuthVerify: `${server}/api/verify-otp`,
+
     form60OTPSend:`${server}/form60Userdetails/send-otp`,
     form60OtpVerification:`${server}/form60Userdetails/verify-otp`,
     form60UserDetails:`${server}/form60Userdetails/userdetails`,
