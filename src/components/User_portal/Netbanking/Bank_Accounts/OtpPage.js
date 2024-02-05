@@ -102,7 +102,7 @@ const OTPPage = () =>{
 
                 console.log(otpResponse.data);
                 
-                setTimer(100);
+                setTimer(60);
                 setButtonsDisabled(true);
                 setOtp('');
             } else {

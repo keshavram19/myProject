@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
-import OtpPage from './OtpPage';
+import OTPPage from './OTPpage';
 import apiList from '../../../../lib/apiList';
 
 
@@ -98,7 +98,7 @@ const GenerateDebitCardPinOTP = () => {
                                 </div>
                             </div>
 
-                            <OtpPage />
+                            <OTPPage />
                         </div>
 
                     </div>
