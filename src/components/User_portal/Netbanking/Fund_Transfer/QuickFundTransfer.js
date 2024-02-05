@@ -5,15 +5,14 @@ import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 import { useNavigate } from "react-router-dom";
 import apiList from "../../../../lib/apiList";
 
-
 const QuickFundTransfer = () => {
     const [otpMethod, setOtpMethod] = useState('sms');
-
-    const navigate= useNavigate()
+    const navigate = useNavigate();
     const [userDetails, setUserDetails] = useState([]);
     const [selectedAccount, setSelectedAccount] = useState('');
     const [selectedTransferType, setSelectedTransferType] = useState('royal');
-const  accountNumber=1124563456;
+    const accountNumber = 1124563456;
+
     const fetchData = async () => {
         try {
             const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
@@ -30,8 +29,6 @@ const  accountNumber=1124563456;
         } catch (error) {
             console.error('Error fetching user details:', error);
         }
-        
-
     };
 
     useEffect(() => {
@@ -48,11 +45,9 @@ const  accountNumber=1124563456;
         remarks: 'Please Select',
     });
 
-
     const handleTransferTypeChange = (event) => {
         setSelectedTransferType(event.target.value);
     };
-
 
     const resetFormData = () => {
         setFormData({
@@ -66,7 +61,7 @@ const  accountNumber=1124563456;
         });
     };
 
-    const sendFormDataToServer = async (formData) => {
+    const sendFormDataToServer = async () => {
         try {
             const response = await fetch(`${apiList.quickFundTransfer}`, {
                 method: 'POST',
@@ -77,20 +72,19 @@ const  accountNumber=1124563456;
             });
 
             if (response.ok) {
-                alert("otp generated successfully");
+               
                 console.log('Data saved successfully');
                 const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
                     accountNumber: selectedAccount,
-                     otpMethod: otpMethod,
+                    otpMethod: otpMethod,
                 });
-
+                alert("otp generated successfully");
                 console.log(otpResponse.data);
-                navigate ('/user/fundtransfer/quickfundtransfer-otp-page')
+                navigate('/user/fundtransfer/quickfundtransfer-otp-page');
 
-// Reset form data after successful transfer
-resetFormData();
-            
-               
+                // Reset form data after successful transfer
+                resetFormData();
+
             } else {
                 console.error('Error saving data');
             }
@@ -105,11 +99,10 @@ resetFormData();
         }
     }, [formData.transferType, formData.toAccountNumber]);
 
-
     const handleFormSubmit = () => {
         const toAccountNumber = parseInt(document.getElementById('toAccountNumber').value, 10);
         const confirmAccountNumber = parseInt(document.getElementById('confirmAccountNumber').value, 10);
-    
+
         if (toAccountNumber === confirmAccountNumber) {
             const updatedFormData = {
                 transferType: document.getElementById('royal').checked
@@ -119,21 +112,18 @@ resetFormData();
                 toAccountNumber: toAccountNumber,
                 confirmAccountNumber: confirmAccountNumber,
                 payeeName: document.getElementById('payeeName').value,
-                amount: parseInt(document.getElementById('amount').value, 10),
+                amount: parseInt(document.getElementById('amount').value, 10), 
                 remarks: document.getElementById('remarks').value,
             };
-            sendFormDataToServer(updatedFormData);
+            setFormData(updatedFormData);
         } else {
             alert("Error: To Account Number and Confirm Account Number do not match.");
         }
     };
-    
-
 
     const handleAccountChange = (event) => {
         setSelectedAccount(event.target.value);
     };
-
 
     return (
         <div className='card-details-container container-fluid' style={{ marginTop: "90px" }}>
@@ -171,12 +161,11 @@ resetFormData();
                                 />
                                 <label htmlFor="other" className="ml-2"><p>To Other Bank Account(using IMPS)</p></label>
                             </div>
-
                         </div>
 
                         <div className="row ">
                             <div className="col-sm-4">
-                                <label for="text">Transfer form*</label>
+                                <label htmlFor="text">Transfer form*</label>
                                 <select
                                     className="form-control"
                                     value={selectedAccount}
@@ -197,26 +186,25 @@ resetFormData();
                                 </p>
                             </div>
                             <div className="col-sm-4">
-                                <label for="text">To Account Number*</label>
+                                <label htmlFor="text">To Account Number*</label>
                                 <input type="number" className="form-control" id="toAccountNumber" />
                             </div>
                             <div className="col-sm-4">
-                                <label for="text">Confirm Account Number*</label>
+                                <label htmlFor="text">Confirm Account Number*</label>
                                 <input type="number" className="form-control" id="confirmAccountNumber" />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-sm-4">
-                                <label for="text">Payee Name*</label>
+                                <label htmlFor="text">Payee Name*</label>
                                 <input type="text" className="form-control" id="payeeName" />
-
                             </div>
                             <div className="col-sm-4">
-                                <label for="text">Amount*</label>
+                                <label htmlFor="text">Amount*</label>
                                 <input type="text" className="form-control" id="amount" />
                             </div>
                             <div className="col-sm-4">
-                                <label for="text">Remarks(optional)*</label>
+                                <label htmlFor="text">Remarks(optional)*</label>
                                 <select
                                     name=""
                                     id="remarks"
@@ -231,7 +219,6 @@ resetFormData();
                                     <option value="Friends">Friends</option>
                                     <option value="Rent">Rent</option>
                                 </select>
-
                             </div>
                         </div>
 
@@ -243,29 +230,24 @@ resetFormData();
                     <div className="card p-3">
                         <h6>Notes:</h6>
                         <ol>
-                            <li>As per the RBI circular dated Oct 14, 2010, bansfer of funds through electronic mode will be executed only on the basis of the account number of the beneficiary provided while initiating the transaction, name will not be considered as a criteria for providing credit. Kindly
-
-                                ensure that you enter the oprrect beneficiary account number</li>
+                            <li>As per the RBI circular dated Oct 14, 2010, transfer of funds through electronic mode will be executed only on the basis of the account number of the beneficiary provided while initiating the transaction, name will not be considered as a criterion for providing credit. Kindly ensure that you enter the correct beneficiary account number</li>
                             <li>The Funds Transfer limit per transaction is Rs 25,000</li>
-                            <li> Royal Islamic Bank is not responsible for
+                            <li>Royal Islamic Bank is not responsible for
                                 <ul>
                                     <li>Funds transferred to any unintended recipient
                                     </li>
-                                    <li>Retrieval of funds transfarted to any unauthonsed recipient
+                                    <li>Retrieval of funds transferred to any unauthorized recipient
                                     </li>
-                                    <li>Charges/commission of any kind levredicharged by the payee's bank </li>
+                                    <li>Charges/commission of any kind levied/charged by the payee's bank </li>
                                 </ul>
                             </li>
-                            <li>Royal Islamic Bank has the most comprehensive secunty standards in place to protect your interests At the same time, we expect you to follow sate practices while using the Internet Banking channel. You are fully responsible for protecting your internet Banking User ID and Passwords Royal Islamic Bank will not be liable for any loss that you may incur owing to unauthorised access into your account
-                                .</li>
-                            <li>In case you are re-trying please <a href="#">check the status of your previous perment </a> first.</li>
-                            <li> Allowed special characters in remartis field are-()^@$&%?- spaces</li>
+                            <li>Royal Islamic Bank has the most comprehensive security standards in place to protect your interests. At the same time, we expect you to follow safe practices while using the Internet Banking channel. You are fully responsible for protecting your Internet Banking User ID and Passwords. Royal Islamic Bank will not be liable for any loss that you may incur owing to unauthorized access into your account.</li>
+                            <li>In case you are re-trying, please <a href="#">check the status of your previous payment </a> first.</li>
+                            <li> Allowed special characters in remarks field are-()^@$&%?- spaces</li>
                         </ol>
                     </div>
-
-                </div>
+                </div>  
             </div>
-
         </div>
     );
 };
