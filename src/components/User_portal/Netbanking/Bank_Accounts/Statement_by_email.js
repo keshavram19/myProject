@@ -44,6 +44,7 @@ const StatementByMail = () => {
             },
             body: JSON.stringify({ email: authDetails.userEmailId }),
         };
+        
         try {
             const response = await fetch(apiList.userAuthentication, options);
             const result = await response.json();
@@ -69,7 +70,7 @@ const StatementByMail = () => {
             body: JSON.stringify({email: authDetails.userEmailId, gmailOTP: otp})
         };
         try{
-            const response = await fetch(apiList.userAuthVerification, options);
+            const response = await fetch(apiList.userAuthVerify, options);
             if(response.status === 200){
                 const data = await response.json();
                 toast.success('Successfully verified!', {
