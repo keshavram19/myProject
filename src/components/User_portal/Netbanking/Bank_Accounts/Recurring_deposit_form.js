@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 
-const Recurring_form = () => {
+const RecurringForm = () => {
     const[RecurringdepositAccountNumber,setRecurringdepositAccountNumber]= useState("");
     const[RecurringdepositTitle,setRecurringdepositTitle]= useState("");
     const[RecurringdepositFirstname,setRecurringdepositFirstname]= useState("");
@@ -370,4 +370,4 @@ const Recurring_form = () => {
     )
 }
 
-export default Recurring_form;
+export default RecurringForm;
