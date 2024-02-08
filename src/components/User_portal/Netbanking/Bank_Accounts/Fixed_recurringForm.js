@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 
-const Fixed_recurring_Form = () => {
+const FixedRecurringForm = () => {
     const [FixeddepositAccountNumber, setFixeddepositAccountNumber] = useState("");
     const [FixeddepositTitle, setFixeddepositTitle] = useState("");
     const [FixeddepositFirstname, setFixeddepositFirstname] = useState("");
@@ -427,4 +427,4 @@ const Fixed_recurring_Form = () => {
     )
 }
 
-export default Fixed_recurring_Form;
+export default FixedRecurringForm;

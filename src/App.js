@@ -100,8 +100,8 @@ import FinancialJourney from "./components/User_portal/Netbanking/Profile/Financ
 
 import Renewfixedform from "./components/User_portal/Netbanking/Bank_Accounts/Renewfixedform";
 
-import Fixed_recurring_Form from "./components/User_portal/Netbanking/Bank_Accounts/Fixed_recurringForm";
-import Recurring_form from "./components/User_portal/Netbanking/Bank_Accounts/Recurring_deposit_form";
+import FixedRecurringForm from "./components/User_portal/Netbanking/Bank_Accounts/Fixed_recurringForm";
+import RecurringForm from "./components/User_portal/Netbanking/Bank_Accounts/Recurring_deposit_form";
 
 
 import UpdatePancardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/UpdatePancardOtp";
@@ -117,6 +117,11 @@ import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Account
 
 
 import OTPPage from "./components/User_portal/Netbanking/Fund_Transfer/OTPpage";
+import AccountOpeningForm from "./components/User_portal/AccountOpeningForm/AccountOpeningForm";
+import AccountSuccessPage from "./components/User_portal/AccountOpeningForm/AccountSuccessPage";
+import Adminhome from "./components/User_portal/admin_portal/admin_home/Admihome";
+import RequestedDatalist from "./components/User_portal/admin_portal/opening_requested_details/RequestedDatalist";
+import IndividualDatalist from "./components/User_portal/admin_portal/opening_requested_details/Individuallist/AccountOpeningForm";
 
 function App() {
   return (
@@ -215,12 +220,12 @@ function App() {
         />
         <Route
           path="/user/account/fixed-reccuring-form"
-          element={<Fixed_recurring_Form />}
+          element={<FixedRecurringForm />}
         />
 
         <Route
           path="/user/account/reccuring-form"
-          element={<Recurring_form/>}
+          element={<RecurringForm/>}
         />
 
         <Route
@@ -378,8 +383,11 @@ function App() {
           path="/user/profile/financialjourney"
           element={<FinancialJourney />}
         />
-
-
+        
+        {/* account opening starts */}
+        <Route exact path='/account-opening' element={<AccountOpeningForm/>}/>
+        <Route exact path='/account-success' element={<AccountSuccessPage />} />  
+         {/* account opening starts */}
 
         {/* CARDS & LOANS Started */}
 
@@ -436,6 +444,12 @@ function App() {
 
         {/* customer service ends */}
 
+        {/* Admin side star */}
+ 
+        <Route path="/requested-data" element={<RequestedDatalist />} />
+        <Route path="/confirm-details" element={<IndividualDatalist />} />
+        <Route path='/all-data' element={<Adminhome />} />  
+        {/* Admin side  */}
 
         {/* user portal ends */}
       </Routes>
