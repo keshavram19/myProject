@@ -278,9 +278,12 @@ export default function AccountOpeningForm() {
         }
         setismailValid(true);
         // Send a request to the backend to trigger OTP sending
-        const response = await axios.post("http://localhost:4444/api/send-otp", {
-          email: userData.email,
-        });
+        const response = await axios.post(
+          "http://localhost:4444/api/send-otp",
+          {
+            email: userData.email,
+          }
+        );
         console.log(response);
         let data = response.status;
 
@@ -326,10 +329,13 @@ export default function AccountOpeningForm() {
     const handleVerifyOTP = async () => {
       try {
         // Send a request to the backend to verify the OTP
-        const response = await axios.post("http://localhost:4444/api/verify-otp", {
-          email: userData.email,
-          otp,
-        });
+        const response = await axios.post(
+          "http://localhost:4444/api/verify-otp",
+          {
+            email: userData.email,
+            otp,
+          }
+        );
 
         if (response.data.message) {
           // Mark the email as verified and close the modal
@@ -1773,7 +1779,9 @@ export default function AccountOpeningForm() {
     useEffect(() => {
       const fetchUserDetails = async () => {
         try {
-          const response = await axios.get("http://localhost:4444/api/userdetails");
+          const response = await axios.get(
+            "http://localhost:4444/api/userdetails"
+          );
           const data = response.data;
 
           if (response.status === 200) {
@@ -2057,7 +2065,7 @@ export default function AccountOpeningForm() {
     console.log("hellooo");
 
     return (
-      <div className="mt-5 mb-5 account_opening_personal_details_1 account_opening_total_details" >
+      <div className="mt-5 mb-5 account_opening_personal_details_1 account_opening_total_details">
         <h5>
           Welcome to{" "}
           <span style={{ color: "#f18121" }}>ROYAL ISLAMIC BANK</span>
@@ -2226,7 +2234,7 @@ export default function AccountOpeningForm() {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container" style={{ marginTop: "130px" }}>
       <StateProvider>
         <div className="row">
           <div className="col-12">

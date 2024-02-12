@@ -52,11 +52,6 @@ nav .wrapper {
   transition: all 0.3s ease;
 }
 
-.nav-links li a:hover {
-  background: #02a2d299;
-  color: #000;
-}
-
 .nav-links .mobile-item {
   display: none;
 }
@@ -114,13 +109,13 @@ nav .wrapper {
 }
 
 .content .row img {
-background-color: #f3fbfe;
-height: 40px;
-width: 40px;
-border-radius: 50%;
-padding: 3px;
+  background-color: #f3fbfe;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  padding: 3px;
 }
-.content p{
+.content p {
   font-size: 12px;
 }
 .content .row header {
@@ -312,17 +307,16 @@ nav input {
 }
 
 .landing_body_banner {
-  background-image: url("https://www.paytmbank.com/images/img-homebg.png");
+  background-image: url("../../../Images/landing-page_banner.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 70vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-
 
 .landing_body_banner h1 {
   color: #2b457b;
@@ -331,12 +325,11 @@ nav input {
   padding-top: 5px;
 }
 
-
-
 .landing_body_banner_bottom {
-  border-top: 20px solid #00baf2;
-  border-bottom: 20px solid #2b457b;
+  border-top: 20px solid #faede2;
+  border-bottom: 20px solid #f18121;
   margin: 0px;
+  opacity: 1;
 }
 
 .landing_body_banner_head {
@@ -351,7 +344,7 @@ nav input {
   margin-top: -100px;
 }
 .landing_list1 h5 {
-  color: #2b457b;
+  color: #f18121;
   font-size: 17px;
 }
 .landing_list1 p {
@@ -363,7 +356,7 @@ nav input {
   color: #2b457b;
 }
 .landing_img_content h5 {
-  color: #00baf2;
+  color: #ff7600;
 }
 .landing_img_content p {
   color: #888;
@@ -371,10 +364,11 @@ nav input {
 }
 .landing_img_content {
   margin-bottom: 100px !important;
+  margin-top: 100px !important;
 }
 
 .landing_account_open_page {
-  background-color: #00baf2;
+  background-color: #faede2;
   height: 35vh;
   display: flex;
   align-items: center;
@@ -383,17 +377,23 @@ nav input {
 }
 .landing_account_open_page h1 {
   font-size: 30px;
-  color: #fff;
+  color: #fa8121;
 }
 .landing_account_open_page p {
   margin-top: 20px;
   cursor: pointer;
 }
 .landing_account_open_page span {
-  font-size: 12px;
-  background-color: #fff;
+  font-size: 14px;
+  background-color: #f18121;
   padding: 10px 25px;
+  border-radius: 50px;
+  color: #000;
 }
+.landing_account_open_page a {
+  text-decoration: none;
+}
+
 .landing_list2 {
   margin-top: 100px;
   margin-bottom: 100px;
@@ -408,18 +408,17 @@ nav input {
 }
 
 .landing_item {
-  background: #f3fbfe;
+  background: #faede2;
   margin-bottom: 5px;
   padding: 10px 20px;
 }
 
 .landing_title {
-  color: #2b457b;
+  color: #f18121;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  
 }
 .landing_title h2 {
   font-size: 20px;
@@ -447,10 +446,28 @@ footer {
 }
 
 footer h5 {
-  color: #00baf2;
+  color: #f18121;
   padding-top: 50px;
 }
 footer p {
   font-size: 14px;
-  cursor: pointer;
+  cursor: pointer;
+}
+
+.landing_page_login_btn a {
+  color: #f18121 !important;
+  border: 1px solid #f18121;
+}
+.landing_page_login_btn {
+  margin-top: 10px;
+  font-weight: 500;
+}
+.landing_page_login_btn a:hover {
+  background: #faede2 !important;
+  color: #f18121 !important;
+}
+
+.nav-links li a:hover {
+  background: #02a2d299;
+  color: #000;
 }
