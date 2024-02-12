@@ -1,10 +1,23 @@
 // src/App.js
 import React, { useState } from "react";
-
+import logo from "../../../Images/Royal islamic.png";
+import landingpage from "../../../Images/landing_phone.png";
+import footer from "../../../Images/footer.png";
 import Accordion from "react-bootstrap/Accordion";
 import "bootstrap/dist/css/bootstrap-utilities.min.css";
 import { Link } from "react-router-dom";
-import './LandingPage.css'
+import "./LandingPage.css";
+import landingpageCards from "../../../Images/landingPage_card.png";
+import nofee from "../../../Images/no fee icon.png";
+import riskfree from "../../../Images/risk free icon.png";
+import visadebit from "../../../Images/visa debit card icon.png";
+import interesticon from "../../../Images/interest icon.png";
+import passbookicon from "../../../Images/passbook.png";
+import secureicon from "../../../Images/secue icon.png";
+import contactlessicon from "../../../Images/contactless icon.png";
+import wideicon from "../../../Images/wideicon.png";
+import cashbackicon from "../../../Images/cashback icon.png";
+import withdraw from "../../../Images/withdraw.png";
 
 const data = [
   {
@@ -40,22 +53,20 @@ const LandingPage = () => {
       <nav>
         <div className="wrapper">
           <div className="logo">
-            <a href="#">Logo</a>
+            <a href="#">
+              <img src={logo} alt="" style={{ width: "100px" }} />
+            </a>
           </div>
           <input type="radio" name="slider" id="menu-btn" />
           <input type="radio" name="slider" id="close-btn" />
-          <ul className="nav-links m-auto">
+          <ul className="nav-links ml-auto">
             <label htmlFor="close-btn" className="btn close-btn">
               <i class="fa-solid fa-bars"></i>
             </label>
-            <li>
+            {/* <li>
               <a href="#" className="desktop-item">
                 Personal Banking
               </a>
-              {/* <input type="checkbox" id="showMega" />
-                <label htmlFor="showMega" className="mobile-item">
-                  Personal Banking
-                </label> */}
               <div className="mega-box">
                 <div className="content">
                   <div className="container">
@@ -148,16 +159,12 @@ const LandingPage = () => {
                   </div>
                 </div>
               </div>
-            </li>
+            </li> */}
 
-            <li>
+            {/* <li>
               <a href="#" className="desktop-item">
                 Business Banking
               </a>
-              {/* <input type="checkbox" id="showMega" />
-                <label htmlFor="showMega" className="mobile-item">
-                  Personal Banking
-                </label> */}
               <div className="mega-box">
                 <div className="content">
                   <div className="container">
@@ -211,16 +218,13 @@ const LandingPage = () => {
                   </div>
                 </div>
               </div>
-            </li>
+            </li> */}
 
-            <li>
+            {/* <li>
               <a href="#" className="desktop-item">
                 Company
               </a>
-              {/* <input type="checkbox" id="showDrop" />
-                <label htmlFor="showDrop" className="mobile-item">
-                  Dropdown Menu
-                </label> */}
+
               <ul className="drop-menu">
                 <li>
                   <a href="#">About Us</a>
@@ -238,16 +242,12 @@ const LandingPage = () => {
                   <a href="#">Careers</a>
                 </li>
               </ul>
-            </li>
+            </li> */}
 
-            <li>
+            {/* <li>
               <a href="#" className="desktop-item">
                 Support
               </a>
-              {/* <input type="checkbox" id="showDrop" />
-                <label htmlFor="showDrop" className="mobile-item">
-                  Dropdown Menu
-                </label> */}
               <ul className="drop-menu">
                 <li>
                   <a href="#">Rates & Charges</a>
@@ -256,12 +256,14 @@ const LandingPage = () => {
                   <a href="#">FAQs</a>
                 </li>
               </ul>
-            </li>
+            </li> */}
 
-            <li className="" style={{ listStyleType: "none" }}>
-              <Link to="/personal-login" style={{ color: "#00baf2" }}>
-                {" "}
-                Login
+            <li
+              className="landing_page_login_btn"
+              style={{ listStyleType: "none" }}
+            >
+              <Link to="/netbanking-personal-login">
+                <i class="fa-solid fa-lock pr-2"></i> Net Banking
               </Link>
             </li>
           </ul>
@@ -273,7 +275,7 @@ const LandingPage = () => {
       </nav>
 
       <div className="landing_body_banner">
-        <div style={{ display: "inline" }}>
+        {/* <div style={{ display: "inline" }}>
           <h1>
             <span style={{ backgroundColor: "#fff" }}>No fear.</span>
           </h1>
@@ -286,24 +288,24 @@ const LandingPage = () => {
           <h1 className="landing_body_banner_head">
             India’s most sincere bank is here!
           </h1>
-        </div>
+        </div> */}
       </div>
 
       <hr className="landing_body_banner_bottom"></hr>
 
-      <div className="text-center landing_sec2_img">
+      {/* <div className="text-center landing_sec2_img">
         <img
-          src="https://www.paytmbank.com/images/homepage-mobile-img.svg"
+          src={landingpage}
           className="img-fluid"
         />
-      </div>
+      </div> */}
 
       <div className="container">
         <div className="text-center  landing_img_content">
           <h4>Join the Revolution.</h4>
           <h5>Start your Digital Savings Account today!</h5>
           <p>
-            Paytm Payments Bank offers a Savings Account with no account opening
+            Royal Islamic Bank offers a Savings Account with no account opening
             charges or minimum balance requirements. Keep upto Rs. 2 lac of
             deposits and enjoy benefits like:
           </p>
@@ -313,9 +315,13 @@ const LandingPage = () => {
       <div className="container mt-5">
         <div className="row landing_list1">
           <div className="col-md-6">
-            <div className="row">
+            <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src="https://www.paytmbank.com/images/icons/ic-nofees.png" />
+                <img
+                  src={nofee}
+                  className="img-fluid"
+                  style={{ width: "80%" }}
+                />
               </div>
               <div className="col-md-10 ">
                 <h5>No account fees and charges</h5>
@@ -325,65 +331,86 @@ const LandingPage = () => {
                 </p>
               </div>
             </div>
-            <div className="row">
+            <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src="https://www.paytmbank.com/images/icons/ic-nofees.png" />
+                <img
+                  src={riskfree}
+                  className="img-fluid"
+                  style={{ width: "80%" }}
+                />
               </div>
               <div className="col-md-10">
-                <h5>No account fees and charges</h5>
+                <h5>Risk-free deposits</h5>
                 <p>
-                  Enjoy the convenience of banking on your phone and no charges
-                  for online transactions
+                  Your money is safe with us. We invest deposits only in
+                  government bonds. None of your deposits will be converted in
+                  to risky assets.
                 </p>
               </div>
             </div>
-            <div className="row">
+            <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src="https://www.paytmbank.com/images/icons/ic-nofees.png" />
+                <img
+                  src={visadebit}
+                  className="img-fluid"
+                  style={{ width: "80%" }}
+                />
               </div>
               <div className="col-md-10">
-                <h5>No account fees and charges</h5>
+                <h5>VISA Debit Card</h5>
                 <p>
-                  Enjoy the convenience of banking on your phone and no charges
-                  for online transactions
+                  Use your free virtual card to make online purchases across all
+                  merchants accepting VISA cards. You can order a physical debit
+                  card through the Paytm Payments Bank section of your Paytm App
                 </p>
               </div>
             </div>
           </div>
           <div className="col-md-6">
-            <div className="row">
+            <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src="https://www.paytmbank.com/images/icons/ic-nofees.png" />
+                <img
+                  src={interesticon}
+                  className="img-fluid"
+                  style={{ width: "80%" }}
+                />
               </div>
               <div className="col-md-10">
-                <h5>No account fees and charges</h5>
+                <h5>Earn interest every month</h5>
                 <p>
-                  Enjoy the convenience of banking on your phone and no charges
-                  for online transactions
+                  Earn an interest of 2% per annum, payable monthly effective
+                  1st August,2023
                 </p>
               </div>
             </div>
-            <div className="row">
+            <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src="https://www.paytmbank.com/images/icons/ic-nofees.png" />
+                <img
+                  src={passbookicon}
+                  className="img-fluid"
+                  style={{ width: "80%" }}
+                />
               </div>
               <div className="col-md-10">
-                <h5>No account fees and charges</h5>
+                <h5>Real time updated Passbook</h5>
                 <p>
-                  Enjoy the convenience of banking on your phone and no charges
-                  for online transactions
+                  View your transaction and balance in real time in Passbook
                 </p>
               </div>
             </div>
-            <div className="row">
+            <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src="https://www.paytmbank.com/images/icons/ic-nofees.png" />
+                <img
+                  src={secureicon}
+                  className="img-fluid"
+                  style={{ width: "80%" }}
+                />
               </div>
               <div className="col-md-10">
-                <h5>No account fees and charges</h5>
+                <h5>Highly Secure</h5>
                 <p>
-                  Enjoy the convenience of banking on your phone and no charges
-                  for online transactions
+                  Your account is secured with a special Passcode to ensure your
+                  account is safe
                 </p>
               </div>
             </div>
@@ -393,9 +420,11 @@ const LandingPage = () => {
 
       <div className="landing_account_open_page">
         <div className="container">
-          <h1>Open your Paytm Payments Bank account today!</h1>
+          <h1>Open your Royal Islamic Bank account today!</h1>
           <p>
-            <span>Click Here</span>
+            <Link to="/account-opening">
+              <span>Click Here</span>
+            </Link>
           </p>
         </div>
       </div>
@@ -403,12 +432,12 @@ const LandingPage = () => {
       <div className="container">
         <div className="text-center  landing_img_content">
           <h4>Say hello to your</h4>
-          <h5>Paytm Payments Bank Debit & ATM Card</h5>
+          <h5>Royal Islamic Bank Debit & ATM Card</h5>
           <p>
-            Every Paytm Payments Bank account holder will be issued a free
+            Every Royal Islamic Bank account holder will be issued a free
             Digital Debit Card at the time of account opening. Account holders
-            can request for a physical Debit Card through the Paytm Payments
-            Bank section of their Paytm App
+            can request for a physical Debit Card through the Royal Islamic Bank
+            section of their App
           </p>
         </div>
       </div>
@@ -416,59 +445,49 @@ const LandingPage = () => {
       <div className="container landing_list1 landing_list2">
         <div className="row">
           <div className="col-md-4">
-            <div className="row">
+            <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src="https://www.paytmbank.com/images/icons/ic-nofees.png" />
+                <img src={contactlessicon} className="img-fluid" />
               </div>
               <div className="col-md-10 ">
-                <h5>No account fees and charges</h5>
-                <p>
-                  Enjoy the convenience of banking on your phone and no charges
-                  for online transactions
-                </p>
+                <h5>Contactless transactions</h5>
+                <p>Enjoy smart contactless Tap to Pay transactions.</p>
               </div>
             </div>
-            <div className="row">
+            <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src="https://www.paytmbank.com/images/icons/ic-nofees.png" />
+                <img src={cashbackicon} className="img-fluid" />
               </div>
               <div className="col-md-10 ">
-                <h5>No account fees and charges</h5>
+                <h5>Cashback and offers</h5>
                 <p>
-                  Enjoy the convenience of banking on your phone and no charges
-                  for online transactions
+                  Enjoy discounts and cashbacks across a large number of
+                  merchants with your
                 </p>
               </div>
             </div>
           </div>
           <div className="col-md-4">
-            <img
-              src="https://www.paytmbank.com/images/ic_ppb_vdc.png"
-              className="img-fluid"
-            />
+            <img src={landingpageCards} className="img-fluid" />
           </div>
           <div className="col-md-4">
-            <div className="row">
+            <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src="https://www.paytmbank.com/images/icons/ic-nofees.png" />
+                <img src={wideicon} className="img-fluid" />
               </div>
               <div className="col-md-10 ">
-                <h5>No account fees and charges</h5>
-                <p>
-                  Enjoy the convenience of banking on your phone and no charges
-                  for online transactions
-                </p>
+                <h5>Wide acceptance</h5>
+                <p>VISA is the largest acceptance network in the world</p>
               </div>
             </div>
-            <div className="row">
+            <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src="https://www.paytmbank.com/images/icons/ic-nofees.png" />
+                <img src={withdraw} className="img-fluid" />
               </div>
               <div className="col-md-10 ">
-                <h5>No account fees and charges</h5>
+                <h5>Withdraw cash from any ATM</h5>
                 <p>
-                  Enjoy the convenience of banking on your phone and no charges
-                  for online transactions
+                  Withdraw cash at more than 2,00,000 ATMs across India & Abroad
                 </p>
               </div>
             </div>
@@ -591,13 +610,14 @@ const LandingPage = () => {
             </div>
           </div>
 
-          <div className="container text-center mt-5">
+          {/* <div className="container text-center mt-5">
             <Link to="#">CSR</Link>
-          </div>
+          </div> */}
           <div>
             <img
-              src="https://www.paytmbank.com/_next/static/media/footer-illustration-v2.70f33a8b.png"
+              src={footer}
               className="img-fluid"
+              style={{ height: "70vh", width: "100%" }}
             />
           </div>
         </footer>
