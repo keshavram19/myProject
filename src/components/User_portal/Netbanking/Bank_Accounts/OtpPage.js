@@ -177,12 +177,12 @@ return(
 
                             <div className="d-flex mt-3 mb-3">
                                 <button type="button" className="genrate_pin_buttons ml-3">
-        BACK
+                                    BACK
                                 </button>
                                 <button type="button" className="genrate_pin_submits ml-5" onClick={handleOtpValidation} >
                                     SUBMIT
                                 </button>
-                                                </div>
+                            </div>
                 </div>
 
             </div>
