@@ -14,56 +14,56 @@ import { Link } from 'react-router-dom';
 
 const allTransactionsList = [
     {
-        date: '25 Jan 2024',
+        date: '15 Feb 2024',
         narration: 'UPI-BADE NAGARAJU-Q857498653@ybl-YESBOYBLUPI-439140239946-Payment from Phone',
         withdrawl: '20.00',
         deposite: '',
         balance: '1.48'
     },
     {
-        date: '24 Jan 2024',
+        date: '14 Feb 2024',
         narration: 'UPI-Mr RAVI TEJA-7032256838@ybl-IDIB000M160-402484923876-Payment to 7032256',
         withdrawl: '10,000.00',
         deposite: '',
         balance: '21.48'
     },
     {
-        date: '23 Jan 2024',
-        narration: 'UPI-PRATHI PAWAN KALYAN-89788426211@ybl-SBIN0011101-438930608914-Payment from Phone',
+        date: '13 Feb 2024',
+        narration: 'UPI-PRATHIPATI PAWAN-89788426211@ybl-SBIN0011101-438930608914-Payment from Phone',
         withdrawl: '',
         deposite: '10,000.00',
         balance: '10,021.48'
     },
     {
-        date: '21 Jan 2024',
+        date: '12 Feb 2024',
         narration: 'UPI-KANDRA SUNIL-9676350447@ybl-IOBA0003640-402376683037-Payment to 9676350',
         withdrawl: '10,000.00',
         deposite: '',
         balance: '21.48'
     },
     {
-        date: '20 Jan 2024',
+        date: '11 Feb 2024',
         narration: 'UPI-Mr SAI TEJA-7032256838@ybl-IDIB000M160-438905881961-Payment from Phone',
         withdrawl: '',
         deposite: '10,000.00',
         balance: '10,021.48'
     },
     {
-        date: '19 Jan 2024',
+        date: '10 Feb 2024',
         narration: 'UPI-Southern Power Distr-TELANGANASSPDCL-@ybl-YESBOYBLUPI-438578208304-Payment from Phone',
         withdrawl: '579.00',
         deposite: '',
         balance: '34.43'
     },
     {
-        date: '18 Jan 2024',
+        date: '09 Feb 2024',
         narration: 'UPI-S J ENTERPRISES-paytmqr281005050101ohcg3wn30uhq@paytm-PYTM0123456-401914284585-Payment from Phone',
         withdrawl: '30.00',
         deposite: '',
         balance: '613.43'
     },
     {
-        date: '17 Jan 2024',
+        date: '08 Feb 2024',
         narration: 'UPI-FAMOUS CHICKEN CENTER-paytmqr1r7sb4s8ks@paytm-PYTM0123456-401897267622-Payment from Phone',
         withdrawl: '45.00',
         deposite: '',
@@ -142,22 +142,58 @@ const Statements = () => {
     };
 
 
-    const filteredTransactions = allTransactionsList.filter((transaction) => {
+    // const filteredTransactions = allTransactionsList.filter((transaction) => {
+    //     const transactionDate = new Date(transaction.date);
+
+    //     if(fromDate && toDate){
+    //         const from = new Date(fromDate);
+    //         const to = new Date(toDate);
+    //         return transactionDate >= from && transactionDate <= to;
+    //     }
+    //     else if(fromDate){
+    //         const from = new Date(fromDate);
+    //         return transactionDate >= from;
+    //     }
+    //     else if(toDate){
+    //         const to = new Date(toDate);
+    //         return transactionDate <= to;
+    //     } 
+    // });
+
+    const isFilterSelected = fromDate || toDate || transactionType;
+    const filteredTransactions = isFilterSelected ? allTransactionsList.filter((transaction) => {
         const transactionDate = new Date(transaction.date);
-        if (fromDate && toDate && accountType) {
+
+        // Filteration of fromDate and toDate
+        if (fromDate && toDate) {
             const from = new Date(fromDate);
             const to = new Date(toDate);
-            return transactionDate >= from && transactionDate <= to;
+            if (transactionDate < from || transactionDate > to) {
+                return false;
+            }
         }
-        else if (fromDate && accountType) {
+        else if (fromDate) {
             const from = new Date(fromDate);
-            return transactionDate >= from;
+            if (transactionDate < from) {
+                return false;
+            }
         }
-        else if (toDate && accountType) {
+        else if (toDate) {
             const to = new Date(toDate);
-            return transactionDate <= to;
+            if (transactionDate > to) {
+                return false;
+            }
         }
-    });
+
+        // Filteration of Transaction Type
+        if (transactionType === 'Only Withdrawals' && transaction.withdrawl === '') {
+            return false;
+        }
+        else if (transactionType === 'Only Deposits' && transaction.deposite === '') {
+            return false;
+        }
+        return true;
+    }) : [];
 
 
     return (
@@ -179,7 +215,7 @@ const Statements = () => {
                                     <option value='Savings'>Savings</option>
                                     <option value='Current'>Current</option>
                                 </select>
-                                <IoCaretDownCircleOutline className='statement_acct_type_icon'/>
+                                <IoCaretDownCircleOutline className='statement_acct_type_icon' />
                             </div>
                         </div>
                         {accountTypeDetails &&
@@ -191,7 +227,7 @@ const Statements = () => {
                                         <option hidden>Select Account Number</option>
                                         <option>{accountTypeDetails.userAccountNumber}</option>
                                     </select>
-                                    <IoCaretDownCircleOutline className='statement_acct_type_icon'/>
+                                    <IoCaretDownCircleOutline className='statement_acct_type_icon' />
                                 </div>
                             </div>
                         }
@@ -203,7 +239,9 @@ const Statements = () => {
                                     </input>
                                 </div>
                                 <div>
-                                    <label htmlFor='ministate'>Mini Statement</label>
+                                    <label htmlFor='ministate'>
+                                        Mini Statement
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -220,7 +258,7 @@ const Statements = () => {
                             </div>
                             <div>
                                 <div className='mb-2 d-flex align-items-center'>
-                                    <label className='period_from_to'>From:</label>
+                                    <div className='period_from_to'>From:</div>
                                     <div className='d-flex align-items-center'>
                                         <DatePicker
 
@@ -232,7 +270,7 @@ const Statements = () => {
                                     </div>
                                 </div>
                                 <div className='d-flex align-items-center'>
-                                    <label className='period_from_to'>To:</label>
+                                    <div className='period_from_to'>To:</div>
                                     <div className='d-flex align-items-center'>
                                         <DatePicker
 
@@ -304,7 +342,7 @@ const Statements = () => {
                                         }
                                     </div>
                                     <div className='d-flex justify-content-between'>
-                                        <div className='d-flex align-items-center'>
+                                        <div className='d-flex align-items-center' style={{fontSize: '15px'}}>
                                             <div className='mr-2'>Period: </div>
                                             <div className='mr-2'>{formattedFromDate} to {formattedToDate}</div>
                                             <div>
@@ -314,15 +352,20 @@ const Statements = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <div>Page 1 of 1</div>
+                                            <div className='trans_statement_pages'>Page 1 of 1</div>
                                         </div>
                                     </div>
                                 </div>
-                                {accountTypeDetails &&
+                                
                                     <div className='d-flex justify-content-end'>
-                                        Closing Balance : INR {accountTypeDetails.userAccountBalance}
+                                        <div className='tran_statement_closing_bal'>Closing Balance:</div>
+                                        {accountTypeDetails &&
+                                            <div className='tran_statement_balance'>
+                                                INR {accountTypeDetails.userAccountBalance}
+                                            </div>
+                                        }
                                     </div>
-                                }
+                                
                                 <div className='my-3'>
                                     <table className='table table-bordered'>
                                         <thead className='tran_statement_table_header'>
@@ -334,9 +377,9 @@ const Statements = () => {
                                                 <th>Balance</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            {
-                                                filteredTransactions.map((transaction, index) => (
+                                        {isFilterSelected && (
+                                            <tbody className='tran_statement_table_body'>
+                                                {filteredTransactions.map((transaction, index) => (
                                                     <tr key={index}>
                                                         <td>{transaction.date}</td>
                                                         <td>{transaction.narration}</td>
@@ -344,13 +387,13 @@ const Statements = () => {
                                                         <td>{transaction.deposite}</td>
                                                         <td>{transaction.balance}</td>
                                                     </tr>
-                                                ))
-                                            }
-                                        </tbody>
+                                                ))}
+                                            </tbody>
+                                        )}
                                     </table>
                                 </div>
-                                <div className='d-flex align-items-center'>
-                                    <div className='mr-2'>Select Format:</div>
+                                <div className='d-flex align-items-center my-2'>
+                                    <div className='tran_statement_format'>Select Format:</div>
                                     <div>
                                         <select className='form-control statement_select_format'>
                                             <option>PDF</option>
@@ -359,7 +402,9 @@ const Statements = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button type='button' className='statement_download_btn'>Download</button>
+                                    <button type='button' className='statement_download_btn'>
+                                        Download
+                                    </button>
                                 </div>
                             </div>)
                             : ''
@@ -367,7 +412,7 @@ const Statements = () => {
 
 
                     <div>
-                        <div className='savings_acct_statement_note'>Note:</div>
+                        <div className='savings_acct_statement_note'>Notes:</div>
                         <ul className=''>
                             <li className='savings_acct_statement_note_points'>
                                 Transactions for the current and previous months only can be viewed or downloaded through this option.

@@ -19,9 +19,11 @@ const apiList ={
 
 
     customerAccountDetails: `${server}/api/userDetails/`,
-
     userAuthentication: `${server}/api/otpsend`,
     userAuthVerify: `${server}/api/verify-otp`,
+    customerCreditCardDetails: `${server}/api/creditcarddetails/`,
+    customerCrediCardLimitOTP: `${server}/api/creditcardlimit-otp`,
+    updateDomesticCardUsage: `${server}/api/update-domesticcardusage`,
 
    
 
@@ -30,7 +32,7 @@ const apiList ={
     taxOTPSend:`${server}/api/send-OneTP`,
   
     paymentTransaction:`${server}/api/payment-Type`,
-    transferTransaction:`${server}/api/transfer-Type`
+    transferTransaction:`${server}/api/transfer-Type`,
 
 
     form60OTPSend:`${server}/form60Userdetails/send-otp`,
