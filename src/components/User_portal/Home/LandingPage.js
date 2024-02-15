@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState } from "react";
-import logo from "../../../Images/Royal islamic.png";
+import logo from "../../../Images/RIB White logo (1).png";
 import landingpage from "../../../Images/landing_phone.png";
 import footer from "../../../Images/footer.png";
 import Accordion from "react-bootstrap/Accordion";
@@ -53,9 +53,9 @@ const LandingPage = () => {
       <nav>
         <div className="wrapper">
           <div className="logo">
-            <a href="#">
-              <img src={logo} alt="" style={{ width: "100px" }} />
-            </a>
+            <Link href="/">
+              <img src={logo} alt="" style={{ width: "170px" }} />
+            </Link>
           </div>
           <input type="radio" name="slider" id="menu-btn" />
           <input type="radio" name="slider" id="close-btn" />
@@ -321,6 +321,7 @@ const LandingPage = () => {
                   src={nofee}
                   className="img-fluid"
                   style={{ width: "80%" }}
+                  alt="nofee"
                 />
               </div>
               <div className="col-md-10 ">
@@ -337,6 +338,7 @@ const LandingPage = () => {
                   src={riskfree}
                   className="img-fluid"
                   style={{ width: "80%" }}
+                  alt="riskfree"
                 />
               </div>
               <div className="col-md-10">
@@ -354,6 +356,7 @@ const LandingPage = () => {
                   src={visadebit}
                   className="img-fluid"
                   style={{ width: "80%" }}
+                  alt="visadebiticon"
                 />
               </div>
               <div className="col-md-10">
@@ -373,6 +376,7 @@ const LandingPage = () => {
                   src={interesticon}
                   className="img-fluid"
                   style={{ width: "80%" }}
+                  alt="interesticon"
                 />
               </div>
               <div className="col-md-10">
@@ -389,6 +393,7 @@ const LandingPage = () => {
                   src={passbookicon}
                   className="img-fluid"
                   style={{ width: "80%" }}
+                  alt="passbookicon"
                 />
               </div>
               <div className="col-md-10">
@@ -404,6 +409,7 @@ const LandingPage = () => {
                   src={secureicon}
                   className="img-fluid"
                   style={{ width: "80%" }}
+                  alt="secureicon"
                 />
               </div>
               <div className="col-md-10">
@@ -447,7 +453,11 @@ const LandingPage = () => {
           <div className="col-md-4">
             <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src={contactlessicon} className="img-fluid" />
+                <img
+                  src={contactlessicon}
+                  className="img-fluid"
+                  alt="contactlessicon"
+                />
               </div>
               <div className="col-md-10 ">
                 <h5>Contactless transactions</h5>
@@ -456,7 +466,11 @@ const LandingPage = () => {
             </div>
             <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src={cashbackicon} className="img-fluid" />
+                <img
+                  src={cashbackicon}
+                  className="img-fluid"
+                  alt="cashbackicon"
+                />
               </div>
               <div className="col-md-10 ">
                 <h5>Cashback and offers</h5>
@@ -468,12 +482,16 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="col-md-4">
-            <img src={landingpageCards} className="img-fluid" />
+            <img
+              src={landingpageCards}
+              className="img-fluid"
+              alt="landingpage"
+            />
           </div>
           <div className="col-md-4">
             <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src={wideicon} className="img-fluid" />
+                <img src={wideicon} className="img-fluid" alt="wideicon" />
               </div>
               <div className="col-md-10 ">
                 <h5>Wide acceptance</h5>
@@ -482,7 +500,7 @@ const LandingPage = () => {
             </div>
             <div className="row mt-2">
               <div className="col-md-2 text-center m-auto">
-                <img src={withdraw} className="img-fluid" />
+                <img src={withdraw} className="img-fluid" alt="WithdrawMoney" />
               </div>
               <div className="col-md-10 ">
                 <h5>Withdraw cash from any ATM</h5>
@@ -616,6 +634,7 @@ const LandingPage = () => {
           <div>
             <img
               src={footer}
+              alt="Footer"
               className="img-fluid"
               style={{ height: "70vh", width: "100%" }}
             />
