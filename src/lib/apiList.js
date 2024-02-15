@@ -28,19 +28,24 @@ const apiList ={
     taxOTPSend:`${server}/api/send-OneTP`,
   
     paymentTransaction:`${server}/api/payment-Type`,
-    transferTransaction:`${server}/api/transfer-Type`
+    transferTransaction:`${server}/api/transfer-Type`,
 
     form60OTPSend:`${server}/form60Userdetails/send-otp`,
     form60OtpVerification:`${server}/form60Userdetails/verify-otp`,
-    form60UserDetails:`${server}/form60Userdetails/userdetails`,
+     form60UserDetails:`${server}/form60Userdetails/userdetails`,
     createVerificationCode: `${server}/api/generate-otp`,
     authenticateOTP: `${server}/api/validate-otp`,
     updateDomesticLimits: `${server}/api/updateDomesticLimits/`,
     updateInternationalLimits: `${server}/api/updateInternationalLimits/`,   
     GenerateCardPin : `${server}/api/generate-Debit-Card-Pin`,
-    blockATMCard : `${server}/api/blockCard/`
+    blockATMCard : `${server}/api/blockCard/`,
 
 
+    BlockingCreditCard: `${server}/api/blockcreditcard/`,
+    BlockCardOTPValidation:`${server}/api/OtpValidation/`,
+    BlockCardOTPVerifying:`${server}/api/verifyOTP`,
+
+    AlertSubscription:`${server}/api/alertsubscription/`,
 
 
 }
