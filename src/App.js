@@ -111,12 +111,11 @@ import GenerateDebitCardPin from "./components/User_portal/Netbanking/Bank_Accou
 import ReissueLostATMcard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueLostATM";
 import GenerateRequestLostATM from "./components/User_portal/Netbanking/Bank_Accounts/GenerateRequestLostATM";
 import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCardRequest";
-
-
-
-
-
 import OTPPage from "./components/User_portal/Netbanking/Fund_Transfer/OTPpage";
+import Form16A from "./components/User_portal/Netbanking/Customerservice.js/Form16A";
+import Form16AOTPPage from "./components/User_portal/Netbanking/Customerservice.js/Form16aOTP";
+
+
 
 function App() {
   return (
@@ -431,7 +430,11 @@ function App() {
         <Route exact path="/user/customerservice/mymailbox" element={<MyMailBox />} />
         <Route exact path="/user/customerservice/elocker" element={<ELocker />} />
         <Route exact path="/user/customerservice/taxcenter" element={<CustomerserviceTaxCentre />} />
+  
 
+        <Route exact path="/user/customerservice/form16a" element={<Form16A />} />
+        <Route exact path="/user/customerservice/form16aotppage" element={<Form16AOTPPage />} />
+     
 
 
         {/* customer service ends */}

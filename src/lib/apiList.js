@@ -6,7 +6,7 @@ const apiList ={
     generateCertificate: `${server}/api/generateCertificate`,
 
 
-    customerAccountDetails: `${server}/api/userDetails/`,
+    // customerAccountDetails: `${server}/api/userDetails/`,
     userAuthentication: `${server}/api/otp-send`,
 
    
@@ -28,7 +28,7 @@ const apiList ={
     taxOTPSend:`${server}/api/send-OneTP`,
   
     paymentTransaction:`${server}/api/payment-Type`,
-    transferTransaction:`${server}/api/transfer-Type`
+    transferTransaction:`${server}/api/transfer-Type`,
 
     form60OTPSend:`${server}/form60Userdetails/send-otp`,
     form60OtpVerification:`${server}/form60Userdetails/verify-otp`,

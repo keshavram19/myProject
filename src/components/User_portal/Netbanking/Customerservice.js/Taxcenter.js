@@ -1,9 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
 import './Customerservice.css'
+import apiList from '../../../../lib/apiList';
 import Footer from "./Customerservicefooter";
 
 const CustomerserviceTaxCentre = () => {
+  const navigate = useNavigate();
+      
+  const accountNumber = 1124563456;
+
+ 
+  
+  
+  const handleOtpGeneration = async () => {
+    try {
+      const otpResponse = await axios.post('http://localhost:4444/api/generate-otp', {
+        accountNumber: accountNumber,
+        otpMethod: "sms",
+      });
+
+      console.log('OTP Response:', otpResponse.data);
+      navigate('/user/customerservice/form16aotppage');
+      
+    } catch (error) {
+      console.error('Error generating OTP:', error);
+      
+    }
+  };
+  
+
+
   return (
     <div className="TaxCenter_Container container-fluid">
       <div className="row">
@@ -16,7 +43,7 @@ const CustomerserviceTaxCentre = () => {
             <div class="col-sm-6">
               <div class="card TaxCenter_Card_inform">
                 <div class="TaxCenter_Cardsetting">
-                  <h5>View Tax Credit Statement - Form 26 AS</h5>
+                  <h5>View Tax Credit Statement - Form 26AS</h5>
                   <p >View your Form 26 AS statement.</p>
                   <div class="TaxCentre_space_btnknow">
                   <Link to="/" class="btn  TaxCentre_buttonOverflow">
@@ -31,13 +58,15 @@ const CustomerserviceTaxCentre = () => {
             <div class="col-sm-6">
               <div class="card TaxCenter_Card_inform2">
                 <div class="TaxCenter_Cardsetting">
-                  <h5 class="">FROM 16A</h5>
+                  <h5 class="">FORM 16A</h5>
                   <p class="">View / Download your Form 16A.</p>
                   <div class="TaxCentre_space_btnknow">
-                  <Link to="/" class="btn  TaxCentre_buttonOverflow">
-                  VIEW
-                  </Link>
-                  <Link to="/" className="TaxCentre_more_Links">Know More</Link>
+                  <button onClick={handleOtpGeneration} class="btn  TaxCentre_buttonOverflow"
+                  >
+                 {/* <Link>VIEW</Link>  */}
+                 VIEW
+                  </button>
+                  <Link to="/form16a" className="TaxCentre_more_Links">Know More</Link>
                   </div>
                 </div>
               </div>
@@ -143,3 +172,11 @@ const CustomerserviceTaxCentre = () => {
 };
 
 export default CustomerserviceTaxCentre;
+
+
+
+
+
+
+
+
