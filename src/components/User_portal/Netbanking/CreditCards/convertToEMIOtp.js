@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Accounts.css';
 import apiList from '../../../../lib/apiList';
 import { MdOutlineMessage } from "react-icons/md";
 import { MdOutlineMail } from "react-icons/md";
@@ -9,9 +8,8 @@ import { IoCallOutline } from "react-icons/io5";
 
 
 
-const OTPPage = () => {
+const ConvertToEMIOtp = () => {
     const navigate = useNavigate();
-
     const [userDetails, setUserDetails] = useState([]);
     const [lastFourDigits, setLastFourDigits] = useState('');
     const [otp, setOtp] = useState('');
@@ -116,13 +114,23 @@ const OTPPage = () => {
 
     const handleOtpValidation = async () => {
         try {
-            await fetchData();
-            const accountNumber = userDetails[0].userAccountNumber;
-            console.log(accountNumber);
+            
             const response = await axios.post(`${apiList.authenticateOTP}`, { accountNumber, otp });
 
             console.log(response.data);
-            navigate("/user/account/generate-debit-card-pin");
+
+            const conversionData = JSON.parse(localStorage.getItem('conversionData'));
+            console.log(conversionData);
+            if (!conversionData) {
+                console.error('Conversion data not found in localStorage');
+                return;
+            }
+            await axios.put(`${apiList.customerAccountDetails}${accountNumber}${apiList.creditcardEmiconversion}`, {
+                ...conversionData
+            });
+
+            alert('convert to emi success');
+            navigate("/user/account");
         } catch (error) {
             console.error('Error validating OTP:', error);
             setValidationError('Invalid OTP. Please try again.');
@@ -130,7 +138,7 @@ const OTPPage = () => {
     };
 
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid' style={{marginTop:"90px"}}>
             <div className='row'>
                 <div className='col-sm-12'>
                     <p className="pl-2">Please enter these details to authorize the transaction</p>
@@ -161,7 +169,6 @@ const OTPPage = () => {
                                 <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('sms')} disabled={buttonsDisabled}><MdOutlineMessage className='generate_debit_pin_button_logos' /> SMS</button>
                                 <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('email')} disabled={buttonsDisabled}><MdOutlineMail className='generate_debit_pin_button_logos' /> Email</button>
                                 <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('call')} disabled={buttonsDisabled}><IoCallOutline className='generate_debit_pin_button_logos' /> Call</button>
-
                             </div>
                         </div>
                     </div>
@@ -190,4 +197,4 @@ const OTPPage = () => {
     )
 }
 
-export default OTPPage;
+export default ConvertToEMIOtp;

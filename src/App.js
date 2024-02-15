@@ -104,6 +104,10 @@ import ReissueLostATMcard from "./components/User_portal/Netbanking/Bank_Account
 import GenerateRequestLostATM from "./components/User_portal/Netbanking/Bank_Accounts/GenerateRequestLostATM";
 import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCardRequest";
 import OTPPage from "./components/User_portal/Netbanking/Fund_Transfer/OTPpage";
+import ConvertToEMISubmit from "./components/User_portal/Netbanking/CreditCards/ConverttoEMISubmit";
+import AutoDebitConfirm from "./components/User_portal/Netbanking/CreditCards/AutodebitSetupconfirm";
+import ConvertToEMIOtp from "./components/User_portal/Netbanking/CreditCards/convertToEMIOtp";
+
 
 function App() {
   return (
@@ -374,7 +378,10 @@ function App() {
         <Route exact path="/user/registered-billers" element={<RegisteredBillers />} />
         <Route exact path="/user/covert-to-emi" element={<ConvertToEMI />} />
         <Route exact path="/user/emi-submit" element={<EMISubmit />} />
+        <Route exact path="/user/convert-to-emi-submit" element={<ConvertToEMISubmit />} />
+        <Route exact path="/user/convert-to-emi-submit-otp" element={<ConvertToEMIOtp />} />
         <Route exact path="/user/auto-debit-instructions" element={<AutoDebitInstructions />} />
+        <Route exact path="/user/auto-debit-confirm" element={<AutoDebitConfirm />} />
         <Route exact path="/user/virtual-credit-cards" element={<VirtualCreditCards />} />
         <Route exact path="/user/request-billing-cycle-change" element={<BillingCycleChange />} />
         <Route exact path="/user/generate-credit-card-pin" element={<GenerateCreditCardPin />} />

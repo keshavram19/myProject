@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
-import OTPPage from './OTPpage';
+import OTPPage from './OtpPage';
 import apiList from '../../../../lib/apiList';
 
 

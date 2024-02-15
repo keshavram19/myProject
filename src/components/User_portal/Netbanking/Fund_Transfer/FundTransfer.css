@@ -625,8 +625,8 @@ abbr[title] {
 }
 
 .generate_debit_pin_button{
-  color: #f18121;
-  border: 1px solid #f18121;
+  color: #2fb68e;
+  border: 1px solid #2fb68e;
   outline: none;
   align-items: center;
   background-color: none;
@@ -663,18 +663,6 @@ abbr[title] {
     padding:1px 1px;
 }
 
-.genrate_pin_buttons {
-  color: #f18121;
-  background-color: #ffc492;
-  padding: 5px 10px;
-  border: none;
-}
-.genrate_pin_submits {
-  border: none;
-  color: #f18121;
-  background-color: #ffc492;
-  padding: 5px 10px;
-}
 
 /*otppage.css ends */
   
