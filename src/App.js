@@ -114,9 +114,11 @@ import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Account
 
 
 
-
-
 import OTPPage from "./components/User_portal/Netbanking/Fund_Transfer/OTPpage";
+import ManagrCardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/manageCardOtp";
+import CreditCardPin from "./components/User_portal/Netbanking/CreditCards/creditcardPin";
+import CreditCardPinOtp from "./components/User_portal/Netbanking/CreditCards/creditCardPinOtp";
+import CreditCardOtp from "./components/User_portal/Netbanking/CreditCards/CreditCardOtp";
 
 function App() {
   return (
@@ -185,7 +187,10 @@ function App() {
           path="/user/account/update-pancard-otp"
           element={<UpdatePancardOtpPage />}
         />
-        
+          <Route
+          path="/user/account/manage-card-otp"
+          element={<ManagrCardOtpPage />}
+        />
 
         <Route
           path="/user/account/chequebook-req"
@@ -391,6 +396,7 @@ function App() {
         <Route exact path="/user/virtual-credit-cards" element={<VirtualCreditCards />} />
         <Route exact path="/user/request-billing-cycle-change" element={<BillingCycleChange />} />
         <Route exact path="/user/generate-credit-card-pin" element={<GenerateCreditCardPin />} />
+        <Route exact path="/user/generate-creditcard-pin" element={<CreditCardPin />} />
         <Route exact path="/user/blockcreditcard" element={<BlockCreditCard />} />
         <Route exact path="/user/alertsubscription" element={<AlertSubscription />} />
         <Route exact path="/user/physicalpin" element={<PhysicalPin />} />
@@ -404,6 +410,10 @@ function App() {
         <Route exact path="/user/prepaidcards" element={<PrepaidCard />} />
         <Route exact path="/user/merchantstandinginstructions" element={<MerchantstandingInstructions />} />
         <Route exact path="/user/demataccount" element={<DematAccountPage />} />
+        <Route exact path="/user/account/generate-credit-card-pin-otp" element={<CreditCardPinOtp />} />
+        <Route exact path="/user/account/generate-credit-card-pin-otp" element={<CreditCardOtp />} />
+
+        
 
         {/* CARDS & LOANS ends */}
 

@@ -587,6 +587,8 @@
     border: none;
     font-weight: 400;
     font-family: Poppins;
+  border: 1px solid #ebeaea;
+
 }
 
 .virtual_credit_card .card .virtual_credit_card_details {
@@ -622,14 +624,19 @@
 
 .virtual_credit_card .ok_Btn {
     border-radius: 4px;
-    background-color: #ffc492;
-    border: 1px solid #f18121;
-    color: #f18121;
-    color: #fff;
+    background-color: transparent;
+    border: 2px solid #2fb68e;
+    color: #2fb68e;
     font-size: 14px;
     font-weight: 600;
     padding: 4px;
-    width: 40px;
+    width: 50px;
+    cursor: pointer; 
+}
+
+.virtual_credit_card .ok_Btn:hover {
+    background-color: #2fb68e; 
+    color: #fff; 
 }
 
 .virtual_credit_card_links {
@@ -637,6 +644,28 @@
     margin: 0;
     padding: 0;
 }
+
+.virtual_credit_card .credit-card {
+    width: 375px;
+    height: 200px;
+    background-image: linear-gradient(#3348c0,rgb(170, 144, 212));
+    background-color: #3348c0;
+    border-radius: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.virtual_credit_card .chip {
+    width: 50px;
+    height: 30px;
+    background-image: url('https://www.shutterstock.com/image-illustration/credit-card-chip-silver-isolated-600nw-490291144.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+}
+
 
 /* virtual credit card css ends */
 
@@ -646,10 +675,14 @@
     border: none;
     font-weight: 400;
     font-family: Poppins;
+  border: 1px solid #ebeaea;
 }
 
 .billing_cycle .request_heading{
-    color: #f18121;
+    background-color: #2fb68e; 
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .billing_cycle .card .billing_cycle_details {
@@ -670,26 +703,38 @@
 
 .billing_cycle .submit_Btn{
     outline: none;
-  border: 1px solid #f18121;
+  border: 1px solid #2fb68e;
   border-radius: 4px;
-  color: #f18121;
-  background-color: #ffc492;
+  color: #2fb68e;
+  background-color: transparent;
   font-size: 14px;
   font-weight: 600;
   padding: 4px;
   width: 80px;
+  cursor: pointer; 
   }
 
+  .billing_cycle .submit_Btn:hover {
+    background-color: #2fb68e; 
+    color: #fff; 
+}
+
   .billing_cycle .reset_Btn{
-    border: 1px solid #f18121;
+    border: 1px solid #2fb68e;
   border-radius: 4px;
-  color: #f18121;
-  background-color: #ffc492;
+  color: #2fb68e;
+  background-color: transparent;
   font-size: 14px;
   font-weight: 600;
   padding: 4px;
   width: 60px;
+  cursor: pointer; 
   }
+
+  .billing_cycle .reset_Btn:hover {
+    background-color: #2fb68e; 
+    color: #fff; 
+}
 
   .billing_cycle .billing_cycle_notes {
     font-size: 15px;
@@ -703,33 +748,32 @@
 
 .generate_credit_pin .card {
     border: none;
-    font-weight: 400;
+    font-weight: 500;
     font-family: Poppins;
+  border: 1px solid #ebeaea;
+
 }
 
 .generate_credit_pin .generate_credit_pin_heading {
-    background-color: #ffc492;
-    color: #f18121;
-}
-
-.generate_credit_pin .card .generate_credit_pin_details {
-    font-weight: 600;
-    font-size: 15px;
+    background-color: #2fb68e; 
+    color: #fff; 
 }
 
 .generate_credit_pin .credit_card_input {
     width: 230px;
     padding: 4px;
     box-shadow: inset 0 0 2px rgba(131, 128, 128, 0.3);
-    font-size: 14px;
+    font-size: 13px;
     border-radius: 3px;
     border: 1px solid #CDCDE7;
     outline: none;
     padding-left: 5px;
 }
 
-.generate_credit_pin .mandatory_field {
+.generate_credit_pin 
+.card_details_generate_pin_input_tag{
     font-size: 14px;
+    font-weight: 500;
 }
 
 .generate_credit_pin .otp_container {
@@ -744,17 +788,176 @@
 
 .generate_credit_pin .submit_Btn {
   outline: none;
-  border: 1px solid #f18121;
+  border: 1px solid #2fb68e;
   border-radius: 4px;
-  color: #f18121;
-  background-color: #ffc492;
+  color: #2fb68e;
+  background-color: transparent;
   font-size: 14px;
   font-weight: 600;
   padding: 4px;
   width: 80px;
+  cursor: pointer; 
+}
+
+.generate_credit_pin .submit_Btn:hover {
+    background-color: #2fb68e; 
+    color: #fff; 
+}
+
+.generate_credit_pin .generate_Btn{
+    outline: none;
+    border: 1px solid #2fb68e;
+    border-radius: 4px;
+    color: #2fb68e;
+    background-color: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px;
+    cursor: pointer; 
+}
+
+.generate_credit_pin .generate_Btn:hover {
+    background-color: #2fb68e; 
+    color: #fff; 
+}
+
+/* generate-creditcard-otp */
+
+.generate_credit_otp_pin{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.card_details_generate_credit_pin_heading{
+    background-color: #2fb68e; 
+    color: #fff; 
+}
+
+.generate_credit_pin_button_logos{
+    font-size: 20px;
+  }
+  
+  .generate_credit_pin_button{
+    color: #2fb68e;
+    border: 1px solid #2fb68e;
+    outline: none;
+    align-items: center;
+    background-color: transparent;
+    font-size: 16px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+  }
+
+  .generate_credit_pin_button:hover{
+    background-color: #2fb68e;
+    color: #fff;
+  }
+  
+  .generate_credit_pin_para{
+    font-size: small;
+    font-weight:  400;
+  }
+  
+  .generate_credit_pin_icon{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .generate_credit_pin_div_label{
+    display: flex;
+    flex-direction:column;
+    width: 150px;
+    outline: none;
+    height: 24px;
+    }
+  
+    .generate_credit_pin_icon_otp{
+      border: 1px solid rgb(207, 203, 203);
+      margin: 0px 5px;
+      height: 25px;
+      width: 30px;
+      padding:1px 1px;
+  }
+
+  .genrate_pin_buttons{
+    outline: none;
+    border: 1px solid #2fb68e;
+    border-radius: 4px;
+    color: #2fb68e;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px;
+    width: 60px;
+    cursor: pointer; 
+  }
+
+  .genrate_pin_buttons:hover{
+    background-color: #2fb68e;
+    color: #fff;
+  }
+
+  .genrate_pin_submits{
+    outline: none;
+    border: 1px solid #2fb68e;
+    border-radius: 4px;
+    color: #2fb68e;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px;
+    width: 80px;
+    cursor: pointer; 
+  }
+
+  .genrate_pin_submits:hover{
+    background-color: #2fb68e;
+    color: #fff;
+  }
+  
+  .generateCredit_pin{
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .generateCredit_pin_heading{
+    background-color: #2fb68e;
+    color: #fff;
+  }
+
+  .generateCredit_pin .generate_now_Btn{
+    outline: none;
+    border: 1px solid #2fb68e;
+    border-radius: 4px;
+    color: #2fb68e;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px;
+    width: 120px;
+    cursor: pointer; 
+  }
+
+  .generateCredit_pin .generate_now_Btn:hover{
+    background-color: #2fb68e;
+    color: #fff;
+  }
+
+  .generateCredit_pin .credit_card_input {
+    width: 250px;
+    padding: 4px;
+    box-shadow: inset 0 0 2px rgba(131, 128, 128, 0.3);
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid #CDCDE7;
+    outline: none;
+    padding-left: 5px;
 }
 
 /* generate credit-pin css ends */
+
+
 
 /* Block Credit Card css Starts */
 

@@ -30,6 +30,8 @@ const apiList ={
     updateDomesticLimits: `${server}/api/updateDomesticLimits/`,
     updateInternationalLimits: `${server}/api/updateInternationalLimits/`,   
     GenerateCardPin : `${server}/api/generate-Debit-Card-Pin`,
+    GenerateCreditcardpin : `${server}/api/generate-Credit-Card-Pin`,
+
     blockATMCard : `${server}/api/blockCard/`
 
 
