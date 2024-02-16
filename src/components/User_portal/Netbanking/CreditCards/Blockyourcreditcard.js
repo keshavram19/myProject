@@ -126,7 +126,16 @@ import apiList from '../../../../lib/apiList';
 
       </div>
 
-      <ToastContainer/>
+      <ToastContainer
+      position="top-center" // Set the position to top-center
+      autoClose={3000} // Close the toast after 5 seconds
+      hideProgressBar={false} // Show the progress bar
+      newestOnTop={false} // Show newest toast on top
+      closeOnClick // Close the toast when clicked
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover/>
    </>
   )
 }

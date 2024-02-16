@@ -1057,9 +1057,9 @@ font-size: 13px;
   font-weight: 420;
   font-size: 13px;
 }
-.update_form_section input{
+/* .update_form_section input{
   margin-left:15px;
-}
+} */
 .update_form_back_btn {
   width: auto;
   height: auto;
