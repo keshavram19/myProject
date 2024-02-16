@@ -773,7 +773,12 @@ abbr[title] {
   font-weight: 300;
   }
   .Inwbenifits_tag_hfive{
-    color : #f18121 ;
+    /* color : #f18121 ; */
+    /* color: #ebca28; */
+    
+    font-weight: 500;
+    /* color: #2fb68e; */
+     
   }
   .inward_ullist{
     display: flex;
@@ -789,12 +794,21 @@ abbr[title] {
     }
     .inward_span_tag_main{
       font-size: 12px;
-      font-weight:500;
-      color : #f18121;
+      font-weight:800;
+      /* color : #f18121; */
+      color: #ebca28;
+      /* color: #2fb68e; */
 
       }
       .icons_inwardrem{
-        color : #f18121;
+        /* color : #f18121; */
+        /* color: #93ecd2; */
+        /* color: #2fb68e; */
+        color: #ebca28;
+
+
+                /* color: #ffd813; */
+
         width: 30px;
       margin-bottom:30px;
      }
@@ -806,10 +820,14 @@ abbr[title] {
       margin: 0px 0px ;
     }
    .Inward_pink_box_request{
-    color : #f18121;
+    /* color : #f18121; */
+    color: #020202;
     border: 1px solid rgb(230, 228, 228);
     border-right: none;
-      background-color:#faede2 ;
+      /* background-color:#faede2 ; */
+      background-color: #fff1ad;
+      /* background-color: #93ecd2; */
+
     }
     .Inward_four_main_lists{
       color: #000f00;
@@ -822,7 +840,8 @@ abbr[title] {
       border-radius: 50%;
        background-color: #fff;
        margin-right: 11px;
-      color: #f08080;
+      /* color: #f08080; */
+      color: #ebca28;
       padding: 4px 11px;
      }
      .two_inward{
@@ -830,7 +849,8 @@ abbr[title] {
       border-radius: 50%;
        background-color: #fff;
        margin-right: 10px;
-      color: #f08080;
+      /* color: #f08080; */
+      color: #ebca28;
       padding: 4px 10px;
      }
      .four_inward{
@@ -838,7 +858,8 @@ abbr[title] {
       border-radius: 50%;
        background-color: #fff;
        margin-right: 10px;
-      color: #f08080;
+      /* color: #f08080; */
+      color: #ebca28;
       padding: 4px 10px;
      }
      .Inward_pink_side_box{
@@ -879,52 +900,71 @@ abbr[title] {
  
  
 .Inward_remittance_Request_Form_one{
-  font-size: large;
-  font-weight: 600;
+  /* font-size: large; */
+  font-weight: 500;
 }
 .Inward_remittance_Request_Form_one_Sub{
-  font-size: medium;
-  margin-top: 20px;
+  /* font-size: medium; */
+   margin-top: 10px;
+  /* font-weight: 500; */ 
+  /* font-size: large; */
   font-weight: 500;
 }
 .Inward_remittance_Request_one{
-  font-size: medium;
-  margin-top: 20px;
-  font-weight: bold;
+  /* font-size: large; */
+  /* margin-top: 20px; */
+  font-weight: 500;
   }
+  
 
 
 /* Styles for form labels */
 .Inward_remittance_Request_Label {
-  margin-top: 10px;
-  font-weight: 500;
+  margin-top: 5px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
  }
  .Inward_remittance_Request_form_Option{
   margin-top: -32px;
   margin-left: 20px;
  }
-
+.inward_remittance_fields_Row{
+  display: flex;
+flex-direction: row;
+}
+.Inward_remittance_row_two{
+    margin-left: 200px;
+}
 /* Styles for input fields */
 .Inward_remittance_Request_input_form {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
+  width: 300px; 
+  padding: 4px;
+  margin-top: 2px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
+   border-radius: 4px;
+   outline: none;
   box-sizing: border-box;
 }
+.Inward_remittance_Request_input_form_check{
+  outline: none;
+
+}
 .Inward_remittance_Request_form_ptag_Del{
-  padding: 10px 5px;
+  padding: 0px 5px;
   margin-top: 15px;
  }
 .Inward_remittance_Request_form_ptag_Pur{
 margin-top: -20px;
 }
-
+.inward_review_accuracy_form{
+  display: flex;
+  flex-direction: row;
+}
  .Inward_remittance_Request_form_checkbox {
   display: flex;
-  margin-top: -15px;
+  margin-top: -20px;
+  margin-bottom: 0px;
   align-items: center;
  }
 
@@ -941,17 +981,21 @@ margin-top: -20px;
   padding: 10px 10px;
  
   font-size: smaller;
-  background-color:  #f18121 ;
+  /* background-color:  #f18121 ; */
+  background-color: #2fb68e;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  width: 100%;
   transition: background-color 0.3s ease;
 }
 
 .Inward_remittance_Request_form_ptag:hover{
-  background-color:  #f18121;
+  /* background-color:  #f18121; */
+  background-color: #07b17e;
   color: #000;
+  width: 100%;
   font-size: smaller;
   padding: 10px 10px;
 
@@ -988,20 +1032,27 @@ margin-top: -20px;
 
   }
   .user_header_tax_color{
-    color : #f18121;
-     font-size: 20px;
+    /* color : #ebca28; */
+     /* font-size: 20px; */
+      font-weight: 500;
+
   }
   .Tax_hrline_box_shadow{
     box-shadow:   1px 1px 3px rgb(141, 91, 91);
     border: none;
   }
   .light_bg_color_tax{
-    background-color:  #fdefef;
+    /* background-color:  #5dfa77; */
+    background-color: #eff5f5
+    /* background-color: #f7eaab; */
+
    }
   .ptag_tax_center{
      padding: 5px 10px;
      font-weight: 400;
-    background-color:#fae2e5 ;
+    /* background-color:#fae2e5 ; */
+    /* background-color: #f1d961; */
+    background-color: #67b9a1;
     color: #000;
   }
   .Tax_ptag_please_para{
@@ -1016,6 +1067,7 @@ margin-top: -20px;
     display: flex;
     flex-direction:column;
     width: 150px;
+    font-size: smaller;
     outline: none;
     height: 24px;
 
@@ -1040,18 +1092,24 @@ margin-top: -20px;
     margin-bottom: 10px;
     padding: 8px;
      color:#000000;
-     background-color:#f5b176 ;
+     /* background-color:#f5b176 ; */
+     background-color: #2fb68e;
+
     cursor: pointer;
      font-size: small;
     margin-left: 10px;
     border: none;
     border-radius: 4px;
   }
+  .Tax_center_but_appGen:hover{
+  background-color: #07b984be;
+  }
   .Tax_center_but_appGen{
     margin-bottom: 10px;
     padding: 8px;
      color:#000000;
-     background-color:#f5b176 ;
+     /* background-color:#f5b176 ; */
+     background-color: #2fb68e;
     cursor: pointer;
      font-size: small;
     margin-top: 10px;
@@ -1069,7 +1127,7 @@ margin-top: -20px;
   }
   
   .Tax_center_but_app:hover {
-    background-color: #fa9a46;
+    background-color: #07b984be;
 color: #000;     
   } 
   .Tax_center_but_app:focus{
@@ -1101,9 +1159,10 @@ color: #000;
     margin-left: 30px;
   }
   .main_my_scheduled_tran{
-    color:    #f18121;
-    font-size: 20px;
-    font-weight: 400;
+    /* color:    #f18121; */
+    /* color: #ebca28; */
+    /* font-size: 20px; */
+    font-weight: 500;
   }
   .my_Sch_tag_line{
     border: 1px solid  #c3ccc3;
@@ -1116,9 +1175,10 @@ color: #000;
  }
 .search_section_mainheader_mytran{
   margin-top: 10px;
-  background-color: #faede2;
-
-      padding: 10px 10px;
+  /* background-color: #faede2; */
+/* background-color: #ebca28; */
+background-color: #2fb68e;
+      padding: 5px 10px;
 }
 .myalabel_trans_type_sch{
   display: flex;
@@ -1143,13 +1203,16 @@ color: #000;
   margin:0px 8px ;
   border: none;
   outline: none;
-  background-color: #f18121;
-  border-radius: 10px;
-  cursor: pointer;    
+  /* background-color: #f18121; */
+background-color: #2fb68e;
+  border-radius: 5px;
+  cursor: pointer;   
+  color: white; 
   font-size: small;
 }
 .mya_sch_searchbtn:hover{
-  background-color: #ff7700;
+  /* background-color: #ff7700; */
+  background-color: #07b17e;
 }
 .mya_Trasch_download_detail{
   display: flex;
@@ -1171,7 +1234,8 @@ margin-top: 3px;
     height: 25px;
    }
   .My_transac_download_ok_button{
-    background-color:  #f18121;
+    /* background-color:  #f18121; */
+    background-color: #2fb68e;
     color: #fff;
     cursor: pointer;
     border-radius: 3px;

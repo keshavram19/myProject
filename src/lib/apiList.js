@@ -19,13 +19,13 @@ const apiList ={
     authenticateOTP: `${server}/api/validate-otp`,
 
 
-    customerAccountDetails: `${server}/api/userDetails/`,
-    userAuthentication: `${server}/api/otp-send`,
+     userAuthentication: `${server}/api/otp-send`,
     userAuthVerification: `${server}/api/verify-otp`,
 
     inwardRemittance:`${server}/api/submitForm`,
     taxOTPVerify:`${server}/api/verify-OneTP`,
-    taxOTPSend:`${server}/api/send-OneTP`,
+    taxOTPGenerate:`${server}/api/generate-otp`,
+    taxOTPReSend:`${server}/api/resend-otp`,
     paymentTransaction:`${server}/api/payment-Type`,
     transferTransaction:`${server}/api/transfer-Type`,
 
