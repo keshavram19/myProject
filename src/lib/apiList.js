@@ -17,7 +17,9 @@ const apiList ={
     updateInternationalLimits: `${server}/api/updateInternationalLimits/`,   
     GenerateCardPin : `${server}/api/generate-Debit-Card-Pin`,
     blockATMCard : `${server}/api/blockCard/`,
-    creditcardEmiconversion : `/emiConversion`
+    creditcardEmiconversion : `/emiConversion`,
+    autoDebitSetupYes: `${server}/api/autodebit/yes`,
+    autoDebitSetupNo: `${server}/api/autodebit/no`
 }
 
 export default apiList;

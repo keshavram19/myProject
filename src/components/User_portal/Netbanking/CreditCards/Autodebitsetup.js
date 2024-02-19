@@ -61,32 +61,26 @@ const AutoDebitInstructions = () => {
     const handleSubmit = async() => {
         try {
             if (autodebitSetup.setupAutoDebit === 'yes') {
-                console.log('Autodebit setup is selected as "yes"');
-                console.log('Selected account:', selectedAccount);
-                console.log('Selected autodebit mode:', autodebitSetup.autodebitMode);
-    
-                // Store autodebit data in localStorage
+               
                 localStorage.setItem('autodebitData', JSON.stringify({
                     userDetails,
                     selectedCreditCard,
                     selectedAccount,
-                    autodebitMode: autodebitSetup.autodebitMode
+                    autodebitMode: autodebitSetup.autodebitMode,
+                    setupAutoDebit: autodebitSetup.setupAutoDebit
                 }));
-    
-                // Navigate to the confirmation page
+
                 navigate('/user/auto-debit-confirm');
     
-                // Log the autodebit data before navigating
-                console.log("Before navigating:", {
-                    userDetails,
-                    selectedCreditCard,
-                    selectedAccount,
-                    autodebitMode: autodebitSetup.autodebitMode
-                });
     
             } else {
                 console.log('Autodebit setup is selected as "no"');
                 console.log('No account selected');
+                localStorage.setItem('autodebitData', JSON.stringify({
+                    userDetails,
+                    selectedCreditCard,
+                    setupAutoDebit: autodebitSetup.setupAutoDebit 
+                }));
                 navigate('/user/auto-debit-confirm');
             }
         } catch (error) {
@@ -170,6 +164,7 @@ const AutoDebitInstructions = () => {
                                     name="autodebitMode"
                                     value={autodebitSetup.autodebitMode}
                                     onChange={handleAutodebitSetupChange}
+                                    disabled={autodebitSetup.setupAutoDebit === 'no'}
                                 >
                                     <option value="">Select</option>
                                     <option value="minimumdue">Minimum Amount Due</option>
