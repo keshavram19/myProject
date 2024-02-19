@@ -379,8 +379,9 @@
     align-items: center;
     justify-content: center;
     border: 1px solid rgb(241, 231, 231);
-    background-color: #faede2;
-    color: #f18121;
+    background-color: #d8d5d1;
+    color: #2fb68e;
+    font-weight: 600;
 }
 
 .registered_biller_item{    
@@ -389,12 +390,14 @@
     align-items: center;
     justify-content: center;
     border: 1px solid rgb(241, 231, 231);
-    background-color: #faede2;
-    color: #f18121;
+    background-color: #d8d5d1;
+    color: #2fb68e;
+    font-weight: 600;
+
 }
 
 .registered_billers_card h3{
-    color: #f18121;
+    color: #2fb68e;
 }
 
 .registered_billers_card p{
@@ -440,11 +443,19 @@
     width: 280px;
 }
 .registered_billers_ok_buttton{
-    border: none;
-    padding: 5px 10px;
-    background-color: #ffc492;
-    color: #f18121;
-    border-radius: 5px;
+    color: #2fb68e;
+    border: 1px solid #2fb68e;
+    background-color: transparent;
+    padding: 5px 14px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.registered_billers_ok_buttton:hover{
+    color: #fff;
+    background-color: #2fb68e;
 }
 
 .registered_billers_biller_download .registered_billers_select_tag:focus{
@@ -476,7 +487,7 @@
     padding: 5px 14px;
     outline: none;
     font-size: 14px;
-      font-weight: 600;
+    font-weight: 600;
     border-radius: 10px;
 }
 
