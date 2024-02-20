@@ -16,6 +16,17 @@ const apiList ={
 
 
 
+     userAuthentication: `${server}/api/otp-send`,
+    userAuthVerification: `${server}/api/verify-otp`,
+
+    inwardRemittance:`${server}/api/submitForm`,
+    taxOTPVerify:`${server}/api/verify-OneTP`,
+    taxOTPGenerate:`${server}/api/generate-otp`,
+    taxOTPReSend:`${server}/api/resend-otp`,
+    paymentTransaction:`${server}/api/payment-Type`,
+    transferTransaction:`${server}/api/transfer-Type`,
+
+
    
     userAuthVerify: `${server}/api/verify-otp`,
     customerCreditCardDetails: `${server}/api/creditcarddetails/`,
@@ -40,6 +51,7 @@ const apiList ={
     updateInternationalLimits: `${server}/api/updateInternationalLimits/`,   
     GenerateCardPin : `${server}/api/generate-Debit-Card-Pin`,
     blockATMCard : `${server}/api/blockCard/`,
+
 
 
 

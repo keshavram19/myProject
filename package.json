@@ -18,6 +18,11 @@
     "date-fns": "^3.3.1",
     "file-saver": "^2.0.5",
 
+    
+    "html2pdf": "^0.0.11",
+    
+
+
 
     "html2canvas": "^1.4.1",
     
@@ -37,6 +42,7 @@
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.8.1",
     "node-modules": "^1.0.1",
+
 
 
     "react": "^18.2.0",
