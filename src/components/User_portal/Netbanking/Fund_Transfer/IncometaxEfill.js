@@ -5,7 +5,7 @@ import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 import apiList from "../../../../lib/apiList";
 
 const IncomeTaxEfill = () => {
-  const accountNumber = 12456389;
+  const accountNumber = 1124563456;
   const [userDetails, setUserDetails] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState("");
   const [accountHolderPAN, setAccountHolderPAN] = useState("");
@@ -51,44 +51,43 @@ const IncomeTaxEfill = () => {
     setIsCheckboxChecked(!isCheckboxChecked);
   };
 
-
   const handleSubmit = async () => {
     try {
-     
       await fetchData();
-
+  
       if (userDetails.length === 0) {
         console.error("User details not available yet");
         return;
       }
-
-      
-      
+  
       if (!isCheckboxChecked) {
         setFormError("Please agree to the Terms and Conditions.");
-        alert("Please agree to the Terms and Conditions.")
+        alert("Please agree to the Terms and Conditions.");
         return;
       }
-
+  
       const selectedUser = userDetails.find((user) => {
         return user.userAccountNumber == selectedAccount;
       });
-
+  
       if (
         selectedUser &&
         selectedUser.accountHolderPAN.toUpperCase() === panInput.toUpperCase()
       ) {
-        
-        window.location.href =
-          "https://incometaxindia.gov.in/Pages/tax-services/file-income-tax-return.aspx";
+        window.open(
+          "https://incometaxindia.gov.in/Pages/tax-services/file-income-tax-return.aspx",
+          "_blank" 
+        );
+        window.location.reload(); 
       } else {
-        
-        setFormError("Invalid PAN number. Please check and try again.");
+        setFormError("Invalid PAN number. Please check box  and try again.");
       }
     } catch (error) {
       console.error("Error in handleSubmit:", error);
     }
   };
+  
+  
 
   return (
     <div

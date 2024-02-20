@@ -7,7 +7,8 @@ import GeneratePin from "./components/User_portal/Netbanking/Bank_Accounts/Gener
 import BlockCard from "./components/User_portal/Netbanking/Bank_Accounts/BlockCard";
 import Reissuecard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCard";
 import ManageCardLimit from "./components/User_portal/Netbanking/Bank_Accounts/ManageCardLimit";
-import OtpPage from "./components/User_portal/Netbanking/Bank_Accounts/OtpPage";
+
+import OTPPage from "./components/User_portal/Netbanking/Bank_Accounts/OtpPage";
 import ChequeBookReq from "./components/User_portal/Netbanking/Bank_Accounts/ChequeBookReq";
 import ViewAndUpdatePancard from "./components/User_portal/Netbanking/Bank_Accounts/ViewUpdatePANCard";
 import UpdateForm60 from "./components/User_portal/Netbanking/Bank_Accounts/UpdateForm60";
