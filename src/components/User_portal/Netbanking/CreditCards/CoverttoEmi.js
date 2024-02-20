@@ -1,10 +1,54 @@
-import React from "react";
-import Select from "react-select";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import { Link } from "react-router-dom";
 import './Creditcard.css';
+import apiList from '../../../../lib/apiList';
 
 
 const ConvertToEMI = () => {
+
+    const [userDetails, setUserDetails] = useState([]);
+    const [selectedCreditCard, setSelectedCreditCard] = useState('');
+
+    const accountNumber = 1124563456;
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
+            const userDetailsData = response.data.details;
+
+            if (Array.isArray(userDetailsData)) {
+                setUserDetails(userDetailsData);
+                setSelectedCreditCard(userDetailsData[0].userCreditCardDetails[0].creditCardNumber);
+            } else if (typeof userDetailsData === 'object') {
+                setUserDetails([userDetailsData]);
+                setSelectedCreditCard(userDetailsData.userCreditCardDetails.creditCardNumber);
+            } else {
+                console.error('Invalid user details format:', userDetailsData);
+            }
+
+        } catch (error) {
+            console.error('Error fetching user details:', error);
+        }
+        console.log('User Details:', userDetails);
+
+    };
+
+    useEffect(() => {
+            fetchData();
+    }, []);
+
+    const formatDebitCardNumber = (cardNumber) => {
+
+        const cardNumberString = String(cardNumber);
+        const firstFourDigits = cardNumberString.substring(0, 4);
+        const lastFourDigits = cardNumberString.substring(cardNumberString.length - 4);
+        const maskedDigits = 'X'.repeat(cardNumberString.length - 8);
+
+        return `${firstFourDigits}${maskedDigits}${lastFourDigits}`;
+    };
+
 
     return (
         <div className="container-fluid" style={{marginTop:"90px"}}>
@@ -21,16 +65,17 @@ const ConvertToEMI = () => {
                                     <p className="mt-3">Select a Credit Card :</p>
                                 </div>
                                 <div className="col-sm-3">
-                                    <Select
-                                        type='select'
-                                        name=""
-                                        id=""
-                                        options={[
-                                            { value: "cardno", label: "5419XXXXXXXXXXX2194" }
-                                        ]}
-                                        className="convert_to_emi_select_tag_focus"
-                                        
-                                    />
+                                     <select
+                                            className="form-control"
+                                            value={selectedCreditCard}
+                                            onChange={(event) => setSelectedCreditCard(event.target.value)}
+                                        >
+                                            {userDetails.length > 0 && (
+                                                <option value={formatDebitCardNumber(userDetails[0].userCreditCardDetails[0].creditCardNumber)}>
+                                                    {formatDebitCardNumber(userDetails[0].userCreditCardDetails[0].creditCardNumber)}
+                                                </option>
+                                            )}
+                                        </select>
                                 </div>
                             </div>
                             <div className="mt-3">
