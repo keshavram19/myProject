@@ -1,4 +1,5 @@
 import React from 'react';
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 
 const BillingCycleChange = () => {
@@ -7,13 +8,18 @@ const BillingCycleChange = () => {
 
         <div>
             <div className='billing_cycle container-fluid' style={{marginTop:'80px'}}>
-                <div className='col-sm-12'>
-                    <div className="container-fluid billing_cycle my-2">
-                        <div className="d-flex">
-                            <h3 className='request_heading'>Request For Billing Cycle Change</h3>
+            <div className='row'>
+            <div className='col-sm-3'>
+                        <BankaccountSidebar />
+                    </div>
+                <div className='col-sm-9'>
+                    <div className="container-fluid my-2">
+                        
+                        <div className="card billing_cycle my-3">
+                        <div>
+                            <p className='request_heading p-3'>Request For Billing Cycle Change</p>
                         </div>
-                        <div className="card my-3">
-                            <div className="card container-fluid billing_cycle_details p-3">
+                            <div className="container-fluid billing_cycle_details p-3">
                                 <div className="row">
                                     <div className="col-sm-4">
                                         <label for="text">Select Your Card*</label>
@@ -68,7 +74,7 @@ const BillingCycleChange = () => {
                                     </div>
                                 </div>
                             </div>
-                            <hr />
+                           <hr/>
                             <div className="d-flex mb-3">
                                 <button className='ml-3 reset_Btn'>
                                     RESET
@@ -93,6 +99,7 @@ const BillingCycleChange = () => {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
 
         </div>
