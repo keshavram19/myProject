@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col,  } from 'react-bootstrap';
 import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
+import Axios from 'axios';
 
 const BillRechargeFastag = ({ onPayNowClick }) => {
     const [activeTab, setActiveTab] = useState("purchase");

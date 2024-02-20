@@ -12,7 +12,8 @@
  /* Add transition for a smooth effect */
  .DropDown_Main_BankAccts_BankingAPP {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  color: #f18121;
+  /* color: #f18121; */
+color: #2fb68e;
 }
 
 .DropDown_Main_Division_BankingAPP{
@@ -45,7 +46,8 @@ font-weight: 500;
 padding: 20px 10px;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 text-align: left;
-color: #f18121;
+/* color: #f18121; */
+color: #2fb68e;
 width: 300px;
 border: 1px solid gray;
 border-top: none;
@@ -60,7 +62,8 @@ cursor: pointer;
 .DropDown_LinkAcctPol_Header_BankingAPP:hover,
 .DropDown_Forextrav_Header_BankingAPP:hover,
 .DropDown_Pockets_Header_BankingAPP:hover{
-  background-color: #faede2;
+  /* background-color: #faede2; */
+  background-color: #dffdf4;
 }
 .DropDown_Main_CreditCards_BankingAPP{
 padding: 20px 10px;
@@ -69,7 +72,9 @@ border: 1px solid gray;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 border-left: none;
 cursor: pointer;
-color: #f18121;
+/* color: #f18121; */
+color: #2fb68e;
+
 text-align: left;
 cursor: pointer;
 }
@@ -77,7 +82,9 @@ cursor: pointer;
 padding: 20px 10px;
 width: 300px;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-color: #f18121;
+/* color: #f18121; */
+color: #2fb68e;
+
 border: 1px solid gray;
 border-left: none;
 cursor: pointer;
@@ -87,7 +94,9 @@ cursor: pointer;
 .DropDown_Main_Loan_BankingAPP{
   padding: 20px 10px;
 width: 300px;
-color: #f18121;
+/* color: #f18121; */
+color: #2fb68e;
+
 border: 1px solid gray;
 border-left: none;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -101,7 +110,8 @@ cursor: pointer;
  border: 1px solid gray;
   border-left: none;
 cursor: pointer;
-color: #f18121;
+/* color: #f18121; */
+color: #2fb68e;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
  text-align: left;
 cursor: pointer;
@@ -110,7 +120,8 @@ cursor: pointer;
   padding: 20px 10px;
   width: 300px;
  border: 1px solid gray;
- color: #f18121;
+ /* color: #f18121; */
+ color: #2fb68e;
   border-left: none;
 cursor: pointer;
  text-align: left;
@@ -121,7 +132,8 @@ cursor: pointer;
   padding: 20px 10px;
   width: 300px;
  border: 1px solid gray;
- color: #f18121;
+ /* color: #f18121; */
+ color: #2fb68e;
   border-left: none;
 cursor: pointer;
  text-align: left;
@@ -134,7 +146,8 @@ width: 300px;
 border: 1px solid gray;
 border-left: none;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-color: #f18121;
+/* color: #f18121; */
+color: #2fb68e;
 cursor: pointer;
 text-align: left;
 cursor: pointer;
@@ -172,6 +185,7 @@ border-left: none;
     border-left: 1px solid rgb(209, 209, 209);
     border-right: 1px solid rgb(209, 209, 209);
     /* color : #f18121  */
+    color: #ebca28;
    }
 .DropDown_Sub_bank_aact_Statement_BankingAPP ,
 .DropDown_Sub_bank_aact_Transaction_BankingAPP ,
@@ -180,6 +194,7 @@ border-left: none;
 .DropDown_Sub_bank_aact_govt_BankingAPP{
  cursor: pointer;
  /* color : #f18121; */
+ color: #ebca28;
  padding: 10px ;
  border: 1px solid rgb(209, 209, 209);
  border-bottom: none;
@@ -191,21 +206,26 @@ border-left: none;
 .DropDown_Sub_bank_aact_Debit_card_BankingAPP:hover ,
 .DropDown_Sub_bank_aact_cheque_BankingAPP:hover ,
 .DropDown_Sub_bank_aact_govt_BankingAPP:hover{
-background-color: #faede2;
+/* background-color: #faede2; */
+background-color: #fffadf;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-color: #f18121;
+/* color: #f18121; */
+color: #ebca28;
 }
 .DropDown_Sub_Credit_modify_BankingAPP{
 cursor: pointer;
 padding: 10px ;
+
 border-left: 1px solid rgb(209, 209, 209);
 border-right: 1px solid rgb(209, 209, 209);
 /* color : #f18121  */
+color: #ebca28;
 }
 .DropDown_Sub_Credit_cardRelated_BankingAPP ,
 .DropDown_Sub_Credit_statementRel_BankingAPP{
  cursor: pointer;
 /* color : #f18121; */
+color: #ebca28;
 padding: 10px ;
 border: 1px solid rgb(209, 209, 209);
 border-bottom: none;
@@ -214,9 +234,13 @@ border-bottom: none;
 .DropDown_Sub_Credit_cardRelated_BankingAPP:hover ,
 .DropDown_Sub_Credit_statementRel_BankingAPP:hover
 {
-background-color: #faede2;
+/* background-color: #faede2; */
+/* background-color: #dffdf4; */
+background-color: #fffadf;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-color: #f18121;
+/* color: #f18121; */
+color: #ebca28;
+
 }
 .DropDown_Sub_Division_FXdeposits_BankingAPP {
 cursor: pointer;
@@ -224,18 +248,24 @@ padding: 10px ;
 border-left: 1px solid rgb(209, 209, 209);
 border-right: 1px solid rgb(209, 209, 209);
 /* color : #f18121  */
+color: #ebca28;
 }
 .DropDown_Sub_Division_Recurrdeposits_BankingAPP{
 cursor: pointer;
 /* color : #f18121; */
+color: #ebca28;
 padding: 10px ;
 border: 1px solid rgb(209, 209, 209);
 border-bottom: none;}
 .DropDown_Sub_Division_FXdeposits_BankingAPP:hover ,
 .DropDown_Sub_Division_Recurrdeposits_BankingAPP:hover{
-  background-color: #faede2;
+  /* background-color: #faede2; */
+  /* background-color: #dffdf4; */
+  background-color: #fffadf;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  color: #f18121;
+  /* color: #f18121; */
+  color: #ebca28;
+
 }
 
 .DropDown_Main_Loan_BankingAPP{
@@ -280,7 +310,9 @@ cursor: pointer;
 }
 .DropDown_Sub_Lists_Loan_BankingAPP:hover{
   /* color: black; */
-  color : #f18121;
+  /* color : #f18121; */
+  color: #2fb68e;
+
   padding: 5px;
   text-decoration: none;
 }
