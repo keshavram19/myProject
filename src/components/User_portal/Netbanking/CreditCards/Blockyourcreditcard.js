@@ -85,7 +85,7 @@ import apiList from '../../../../lib/apiList';
             </label>
          <label for='crediCardNumber' className='form-inline '>
           <span className='col-md-3'>Reason for Blocking</span>
-          <select name="cardNumber" className="custom-select custom-select-sm col-md-3 w-25"value={reason} onChange={(e) => setReason(e.target.value)}>
+          <select name="cardNumber" className="custom-select custom-select-sm col-md-3 w-25 Credit_Card_Reason"value={reason} onChange={(e) => setReason(e.target.value)}>
          <option value="" selected>Select a reason</option>
         <option value="Fraudulent Activity">Fraudulent Activity</option>
         <option value="Security Concerns">Security Concerns</option>
