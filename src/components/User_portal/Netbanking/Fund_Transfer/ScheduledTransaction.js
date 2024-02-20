@@ -2,11 +2,10 @@ import React, { useState,useEffect, useRef } from 'react';
 import axios from 'axios';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
- import 'jspdf-autotable';
+//  import 'jspdf-autotable';
  import './FundTransfer.css'
 import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
-// import apilist from '../../../../lib/apiList';
-import apiList from '../../../../lib/apiList';
+ import apiList from '../../../../lib/apiList';
 
 const ScheduledTransaction = () => {
   const [transactions, setTransactions] = useState([]);
