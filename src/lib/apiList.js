@@ -32,6 +32,16 @@ const apiList ={
     transferTransaction:`${server}/api/transfer-Type`,
 
 
+    
+    createVerificationCode: `${server}/api/generate-otp`,
+    authenticateOTP: `${server}/api/validate-otp`,
+    updateDomesticLimits: `${server}/api/updateDomesticLimits/`,
+    updateInternationalLimits: `${server}/api/updateInternationalLimits/`,   
+    GenerateCardPin : `${server}/api/generate-Debit-Card-Pin`,
+    blockATMCard : `${server}/api/blockCard/`,
+
+
+
 
     form60OTPSend:`${server}/form60Userdetails/send-otp`,
     form60OtpVerification:`${server}/form60Userdetails/verify-otp`,
@@ -40,9 +50,16 @@ const apiList ={
     updateInternationalLimits: `${server}/api/updateInternationalLimits/`,   
     GenerateCardPin : `${server}/api/generate-Debit-Card-Pin`,
 
+
     GenerateCreditcardpin : `${server}/api/generate-Credit-Card-Pin`,
 
-    
+
+    BlockingCreditCard: `${server}/api/blockcreditcard/`,
+    BlockCardOTPValidation:`${server}/api/OtpValidation/`,
+    BlockCardOTPVerifying:`${server}/api/verifyOTP`,
+
+    AlertSubscription:`${server}/api/alertsubscription/`,
+
 
 
     blockATMCard : `${server}/api/blockCard/`,
