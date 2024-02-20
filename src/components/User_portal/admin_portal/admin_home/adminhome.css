@@ -1,0 +1,110 @@
+.accounts_admin_home .form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da !important;
+  outline: 0;
+  box-shadow: none !important;
+  font-size: small;
+}
+.accounts_admin_home .form-control:placeholder-shown {
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da !important;
+  outline: 0;
+  box-shadow: none !important;
+  font-size: small;
+}
+
+.accounts_admin_home .admin_home_heading {
+  color: #4a4a4a;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.714286px;
+  margin-bottom: 14px;
+  margin-top: 14px;
+}
+
+.accounts_admin_home .admin_home_table_content td {
+  /* background-color: #f2f3f2; */
+  /* width: 100%; */
+  font-size: 13px;
+  color: #4a4a4a;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+
+  box-shadow: none;
+}
+
+.accounts_admin_home .admin_home_table_head {
+  /* background-color: #f2f3f2; */
+  width: 100%;
+  font-size: 13px;
+  color: #4a4a4a;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+
+  box-shadow: 0 1.90246px 4.75615px #a8b4bf;
+}
+
+.accounts_admin_home .admin_home_table_head .admin_home_table_headings th {
+  padding: 15px 8px;
+  background-color: #f2f3f2;
+  /* width: 30%; */
+  font-weight: 600;
+}
+
+.accounts_admin_home .admin_home_table_head .admin_home_table_content td {
+  padding: 8px;
+  /* width: 23%; */
+  color: #4a4a4aeb;
+}
+
+.admin_home_table_headings th:first-child,
+.admin_home_table_content td:first-child {
+  /* width: 10% !important; */
+}
+
+.admin_home_icon_button {
+  background: none;
+  border: none;
+}
+
+.admin_home_submit_button {
+  padding: 0px 15px;
+  font-weight: 500;
+  font-size: 10px;
+  color: #fff;
+  letter-spacing: 0.1rem;
+  background: #eb6c18c8;
+  display: inline;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  text-align: center;
+  border: 1px solid #eb6c18c8;
+  /* padding-right: 8px!important;
+      padding-left: 8px!important; */
+}
+.accounts_admin_home table {
+  border-spacing: 0px;
+}
+
+.admin_home_Add_customer {
+  padding: 8px 15px;
+  font-weight: 500;
+  font-size: 10px;
+  color: #fff;
+  width: auto;
+  background: #eb6c18;
+  display: inline;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  text-align: center;
+  border: 1px solid #ce6200;
+  /* padding-right: 8px!important;
+      padding-left: 8px!important; */
+}
