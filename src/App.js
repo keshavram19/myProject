@@ -1,13 +1,12 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Accounts from "./components/User_portal/Netbanking/Bank_Accounts/Accounts";
 import Statements from "./components/User_portal/Netbanking/Bank_Accounts/Statements";
 import StatementByMail from "./components/User_portal/Netbanking/Bank_Accounts/Statement_by_email";
-import  DebitAndAtm from "./components/User_portal/Netbanking/Bank_Accounts/DebitAndAtm";
+import DebitAndAtm from "./components/User_portal/Netbanking/Bank_Accounts/DebitAndAtm";
 import GeneratePin from "./components/User_portal/Netbanking/Bank_Accounts/GeneratePin";
 import BlockCard from "./components/User_portal/Netbanking/Bank_Accounts/BlockCard";
 import Reissuecard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCard";
 import ManageCardLimit from "./components/User_portal/Netbanking/Bank_Accounts/ManageCardLimit";
-import OtpPage from "./components/User_portal/Netbanking/Bank_Accounts/OtpPage";
 import ChequeBookReq from "./components/User_portal/Netbanking/Bank_Accounts/ChequeBookReq";
 import ViewAndUpdatePancard from "./components/User_portal/Netbanking/Bank_Accounts/ViewUpdatePANCard";
 import UpdateForm60 from "./components/User_portal/Netbanking/Bank_Accounts/UpdateForm60";
@@ -93,19 +92,16 @@ import ELocker from "./components/User_portal/Netbanking/Customerservice.js/ELoc
 import DropDownBankAccount from "./components/User_portal/Netbanking/Customerservice.js/Servierequestdropdown";
 import Servicerequest from "./components/User_portal/Netbanking/Customerservice.js/Servicerequest";
 import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Customerservice.js/Taxcenter";
-
 import BillDetails from "./components/User_portal/Netbanking/Bank_Accounts/BillDetails";
-
 import FinancialJourney from "./components/User_portal/Netbanking/Profile/Financial_Journey/FinancialJourney";
-
 import Renewfixedform from "./components/User_portal/Netbanking/Bank_Accounts/Renewfixedform";
 
-import Fixed_recurring_Form from "./components/User_portal/Netbanking/Bank_Accounts/Fixed_recurringForm";
-import Recurring_form from "./components/User_portal/Netbanking/Bank_Accounts/Recurring_deposit_form";
+
+import FixedRecurringForm from "./components/User_portal/Netbanking/Bank_Accounts/Fixed_recurringForm";
+import RecurringForm from "./components/User_portal/Netbanking/Bank_Accounts/Recurring_deposit_form";
 
 
 import UpdatePancardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/UpdatePancardOtp";
-
 import GenerateDebitCardPinOTP from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitPinOtp";
 import GenerateDebitCardPin from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitCardPin";
 import ReissueLostATMcard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueLostATM";
@@ -113,15 +109,36 @@ import GenerateRequestLostATM from "./components/User_portal/Netbanking/Bank_Acc
 import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCardRequest";
 
 
-
-
+import ConvertToEMISubmit from "./components/User_portal/Netbanking/CreditCards/ConverttoEMISubmit";
+import AutoDebitConfirm from "./components/User_portal/Netbanking/CreditCards/AutodebitSetupconfirm";
+import ConvertToEMIOtp from "./components/User_portal/Netbanking/CreditCards/convertToEMIOtp";
 
 import OTPPage from "./components/User_portal/Netbanking/Fund_Transfer/OTPpage";
 
+import ManagrCardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/manageCardOtp";
+import CreditCardPin from "./components/User_portal/Netbanking/CreditCards/creditcardPin";
+import CreditCardPinOtp from "./components/User_portal/Netbanking/CreditCards/creditCardPinOtp";
+import CreditCardOtp from "./components/User_portal/Netbanking/CreditCards/CreditCardOtp";
+
+import AccountOpeningForm from "./components/User_portal/AccountOpeningForm/AccountOpeningForm";
+import AccountSuccessPage from "./components/User_portal/AccountOpeningForm/AccountSuccessPage";
+import Adminhome from "./components/User_portal/admin_portal/admin_home/Admihome";
+import RequestedDatalist from "./components/User_portal/admin_portal/opening_requested_details/RequestedDatalist";
+import IndividualDatalist from "./components/User_portal/admin_portal/opening_requested_details/Individuallist/AccountOpeningForm";
+
+
+
 function App() {
+  const location = useLocation();
+  const hide =
+    location.pathname === "/" ||
+    location.pathname === "/netbanking-personal-login" ||
+    location.pathname === "/netbanking-corporate-login";
+
   return (
     <div>
-      <Navbar />
+      {!hide && <Navbar />}
+
       <Routes>
         {/* user portal starts */}
 
@@ -148,44 +165,55 @@ function App() {
           path="/user/account/personalizetranscationlimits"
           element={<PersonalizeTransactionlimits />}
         />
-        <Route
-          path="/user/account/paybills"
-          element={<PayBills />}
-        />
-        <Route
-          path="/user/account/confirmpaye"
-          element={<ConfirmPaye />}
-        />
-        <Route
-          path="/user/account/Viewpayee"
-          element={<ViewPayee />}
-        />
+        <Route path="/user/account/paybills" element={<PayBills />} />
+        <Route path="/user/account/confirmpaye" element={<ConfirmPaye />} />
+        <Route path="/user/account/Viewpayee" element={<ViewPayee />} />
         <Route path="/user/account/debit-atm-card" element={<DebitAndAtm />} />
         <Route
           path="/user/account/generate-debitcard-pin"
           element={<GeneratePin />}
         />
-        <Route path="/user/account/generate-debit-card-pin-otp" element={<GenerateDebitCardPinOTP />} />
-        <Route path="/user/account/generate-debit-card-pin" element={<GenerateDebitCardPin />} />
+        <Route
+          path="/user/account/generate-debit-card-pin-otp"
+          element={<GenerateDebitCardPinOTP />}
+        />
+        <Route
+          path="/user/account/generate-debit-card-pin"
+          element={<GenerateDebitCardPin />}
+        />
         <Route path="/user/account/block-debit-card" element={<BlockCard />} />
         <Route path="/user/account/reissue-card" element={<Reissuecard />} />
-        <Route path="/user/account/reissue-lost-atm-card" element={<ReissueLostATMcard />} />
-        <Route path="/user/account/generate-request-lost-atm-card" element={<GenerateRequestLostATM />} />
-        <Route path="/user/account/generate-request-lost-service-atm" element={<ReissueCardRequest />} />
+        <Route
+          path="/user/account/reissue-lost-atm-card"
+          element={<ReissueLostATMcard />}
+        />
+        <Route
+          path="/user/account/generate-request-lost-atm-card"
+          element={<GenerateRequestLostATM />}
+        />
+        <Route
+          path="/user/account/generate-request-lost-service-atm"
+          element={<ReissueCardRequest />}
+        />
         <Route
           path="/user/account/manage-cardlimit"
           element={<ManageCardLimit />}
         />
-      <Route
+        <Route
           path="/user/account/manage-card-limit-otp"
-          element={<OtpPage />}
+          element={<OTPPage />}
         />
 
-      <Route
+        <Route
           path="/user/account/update-pancard-otp"
           element={<UpdatePancardOtpPage />}
         />
-        
+
+          <Route
+          path="/user/account/manage-card-otp"
+          element={<ManagrCardOtpPage />}
+        />
+
 
         <Route
           path="/user/account/chequebook-req"
@@ -215,12 +243,12 @@ function App() {
         />
         <Route
           path="/user/account/fixed-reccuring-form"
-          element={<Fixed_recurring_Form />}
+          element={<FixedRecurringForm />}
         />
 
         <Route
           path="/user/account/reccuring-form"
-          element={<Recurring_form/>}
+          element={<RecurringForm />}
         />
 
         <Route
@@ -229,8 +257,7 @@ function App() {
         />
         <Route path="/user/account/fd-advice" element={<Fdadvice />} />
         <Route path="/user/account/renew-fd" element={<RenewFD />} />
-         <Route path="/user/account/renewfixed" element={<Renewfixedform />} />
-       
+        <Route path="/user/account/renewfixed" element={<Renewfixedform />} />
 
         <Route path="/user/account/paylater" element={<PayLater />} />
         <Route path="/user/account/billDetails" element={<BillDetails />} />
@@ -266,7 +293,11 @@ function App() {
           path="/user/fundtransfer/quickfundtransfer"
           element={<QuickFundTransfer />}
         />
-        <Route exact path ="/user/fundtransfer/quickfundtransfer-otp-page" element={< OTPPage/>} />
+        <Route
+          exact
+          path="/user/fundtransfer/quickfundtransfer-otp-page"
+          element={<OTPPage />}
+        />
 
         <Route
           path="/user/fundtransfer/generate-mmid"
@@ -304,9 +335,6 @@ function App() {
           element={<BillRechargeFastag />}
         />
 
-
-
-
         {/* Account summary */}
 
         <Route
@@ -319,9 +347,6 @@ function App() {
           path="/user/accountsummary/linkaccounts"
           element={<Linkaccounts />}
         />
-
-
-
 
         {/* profile */}
         <Route exact path="/user/viewprofile" element={<ViewProfile />} />
@@ -359,7 +384,6 @@ function App() {
           exact
           path="/user/profile/changeprofilephoto"
           element={<UpdateProfilePhoto />}
-
         />
         <Route
           exact
@@ -372,70 +396,146 @@ function App() {
           element={<FavouriteActivities />}
         />
 
-
         <Route
           exact
           path="/user/profile/financialjourney"
           element={<FinancialJourney />}
         />
 
-
+        {/* account opening starts */}
+        <Route exact path="/account-opening" element={<AccountOpeningForm />} />
+        <Route exact path="/account-success" element={<AccountSuccessPage />} />
+        {/* account opening starts */}
 
         {/* CARDS & LOANS Started */}
 
         <Route exact path="/user/credit-cards" element={<CreditCard />} />
-        <Route exact path="/user/registered-billers" element={<RegisteredBillers />} />
+        <Route
+          exact
+          path="/user/registered-billers"
+          element={<RegisteredBillers />}
+        />
         <Route exact path="/user/covert-to-emi" element={<ConvertToEMI />} />
         <Route exact path="/user/emi-submit" element={<EMISubmit />} />
+
+        <Route exact path="/user/convert-to-emi-submit" element={<ConvertToEMISubmit />} />
+        <Route exact path="/user/convert-to-emi-submit-otp" element={<ConvertToEMIOtp />} />
         <Route exact path="/user/auto-debit-instructions" element={<AutoDebitInstructions />} />
+        <Route exact path="/user/auto-debit-confirm" element={<AutoDebitConfirm />} />
         <Route exact path="/user/virtual-credit-cards" element={<VirtualCreditCards />} />
         <Route exact path="/user/request-billing-cycle-change" element={<BillingCycleChange />} />
         <Route exact path="/user/generate-credit-card-pin" element={<GenerateCreditCardPin />} />
+        <Route exact path="/user/generate-creditcard-pin" element={<CreditCardPin />} />
         <Route exact path="/user/blockcreditcard" element={<BlockCreditCard />} />
         <Route exact path="/user/alertsubscription" element={<AlertSubscription />} />
+
+        
+        
+        
+        
+        
+
         <Route exact path="/user/physicalpin" element={<PhysicalPin />} />
-        <Route exact path="/user/viewlastcreditcard" element={<Viewlastcredit />} />
-        <Route exact path="/user/creditcardrewards" element={<CreditcardRewards />} />
+        <Route
+          exact
+          path="/user/viewlastcreditcard"
+          element={<Viewlastcredit />}
+        />
+        <Route
+          exact
+          path="/user/creditcardrewards"
+          element={<CreditcardRewards />}
+        />
         <Route exact path="/user/loanaccounts" element={<Loanaccounts />} />
         <Route exact path="/user/applyforloan" element={<ApplyForLoan />} />
-        <Route exact path="/user/loanapplicationtracking" element={<LoanApplicationTracking />} />
+        <Route
+          exact
+          path="/user/loanapplicationtracking"
+          element={<LoanApplicationTracking />}
+        />
         <Route exact path="/user/applyonline" element={<ApplyOnline />} />
         <Route exact path="/user/forexcards" element={<ForexCardSection />} />
         <Route exact path="/user/prepaidcards" element={<PrepaidCard />} />
-        <Route exact path="/user/merchantstandinginstructions" element={<MerchantstandingInstructions />} />
+        <Route
+          exact
+          path="/user/merchantstandinginstructions"
+          element={<MerchantstandingInstructions />}
+        />
         <Route exact path="/user/demataccount" element={<DematAccountPage />} />
+        <Route exact path="/user/account/generate-credit-card-pin-otp" element={<CreditCardPinOtp />} />
+        <Route exact path="/user/account/generate-credit-card-pin-otp" element={<CreditCardOtp />} />
+
+        
 
         {/* CARDS & LOANS ends */}
-
 
         {/* Investments starts */}
 
         <Route exact path="/user/demataccount" element={<DematAccountPage />} />
-        <Route exact path="/user/nps" element={<NationalpensionServiceRequestsPage />} />
-        <Route exact path="/user/guranteedpensionplan" element={<GuaranteedPensionPlan />} />
-        <Route exact path="/user/termlifeinsurance" element={<TermLifeInsurance />} />
-        <Route exact path="/user/easyclaimsettlement" element={<EasyClaimSettlement />} />
+        <Route
+          exact
+          path="/user/nps"
+          element={<NationalpensionServiceRequestsPage />}
+        />
+        <Route
+          exact
+          path="/user/guranteedpensionplan"
+          element={<GuaranteedPensionPlan />}
+        />
+        <Route
+          exact
+          path="/user/termlifeinsurance"
+          element={<TermLifeInsurance />}
+        />
+        <Route
+          exact
+          path="/user/easyclaimsettlement"
+          element={<EasyClaimSettlement />}
+        />
         <Route exact path="/user/cancercover" element={<CancerCover />} />
-        <Route exact path="/user/generalinsurnace" element={<GeneralInsurance />} />
-
-
-
-
+        <Route
+          exact
+          path="/user/generalinsurnace"
+          element={<GeneralInsurance />}
+        />
 
         {/* Investments ends */}
 
-
         {/* Customer service starts */}
-        <Route exact path="/user/customerservice/servicerequestslist" element={<DropDownBankAccount />} />
-        <Route exact path="/user/customerservice/servicerequests" element={<Servicerequest />} />
-        <Route exact path="/user/customerservice/mymailbox" element={<MyMailBox />} />
-        <Route exact path="/user/customerservice/elocker" element={<ELocker />} />
-        <Route exact path="/user/customerservice/taxcenter" element={<CustomerserviceTaxCentre />} />
-
-
+        <Route
+          exact
+          path="/user/customerservice/servicerequestslist"
+          element={<DropDownBankAccount />}
+        />
+        <Route
+          exact
+          path="/user/customerservice/servicerequests"
+          element={<Servicerequest />}
+        />
+        <Route
+          exact
+          path="/user/customerservice/mymailbox"
+          element={<MyMailBox />}
+        />
+        <Route
+          exact
+          path="/user/customerservice/elocker"
+          element={<ELocker />}
+        />
+        <Route
+          exact
+          path="/user/customerservice/taxcenter"
+          element={<CustomerserviceTaxCentre />}
+        />
 
         {/* customer service ends */}
 
+        {/* Admin side star */}
+
+        <Route path="/requested-data" element={<RequestedDatalist />} />
+        <Route path="/confirm-details" element={<IndividualDatalist />} />
+        <Route path="/all-data" element={<Adminhome />} />
+        {/* Admin side  */}
 
         {/* user portal ends */}
       </Routes>
@@ -444,8 +544,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-

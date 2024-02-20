@@ -44,6 +44,7 @@ const StatementByMail = () => {
             },
             body: JSON.stringify({ email: authDetails.userEmailId }),
         };
+        
         try {
             const response = await fetch(apiList.userAuthentication, options);
             const result = await response.json();
@@ -59,6 +60,10 @@ const StatementByMail = () => {
       setOtp(newOtp.join(''));
     };
 
+    const handleResendOTP = () => {
+        sendCodeToGmail()
+    };
+
 
     const verifyOTP = async ()=> {
         const options = {
@@ -69,7 +74,7 @@ const StatementByMail = () => {
             body: JSON.stringify({email: authDetails.userEmailId, gmailOTP: otp})
         };
         try{
-            const response = await fetch(apiList.userAuthVerification, options);
+            const response = await fetch(apiList.userAuthVerify, options);
             if(response.status === 200){
                 const data = await response.json();
                 toast.success('Successfully verified!', {
@@ -152,7 +157,7 @@ const StatementByMail = () => {
                                             </div>
                                             <div className='text-center'>
                                                 <div>Don't receive OTP code?</div>
-                                                <div className='resend_code_text'>Resend Code</div>
+                                                <div className='resend_code_text' onClick={handleResendOTP}>Resend Code</div>
                                             </div>
                                             <ToastContainer />
                                             <div className='otp_verify_btn_container'>
@@ -165,14 +170,14 @@ const StatementByMail = () => {
                                     
                                 </div>
                                 <div className='savings_acct_user_auth_text1'>
-                                    OTP has been generated with validity of 100 seconds and sent to your registered mobile number
+                                    OTP has been generated with validity of 60 seconds and sent to your registered mail id
                                 </div>
                                 <div className='savings_acct_user_auth_text2'>
                                     If there is a delay in receiving of OTP, you can send a request to receive it. SMS IBOTP to 5676766 or
                                     92156766. Request should be sent from the registered mobile number.
                                 </div>
                                 <div className='savings_acct_user_auth_text3'>
-                                    Please don't share OTP to anyone, even if person claims to be an ICICI bank official. For further details
+                                    Please don't share OTP to anyone, even if person claims to be an Royal Islamic bank official. For further details
                                     please <a className='savings_acct_user_auth_text3_atag'>click here</a>.
                                 </div>
                                 <div className='d-flex justify-content-center'>

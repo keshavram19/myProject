@@ -559,21 +559,34 @@ abbr[title] {
     justify-content: space-around;
     display: flex;
     align-items: center;
-     Background-color : #f8f9fa
+     Background-color : #2fb68e;
   }
   .upi_transaction_date{
-     Background-color : #f8f9fa}
-  .upi_transaction_node{
-   Background-color : #f8f9fa
+     Background-color : #f8f9fa;
+    color: #2fb68e;}
+  .upi_transaction_node h6{
+   
+   color: #2fb68e;
   
   }
   .upi_transaction_value{
-    border-radius:5px;
-    padding: 5px;
-    border: none;
-    
-    background-color:#f18121
+    color: #2fb68e;
+    border: 1px solid #2fb68e;
+    background-color: transparent;
+    padding: 5px 14px;
+    outline: none;
+    font-size: 14px;
+      font-weight: 600;
+    border-radius: 10px;
   
+  }
+  .upi_transaction_value:hover{
+    background-color: #2fb68e; 
+    color: #fff; 
+    border-radius: 10px;
+  }
+  .upi_transaction_q{
+    color: #2fb68e;
   }
   /* upi transaction css ends*/
   
@@ -583,32 +596,30 @@ abbr[title] {
   *{
     font-family: Poppins;
   }
-  .quickfund_transfer_note{
-     Background : #faede2;
-     color:#f18121;
-     ;
-  }
-  
   .quickfund_transfer_code{
-     Background-color : #f8f9fa}
-  .quickfund_transfer_node{
-     Background-color : #f8f9fa;
-    
-    
-    }
-  .quickfund_transfer_turn{
-      border-radius:5px;
-       background-color : #faede2;
   
-    border: none;
+  color: #2fb68e;
+     
   }
-  .quickfund_transfer_join{
-      border-radius:5px;
-      background-color : #faede2;
+  .quickfund_transfer_node h4{
+    background-color: #2fb68e;
+    color: #fff;
+  }
+  .quickfund_transfer_turn {
+    color: #2fb68e;
+    border: 1px solid #2fb68e;
+    background-color: transparent;
+    padding: 5px 14px;
+    outline: none;
+    font-size: 14px;
+      font-weight: 600;
+    border-radius: 10px;
+  }
   
-  
-    
-    border: none;
+  .quickfund_transfer_turn:hover{
+    background-color: #2fb68e; 
+    color: #fff; 
+    border-radius: 10px;
   }
   .quick_fund_transfer_paragraph{
     font-size: 15px;
@@ -616,37 +627,45 @@ abbr[title] {
     flex-direction: row;
   
   }
+  .quick_fund_tranfer_p{
+    color: #2fb68e;
+  }
   /* quickfund transfer ends */
   
   /* otppage.css starts */
 
-.generate_debit_pin_button_logos{
+.quick_fund_transfer_button_logos{
   font-size: 20px;
 }
 
+
+/* .quick_fund_transfer_button{ */
+
 .generate_debit_pin_button{
-  color: #f18121;
-  border: 1px solid #f18121;
+
+  color: #2fb68e;
+  border: 1px solid #2fb68e;
   outline: none;
   align-items: center;
   background-color: none;
   font-size: 16px;
+  font-weight: 600;
   padding-left: 15px;
   padding-right: 15px;
   border-radius: 10px;
 }
 
-.generate_debit_pin_para{
+.quick_fund_transfer_para{
   font-size: small;
   font-weight:  400;
 }
 
-.generate_debit_pin_icon{
+.quick_fund_transfer_icon{
   display: flex;
   flex-direction: row;
 }
 
-.generate_debit_pin_div_label{
+.quick_fund_transfer_div_label{
   display: flex;
   flex-direction:column;
   width: 150px;
@@ -655,7 +674,7 @@ abbr[title] {
   /* width: 200px; */
   }
 
-  .generate_debit_pin_icon_otp{
+  .quick_fund_transfer_icon_otp{
     border: 1px solid rgb(207, 203, 203);
     margin: 0px 5px;
     height: 25px;
@@ -663,18 +682,28 @@ abbr[title] {
     padding:1px 1px;
 }
 
-.genrate_pin_buttons {
-  color: #f18121;
-  background-color: #ffc492;
-  padding: 5px 10px;
-  border: none;
+
+.quick_fund_buttons {
+  color: #2fb68e;
+  border: 1px solid #2fb68e;
+  background-color: transparent;
+  padding: 5px 14px;
+  outline: none;
+  font-size: 14px;
+    font-weight: 600;
+  border-radius: 10px;
 }
-.genrate_pin_submits {
-  border: none;
-  color: #f18121;
-  background-color: #ffc492;
-  padding: 5px 10px;
+.quick_fund_submits {
+  color: #2fb68e;
+  border: 1px solid #2fb68e;
+  background-color: transparent;
+  padding: 5px 14px;
+  outline: none;
+  font-size: 14px;
+    font-weight: 600;
+  border-radius: 10px;
 }
+
 
 /*otppage.css ends */
   

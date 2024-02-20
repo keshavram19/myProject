@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./PersonalLoginPage.css";
 import ReCAPTCHA from "react-google-recaptcha";
+import logo from "../../../Images/Royal islamic.png";
 
 const CorporateLoginPage = () => {
   const handleRecaptchaChange = (value) => {
@@ -10,18 +11,17 @@ const CorporateLoginPage = () => {
   };
   return (
     <div>
-      <div
-        className="container-fluid login_nav"
-        
-      >
+      <div className="container-fluid login_nav">
         <div className="container">
           <div className="row">
             <div className="col-6">
-              <h1>Logo</h1>
+              <img src={logo} style={{ width: "100px" }} />
             </div>
             <div className="col-6 text-right m-auto">
               <p className="mb-0">
-                <Link to="/netbanking-personal-login">Login Personal Banking</Link>
+                <Link to="/netbanking-personal-login">
+                  Login Personal Banking
+                </Link>
               </p>
             </div>
           </div>
@@ -69,8 +69,8 @@ const CorporateLoginPage = () => {
                 <p>Hassle-free Bulk Transfer with Robust Security</p>
               </div>
             </div>
-            
-            <button>Know more</button>
+
+            {/* <button>Know more</button>   */}
           </div>
           <div className="col-md-7">
             <h5>Login to Access Your Corporate Banking</h5>

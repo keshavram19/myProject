@@ -100,7 +100,7 @@ const Reissuecard = () => {
                         </div>
                         <div className="d-flex my-3">
                             <button type="button" className="reissue_card_button ml-2">BACK</button>
-                            <button type="submit" className="reissue_card_button_submit ml-4" onClick={handleSubmitCard}>SUBMIT</button>
+                            <button type="submit" className="reissue_card_button ml-4" onClick={handleSubmitCard}>SUBMIT</button>
                         </div>
                         <div className="note">
                             <p>Note: Upon submission system will validate your account details, please wait for a while</p>

@@ -13,7 +13,7 @@ import { useLocation } from 'react-router-dom';
 
 const UpdatePancardOtpPage = () => {
 
-    const accountNumber = 1234567890;
+    const accountNumber = 1124563456;
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -135,7 +135,7 @@ const UpdatePancardOtpPage = () => {
                 <div className='col-3'>
                     <BankaccountSidebar />
                 </div>
-                <div className='col-9 limit_request_confirmation'>
+                <div className='col-9 limit_request_confirmation card'>
                     <div className='row'>
                         <div className='col-sm-12'>
                             <div className='limit_request_confirmation_para p-2'>
@@ -162,21 +162,21 @@ const UpdatePancardOtpPage = () => {
                                 <div className='col-sm-6'>
                                     <div className=''>
                                         <button
-                                            className='limit_request_confirmation_btn ml-2'
+                                            className='limit_request_confirmation_btn'
                                             onClick={() => handleOtpGeneration('sms')}
                                             disabled={buttonsDisabled}
                                         >
                                             <MdOutlineMessage className='limit_request_confirmation_btn_logos' /> SMS
                                         </button>
                                         <button
-                                            className='limit_request_confirmation_btn ml-2'
+                                            className='limit_request_confirmation_btn ml-3'
                                             onClick={() => handleOtpGeneration('email')}
                                             disabled={buttonsDisabled}
                                         >
                                             <MdOutlineMail className='limit_request_confirmation_btn_logos' /> Email
                                         </button>
                                         <button
-                                            className='limit_request_confirmation_btn ml-2'
+                                            className='limit_request_confirmation_btn ml-3'
                                             onClick={() => handleOtpGeneration('call')}
                                             disabled={buttonsDisabled}
                                         >
