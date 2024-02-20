@@ -11,7 +11,7 @@ import { IoCallOutline } from 'react-icons/io5';
 
 import { useLocation } from 'react-router-dom';
 
-const UpdatePancardOtpPage = () => {
+const ManagrCardOtpPage = () => {
 
     const accountNumber = 1124563456;
 
@@ -132,10 +132,10 @@ const UpdatePancardOtpPage = () => {
         <div className='container-fluid' style={{ marginTop: '80px' }}>
             <div className='row'>
 
-                <div className='col-3'>
+                <div className='col-sm-3'>
                     <BankaccountSidebar />
                 </div>
-                <div className='col-9 limit_request_confirmation card'>
+                <div className='col-sm-9 limit_request_confirmation card'>
                     <div className='row'>
                         <div className='col-sm-12'>
                             <div className='limit_request_confirmation_para p-2'>
@@ -162,21 +162,21 @@ const UpdatePancardOtpPage = () => {
                                 <div className='col-sm-6'>
                                     <div className=''>
                                         <button
-                                            className='limit_request_confirmation_btn'
+                                            className='limit_request_confirmation_btn ml-2'
                                             onClick={() => handleOtpGeneration('sms')}
                                             disabled={buttonsDisabled}
                                         >
                                             <MdOutlineMessage className='limit_request_confirmation_btn_logos' /> SMS
                                         </button>
                                         <button
-                                            className='limit_request_confirmation_btn ml-3'
+                                            className='limit_request_confirmation_btn ml-2'
                                             onClick={() => handleOtpGeneration('email')}
                                             disabled={buttonsDisabled}
                                         >
                                             <MdOutlineMail className='limit_request_confirmation_btn_logos' /> Email
                                         </button>
                                         <button
-                                            className='limit_request_confirmation_btn ml-3'
+                                            className='limit_request_confirmation_btn ml-2'
                                             onClick={() => handleOtpGeneration('call')}
                                             disabled={buttonsDisabled}
                                         >
@@ -203,7 +203,7 @@ const UpdatePancardOtpPage = () => {
 
                             <div className='d-flex mt-3 mb-5'>
                                 <button type='button' className='limit_request_confirmation_buttons ml-3'>
-                                    <Link to="/user/account/view-update-pancard" style={{ textDecoration: 'none' }} className='bacKBtn_link'>BACK</Link>
+                                    <Link to="/user/account/manage-cardlimit" style={{ textDecoration: 'none' }} className='bacKBtn_link'>BACK</Link>
                                 </button>
                                 <button type='button' className='limit_request_confirmation_submits ml-3' onClick={handleOtpValidation}>
                                     SUBMIT
@@ -217,4 +217,4 @@ const UpdatePancardOtpPage = () => {
     );
 };
 
-export default UpdatePancardOtpPage;
+export default ManagrCardOtpPage;
