@@ -27,6 +27,7 @@ const apiList ={
     inwardRemittance:`${server}/api/submitForm`,
     taxOTPVerify:`${server}/api/verify-OneTP`,
     taxOTPSend:`${server}/api/send-OneTP`,
+    debitNotification: `${server}/api/debit-notification`,
   
     paymentTransaction:`${server}/api/payment-Type`,
     transferTransaction:`${server}/api/transfer-Type`,

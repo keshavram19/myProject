@@ -7,6 +7,7 @@ import { MdOutlineMessage } from "react-icons/md";
 import { MdOutlineMail } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+import apiList from '../../../../lib/apiList';
 
 
 
@@ -19,12 +20,12 @@ const OTPPage = () =>{
     const [validationError, setValidationError] = useState('');
     const [timer, setTimer] = useState(100);
     const [buttonsDisabled, setButtonsDisabled] = useState(true);
-
+    const accountNumber = 1124563456;
 
     
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:4444/api/userDetails/1124563456');
+            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
             const userDetailsData = response.data.details;
 
             if (Array.isArray(userDetailsData)) {
@@ -93,7 +94,7 @@ const OTPPage = () =>{
             await fetchData();
 
             if (Array.isArray(userDetails) && userDetails.length > 0) {
-                const otpResponse = await axios.post('http://localhost:4444/api/generate-otp', {
+                const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
                     accountNumber: userDetails[0].userAccountNumber,
                     debitCardNumber: formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber),
                     mobileNumber: lastFourDigits,
@@ -119,7 +120,7 @@ const OTPPage = () =>{
             await fetchData();
             const accountNumber = userDetails[0].userAccountNumber;
             console.log(accountNumber);
-            const response = await axios.post('http://localhost:4444/api/validate-otp', { accountNumber, otp });
+            const response = await axios.post(`${apiList.authenticateOTP}`, { accountNumber, otp });
 
             console.log(response.data);
             alert('Transaction successfull')
@@ -139,11 +140,11 @@ const OTPPage = () =>{
                 <div className='col-sm-9'>
                 <p className="pl-2">Please enter these details to authorize the transaction</p>
 
-<div className=" generate_debit_pin_para p-2">
+<div className=" quick_fund_transfer_para p-2">
     <label htmlFor="otp">One Time Password</label>
-    <div className="generate_debit_pin_icon">
+    <div className="quick_fund_transfer_icon">
         <input
-            className="generate_debit_pin_div_label"
+            className="quick_fund_transfer_div_label"
             type="text"
             id="otp"
             name="otp"
@@ -151,7 +152,7 @@ const OTPPage = () =>{
             onChange={handleOtpChange}
         />
 
-        <button className="generate_debit_pin_icon_otp">
+        <button className="quick_fund_transfer_icon_otp">
             <i class="fa-solid fa-keyboard fa-xl"></i>
         </button>
         <p className='ml-1'>OTP has been generated with validity of 100 seconds</p>
@@ -162,9 +163,9 @@ const OTPPage = () =>{
 <div className='row  p-2' >
     <div className='col-sm-6'>
         <div className=''>
-            <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('sms')} disabled={buttonsDisabled}><MdOutlineMessage className='generate_debit_pin_button_logos' /> SMS</button>
-            <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('email')} disabled={buttonsDisabled}><MdOutlineMail className='generate_debit_pin_button_logos'/> Email</button>
-            <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('call')} disabled={buttonsDisabled}><IoCallOutline className='generate_debit_pin_button_logos' /> Call</button>
+            <button className='quick_fund_transfer_button ml-2' onClick={() => handleOtpGeneration('sms')} disabled={buttonsDisabled}><MdOutlineMessage className='generate_debit_pin_button_logos' /> SMS</button>
+            <button className='quick_fund_transfer_button ml-2' onClick={() => handleOtpGeneration('email')} disabled={buttonsDisabled}><MdOutlineMail className='generate_debit_pin_button_logos'/> Email</button>
+            <button className='quick_fund_transfer_button ml-2' onClick={() => handleOtpGeneration('call')} disabled={buttonsDisabled}><IoCallOutline className='generate_debit_pin_button_logos' /> Call</button>
 
         </div>
     </div>
@@ -180,10 +181,10 @@ const OTPPage = () =>{
 {validationError && <div style={{ color: 'red' }}>{validationError}</div>}
 
 <div className="d-flex mt-3 mb-3">
-    <button type="button" className="genrate_pin_buttons ml-3">
+    <button type="button" className="quick_fund_buttons ml-3">
         BACK
     </button>
-    <button type="button" className="genrate_pin_submits ml-5" onClick={handleOtpValidation} >
+    <button type="button" className="quick_fund_submits ml-5" onClick={handleOtpValidation} >
         SUBMIT
     </button>
 </div>

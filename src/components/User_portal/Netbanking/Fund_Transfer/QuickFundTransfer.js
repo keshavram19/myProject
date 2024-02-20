@@ -74,6 +74,13 @@ const QuickFundTransfer = () => {
             if (response.ok) {
                
                 console.log('Data saved successfully');
+                console.log(userDetails[0].userEmailId);
+                console.log(formData.amount);
+                const debitNotificationResponse = await axios.post(`${apiList.debitNotification}`, {
+                    email: userDetails[0].userEmailId,
+                    amountDebited: formData.amount,
+                });
+                console.log(debitNotificationResponse.data);
                 const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
                     accountNumber: selectedAccount,
                     otpMethod: otpMethod,
@@ -133,12 +140,12 @@ const QuickFundTransfer = () => {
                     <PaymentSidebar />
                 </div>
                 <div className='col-9 p-3 quickfund_transfer_note'>
-                    <div className="card p-3 quickfund_transfer_node">
-                        <h1>QuickFundTransfer</h1>
+                    <div className=" quickfund_transfer_node">
+                        <h4 className="p-3">QuickFundTransfer</h4>
                     </div>
                     <div className="card p-3">
-                        <div className="card p-3 quickfund_transfer_code">
-                            <h4>Enter Transaction Details</h4>
+                        <div className=" quickfund_transfer_code">
+                            <h5>Enter Transaction Details</h5>
                         </div>
                         <div className="p-3 d-flex ">
                             <div className="sms">
@@ -165,7 +172,11 @@ const QuickFundTransfer = () => {
 
                         <div className="row ">
                             <div className="col-sm-4">
-                                <label htmlFor="text">Transfer form*</label>
+
+                                <label htmlFor="text" className="d-flex">Transaction from<p className="quick_fund_tranfer_p">*</p></label>
+
+//                                 <label htmlFor="text">Transfer form*</label>
+
                                 <select
                                     className="form-control"
                                     value={selectedAccount}
@@ -186,25 +197,29 @@ const QuickFundTransfer = () => {
                                 </p>
                             </div>
                             <div className="col-sm-4">
-                                <label htmlFor="text">To Account Number*</label>
+
+                                <label htmlFor="text" className="d-flex">To Account Number <p className="quick_fund_tranfer_p">*</p></label>
                                 <input type="number" className="form-control" id="toAccountNumber" />
                             </div>
                             <div className="col-sm-4">
-                                <label htmlFor="text">Confirm Account Number*</label>
+                                <label htmlFor="text" className="d-flex">Confirm Account Number <p className="quick_fund_tranfer_p">*</p></label>
+
                                 <input type="number" className="form-control" id="confirmAccountNumber" />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-sm-4">
-                                <label htmlFor="text">Payee Name*</label>
+
+                                <label htmlFor="text" className="d-flex">Payee Name <p className="quick_fund_tranfer_p">*</p></label>
                                 <input type="text" className="form-control" id="payeeName" />
                             </div>
                             <div className="col-sm-4">
-                                <label htmlFor="text">Amount*</label>
+                                <label htmlFor="text" className="d-flex">Amount <p className="quick_fund_tranfer_p">*</p></label>
                                 <input type="text" className="form-control" id="amount" />
                             </div>
                             <div className="col-sm-4">
-                                <label htmlFor="text">Remarks(optional)*</label>
+                                <label htmlFor="text" className="d-flex">Remarks(optional) <p className="quick_fund_tranfer_p">*</p></label>
+
                                 <select
                                     name=""
                                     id="remarks"
@@ -223,8 +238,8 @@ const QuickFundTransfer = () => {
                         </div>
 
                         <div className="d-flex mb-3">
-                            <button type="button" className="ml-3 mt-3 btn btn-info quickfund_transfer_turn">Back</button>
-                            <button type="submit" className="ml-5 mt-3 btn btn-info quickfund_transfer_join" onClick={handleFormSubmit}>Proceed to Pay</button>
+                            <button type="button" className="ml-3 mt-3  quickfund_transfer_turn">Back</button>
+                            <button type="submit" className="ml-5 mt-3  quickfund_transfer_turn" onClick={handleFormSubmit}>Proceed to Pay</button>
                         </div>
                     </div>
                     <div className="card p-3">

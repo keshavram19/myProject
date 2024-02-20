@@ -65,15 +65,15 @@ const UpiTransaction = () => {
                 </div>
                 <div className='col-9 upi_transaction_date' >
 
-                    <h2>UPI Transaction Status</h2>
+                    <h4>UPI Transaction Status</h4>
                     <div className="card p-2 upi_transaction_node">
-                        <h4>Check Status</h4>
+                        <h6>Check Status</h6>
                     </div>
                     <div className="card p-3">
                         <div className="row mt-3">
 
                             <div className="col-sm-3">
-                                <label for="card-number">Credit Account Number*</label>
+                                <label for="card-number" className='d-flex'>Credit Account Number<p className="upi_transaction_q">*</p></label>
                             </div>
                             <div className="col-sm-3">
                                 <select
@@ -92,7 +92,7 @@ const UpiTransaction = () => {
                         </div>
                         <div className="row mt-3">
                             <div className="col-sm-3">
-                                <label for="card-number">Transaction dates ranging from*</label>
+                                <label for="card-number" className='d-flex'>Transaction dates ranging <p className="upi_transaction_q">*</p> </label>
                             </div>
                             <div className="col-sm-3">
                                 <input
@@ -104,7 +104,7 @@ const UpiTransaction = () => {
                                 />
                             </div>
                             <div className="col-sm-1">
-                                <p> to* </p>
+                                <p> to </p>
                             </div>
                             <div className="col-sm-3">
                                 <input
