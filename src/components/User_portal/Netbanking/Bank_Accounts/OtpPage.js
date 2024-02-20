@@ -25,8 +25,7 @@ const OTPPage = () => {
     const [buttonsDisabled, setButtonsDisabled] = useState(true);
     const accountNumber = 1124563456;
 
-    const accountNumber = 1124563456;
-
+ 
 
 
 

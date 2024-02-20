@@ -16,12 +16,12 @@ const apiList ={
 
 
 
-     userAuthentication: `${server}/api/otp-send`,
-    userAuthVerification: `${server}/api/verify-otp`,
+    //  userAuthentication: `${server}/api/otp-send`,
+    // userAuthVerification: `${server}/api/verify-otp`,
 
     inwardRemittance:`${server}/api/submitForm`,
     taxOTPVerify:`${server}/api/verify-OneTP`,
-    taxOTPGenerate:`${server}/api/generate-otp`,
+    taxOTPGenerate:`${server}/api/generated-otp`,
     taxOTPReSend:`${server}/api/resend-otp`,
     paymentTransaction:`${server}/api/payment-Type`,
     transferTransaction:`${server}/api/transfer-Type`,
@@ -35,18 +35,13 @@ const apiList ={
 
    
 
-    inwardRemittance:`${server}/api/submitForm`,
-    taxOTPVerify:`${server}/api/verify-OneTP`,
-    taxOTPSend:`${server}/api/send-OneTP`,
-    debitNotification: `${server}/api/debit-notification`,
+     debitNotification: `${server}/api/debit-notification`,
   
-    paymentTransaction:`${server}/api/payment-Type`,
-    transferTransaction:`${server}/api/transfer-Type`,
-
+ 
 
     
-    createVerificationCode: `${server}/api/generate-otp`,
-    authenticateOTP: `${server}/api/validate-otp`,
+    // createVerificationCode: `${server}/api/generate-otp`,
+    // authenticateOTP: `${server}/api/validate-otp`,
     updateDomesticLimits: `${server}/api/updateDomesticLimits/`,
     updateInternationalLimits: `${server}/api/updateInternationalLimits/`,   
     GenerateCardPin : `${server}/api/generate-Debit-Card-Pin`,
@@ -59,9 +54,9 @@ const apiList ={
     form60OTPSend:`${server}/form60Userdetails/send-otp`,
     form60OtpVerification:`${server}/form60Userdetails/verify-otp`,
     form60UserDetails:`${server}/form60Userdetails/userdetails`,
-    updateDomesticLimits: `${server}/api/updateDomesticLimits/`,
-    updateInternationalLimits: `${server}/api/updateInternationalLimits/`,   
-    GenerateCardPin : `${server}/api/generate-Debit-Card-Pin`,
+    // updateDomesticLimits: `${server}/api/updateDomesticLimits/`,
+    // updateInternationalLimits: `${server}/api/updateInternationalLimits/`,   
+    // GenerateCardPin : `${server}/api/generate-Debit-Card-Pin`,
 
 
     GenerateCreditcardpin : `${server}/api/generate-Credit-Card-Pin`,
@@ -75,7 +70,7 @@ const apiList ={
 
 
 
-    blockATMCard : `${server}/api/blockCard/`,
+    // blockATMCard : `${server}/api/blockCard/`,
     creditcardEmiconversion : `/emiConversion`,
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`
