@@ -1279,7 +1279,6 @@ margin-top: 3px;
   
   /* MyTransaction CSS Ends */
 
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 /* interest & TDS certificate css Start */
 
@@ -1302,7 +1301,8 @@ margin-top: 3px;
 }
 
 .interest_certificate_heading5 {
-  background-color: #faede2;
+  background-color: #81cfb6;
+  color: white;
   padding: 10px;
 }
 
@@ -1333,29 +1333,34 @@ margin-top: 3px;
   padding-top: 3%;
 }
 
-.btn_interest_button:focus {
+/* .btn_interest_button:focus {
   outline: none;
   border-color: initial;
   box-shadow: none;
-}
+} */
 
 .btn_interest_button {
+  margin: 4%;
   outline: none;
-  overflow: hidden;
-  background-color: #f18121;
-  font-weight: 500;
-  color: white;
+  text-align: center;
+  border: 1px solid #2fb68e;
+  border-radius: 4px;
+  color: #2fb68e;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px;
+  cursor: pointer;
+  margin-left: 40%;
+  margin-right: 40%;
+  
 }
 
 .btn_interest_button:hover {
   color: white;
+  background-color: #2fb68e;
 }
-
-.interet_buuton {
-  padding-top: 50px;
-  text-align: center;
-  color: white;
-}
+  
 
 .inerest_heading6 {
   padding-top: 5%;
@@ -1376,31 +1381,30 @@ margin-top: 3px;
   padding-bottom: 10px;
 }
 
-
-
 /* interest & TDS certificate css end */
 
 /* Disclaimer css start */
 .Disclaimer_container_fluid{
-  box-sizing: border-box;
-  padding: 20px;
-  overflow: none;
+  /* box-sizing: border-box; */
+  /* padding: 20px; */
+
   font-family: 'Poppins', sans-serif;
   
 }
-.Disclainer_pera{
+/* .Disclainer_pera{
   padding: 5%;
-  padding-top: 10%;
-}
+ 
+} */
 .Disclainer_border{
   border: 1px solid black;
   padding: 3%;
   border-radius: 15px;
-
+  
 }
+
 .Disclainer_border_heading5{
   text-align: center;
-  color: #f18121;
+  color: #ebca28;
 }
 .Disclaimer_button{
   text-align: center;
@@ -1409,7 +1413,7 @@ margin-top: 3px;
   justify-items: center;
 }
 .btn_Disclaimer_button{
-  background-color: #f18121;
+  border-radius: 1px solid #2fb68e;
   font-weight: 500;
   border-style: none;
   color: white;
@@ -1421,6 +1425,7 @@ margin-top: 3px;
 }
 .btn_Disclaimer_button:hover{
   color: white;
+  background-color: #2fb68e;
 }
 
 /* Disclaimer css end */
@@ -1446,19 +1451,29 @@ padding: 2%;
 
 .TaxPayment_pera_heading5{
   text-align: center;
-  color: #f18121;
+  color: #ebca28;
 }
 
 .taxpayment_button{
   font-weight: 500;
   text-align: center;
- 
+  cursor: pointer;
+  width: 100px;
+  border-radius: 10px;
+  color: #2fb68e;
+  margin-left: 45%;
+}
+.taxpayment_button:hover{
+  color: white;
+  background-color: #2fb68e;
+
 }
 
 .btn_taxpayment_button{
-  background-color: #f18121;
-  color: white;
-  
+  border: 1px solid #2fb68e;
+  cursor: pointer;
+  color: #2fb68e;
+  text-align: center;
 }
 
 .btn_taxpayment_button:focus{
@@ -1469,6 +1484,7 @@ padding: 2%;
 
 .btn_taxpayment_button:hover{
   color: white;
+  background-color: #2fb68e;
 }
 
 .TaxPayment_note{
@@ -1494,7 +1510,8 @@ padding: 2%;
   padding: 3%;
 }
 .incometax_filling_heading4{
-  background-color: #faede2;
+  background-color: #81cfb6;
+  color: white;
   padding: 1%;
   
 }
@@ -1510,15 +1527,31 @@ padding: 2%;
 padding: 2%;
 }
 
-.btn_incometax_button{
+
+
+.Incometax_submits{
   margin: 4%;
-  background-color: #f18121;
-  font-weight: 500;
-  color: white;
+  outline: none;
+  text-align: center;
+  border: 1px solid #2fb68e;
+  border-radius: 4px;
+  color: #2fb68e;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px;
+  cursor: pointer;
+  width: 90px;
+  margin-left: 30px;
+
 }
-.btn_incometax_button:hover{
-  color: white;
+
+.Incometax_submits:hover{
+  background-color: #2fb68e;
+  color: #fff;
 }
+
+
 .btn_incometax_button:focus{
   outline: none;
   border-color: initial;

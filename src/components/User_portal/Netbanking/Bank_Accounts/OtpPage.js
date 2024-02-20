@@ -11,6 +11,7 @@ import { IoCallOutline } from "react-icons/io5";
 
 
 
+
 const OTPPage = () => {
 
 
@@ -24,8 +25,6 @@ const OTPPage = () => {
     const [timer, setTimer] = useState(60);
     const [buttonsDisabled, setButtonsDisabled] = useState(true);
     const accountNumber = 1124563456;
-
- 
 
 
 
@@ -50,7 +49,9 @@ const OTPPage = () => {
         }
 
 
+
         console.log('User Details:', userDetails);
+
 
 
 
@@ -139,7 +140,9 @@ const OTPPage = () => {
 
             console.log(response.data);
 
+
             navigate("/user/generate-creditcard-pin");
+
 
 
 
@@ -182,6 +185,7 @@ const OTPPage = () => {
             <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('sms')} disabled={buttonsDisabled}><MdOutlineMessage className='generate_debit_pin_button_logos' /> SMS</button>
             <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('email')} disabled={buttonsDisabled}><MdOutlineMail className='generate_debit_pin_button_logos'/> Email</button>
             <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('call')} disabled={buttonsDisabled}><IoCallOutline className='generate_debit_pin_button_logos' /> Call</button>
+
         </div>
     </div>
 </div>

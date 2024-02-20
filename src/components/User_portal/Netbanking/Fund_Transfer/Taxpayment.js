@@ -22,7 +22,9 @@ const TaxPayment = () => {
                 button next to 'Register' on the proceed page.
               </p>
               <div className="taxpayment_button">
-              <button type="button" class="btn btn_taxpayment_button" style={{background: "#f18121", color: "white"}}>
+              <button type="button" class="btn btn_taxpayment_button"
+               style={{ border: "1px solid #2fb68e", textAlign: "center"}}
+              >
                 Proceed
               </button>
               </div>

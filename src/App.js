@@ -107,11 +107,15 @@ import GenerateDebitCardPin from "./components/User_portal/Netbanking/Bank_Accou
 import ReissueLostATMcard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueLostATM";
 import GenerateRequestLostATM from "./components/User_portal/Netbanking/Bank_Accounts/GenerateRequestLostATM";
 import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCardRequest";
+import OTPPage from "./components/User_portal/Netbanking/Fund_Transfer/OTPpage";
+import Form16A from "./components/User_portal/Netbanking/Customerservice.js/Form16A";
+import Form16AOTPPage from "./components/User_portal/Netbanking/Customerservice.js/Form16aOTP";
 
 
 import ConvertToEMISubmit from "./components/User_portal/Netbanking/CreditCards/ConverttoEMISubmit";
 import AutoDebitConfirm from "./components/User_portal/Netbanking/CreditCards/AutodebitSetupconfirm";
 import ConvertToEMIOtp from "./components/User_portal/Netbanking/CreditCards/convertToEMIOtp";
+
 
 import OTPPage from "./components/User_portal/Netbanking/Fund_Transfer/OTPpage";
 
@@ -125,6 +129,7 @@ import AccountSuccessPage from "./components/User_portal/AccountOpeningForm/Acco
 import Adminhome from "./components/User_portal/admin_portal/admin_home/Admihome";
 import RequestedDatalist from "./components/User_portal/admin_portal/opening_requested_details/RequestedDatalist";
 import IndividualDatalist from "./components/User_portal/admin_portal/opening_requested_details/Individuallist/AccountOpeningForm";
+
 
 
 
@@ -502,6 +507,15 @@ function App() {
         {/* Investments ends */}
 
         {/* Customer service starts */}
+
+    
+  
+
+        <Route exact path="/user/customerservice/form16a" element={<Form16A />} />
+        <Route exact path="/user/customerservice/form16aotppage" element={<Form16AOTPPage />} />
+     
+
+
         <Route
           exact
           path="/user/customerservice/servicerequestslist"
@@ -527,6 +541,7 @@ function App() {
           path="/user/customerservice/taxcenter"
           element={<CustomerserviceTaxCentre />}
         />
+
 
         {/* customer service ends */}
 

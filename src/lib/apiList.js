@@ -4,7 +4,9 @@ export const server = "http://localhost:4444";
 const apiList ={
     generateCertificate: `${server}/api/generateCertificate`,
 
+
     customerAccountDetails: `${server}/api/userDetails/`,
+
     userAuthentication: `${server}/api/otp-send`,
 
     fixeddepositeform:`${server}/api/fixeddeposites`,

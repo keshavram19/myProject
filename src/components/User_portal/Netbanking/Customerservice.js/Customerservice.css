@@ -466,7 +466,7 @@ display: flex;
    
 }
 .TaxCanter_heading_h2{
-    color: orange;
+    color: #ebca28;
 }
 .TaxCentre_firsttext{
     padding: 10px;
@@ -488,7 +488,7 @@ display: flex;
 
   }
   .TaxCentre_buttonOverflow{
-    background-color: orange;
+    background-color: #2fb68e;
     color: white;
     font-weight: 500;
     outline: none;
@@ -500,7 +500,7 @@ display: flex;
     
   }
   .TaxCentre_buttonOverflow:hover{
-    background-color: orange;
+    background-color: #2fb68e;
     color: white; 
   }  
   .TaxCentre_buttonOverflow:focus{
@@ -535,6 +535,177 @@ display: flex;
 
 
 /* Tax Center css end */
+
+
+/* Form16A OTP  starts*/
+.Form16A_otp_confirmation_btn_logos{
+    font-size: 20px;
+  }
+  
+  .Form16A_otp_confirmation_btn{
+    color: #f18121;
+    border: 1px solid #f18121;
+    outline: none;
+    align-items: center;
+    background-color: none;
+    font-size: 16px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+  }
+  
+  .Form16A_otp_confirmation_para{
+    font-size: small;
+    font-weight:  400;
+  }
+  
+  .Form16A_otp_confirmation_icon{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .Form16A_otp_confirmation_div_label{
+    display: flex;
+    flex-direction:column;
+    width: 150px;
+    outline: none;
+    height: 24px;
+    /* width: 200px; */
+    }
+  
+    .Form16A_otp_confirmation_icon_otp{
+      border: 1px solid rgb(207, 203, 203);
+      margin: 0px 5px;
+      height: 25px;
+      width: 30px;
+      padding:1px 1px;
+  }
+  
+  .Form16A_otp_confirmation_submits {
+    border: none;
+    color: white;
+    background-color: #2FB68E;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  .Form16A_otp_confirmation_buttons {
+    color: white;
+    background-color: #2FB68E;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .Form16A_otp_confirmation_heading  .form16A_container {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .Form16A_otp_confirmation_heading{
+    background-color: #81cfb6;
+    color: white;
+  }
+
+  .generate_Form16A_otp_button_logos{
+    font-size: 20px;
+  }
+
+  .generate_Form16A_otp_button{
+    color: #2FB68E;
+    border: 1px solid #2FB68E;
+    outline: none;
+    align-items: center;
+    background-color: none;
+    font-size: 16px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+  }
+  
+ 
+  .Form16A_otp_confirmation .bacKBtn_link{
+    text-decoration: none;
+    color: #f18121;
+  }
+  
+  .Form16A_otp_confirmation .text{
+    font-size: 14px;
+  }
+  
+  /* Form16A OTP ends*/
+  
+
+
+
+/* Forma16A css start */
+
+.form16a_format{
+    
+    padding-top: 30px;
+    margin-left: 28%;
+}
+.Form16A_otp_confirmation_buttons{
+  outline: none;
+  text-align: center;
+  border: 1px solid #2fb68e;
+  border-radius: 4px;
+  color: #2fb68e;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px;
+  width: 100px;
+  cursor: pointer; 
+}
+
+.Form16A_otp_confirmation_buttons:hover{
+  background-color: #2fb68e;
+  color: #fff;
+}
+
+.Form16A_genratepdf_submits {
+  outline: none;
+  text-align: center;
+  border: 1px solid #2fb68e;
+  border-radius: 4px;
+  color: #2fb68e;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px;
+  width: 100px;
+  cursor: pointer; 
+  }
+  .Form16A_genratepdf_submits:hover{
+    background-color: #2fb68e;
+    color: #fff;
+
+  }
+  .Form16A_genratepdf_submits2{
+    outline: none;
+    text-align: center;
+    border: 1px solid #2fb68e;
+    border-radius: 4px;
+    color: #2fb68e;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px;
+    cursor: pointer;
+    margin-left: 30px;
+
+  }
+
+  .Form16A_genratepdf_submits2:hover{
+    background-color: #2fb68e;
+    color: #fff;
+  }
+
+/* Forma16A css end */
+
+
+
 
 /* Footer css start */
 

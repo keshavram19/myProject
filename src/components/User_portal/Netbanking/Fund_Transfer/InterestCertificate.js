@@ -6,12 +6,12 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 import apiList from "../../../../lib/apiList";
 
-
 const InterestCertificate = () => {
   const accountNumber = 12456389;
   const [userDetails, setUserDetails] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState("");
   const [interestPeriod, setInterestPeriod] = useState("");
+  const [selectedPeriod, setSelectedPeriod] = useState("");
   const [interestPeriodDate, setInterestPeriodDate] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -69,18 +69,16 @@ const InterestCertificate = () => {
         `${apiList.customerAccountDetails}${accountNumber}`
       );
 
-
       const userDetailsData = response.data.details;
 
       if (Array.isArray(userDetailsData)) {
         setUserDetails(userDetailsData);
-        
+
         const calculatedValues = calculateValues();
         setInterestPaid(calculatedValues.interestPaid);
         setTaxWithheld(calculatedValues.taxWithheld);
       } else if (typeof userDetailsData === "object") {
         setUserDetails([userDetailsData]);
-        
       } else {
         console.error("Invalid user details format:", userDetailsData);
       }
@@ -98,15 +96,14 @@ const InterestCertificate = () => {
     console.log("Selected Account:", event.target.value);
   };
 
-  const handleInterstPeriod = (event) => {
-    const selectedValue = event.target.value;
-  
+  const handleInterstPeriod = (selectedValue) => {
     if (selectedValue.trim() === "") {
       console.log("Please select a valid financial year");
       setSelectedYear("");
       setInterestPeriod("");
       setStartDate(null);
       setEndDate(null);
+      setSelectedPeriod("");
     } else if (selectedValue === "select") {
       console.log("Selected 'Select'");
       const currentDate = new Date();
@@ -117,31 +114,13 @@ const InterestCertificate = () => {
       setSelectedYear(financialYear);
       setStartDate(currentDate);
       setEndDate(null);
-      document.getElementById("interestPeriod").checked = true;
+      setSelectedPeriod(selectedValue);
       console.log("Selected else if:", financialYear);
     } else {
+      setSelectedPeriod(selectedValue);
       setInterestPeriod(selectedValue);
-      setInterestPeriodDate("");
-      setSelectedYear(selectedValue);
-      setStartDate("");
-      setEndDate("");
-      document.getElementById("interestPeriod").checked = true;
-  
-      if (selectedValue === "monthly") {
-        setStartDate(new Date()); 
-        setEndDate(new Date()); 
-      }
-  
-      
-      const values = calculateValuesForAccount(userDetails, selectedValue, startDate, endDate);
-      setInterestPaid(values.interestPaid);
-      setTaxWithheld(values.taxWithheld);
-  
-      console.log("Selected else condition:", selectedValue);
-     
     }
   };
-  
 
   const getFinancialYear = (date) => {
     const fiscalStartMonth = 3;
@@ -149,14 +128,12 @@ const InterestCertificate = () => {
       date.getMonth() >= fiscalStartMonth
         ? date.getFullYear()
         : date.getFullYear() - 1;
-  
+
     const startYear = fiscalYear.toString().substring(2, 4);
     const endYear = (fiscalYear + 1).toString().substring(2, 4);
-  
+
     return `${startYear}-${endYear}`;
   };
-  
-
 
   const handleStartDate = (event) => {
     setStartDate(new Date(event.target.value));
@@ -169,118 +146,143 @@ const InterestCertificate = () => {
   const calculateValues = async () => {
     const interestRate = 0.05; // 5%
     const taxRate = 0.1; // 10%
-  
+
     if (userDetails.length === 0) {
       return { interestPaid: 0, taxWithheld: 0 };
     }
-  
-    const userAccountBalance = parseFloat(userDetails[0].userAccountBalance.replace(/,/g, ""));
-    const interestPeriodInMonths = calculateMonthsDifference(startDate, endDate);
-  
-    const interestPaid = userAccountBalance * interestRate * interestPeriodInMonths;
-  
+
+    const userAccountBalance = parseFloat(
+      userDetails[0].userAccountBalance.replace(/,/g, "")
+    );
+    const interestPeriodInMonths = calculateMonthsDifference(
+      startDate,
+      endDate
+    );
+
+    const interestPaid =
+      userAccountBalance * interestRate * interestPeriodInMonths;
+
     const calculatedInterestPaid = isNaN(interestPaid) ? 0 : interestPaid;
-  
+
     const taxWithheld = calculatedInterestPaid * taxRate;
-  
+
     const calculatedTaxWithheld = isNaN(taxWithheld) ? 0 : taxWithheld;
-  
+
     return {
       interestPaid: calculatedInterestPaid,
       taxWithheld: calculatedTaxWithheld,
     };
   };
-  
-  const calculateValuesForAccount = async (userDetails, selectedPeriod, startDate, endDate) => {
+
+  const calculateValuesForAccount = async (
+    userDetails,
+    selectedPeriod,
+    startDate,
+    endDate
+  ) => {
     const interestRate = 0.05; // 5%
     const taxRate = 0.1; // 10%
-  
+
     if (userDetails.length === 0) {
       return { interestPaid: 0, taxWithheld: 0 };
     }
-  
-    const userAccountBalance = parseFloat(userDetails[0].userAccountBalance.replace(/,/g, ""));
-  
+
+    const userAccountBalance = parseFloat(
+      userDetails[0].userAccountBalance.replace(/,/g, "")
+    );
+
     let interestPeriodInMonths = 0;
-  
-    const interestPaid = userAccountBalance * interestRate * interestPeriodInMonths;
+
+    const interestPaid =
+      userAccountBalance * interestRate * interestPeriodInMonths;
     const calculatedInterestPaid = isNaN(interestPaid) ? 0 : interestPaid;
-  
+
     const taxWithheld = calculatedInterestPaid * taxRate;
     const calculatedTaxWithheld = isNaN(taxWithheld) ? 0 : taxWithheld;
 
-    if (selectedPeriod === 'yearly') {
+    if (selectedPeriod === "yearly") {
       const getFinancialYearRange = (date, selectedYear) => {
         const fiscalStartMonth = 3;
         const fiscalYear =
           date.getMonth() >= fiscalStartMonth
             ? date.getFullYear()
             : date.getFullYear() - 1;
-  
+
         const startYear = selectedYear || fiscalYear;
         const endYear = parseInt(startYear, 10) + 1;
-  
+
         const startDate = new Date(`${startYear}-04-01`);
         const endDate = new Date(`${endYear}-03-31`);
-  
+
         interestPeriodInMonths = calculateMonthsDifference(startDate, endDate);
       };
       getFinancialYearRange(new Date(), selectedYear);
-    } else if (selectedPeriod === 'monthly' && startDate && endDate) {
+    } else if (selectedPeriod === "monthly" && startDate && endDate) {
       interestPeriodInMonths = calculateMonthsDifference(startDate, endDate);
     } else {
-      console.error('Invalid selection or missing date range');
+      console.error("Invalid selection or missing date range");
       return { interestPaid: 0, taxWithheld: 0 };
     }
-  
+
     return {
       interestPaid: calculatedInterestPaid,
       taxWithheld: calculatedTaxWithheld,
     };
   };
-  
+
   useEffect(() => {
     if (selectedAccount && userDetails.length > 0 && interestPeriod) {
       const values = calculateValuesForAccount(userDetails, selectedYear);
       setInterestPaid(values.interestPaid);
       setTaxWithheld(values.taxWithheld);
-  
+
       setTotalInterestPaid((prevTotal) => prevTotal + values.interestPaid);
       setTotalTaxWithheld((prevTotal) => prevTotal + values.taxWithheld);
     }
-  }, [selectedAccount, userDetails, interestPeriod, startDate, endDate, selectedYear]);
-  
-  
+  }, [
+    selectedAccount,
+    userDetails,
+    interestPeriod,
+    startDate,
+    endDate,
+    selectedYear,
+  ]);
+
   const handledownload = async (event) => {
     if (event && event.preventDefault) {
       event.preventDefault();
     }
 
- 
     if (!selectedAccount) {
       console.error("Please select an account number");
+      alert("Please select an account number");
       return;
     }
-  
-    const isInterestPeriodSelected = document.getElementById("interestPeriod").checked;
 
+    const isInterestPeriodSelected = document.getElementById("interestperiod");
+
+    const isFinancialYearSelected = selectedPeriod !== "select";
+    const areDatesSelected = startDate && endDate;
+    if ((!startDate || !endDate) && !interestPeriod) {
+      console.error(
+        "Please select either start and end dates or a financial year"
+      );
+      alert("Please select either start and end dates or a financial year");
+      return;
+    }
     try {
-
       let interestPeriodValue = isInterestPeriodSelected ? selectedYear : "";
 
       if (isInterestPeriodSelected) {
         interestPeriodValue = selectedYear;
       }
 
-
-
       const values = await calculateValuesForAccount(userDetails);
       const { interestPaid, taxWithheld } = values;
-  
-  
+
       console.log("Interest Paid:", interestPaid);
       console.log("Tax Withheld:", taxWithheld);
-  
+
       const certificateData = {
         userId: userDetails[0]?.userAccountNumber,
         accountHolderName: userDetails[0]?.accountHolderName,
@@ -288,19 +290,27 @@ const InterestCertificate = () => {
         userAccountNumber: userDetails[0]?.userAccountNumber,
         userAccountType: userDetails[0]?.userAccountType,
         accountHolderAddress: userDetails[0]?.accountHolderAddress,
-        interestPeriod: interestPeriodValue,
-
-        startDate: startDate instanceof Date ? startDate.toLocaleDateString() : "",
-        endDate: endDate instanceof Date ? endDate.toLocaleDateString() : "",        
+        interestPeriod: interestPeriod,
+        startDate:
+          startDate instanceof Date ? startDate.toLocaleDateString() : "",
+        endDate: endDate instanceof Date ? endDate.toLocaleDateString() : "",
         interestPaid: values.interestPaid,
         taxWithheld: values.taxWithheld,
       };
-  
+
       const pdf = new jsPDF();
       pdf.text(20, 10, `Royal Islamic Bank`);
       pdf.text(20, 20, `Date: ${new Date().toLocaleDateString()}`);
-      pdf.text(20, 30, `Account Holder Name: ${certificateData.accountHolderName}`);
-      pdf.text(20, 40, `Account Holder Address: ${certificateData.accountHolderAddress}`);
+      pdf.text(
+        20,
+        30,
+        `Account Holder Name: ${certificateData.accountHolderName}`
+      );
+      pdf.text(
+        20,
+        40,
+        `Account Holder Address: ${certificateData.accountHolderAddress}`
+      );
       pdf.text(20, 50, `Bank Branch Name: ${certificateData.bankBranchName}`);
       pdf.text(20, 60, "Interest Certificate");
       pdf.text(20, 70, "Dear Customer,");
@@ -308,54 +318,64 @@ const InterestCertificate = () => {
         20,
         80,
         `Please find below confirmation of the Interest paid and Tax withheld/Tax 
-         Deducted at Source/Interest Collected towards various 
-         Deposit/Loan accounts held under Cust ID : ${certificateData.accountHolderName} for 
-         the period ${certificateData.interestPeriod} ${certificateData.startDate}  ${certificateData.endDate}`
+        Deducted at Source/Interest Collected towards various 
+        Deposit/Loan accounts held under for 
+        the Interest Period: ${certificateData.interestPeriod} ${certificateData.startDate} - ${certificateData.endDate}`
       );
       pdf.text(20, 90, ``);
-      pdf.text(20, 110, `User Account Type: ${certificateData.userAccountType}`);
-      
+      pdf.text(
+        20,
+        110,
+        `User Account Type: ${certificateData.userAccountType}`
+      );
+
       const data = [
-        [certificateData.userAccountNumber, interestPaid.toString(), taxWithheld.toString()],
+        [
+          certificateData.userAccountNumber,
+          interestPaid.toString(),
+          taxWithheld.toString(),
+        ],
         ["Total", parseInt(interestPaid) + parseInt(taxWithheld)],
       ];
-      
-      
+
       data.slice(0, -1).forEach((row, index) => {
-        row.unshift(index + 1); 
+        row.unshift(index + 1);
       });
-      
-     
-      data[data.length - 1][0] = { content: 'Total', styles: { fontStyle: 'bold' } };
-      
+
+      data[data.length - 1][0] = {
+        content: "Total",
+        styles: { fontStyle: "bold" },
+      };
+
       pdf.autoTable({
         startY: 120,
         head: [
-          ["Sr.No", "Account Number", "Interest Paid (Amt. in INR)", "Tax Withheld (Amt. in INR)"],
+          [
+            "Sr.No",
+            "Account Number",
+            "Interest Paid (Amt. in INR)",
+            "Tax Withheld (Amt. in INR)",
+          ],
         ],
         body: data,
-        didDrawPage: function (data) {
-          
-        },
+        didDrawPage: function (data) {},
       });
-  
+
       const blob = pdf.output("blob");
       const url = URL.createObjectURL(blob);
-  
+
       const link = document.createElement("a");
       link.href = url;
       link.download = "InterestCertificateWithDetails.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-  
+
       console.log("Certificate Data:", certificateData);
     } catch (error) {
       console.error("Error generating certificate:", error);
     }
   };
-  
-  
 
   return (
     <div
@@ -368,13 +388,13 @@ const InterestCertificate = () => {
         </div>
         <div class=" col-9">
           <div className="interest_head">
-            <h1 style={{ color: "#f18121" }}>
+            <h3 style={{ color: "#EBCA28" }}>
               Download Interest & TDS Certificate
-            </h1>
+            </h3>
           </div>
           <div className="interest_certificate_baground card">
             <div className="interest_certificate_heading5">
-              <h4>Interest & TDS Certificate</h4>
+              <h5>Interest & TDS Certificate</h5>
             </div>
             <div className="interest_all_forms">
               <div className="interest_from_account row">
@@ -403,13 +423,13 @@ const InterestCertificate = () => {
 
               <div className="interest_form_label_radio row">
                 <label className="interest_form_radio_label col-sm-3">
-                  <input
+                  {/* <input
                     type="radio"
                     id="interestPeriod"
                     name="interestOption"
                     value={interestPeriodRef}
                     onChange={() => setInterestPeriod("FinancialYear")}
-                  />{" "}
+                  />{" "} */}
                   Interest Period
                 </label>
                 <div className="col-sm-6">
@@ -417,8 +437,10 @@ const InterestCertificate = () => {
                     typeof="number"
                     id="number"
                     className="inerest_selection_form form-control"
-                    value={interestPeriod}
-                    onChange={handleInterstPeriod}
+                    value={selectedPeriod}
+                    onChange={(event) =>
+                      handleInterstPeriod(event.target.value)
+                    }
                   >
                     <option value="select">Select FY</option>
                     <option value="2015-2016">2015-2016</option>
@@ -427,16 +449,18 @@ const InterestCertificate = () => {
                   </select>
                 </div>
               </div>
+              <p style={{ textAlign: "center", paddingTop: "30px" }}>OR</p>
+
               <div className="interest_form_label_radio_period row">
-                <label class="interest_form_radio_label col-sm-3">
-                  <input
-                    type="radio"
-                    id="interestPeriodDate"
-                    name="interestOption"
-                    value="interestPeriodDate"
-                    checked={interestPeriodDate === "InterestPeriodDate"}
-                    onChange={() => setInterestPeriodDate("InterestPeriodDate")}
-                  />{" "}
+                <label className="interest_form_radio_label col-sm-3">
+                  {/* <input
+      type="radio"
+      id="interestPeriodDate"
+      name="interestOption"
+      value="interestPeriodDate"
+      checked={interestPeriodDate === "InterestPeriodDate"}
+      onChange={() => setInterestPeriodDate("InterestPeriodDate")}
+    />{" "} */}
                   Interest Period Date
                 </label>
 
@@ -450,8 +474,9 @@ const InterestCertificate = () => {
                     onChange={handleStartDate}
                   />
                 </div>
+
                 <div className="col-sm-3">
-                  <label className=" " style={{ marginRight: "10px" }}>
+                  <label className="" style={{ marginRight: "20px" }}>
                     to
                   </label>
                   <input
@@ -464,16 +489,14 @@ const InterestCertificate = () => {
                 </div>
               </div>
             </div>
-            <div className="interet_buuton">
-              <button
-                type="button"
-                className="btn btn_interest_button"
-                style={{ background: "#f18121", color: "white" }}
-                onClick={handledownload}
-              >
-                Download OAD PDF
-              </button>
-            </div>
+
+            <button
+              type="button"
+              className="btn_interest_button"
+              onClick={handledownload}
+            >
+              Download PDF
+            </button>
           </div>
 
           <div className="inerest_heading6">
