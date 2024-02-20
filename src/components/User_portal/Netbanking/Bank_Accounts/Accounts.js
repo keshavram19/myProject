@@ -13,56 +13,56 @@ import apiList from '../../../../lib/apiList';
 
 const allTransactionsList = [
     {
-        date: '25 Jan 2024',
+        date: '15 Feb 2024',
         narration: 'UPI-BADE NAGARAJU-Q857498653@ybl-YESBOYBLUPI-439140239946-Payment from Phone',
         withdrawl: '20.00',
         deposite: '',
         balance: '1.48'
     },
     {
-        date: '24 Jan 2024',
+        date: '14 Feb 2024',
         narration: 'UPI-Mr RAVI TEJA-7032256838@ybl-IDIB000M160-402484923876-Payment to 7032256',
         withdrawl: '10,000.00',
         deposite: '',
         balance: '21.48'
     },
     {
-        date: '23 Jan 2024',
+        date: '13 Feb 2024',
         narration: 'UPI-PRATHI PAWAN KALYAN-89788426211@ybl-SBIN0011101-438930608914-Payment from Phone',
         withdrawl: '',
         deposite: '10,000.00',
         balance: '10,021.48'
     },
     {
-        date: '21 Jan 2024',
+        date: '12 Feb 2024',
         narration: 'UPI-KANDRA SUNIL-9676350447@ybl-IOBA0003640-402376683037-Payment to 9676350',
         withdrawl: '10,000.00',
         deposite: '',
         balance: '21.48'
     },
     {
-        date: '20 Jan 2024',
+        date: '11 Feb 2024',
         narration: 'UPI-Mr SAI TEJA-7032256838@ybl-IDIB000M160-438905881961-Payment from Phone',
         withdrawl: '',
         deposite: '10,000.00',
         balance: '10,021.48'
     },
     {
-        date: '19 Jan 2024',
+        date: '10 Feb 2024',
         narration: 'UPI-Southern Power Distr-TELANGANASSPDCL-@ybl-YESBOYBLUPI-438578208304-Payment from Phone',
         withdrawl: '579.00',
         deposite: '',
         balance: '34.43'
     },
     {
-        date: '18 Jan 2024',
+        date: '09 Feb 2024',
         narration: 'UPI-S J ENTERPRISES-paytmqr281005050101ohcg3wn30uhq@paytm-PYTM0123456-401914284585-Payment from Phone',
         withdrawl: '30.00',
         deposite: '',
         balance: '613.43'
     },
     {
-        date: '17 Jan 2024',
+        date: '08 Feb 2024',
         narration: 'UPI-FAMOUS CHICKEN CENTER-paytmqr1r7sb4s8ks@paytm-PYTM0123456-401897267622-Payment from Phone',
         withdrawl: '45.00',
         deposite: '',
@@ -167,7 +167,7 @@ const Accounts = () => {
                             </div>
                             <div className='d-flex justify-content-between savings_acc_another_acct'>
                                 <div><Link to='/user/account/statement'>Select Another Account/Period</Link></div>
-                                <div>Page 1 of 1</div>
+                                {/* <div>Page 1 of 1</div> */}
                             </div>
                             <div className='d-flex justify-content-end'>
                                 <div className='d-flex align-items-center'>
@@ -185,7 +185,7 @@ const Accounts = () => {
                                             <th>Balance</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody className='savings_acct_trans_table_body'>
                                         {
                                             latestTransactions.map((eachTran) => (
                                                 <tr>
@@ -205,7 +205,7 @@ const Accounts = () => {
                         ''
                     }
                     <div>
-                        <div className='savings_account_note'>Note:</div>
+                        <div className='savings_account_note'>Notes:</div>
                         <ul className='savings_account_note_points'>
                             <li className='savings_acct_note_points'>
                                 The available balance displayed includes the credit balance and overdraft limit (if any) in your account.

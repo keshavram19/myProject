@@ -75,7 +75,7 @@ const GenerateDebitCardPin = () => {
                         <hr />
                         <div className="card">
                             <h5 className="header card_details_generate_pin_heading p-3">Generate Debit Card PIN</h5>
-                            <div className="container-fluid p-2">
+                            <div className="container-fluid card_details_generate_pin_tags p-2">
                                 <div className="row">
                                     <div className="col-sm-4">
                                         <label htmlFor="ac_number">Debit Card Pin*:</label>
@@ -102,7 +102,7 @@ const GenerateDebitCardPin = () => {
                                         />
                                     </div>
                                 </div>
-                                <button className='btn btn-primary mt-3' onClick={handleGeneratePin}>Generate Now</button>
+                                <button className='genrate_pin_submits mt-3' onClick={handleGeneratePin}>Generate Now</button>
                             </div>
                         </div>
 

@@ -638,7 +638,11 @@ abbr[title] {
   font-size: 20px;
 }
 
-.quick_fund_transfer_button{
+
+/* .quick_fund_transfer_button{ */
+
+.generate_debit_pin_button{
+
   color: #2fb68e;
   border: 1px solid #2fb68e;
   outline: none;
@@ -678,6 +682,7 @@ abbr[title] {
     padding:1px 1px;
 }
 
+
 .quick_fund_buttons {
   color: #2fb68e;
   border: 1px solid #2fb68e;
@@ -698,6 +703,7 @@ abbr[title] {
     font-weight: 600;
   border-radius: 10px;
 }
+
 
 /*otppage.css ends */
   

@@ -172,7 +172,11 @@ const QuickFundTransfer = () => {
 
                         <div className="row ">
                             <div className="col-sm-4">
+
                                 <label htmlFor="text" className="d-flex">Transaction from<p className="quick_fund_tranfer_p">*</p></label>
+
+//                                 <label htmlFor="text">Transfer form*</label>
+
                                 <select
                                     className="form-control"
                                     value={selectedAccount}
@@ -193,16 +197,19 @@ const QuickFundTransfer = () => {
                                 </p>
                             </div>
                             <div className="col-sm-4">
+
                                 <label htmlFor="text" className="d-flex">To Account Number <p className="quick_fund_tranfer_p">*</p></label>
                                 <input type="number" className="form-control" id="toAccountNumber" />
                             </div>
                             <div className="col-sm-4">
                                 <label htmlFor="text" className="d-flex">Confirm Account Number <p className="quick_fund_tranfer_p">*</p></label>
+
                                 <input type="number" className="form-control" id="confirmAccountNumber" />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-sm-4">
+
                                 <label htmlFor="text" className="d-flex">Payee Name <p className="quick_fund_tranfer_p">*</p></label>
                                 <input type="text" className="form-control" id="payeeName" />
                             </div>
@@ -212,6 +219,7 @@ const QuickFundTransfer = () => {
                             </div>
                             <div className="col-sm-4">
                                 <label htmlFor="text" className="d-flex">Remarks(optional) <p className="quick_fund_tranfer_p">*</p></label>
+
                                 <select
                                     name=""
                                     id="remarks"
