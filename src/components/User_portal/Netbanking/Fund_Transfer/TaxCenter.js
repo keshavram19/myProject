@@ -44,6 +44,8 @@ import apiList from "../../../../lib/apiList";
       const response = await axios.post(apiList.taxOTPVerify, { mobileNumber, otp });
       setMessage(response.data.message);
       alert("OTP verified successfully");
+      setOTP('');
+
     } catch (error) {
       console.error('Error verifying OTP:', error);
       setMessage('Error verifying OTP.');

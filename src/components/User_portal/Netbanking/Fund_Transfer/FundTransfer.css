@@ -873,7 +873,9 @@ abbr[title] {
      .Inward_sel_Inacct_numbr{
       width: 160px;
       margin-left: 5px;
-      background-color: #f1ecec;
+      /* background-color: #f1ecec; */
+      /* background-color: #ebca28; */
+      background-color: #fff1ad;
       height: 25px;
        outline: none;
       font-size: small;
