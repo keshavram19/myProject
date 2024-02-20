@@ -7,7 +7,6 @@ import GeneratePin from "./components/User_portal/Netbanking/Bank_Accounts/Gener
 import BlockCard from "./components/User_portal/Netbanking/Bank_Accounts/BlockCard";
 import Reissuecard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCard";
 import ManageCardLimit from "./components/User_portal/Netbanking/Bank_Accounts/ManageCardLimit";
-import OtpPage from "./components/User_portal/Netbanking/Bank_Accounts/OtpPage";
 import ChequeBookReq from "./components/User_portal/Netbanking/Bank_Accounts/ChequeBookReq";
 import ViewAndUpdatePancard from "./components/User_portal/Netbanking/Bank_Accounts/ViewUpdatePANCard";
 import UpdateForm60 from "./components/User_portal/Netbanking/Bank_Accounts/UpdateForm60";
@@ -93,23 +92,28 @@ import ELocker from "./components/User_portal/Netbanking/Customerservice.js/ELoc
 import DropDownBankAccount from "./components/User_portal/Netbanking/Customerservice.js/Servierequestdropdown";
 import Servicerequest from "./components/User_portal/Netbanking/Customerservice.js/Servicerequest";
 import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Customerservice.js/Taxcenter";
-
 import BillDetails from "./components/User_portal/Netbanking/Bank_Accounts/BillDetails";
-
 import FinancialJourney from "./components/User_portal/Netbanking/Profile/Financial_Journey/FinancialJourney";
-
 import Renewfixedform from "./components/User_portal/Netbanking/Bank_Accounts/Renewfixedform";
+
 
 import FixedRecurringForm from "./components/User_portal/Netbanking/Bank_Accounts/Fixed_recurringForm";
 import RecurringForm from "./components/User_portal/Netbanking/Bank_Accounts/Recurring_deposit_form";
 
-import UpdatePancardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/UpdatePancardOtp";
 
+import UpdatePancardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/UpdatePancardOtp";
 import GenerateDebitCardPinOTP from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitPinOtp";
 import GenerateDebitCardPin from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitCardPin";
 import ReissueLostATMcard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueLostATM";
 import GenerateRequestLostATM from "./components/User_portal/Netbanking/Bank_Accounts/GenerateRequestLostATM";
 import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCardRequest";
+
+
+import ConvertToEMISubmit from "./components/User_portal/Netbanking/CreditCards/ConverttoEMISubmit";
+import AutoDebitConfirm from "./components/User_portal/Netbanking/CreditCards/AutodebitSetupconfirm";
+import ConvertToEMIOtp from "./components/User_portal/Netbanking/CreditCards/convertToEMIOtp";
+
+
 
 import OTPPage from "./components/User_portal/Netbanking/Fund_Transfer/OTPpage";
 import AccountOpeningForm from "./components/User_portal/AccountOpeningForm/AccountOpeningForm";
@@ -117,6 +121,7 @@ import AccountSuccessPage from "./components/User_portal/AccountOpeningForm/Acco
 import Adminhome from "./components/User_portal/admin_portal/admin_home/Admihome";
 import RequestedDatalist from "./components/User_portal/admin_portal/opening_requested_details/RequestedDatalist";
 import IndividualDatalist from "./components/User_portal/admin_portal/opening_requested_details/Individuallist/AccountOpeningForm";
+
 
 function App() {
   const location = useLocation();
@@ -191,7 +196,7 @@ function App() {
         />
         <Route
           path="/user/account/manage-card-limit-otp"
-          element={<OtpPage />}
+          element={<OTPPage />}
         />
 
         <Route
@@ -401,36 +406,23 @@ function App() {
         />
         <Route exact path="/user/covert-to-emi" element={<ConvertToEMI />} />
         <Route exact path="/user/emi-submit" element={<EMISubmit />} />
-        <Route
-          exact
-          path="/user/auto-debit-instructions"
-          element={<AutoDebitInstructions />}
-        />
-        <Route
-          exact
-          path="/user/virtual-credit-cards"
-          element={<VirtualCreditCards />}
-        />
-        <Route
-          exact
-          path="/user/request-billing-cycle-change"
-          element={<BillingCycleChange />}
-        />
-        <Route
-          exact
-          path="/user/generate-credit-card-pin"
-          element={<GenerateCreditCardPin />}
-        />
-        <Route
-          exact
-          path="/user/blockcreditcard"
-          element={<BlockCreditCard />}
-        />
-        <Route
-          exact
-          path="/user/alertsubscription"
-          element={<AlertSubscription />}
-        />
+
+        <Route exact path="/user/convert-to-emi-submit" element={<ConvertToEMISubmit />} />
+        <Route exact path="/user/convert-to-emi-submit-otp" element={<ConvertToEMIOtp />} />
+        <Route exact path="/user/auto-debit-instructions" element={<AutoDebitInstructions />} />
+        <Route exact path="/user/auto-debit-confirm" element={<AutoDebitConfirm />} />
+        <Route exact path="/user/virtual-credit-cards" element={<VirtualCreditCards />} />
+        <Route exact path="/user/request-billing-cycle-change" element={<BillingCycleChange />} />
+        <Route exact path="/user/generate-credit-card-pin" element={<GenerateCreditCardPin />} />
+        <Route exact path="/user/blockcreditcard" element={<BlockCreditCard />} />
+        <Route exact path="/user/alertsubscription" element={<AlertSubscription />} />
+
+        
+        
+        
+        
+        
+
         <Route exact path="/user/physicalpin" element={<PhysicalPin />} />
         <Route
           exact
