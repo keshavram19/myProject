@@ -9,7 +9,7 @@ import apiList from '../../../../lib/apiList';
 
 const ManageCardLimit = () => {
 
-  const accountNumber = 1234567890;
+  const accountNumber = 1124563456;
 
   const [otpMethod, setOtpMethod] = useState('');
 
@@ -227,8 +227,8 @@ const ManageCardLimit = () => {
         const { message } = otpResponse.data;
 
         if (message === 'OTP sent successfully') {
-          alert('Your OTP has been successfully generated!');
-          window.location.href = '/user/account/manage-card-limit-otp';
+          // alert('Your OTP has been successfully generated!');
+          window.location.href = '/user/account/manage-card-otp';
         } else {
           alert('Failed to generate OTP. Please try again.');
         }
@@ -371,7 +371,7 @@ const ManageCardLimit = () => {
                               class="form-control-range"
                               onChange={handleDomesticLimitChange1}
                               value={domesticLimit1}
-                              disabled={isChecked1}
+                              disabled={!isChecked1}
                             />
                             <span class="zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>0</span></span>
                             <span class="max_zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>450000</span></span>
@@ -412,7 +412,7 @@ const ManageCardLimit = () => {
                               class="form-control-range"
                               onChange={handleDomesticLimitChange2}
                               value={domesticLimit2}
-                              disabled={isChecked2}
+                              disabled={!isChecked2}
                             />
                             <span class="zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>0</span></span>
                             <span class="max_zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>750000</span></span>
@@ -451,7 +451,7 @@ const ManageCardLimit = () => {
                               class="form-control-range"
                               onChange={handleDomesticLimitChange3}
                               value={domesticLimit3}
-                              disabled={isChecked3}
+                              disabled={!isChecked3}
                             />
                             <span class="zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>0</span></span>
                             <span class="max_zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>750000</span></span>
@@ -490,7 +490,7 @@ const ManageCardLimit = () => {
                               class="form-control-range"
                               onChange={handleDomesticLimitChange4}
                               value={domesticLimit4}
-                              disabled={isChecked4}
+                              disabled={!isChecked4}
                             />
                             <span class="zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>0</span></span>
                             <span class="max_zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>5000</span></span>
@@ -521,7 +521,7 @@ const ManageCardLimit = () => {
                   ) : (
                     /* International container */
                     <div class="domestic container-fluid mt-4">
-                      <p style={{ color: 'orange' }}>Card is active for international transactions</p>
+                      <p style={{ color: '#ebca28' }}>Card is active for international transactions</p>
                       <div class="row">
                         <div class="col-sm-3">
                           <p>International</p>
@@ -556,7 +556,7 @@ const ManageCardLimit = () => {
                               class="form-control-range"
                               onChange={(event) => setInternationalLimit1(parseInt(event.target.value))}
                               value={internationalLimit1}
-                              disabled={isChecked5}
+                              disabled={!isChecked5}
                             />
                             <span class="zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>0</span></span>
                             <span class="max_zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>450000</span></span>
@@ -598,7 +598,7 @@ const ManageCardLimit = () => {
                               class="form-control-range"
                               onChange={(event) => setInternationalLimit2(parseInt(event.target.value))}
                               value={internationalLimit2}
-                              disabled={isChecked6}
+                              disabled={!isChecked6}
                             />
                             <span class="zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>0</span></span>
                             <span class="max_zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>450000</span></span>
@@ -637,7 +637,7 @@ const ManageCardLimit = () => {
                               class="form-control-range"
                               onChange={(event) => setInternationalLimit3(parseInt(event.target.value))}
                               value={internationalLimit3}
-                              disabled={isChecked7}
+                              disabled={!isChecked7}
                             />
                             <span class="zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>0</span></span>
                             <span class="max_zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>450000</span></span>
@@ -676,7 +676,7 @@ const ManageCardLimit = () => {
                               class="form-control-range"
                               onChange={(event) => setInternationalLimit4(parseInt(event.target.value))}
                               value={internationalLimit4}
-                              disabled={isChecked8}
+                              disabled={!isChecked8}
                             />
                             <span class="zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>0</span></span>
                             <span class="max_zero"><i class="fa-solid fa-indian-rupee-sign"></i><span>5000</span></span>
@@ -784,9 +784,9 @@ const ManageCardLimit = () => {
                 <hr />
                 <div className="d-flex mb-3 ml-3">
 
-                  <button className='back_btn'>
-                    BACK
-                  </button>
+                  <Link to='/user/account/debit-atm-card'>
+                    <button className='back_btn'>BACK</button>
+                  </Link>
                   <button className='ml-3 submit_btn' onClick={handleSubmit}>
                     SUBMIT
                   </button>

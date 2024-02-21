@@ -12,7 +12,8 @@
  /* Add transition for a smooth effect */
  .DropDown_Main_BankAccts_BankingAPP {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  color: #f18121;
+  /* color: #f18121; */
+color: #2fb68e;
 }
 
 .DropDown_Main_Division_BankingAPP{
@@ -45,7 +46,8 @@ font-weight: 500;
 padding: 20px 10px;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 text-align: left;
-color: #f18121;
+/* color: #f18121; */
+color: #2fb68e;
 width: 300px;
 border: 1px solid gray;
 border-top: none;
@@ -60,7 +62,8 @@ cursor: pointer;
 .DropDown_LinkAcctPol_Header_BankingAPP:hover,
 .DropDown_Forextrav_Header_BankingAPP:hover,
 .DropDown_Pockets_Header_BankingAPP:hover{
-  background-color: #faede2;
+  /* background-color: #faede2; */
+  background-color: #dffdf4;
 }
 .DropDown_Main_CreditCards_BankingAPP{
 padding: 20px 10px;
@@ -69,7 +72,9 @@ border: 1px solid gray;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 border-left: none;
 cursor: pointer;
-color: #f18121;
+/* color: #f18121; */
+color: #2fb68e;
+
 text-align: left;
 cursor: pointer;
 }
@@ -77,7 +82,9 @@ cursor: pointer;
 padding: 20px 10px;
 width: 300px;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-color: #f18121;
+/* color: #f18121; */
+color: #2fb68e;
+
 border: 1px solid gray;
 border-left: none;
 cursor: pointer;
@@ -87,7 +94,9 @@ cursor: pointer;
 .DropDown_Main_Loan_BankingAPP{
   padding: 20px 10px;
 width: 300px;
-color: #f18121;
+/* color: #f18121; */
+color: #2fb68e;
+
 border: 1px solid gray;
 border-left: none;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -101,7 +110,8 @@ cursor: pointer;
  border: 1px solid gray;
   border-left: none;
 cursor: pointer;
-color: #f18121;
+/* color: #f18121; */
+color: #2fb68e;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
  text-align: left;
 cursor: pointer;
@@ -110,7 +120,8 @@ cursor: pointer;
   padding: 20px 10px;
   width: 300px;
  border: 1px solid gray;
- color: #f18121;
+ /* color: #f18121; */
+ color: #2fb68e;
   border-left: none;
 cursor: pointer;
  text-align: left;
@@ -121,7 +132,8 @@ cursor: pointer;
   padding: 20px 10px;
   width: 300px;
  border: 1px solid gray;
- color: #f18121;
+ /* color: #f18121; */
+ color: #2fb68e;
   border-left: none;
 cursor: pointer;
  text-align: left;
@@ -134,7 +146,8 @@ width: 300px;
 border: 1px solid gray;
 border-left: none;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-color: #f18121;
+/* color: #f18121; */
+color: #2fb68e;
 cursor: pointer;
 text-align: left;
 cursor: pointer;
@@ -172,6 +185,7 @@ border-left: none;
     border-left: 1px solid rgb(209, 209, 209);
     border-right: 1px solid rgb(209, 209, 209);
     /* color : #f18121  */
+    color: #ebca28;
    }
 .DropDown_Sub_bank_aact_Statement_BankingAPP ,
 .DropDown_Sub_bank_aact_Transaction_BankingAPP ,
@@ -180,6 +194,7 @@ border-left: none;
 .DropDown_Sub_bank_aact_govt_BankingAPP{
  cursor: pointer;
  /* color : #f18121; */
+ color: #ebca28;
  padding: 10px ;
  border: 1px solid rgb(209, 209, 209);
  border-bottom: none;
@@ -191,21 +206,26 @@ border-left: none;
 .DropDown_Sub_bank_aact_Debit_card_BankingAPP:hover ,
 .DropDown_Sub_bank_aact_cheque_BankingAPP:hover ,
 .DropDown_Sub_bank_aact_govt_BankingAPP:hover{
-background-color: #faede2;
+/* background-color: #faede2; */
+background-color: #fffadf;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-color: #f18121;
+/* color: #f18121; */
+color: #ebca28;
 }
 .DropDown_Sub_Credit_modify_BankingAPP{
 cursor: pointer;
 padding: 10px ;
+
 border-left: 1px solid rgb(209, 209, 209);
 border-right: 1px solid rgb(209, 209, 209);
 /* color : #f18121  */
+color: #ebca28;
 }
 .DropDown_Sub_Credit_cardRelated_BankingAPP ,
 .DropDown_Sub_Credit_statementRel_BankingAPP{
  cursor: pointer;
 /* color : #f18121; */
+color: #ebca28;
 padding: 10px ;
 border: 1px solid rgb(209, 209, 209);
 border-bottom: none;
@@ -214,9 +234,13 @@ border-bottom: none;
 .DropDown_Sub_Credit_cardRelated_BankingAPP:hover ,
 .DropDown_Sub_Credit_statementRel_BankingAPP:hover
 {
-background-color: #faede2;
+/* background-color: #faede2; */
+/* background-color: #dffdf4; */
+background-color: #fffadf;
 transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-color: #f18121;
+/* color: #f18121; */
+color: #ebca28;
+
 }
 .DropDown_Sub_Division_FXdeposits_BankingAPP {
 cursor: pointer;
@@ -224,18 +248,24 @@ padding: 10px ;
 border-left: 1px solid rgb(209, 209, 209);
 border-right: 1px solid rgb(209, 209, 209);
 /* color : #f18121  */
+color: #ebca28;
 }
 .DropDown_Sub_Division_Recurrdeposits_BankingAPP{
 cursor: pointer;
 /* color : #f18121; */
+color: #ebca28;
 padding: 10px ;
 border: 1px solid rgb(209, 209, 209);
 border-bottom: none;}
 .DropDown_Sub_Division_FXdeposits_BankingAPP:hover ,
 .DropDown_Sub_Division_Recurrdeposits_BankingAPP:hover{
-  background-color: #faede2;
+  /* background-color: #faede2; */
+  /* background-color: #dffdf4; */
+  background-color: #fffadf;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  color: #f18121;
+  /* color: #f18121; */
+  color: #ebca28;
+
 }
 
 .DropDown_Main_Loan_BankingAPP{
@@ -280,7 +310,9 @@ cursor: pointer;
 }
 .DropDown_Sub_Lists_Loan_BankingAPP:hover{
   /* color: black; */
-  color : #f18121;
+  /* color : #f18121; */
+  color: #2fb68e;
+
   padding: 5px;
   text-decoration: none;
 }
@@ -434,7 +466,7 @@ display: flex;
    
 }
 .TaxCanter_heading_h2{
-    color: orange;
+    color: #ebca28;
 }
 .TaxCentre_firsttext{
     padding: 10px;
@@ -456,7 +488,7 @@ display: flex;
 
   }
   .TaxCentre_buttonOverflow{
-    background-color: orange;
+    background-color: #2fb68e;
     color: white;
     font-weight: 500;
     outline: none;
@@ -468,7 +500,7 @@ display: flex;
     
   }
   .TaxCentre_buttonOverflow:hover{
-    background-color: orange;
+    background-color: #2fb68e;
     color: white; 
   }  
   .TaxCentre_buttonOverflow:focus{
@@ -503,6 +535,177 @@ display: flex;
 
 
 /* Tax Center css end */
+
+
+/* Form16A OTP  starts*/
+.Form16A_otp_confirmation_btn_logos{
+    font-size: 20px;
+  }
+  
+  .Form16A_otp_confirmation_btn{
+    color: #f18121;
+    border: 1px solid #f18121;
+    outline: none;
+    align-items: center;
+    background-color: none;
+    font-size: 16px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+  }
+  
+  .Form16A_otp_confirmation_para{
+    font-size: small;
+    font-weight:  400;
+  }
+  
+  .Form16A_otp_confirmation_icon{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .Form16A_otp_confirmation_div_label{
+    display: flex;
+    flex-direction:column;
+    width: 150px;
+    outline: none;
+    height: 24px;
+    /* width: 200px; */
+    }
+  
+    .Form16A_otp_confirmation_icon_otp{
+      border: 1px solid rgb(207, 203, 203);
+      margin: 0px 5px;
+      height: 25px;
+      width: 30px;
+      padding:1px 1px;
+  }
+  
+  .Form16A_otp_confirmation_submits {
+    border: none;
+    color: white;
+    background-color: #2FB68E;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  .Form16A_otp_confirmation_buttons {
+    color: white;
+    background-color: #2FB68E;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .Form16A_otp_confirmation_heading  .form16A_container {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .Form16A_otp_confirmation_heading{
+    background-color: #81cfb6;
+    color: white;
+  }
+
+  .generate_Form16A_otp_button_logos{
+    font-size: 20px;
+  }
+
+  .generate_Form16A_otp_button{
+    color: #2FB68E;
+    border: 1px solid #2FB68E;
+    outline: none;
+    align-items: center;
+    background-color: none;
+    font-size: 16px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+  }
+  
+ 
+  .Form16A_otp_confirmation .bacKBtn_link{
+    text-decoration: none;
+    color: #f18121;
+  }
+  
+  .Form16A_otp_confirmation .text{
+    font-size: 14px;
+  }
+  
+  /* Form16A OTP ends*/
+  
+
+
+
+/* Forma16A css start */
+
+.form16a_format{
+    
+    padding-top: 30px;
+    margin-left: 28%;
+}
+.Form16A_otp_confirmation_buttons{
+  outline: none;
+  text-align: center;
+  border: 1px solid #2fb68e;
+  border-radius: 4px;
+  color: #2fb68e;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px;
+  width: 100px;
+  cursor: pointer; 
+}
+
+.Form16A_otp_confirmation_buttons:hover{
+  background-color: #2fb68e;
+  color: #fff;
+}
+
+.Form16A_genratepdf_submits {
+  outline: none;
+  text-align: center;
+  border: 1px solid #2fb68e;
+  border-radius: 4px;
+  color: #2fb68e;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px;
+  width: 100px;
+  cursor: pointer; 
+  }
+  .Form16A_genratepdf_submits:hover{
+    background-color: #2fb68e;
+    color: #fff;
+
+  }
+  .Form16A_genratepdf_submits2{
+    outline: none;
+    text-align: center;
+    border: 1px solid #2fb68e;
+    border-radius: 4px;
+    color: #2fb68e;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px;
+    cursor: pointer;
+    margin-left: 30px;
+
+  }
+
+  .Form16A_genratepdf_submits2:hover{
+    background-color: #2fb68e;
+    color: #fff;
+  }
+
+/* Forma16A css end */
+
+
+
 
 /* Footer css start */
 

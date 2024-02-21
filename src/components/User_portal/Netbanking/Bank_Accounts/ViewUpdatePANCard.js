@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer,toast } from 'react-toastify';
 import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import apiList from '../../../../lib/apiList';
@@ -13,7 +11,8 @@ import apiList from '../../../../lib/apiList';
 
 const UpdatePancard = () => {
 
-  const accountNumber = 1234567890;
+
+  const accountNumber = 1124563456;
 
   const [otpMethod, setOtpMethod] = useState('');
   const [userDetails, setUserDetails] = useState([]);
@@ -43,6 +42,7 @@ const UpdatePancard = () => {
   };
 
   useEffect(() => {
+  
     if (selectedAccount === '') {
       fetchData();
     }
@@ -99,16 +99,16 @@ const UpdatePancard = () => {
 
       <div className='pancard_container container-fluid' style={{ marginTop: "90px" }}>
         <div className='row'>
-          <ToastContainer />
+        <ToastContainer position="top-center" autoClose={5000} closeOnClick={true}/>
           <div className='col-3'>
             <BankaccountSidebar />
           </div>
           <div className='col-9'>
             <div className="container-fluid pancard my-2">
               <div className="d-flex">
-                <h3 className='update_pancard_heading'>View or Update PAN Card</h3>
+                <h4 className='update_pancard_heading'>View or Update PAN Card</h4>
               </div>
-              <div className="card my-3">
+              <div className="card mt-2">
                 <h6 className="pancard_heading p-3">View/Update PAN Card</h6>
                 <div className="container-fluid pancard_details p-3">
 
@@ -252,7 +252,7 @@ const UpdatePancard = () => {
                     <li>To remove an existing PAN and update a new one, you will need to visit the branch with acknowledgement copy of the letter given to IT authorities for surrender of the old PAN and carry your new PAN card for verification. 5. If you have provided your mobile number or e-mail ID, we will inform you about the closure of your request by SMS or e-mail respectively.
                       Providing the mobile number or e-mail ID here will not result in an update of your mobile number or e-mail ID as recorded with us.</li>
                     <li> If you have provided your mobile number or e-mail ID, we will inform you about the closure of your request by SMS or e-mail respectively. Providing the mobile number or e-mail ID here will not result in an update of your mobile number or e-mail ID as recorded with us.</li>
-                    <li>ICICI Bank doesnot take any resposibilty, and will also not be liable, for your claims, if the details provided by you are incorrect/incomplete.</li>
+                    <li>ROYAL ISLAMIC Bank doesnot take any resposibilty, and will also not be liable, for your claims, if the details provided by you are incorrect/incomplete.</li>
                   </ol>
                 </div>
               </div>

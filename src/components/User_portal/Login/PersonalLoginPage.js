@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import "./PersonalLoginPage.css";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import ReCAPTCHA from "react-google-recaptcha";
-
+import logo from "../../../Images/Royal islamic.png";
+import logIn from "../../../Images/login_img.png";
 const PersonalLoginPage = () => {
   const handleRecaptchaChange = (value) => {
     // Handle the reCAPTCHA value change
@@ -14,18 +15,17 @@ const PersonalLoginPage = () => {
 
   return (
     <div>
-      <div
-        className="container-fluid login_nav"
-    
-      >
+      <div className="container-fluid login_nav">
         <div className="container">
           <div className="row">
             <div className="col-6">
-              <h1>Logo</h1>
+              <img src={logo} style={{ width: "100px" }} />
             </div>
             <div className="col-6 text-right m-auto">
               <p className="mb-0">
-                <Link to="/netbanking-corporate-login">Login Corporate Banking</Link>
+                <Link to="/netbanking-corporate-login">
+                  Login Corporate Banking
+                </Link>
               </p>
             </div>
           </div>
@@ -33,8 +33,8 @@ const PersonalLoginPage = () => {
       </div>
       <div className="container-fluid">
         <div className="row personal_login">
-          <div className="col-md-5">
-            <h2>One Account with many benefits</h2>
+          <div className="col-md-5 p-0">
+            {/* <h2>One Account with many benefits</h2>
 
             <div className="row">
               <div className="col-md-2 text-center m-auto">
@@ -84,17 +84,22 @@ const PersonalLoginPage = () => {
                 <p>No withdrawal penalties, instant remittances & payments</p>
               </div>
             </div>
-            <button>Know more</button>
+            <button>Know more</button> */}
+            <img src={logIn} className="img-fluid" />
           </div>
 
           {form === "login" && (
             <div className="col-md-7">
               <h5>Login to Access Your Personal Banking</h5>
-              <p className="personal_dont_password">
-                <Link to="#" onClick={() => setForm("createuser")}>
+              {/* <p className="personal_dont_password">
+                <Link
+                  to="#"
+                  onClick={() => setForm("createuser")}
+                  style={{ color: "#f18121" }}
+                >
                   Don't have a username? Create Now
                 </Link>
-              </p>
+              </p> */}
               <input
                 type="text"
                 placeholder="Enter Bank Username"
@@ -118,12 +123,20 @@ const PersonalLoginPage = () => {
                   <button>Sign In Securly</button>
                 </div>
                 <div className="col-md-4 m-auto text-right">
-                  <Link to="#" onClick={() => setForm("forgotusername")}>
+                  <Link
+                    to="#"
+                    onClick={() => setForm("forgotusername")}
+                    style={{ color: "#f18121" }}
+                  >
                     Forgot Username
                   </Link>
                 </div>
                 <div className="col-md-4  m-auto">
-                  <Link to="#" onClick={() => setForm("forgotpassword")}>
+                  <Link
+                    to="#"
+                    onClick={() => setForm("forgotpassword")}
+                    style={{ color: "#f18121" }}
+                  >
                     Forgot Password
                   </Link>
                 </div>
@@ -140,7 +153,7 @@ const PersonalLoginPage = () => {
             </div>
           )}
 
-          {form === "createuser" && (
+          {/* {form === "createuser" && (
             <div className="col-md-7">
               <h5>
                 <FaArrowLeftLong
@@ -167,7 +180,7 @@ const PersonalLoginPage = () => {
                 <button>Continue</button>
               </div>
             </div>
-          )}
+          )} */}
 
           {form === "forgotusername" && (
             <div className="col-md-7">

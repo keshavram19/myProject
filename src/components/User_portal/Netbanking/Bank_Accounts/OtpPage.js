@@ -1,25 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Accounts.css';
-import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import apiList from '../../../../lib/apiList';
-import { MdOutlineMessage, MdOutlineMail } from 'react-icons/md';
-import { IoCallOutline } from 'react-icons/io5';
+import { MdOutlineMessage } from "react-icons/md";
+import { MdOutlineMail } from "react-icons/md";
+import { IoCallOutline } from "react-icons/io5";
 
 
-const OtpPage = () => {
 
-    const accountNumber = 1234567890;
+
+
+
+const OTPPage = () => {
+
+
+
+    const navigate = useNavigate();
 
     const [userDetails, setUserDetails] = useState([]);
     const [lastFourDigits, setLastFourDigits] = useState('');
     const [otp, setOtp] = useState('');
     const [validationError, setValidationError] = useState('');
-    const [timer, setTimer] = useState(100);
+    const [timer, setTimer] = useState(60);
     const [buttonsDisabled, setButtonsDisabled] = useState(true);
+    const accountNumber = 1124563456;
 
 
+
+    
     const fetchData = async () => {
         try {
             const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
@@ -34,9 +43,19 @@ const OtpPage = () => {
             } else {
                 console.error('Invalid user details format:', userDetailsData);
             }
+
         } catch (error) {
             console.error('Error fetching user details:', error);
         }
+
+
+
+        console.log('User Details:', userDetails);
+
+
+
+
+
     };
 
     useEffect(() => {
@@ -48,6 +67,7 @@ const OtpPage = () => {
         setOtp(event.target.value);
         setValidationError('');
     };
+
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -64,13 +84,16 @@ const OtpPage = () => {
         return () => clearInterval(intervalId);
     }, []);
 
+
     const formatTime = (seconds) => {
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
         return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
     };
 
+
     const formatDebitCardNumber = (cardNumber) => {
+
         const cardNumberString = String(cardNumber);
         const firstFourDigits = cardNumberString.substring(0, 4);
         const lastFourDigits = cardNumberString.substring(cardNumberString.length - 4);
@@ -84,7 +107,7 @@ const OtpPage = () => {
             await fetchData();
 
             if (Array.isArray(userDetails) && userDetails.length > 0) {
-                const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
+                const otpResponse = await axios.post(`${apiList.GenerateCardPin}`, {
                     accountNumber: userDetails[0].userAccountNumber,
                     debitCardNumber: formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber),
                     mobileNumber: lastFourDigits,
@@ -93,7 +116,10 @@ const OtpPage = () => {
 
                 console.log(otpResponse.data);
 
+                
                 setTimer(100);
+
+
                 setButtonsDisabled(true);
                 setOtp('');
             } else {
@@ -104,6 +130,7 @@ const OtpPage = () => {
         }
     };
 
+
     const handleOtpValidation = async () => {
         try {
             await fetchData();
@@ -113,7 +140,11 @@ const OtpPage = () => {
 
             console.log(response.data);
 
-            alert('OTP validation successful.');
+
+            navigate("/user/generate-creditcard-pin");
+
+
+
 
         } catch (error) {
             console.error('Error validating OTP:', error);
@@ -122,152 +153,66 @@ const OtpPage = () => {
     };
 
 
-    return (
-        <div className='container-fluid' style={{ marginTop: '80px' }}>
+    return(
+        <div className='container-fluid'>
             <div className='row'>
+                <div className='col-sm-12'>
+                <p className="pl-2">Please enter these details to authorize the transaction</p>
 
-                <div className='col-3'>
-                    <BankaccountSidebar />
+<div className=" generate_debit_pin_para p-2">
+    <label htmlFor="otp">One Time Password</label>
+    <div className="generate_debit_pin_icon">
+        <input
+            className="generate_debit_pin_div_label"
+            type="text"
+            id="otp"
+            name="otp"
+            value={otp}
+            onChange={handleOtpChange}
+        />
+
+        <button className="generate_debit_pin_icon_otp">
+            <i class="fa-solid fa-keyboard fa-xl"></i>
+        </button>
+        <p className='ml-1'>OTP has been generated with validity of 100 seconds</p>
+    </div>
+    <p>Still didn't get OTP? Resend OTP in {formatTime(timer)} seconds</p>
+</div>
+
+<div className='row  p-2' >
+    <div className='col-sm-6'>
+        <div className=''>
+            <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('sms')} disabled={buttonsDisabled}><MdOutlineMessage className='generate_debit_pin_button_logos' /> SMS</button>
+            <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('email')} disabled={buttonsDisabled}><MdOutlineMail className='generate_debit_pin_button_logos'/> Email</button>
+            <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('call')} disabled={buttonsDisabled}><IoCallOutline className='generate_debit_pin_button_logos' /> Call</button>
+
+        </div>
+    </div>
+</div>
+
+<div className='mt-1 p-2'>
+    <p>If there is a delay in receipt of OTP, you can send a request to receive it. SMS IBOTP to 5676766 or 9215676766. Request should be sent from the mobile number registered in our records.</p>
+    </div>
+    <div className='p-2'>
+        <p>Please do not share OTP with anyone, even if the person claims to be an ICICI Bank official. For further details please <Link>click here.</Link></p>
+    </div>
+
+{validationError && <div style={{ color: 'red' }}>{validationError}</div>}
+
+<div className="d-flex mt-3 mb-3">
+    <button type="button" className="genrate_pin_buttons ml-3">
+        BACK
+    </button>
+    <button type="button" className="genrate_pin_submits ml-5" onClick={handleOtpValidation} >
+        SUBMIT
+    </button>
+</div>
                 </div>
-                <div className='col-9 limit_request_confirmation'>
-                    <div className="d-flex">
-                        <h3 className='request_confirmation_heading'>Request Confirmation</h3>
-                    </div>
-                    <div className="card limit_request_confirmation mt-3">
-                        <h6 className="limit_request_confirmation_heading p-3">Request Confirmation</h6>
 
-                        <div className="form_container p-3" style={{ fontSize: '14px' }}>
-
-                            <div className="row">
-                                <div className="col-sm-4">
-                                    <label for="text">Savings Account Number</label>
-                                </div>
-                                <div className="col-sm-3">
-                                    {userDetails.map((account, index) => (
-                                        <p key={index} value={account.userAccountNumber}>
-                                            {account.userAccountNumber}
-                                        </p>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="row mt-1">
-                                <div className="col-sm-4">
-                                    <label for="text">Debit Card Number</label>
-                                </div>
-                                <div className="col-sm-3">
-                                    {userDetails.length > 0 && (
-                                        <option value={formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber)}>
-                                            {formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber)}
-                                        </option>
-                                    )}
-                                </div>
-                            </div>
-                            {/* mobilenumber */}
-                            <div className="row mt-1">
-                                <div className="col-sm-4">
-                                    <label for="text">Mobile Number*</label>
-                                </div>
-                                <div className="col-sm-3">
-                                    <p>  {`XXXXXX${String(lastFourDigits).slice(-4)}`} </p>
-                                </div>
-                            </div>
-                            {/* gmail */}
-                            <div className="row mt-1">
-                                <div className="col-sm-4">
-                                    <label for="text">E-mail Id*</label>
-                                </div>
-                                <div className="col-sm-3">
-                                    {userDetails.map((account, index) => (
-                                        <p key={index} value={account.userAccountNumber}>
-                                            {account.userEmailId}
-                                        </p>
-                                    ))}
-                                </div>
-                            </div>
-                            <hr />
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='col-sm-12'>
-                            <p className='pl-2'>Please enter these details to authorize the transaction</p>
-
-                            <div className='limit_request_confirmation_para p-2'>
-                                <label htmlFor='otp'>One Time Password</label>
-                                <div className='limit_request_confirmation_icon'>
-                                    <input
-                                        className='limit_request_confirmation_div_label'
-                                        type='text'
-                                        id='otp'
-                                        name='otp'
-                                        value={otp}
-                                        onChange={handleOtpChange}
-                                    />
-
-                                    <button className='limit_request_confirmation_icon_otp'>
-                                        <i className='fa-solid fa-keyboard fa-xl'></i>
-                                    </button>
-                                    <p className='ml-1'>OTP has been generated with validity of 100 seconds</p>
-                                </div>
-                                <p>Still didn't get OTP? Resend OTP in {formatTime(timer)} seconds</p>
-                            </div>
-
-                            <div className='row p-2'>
-                                <div className='col-sm-6'>
-                                    <div className=''>
-                                        <button
-                                            className='limit_request_confirmation_btn ml-2'
-                                            onClick={() => handleOtpGeneration('sms')}
-                                            disabled={buttonsDisabled}
-                                        >
-                                            <MdOutlineMessage className='limit_request_confirmation_btn_logos' /> SMS
-                                        </button>
-                                        <button
-                                            className='limit_request_confirmation_btn ml-2'
-                                            onClick={() => handleOtpGeneration('email')}
-                                            disabled={buttonsDisabled}
-                                        >
-                                            <MdOutlineMail className='limit_request_confirmation_btn_logos' /> Email
-                                        </button>
-                                        <button
-                                            className='limit_request_confirmation_btn ml-2'
-                                            onClick={() => handleOtpGeneration('call')}
-                                            disabled={buttonsDisabled}
-                                        >
-                                            <IoCallOutline className='limit_request_confirmation_btn_logos' /> Call
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className='mt-1 p-2 text'>
-                                <p>
-                                    If there is a delay in receipt of OTP, you can send a request to receive it. SMS IBOTP to 5676766 or
-                                    9215676766. Request should be sent from the mobile number registered in our records.
-                                </p>
-                            </div>
-                            <div className='p-2'>
-                                <p style={{ fontSize: '14px' }}>
-                                    Please do not share OTP with anyone, even if the person claims to be an ROYAL ISLAMIC Bank official. For further
-                                    details please <Link to='/some-link'>click here.</Link>
-                                </p>
-                            </div>
-
-                            {validationError && <div style={{ color: 'red' }}>{validationError}</div>}
-
-                            <div className='d-flex mt-3 mb-5'>
-                                <button type='button' className='limit_request_confirmation_buttons ml-2'>
-                                    <Link to="/user/account/manage-cardlimit" style={{ textDecoration: 'none' }} className='bacKBtn_link'>BACK</Link>
-                                </button>
-                                <button type='button' className='limit_request_confirmation_submits ml-3' onClick={handleOtpValidation}>
-                                    SUBMIT
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default OtpPage;
+
+export default OTPPage;

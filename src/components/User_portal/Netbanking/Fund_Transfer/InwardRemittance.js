@@ -1,22 +1,98 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './FundTransfer.css';
 import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
+import axios from 'axios';  
+import apiList from '../../../../lib/apiList';
 
+// 
+function InwardRemitance () {
+   const [transferDetails, setTransferDetails] = useState({
+    accountNumber: '',
+    beneficiaryName: '',
+    beneficiaryAddress: '',
+    beneficiaryAccountNumber: '',
+    beneficiaryIfscCode: '',
+    PhoneNumber: '',
+    reviewAccuracy: false,
+    purposeOfRemittance: '',
+    bookFXDeal: false,
+    amount:'',
+    currency:''
+  
+  });
+  const [alertMessage, setAlertMessage] = useState('');
+ 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (
+      !transferDetails.accountNumber ||
+      !transferDetails.beneficiaryName ||
+      !transferDetails.beneficiaryAddress ||
+      !transferDetails.beneficiaryAccountNumber ||
+      !transferDetails.beneficiaryIfscCode ||
+      !transferDetails.PhoneNumber ||
+      !transferDetails.purposeOfRemittance ||
+      !transferDetails.reviewAccuracy ||
+      !transferDetails.currency ||
+      !transferDetails.amount
+        
+  ) {
+      // Set alert message to prompt the user to complete all details
+      // setAlertMessage('Please complete all details before submitting.');
+      alert('Please fill in all the details completely and review the information for accuracy by checking the checkbox.');
+    
+      return; // Prevent form submission
+  }else if (!transferDetails.reviewAccuracy) {
+    alert('Please agree by checking the checkbox to continue.');
+    return; // Prevent form submission
+  }
+    try {
+        //  const response = await axios.post('http://localhost:4444/api/submitForm', transferDetails);
+        const response = await axios.post(apiList.inwardRemittance, transferDetails);
+        console.log(response.data);
+        alert("user registered succeesfully");
 
-const InwardRemitance = () => {
+            //  setAlertMessage('Request sent to the email ID.');
 
+             setTransferDetails({
+              accountNumber: '',
+              beneficiaryName: '',
+              beneficiaryAddress: '',
+              beneficiaryAccountNumber: '',
+              beneficiaryIfscCode: '',
+              PhoneNumber: '',
+              reviewAccuracy: false,
+              purposeOfRemittance: '',
+              bookFXDeal: false,
+              amount:'',
+              currency:''
+            });
+        
+        console.log(response.data);  
+    } catch (error) {
+        console.error('Error submitting form:', error);
+     }
+};
+  // inward remittance backend ends
+
+  // 
+   const handleAccountNumberChange = (e) => {
+    
+    setTransferDetails({
+      ...transferDetails,
+      accountNumber: e.target.value,
+    });
+  };
 
 
   return (
 
-
 <>
-      <div className='container-fluid' style={{marginTop:"90px"}}> 
+       <div className='container-fluid' style={{marginTop:"90px"}}> 
 
           
 
-      {/* <div className='inwardbank-header'></div> */}
-
+ 
       <div className="Inward_Remitance_container">
                 <div className='row'>
                 <div className='col-3'>
@@ -60,37 +136,227 @@ const InwardRemitance = () => {
                   <p className='Inward_four_lists'>Select account number for receiving the remittance</p>
 
                   <div className='Inward_part_two'>
-                    <p className='ptag_inward_acct_num'>Account Number :</p>
-                    <select className='Inward_sel_Inacct_numbr' id="InwardaccountNumber"
-                      name="accountNumber">
-                      <option value="">Select</option>
-                      <option value="123456789">123456789</option>
-                      <option value="987654321">987654321</option>
-                    </select>
+                    
+                  
                   </div>
                   <p className='Inward_four_lists  mt-1 ' >Go ahead! submit details to receive remittance with Royal Islamic Bank SMART WIRE service</p>
-                  <button className='inward_submit_app mb-2' type="submit">Generate Request</button>
-
+ 
                 </div>
+                <div className='mt-3'>
+      <p className='Inward_remittance_Request_Form_one'>Enter Transfer Details:</p>
+      <form className='Inward_remittance_Request_Form' onSubmit={handleSubmit}>
+       
+       {/* Another input form */}
+       <label className='acctnum_inward_head'>Account Number:</label>
+            <select className='Inward_sel_Inacct_numbr'
+               value={transferDetails.accountNumber}
+              onChange={handleAccountNumberChange}
+            >
+              <option value="">Select</option>
+              <option value="123456789">123456789</option>
+              <option value="987654321">987654321</option>
+            </select>
+            {/* ends input form */}
+            <br/>
+            <div className='inward_remittance_fields_Row'>
+              <div>
+        <label className='Inward_remittance_Request_Label'>
+          Beneficiary Name:</label>
+        <input className='Inward_remittance_Request_input_form'
+          type="text"
+          value={transferDetails.beneficiaryName}
+          onChange={(e) =>
+            setTransferDetails({
+              ...transferDetails,
+              beneficiaryName: e.target.value,
+            })
+          }
+        />
+        </div>
+        <div className='Inward_remittance_row_two'>
+          <label className='Inward_remittance_Request_Label'>Beneficiary Address:</label>
+        <input className='Inward_remittance_Request_input_form'
+          type="text"
+          value={transferDetails.beneficiaryAddress}
+          onChange={(e) =>
+            setTransferDetails({
+              ...transferDetails,
+              beneficiaryAddress: e.target.value,
+            })
+          }
+        />
+        </div>
+                </div>
+<div className='inward_remittance_fields_Row'>
+  <div>
+          <label className='Inward_remittance_Request_Label'>Beneficiary Bank Account Number:</label>
+        <input className='Inward_remittance_Request_input_form'
+          type="text"
+          value={transferDetails.beneficiaryAccountNumber}
+          onChange={(e) =>
+            setTransferDetails({
+              ...transferDetails,
+              beneficiaryAccountNumber: e.target.value,
+            })
+          }
+        />
+        </div>
+        <div className='Inward_remittance_row_two'>
+         <label className='Inward_remittance_Request_Label'>Beneficiary Phone Number:</label>
+        <input className='Inward_remittance_Request_input_form'
+          type="text"
+          value={transferDetails.PhoneNumber}
+          onChange={(e) =>
+            setTransferDetails({
+              ...transferDetails,
+              PhoneNumber: e.target.value,
+            })
+          }
+        />
+        </div>
+        </div>
+         <div className='inward_remittance_fields_Row'>
+          <div>
+         <label className='Inward_remittance_Request_Label'>Beneficiary Ifsc Code:</label>
+        <input className='Inward_remittance_Request_input_form'
+          type="text"
+          value={transferDetails.beneficiaryIfscCode}
+          onChange={(e) =>
+            setTransferDetails({
+              ...transferDetails,
+              beneficiaryIfscCode: e.target.value,
+            })
+          }
+        />
+        </div>
+          <div className='Inward_remittance_row_two'>
+        <label className='Inward_remittance_Request_Label'>Purpose of Remittance:</label>
+         {/* <p className='Inward_remittance_Request_form_ptag_Pur'>Purpose of Remittance </p> */}
+          <input  
+            className='Inward_remittance_Request_input_form' 
+            type="text"
+            value={transferDetails.purposeOfRemittance}
+            onChange={(e) =>
+              setTransferDetails({
+                ...transferDetails,
+              purposeOfRemittance:e.target.value,
+                
+           
+              })
+            }
+          />
+         </div>
+         </div>
+          {/* new fields */}
+          <div className='inward_remittance_fields_Row'>
+            <div>
+            <label className='Inward_remittance_Request_Label'>Amount:</label>
+            <input className='Inward_remittance_Request_input_form'
+              type="text"
+              value={transferDetails.amount}
+              onChange={(e) =>
+                setTransferDetails({
+                  ...transferDetails,
+                  amount: e.target.value,
+                })
+                }
+              />
+</div>
+<div className='Inward_remittance_row_two'>
+  <label className='Inward_remittance_Request_Label'>Currency:</label>
+  <input className='Inward_remittance_Request_input_form'
+    type="text"
+    value={transferDetails.currency}
+    onChange={(e) =>
+      setTransferDetails({
+        ...transferDetails,
+        currency: e.target.value,
+      })
+    }
+  />
+</div>
+</div>
+
+          {/* new fields ends  */}
+
+        {/* Other fields for transfer details... */}
+
+        <p className='Inward_remittance_Request_Form_one_Sub'>Submit Details/Declarations:</p>
+        <label className='Inward_remittance_Request_form_checkbox'>
+          <input
+            className='Inward_remittance_Request_input_form_check'
+            type="checkbox" 
+            checked={transferDetails.reviewAccuracy}
+            onChange={(e) =>
+              setTransferDetails({
+                ...transferDetails,
+                reviewAccuracy: e.target.checked,
+              })
+            
+            }
+          />
+                 <p className='Inward_remittance_Request_form_ptag_Del'>Review Information for Accuracy</p>
+
+      </label>
+
+ 
+        {/* <h2 className='Inward_remittance_Request_one'>Option to Book FX Deal:</h2> */}
+        {/* <label className='Inward_remittance_Request_Label'> */}
+         <label className='Inward_remittance_Request_form_checkbox'>
+          <input 
+          className='Inward_remittance_Request_input_form_check'
+            type="checkbox"
+            // checked={fxDeal.bookFXDeal}
+            checked={transferDetails.bookFXDeal}
+
+            onChange={(e) =>
+              // setFXDeal({ ...fxDeal, bookFXDeal: e.target.checked })
+              setTransferDetails({
+                ...transferDetails,
+                bookFXDeal: e.target.checked,
+              })
+
+            } 
+          />
+                  {/* <p className='Inward_remittance_Request_form_Option'>Option to Book FX Deal</p> */}
+                  <p className='Inward_remittance_Request_form_ptag_Del'>Option to Book FX Deal</p>
+
+        </label>
+        {/* Other fields for FX deal... */}
+
+        <p className='Inward_remittance_Request_one'>Share Request Form:</p>
+        <button className ='Inward_remittance_Request_form_ptag' type="submit"
+         disabled={!transferDetails.reviewAccuracy}
+        >Generate Request Form</button>
+        {/* Other fields for request form... */}
+      </form>
+    </div>
 
               </div>
             </div>
+          
+    {/* {alertMessage && (
+                <div className="alert alert-success mt-2" role="alert">
+                  {alertMessage}
+                </div>
+              )} */}
+
           </div>
+         
+        
+</div>
 
         </div>
 
           </div>
+         
 
-        
-</div>
-
-   
-    </>
-
+   </>
+ 
   );
 
 
 
 };
 
-export default InwardRemitance
+export default InwardRemitance ;
