@@ -25,7 +25,7 @@ const ApplyOnline = ()=>{
                         <p>Get a feature-packed ROYAL ISLAMIC Bank credit card on the fly</p>
                     </div>
                     <div className='applyonline_divbutton'>
-                        <button className='applyonline_applybtn'>APPLY NOW</button>
+                        APPLY NOW
                     </div>
                 </div>
 
@@ -41,7 +41,7 @@ const ApplyOnline = ()=>{
                         <button className='applyonline_knowbtn'>Know more<IoIosArrowForward/></button>
                     </div>
                     <div className='applyonline_divbutton'>
-                        <button className='applyonline_applybtn'>APPLY NOW</button>
+                        APPLY NOW
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@ const ApplyOnline = ()=>{
                         <button className='applyonline_knowbtn'>Know more<IoIosArrowForward/></button>
                     </div>
                     <div className='applyonline_divbutton'>
-                        <button className='applyonline_applybtn'>APPLY NOW</button>
+                        APPLY NOW
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@ const ApplyOnline = ()=>{
                         <button className='applyonline_knowbtn'>Know more<IoIosArrowForward/></button>
                     </div>
                     <div className='applyonline_divbutton'>
-                        <button className='applyonline_applybtn'>APPLY NOW</button>
+                        APPLY NOW
                     </div>
                 </div>
 
