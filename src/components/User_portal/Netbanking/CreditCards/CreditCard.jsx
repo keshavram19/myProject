@@ -420,15 +420,20 @@ const CreditCard = () => {
                                             </div>
 
                                             <div class="progress my-2">
-                                                <div className="progress-bar"
-                                                    style={{
-                                                        width: '100%',
-                                                        background: `linear-gradient(to right, 
-                                                            red ${(individualCreditCard.totalAmountDue / individualCreditCard.creditCardLimit) * 100}%,
-                                                            orange ${(individualCreditCard.currentOutstanding / individualCreditCard.creditCardLimit) * 100}%,
-                                                            green ${(individualCreditCard.availableCreditLimit / individualCreditCard.creditCardLimit) * 100}%)`
-                                                    }}
-                                                >
+                                                <div className='progress-bar'
+                                                    style={{width: `${(individualCreditCard.totalAmountDue / individualCreditCard.creditCardLimit) * 100}%`, 
+                                                        backgroundColor: 'red'}}>
+
+                                                </div>
+                                                <div className='progress-bar'
+                                                    style={{width: `${(individualCreditCard.currentOutstanding / individualCreditCard.creditCardLimit) * 100}%`, 
+                                                        backgroundColor: 'orange'}}>
+
+                                                </div>
+                                                <div className='progress-bar'
+                                                    style={{width: `${(individualCreditCard.availableCreditLimit / individualCreditCard.creditCardLimit) * 100}%`, 
+                                                        backgroundColor: 'green'}}>
+
                                                 </div>
                                             </div>
 
@@ -484,7 +489,7 @@ const CreditCard = () => {
                                                     </button>
                                                 </div>
                                                 <div>
-                                                    <div className='credit_card_due_date'>(Due Date: 30-01-2024)</div>
+                                                    <div className='credit_card_due_date'>(Due Date: 29-02-2024)</div>
                                                     <div className='credit_card_payment_reflect'>
                                                         Pay instantly through Royal Islamic Bank! Payments made through other platforms may take up to 48 hours to reflect.
                                                     </div>
