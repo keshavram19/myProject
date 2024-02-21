@@ -8,7 +8,7 @@ import apiList from '../../../../lib/apiList';
 
 const ChequeBookReq = () => {
 
-  const accountNumber = 1234567890;
+  const accountNumber = 1124563456;
   
   const [userDetails, setUserDetails] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState('');
@@ -91,7 +91,7 @@ const ChequeBookReq = () => {
                       >
                         {userDetails.map((account, index) => (
                           <option key={index} value={account.userAccountNumber}>
-                            <p>{account.accountHolderAddress}</p>
+                             <p>{`${account.accountHolderAddress.city}, ${account.accountHolderAddress.state}, ${account.accountHolderAddress.pincode}`}</p>
                           </option>
                         ))}
                       </select>
