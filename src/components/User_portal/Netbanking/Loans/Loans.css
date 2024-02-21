@@ -405,3 +405,177 @@ justify-content: flex-end;
     
     
     /* apply online css ends */
+     /* view container styles start */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+.renew_hero_container {
+    margin: 0;
+   }
+.view_container{
+    margin-top: 50px;
+    background-color: rgb(219, 215, 215);
+    padding: 5px;
+    border-radius: 10px;
+    color: black;
+    padding-right: 80px;
+}
+   .view_containeriew_container h4{
+    color: orange;
+   }
+   .view_container h4{
+    color: orange;
+     margin-left: 20px;
+     }
+   .view-container_headding h4{
+     margin-right: 900px;
+     padding-top: 80px;
+     color: #2fb68e;
+     margin-left: 20px;
+   }
+ 
+  .view_personai_loan p{
+     margin-right: 500px;
+     padding-left: 40PX;
+
+  }
+  
+ .view_checkbox_conteanier{
+     /* background-color: rgb(239, 248, 248); */
+     box-shadow: 10px;
+     border-radius: 15px;
+     
+ 
+  }
+ .graph-container{
+    margin-left: 500px;
+    margin-bottom: 20px;
+    
+ }
+
+  
+  
+ .view_table_product td{
+     width: 100%;
+     color: rgb(165, 77, 43);
+     /* background-color: rgb(233, 229, 224); */
+   }
+  
+  
+  
+   .view_date_container{
+     
+     margin-left: 700px;
+   }
+   
+ .checkbox_containertype{
+     display: flex;
+     
+     
+   }
+   .view_container_note {
+     margin-top: 20px;
+   }
+    .garph_view{
+     height: 200px;
+     width: 50px;
+   } 
+   
+  
+   .view_checkbox_container input[type="checkbox"] {
+     margin-bottom: 5px;
+     
+   }
+   
+   
+   .table_product td, .table_product th {
+     border: 1px solid; 
+     padding: 8px; 
+   }
+   
+   
+   /* .table_product tbody tr:nth-child(even) {
+     background-color: #f9f9f9; 
+   } */
+   .percentage-label {
+     text-align: center;
+     font-size: 18px;
+     color: #333;
+     margin-top: 10px;
+   } 
+   /* view container styles end*/
+   /* loan service container styles start */
+ .loan_service_container{
+     background-color: rgb(223, 233, 230);
+  }
+  .renew_hero_container {
+    margin: 0;
+   }
+  .loan_container_fluid {
+     /* margin-right: 850px; */
+     padding-top: 20px;
+     -webkit-box-shadow: none;
+     box-shadow: none;
+     /* background-color: rgb(223, 233, 230); */
+     /* color: orange; */
+     margin-top: 100px;
+     
+    
+   
+  
+  }
+   
+   .loan_container_fluid h3 {
+     margin-top: 20px;
+     font-size: 34px;
+     color: #2fb68e;
+   }
+   
+   .loan_service_container {
+     margin-top: 20px;
+     
+   }
+    .loan_service_container span{
+  font-size: 20px;
+    }
+   
+   .form_inline {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     margin-bottom: 15px;
+     box-shadow: none;
+   }
+   
+   .form_inline label {
+     margin-right: 15px;
+     box-shadow: none;
+   }
+   
+   .loan_select {
+     width: 150%;
+     padding: 6px;
+   }
+   
+  .loan_submit_container{
+     background-color: rgb(223, 233, 230);
+     padding-top: 20px;
+     padding-bottom: 30px;
+     margin-top: 20px;
+     margin-bottom: 20px;
+  }
+   .loan_submit_container button {
+    
+     color: white;
+     border: none;
+     border-radius: 15px;
+     cursor: pointer;
+     margin-left: 50px;
+     background-color:#2fb68e; 
+     padding-left: 20px;
+     padding-top: 10px;
+     padding-bottom: 10px;
+     padding-right: 20px;
+     font-size: larger;
+    
+  
+   }
+   /* loan service container styles end */

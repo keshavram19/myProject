@@ -296,30 +296,6 @@ select.form-control.statement_select_format {
   text-decoration: underline;
 }
 
-.customer_info_container {
-  margin-bottom: 20px;
-  font-size: 14px;
-}
-.customer_account_info {
-  display: flex;
-  align-items: center;
-  margin: 5px 0px;
-}
-.customer_details_heading{
-  width: 200px;
-}
-.statements_bank_logo_container{
-  display: flex;
-  justify-content: center;
-}
-.statements_bank_logo{
-  width: 220px;
-}
-.footer_info {
-  margin-top: 20px;
-  font-size: 14px;
-}
-
 /* statemenst css ends */
 
 /* Statement By Email CSS Starts */
@@ -1735,18 +1711,21 @@ body {
 /* /deposite cntainer end/ */
 
 /* fixed advice start*/
-.fixed_deposit {
+/* .Fixed_container{
+  margin-right: 300px;
+} */
+ .fixed_deposit {
   margin-left: 15px;
-  max-width: 1000px;
-  margin: 0 auto;
+  /* max-width: 1000px; */
+   margin: 0 auto;
   padding: 20px;
-  background-color: #beb7b7;
+  background-color: #2fb68e;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+} 
 
 .fixed_deposit h1 {
-  color: orange;
+  color: white;
   margin-right: 650px;
   font-size: x-large;
 }
@@ -1824,19 +1803,21 @@ body {
 }
 .fixed_button_container button {
   padding: 10px;
-  background-color: rgb(235, 106, 60);
-  color: #fff;
+   background-color: #2fb68e; 
+  color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   width: 20vh;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 .fixed_button_now {
   padding: 10px;
-  background-color:rgb(235, 106, 60);
-  color: #312b2b;
+  background-color:#2fb68e; 
+  color:white ;
+  overflow: hidden;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -1850,10 +1831,10 @@ body {
 .renew_container {
   padding: 20px;
   text-align: center;
-  background-color: rgb(219, 215, 215);
+  background-color: rgb(247, 242, 242);
 }
 .renew_container h1 {
-  color: orange;
+  color: #2fb68e;
   font-size: x-large;
   margin-right: 750px;
 }
@@ -1878,30 +1859,42 @@ body {
 
 /* renew advice end*/
 /* fixed deposite start */
+.fixed_form_section{
+  background-color: rgb(250, 245, 245);
+  margin-left: 80px;
+}
 .fixed_form_section span {
   font-weight: 420;
-  font-size: 15px;
+  font-size: 20px;
 }
 .fixed_form_section label {
   margin-top: 15px;
+  
+  
+}
+.fixed_form_section input {
+  font-size: 15px;
 }
 .fixed_form_heading {
-  background-color: rgb(211, 214, 214);
+  background-color: #2fb68e ;
+  color: white;
 }
 .fixed_form_submit_btn{
-width: auto;
-height: auto;
-outline: none;
-border: 1px solid rgba(128, 123, 123, 0.5);
+  padding: 10px;
+  background-color: #2fb68e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 20vh;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-size: larger;
+/* background-color: #ebca28 ; */
+margin-left: 370px;
+margin-top: 20px;
 
-border-radius: 2px;
-font-weight: 600;
-color: white;
-margin-left: 30px;
-font-size:15px;
-text-align: center;
-background-color: #f18121 ;
-margin-left: 500px;
 }
 /* fixed deposite end */
 
@@ -1914,7 +1907,7 @@ margin-left: 500px;
 
 .paylater_heading {
   font-size: x-large;
-  color: #2fb68e;
+  color: #f18121;
 }
 
 .paylater_image1 {
@@ -1948,26 +1941,19 @@ margin-left: 500px;
 }
 
 .paylater_paynow {
-  border: 1px solid #2fb68e;
+  border: 1px solid white;
   font-size: 10px;
-  color: #2fb68e;
-  background-color: transparent;
+  color: #f18121;
+  background-color: #faede2;
   height: 35px;
   border-radius: 5px;
 }
 
+.paylater_bill,
 .paylater_statement {
   font-size: 10px;
-  color: #2fb68e;
-  background-color: transparent;
-  height: 35px;
-  border-radius: 5px;
-  border: 1px solid #2fb68e;
-}
-.paylater_bill{
-  font-size: 10px;
-  color: #fff;
-  background-color: #2fb68e;
+  color: #f18121;
+  background-color: #faede2;
   height: 35px;
   border-radius: 5px;
   border: none;
@@ -1979,19 +1965,18 @@ margin-left: 500px;
   box-shadow: none;
 }
 
-.paylater_paynow:hover,
-.paylater_statement:hover {
-  color: #ebca28;
-  border:1px solid #ebca28; 
-
+.paylater_paynow:hover {
+  color: #f18121;
 }
-.paylater_bill:hover{
-  background-color: #ebca28;
+
+.paylater_bill:hover,
+.paylater_statement:hover {
+  color: #f18121;
 }
 
 .paylater_transactions {
-  background-color: #cce6df;
-  color: #2fb68e;
+  background-color: #faede2;
+  color: #f18121;
   display: flex;
   align-items: center;
   margin-top: 5%;
@@ -2013,24 +1998,19 @@ margin-left: 500px;
 .billDetails_okbtn{
   border: none;
   height: 30px;
-  background: transparent;
-  color: #2fb68e;
+  background: #faede2;
+  color: #f18121;
   display: flex;
   align-items: center;
-  border: 1px solid #2fb68e;
   border-radius: 5px;
-}
-.billDetails_okbtn:hover{
-  color: #ebca28;
-  border:1px solid #ebca28;
 }
 .billDetails_input1:focus{
 outline: none;
 }
 .billDetails_cont1{
   height: 50px;
-  background-color: #cce6df;
-  color: #2fb68e;
+  background-color: #faede2;
+  color: #f18121;
   display: flex;
   align-items: center;
 }
@@ -2049,30 +2029,21 @@ outline: none;
 .billDetails_backbtn{
   border: none;
   height: 30px;
-  border: 1px solid #2fb68e;
-  color: #2fb68e;
+  border: 1px solid #f18121;
+  color: #f18121;
   display: flex;
   align-items: center;
   margin-right: 5%;
   border-radius: 5px;
 }
-.billDetails_backbtn:hover{
-  color: #ebca28;
-  border:1px solid #ebca28;
-}
 .billDetails_pay{
   border: none;
-  background-color: #2fb68e;
+  background-color: #f18121;
   color: #fffefe;
   height: 30px;
   display: flex;
   align-items: center;
   border-radius: 5px;
-}
-.billDetails_pay:hover{
- color: #f8f9fa;
- border: 1px solid #ebca28;
- background-color: #ebca28;
 }
 .billDetails_link{
   text-decoration: none;
@@ -2084,7 +2055,7 @@ outline: none;
 
 .estatement_heading {
   font-size: x-large;
-  color: #2fb68e;
+  color: #f18121;
 }
 .estatement_container {
   font-size: small;
@@ -2094,7 +2065,7 @@ outline: none;
   border: 1px solid lightgray;
 }
 .estatement_accounttype {
-  max-width: 450px;
+  max-width: 400px;
   height: 8vh;
   display: flex;
   align-items: center;
@@ -2106,10 +2077,7 @@ outline: none;
   position: relative;
   height: 40px;
   justify-content: space-between;
-  align-items: center;
-  
 }
-
 
 .estatement_option:focus {
   outline: none;
@@ -2117,22 +2085,55 @@ outline: none;
 
 .estatement_option {
   width: 100%;
-  padding-left: 5%;
+  appearance: none;
+  padding-left: 3%;
   border: none;
 }
 
+.estatement_downicon {
+  width: 20px;
+  height: 100%;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  cursor: pointer;
+  pointer-events: none;
+}
+.estatement_icon1 {
+  font-size: xx-large;
+  color: #f18121;
+  margin-top: 20%;
+}
 
 .estatement_statementtype {
   display: flex;
   align-items: center;
-  height: 10vh;
+  height: 8vh;
   width: 130px;
   justify-content: space-between;
 }
-
+.estatement_fccalender {
+  font-size: x-large;
+}
+.estatement_downicon1 {
+  margin-left: 5%;
+}
+.estatement_calenderbtn {
+  border: none;
+  background: none;
+}
+.estatement_datepick {
+  padding-left: 3%;
+  margin-top: 6%;
+}
+.estatement_datepick:focus {
+  outline: none;
+}
 .estatement_subshow {
   display: flex;
   height: 8vh;
+
   align-items: center;
 }
 
@@ -2175,75 +2176,37 @@ outline: none;
   align-items: center;
 }
 .estatement_view {
-  width: 180px;
-  border:1px  solid #2fb68e;
+  width: 60px;
+  background-color: #faede2;
+  border: none;
   border-radius: 5px;
-  color: #2fb68e;
+  color: #f18121;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
-}
-.estatement_view:hover{
-  border: 1px solid #ebca28;
-  color: #ebca28;
-}
-.estatement_detailstatement{
-  width: 180px;
-  border:1px  solid #2fb68e;
-  border-radius: 5px;
-  color: #2fb68e;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  margin-left: 4%;
-}
-.estatement_detailstatement:hover{
-  border: 1px solid #ebca28;
-  color: #ebca28;
 }
 .estatement_download {
   margin-left: 4%;
-  width: 160px;
-  background-color: transparent;
-  border: 1px solid #2fb68e;
+  width: 80px;
+  background-color: #faede2;
+  border: none;
   border-radius: 5px;
-  color: #2fb68e;
+  color: #f18121;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.estatement_download:hover{
-  border: 1px solid #ebca28;
-  color: #ebca28;
+.estatement_note {
+  margin-top: 5%;
+  color: #f18121;
 }
 .estatement_noFound{
   display: flex;
   justify-content: center;
   margin-top: 3%;
 }
-.estatement_bankinput{
-  padding-left: 6%;
-  outline: none;
-  border: none;
-}
-
-.estatement_periodselect{
-  outline: none;
-  border: none;
-  width: 230px;
-}
-.estatement_periodselect1{
-  outline: none;
-  border: none;
-  width: 220px;
-  padding-left: 0;
-}
-
 
 /* estatement css ends */
 
@@ -3156,4 +3119,3 @@ outline: none;
 
 
 /* fixedform css ends */
-
