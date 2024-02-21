@@ -99,7 +99,7 @@ import Renewfixedform from "./components/User_portal/Netbanking/Bank_Accounts/Re
 
 import FixedRecurringForm from "./components/User_portal/Netbanking/Bank_Accounts/Fixed_recurringForm";
 import RecurringForm from "./components/User_portal/Netbanking/Bank_Accounts/Recurring_deposit_form";
-
+import OtpPage from "./components/User_portal/Netbanking/Bank_Accounts/OtpPage";
 
 import UpdatePancardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/UpdatePancardOtp";
 import GenerateDebitCardPinOTP from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitPinOtp";
@@ -115,9 +115,6 @@ import Form16AOTPPage from "./components/User_portal/Netbanking/Customerservice.
 import ConvertToEMISubmit from "./components/User_portal/Netbanking/CreditCards/ConverttoEMISubmit";
 import AutoDebitConfirm from "./components/User_portal/Netbanking/CreditCards/AutodebitSetupconfirm";
 import ConvertToEMIOtp from "./components/User_portal/Netbanking/CreditCards/convertToEMIOtp";
-
-
-import OTPPage from "./components/User_portal/Netbanking/Fund_Transfer/OTPpage";
 
 import ManagrCardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/manageCardOtp";
 import CreditCardPin from "./components/User_portal/Netbanking/CreditCards/creditcardPin";
@@ -206,7 +203,7 @@ function App() {
         />
         <Route
           path="/user/account/manage-card-limit-otp"
-          element={<OTPPage />}
+          element={<OtpPage />}
         />
 
         <Route

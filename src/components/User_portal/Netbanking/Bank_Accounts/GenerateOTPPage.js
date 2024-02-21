@@ -8,7 +8,7 @@ import { MdOutlineMail } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
 
 
-const OtpPage = () => {
+const GenerateOTPPage = () => {
 
     const navigate = useNavigate();
     const [userDetails, setUserDetails] = useState([]);
@@ -119,7 +119,7 @@ const OtpPage = () => {
             const accountNumber = userDetails[0].userAccountNumber;
             const response = await axios.post(`${apiList.authenticateOTP}`, { accountNumber, otp });
             console.log(response.data);
-            navigate("/user/generate-creditcard-pin");
+            navigate("/user/account/generate-debit-card-pin");
 
         } catch (error) {
             console.error('Error validating OTP:', error);
@@ -189,4 +189,4 @@ const OtpPage = () => {
 }
 
 
-export default OtpPage;
+export default GenerateOTPPage;
