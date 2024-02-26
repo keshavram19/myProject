@@ -93,7 +93,7 @@ function BankaccountSidebar() {
               {/* <Link to="/user/account/pmsocial-securityschmes">PM Social Security Schemes</Link> */}
               {/* <Link to="">Enroll Atal Pension Yojana</Link> */}
               {/* <Link to="/user/account/bank-rewardspoints">Bank Rewards</Link> */}
-              <Link to="/user/account/service-request" onClick={stopPropagation} className={isActiveLink("/user/account/service-request") ? "bank_account_sidebar_link_tag" : ""}>Service Requests</Link>
+              <Link to="/user/account/service-request" onClick={stopPropagation} className={isActiveLink("/user/account/service-request") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"}>Service Requests</Link>
             </div>
 
             <button
@@ -118,7 +118,7 @@ function BankaccountSidebar() {
               {/* <Link to="/user/account/iwish-deposits">iWish Golas</Link> */}
               <Link to="/user/account/fd-advice" className={isActiveLink("/user/account/fd-advice") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>FD Advice</Link>
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Service Requests</Link>
-              <Link to="/user/account/renew-fd" className={isActiveLink("/user/account/renew-fd") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Renew FD</Link>
+              <Link to="/user/account/renew-fd" className={isActiveLink("/user/account/renew-fd") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>Renew FD</Link>
             </div>
 
             {/* <button
@@ -160,7 +160,7 @@ function BankaccountSidebar() {
               {" "}
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Pockets Account</Link>
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Add Funds</Link>
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>View Card Details</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>View Card Details</Link>
             </div>
 
             <button
@@ -180,7 +180,7 @@ function BankaccountSidebar() {
               ref={contentRefs[4]}
             >
               {" "}
-              <Link to="/user/account/paylater" className={isActiveLink("/user/account/paylater") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>PayLater</Link>
+              <Link to="/user/account/paylater" className={isActiveLink("/user/account/paylater") ? "bank_account_sidebar_link_tag mt-1 mb-1" : "mt-1 mb-1"} onClick={stopPropagation}>PayLater</Link>
             </div>
 
             <button
@@ -200,7 +200,7 @@ function BankaccountSidebar() {
               ref={contentRefs[5]}
             >
               {" "}
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>PPF Account</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1 mb-1" : "mt-1 mb-1"} onClick={stopPropagation}>PPF Account</Link>
             </div>
 
             <button
@@ -220,7 +220,7 @@ function BankaccountSidebar() {
               ref={contentRefs[6]}
             >
               {" "}
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}> SSY Account </Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1 mb-1" : "mt-1 mb-1"} onClick={stopPropagation}> SSY Account </Link>
             </div>
 
             <button
@@ -243,7 +243,7 @@ function BankaccountSidebar() {
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Bank Accounts</Link>
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Credit Cards</Link>
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Demat</Link>
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>PPF Accounts</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>PPF Accounts</Link>
             </div>
 
             <button

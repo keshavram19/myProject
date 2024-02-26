@@ -71,7 +71,7 @@ function PaymentSidebar() {
                             <Link to="/user/fundtransfer/quickfundtransfer" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/quickfundtransfer") ? "bank_account_sidebar_link_tag " : ""}>Quick Fund Transfer</Link>
                             <Link to="/user/fundtransfer/generate-mmid" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/generate-mmid") ? "bank_account_sidebar_link_tag " : ""}>Generate/Retrieve MMID</Link>
                             <Link to="/user/fundtransfer/manage-payees" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/manage-payees") ? "bank_account_sidebar_link_tag " : ""}>Manage Payees</Link>
-                            <Link to="" onClick={stopPropagation}  className={isActiveLink("") ? "bank_account_sidebar_link_tag " : ""}>Personalize Transcation Limits</Link>
+                            <Link to="" onClick={stopPropagation}  className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"}>Personalize Transcation Limits</Link>
                         </div>
 
                         <button
@@ -85,7 +85,7 @@ function PaymentSidebar() {
                             className="content"
                             style={{ maxHeight: `${contentHeights[1]}px`, display: activeIndex === 1 ? 'block' : 'none' }}
                             ref={contentRefs[1]}
-                        >                            <Link to="" onClick={stopPropagation}  className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"}>Bill Payment</Link>
+                        >                            <Link to="" onClick={stopPropagation}  className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1 mb-1" : "mt-1 mb-1"}>Bill Payment</Link>
                         </div>
 
                         <button
@@ -93,7 +93,7 @@ function PaymentSidebar() {
                             className={`collapsible sidebarButton ${activeIndex === 2 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(2)}
                         >
-                            <span> <Link to="/user/fundtransfer/inward-remitance" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/inward-remitance") ? "bank_account_sidebar_link_tag " : ""}> Inward Remittance</Link></span>
+                            <span> <Link to="/user/fundtransfer/inward-remitance" onClick={stopPropagation}> Inward Remittance</Link></span>
                         </button>
 
 
@@ -110,7 +110,7 @@ function PaymentSidebar() {
                             ref={contentRefs[2]}
                         >                            <Link to="" onClick={stopPropagation}  className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"}>Recharge your DTH Connection</Link>
                             <Link to="" onClick={stopPropagation}  className={isActiveLink("") ? "bank_account_sidebar_link_tag " : ""}>Recharge your Mobile/Data Card</Link>
-                            <Link to="" onClick={stopPropagation}  className={isActiveLink("") ? "bank_account_sidebar_link_tag " : ""}>Google play Recharge</Link>
+                            <Link to="" onClick={stopPropagation}  className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1 " : "mb-1"}>Google play Recharge</Link>
                         </div>
 
                         <button
@@ -146,7 +146,7 @@ function PaymentSidebar() {
                             <Link to="/user/fundtransfer/interest-certificate" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/interest-certificate") ? "bank_account_sidebar_link_tag " : ""}>Interest Certificate</Link>
                             <Link to="/user/fundtransfer/tax-payment" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/tax-payment") ? "bank_account_sidebar_link_tag " : ""}>Pay Direct Tax</Link>
                             <Link to="/user/fundtransfer/disclaimer" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/disclaimer") ? "bank_account_sidebar_link_tag " : ""}>Pay Indirect Tax</Link>
-                            <Link to="/user/fundtransfer/incometax-Efill" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/incometax-Efill") ? "bank_account_sidebar_link_tag " : ""}>Income Tax e-Filing</Link>
+                            <Link to="/user/fundtransfer/incometax-Efill" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/incometax-Efill") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"}>Income Tax e-Filing</Link>
                         </div>
 
                         <button
@@ -162,7 +162,7 @@ function PaymentSidebar() {
                             ref={contentRefs[5]}
                         >                            <Link to="/user/fundtransfer/scheduled-transaction" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/scheduled-transaction") ? "bank_account_sidebar_link_tag mt-1 " : "mt-1"}> Scheduled Transactions</Link>
                             <Link to="/user/fundtransfer/completed-transaction" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/completed-transaction") ? "bank_account_sidebar_link_tag" : ""}>Completed Transactions</Link>
-                            <Link to="/user/fundtransfer/payment-summary" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/payment-summary") ? "bank_account_sidebar_link_tag" : ""}> Payment Summary</Link>
+                            <Link to="/user/fundtransfer/payment-summary" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/payment-summary") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"}> Payment Summary</Link>
                         </div>
 
                         <button
@@ -178,7 +178,7 @@ function PaymentSidebar() {
                             ref={contentRefs[6]}
                         >                            <Link to="/user/fundtransfer/manage-payees" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/manage-payees") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"}>Add Payee</Link>
                             <Link to="/user/fundtransfer/confirm-payee" onClick={stopPropagation}  className={isActiveLink("/user/fundtransfer/confirm-payee") ? "bank_account_sidebar_link_tag" : ""}>Confirm Payee</Link>
-                            <Link to="" onClick={stopPropagation}  className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""}>Delete Payees</Link>
+                            <Link to="" onClick={stopPropagation}  className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"}>Delete Payees</Link>
                         </div>
 
                         <button
