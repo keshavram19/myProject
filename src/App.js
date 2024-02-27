@@ -23,6 +23,9 @@ import Estatement from "./components/User_portal/Netbanking/Bank_Accounts/EState
 import Mypayee from "./components/User_portal/Netbanking/Fund_Transfer/MyPayee";
 import TransactionStatus from "./components/User_portal/Netbanking/Fund_Transfer/TransactionStatus";
 import ScheduledTransaction from "./components/User_portal/Netbanking/Fund_Transfer/ScheduledTransaction";
+import Viewaccount from "./components/User_portal/Netbanking/Loans/Viewaccounts";
+import Loanservices from "./components/User_portal/Netbanking/Loans/Loanservices";
+import Loanservices1 from "./components/User_portal/Netbanking/Loans/Loanservices1";
 import CompletedTransaction from "./components/User_portal/Netbanking/Fund_Transfer/CompletedTransaction";
 import PaymentSummary from "./components/User_portal/Netbanking/Fund_Transfer/PaymentSummery";
 import WireTransaction from "./components/User_portal/Netbanking/Fund_Transfer/WireTransaction";
@@ -131,6 +134,7 @@ function App() {
   return (
     <div>
       {!hide && <Navbar />}
+
       
         <Routes>
           <Route>
@@ -467,6 +471,9 @@ function App() {
             <Route exact path="/user/account/generate-credit-card-pin-otp" element={<CreditCardOtp />} />
 
 
+              <Route exact path="/user/viewaccounts" element={<Viewaccount/>}/>
+        <Route exact path="/user/loanservices"element={<Loanservices/>}/>
+        <Route exact path="/user/loanservices1"element={<Loanservices1/>}/>
 
             {/* CARDS & LOANS ends */}
 
@@ -552,6 +559,7 @@ function App() {
           </Route>
         </Routes>
       
+
     </div>
   );
 }
