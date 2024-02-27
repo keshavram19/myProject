@@ -296,6 +296,30 @@ select.form-control.statement_select_format {
   text-decoration: underline;
 }
 
+.customer_info_container {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.customer_account_info {
+  display: flex;
+  align-items: center;
+  margin: 5px 0px;
+}
+.customer_details_heading{
+  width: 200px;
+}
+.statements_bank_logo_container{
+  display: flex;
+  justify-content: center;
+}
+.statements_bank_logo{
+  width: 220px;
+}
+.footer_info {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
 /* statemenst css ends */
 
 /* Statement By Email CSS Starts */
