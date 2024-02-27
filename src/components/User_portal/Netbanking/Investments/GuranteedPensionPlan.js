@@ -25,12 +25,14 @@ const GuaranteedPensionPlan = () => {
                             </ul>
                         </div>
                         <div className="Guaranteed_Pension_plan_list p-3">
-                            <div className="Guaranteed_Pension_plan_radio p-3">
-                           <Link to='/user/termlifeinsurance'> <input type="radio" className="" /></Link>
+                            <div className="Guaranteed_Pension_plan_radio p-3 ">
+                           <Link to='/user/termlifeinsurance'> 
+                           <input type="radio" className="m-3" /></Link>
+                           <p className="m-2">Annuity payout</p>
                             </div>
-                            <p>Annuity payout</p>
-                            <p><LuIndianRupee />0</p>
-                            <Select 
+                            
+                            <p className="m-3" ><LuIndianRupee />0</p>
+                            <Select className="m-3" 
                                 options={[
                                     {value: "year",label:"Yearly"},
                                     {value: "month",label:"Monthly"},

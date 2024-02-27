@@ -7,6 +7,11 @@ import GeneratePin from "./components/User_portal/Netbanking/Bank_Accounts/Gener
 import BlockCard from "./components/User_portal/Netbanking/Bank_Accounts/BlockCard";
 import Reissuecard from "./components/User_portal/Netbanking/Bank_Accounts/ReissueCard";
 import ManageCardLimit from "./components/User_portal/Netbanking/Bank_Accounts/ManageCardLimit";
+
+
+// import OTPPage from "./components/User_portal/Netbanking/Bank_Accounts/OtpPage";
+
+
 import ChequeBookReq from "./components/User_portal/Netbanking/Bank_Accounts/ChequeBookReq";
 import ViewAndUpdatePancard from "./components/User_portal/Netbanking/Bank_Accounts/ViewUpdatePANCard";
 import UpdateForm60 from "./components/User_portal/Netbanking/Bank_Accounts/UpdateForm60";
@@ -113,6 +118,7 @@ import Form16AOTPPage from "./components/User_portal/Netbanking/Customerservice.
 import ConvertToEMISubmit from "./components/User_portal/Netbanking/CreditCards/ConverttoEMISubmit";
 import AutoDebitConfirm from "./components/User_portal/Netbanking/CreditCards/AutodebitSetupconfirm";
 import ConvertToEMIOtp from "./components/User_portal/Netbanking/CreditCards/convertToEMIOtp";
+
 import ManagrCardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/manageCardOtp";
 import CreditCardPin from "./components/User_portal/Netbanking/CreditCards/creditcardPin";
 import CreditCardPinOtp from "./components/User_portal/Netbanking/CreditCards/creditCardPinOtp";

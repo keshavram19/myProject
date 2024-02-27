@@ -11,23 +11,27 @@ const ELocker = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Your submission logic goes here
+    
   };
 
   const styles = {
+   
     container: {
       textAlign: 'center',
-      marginTop: '20px',
+      marginTop: '15px',
+
     },
     box: {
       border: '1px solid #ccc',
       borderRadius: '10px',
-      padding: '20px'
+      padding: '20px',
+     
     },
     heading: {
       color: 'black',
-      marginTop: '30px',
-      padding: '20px 0px'
+      marginTop: '9px',
+      
+      color:"#2fb68e"
     },
     formGroup: {
       textAlign: 'left',
@@ -35,9 +39,11 @@ const ELocker = () => {
     },
     form: {
       margin: 'auto',
-      maxWidth: '600px',
+      // maxWidth: '650px',
       textAlign: 'left',
       marginLeft: 'revert',
+      boxShadow:"none",
+      outline:"none"
     },
     submitButton: {
       marginTop: '10px',
@@ -45,17 +51,23 @@ const ELocker = () => {
       textAlign: 'left',
       backgroundColor: '#2fb68e',
       outline: 'none',
+      
+
     },
     checkbox: {
       outline: 'none', 
       marginbottom: '20px',
-      // Set outline to none
+      boxShadow:"none"
+      
+      
     },
   };
 
   return (
+    
     <Container style={styles.container}>
-      <div style={styles.box}>
+      <div className='' style={{ marginTop: "90px" }}>
+      <div className='elock_start' style={styles.box}>
         <Row>
           <Col md={12}>
             <h3 style={styles.heading}>
@@ -68,34 +80,38 @@ const ELocker = () => {
         </Row>
         <Row>
           <Col md={12} style={styles.formGroup}>
-            <h5>• Secure and Accessible</h5>
-            <p>Documents are stored in a secure manner and accessible only to the customer via a secured login.</p>
+            <h5 className='e-locker_subheading'>• Secure and Accessible</h5>
+            <p className='e-locker_pera'>Documents are stored in a secure manner and accessible only to the customer via a secured login.</p>
 
-            <h5>• Anywhere, Anytime Access</h5>
-            <p>Documents accessible through Royal Islamic Bank Internet Banking or Royal Islamic Direct account login anywhere, anytime!</p>
+            <h5 className='e-locker_subheading'>• Anywhere, Anytime Access</h5>
+            <p className='e-locker_pera'>Documents accessible through Royal Islamic Bank Internet Banking or Royal Islamic Direct account login anywhere, anytime!</p>
           </Col>
           <Col md={12} style={styles.formGroup}>
-            <h5>• Safety and Longevity</h5>
-            <p>Documents stored online safely, facilitating future retrieval in an easy manner and longevity.</p>
+            <h5 className='e-locker_subheading'>• Safety and Longevity</h5>
+            <p className='e-locker_pera'>Documents stored online safely, facilitating future retrieval in an easy manner and longevity.</p>
 
-            <h5>• No Charges for Storage</h5>
-            <p>This facility is free of charge for all Royal Islamic Bank Customers.</p>
+            <h5 className='e-locker_subheading'>• No Charges for Storage</h5>
+            <p className='e-locker_pera'>This facility is free of charge for all Royal Islamic Bank Customers.</p>
           </Col>
         </Row>
-        <Form onSubmit={handleSubmit} style={styles.form}>
-          <Form.Group controlId="formAgree" style={styles.formGroup}>
+        <Form onSubmit={handleSubmit} >
+          <Form.Group  style={styles.formGroup}>
             <Form.Check
+            style={{boxShadow:"none"}}
+            className='e-locker_pera'
               type="checkbox"
               label="I have read,understood and agree to be bound by the terms and conditions."
               checked={agree}
               onChange={handleAgreeChange}
             />
           </Form.Group>
-
-          <Button variant="primary" type="submit" style={styles.submitButton}>
+        <div className='m-3'>
+          <Button  type="submit" className='elocker_button e-locker_pera'  style={{outline:"none", background:"#2fb68e", boxShadow:"none"}}>
             Submit
           </Button>
+          </div>
         </Form>
+      </div>
       </div>
     </Container>
   );

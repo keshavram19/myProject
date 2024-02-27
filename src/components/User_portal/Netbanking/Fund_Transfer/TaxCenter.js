@@ -10,14 +10,19 @@ import apiList from "../../../../lib/apiList";
     const [mobileNumber, setMobileNumber] = useState('');
     const [otp, setOTP] = useState('');
     const [message, setMessage] = useState('');
-     const [showResendButton, setShowResendButton] = useState(false);  
+
+    // const [message, setMessage] = useState('');
+    const [showResendButton, setShowResendButton] = useState(false); 
+
     const generateOTP = async () => {
       try {
         // const response = await axios.post('http://localhost:4444/api/generate-otp');
               const response = await axios.post(apiList.taxOTPGenerate);
 
         setMessage(response.data.message);
-        setShowResendButton(true);  
+
+        setShowResendButton(true); 
+
       } catch (error) {
         console.error('Error generating OTP:', error);
         setMessage('Failed to generate OTP.');

@@ -3,9 +3,9 @@ import './investments.css'
 
 function GeneralInsurance() {
   return (
-    <div className='container-fluid' style={{marginTop:'70px'}}>
+    <div className='container-fluid' style={{marginTop:'60px'}}>
       <div className='row'>
-        <div className='col-md-12'style={{backgroundColor:'#f18121',fontWeight:'200',height:'40px'}}>
+        <div className='col-md-12'style={{backgroundColor:'#2fb68e',fontWeight:'200', padding:"10px"}}>
         <h6 className='general_insurance4'>Health Shield 360 Top Up</h6>
       </div>
       </div>

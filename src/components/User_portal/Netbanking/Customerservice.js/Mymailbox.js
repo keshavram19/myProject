@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-
+import "./Customerservice.css";
 const MyMailBox = () => {
   
   const [selectedMailbox, setSelectedMailbox] = useState('Inbox');
@@ -11,12 +11,13 @@ const MyMailBox = () => {
   };
 
   return (
-    <Container fluid style={{  height: '100vh', padding: 0 }}>
-      <div style={{ fontSize: '24px' }}> MyMailbox </div>
+    <Container fluid >
+      <div style={{marginTop:"90px"}}> 
+      <h3 style={{ textAlign:"center", color:"#2fb68e" }}> My Mailbox </h3>
       <Row>
-        <Col md={12} style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '20px', alignItems: 'center' }}>
-          <div style={{ textAlign: 'center' }}>
-            <h4>User Name</h4>
+        <Col md={12} style={{marginTop:"20px",  display: 'flex', justifyContent: 'flex-start', marginBottom: '20px', alignItems: 'center', textAlign:"center" }}>
+          <div style={{ textAlign: 'center', marginLeft:"35%", }}>
+            <h5>User Name</h5>
             <p> personal pic</p>
             <div style={{ border: '1px solid #ddd', padding: '10px', width: '70%', margin: '0 auto' }}>
               <img src="https://via.placeholder.com/50" alt="Profile Pic" style={{ width: '70%', borderRadius: '25%' }} />
@@ -33,14 +34,16 @@ const MyMailBox = () => {
       </Row>
       <Row>
         <Col md={12}>
-          <div style={{ textAlign: 'left', margin: '20px 0', padding: '20px', border: '1px solid #ddd', backgroundColor: 'white' }}>
-            <h4>Service Requests</h4>
+          <div style={{ textAlign: 'left',  outline:"none", boxShadow:"none", margin: '20px 0', padding: '20px', border: '1px solid #ddd', backgroundColor: 'white' }}>
+           <div style={{marginLeft:"43%"}}>
+            <h4 style={{color:"#2fb68e"}}>Service Requests</h4>
             <ul>
               <li>E-Locker</li>
               <li>Trash Center</li>
               <li>MyMailbox</li>
             </ul>
-            <DropdownButton title="Select Mailbox" variant="outline-warning" style={{ marginTop: '20px' }}>
+            </div>
+            <DropdownButton className="mymailbox_seleect_box" title="Select Mailbox" variant="outline-warning" style={{ marginTop: '20px', outline:"none", boxShadow:"none", textAlign:"center"}}>
               <Dropdown.Item onClick={() => handleMailboxSelect('Inbox')}>Inbox</Dropdown.Item>
               <Dropdown.Item onClick={() => handleMailboxSelect('SentMails')}>Sent Mails</Dropdown.Item>
               <Dropdown.Item onClick={() => handleMailboxSelect('BroadcastMessages')}>Broadcast Messages</Dropdown.Item>
@@ -50,10 +53,10 @@ const MyMailBox = () => {
 
         </Col>
         <Col md={12}>
-          <h2>{selectedMailbox}</h2>
+          <h2 style={{outline:"none", boxShadow:"none", }}>{selectedMailbox}</h2>
           {selectedMailbox === 'Inbox' && (
             <div>
-              <h4 style={{ marginBottom: '20px', backgroundColor:'bisque',textAlign: 'center' }}>View Inbox</h4>
+              <h4 style={{ marginBottom: '20px', backgroundColor:'bisque',textAlign: 'center', padding:"10px", color:"#2fb68e" }}>View Inbox</h4>
               <div style={{ textAlign: 'center' }}>
                 <p style={{ color: 'red' }}>&times; No mails found for Inbox</p>
               </div>
@@ -61,31 +64,32 @@ const MyMailBox = () => {
           )}
           {selectedMailbox === 'SentMails' && (
             <div>
-              <h4 style={{ marginBottom: '20px',backgroundColor:'bisque', textAlign: 'center' }}>View Sent Mails</h4>
+              <h4 style={{ marginBottom: '20px',backgroundColor:'bisque', textAlign: 'center', padding:"10px", color:"#2fb68e" }}>View Sent Mails</h4>
               <p style={{ textAlign: 'center', color: 'red' }}>&times; No mails found for Sent Mails</p>
-              <p style={{ textAlign: 'center' }}>Note: 1 mail exchange with ICICI Bank</p>
+              <p style={{ textAlign: 'center' }}>Note: 1 mail exchange with Royal Islamic Bank</p>
             </div>
           )}
           {selectedMailbox === 'BroadcastMessages' && (
             <div>
-              <h4 style={{ backgroundColor:'bisque', marginBottom: '20px', textAlign: 'center' }}>View Broadcast Messages</h4>
+              <h4 style={{ backgroundColor:'bisque', marginBottom: '20px', textAlign: 'center', padding:"10px", color:"#2fb68e" }}>View Broadcast Messages</h4>
               <p style={{ textAlign: 'center', color: 'red' }}>&times; No messages found for Broadcast Messages</p>
-              <div style={{ marginTop: '10px', textAlign: 'right' }}>
+              <div style={{ marginTop: '15px', textAlign: 'right', marginBottom:"20px" }}>
                 
-                <input type="text" placeholder="Search..." style={{ marginRight: '20px' }} />
-                <Button variant="primary">Search</Button>
+                <input type="text" placeholder="Search..." style={{ marginRight: '20px', boxShadow:"none", padding:"5px" }} />
+                <Button style={{background:"#2fb68e", color:"white", outline:"none", boxShadow:"none",}}>Search</Button>
               </div>
             </div>
           )}
           {selectedMailbox === 'Trash' && (
             <div>
-              <h4 style={{ marginBottom: '20px',backgroundColor:'bisque', textAlign: 'center', marginRight: '30px' }}>View Trash</h4>
+              <h4 style={{ marginBottom: '20px',backgroundColor:'bisque', textAlign: 'center', padding:"10px", color:"#2fb68e" }}>View Trash</h4>
               <p style={{ marginRight: '60px', textAlign: 'center', color: 'red' }}>&times; No mails found for Trash</p>
             </div>
           )}
         </Col>
 
       </Row>
+      </div>
     </Container>
   );
 };

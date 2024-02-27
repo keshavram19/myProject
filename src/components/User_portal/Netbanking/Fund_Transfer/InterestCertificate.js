@@ -7,7 +7,7 @@ import "jspdf-autotable";
 import apiList from "../../../../lib/apiList";
 
 const InterestCertificate = () => {
-  const accountNumber = 12456389;
+  const accountNumber = 114912720;
   const [userDetails, setUserDetails] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState("");
   const [interestPeriod, setInterestPeriod] = useState("");
@@ -259,15 +259,15 @@ const InterestCertificate = () => {
       return;
     }
 
-    const isInterestPeriodSelected = document.getElementById("interestperiod");
+    
 
-    const isFinancialYearSelected = selectedPeriod !== "select";
+    const isInterestPeriodSelected = selectedPeriod == "select";
     const areDatesSelected = startDate && endDate;
-    if ((!startDate || !endDate) && !interestPeriod) {
-      console.error(
-        "Please select either start and end dates or a financial year"
-      );
-      alert("Please select either start and end dates or a financial year");
+
+    
+    if (isInterestPeriodSelected && areDatesSelected) {
+      console.error("Please select either a financial year or start and end dates, not both");
+      alert("Please select either a financial year or start and end dates, not both");
       return;
     }
     try {
@@ -388,7 +388,7 @@ const InterestCertificate = () => {
         </div>
         <div class=" col-9">
           <div className="interest_head">
-            <h3 style={{ color: "#EBCA28" }}>
+            <h3 style={{ color: "#2fb68e" }}>
               Download Interest & TDS Certificate
             </h3>
           </div>

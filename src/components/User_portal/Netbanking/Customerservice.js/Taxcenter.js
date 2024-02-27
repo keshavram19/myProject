@@ -9,16 +9,18 @@ const CustomerserviceTaxCentre = () => {
   const navigate = useNavigate();
       
   const accountNumber = 1124563456;
+  // const [otpMethod, setotpMethod] = useState("");
 
  
   
   
   const handleOtpGeneration = async () => {
     try {
-      const otpResponse = await axios.post('http://localhost:4444/api/generate-otp', {
+      const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
         accountNumber: accountNumber,
         otpMethod: "sms",
       });
+     
 
       console.log('OTP Response:', otpResponse.data);
       navigate('/user/customerservice/form16aotppage');
@@ -46,7 +48,7 @@ const CustomerserviceTaxCentre = () => {
                   <h5>View Tax Credit Statement - Form 26AS</h5>
                   <p >View your Form 26 AS statement.</p>
                   <div class="TaxCentre_space_btnknow">
-                  <Link to="/" class="btn  TaxCentre_buttonOverflow">
+                  <Link to="/user/fundtransfer/tax-center" class="btn  TaxCentre_buttonOverflow">
                   VIEW
                   </Link>
                   <Link to="/" className="TaxCentre_more_Links">Know More</Link>
@@ -79,7 +81,7 @@ const CustomerserviceTaxCentre = () => {
                   <h5 class="">e Tax Challans</h5>
                   <p class="">View / Download your Challans for Direct/Indirect tax payments.</p>
                   <div class="TaxCentre_space_btnknow">
-                  <Link to="/" class="btn  TaxCentre_buttonOverflow">
+                  <Link to="/user/fundtransfer/tax-payment" class="btn  TaxCentre_buttonOverflow">
                     VIEW
                   </Link>
                   <Link to="/" className="TaxCentre_more_Links">Know More</Link>
@@ -94,7 +96,7 @@ const CustomerserviceTaxCentre = () => {
                   <h5 class="">Form 15G/H</h5>
                   <p class="">View / Download your Form 15G/H.</p>
                   <div class="TaxCentre_space_btnknow ">
-                  <Link to="/" class="btn  TaxCentre_buttonOverflow">
+                  <Link to="/user/fundtransfer/tax-center" class="btn  TaxCentre_buttonOverflow">
                     UPDATE
                   </Link>
                   <Link to="/" className="TaxCentre_more_Links2">Know More</Link>
@@ -110,7 +112,7 @@ const CustomerserviceTaxCentre = () => {
                 <div class="TaxCenter_Cardsetting">
                   <h5 class="">e-Statements</h5>
                   <p class="">Download your account statements for Bank Accounts/Credit Card/ Demat.</p>
-                  <Link to="/" class="btn TaxCentre_buttonOverflow">
+                  <Link to="/user/account/e-statement" class="btn TaxCentre_buttonOverflow">
                   DOWNLOAD
                   </Link>
                   
@@ -124,7 +126,7 @@ const CustomerserviceTaxCentre = () => {
                   <h5 class="">Interest & TDS Certificate</h5>
                   <p class="">Download your Interest & TDS Certificate</p>
                   <div class="TaxCentre_space_btnknow ">
-                  <Link to="/" class="btn  TaxCentre_buttonOverflow">
+                  <Link to="/user/fundtransfer/interest-certificate" class="btn  TaxCentre_buttonOverflow">
                     DOWNLOAD
                   </Link>
                   </div>
@@ -142,7 +144,7 @@ const CustomerserviceTaxCentre = () => {
             <div class="TaxCenter_Cardsetting">
               <h5 class="">Direct Tax</h5>
               <p class="">Tax deducted at source[TDS], Tax Collected at source[TDS], Income Tax etc.</p>
-              <Link to="/" class="btn  TaxCentre_buttonOverflow">
+              <Link to="/user/fundtransfer/tax-payment" class="btn  TaxCentre_buttonOverflow">
               PAY NOW
               </Link>
               <Link to="/" className="TaxCentre_paynow_Links">Know More</Link>
@@ -156,7 +158,7 @@ const CustomerserviceTaxCentre = () => {
               <h5 class="">Indirect Tax</h5>
               <p class="">Excise Duty, Service Tax</p>
               <div class="TaxCentre_space_btnknow">
-              <Link to="/" class="btn  TaxCentre_buttonOverflow">
+              <Link to="/user/fundtransfer/disclaimer" class="btn  TaxCentre_buttonOverflow">
                 PAY NOW
               </Link>
               <Link to="/" className="TaxCentre_paynow_Links">Know More</Link>

@@ -71,9 +71,9 @@ const CancerCover = () =>   {
 
           </div>
             <div className='bottom_cancercover'>
-              <p>Disclaimer:"ICICI Bank as a corporate agent of ICICI Prudential Life Co.Ltd(ICICI Prulife),is required to share information
-                with ICICI Prulife in order to complete your appilication. By clicking on "Buy Now", you provide your consent for the above yo shall enter the ICICI Prulife website and 
-                Authorize ICICI Bank representatives too contact you for providing assistant towards the application process."
+              <p>Disclaimer:"Royal Islamic Bank as a corporate agent of Royal Islamic Bank Prudential Life Co.Ltd(Royal Islamic Bank Prulife),is required to share information
+                with Royal Islamic Bank Prulife in order to complete your appilication. By clicking on "Buy Now", you provide your consent for the above yo shall enter the Royal Islamic Bank Prulife website and 
+                Authorize Royal Islamic Bank representatives too contact you for providing assistant towards the application process."
                 W/W1414/2017-18</p>
             </div>
 

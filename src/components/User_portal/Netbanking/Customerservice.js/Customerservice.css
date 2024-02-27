@@ -465,12 +465,67 @@ border: 1px solid #2fb68e;
 
 /* service request css ends */
 
+
+/* E-Locker css start */
+.elocker_button{
+  background-color: #2fb68e;
+    color: white;
+    font-weight: 500;
+    outline: none;
+    border-color: initial;
+    border: none;
+    box-shadow: none;
+   margin-right: 90%;
+
+}
+
+
+.elocker_button:focus{
+  border-color: initial;
+  box-shadow: none;
+  outline: none;
+}
+.e-locker_subheading{
+  color: #2fb68e;
+  margin-left: 2.5%;
+}
+.e-locker_pera{
+  margin-left: 4.5%;
+}
+
+/* E-Locker css end */
+
+/* MyMailbox css start */
+
+/* .mymailbox_seleect_box{
+  background-color: #2fb68e;
+  color: white;
+  font-weight: 500;
+  border: 1px solid #2fb68e;
+  outline: none;
+  border-color: initial;
+  border: none;
+  box-shadow: none;
+ margin-right: 100%;
+
+}
+.mymailbox_seleect_box:hover{
+  background-color: #2fb68e;
+  color: white;
+
+}
+
+
+/* MyMailbox css end */
+
+
+
 /* Tax Center css start */
 
 .TaxCenter_Container{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    padding-top: 8%;
+    padding-top: 6%;
    
 }
 .TaxCanter_heading_h2{
@@ -481,6 +536,7 @@ border: 1px solid #2fb68e;
 }
 .TaxCanter_heading_h4{
     padding-top: 30px;
+    color:#2FB68E
 }
 
 .TaxCenter_Card_inform {
@@ -525,6 +581,7 @@ border: 1px solid #2fb68e;
 }
 .TaxCentre_PayTaxgap{
     padding: 10px;
+    color: #2FB68E;
 }
 .TaxCentre_Cardgap{
     padding: 10px;
@@ -725,6 +782,8 @@ border: 1px solid #2fb68e;
     text-justify: inter-word;
     word-spacing: 0px;
     text-decoration: none;
+    padding-top: 120px;
+    margin-top: 120px;
 }
 
 .footer_container_fluid{
@@ -765,7 +824,7 @@ border: 1px solid #2fb68e;
 .footer_allcolumns_headings{
     font-size: 18px;
     text-transform: capitalize;
-    color: black;
+    color: #2FB68E;
 }
 .footer_terms_conditions{
     padding-top: 90px;

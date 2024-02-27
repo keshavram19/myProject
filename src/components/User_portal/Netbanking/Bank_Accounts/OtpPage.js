@@ -8,14 +8,15 @@ import { MdOutlineMail } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
 
 
-const OtpPage = () => {
+
+const OTPPage = () =>{
 
     const navigate = useNavigate();
     const [userDetails, setUserDetails] = useState([]);
     const [lastFourDigits, setLastFourDigits] = useState('');
     const [otp, setOtp] = useState('');
     const [validationError, setValidationError] = useState('');
-    const [timer, setTimer] = useState(60);
+    const [timer, setTimer] = useState(100);
     const [buttonsDisabled, setButtonsDisabled] = useState(true);
     const accountNumber = 1124563456;
 
@@ -40,6 +41,7 @@ const OtpPage = () => {
             console.error('Error fetching user details:', error);
         }
         console.log('User Details:', userDetails);
+
     };
 
     useEffect(() => {
@@ -100,10 +102,7 @@ const OtpPage = () => {
 
                 console.log(otpResponse.data);
 
-
                 setTimer(100);
-
-
                 setButtonsDisabled(true);
                 setOtp('');
             } else {
@@ -121,7 +120,9 @@ const OtpPage = () => {
             const accountNumber = userDetails[0].userAccountNumber;
             const response = await axios.post(`${apiList.authenticateOTP}`, { accountNumber, otp });
             console.log(response.data);
+
             navigate("/user/generate-creditcard-pin");
+
 
         } catch (error) {
             console.error('Error validating OTP:', error);
@@ -129,7 +130,9 @@ const OtpPage = () => {
         }
     };
 
-    return (
+
+    return(
+
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-sm-12'>
@@ -190,5 +193,5 @@ const OtpPage = () => {
     )
 }
 
+export default OTPPage;
 
-export default OtpPage;
