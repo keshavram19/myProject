@@ -6,11 +6,18 @@ const apiList ={
 
 
     customerAccountDetails: `${server}/api/userDetails/`,
-
     userAuthentication: `${server}/api/otp-send`,
+
+    // Personal banking login
+    customerLogin: `${server}/auth/login-netbanking`,
+    customerForgotPasswordOtp: `${server}/auth/forgot-password-otp`,
+    customerPasswordOtpVerify: `${server}/auth/verify-forgot-password-otp`,
+    customerLoginPasswordUpdate: `${server}/auth/update-newpassword`,
+    
 
     fixeddepositeform:`${server}/api/fixeddeposites`,
     fixedadvice:`${server}/api/generate-pdf`,
+    loanaccount:`${server}/api/loan-accounts`,
     quickFundTransfer: `${server}/api/quickFundTransfer`,
     userAuthVerification: `${server}/api/verify-otp`,
     createVerificationCode: `${server}/api/generate-otp`,
@@ -76,7 +83,12 @@ const apiList ={
     creditcardEmiconversion : `/emiConversion`,
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
+
     requestedUserDetailsByEmail: `${server}/api/individualrequesteduserdetails/`
+
+
+    payLater:`${server}/api/payLaterAccount`,
+    billDetails:`${server}/api/payLaterAccount/pay`
 
 }
 

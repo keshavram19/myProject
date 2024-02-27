@@ -193,113 +193,114 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-.completed-transactions-page {
-  display: flex;
-  flex-wrap: wrap;
-  /* padding-left: 30%; */
+.completed_transactions_head{
+  color: #2fb68e;
 }
-.empty-header {
-  height: 100px;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.transaction-container {
-  width: 65%;
-  margin: auto;
-  padding: 50px;
-  background-color:#f8f9fa;
-  color: #f18121;
-}
-
-.transaction-heading {
-  width: 100%;
-  /* height: 150px; */
-  background-color: #faede2;
-  padding: 10px;
-}
-
-.transaction-heading h1 {
-  font-size: 25px;
-  font-weight: bold;
-  color: #333;
-}
-
-.left-side {
-  margin-left: 45%;
-  width: 100vh;
-}
-
-.search-section {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.search-section label {
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.search-section input,
-.search-section select {
-  margin-bottom: 10px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.search-section button {
-  width: 12%;
-  height: 40px;
-  background-color: #ff8c00;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.dwn-file {
-  margin-left: 55%;
-  margin-top: 35px;
+.completed_transactions_type{
+  background-color: rgb(247, 246, 246);
+  height: 50px;
   display: flex;
   align-items: center;
 }
-
-.dwn-file select {
-  width: 50%;
-  height: 40px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 8px;
+.completed_transaction_search{
+  width:480px ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-.dwn-file button {
-  height: 40px;
-  width: 45px;
-  font-size: 17px;
-  background-color: #ff8c00;
-  color: #fff;
+.completed_transaction_select1{
+  height: 30px;
+  width: 250px;
+  font-size: small;
+  outline: none;
+  padding:1%;
+}
+.completed_transaction_select1 option:hover{
+  background-color: #2fb68e;
+}
+.completed_transaction_cont1{
+  display: flex;
+}
+.completed_transaction_inputdate{
+  height: 30px;
+  font-size: small;
+  outline: none;
+  padding-left: 3%;
   border: none;
+  background: transparent;
+}
+.completed_transaction_inputdate1{
   border-radius: 5px;
+  height: 30px;
+  width: 250px;
+  font-size: small;
+  outline: none;
+  padding-left: 3%;
+  padding-right: 3%;
+  border: 1px solid lightgray;
 }
-
-.trs-note {
-  border-top: 1px solid #ccc;
-  padding-top: 20px;
+.completed_transaction_search1{
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 3%
 }
+.completed_transaction_get{
+  border: 1px solid #2fb68e;
+  background: transparent;
+  color: #2fb68e;
+  border-radius: 5px;
+  font-size: small;
+  height: 30px;
+  display: flex;
+  align-items: center;
 
-.text {
-  color: red;
 }
+.completed_transaction_ok{
+  background: #2fb68e;
+  color: #fff;
+  border-radius: 5px;
+  font-size: small;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border: none;
+}
+.completed_transaction_ok:hover{
+  background-color: #ebca28;
+}
+.completed_transaction_get:hover{
+background-color: #2fb68e;
+color: white;
+}
+.completed_transaction_details{
+  display: flex;
+  justify-content: flex-end;
+}
+.completed_transaction_details1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+}
+.completed_transaction_date1{
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  border: 1px solid lightgray;
+  align-items: center;
+  padding-right: 2%;
+  width: 250px;
+  border-radius: 5px;
+  height: 30px;
 
-/* .row input {
-  width: 220px;
-} */
+
+}
+.completed_transaction_date2{
+  cursor: pointer;
+  pointer-events: none;
+}
 
 /* completed transaction ends */
 
@@ -308,185 +309,58 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-.payment-container {
-  justify-content: center;
-  padding: 50px;
-  border-radius: 10px;
-  flex-wrap: wrap;
-  margin: auto;
-  background-color: #f8f9fa ;
-
-}
-
-.header-box {
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 130px;
-  width: 100%;
-  padding: 10px;
+.payment_summary_pending{
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  background-color:  #faede2;
-}
-
-.payment-summary-page h1 {
-  color: lightcoral;
-  font-size: 35px;
-  padding: 5px;
-}
-
-.header-box h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
-  color: #000;
-}
-.header-box p{
-  font-size: 20px;
-  margin-top: 15px;
-}
-
-.payment-radios label {
-  display: flex;
+  width: 330px;
   align-items: center;
-  margin-bottom: 10px;
-  color: #333;
-  font-size: 16px;
-  color: #f18121;
+  height: 85px;
+  font-size: small;
 }
-.payment-radios {
+.payment_summary_valid{
+  opacity: 0.6;
+}
+.payment_summary_cont1{
   display: flex;
-  flex-direction: column;
-  margin-left: 330px;
-  justify-content: end;
+  justify-content: space-between;
+  align-items: center;
+  font-size: small;
+  background-color: rgb(247, 246, 246);
 }
-.payment-header{
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: white;
+.payment_summary_list1{
+  list-style-type: none;
 }
-
-/* paymentSummaryPage.css ends*/
-
-
-/* calendar.css starts*/
-
-/* Updated calendar.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-.calandar-main {
-  width: 100%;
-  max-width: 100%;
-  color:#f18121;
-  line-height: 1.125em;
-  
+.payment_summary_dot1{
+  color: #ebca28;
 }
-
-.calendar-container {
-  color: black;
-  min-width: 44px;
-  background: none;
-  font-size: 25px;
-  margin-top: 8px;
-  /* border: solid black 1px; */
-  background-color:  #faede2;
+.payment_summary_dot2{
+  color: rgb(249, 69, 3);
 }
-
-.calendar-container:enabled:hover,
-.calendar-container:enabled:focus {
-  background-color:  #faede2;
+.payment_summary_dot3{
+  color: rgb(11, 11, 241);
 }
-
-.calendar-container[disabled] {
-  background-color: #f0f0f0;
+.payment_summary_head{
+  color: #2fb68e;
 }
-/* 
-abbr[title] {
-  text-decoration: none;
-} */
-
-.react-calendar__tile:enabled:hover,
-.react-calendar__tile:enabled:focus {
-  background: #f8f8fa;
-  color: #6f48eb;
-  border-radius: 6px;
+.payment_summary_cont3{
+  display: flex;
 }
-
-.react-calendar__tile--now {
-  background: #6f48eb33;
-  border-radius: 100px;
-  font-weight: bold;
-  color: #6f48eb;
-}
-
-.react-calendar__tile--now:enabled:hover,
-.react-calendar__tile--now:enabled:focus {
-  background: #6f48eb33;
-  border-radius: 100px;
-  font-weight: bold;
-  color: #6f48eb;
-}
-
-.react-calendar__tile--hasActive:enabled:hover,
-.react-calendar__tile--hasActive:enabled:focus {
-  background: #f8f8fa;
-}
-
-.react-calendar__tile--active {
-  background: #f18121;
-  border-radius: 6px;
-  font-weight: bold;
-  color: white;
-  background-color: #faede2;
-}
-
-.react-calendar__tile--active:enabled:hover,
-.react-calendar__tile--active:enabled:focus {
-  background: #f18121;
-  color: white;
-}
-
-.react-calendar--selectRange .react-calendar__tile--hover {
-  background-color: #f8f8fa;
-}
-
-.react-calendar__tile--range {
-  background: #faede2;
-  color:#f18121;
-  border-radius: 0;
-}
-
-.react-calendar__tile--rangeStart {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  background: #6f48eb;
-  color: white;
-}
-
-.react-calendar__tile--rangeEnd {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  background: #6f48eb;
-  color: white;
-}
-
-.calandar_text_center{
-  margin: 10px;
-  font-size: 20px;
+.payment_summary_cont2{
+  display: flex;
+  margin-top: 8%;
 }
 .react-calendar{
-  width: 100% !important;
-  background-color:  #faede2;
+  border: 1px solid lightgray;
 }
-.calendar_text_center{
-  text-align: center;
-  padding: 10px;
+
+.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd {
+  border-radius: 50%;
+  background-color: #2fb68e;
+  color:white;
 }
- /* calendar.css ends*/
+
+
+/* paymentSummaryPage.css ends*/
 
  /* WireTransaction.css */
 

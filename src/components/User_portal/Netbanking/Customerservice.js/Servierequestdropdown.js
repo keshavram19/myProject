@@ -182,12 +182,12 @@ const toggleDepositsDropdown = () => {
           >
             Account Statement Related
            </div>
-          <div
+          {/* <div
             className={`DropDown_Sub_bank_aact_Transaction_BankingAPP ${selectedSubHeader === 'accountTransaction' ? 'active' : ''}`}
             onClick={() => handleSubHeaderClick('accountTransaction')}
           >
             Account Transaction Related
-           </div>
+           </div> */}
           <div
             className={`DropDown_Sub_bank_aact_Debit_card_BankingAPP ${selectedSubHeader === 'accountDebitCard' ? 'active' : ''}`}
             onClick={() => handleSubHeaderClick('accountDebitCard')}
@@ -200,12 +200,12 @@ const toggleDepositsDropdown = () => {
           >
              Cheque Book/DD related
            </div>
-          <div
+          {/* <div
             className={`DropDown_Sub_bank_aact_govt_BankingAPP ${selectedSubHeader === 'accountGovtSchemes' ? 'active' : ''}`}
             onClick={() => handleSubHeaderClick('accountGovtSchemes')}
           >
              NPS and other Government schemes 
-            </div>
+            </div> */}
         </div>
       )}
         </div>
@@ -216,18 +216,30 @@ const toggleDepositsDropdown = () => {
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP'>
 
           
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>< Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Address Change </Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>< Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Transfer Your Account to Nearest Branch </Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>< Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>View/Update Nominee </Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>< Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>PAN updation </Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>< Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Request for Direct Benefit Transfer (DBT)</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>< Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Update Employer Name/Convert your Account to Salary Account </Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>< Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Request for Family Banking</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>< Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Convert your SB account to NRO account</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>< Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>FATCA/CRS updation  </Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>< Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Account conversion from resident to NRI not done  </Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>< Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Address change requested earlier not done </Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>< Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>ECS/NACH Mandate Cancellation</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              < Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Address Change </Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              < Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Transfer Your Account to Nearest Branch </Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              < Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>View/Update Nominee </Link></li> */}
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              < Link to='/user/account/view-update-pancard' className='DropDown_Sub_Lists_Loan_BankingAPP'>PAN updation </Link></li>
+             {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              < Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Request for Direct Benefit Transfer (DBT)</Link></li> */}
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              < Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Update Employer Name/Convert your Account to Salary Account </Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              < Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Request for Family Banking</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              < Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Convert your SB account to NRO account</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              < Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>FATCA/CRS updation  </Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              < Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Account conversion from resident to NRI not done  </Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              < Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>Address change requested earlier not done </Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              < Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP'>ECS/NACH Mandate Cancellation</Link></li> */}
 
            </ul>
         </div>
@@ -236,8 +248,10 @@ const toggleDepositsDropdown = () => {
       {selectedSubHeader === 'accountStatement' && (
         <div className= "DropDown_Direct_sub_content_BankingAPP">
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP'>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'>Account Statement through E-mail</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'>Apply for Physical Statement</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/account/statement-by-email' className='DropDown_Sub_Lists_Loan_BankingAPP'>Account Statement through E-mail</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/account/statement' className='DropDown_Sub_Lists_Loan_BankingAPP'>Apply for Physical Statement</Link></li>
           
 
            </ul>
@@ -247,9 +261,13 @@ const toggleDepositsDropdown = () => {
       {selectedSubHeader === 'accountTransaction' && (
         <div className="DropDown_Direct_sub_content_BankingAPP">
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP'>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Cash Withdrawal from Royal Islamic Bank ATM-Query</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Cash withdrawal from Non Royal Islamic Bank ATM-query</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'>Online funds Transfer to Non-Royal Islamic Bank Account not credited</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/account/personalizetranscationlimits' 
+              className='DropDown_Sub_Lists_Loan_BankingAPP' >Cash Withdrawal from Royal Islamic Bank ATM-Query</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Cash withdrawal from Non Royal Islamic Bank ATM-query</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'>Online funds Transfer to Non-Royal Islamic Bank Account not credited</Link></li>
 
 
           
@@ -260,16 +278,26 @@ const toggleDepositsDropdown = () => {
       {selectedSubHeader === 'accountDebitCard' && (
         <div className="DropDown_Direct_sub_content_BankingAPP">
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP'>
-              <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Block or Unblock ATM/Debit card</Link></li>
-              <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Unblock 3D secure services_Debit Cards</Link></li>
-              <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' > Generate Debit Card PIN Online</Link></li>
-              <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Link ATM/Debit card to account </Link></li>
-              <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' > Upgrade your Debit Card</Link></li>
-              <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Increase / Decrease Debit Card Limit </Link></li>
-              <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Protect your cards </Link></li>
-              <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  > Reissue of lost ATM / Debit card</Link></li>
-              <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Re-dispatch of undelivered Debit Card/Cheque Book/Return Cheque </Link></li>
-             <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Debit card requested earlier not received</Link></li>
+              <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+                <Link to='/user/account/block-debit-card' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Block or Unblock ATM/Debit card</Link></li>
+              {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+                <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Unblock 3D secure services_Debit Cards</Link></li> */}
+              <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+                <Link to='/user/account/generate-debit-card-pin' className='DropDown_Sub_Lists_Loan_BankingAPP' > Generate Debit Card PIN Online</Link></li>
+              {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+                <Link to='/user/account/debit-atm-card' className='DropDown_Sub_Lists_Loan_BankingAPP' >Link ATM/Debit card to account </Link></li> */}
+              {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+                <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' > Upgrade your Debit Card</Link></li> */}
+              <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+                <Link to='/user/account/manage-cardlimit' className='DropDown_Sub_Lists_Loan_BankingAPP' >Increase / Decrease Debit Card Limit </Link></li>
+              {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+                <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Protect your cards </Link></li> */}
+              <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+                <Link to='/user/account/reissue-lost-atm-card' className='DropDown_Sub_Lists_Loan_BankingAPP'  > Reissue of lost ATM / Debit card</Link></li>
+              {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+                <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Re-dispatch of undelivered Debit Card/Cheque Book/Return Cheque </Link></li> */}
+             {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/account/generate-request-lost-service-atm' className='DropDown_Sub_Lists_Loan_BankingAPP' >Debit card requested earlier not received</Link></li> */}
            </ul>
         </div>
       )}
@@ -277,14 +305,22 @@ const toggleDepositsDropdown = () => {
       {selectedSubHeader === 'accountChequeBook' && (
         <div className="DropDown_Direct_sub_content_BankingAPP">
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP'>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Stop Payment of Cheque</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Cheque Status Enquiry</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >cheque book request</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Re-dispatch of undelivered Debit Card/Cheque Book/Return Cheque</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request a Demand Draft at Communication Address</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Local Cheque deposited in Bank Account but not credited</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Cheque book requested earlier not received</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Positive pay</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Stop Payment of Cheque</Link></li> */}
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Cheque Status Enquiry</Link></li> */}
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/account/chequebook-req' className='DropDown_Sub_Lists_Loan_BankingAPP' >cheque book request</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Re-dispatch of undelivered Debit Card/Cheque Book/Return Cheque</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request a Demand Draft at Communication Address</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Local Cheque deposited in Bank Account but not credited</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Cheque book requested earlier not received</Link></li> */}
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Positive pay</Link></li> */}
              </ul>
         </div>
       )}
@@ -331,12 +367,12 @@ const toggleDepositsDropdown = () => {
           >
             Card Related Queries
            </div>
-          <div
+          {/* <div
             className={`DropDown_Sub_Credit_statementRel_BankingAPP ${selectedSubHeader === 'creditCardStatement' ? 'active' : ''}`}
             onClick={() => handleSubHeaderClick('creditCardStatement')}
           >
             Statement Related
-           </div>
+           </div> */}
         </div>
       )}
        </div>
@@ -344,12 +380,18 @@ const toggleDepositsDropdown = () => {
 {selectedSubHeader === 'creditCardModification' && (
         <div className="DropDown_Direct_sloanb_content_BankingAPP">
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP'>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Address Change</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP' >Unblock Credit Card for 3D secure Services</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Block Credit Card</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Generate Credit Card</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Update  your e-mail ID</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  > Request for cancellation of credit card</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Address Change</Link></li> */}
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to=''className='DropDown_Sub_Lists_Loan_BankingAPP' >Unblock Credit Card for 3D secure Services</Link></li> */}
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/blockcreditcard' className='DropDown_Sub_Lists_Loan_BankingAPP' >Block Credit Card</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Generate Credit Card</Link></li> */}
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/profile/changeemail' className='DropDown_Sub_Lists_Loan_BankingAPP' >Update  your e-mail ID</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'> Request for cancellation of credit card</Link></li> */}
 
            </ul>
         </div>
@@ -358,11 +400,16 @@ const toggleDepositsDropdown = () => {
       {selectedSubHeader === 'creditCardQueries' && (
         <div className="DropDown_Direct_sloanb_content_BankingAPP">
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP'>
-          <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Credit card dispatch not received </Link></li>
-          <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Rewards Points Related Queries</Link></li>
-          <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Merchant EMI Related</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Queries Related to EMI-on-call facility</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for re-dispatch of undelivered credit card</Link></li>
+          {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+            <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Credit card dispatch not received </Link></li> */}
+          <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+            <Link to='/user/account/bank-rewardspoints' className='DropDown_Sub_Lists_Loan_BankingAPP' >Rewards Points Related Queries</Link></li>
+          <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+            <Link to='/user/emi-submit' className='DropDown_Sub_Lists_Loan_BankingAPP'>Merchant EMI Related</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Queries Related to EMI-on-call facility</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for re-dispatch of undelivered credit card</Link></li> */}
            </ul>
         </div>
       )}
@@ -370,7 +417,8 @@ const toggleDepositsDropdown = () => {
       {selectedSubHeader === 'creditCardStatement' && (
         <div className="DropDown_Direct_sloanb_content_BankingAPP">
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP'>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >De-activation of Physical Statement</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >De-activation of Physical Statement</Link></li>
            </ul>
         </div>
       )}
@@ -414,13 +462,20 @@ const toggleDepositsDropdown = () => {
       {selectedSubHeader === 'fixedDeposit' && (
         <div className="DropDown_Direct_sfdb_content_BankingAPP  ">
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP '>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Money Multiplier Deposit</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Standard Fixed Deposit</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Tax Saver Fixed Deposit: Lock-in Period of 5 years</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Apply for a Credit Card against your Fixed Deposit</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >View/Update Nominee</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Closure/Renewal of Fixed Deposit</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Generate ED Advice</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Money Multiplier Deposit</Link></li> */}
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/account/fixed-deposits' className='DropDown_Sub_Lists_Loan_BankingAPP' >Standard Fixed Deposit</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Tax Saver Fixed Deposit: Lock-in Period of 5 years</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Apply for a Credit Card against your Fixed Deposit</Link></li> */}
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >View/Update Nominee</Link></li> */}
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/account/renew-fd' className='DropDown_Sub_Lists_Loan_BankingAPP' >Closure/Renewal of Fixed Deposit</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/account/fd-advice' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Generate ED Advice</Link></li>
            </ul>
         </div>
       )}
@@ -428,9 +483,12 @@ const toggleDepositsDropdown = () => {
       {selectedSubHeader === 'recurringDeposit' && (
         <div className="DropDown_Direct_sfdb_content_BankingAPP ">
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP'>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Recurring Deposit</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >View Update Nominee</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Closure/Renewal of Fixed Deposit</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/account/reccuring-deposits' className='DropDown_Sub_Lists_Loan_BankingAPP' >Recurring Deposit</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >View Update Nominee</Link></li> */}
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/account/renew-fd' className='DropDown_Sub_Lists_Loan_BankingAPP' >Closure/Renewal of Fixed Deposit</Link></li>
            </ul>
         </div>
       )}
@@ -453,10 +511,14 @@ const toggleDepositsDropdown = () => {
       {loanDropdown && (
         <div className="DropDown_Direct_smainloanb_Loan_BankingAPP">
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP'>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Link my loan accounts</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for Re dispatch of Home Loan Document</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request of NOC for Vehicle Loans</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for IT Certificate for Closed Home Loan</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/loanaccounts' className='DropDown_Sub_Lists_Loan_BankingAPP' >Link my loan accounts</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for Re dispatch of Home Loan Document</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request of NOC for Vehicle Loans</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for IT Certificate for Closed Home Loan</Link></li> */}
            </ul>
         </div>
       )}
@@ -477,7 +539,8 @@ const toggleDepositsDropdown = () => {
       {dematDropdown && (
         <div className="DropDown_Direct_sdematb_content_BankingAPP">
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP'>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Link Demat User ID to existing User ID</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/demataccount' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Link Demat User ID to existing User ID</Link></li>
            </ul>
         </div>
       )}
@@ -499,12 +562,18 @@ const toggleDepositsDropdown = () => {
       {linkAccountsDropdown && (
         <div className="DropDown_Direct_sLAPb_content_BankingAPP">
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP'>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Link Savings Account to User ID</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Link my Credit card to User ID</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Link my loan accounts</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Link Demat User ID to existing User ID</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Link My ICICI Prudential policy</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Get user id Joint account (Secondary holder)</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Link Savings Account to User ID</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Link my Credit card to User ID</Link></li> */}
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/loanaccounts' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Link my loan accounts</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/demataccount' className='DropDown_Sub_Lists_Loan_BankingAPP' >Link Demat User ID to existing User ID</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Link My ICICI Prudential policy</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP'  >Get user id Joint account (Secondary holder)</Link></li> */}
            </ul>
         </div>
       )}
@@ -526,10 +595,14 @@ const toggleDepositsDropdown = () => {
         <div className="DropDown_Direct_sforexb_content_BankingAPP">
           <ul className='DropDown_Sub_UNORD_Lists_Loan_BankingAPP'>
            
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for CCIL Deal Limit</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for CCIL Deal Limit Modification</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for CCIL Deal Limit Cancellation</Link></li>
-            <li className='DropDown_Sub_Lists_Loan_BankingAPP'><Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for Outward Remittance</Link></li>
+            {/* <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for CCIL Deal Limit</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for CCIL Deal Limit Modification</Link></li>
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for CCIL Deal Limit Cancellation</Link></li> */}
+            <li className='DropDown_Sub_Lists_Loan_BankingAPP'>
+              <Link to='/user/fundtransfer/inward-remitance' className='DropDown_Sub_Lists_Loan_BankingAPP' >Request for Outward Remittance</Link></li>
            </ul>
         </div>
       )}
