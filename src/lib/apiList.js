@@ -11,6 +11,7 @@ const apiList ={
 
     fixeddepositeform:`${server}/api/fixeddeposites`,
     fixedadvice:`${server}/api/generate-pdf`,
+    loanaccount:`${server}/api/loan-accounts`,
     quickFundTransfer: `${server}/api/quickFundTransfer`,
     userAuthVerification: `${server}/api/verify-otp`,
     createVerificationCode: `${server}/api/generate-otp`,
