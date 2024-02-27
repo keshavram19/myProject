@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import './FundTransfer.css';
 import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { FaCalendarWeek } from "react-icons/fa";
 
 const CompletedTransaction = () => {
-  const [payeeName, setPayeeName] = useState('');
-  const [fromDate, setFromDate] = useState('');
-  const [toDate, setToDate] = useState('');
-  const [debitAccountNumber, setDebitAccountNumber] = useState('');
-  const [alertMessage, setAlertMessage] = useState('');
-  const [transactions, setTransactions] = useState([]);
-
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   return (
     <>
       <div className='container-fluid' style={{marginTop:"90px"}}>
@@ -18,67 +16,87 @@ const CompletedTransaction = () => {
         <PaymentSidebar />
         </div>
         <div className='col-9'>
-        <div className="completed-transactions-page col-12">
-      <div className="transaction-container" >
-        <div className='transaction-heading'><h1>Type Of Transactions</h1></div>
-        
-        <div className="search-section">
-          <label>Search Transactions:</label>
-          <select>
-            <option value="all">select</option>
+          <h4 className='completed_transactions_head'>Completed Transactions</h4>
+          <hr/>
+          <div className='container-fluid completed_transactions_type '>
+            <h6>Type Of Transaction</h6>
+
+          </div>
+          <div className='container-fluid mt-3'>
+              <div className='completed_transaction_search'>
+                <div>Search Transaction*</div>
+                <div>
+                <select className='completed_transaction_select1'>
+            <option hidden>select</option>
             <option value="icici">ICICI</option>
             <option value="kotak">KOTAK</option>
             <option value="union">HDFC</option>
           </select>
-          <label>Payee Name*:</label>
-          <input type="text" value={payeeName} onChange={(e) => setPayeeName(e.target.value)} />
-          <div className="row">
-            <div className="col">
-              <label>From Date*:</label>
-              <input type="date" value={fromDate} onChange={(e) => setFromDate(e.target.value)} />
-            </div>
-            <div className="col">
-              <label>To Date:</label>
-              <input type="date" value={toDate} onChange={(e) => setToDate(e.target.value)} />
-            </div>
-          </div>
-          <label>Debit Account Number:</label>
-          <input
-            type="text"
-            value={debitAccountNumber}
-            onChange={(e) => setDebitAccountNumber(e.target.value)}
-          />
-          <button type="button" className="btn btn-primary">Submit</button>
-          <div className='dwn-file'>
-            <label>Download:</label>
-            <select>
-              <option value="csv">PDF file</option>
-              <option value="csv">CSV</option>
-              <option value="excel">Excel</option>
-            </select>
-            <button className="btn btn-primary btn-sm">OK</button>
-          </div>
-        </div>   
-        {transactions.length === 0 ? (
-          <p className='text'>*Mandatory</p>
-        ) : (
-          <ul>
-            {transactions.map((transaction) => (
-              <li key={transaction.id}>
-                {`Payee: ${transaction.payee}, Date: ${transaction.date}, Debit Account: ${transaction.debitAccount}, Type: ${transaction.type}`}
-              </li>
-            ))}
-          </ul>
-        )}
+                </div>
+              </div>
+              <div className='completed_transaction_cont1 mt-4'>
+              <div className='completed_transaction_search'>
+                <div>Date From*</div>
+                <div className='completed_transaction_date1'>
+                <DatePicker
+      selected={startDate}
+      onChange={(date) => setStartDate(date)}
+      onFocus={(e) => e.target.readOnly = true}
+      placeholderText="From"
+      className="completed_transaction_inputdate"
+    />
+              <div>
+                <FaCalendarWeek className='completed_transaction_date2'/>
+              </div>
+                </div>
+              </div>
+              <div className='completed_transaction_search1'>
+                <div>To*</div>
+                <div className='completed_transaction_date1'>
+                <DatePicker
+      selected={endDate}
+      onChange={(date1) => setEndDate(date1)}
+      onFocus={(e) => e.target.readOnly = true}
+      placeholderText="To"
+      className="completed_transaction_inputdate"
+    />
+              <div>
+                <FaCalendarWeek className='completed_transaction_date2'/>
+              </div>
+                </div>
+              </div>
+              </div>
+              <div className='completed_transaction_search mt-4'>
+                <div>Debit Account Number</div>
+                <div>
+                <input type='text' className='completed_transaction_inputdate1'/>
+                </div>
+              </div>
+              <p className='mt-5' style={{fontSize:'small'}}>*Mandatory</p>
+              <button className='mt-5 completed_transaction_get'>GET TRANSACTIONS</button>
+              <div className='mt-3 completed_transaction_details '>
+                <div className='completed_transaction_details1'>
+                  <div>Download Details As:</div>
+                  <div>
+                    <select className='completed_transaction_select1'>
+                      <option>PDF File</option>
+                      <option>CSV File</option>
+                    </select>
+                  </div>
+                  <div>
+                    <button className='completed_transaction_ok'>OK</button>
+                  </div>
+                </div>
+              </div>
 
-        {alertMessage && <div className="alert">{alertMessage}</div>}
-        <div className="trs-note">
-          <p>Note: 1.All transactions through different channels such as internet Banking Payment Gateway channels (payment made at merchant site via net banking) Will be displayed on the page.
-                2.Transaction details available online for last one year.
-          </p>
-        </div>
-      </div>
-    </div>
+              <div className='mt-5'>
+                <p style={{color:'#2fb68e'}}><b>Note:</b></p>
+                <ul>
+                  <li>All transactions through different channels such as Internet Banking, Payment Gateway Channels (payment made at merchant site via net banking) will be displayed on this page.</li>
+                  <li>Transaction details available online for last 1 year.</li>
+                </ul>
+              </div>
+          </div>
         </div>
       </div>
       </div>
