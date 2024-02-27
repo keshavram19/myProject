@@ -1,13 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Sidebar.css";
 import Userdetails from "../UserDetails/UserDetails";
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 
 function BankaccountSidebar() {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const location = useLocation();
+  const [activeIndex, setActiveIndex] = useState(() => {
+    const storedIndex = parseInt(sessionStorage.getItem("activeIndex"));
+    return !isNaN(storedIndex) ? storedIndex : 0;
+  });
+  
   const [contentHeights, setContentHeights] = useState([
     0, 0, 0, 0, 0, 0, 0, 0,
-  ]); // Separate heights for each content
+  ]);
   const contentRefs = [
     useRef(null),
     useRef(null),
@@ -17,19 +22,31 @@ function BankaccountSidebar() {
     useRef(null),
     useRef(null),
     useRef(null),
-  ]; // Separate refs for each content
+  ]; 
 
   useEffect(() => {
     const newHeights = contentRefs.map((ref) =>
       ref.current ? ref.current.scrollHeight : 0
     );
-    console.log("New Heights:", newHeights);
     setContentHeights(newHeights);
   }, [activeIndex]);
 
-  const toggleCollapsible = (index) => {
-    setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
+  useEffect(() => {
+    sessionStorage.setItem("activeIndex", activeIndex);
+  }, [activeIndex]);
+
+  const stopPropagation = (event) => {
+    event.stopPropagation();
   };
+
+
+  const toggleCollapsible = (index) => {
+    setActiveIndex(index);
+  };
+
+  const isActiveLink = (to) => {
+    return location.pathname === to;
+  };  
 
   const getButtonContent = (index) => {
     return activeIndex === index ? (
@@ -38,6 +55,8 @@ function BankaccountSidebar() {
       <i className="ri-add-fill" style={{ fontSize: "18px" }}></i>
     );
   };
+
+
   return (
     <div>
       <Userdetails />
@@ -48,7 +67,7 @@ function BankaccountSidebar() {
               type="button"
               className={`collapsible sidebarButton ${activeIndex === 0 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
-              onClick={() => toggleCollapsible(0)}
+               onClick={() => toggleCollapsible(0)}
             >
               <span> Accounts </span> <span> {getButtonContent(0)} </span>
             </button>
@@ -60,21 +79,21 @@ function BankaccountSidebar() {
               }}
               ref={contentRefs[0]}
             >
-              <Link to="/user/account">Accounts</Link>
+              <Link to="/user/account" onClick={stopPropagation}  className={isActiveLink("/user/account") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"}>Accounts</Link>
               {/* <Link to="">View Customer ID</Link> */}
-              <Link to="/user/account/statement">Detailed Statement</Link>
-              <Link to="/user/account/statement-by-email">Account Statement by email</Link>
-              <Link to="/user/account/debit-atm-card">Debit/ATM Card details</Link>
+              <Link to="/user/account/statement" onClick={stopPropagation} className={isActiveLink("/user/account/statement") ? "bank_account_sidebar_link_tag" : ""}>Detailed Statement</Link>
+              <Link to="/user/account/statement-by-email" onClick={stopPropagation} className={isActiveLink("/user/account/statement-by-email") ? "bank_account_sidebar_link_tag" : ""}>Account Statement by email</Link>
+              <Link to="/user/account/debit-atm-card" onClick={stopPropagation} className={isActiveLink("/user/account/debit-atm-card") ? "bank_account_sidebar_link_tag" : ""}>Debit/ATM Card details</Link>
               {/* <Link to="">Monthly Average Balance Details</Link> */}
-              <Link to="/user/account/generate-debitcard-pin">Generate ATM Pin Online</Link>
-              <Link to="/user/account/chequebook-req">Cheque Book Request</Link>
-              <Link to="/user/account/view-update-pancard">View/Update PAN Card</Link>
-              <Link to="/user/account/update-form60">Update Form 60</Link>
-              <Link to="/user/account/block-debit-card">Block Debit/ ATM Card</Link>
+              <Link to="/user/account/generate-debitcard-pin" onClick={stopPropagation} className={isActiveLink("/user/account/generate-debitcard-pin") ? "bank_account_sidebar_link_tag" : ""}>Generate ATM Pin Online</Link>
+              <Link to="/user/account/chequebook-req" onClick={stopPropagation} className={isActiveLink("/user/account/chequebook-req") ? "bank_account_sidebar_link_tag" : ""}>Cheque Book Request</Link>
+              <Link to="/user/account/view-update-pancard" onClick={stopPropagation} className={isActiveLink("/user/account/view-update-pancard") ? "bank_account_sidebar_link_tag" : ""}>View/Update PAN Card</Link>
+              <Link to="/user/account/update-form60" onClick={stopPropagation} className={isActiveLink("/user/account/update-form60") ? "bank_account_sidebar_link_tag" : ""}>Update Form 60</Link>
+              <Link to="/user/account/block-debit-card" onClick={stopPropagation} className={isActiveLink("/user/account/block-debit-card") ? "bank_account_sidebar_link_tag" : ""}>Block Debit/ ATM Card</Link>
               {/* <Link to="/user/account/pmsocial-securityschmes">PM Social Security Schemes</Link> */}
               {/* <Link to="">Enroll Atal Pension Yojana</Link> */}
               {/* <Link to="/user/account/bank-rewardspoints">Bank Rewards</Link> */}
-              <Link to="/user/account/service-request">Service Requests</Link>
+              <Link to="/user/account/service-request" onClick={stopPropagation} className={isActiveLink("/user/account/service-request") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"}>Service Requests</Link>
             </div>
 
             <button
@@ -83,7 +102,7 @@ function BankaccountSidebar() {
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(1)}
             >
-              <span> <Link to="/user/account/fixed-deposits"> Deposits</Link></span> <span> {getButtonContent(1)}</span>
+              <span> Deposits</span> <span> {getButtonContent(1)}</span>
             </button>
             <div
               className="content"
@@ -94,12 +113,12 @@ function BankaccountSidebar() {
               ref={contentRefs[1]}
             >
               {" "}
-              <Link to="/user/account/fixed-deposits">Deposit Accounts</Link>
-              <Link to="">Open Deposits</Link>
+              <Link to="/user/account/fixed-deposits" className={isActiveLink("/user/account/fixed-deposits") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Deposit Accounts</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Open Deposits</Link>
               {/* <Link to="/user/account/iwish-deposits">iWish Golas</Link> */}
-              <Link to="/user/account/fd-advice">FD Advice</Link>
-              <Link to="">Service Requests</Link>
-              <Link to="/user/account/renew-fd">Renew FD</Link>
+              <Link to="/user/account/fd-advice" className={isActiveLink("/user/account/fd-advice") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>FD Advice</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Service Requests</Link>
+              <Link to="/user/account/renew-fd" className={isActiveLink("/user/account/renew-fd") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>Renew FD</Link>
             </div>
 
             {/* <button
@@ -139,9 +158,9 @@ function BankaccountSidebar() {
               ref={contentRefs[3]}
             >
               {" "}
-              <Link to="">Pockets Account</Link>
-              <Link to="">Add Funds</Link>
-              <Link to="">View Card Details</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Pockets Account</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Add Funds</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>View Card Details</Link>
             </div>
 
             <button
@@ -161,7 +180,7 @@ function BankaccountSidebar() {
               ref={contentRefs[4]}
             >
               {" "}
-              <Link to="/user/account/paylater">PayLater</Link>
+              <Link to="/user/account/paylater" className={isActiveLink("/user/account/paylater") ? "bank_account_sidebar_link_tag mt-1 mb-1" : "mt-1 mb-1"} onClick={stopPropagation}>PayLater</Link>
             </div>
 
             <button
@@ -181,7 +200,7 @@ function BankaccountSidebar() {
               ref={contentRefs[5]}
             >
               {" "}
-              <Link to="">PPF Account</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1 mb-1" : "mt-1 mb-1"} onClick={stopPropagation}>PPF Account</Link>
             </div>
 
             <button
@@ -201,7 +220,7 @@ function BankaccountSidebar() {
               ref={contentRefs[6]}
             >
               {" "}
-              <Link to=""> SSY Account </Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1 mb-1" : "mt-1 mb-1"} onClick={stopPropagation}> SSY Account </Link>
             </div>
 
             <button
@@ -221,10 +240,10 @@ function BankaccountSidebar() {
               ref={contentRefs[7]}
             >
               {" "}
-              <Link to="">Bank Accounts</Link>
-              <Link to="">Credit Cards</Link>
-              <Link to="">Demat</Link>
-              <Link to="">PPF Accounts</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Bank Accounts</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Credit Cards</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Demat</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>PPF Accounts</Link>
             </div>
 
             <button

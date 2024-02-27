@@ -175,7 +175,7 @@ const QuickFundTransfer = () => {
 
                                 <label htmlFor="text" className="d-flex">Transaction from<p className="quick_fund_tranfer_p">*</p></label>
 
-//                                 <label htmlFor="text">Transfer form*</label>
+                                
 
                                 <select
                                     className="form-control"

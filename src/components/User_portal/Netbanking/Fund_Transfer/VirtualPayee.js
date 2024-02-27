@@ -3,7 +3,7 @@ import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
 import { Link } from 'react-router-dom';
 
 
-const ConfirmBiller = () => {
+const VirtualPaye  = () => {
     return (
         <div className="container-fluid" style={{ marginTop: "90px" }}>
             <div class="row">
@@ -13,11 +13,11 @@ const ConfirmBiller = () => {
                 <div className='col-9'>
                     <div className='row confirm_biller'>
                         <div>
-                                <h4 className='p-3'>Confirm Payee/Biller</h4>
+                                <h4 className='p-3'>Confirm Payee</h4>
                             </div>
                         <div className='card p-3'>
                             <div className="d-flex mt-1">
-                                <div className="">
+                                <div className=".confirm_biller">
                                     <h6>DETAILS</h6> 
                                 </div>
                                 <div className="ml-2"> 
@@ -33,23 +33,45 @@ const ConfirmBiller = () => {
                                 <div className='col-3 mt-1'>
                                 <p>Payee Account Number*</p>
                                 </div>
-                                <div className='col-4'>
+                                <div className='col-3'>
                                 <input type='text' className='form-control'></input>
                                 </div>
                             </div>
                             <div className='row confirm_biller_tags mt-2'>
                                 <div className='col-3 mt-1'>
-                                <p>Nickname*</p>
+                                <p>Payee Nickname*</p>
                                 </div>
-                                <div className='col-4'>
+                                <div className='col-3'>
                                 <input type='text' className='form-control'></input>
+                                </div>
+                            </div>
+                            <div className='row confirm_biller_tags mt-2'>
+                                <div className='col-3 mt-1'>
+                                <p>Account type*</p>
+                                </div>
+                                <div className='col-3'>
+                                <select className='form-control'>
+                                  <option>Savings</option>
+                                  <option>Current</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div className='row confirm_biller_tags mt-2'>
+                                <div className='col-3 mt-1'>
+                                <p>Enter Payee Bank IFSC Code*</p>
+                                </div>
+                                <div className='col-3'>
+                                <input type='text' className='form-control'></input>
+                                </div>
+                                <div className='col-2'> 
+                                  <button className='confirm_biller_buttons_account'>Search</button>
                                 </div>
                             </div>
                             <div className='row confirm_biller_tags mt-2'>
                                 <div className='col-3 mt-1'>
                                 <p>Account Number*</p>
                                 </div>
-                                <div className='col-4'>
+                                <div className='col-3'>
                                 <input type='text' className='form-control'></input>
                                 </div>
                             </div>
@@ -57,15 +79,26 @@ const ConfirmBiller = () => {
                                 <div className='col-3 mt-1'>
                                 <p>Confirm Payee Account Number*</p>
                                 </div>
-                                <div className='col-4'>
+                                <div className='col-3'>
                                 <input type='text' className='form-control'></input>
                                 </div>
+                                <div className='col-6'>
+                                  <div className='d-flex flex-row'>
+                                  <p>Avoid sending money to wrong payee.</p>
+                                  <Link>Validate Now!</Link>
+                                  </div>
+                                  
+                                  
+                                </div>
+                            </div>
+                            <div className='mt-2'>
+                              <h6>Royal Islamic Virtual Account Pay Details</h6>
                             </div>
                             <div className='row confirm_biller_tags mt-2'>
                                 <div className='col-3 mt-1'>
                                 <p>Payee Registration alert to be sent on mobile number*</p>
                                 </div>
-                                <div className='col-4'>
+                                <div className='col-3'>
                                 <input type='text' className='form-control'></input>
                                 </div>
                             </div>
@@ -103,4 +136,4 @@ const ConfirmBiller = () => {
     );
 };
 
-export default ConfirmBiller;
+export default VirtualPaye ;

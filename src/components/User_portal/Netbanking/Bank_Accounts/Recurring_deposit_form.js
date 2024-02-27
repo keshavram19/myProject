@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios, { Axios } from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import logo from "../../../../Images/RIB White logo (1).png";
 
 const RecurringForm = () => {
     const[RecurringdepositAccountNumber,setRecurringdepositAccountNumber]= useState("");
@@ -97,7 +97,7 @@ const RecurringForm = () => {
               console.log(response.data);
               if (response.status === 200) {
                 toast.success("RD form submit Successful", {
-                  position: "top-right",
+                  position: "top-center",
                   autoClose: 1000,
                   hideProgressBar: false,
                   closeOnClick: true,
@@ -114,7 +114,7 @@ const RecurringForm = () => {
             })
             .catch((error) => {
               toast.error("RD already Done: please select proper Account number", {
-                position: "top-right",
+                position: "top-center",
                 autoClose: 1000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -133,21 +133,21 @@ const RecurringForm = () => {
     
 
     return (
-        <div>
-            <div className="container-fluid fdform_main p-5" style={{ marginTop: '60px'}}>
+        <>
+            <div className="container-fluid fdform_main" style={{ marginTop: '50px'}}>
                 <div className="row">
-                    <p className='col-xl-1 col-1'></p>
-                    <div className="col-xl-5 col-5">
-                        <h1 className="fdform_leftheading">RIB</h1>
+                   
+                    <div className="col-md-2  p-0 m-0">
+                    <img src={logo} alt="" style={{ width: "170px" }} />
                     </div>
-                    <p className='col-xl-1 col-1'></p>
-                    <div className="col-xl-5 col-5">
-                        <h1 className='fdform_rightheading'>Recurring Deposit Account Opening Form</h1>
+                    
+                    <div className="col-md-10 d-flex  p-0 m-0" style={{justifyContent:"center",alignItems:"center"}}>
+                        <h2 className='fdform_rightheading'>Recurring Deposit Account Opening Form</h2>
                     </div>
                 </div>
-                <hr style={{ border: '6px solid #f18121' }}></hr>
+                <hr style={{ border: '3px solid #ebca28' }}></hr>
                 <ToastContainer
-                  position="top-right"
+                  position="top-center"
                   autoClose={5000}
                   hideProgressBar={false}
                   newestOnTop={false}
@@ -161,188 +161,332 @@ const RecurringForm = () => {
                 {/* Same as */}
                 <ToastContainer />
                 <form onSubmit={onSubmitForm}>
-                <div className='row' >
-                    <p className='col-xl-12 mb-5'>Please fill in the form using BLOCK CAPITALS. Tick any boxes which apply</p>
-                    <label className='col-xl-3 col-3'>Account Number</label>
-                    <input type='text' className='col-xl-4 col-4 fdform_accountnbrinput p-2' onChange={(e) => setRecurringdepositAccountNumber(e.target.value)} value={RecurringdepositAccountNumber} />
-                    
+                <div className='p-2' >
+            
+                    <label  for="savingsAccountNumber" className='form-inline'>
+                    <span className='col-md-3'>Account Number</span>
+                    <input type='text' className='form-control  form-control-md col-md-3 w-100 fdform_accountnbrinput' onChange={(e) => setRecurringdepositAccountNumber(e.target.value)} value={RecurringdepositAccountNumber} placeholder="Enter Your Account Number"/>
+                    </label>
                 </div>
-                <div className='row mt-5'>
-                    <div className='col-6'>
-                        <h3 className='mb-4 fdform_subheading'>Your Details (First Customer)</h3>
-                        <label className='col-1'>Title</label>
-                        <input type='radio' name="gender" className='col-1'  onChange={(e) => setRecurringdepositTitle(e.target.value)} value="Mr"/>Mr
-                        <input type='radio' name="gender" className='col-1'  onChange={(e) => setRecurringdepositTitle(e.target.value)} value="Mrs"/>Mrs
-                        <input type='radio' name="gender" className='col-1'  onChange={(e) => setRecurringdepositTitle(e.target.value)} value="Ms"/>Ms
-                        <input type='radio' name="gender" className='col-1'  onChange={(e) => setRecurringdepositTitle(e.target.value)} value="Miss"/>Miss
-                        <input type='radio' name="gender" className='col-1'  onChange={(e) => setRecurringdepositTitle(e.target.value)} value="other"/>Other<br></br>
-                        <label className='mt-3'>First Name:</label><br></br>
-                        <input type='text' className='w-75 fdform_input p-2'  onChange={(e) => setRecurringdepositFirstname(e.target.value)} value={RecurringdepositFirstname}/><br></br>
-                        <label className='mt-3'>Middle Name:</label><br></br>
-                        <input type='text' className='w-75 fdform_input p-2' onChange={(e) => setRecurringdepositMiddlename(e.target.value)} value={RecurringdepositMiddlename}/><br></br>
-                        <label className='mt-3'>Surname:</label><br></br>
-                        <input type='text' className='w-75 fdform_input p-2' onChange={(e) => setRecurringdepositSurname(e.target.value)} value={RecurringdepositSurname}/><br></br>
-                        <label className='mt-3'>Date of Birth:</label><br></br>
-                        <input type='Date' className='w-75 fdform_input p-2' onChange={(e) => setRecurringdepositDateOfBirth(e.target.value)} value={RecurringdepositDateOfBirth}/><br></br>
-                        <label className='mt-3'>Mobile Number:</label><br></br>
-                        <input type='Text' className='w-75 fdform_input p-2' onChange={(e) => setRecurringdepositMobileNumber(e.target.value)} value={RecurringdepositMobileNumber}/><br></br>
-                        <label className='mt-3'>Email:</label><br></br>
-                        <input type='text' className='w-75 fdform_input p-2' onChange={(e) => setRecurringdepositEmailId(e.target.value)} value={RecurringdepositEmailId}/><br></br>
-                        <label className='mt-2 row' style={{ marginLeft: '1px' }}> Current Address:</label><br></br>
-                        <label className='col-2'>Line 1</label>
-                        <input type='text' className='fdform_addressinput p-2' onChange={(e) => setRecurringdepositLine1(e.target.value)} value={RecurringdepositLine1}/><br></br>
-                        <label className='col-2'>Line 2</label>
-                        <input type='text' className='fdform_addressinput p-2 mt-2' onChange={(e) => setRecurringdepositLine2(e.target.value)} value={RecurringdepositLine2}/><br></br>
-                        <label className='col-2'>Town</label>
-                        <input type='text' className='fdform_addressinput p-2 mt-2' onChange={(e) => setRecurringdepositTown(e.target.value)} value={RecurringdepositTown}/><br></br>
-                        <label className='col-2'>Country</label>
-                        <input type='text' className='fdform_addressinput4 p-2 mt-2' onChange={(e) => setRecurringdepositCountry(e.target.value)} value={RecurringdepositCountry}/>
-                        <label className='col-2'>Postcode</label>
-                        <input type='text' className='fdform_addressinput5 p-2 mt-2' onChange={(e) => setRecurringepositPostcode(e.target.value)} value={RecurringdepositPostcode}/>
+                <div className='row p-4 fdform_main_Container'>
+                    <div className='col-md-6'>
+                        <h4 className='mb-4 fdform_subheading'>Your Details (First Customer)</h4>
+                       <div className="p-1">
+                       <label style={{paddingRight:"15px"}}>Title:  </label>
+                       <div className="form-check-inline " style={{fontSize:"15px"}}>
+                            <label className="form-check-label" for='Email'>
+                        <input type='radio' name="gender"  className="form-check-input " style={{marginTop:"4px"}}  onChange={(e) => setRecurringdepositTitle(e.target.value)} value="Mr"/>Mr
+                        </label>
+                        </div>
+                        <div className="form-check-inline " style={{fontSize:"15px"}}>
+                            <label className="form-check-label" for='Email'>
+                        <input type='radio' name="gender"  className="form-check-input " style={{marginTop:"4px"}} onChange={(e) => setRecurringdepositTitle(e.target.value)} value="Mrs"/>Mrs
+                        </label>
+                        </div>
+                        <div className="form-check-inline " style={{fontSize:"15px"}}>
+                            <label className="form-check-label" for='Email'>
+                        <input type='radio' name="gender"  className="form-check-input " style={{marginTop:"4px"}}  onChange={(e) => setRecurringdepositTitle(e.target.value)} value="Ms"/>Ms
+                        </label>
+                        </div>
+                        <div className="form-check-inline " style={{fontSize:"15px"}}>
+                            <label className="form-check-label" for='Email'>
+                        <input type='radio' name="gender"  className="form-check-input " style={{marginTop:"4px"}}  onChange={(e) => setRecurringdepositTitle(e.target.value)} value="Miss"/>Miss
+                       </label>
+                       </div>
+                       <div className="form-check-inline " style={{fontSize:"15px"}}>
+                            <label className="form-check-label" for='Email'>
+                        <input type='radio' name="gender"  className="form-check-input " style={{marginTop:"4px"}}  onChange={(e) => setRecurringdepositTitle(e.target.value)} value="other"/>Other<br></br>
+                       </label>
+                       </div>
 
+                        </div>
+                        <div className="p-1">
+                        <label className='form-inline'>First Name:</label>
+                        <input type='text' className='form-control form-control-md w-75'  onChange={(e) => setRecurringdepositFirstname(e.target.value)} value={RecurringdepositFirstname}/>
+                        </div>
+                        <div className="p-1">
+                        <label className='form-inline'>Middle Name:</label>
+                        <input type='text' className='form-control form-control-md w-75' onChange={(e) => setRecurringdepositMiddlename(e.target.value)} value={RecurringdepositMiddlename}/>
+                        </div>
+                        <div className="p-1">
+                        <label className='form-inline'>Surname:</label>
+                        <input type='text' className='form-control form-control-md w-75' onChange={(e) => setRecurringdepositSurname(e.target.value)} value={RecurringdepositSurname}/>
+                        </div>
+                        <div className="p-1">
+                        <label className='form-inline'>Date of Birth:</label>
+                        <input type='Date' className='form-control form-control-md w-75' onChange={(e) => setRecurringdepositDateOfBirth(e.target.value)} value={RecurringdepositDateOfBirth}/>
+                       </div>
+                       <div className="p-1">
+                        <label className='form-inline'>Mobile Number:</label>
+                        <input type='Text' className='form-control form-control-md w-75' onChange={(e) => setRecurringdepositMobileNumber(e.target.value)} value={RecurringdepositMobileNumber}/>
+                        </div>
+                        <div className="p-1">
+                        <label className='form-inline'>Email:</label>
+                        <input type='text' className='form-control form-control-md w-75' onChange={(e) => setRecurringdepositEmailId(e.target.value)} value={RecurringdepositEmailId}/>
+                        </div>
+                        <label className='row' style={{ marginLeft: '1px' }}> Current Address:</label><br></br>
+                        <div style={{color:"rgb(85, 84, 84)"}}>
+                        <label className='form-inline'><span className="col-md-2">Line 1 </span>
+                        <input type='text' className='form-control  form-control-md col-md-6 w-50' onChange={(e) => setRecurringdepositLine1(e.target.value)} value={RecurringdepositLine1}/><br></br>
+                        </label>
+                        <label className='form-inline'><span className="col-md-2">Line 2</span>
+                        <input type='text' className='form-control  form-control-md col-md-6 w-50' onChange={(e) => setRecurringdepositLine2(e.target.value)} value={RecurringdepositLine2}/><br></br>
+                        </label>
+                        <label className='form-inline'> <span className="col-md-2">Town</span>
+                        <input type='text' className='form-control  form-control-md col-md-6 w-50' onChange={(e) => setRecurringdepositTown(e.target.value)} value={RecurringdepositTown}/><br></br>
+                        </label>
+                        <label className='form-inline'><span className="col-md-2">Country</span>
+                        <input type='text' className='form-control  form-control-md col-md-6 w-50' onChange={(e) => setRecurringdepositCountry(e.target.value)} value={RecurringdepositCountry}/>
+                        </label>
+                        <label className='form-inline'><span className="col-md-2">Postcode</span>
+                        <input type='text' className='form-control  form-control-md col-md-6 w-50' onChange={(e) => setRecurringepositPostcode(e.target.value)} value={RecurringdepositPostcode}/>
+                        </label>
 
-
+                        </div>
                     </div>
                     <div className='col-6'>
-                        <h3 className='mb-4 fdform_subheading'>Nominee Details (Second Customer)</h3>
-                        <label className='col-1'>Title</label>
-                        <input type='radio' name="nominee" className='col-1' onChange={(e) => setRecurringNomineeTitle(e.target.value)} value="Mr"/>Mr
-                        <input type='radio' name="nominee" className='col-1' onChange={(e) => setRecurringNomineeTitle(e.target.value)} value="Mrs"/>Mrs
-                        <input type='radio' name="nominee" className='col-1' onChange={(e) => setRecurringNomineeTitle(e.target.value)} value="Ms"/>Ms
-                        <input type='radio' name="nominee" className='col-1' onChange={(e) => setRecurringNomineeTitle(e.target.value)} value="Miss"/>Miss
-                        <input type='radio' name="nominee" className='col-1' onChange={(e) => setRecurringNomineeTitle(e.target.value)} value="other"/>Other<br></br>
-                        <label className='mt-3'>First Name:</label><br></br>
-                        <input type='text' className='w-75 fdform_input p-2' onChange={(e) => setRecurringNomineeFirstname(e.target.value)} value={RecurringNomineeFirstname}/><br></br>
-                        <label className='mt-3'>Middle Name:</label><br></br>
-                        <input type='text' className='w-75 fdform_input p-2' onChange={(e) => setRecurringNomineeMiddlename(e.target.value)} value={RecurringNomineeMiddlename}/><br></br>
-                        <label className='mt-3'>Surname:</label><br></br>
-                        <input type='text' className='w-75 fdform_input p-2' onChange={(e) => setRecurringNomineeSurname(e.target.value)} value={RecurringNomineeSurname}/><br></br>
-                        <label className='mt-3'>Date of Birth:</label><br></br>
-                        <input type='Date' className='w-75 fdform_input p-2' onChange={(e) => setRecurringNomineeDateOfBirth(e.target.value)} value={RecurringNomineeDateOfBirth}/><br></br>
-                        <label className='mt-3'>Mobile Number:</label><br></br>
-                        <input type='Text' className='w-75 fdform_input p-2' onChange={(e) => setRecurringNomineeMobileNumber(e.target.value)} value={RecurringNomineeMobileNumber}/><br></br>
-                        <label className='mt-3'>Email:</label><br></br>
-                        <input type='text' className='w-75 fdform_input p-2'  onChange={(e) => setRecurringNomineeEmailId(e.target.value)} value={RecurringNomineeEmailId}/><br></br>
-                        <label className='mt-2 row' style={{ marginLeft: '1px' }}> Current Address:</label><br></br>
-                        <label className='col-2'>Line 1</label>
-                        <input type='text' className='fdform_addressinput p-2' onChange={(e) => setRecurringNomineeLine1(e.target.value)} value={RecurringNomineeLine1}/><br></br>
-                        <label className='col-2'>Line 2</label>
-                        <input type='text' className='fdform_addressinput p-2 mt-2' onChange={(e) => setRecurringNomineeLine2(e.target.value)} value={RecurringNomineeLine2}/><br></br>
-                        <label className='col-2'>Town</label>
-                        <input type='text' className='fdform_addressinput p-2 mt-2' onChange={(e) => setRecurringNomineeTown(e.target.value)} value={RecurringNomineeTown}/><br></br>
-                        <label className='col-2'>Country</label>
-                        <input type='text' className='fdform_addressinput4 p-2 mt-2' onChange={(e) => setRecurringNomineeCountry(e.target.value)} value={RecurringNomineeCountry}/>
-                        <label className='col-2'>Postcode</label>
-                        <input type='text' className='fdform_addressinput5 p-2 mt-2'onChange={(e) => setRecurringNomineePostcode(e.target.value)} value={RecurringNomineePostcode}/>
+                        <h4 className='mb-4 fdform_subheading'>Nominee Details (Second Customer)</h4>
+                        <div className="p-1">
+                        <label style={{paddingRight:"15px"}}>Title:  </label>
+                        <div className="form-check-inline " style={{fontSize:"15px"}}>
+                            <label className="form-check-label" for='Email'>
+                        <input type='radio' name="nominee"  className="form-check-input " style={{marginTop:"4px"}} onChange={(e) => setRecurringNomineeTitle(e.target.value)} value="Mr"/>Mr
+                        </label>
+                        </div>
+                        <div className="form-check-inline " style={{fontSize:"15px"}}>
+                            <label className="form-check-label" for='Email'>
+                        <input type='radio' name="nominee"  className="form-check-input " style={{marginTop:"4px"}} onChange={(e) => setRecurringNomineeTitle(e.target.value)} value="Mrs"/>Mrs
+                        </label>
+                        </div>
+                        <div className="form-check-inline " style={{fontSize:"15px"}}>
+                            <label className="form-check-label" for='Email'>
+                        <input type='radio' name="nominee"  className="form-check-input " style={{marginTop:"4px"}} onChange={(e) => setRecurringNomineeTitle(e.target.value)} value="Ms"/>Ms
+                        </label>
+                        </div>
+                        <div className="form-check-inline " style={{fontSize:"15px"}}>
+                            <label className="form-check-label" for='Email'>
+                        <input type='radio' name="nominee"  className="form-check-input " style={{marginTop:"4px"}} onChange={(e) => setRecurringNomineeTitle(e.target.value)} value="Miss"/>Miss
+                        </label>
+                        </div>
+                        <div className="form-check-inline " style={{fontSize:"15px"}}>
+                            <label className="form-check-label" for='Email'>
+                        <input type='radio' name="nominee"  className="form-check-input " style={{marginTop:"4px"}} onChange={(e) => setRecurringNomineeTitle(e.target.value)} value="other"/>Other<br></br>
+                       </label>
+                       </div>
+                       </div>
+                       <div className="p-1">
+                        <label className='form-inline'>First Name:</label>
+                        <input type='text' className='form-control form-control-md w-75' onChange={(e) => setRecurringNomineeFirstname(e.target.value)} value={RecurringNomineeFirstname}/>
+                        </div>
+                        <div className="p-1">
+                        <label className='form-inline'>Middle Name:</label>
+                        <input type='text' className='form-control form-control-md w-75' onChange={(e) => setRecurringNomineeMiddlename(e.target.value)} value={RecurringNomineeMiddlename}/>
+                       </div>
+                        <div className="p-1">
+                        <label className='form-inline'>Surname:</label>
+                        <input type='text' className='form-control form-control-md w-75' onChange={(e) => setRecurringNomineeSurname(e.target.value)} value={RecurringNomineeSurname}/>
+                        </div>
+                        <div className="p-1">
+                        <label className='form-inline'>Date of Birth:</label>
+                        <input type='Date' className='form-control form-control-md w-75' onChange={(e) => setRecurringNomineeDateOfBirth(e.target.value)} value={RecurringNomineeDateOfBirth}/>
+                        </div>
+                        <div className="p-1">
+                        <label className='form-inline'>Mobile Number:</label>
+                        <input type='Text' className='form-control form-control-md w-75' onChange={(e) => setRecurringNomineeMobileNumber(e.target.value)} value={RecurringNomineeMobileNumber}/>
+                        </div>
+                        <div className="p-1">
+                        <label className='form-inline'>Email:</label>
+                        <input type='text' className='form-control form-control-md w-75'  onChange={(e) => setRecurringNomineeEmailId(e.target.value)} value={RecurringNomineeEmailId}/>
+                        </div>
+                        <label className=' row' style={{ marginLeft: '1px' }}> Current Address:</label><br></br>
+                        <div style={{color:"rgb(85, 84, 84)"}}>
+                        <label className='form-inline'><span className="col-md-2">Line 1 </span>
+                        <input type='text' className='form-control  form-control-md col-md-6 w-50' onChange={(e) => setRecurringNomineeLine1(e.target.value)} value={RecurringNomineeLine1}/><br></br>
+                        </label>
 
+                         <label className='form-inline'><span className="col-md-2">Line 2 </span>
+                        <input type='text' className='form-control  form-control-md col-md-6 w-50' onChange={(e) => setRecurringNomineeLine2(e.target.value)} value={RecurringNomineeLine2}/><br></br>
+                        </label>
+                        <label className='form-inline'> <span className="col-md-2">Town</span>
+                        <input type='text' className='form-control  form-control-md col-md-6 w-50' onChange={(e) => setRecurringNomineeTown(e.target.value)} value={RecurringNomineeTown}/><br></br>
+                        </label>
+                        <label className='form-inline'><span className="col-md-2">Country</span>
+                        <input type='text' className='form-control  form-control-md col-md-6 w-50' onChange={(e) => setRecurringNomineeCountry(e.target.value)} value={RecurringNomineeCountry}/>
+                        </label>
+                        <label className='form-inline'><span className="col-md-2">Postcode</span>
+                        <input type='text' className='form-control  form-control-md col-md-6 w-50'onChange={(e) => setRecurringNomineePostcode(e.target.value)} value={RecurringNomineePostcode}/>
+                        </label>
+                    </div>
 
                     </div>
 
                 </div>
-                <div className='row mt-5'>
-                    <div className='col-6'>
-                        <h3 className='fdform_fundingheading'>Funding</h3>
-                        <p>Please debit my/our RIB Savings/Current Account no. </p>
-                        <input type='text' className="w-75 fdform_fundinginput p-2" onChange={(e) => setRecurringdepositAccountNumber(e.target.value)} value={RecurringdepositAccountNumber}/>
-                        <p className="mt-2">and transfer an amount of  <input type='text' className=' fdform_fdinput mb-2 p-2' onChange={(e) => setRecurringdepositAmount(e.target.value)} value={RecurringdepositAmount}/><br></br>to a Fixed Deposit Account as below:</p>
-                        <p>Terms of deposit:</p>
-                        <label>Years</label> <input className='fdform_yearinput mx-3 p-2'  onChange={(e) => setRecurringdepositTermyears(e.target.value)} value={RecurringdepositTermyears}/><label>Months</label> <input className='fdform_yearinput mx-3 p-2'  onChange={(e) => setRecurringdepositTermmonths(e.target.value)} value={RecurringdepositTermmonths}/><label>Days</label> <input className='fdform_yearinput mx-3 p-2'  onChange={(e) => setRecurringdepositTermdays(e.target.value)} value={RecurringdepositTermdays}/><br></br>
-                        <label>Rate of interest :</label> <input className='fdform_rateinput p-2 mt-3 mb-2' onChange={(e) => setRecurringdepositInterestrate(e.target.value)} value={RecurringdepositInterestrate}/> %
-                        <p>Frequency of interest payable (please tick one)* :</p>
-                        <label> Monthly</label><input type='radio' className='mx-2' name='interest' onChange={(e) => setRecurringdepositInterestpay(e.target.value)} value="Monthly"/>
-                        <label> Annually</label><input type='radio' className='mx-2' name='interest' onChange={(e) => setRecurringdepositInterestpay(e.target.value)} value="Annually"/>
-                        <label> Upon maturity</label><input type='radio' className='mx-2' name='interest' onChange={(e) => setRecurringdepositInterestpay(e.target.value)} value="Upon maturity"/>
-
+                <div className='row p-4'>
+                    <div className=''>
+                        <h4 className='fdform_fundingheading text-center p-2' style={{backgroundColor:"#ebca28",marginBottom:"30px"}}>Funding</h4>
+                        <p className="funding_para1 p-1">Please debit my/our RIB Savings/Current Account no. <input type='text' className="w-25" onChange={(e) => setRecurringdepositAccountNumber(e.target.value)} value={RecurringdepositAccountNumber}/> and transfer an amount of <input type='text' className=' w-10' onChange={(e) => setRecurringdepositAmount(e.target.value)} value={RecurringdepositAmount}/>to a Fixed Deposit Account as below:
+                        </p>
+                        <p className="funding_para1 p-1"> <span style={{fontWeight:"420",paddingRight:"10px"}}>Terms of deposit: </span>    Years <input className='w-10 p-1'  onChange={(e) => setRecurringdepositTermyears(e.target.value)} value={RecurringdepositTermyears}/>Months <input className='w-10 p-1'  onChange={(e) => setRecurringdepositTermmonths(e.target.value)} value={RecurringdepositTermmonths}/>Days <input className='w-10 p-1'  onChange={(e) => setRecurringdepositTermdays(e.target.value)} value={RecurringdepositTermdays}/>
+                       </p>
+                       
+                       <label style={{fontWeight:"420",paddingRight:"10px"}} className="p-1">Rate of interest :</label>  <input className='w-10 p-1' style={{outline:"none",paddingLeft:"20px"}} onChange={(e) => setRecurringdepositInterestrate(e.target.value)} value={RecurringdepositInterestrate}/> %
+                       <div className="p-2">
+                       <label style={{fontWeight:"420",paddingRight:"10px"}} className="">Frequency of interest payable (please tick one)* :</label>
+                        
+                       <div className="form-check-inline " style={{fontSize:"15px"}}>
+                            <label className="form-check-label" for='Email'>
+                        <input type='radio' className='' name='interest' onChange={(e) => setRecurringdepositInterestpay(e.target.value)} value="Monthly"/>Monthly
+                        </label>
+                        </div>
+                        <div className="form-check-inline " style={{fontSize:"15px"}}>
+                            <label className="form-check-label" for='Email'>
+                        <input type='radio' className='' name='interest' onChange={(e) => setRecurringdepositInterestpay(e.target.value)} value="Annually"/>Annually
+                        </label>
+                        </div>
+                        <div className="form-check-inline " style={{fontSize:"15px"}}>
+                            <label className="form-check-label" for='Email'>
+                         <input type='radio' className='mx-2' name='interest' onChange={(e) => setRecurringdepositInterestpay(e.target.value)} value="Upon maturity"/>Upon Maturity
+                        </label>
+                        </div>
+                         </div>
                     </div>
-                    <div className='col-6'>
-                        <h3 className='fdform_fundingheading'>Interest Payments</h3>
-                        <p>If (A) or (B) from funding section,
+                    <div className=''>
+                    <h4 className='fdform_fundingheading text-center p-2' style={{backgroundColor:"#ebca28",marginBottom:"30px"}}>Interest Payments</h4>
+                        <p style={{fontWeight:"420"}}>If (A) or (B) from funding section,
                             Unless specified we will credit interest to your RIB UK account</p>
-                        <p>Please arrange to credit all or part of the interest on the fixed deposit to my / our RIB account number </p>
-                        <input className='fdform_rateinput p-2' onChange={(e) => setRecurringdepositAccountNumber(e.target.value)} value={RecurringdepositAccountNumber}/>
-                        <p>Please arrange to pay an amount** of <input className='fdform_rateinput p-2' onChange={(e) => setRecurringdepositAmount(e.target.value)} value={RecurringdepositAmount}/></p>
-                        <p>to my/our account with Bank <input className='fdform_rateinput p-2' onChange={(e) => setRecurringdepositBankname(e.target.value)} value={RecurringdepositBankname}/></p>
-                        <p>out of the interest credited to my / our RIB account.</p>
+                        <p className="funding_para1 p-1">Please arrange to credit all or part of the interest on the fixed deposit to my / our RIB account number 
+                        <input className='w-25' onChange={(e) => setRecurringdepositAccountNumber(e.target.value)} value={RecurringdepositAccountNumber}/>
+                        Please arrange to pay an amount** of <input className='w-25' onChange={(e) => setRecurringdepositAmount(e.target.value)} value={RecurringdepositAmount}/>
+                        to my/our account with Bank <input className='w-25' onChange={(e) => setRecurringdepositBankname(e.target.value)} value={RecurringdepositBankname}/>
+                        out of the interest credited to my / our RIB account.</p>
 
                     </div>
 
                 </div>
-                <div className='row mt-5'>
-                    <div className='col-6'>
-                        <h3 className='fdform_fundingheading'>Maturity Instructions</h3>
-                        <p>Maturity instruction payment:</p>
-                        <p>Either transfer to SBI UK Either transfer to SBI UK account</p>
-                        <p>Account Number :<input className='fdform_rateinput p-2' onChange={(e) => setRecurringdepositAccountNumber(e.target.value)} value={RecurringdepositAccountNumber}/></p>
-                        <p>Bank name:<input className='fdform_rateinput p-2'  onChange={(e) => setRecurringdepositBankname(e.target.value)} value={RecurringdepositBankname}/></p>
-                        <p>Account holder's name :</p>
-                        <input className='fdform_rateinput p-2 w-50' onChange={(e) => setRecurringdepositFirstname(e.target.value)} value={RecurringdepositFirstname}/><br></br>
-                        <input type='date' className='fdform_rateinput mt-3 p-2' onChange={(e) => setRecurringdepositDateOfBirth(e.target.value)} value={RecurringdepositDateOfBirth}/>
-
+                <div className='row p-4'>
+                    <div className=''>
+                    <h4 className='fdform_fundingheading text-center p-2'style={{backgroundColor:"#ebca28",marginBottom:"30px"}}>Maturity Instructions</h4>
+                        <p style={{fontWeight:"420"}}>Maturity instruction payment:</p>
+                        <p style={{fontWeight:"420"}}>Either transfer to SBI UK Either transfer to SBI UK account</p>
+                        <div className="row">
+                            <div className="col-md-6">
+                            <label className='form-inline'><span>Account Number</span> </label>
+                            <input className='form-control form-control-md w-75' onChange={(e) => setRecurringdepositAccountNumber(e.target.value)} value={RecurringdepositAccountNumber}/>
+                        </div>
+                        <div className="col-md-6">
+                        <label className='form-inline'><span>Bank name</span></label>
+                        <input className='form-control form-control-md w-75'  onChange={(e) => setRecurringdepositBankname(e.target.value)} value={RecurringdepositBankname}/>
+                        </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6">
+                            <label className='form-inline'><span>Account holder's name</span></label>
+                        <input className='form-control form-control-md w-75' onChange={(e) => setRecurringdepositFirstname(e.target.value)} value={RecurringdepositFirstname}/><br></br>
+                        </div>
+                        <div className="col-md-6">
+                            <label className='form-inline'><span>Date</span></label>
+                        <input type='date' className='form-control form-control-md w-75' onChange={(e) => setRecurringdepositDateOfBirth(e.target.value)} value={RecurringdepositDateOfBirth}/>
+                        </div>
+                        </div>
 
                     </div>
-                    <div className='col-6'>
-                        <h3 className='fdform_fundingheading'>Confirmation</h3>
+                    <div className=''>
+                    <h4 className='fdform_fundingheading text-center p-2' style={{backgroundColor:"#ebca28",marginBottom:"30px"}}>Confirmation</h4>
                         <p>I/we confirm that I/we have been provided with a copy of</p>
-                        <p><input type='checkbox' />The Bank’s Terms and Conditions</p>
-                        <p><input type='checkbox' />Information about interest rates</p>
-                        <p><input type='checkbox' />Summary of information about this product</p>
+                        <div className="form-check">
+                            <label className="form-check-label m-1">
+                            <input type='checkbox'className="form-check-input"style={{backgroundColor:"#2fb68e",border:'none',paddingRight:"8px"}}/>
+                            <p>The Bank’s Terms and Conditions</p>
+                            </label>
+                            </div>
+                            <div className="form-check">
+                            <label className="form-check-label m-1">
+                            <input type='checkbox'className="form-check-input" style={{backgroundColor:"#2fb68e",border:'none',paddingRight:"8px"}}/><p>Information about interest rates</p>
+                            </label>
+                            </div>
+                            <div className="form-check">
+                            <label className="form-check-label m-1">
+                           <input type='checkbox'className="form-check-input" style={{backgroundColor:"#2fb68e",border:'none',paddingRight:"8px"}}/><p>Summary of information about this product</p>
+                           </label></div>
                         <p>which I/we have read and I/we understand these form part of our contract
                             with the Bank. If there is anything in the Bank’s Terms and Conditions
                             which I/we do not understand or wish to discuss I/we will contact 0800 532 532
                             (24/7) at the Bank before signing this form</p>
-                        <input type='date' className='fdform_rateinput mt-3 p-2' onChange={(e) => setRecurringdepositDateOfBirth(e.target.value)} value={RecurringdepositDateOfBirth}/>
+                            <input type='date' className='form-control form-control-md col-md-2 w-10' onChange={(e) => setRecurringdepositDateOfBirth(e.target.value)} value={RecurringdepositDateOfBirth}/>
 
                     </div>
 
                 </div>
-                <div className='row mt-5'>
-                    <div className='col-8'>
-                    <h3 className='fdform_fundingheading'>For Bank use only:</h3>
-                    <p>Customer’s ID:</p>
-                    <input className='w-75 fdform_rateinput p-2'/>
-                    <p>New Account number:</p>
-                    <input className='w-75 fdform_rateinput p-2'/>
-                    <p>Amount:</p>
-                    <input className='w-75 fdform_rateinput p-2'/>
-                    <p>Scheme code:</p>
-                    <input className='w-75 fdform_rateinput p-2'/>
-                    <p>Transaction number:</p>
-                    <input className='w-75 fdform_rateinput p-2'/>
-                    <p>Prepared by:</p>
-                    <input className='w-75 fdform_rateinput p-2'/>
-                    <p>Checked by:</p>
-                    <input className='w-75 fdform_rateinput p-2'/>
+                <div className='row p-4'>
+                        <div className=''>
+                            <h4 className='fdform_fundingheading text-center p-2' style={{backgroundColor:"#ebca28",marginBottom:"30px"}}>For Bank use only:</h4>
+                            <div className="row">
+                             <div className="col-md-6">
+                             <label className='form-inline'><span>Customer’s ID </span></label>
+                            <input className='form-control form-control-md w-75' />
+                            </div>
+                            <div className="col-md-6">
+                            <label className='form-inline'><span>New Account number</span></label>
+                            <input className='form-control form-control-md w-75' />
+                            </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-6">
+                                <label className='form-inline'><span>Amount</span></label>
+                            <input className='form-control form-control-md w-75' />
+                            </div>
+                            <div className="col-md-6">
+                            <label className='form-inline'><span>Scheme code:</span></label>
+                            <input className='form-control form-control-md w-75' />
+                            </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-6">
+                                <label className='form-inline'><span>Transaction number</span></label>
+                            <input className='form-control form-control-md w-75' />
+                            </div>
+                            <div className="col-md-6">
+                            <label className='form-inline'><span>Prepared by</span></label>
+                            <input className='form-control form-control-md w-75' />
+                            </div>
+                            </div>
+                            <div className="row">
+                            <div className="col-md-6">
+                            <label className='form-inline'><span>Checked by</span></label>
+                            <input className='form-control form-control-md w-75' />
+                            </div>
+                            </div>
+                        </div>
+                        <div className="mt-5 ">
+                            <center>
+                            <button className="fdform_submitbtn ">SUBMIT</button>
+                            </center>
+                        </div>
+
 
                     </div>
-                    <div className="col-4" style={{marginTop:'250px'}}>
-                        <button className="fdform_submitbtn">SUBMIT</button>
-
-                    </div>
-                   
-
-                </div>
-
                 </form>
              
-                <div className='row mt-5'>
-                    <h3 className='fdform_fundingheading mb-3 text-center'>Tax Status</h3>
-                    <p>All the interest we pay will be without any tax deducted i.e. paid at gross rate.
+                <div className='row p-4'>
+                    <h4 className='fdform_fundingheading mb-3 text-center p-2'  style={{backgroundColor:"#ebca28",marginBottom:"30px"}}>Tax Status</h4>
+                    <p style={{fontSize:"13px"}}>All the interest we pay will be without any tax deducted i.e. paid at gross rate.
                         If the total amount of interest you receive exceeds any Personal Savings
                         Allowance to which you are entitled, you may have to pay tax at the
                         applicable rate. It is your responsibility to ensure that this tax is paid. This
                         would need to be paid directly to HM Revenue & Customs ('HMRC') We may share your personal data with, and obtain personal data about you
                         from, credit reference agencies or fraud prevention agencies for use in
                         verifying your identity, credit decisions and for fraud and money laundering
-                        prevention.</p> <p>If fraud is detected, you could be refused certain services, finance,
-                        or employment. Further details explaining how the personal data held by fraud
-                        prevention agencies may be used can be found on our website: http://www.rib.com/credit-reference
-                        We will not disclose any personal data to any company outside the State Bank
-                        Group except to help prevent fraud, or if required to do so by law. For further
-                        information on how your personal data is used, how we maintain the security
-                        of your personal data and your rights to access personal data we hold on you,
-                        please see our Privacy Policy, a copy of which can be found here: https://www.rib.com/footer/bottomfooter/privacy-policy or contact us at customerservices.rib@royalbank.com marking the correspondence for the
-                        attention of the Data Protection Officer.</p>
-                        <p>The Royal Islamic Bank Ltd would like to send you information about
+                        prevention.</p > 
+                        <p style={{fontSize:"13px"}}>If fraud is detected, you could be refused certain services, finance,
+                            or employment. Further details explaining how the personal data held by fraud
+                            prevention agencies may be used can be found on our website: http://www.rib.com/credit-reference
+                            We will not disclose any personal data to any company outside the State Bank
+                            Group except to help prevent fraud, or if required to do so by law. For further
+                            information on how your personal data is used, how we maintain the security
+                            of your personal data and your rights to access personal data we hold on you,
+                            please see our Privacy Policy, a copy of which can be found here: https://www.rib.com/footer/bottomfooter/privacy-policy or contact us at customerservices.rib@royalbank.com marking the correspondence for the
+                            attention of the Data Protection Officer.</p>
+                    <p style={{fontSize:"13px"}}>The Royal Islamic Bank Ltd would like to send you information about
                         special offers you may be entitled to or about products and services available
                         from the State Bank Group that may be of interest to you. If you agree to
                         being contacted in this way please tick the relevant boxes Please note that if this is a joint account, we will accept authority of any
@@ -366,7 +510,7 @@ const RecurringForm = () => {
 
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

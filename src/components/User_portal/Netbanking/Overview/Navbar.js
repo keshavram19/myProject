@@ -1,10 +1,16 @@
 import React from 'react';
 import './Navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Navbar = () => {
 
+    let navigate = useNavigate()
+    const handleSessionTimeOut = () => {
+        sessionStorage.removeItem('loginToken')
+        sessionStorage.removeItem('expireTime')
+        navigate('/netbanking-personal-login')
+    };
 
     return (
         <div>
@@ -115,6 +121,11 @@ const Navbar = () => {
 
 
                         </div>
+                    </li>
+                    <li>                     
+                        <button type='button' className='logout_button' onClick={handleSessionTimeOut}>
+                            Logout
+                        </button>                       
                     </li>
                 </ul>
             </nav>

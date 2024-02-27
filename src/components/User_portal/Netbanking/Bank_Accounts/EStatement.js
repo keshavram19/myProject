@@ -1,136 +1,262 @@
 import './Accounts.css';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { useState ,useRef,useEffect} from 'react';
-import { MdArrowDropDownCircle } from "react-icons/md";
-import { FcCalendar } from "react-icons/fc";
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+import { useNavigate } from 'react-router-dom';
 import html2pdf from 'html2pdf.js';
+import { MdPictureAsPdf } from "react-icons/md";
+
 const allTransactionsList = [
     {
+        type: 'credit card',
+        number: '1234 5678 9012 3456',
         date: '25 Jan 2024',
-        narration: 'UPI-BADE NAGARAJU-Q857498653@ybl-YESBOYBLUPI-439140239946-Payment from Phone',
+        narration: 'Credit Card Payment',
         withdrawl: '20.00',
-        deposite: '',
+        deposit: '',
         balance: '1.48'
     },
     {
+        type: 'credit card',
+        number: '1234 5678 9012 3456',
         date: '24 Jan 2024',
-        narration: 'UPI-Mr RAVI TEJA-7032256838@ybl-IDIB000M160-402484923876-Payment to 7032256',
+        narration: 'Online Shopping',
         withdrawl: '10,000.00',
-        deposite: '',
+        deposit: '',
         balance: '21.48'
     },
     {
+        type: 'credit card',
+        number: '1234 5678 9012 3456',
         date: '23 Jan 2024',
-        narration: 'UPI-PRATHI PAWAN KALYAN-89788426211@ybl-SBIN0011101-438930608914-Payment from Phone',
+        narration: 'Restaurant Bill',
         withdrawl: '',
-        deposite: '10,000.00',
+        deposit: '10,000.00',
         balance: '10,021.48'
     },
     {
+        type: 'credit card',
+        number: '1234 5678 9012 3456',
         date: '21 Jan 2024',
-        narration: 'UPI-KANDRA SUNIL-9676350447@ybl-IOBA0003640-402376683037-Payment to 9676350',
+        narration: 'Travel Booking',
         withdrawl: '10,000.00',
-        deposite: '',
+        deposit: '',
         balance: '21.48'
     },
     {
+        type: 'credit card',
+        number: '1234 5678 9012 3456',
         date: '20 Jan 2024',
-        narration: 'UPI-Mr SAI TEJA-7032256838@ybl-IDIB000M160-438905881961-Payment from Phone',
+        narration: 'Grocery Shopping',
         withdrawl: '',
-        deposite: '10,000.00',
+        deposit: '10,000.00',
         balance: '10,021.48'
     },
     {
+        type: 'credit card',
+        number: '1234 5678 9012 3456',
         date: '19 Jan 2024',
-        narration: 'UPI-Southern Power Distr-TELANGANASSPDCL-@ybl-YESBOYBLUPI-438578208304-Payment from Phone',
+        narration: 'Online Subscription',
         withdrawl: '579.00',
-        deposite: '',
+        deposit: '',
         balance: '34.43'
     },
     {
+        type: 'credit card',
+        number: '1234 5678 9012 3456',
         date: '18 Jan 2024',
-        narration: 'UPI-S J ENTERPRISES-paytmqr281005050101ohcg3wn30uhq@paytm-PYTM0123456-401914284585-Payment from Phone',
+        narration: 'Movie Tickets',
         withdrawl: '30.00',
-        deposite: '',
+        deposit: '',
         balance: '613.43'
     },
     {
+        type: 'credit card',
+        number: '1234 5678 9012 3456',
         date: '17 Jan 2024',
-        narration: 'UPI-FAMOUS CHICKEN CENTER-paytmqr1r7sb4s8ks@paytm-PYTM0123456-401897267622-Payment from Phone',
+        narration: 'Online Purchase',
         withdrawl: '45.00',
-        deposite: '',
+        deposit: '',
         balance: '643.43'
+    },
+    {
+        type: 'credit card',
+        number: '1234 5678 9012 3456',
+        date: '16 Jan 2024',
+        narration: 'Clothing Shopping',
+        withdrawl: '10,000.00',
+        deposit: '',
+        balance: '653.43'
+    },
+    {
+        type: 'credit card',
+        number: '1234 5678 9012 3456',
+        date: '15 Jan 2024',
+        narration: 'Electronics Purchase',
+        withdrawl: '10,000.00',
+        deposit: '',
+        balance: '663.43'
+    },
+    {
+        type: 'bank account',
+        number: '9876543210',
+        date: '25 Jan 2024',
+        narration: 'Salary Deposit',
+        withdrawl: '20.00',
+        deposit: '',
+        balance: '1.48'
+    },
+    {
+        type: 'bank account',
+        number: '9876543210',
+        date: '24 Jan 2024',
+        narration: 'Rent Payment',
+        withdrawl: '10,000.00',
+        deposit: '',
+        balance: '21.48'
+    },
+    {
+        type: 'bank account',
+        number: '9876543210',
+        date: '23 Jan 2024',
+        narration: 'Utility Bill Payment',
+        withdrawl: '',
+        deposit: '10,000.00',
+        balance: '10,021.48'
+    },
+    {
+        type: 'bank account',
+        number: '9876543210',
+        date: '21 Jan 2024',
+        narration: 'Loan Repayment',
+        withdrawl: '10,000.00',
+        deposit: '',
+        balance: '21.48'
+    },
+    {
+        type: 'bank account',
+        number: '9876543210',
+        date: '20 Jan 2024',
+        narration: 'Grocery Shopping',
+        withdrawl: '',
+        deposit: '10,000.00',
+        balance: '10,021.48'
+    },
+    {
+        type: 'bank account',
+        number: '9876543210',
+        date: '19 Jan 2024',
+        narration: 'Health Insurance Payment',
+        withdrawl: '579.00',
+        deposit: '',
+        balance: '34.43'
+    },
+    {
+        type: 'bank account',
+        number: '9876543210',
+        date: '18 Jan 2024',
+        narration: 'Car Loan Payment',
+        withdrawl: '30.00',
+        deposit: '',
+        balance: '613.43'
+    },
+    {
+        type: 'bank account',
+        number: '9876543210',
+        date: '17 Jan 2024',
+        narration: 'Home Repair Payment',
+        withdrawl: '45.00',
+        deposit: '',
+        balance: '643.43'
+    },
+    {
+        type: 'bank account',
+        number: '9876543210',
+        date: '16 Jan 2024',
+        narration: 'Charity Donation',
+        withdrawl: '10,000.00',
+        deposit: '',
+        balance: '653.43'
+    },
+    {
+        type: 'bank account',
+        number: '9876543210',
+        date: '15 Jan 2024',
+        narration: 'School Fees Payment',
+        withdrawl: '10,000.00',
+        deposit: '',
+        balance: '663.43'
     }
 ];
+
+
+
 const Estatement = () => {
+    const [viewPdf ,setViewPdf] = useState('');
+    const [selectedMonth, setSelectedMonth] = useState(null);
+      const [selectedType, setSelectedType] = useState('Bank Account');
+      const [bankAccountNumber, setBankAccountNumber] = useState('9876543210');
+      const [creditCardNumber, setCreditCardNumber] = useState('');
+      const [selectedBankAccountMonth, setSelectedBankAccountMonth] = useState(null);
+    const [selectedCreditCardMonth, setSelectedCreditCardMonth] = useState(null);
 
-    const [selectedDate, setSelectedDate] = useState(null);
-    const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-    const [selectedDate1, setSelectedDate1] = useState(null);
-    const [isCalendarOpen1, setIsCalendarOpen1] = useState(false);
-    const [viewPdf ,setViewPdf] = useState(false);
-    const [payLaterTransaction,setTransaction] = useState([]);
-    const [payLater,setPayLater] = useState([]);
-    const [fromDate, setFromDate] = useState(null);
-    const [toDate, setToDate] = useState(null);
-    
-
-
-    const handleCalendarToggle = () => {
-        setIsCalendarOpen(!isCalendarOpen);
-
-    };
-
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-        setIsCalendarOpen(false);
-
-    };
-    const handleCalendarToggle1 = () => {
-
-        setIsCalendarOpen1(!isCalendarOpen1)
-    };
-
-    const handleDateChange1 = (date) => {
-
-        setSelectedDate1(date);
-        setIsCalendarOpen1(false);
-    };
+  
     let transactionRef = useRef()
   const handleDownload = () => {
     const pdfOptions = { margin: 10, filename: 'transactions.pdf', image: { type: 'jpeg', quality: 0.98 } };
 
     html2pdf(transactionRef.current, pdfOptions).save();
-  };
-  const handleStartDateChange = (date) => {
-    setFromDate(date);
-    if (toDate && toDate < date) {
-        setToDate(null);
-    }
-};
-const handleEndDateChange = (date) => {
-    if (!fromDate) {
-        setFromDate(date);
-    } else {
-        setToDate(date);
-    }
-};
-
-const filteredTransactions = allTransactionsList.filter((transaction) => {
-    const transactionDate = new Date(transaction.date);
-    if (fromDate && toDate ) {
-        const from = new Date(fromDate);
-        const to = new Date(toDate);
-        return transactionDate >= from && transactionDate <= to;
-    }
-   
-});
     
+  };
+  
 
-      const filtered = filteredTransactions.length<0;
+      const filterTransactions = () => {
+        let selectedMonth = selectedType === 'Bank Account' ? selectedBankAccountMonth : selectedCreditCardMonth;
+        if (selectedMonth === null || selectedType === null) {
+            return [];
+        }
 
+        let filteredTransactions = allTransactionsList.filter(transaction => {
+            const isCorrectMonth = transaction.date.includes(selectedMonth);
+            const isCorrectType = transaction.type === selectedType.toLowerCase();
+            const isCorrectNumber = selectedType === 'Credit Card' ? transaction.number === creditCardNumber : transaction.number === bankAccountNumber;
+            return isCorrectMonth && isCorrectType && isCorrectNumber;
+        });
+
+        if (viewPdf) {
+            filteredTransactions = filteredTransactions.slice(0, 10); 
+        }
+
+        return filteredTransactions;
+    };
+  
+    const handleBankAccountMonthChange = (e) => {
+        setSelectedBankAccountMonth(e.target.value);
+    };
+
+    const handleCreditCardMonthChange = (e) => {
+        setSelectedCreditCardMonth(e.target.value);
+    };
+  
+    const handleTypeChange = (e) => {
+        setSelectedType(e.target.value);
+        setBankAccountNumber('9876543210');
+        setCreditCardNumber('1234 5678 9012 3456');
+    };
+  
+  
+    const transactions = filterTransactions();
+
+    const LastTen=()=>{
+        setViewPdf('view')
+
+    }
+
+    let navigate = useNavigate();
+
+    const statementNavigate=()=>{
+        navigate('/user/account/statement')
+    }
+      
 
 
     return (
@@ -147,86 +273,99 @@ const filteredTransactions = allTransactionsList.filter((transaction) => {
                 <p className='estatement_heading' >e-Statement</p>
                 <div className='container-fluid estatement_accountmain'>
                     <div className='estatement_accounttype'>
-                        <div className='estatement_anumber'>Account type:</div>
+                        <div className='estatement_anumber'>Download e-statement for my:</div>
                         <div className='estatement_select'>
-                            <select id="sel1" className='estatement_option'>
-                                <option value=''>-Select Type of Account- </option>
-                                <option >Savings Account</option>
+                            <select id="sel1" className='estatement_option' onChange={handleTypeChange} value={selectedType || ''}>
+                                <option value='Bank Account' >Savings Account</option>
+                                <option  value='Credit Card'>Credit Card</option>
                                 
                             </select>
-                            <div className='estatement_downicon'><MdArrowDropDownCircle className='estatement_icon1' /></div>
+                            
                         </div>
                     </div>
                 </div>
                 {/* account number */}
-                <div className='container-fluid estatement_accountmain'>
+                
+                        {selectedType === 'Bank Account'&&(<>
+                        <div className='container-fluid estatement_accountmain'>
                     <div className='estatement_accounttype'>
                         <div className='estatement_anumber'>Account number:</div>
                         <div className='estatement_select'>
-                            <select id="sel1" className='estatement_option'>
-                                <option value=''>-Select An Account- </option>
-                                <option >698076353563525</option>
-                            </select>
-                            <div className='estatement_downicon'><MdArrowDropDownCircle className='estatement_icon1' /></div>
-                        </div>
-                    </div>
-                </div>
-                {/* statement */}
-                {/* period */}
-                <div className='container-fluid estatement_accountmain'>
-                    <div className='estatement_accounttype'>
-                        <div className='estatement_anumber'>Period:</div>
-                        <div className='estatement_select'>
-                            <div className='estatement_option'>
-                                <DatePicker className='estatement_datepick'
-                                  selected={fromDate} onChange={handleStartDateChange}
-                                   
-                                  selectsStart dateFormat="dd MMM yyyy" fromDate={fromDate} toDate={toDate}
-                                  placeholderText='FROM'
-                                    
-                                />
-                            </div>
-                            <div className='estatement_downicon1'>
-                                <button className='estatement_calenderbtn' onClick={handleCalendarToggle}><FcCalendar className='estatement_fccalender' /></button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div className='container-fluid estatement_accountmain'>
-                    <div className='estatement_accounttype'>
-                        <div className='estatement_anumber'>Period:</div>
-                        <div className='estatement_select'>
-                            <div className='estatement_option'>
-
-                                <DatePicker className='estatement_datepick'
-                                   selected={toDate} dateFormat="dd MMM yyyy" onChange={handleEndDateChange}
-                                   selectsEnd fromDate={fromDate}
-                                   toDate={toDate} minDate={fromDate} placeholderText='TO'
-                                    
-                                />
-                            </div>
-                            <div className='estatement_downicon1'>
-                                <button className='estatement_calenderbtn' onClick={handleCalendarToggle1}><FcCalendar className='estatement_fccalender' /></button>
-                            </div>
-
-                        </div>
-                    </div>
+                        <input
+                        type="text"
+                        id="bank-account-number"
+                        value={bankAccountNumber}
+                        readOnly
+                        className='estatement_bankinput'
+                        
+                    />
+                        </div> </div>
                 </div>
 
                 
+                <div className='container-fluid estatement_accountmain'>
+                    <div className='estatement_accounttype'>
+                        <div className='estatement_anumber'>Period:</div>
+                        <div className='estatement_select'>
+                            <div className='estatement_option'>
+                            <select id="month-select" className='estatement_periodselect1' onChange={handleBankAccountMonthChange} value={selectedBankAccountMonth || ''}>
+                <option hidden>Select</option>
+                <option value="Jan 2024">January 2024</option>
+                <option value="Feb 2023">February 2023</option>
+            </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <p style={{marginTop:'10px'}}>To download Annual statements, please go to <span style={{color:'#ebca28'}}> Detailed statements - Select Transaction Period - Select Year from dropdown</span> Save Trees. Please print only when necessary.</p>
+                </div></>)}
+                        {selectedType === 'Credit Card'&&(<>
+                            <div className='container-fluid estatement_accountmain'>
+                    <div className='estatement_accounttype'>
+                        <div className='estatement_anumber'>Credit Card number:</div>
+                        <div className='estatement_select'>
+                        <input
+                        type="text"
+                        id="credit-card-number"
+                        value={creditCardNumber}
+                        readOnly
+                        className='estatement_bankinput'
+                    />
+                        </div>
+                        </div> </div>
+                        {/* period */}
+                <div className='container-fluid estatement_accountmain'>
+                    <div className='estatement_accounttype'>
+                        <div className='estatement_anumber'>Period:</div>
+                        
+                            <select id="month-select" className='estatement_periodselect' onChange={handleCreditCardMonthChange} value={selectedCreditCardMonth || ''}>
+                <option hidden>Select</option>
+                <option value="Jan 2024">January 2024</option>
+                <option value="Feb 2023">February 2023</option>
+            </select>
+            
+                           
+                    </div>
+                    <p style={{marginTop:'10px'}}>To download Annual statements, please go to<span style={{color:'#ebca28'}}> Detailed statements - Select Transaction Period - Select Year from dropdown </span> Save Trees. Please print only when necessary.</p>
+                </div>
+                        </>)}
+                   
+                {/* statement */}
+                
+                
 
                 <div className='container-fluid estatement_buttons'>
-                    <button onClick={()=>setViewPdf(!viewPdf)} className='estatement_view'>{viewPdf?'Hide':'View'}</button>
-                    <button onClick={handleDownload} className='estatement_download'>Download</button>
+                    <button onClick={LastTen} className='estatement_view'>Last 10 Transactions</button>
+                    <button onClick={statementNavigate}  className='estatement_detailstatement'>Detailed Statement</button>
+                    <button onClick={handleDownload} className='estatement_download'>Download PDF</button>
+
                 </div>
 
-                {viewPdf&&<div  ref={transactionRef}  ><div  className="paylater_transactions">
+                {viewPdf==='view'&&<div ref={transactionRef}  ><div  className="paylater_transactions">
           <div>Statement</div>
         </div>
           
-       {filteredTransactions.length>0?
+       {transactions.length>0?
        <div className="table-responsive-lg paylater_transaction_table">
        <table className="table table-bordered ">
          <thead className="paylater_tablehead">
@@ -239,7 +378,7 @@ const filteredTransactions = allTransactionsList.filter((transaction) => {
            </tr>
          </thead>
        <tbody className="paylater_body">
-         {filteredTransactions.map((transaction, index) => (
+         {transactions.map((transaction, index) => (
                                                     <tr key={index}>
                                                         <td>{transaction.date}</td>
                                                         <td>{transaction.narration}</td>
@@ -252,16 +391,6 @@ const filteredTransactions = allTransactionsList.filter((transaction) => {
          
 
         </div>}
-                <h6 className='estatement_note'>Note:</h6>
-                <div className='container-fluid'>
-                    
-                    <ul>
-                        <li>Transactions for the current and previous month only can be viewed / downloaded through this option.eg: You can view/download statement from 01/12/2023 upto 12/01/2024.</li>
-                        <li>To download statements prior to last month, kindly use the e-statement - Upto 5 Years' option or click here.</li>
-                        <li>Please click on 'Select Period' option to save and download your Account Statement.</li>
-                    </ul>
-
-                </div>
             </div>
                         </div>
                     </div>

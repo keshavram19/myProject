@@ -1,8 +1,8 @@
 import './Accounts.css';
-import paylaterimage from '../../../../Images/paylaterimage.jpg'
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import { useState,useEffect } from "react";
 import { Link } from 'react-router-dom';
+import apiList from '../../../../lib/apiList';
 const allTransactionsList = [
   {
       date: '25 Jan 2024',
@@ -69,7 +69,7 @@ const PayLater = () => {
     getPayLater()
   },[])
   const getPayLater = async()=>{
-    const url = 'http://localhost:4444/api/payLaterAccount';
+    const url = `${apiList.payLater}`;
 
     const options = {
       method:'GET'
@@ -95,9 +95,6 @@ const PayLater = () => {
           <div className="paylater_container">
         <p className="paylater_heading">View and manage my PayLater</p>
         <hr />
-        <div>
-          <img src={paylaterimage} className="paylater_image1" alt="paylaterimage" />
-        </div>
         <div className="table-responsive-lg paylater_table">
           <table className="table table-bordered">
             <thead className="paylater_tablehead">

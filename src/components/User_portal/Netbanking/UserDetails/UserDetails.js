@@ -1,35 +1,76 @@
-import React from 'react'
-import './UserDetails.css'
+import React, { useState, useEffect } from 'react';
+import './UserDetails.css';
+import apiList from '../../../../lib/apiList';
 
 function Userdetails() {
+    const [userDetails, setUserDetails] = useState([]);
+    const [lastVisited, setLastVisited] = useState(null);
+
+    useEffect(() => {
+
+        const fetchUserDetails = async () => {
+            try {
+                const email = 'giribabu8719@gmail.com'; 
+                const response = await fetch(`${apiList.requestedUserDetailsByEmail}${email}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setUserDetails([data]); 
+                    setLastVisited(new Date()); 
+                } else {
+                    console.error('Error fetching user details:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching user details:', error);
+            }
+        };
+
+        fetchUserDetails();
+    }, []);
+
+
+    const formatDate = (date) => {
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return `${day}.${month}.${year}`;
+    };
+
     return (
         <div>
-            <div class="container userContainer">
-                <div className=''>
-                    
-                    <div className=''>
-                        <div class="name">Kavati Deepak Kumar</div>
-                        <div className='d-flex'>
-                            <div class="icon">
-                                <i class="fa-solid fa-user" style={{ fontSize: "40px" }}></i>
+            <div className="container userContainer">
+                {userDetails.map(user => (
+                    <div key={user._id}>
+                        <div className="">
+                            <div className="">
+                                <div className="name">{user.firstname} {user.lastname}</div>
+                                <div className="d-flex">
+                                    <div className="icon">
+                                        <i className="fa-solid fa-user" style={{ fontSize: "40px" }}></i>
+                                    </div>
+                                    <div className="buttons d-flex column">
+                                        <button className="details_btn">PERSONAL DETAILS</button>
+                                        <button className="details_btn">GENERATE CARD PIN</button>
+                                    </div>
+                                </div>
+                                <div className="date">Last visited {lastVisited &&
+                                    `${formatDate(lastVisited)} ${lastVisited.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })} IST`
+                                }</div>
                             </div>
-                            <div class="buttons d-flex column">
-                                <button class="details_btn">PERSONAL DETAILS</button>
-                                <button class="details_btn">GENERATE CARD PIN</button>
-                            </div>
+                            <div className="col-8"></div>
                         </div>
-
-                        <div class="date">Last visited 12.01.2024 14:44:03 IST</div>
                     </div>
-                    <div className='col-8'>
-
-                    </div>
-
-                </div>
-
+                ))}
             </div>
         </div>
-    )
+    );
 }
 
-export default Userdetails
+export default Userdetails;
+
+
+
+
+
+
+
+
