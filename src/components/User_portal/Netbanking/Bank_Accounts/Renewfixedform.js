@@ -93,197 +93,247 @@ function Renewfixedform() {
             <div className="col-9">
               <div
                 className="fixed_form_container "
-                style={{ backgroundColor: "rgb(219, 215, 215)" }}
+                style={{ backgroundColor: "rgb(250, 245, 245)" }}
+                
               >
                 <div className="fixed_form_heading_Container">
                   <h3 className="fixed_form_heading p-2">
                     Fixed Deposits Form
                   </h3>
-                </div>
-
-                <form className="fixed_form_section" onSubmit={handleSubmit}>
+                   {/* <div className="row mb-2"> */}
+                   <form className="fixed_form_section" onSubmit={handleSubmit}>
+                  <div className="row">
+                    <div className="col-md-6">
+                  
                   <label htmlFor="savingsAccountNumber" className="form-inline">
-                    <span className="col-md-5"> Account Number*</span>
+                    <span > Account Number*</span>
+                    </label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="Accountnumber"
                       name="Accountnumber"
                       value={formData.Accountnumber}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter account number"
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
-                  <label htmlFor="declarentsName" className="form-inline">
-                    <span className="col-md-5">Declarent's Name</span>
+                    </div>
+                  <div className="col-md-6">
+                    <label htmlFor="declarentsName" className="form-inline">
+                    <span >Declarent's Name</span></label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="declerentname"
                       name="declerentname"
                       value={formData.declerentname}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter name"
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
+                    </div>
+                    </div>
+                    <div className="row">
+                    <div className="col-md-6">
                   <label htmlFor="declarentsDOB" className="form-inline">
-                    <span className="col-md-5">Due Date</span>
+                    <span >Due Date</span></label>
                     <input
                       type="date"
                       onChange={handleInputChange}
                       id="DueDate"
                       name="DueDate"
                       value={formData.DueDate}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
+                    </div>
+                  <div className="col-md-6">
                   <label htmlFor="fathersName" className="form-inline">
-                    <span className="col-md-5">fathers Name</span>
+                    <span>fathers Name</span> </label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="fathername"
                       name="fathername"
                       value={formData.fathername}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter father name"
+                      className="form-control form-control-sm w-75"
                     />
-                  </label>
+                    </div>
+                    </div>
+                    <div className="row">
+                    <div className="col-md-6">
                   <label htmlFor="addressLine1" className="form-inline">
-                    <span className="col-md-5">Address Line1</span>
+                    <span >Address Line1</span>  </label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="addressline1"
                       name="addressline1"
                       value={formData.addressline1}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter address line1"
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
+                    </div>
+                <div className="col-md-6">
                   <label htmlFor="addressLine2" className="form-inline">
-                    <span className="col-md-5">Address Line2</span>
+                    <span>Address Line2</span> </label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="addressline2"
                       name="addressline2"
                       value={formData.addressline2}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter address line2"
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
+                    </div>
+                    </div>
+                    <div className="row">
+                    <div className="col-md-6">
                   <label htmlFor="town/City" className="form-inline">
-                    <span className="col-md-5">Town/City</span>
+                    <span >Town/City</span></label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="city"
                       name="city"
                       value={formData.city}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter city"
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
+                    </div>
+                    <div className="col-md-6">
                   <label htmlFor="State" className="form-inline">
-                    <span className="col-md-5">State</span>
+                    <span >State</span> </label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="state"
                       name="state"
                       value={formData.state}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter state"
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
+                  </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
                   <label htmlFor="pincode" className="form-inline">
-                    <span className="col-md-5">Pin Code</span>
+                    <span >Pin Code</span> </label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="pincode"
                       name="pincode"
                       value={formData.pincode}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter pin code"
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
+                    </div>
+                    <div className="col-md-6">
                   <label htmlFor="amountOfTransaction" className="form-inline">
-                    <span className="col-md-5">Amount Of Transaction</span>
+                    <span >Amount Of Transaction</span> </label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="amount"
                       name="amount"
                       value={formData.amount}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter amount"
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
+                    </div>
+                    </div>
+                    <div className="row">
+                    <div className="col-md-6">
                   <label htmlFor="dateOfTransaction" className="form-inline">
-                    <span className="col-md-5">Deposits Date</span>
+                    <span >Deposits Date</span></label>
                     <input
                       type="date"
                       onChange={handleInputChange}
                       id="depositedate"
                       name="depositedate"
                       value={formData.depositedate}
-                      className="form-control form-control-sm col-md-4 w-25"
+                     
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
+                    </div>
+                    <div className="col-md-6">
                   <label
                     htmlFor="fixeddeposite ammount"
                     className="form-inline"
                   >
-                    <span className="col-md-5">Fixed Deposits Amount </span>
+                    <span >Fixed Deposits Amount </span> </label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="fixeddeposite"
                       name="fixeddeposite"
                       value={formData.fixeddeposite}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter amount"
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
-                  
+                    </div>
+                    </div>
+                 
+                    <div className="row">
+                    <div className="col-md-6">
                   <label htmlFor="nominee" className="form-inline">
-                    <span className="col-md-5">Nominee </span>
+                    <span>Nominee </span> </label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="nominee"
                       name="nominee"
                       value={formData.nominee}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter nominee"
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
-
+                    </div>
                  
+
+                    <div className="col-md-6">
                   <label htmlFor="telephoneNumber" className="form-inline">
-                    <span className="col-md-5">Telephone Number </span>
+                    <span>Telephone Number </span></label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="telephone"
                       name="telephone"
                       value={formData.telephone}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter telephone number"
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
+                    </div>
+                    </div>
+                    <div className="row">
+                    <div className="col-md-6">
                   <label htmlFor="mobileNumber" className="form-inline">
-                    <span className="col-md-5">Mobile Number </span>
+                    <span >Mobile Number </span></label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="mobilenumber"
                       name="mobilenumber"
                       value={formData.mobilenumber}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter mobile number"
+                      className="form-control form-control-sm  w-75"
                     />
-                  </label>
+                    </div>
+                    <div className="col-md-6">
                   <label htmlFor="emailId" className="form-inline">
-                    <span className="col-md-5">E-mail ID </span>
+                    <span >E-mail ID </span> </label>
                     <input
                       type="text"
                       onChange={handleInputChange}
                       id="email"
                       name="email"
                       value={formData.email}
-                      className="form-control form-control-sm col-md-4 w-25"
+                      placeholder="enter email id"
+                      className="form-control form-control-sm w-75"
                     />
-                  </label>
+                    </div>
+                    </div>
+                 
                   <button
                     type="submit"
                     className="fixed_form_submit_btn p-2"
@@ -292,6 +342,16 @@ function Renewfixedform() {
                     SUBMIT
                   </button>
                 </form>
+                   </div>
+
+
+                </div>
+                  
+
+
+
+
+                   
                 <ToastContainer
                   position="top-right"
                   autoClose={5000}
@@ -311,7 +371,7 @@ function Renewfixedform() {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 }

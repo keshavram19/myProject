@@ -2,6 +2,7 @@ import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import { useState,useEffect } from "react";
 import { Link } from 'react-router-dom';
+import apiList from '../../../../lib/apiList';
 const allTransactionsList = [
   {
       date: '25 Jan 2024',
@@ -68,7 +69,7 @@ const PayLater = () => {
     getPayLater()
   },[])
   const getPayLater = async()=>{
-    const url = 'http://localhost:4444/api/payLaterAccount';
+    const url = `${apiList.payLater}`;
 
     const options = {
       method:'GET'
