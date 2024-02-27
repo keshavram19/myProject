@@ -10,17 +10,14 @@ import apiList from "../../../../lib/apiList";
     const [mobileNumber, setMobileNumber] = useState('');
     const [otp, setOTP] = useState('');
     const [message, setMessage] = useState('');
-    // const [message, setMessage] = useState('');
-    const [showResendButton, setShowResendButton] = useState(false); // State variable to control the visibility of the "Re-send OTP" button
-
+     const [showResendButton, setShowResendButton] = useState(false);  
     const generateOTP = async () => {
       try {
         // const response = await axios.post('http://localhost:4444/api/generate-otp');
               const response = await axios.post(apiList.taxOTPGenerate);
 
         setMessage(response.data.message);
-        setShowResendButton(true); // Show the "Re-send OTP" button after generating OTP
-
+        setShowResendButton(true);  
       } catch (error) {
         console.error('Error generating OTP:', error);
         setMessage('Failed to generate OTP.');
@@ -89,17 +86,7 @@ import apiList from "../../../../lib/apiList";
        
 
       <input className="otp_Tax_div_label" type="text" placeholder="Enter OTP" value={otp} onChange={(e) => setOTP(e.target.value)} />
-                  {/* <button className="Tax_center_but_appGen mr-3" onClick={generateOTP}>
-                        Generate OTP
-                      </button>
-                      {showResendButton && ( // Render the "Re-send OTP" button only if showResendButton is true
-                        <button className="Tax_center_but_appGen mr-3" onClick={resendOTP}>
-                          Re-Send OTP
-                        </button>
-                      )}
-                      <button className="Tax_center_but_appGen" onClick={verifyOTP}>Verify OTP</button>
-
-                  <br /> */}
+                  
                    { !showResendButton ? (
                         <button className="Tax_center_but_appGen mr-3" onClick={generateOTP}>
                           Generate OTP

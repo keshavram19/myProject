@@ -81,7 +81,9 @@ const apiList ={
     // blockATMCard : `${server}/api/blockCard/`,
     creditcardEmiconversion : `/emiConversion`,
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
-    autoDebitSetupNo: `${server}/api/autodebit/no`
+    autoDebitSetupNo: `${server}/api/autodebit/no`,
+    payLater:`${server}/api/payLaterAccount`,
+    billDetails:`${server}/api/payLaterAccount/pay`
 }
 
 
