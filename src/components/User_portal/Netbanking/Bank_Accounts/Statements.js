@@ -10,10 +10,9 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import apiList from '../../../../lib/apiList';
 import { format } from 'date-fns';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import html2pdf from 'html2pdf.js';
 import banklogo from '../../../../Images/banklogo.png';
-
 
 const allTransactionsList = [
     {
@@ -75,7 +74,7 @@ const allTransactionsList = [
 ];
 
 const Statements = () => {
-
+    
     const [savingsAccNumber, setAccountNumber] = useState('');
     const [accountType, setAccountType] = useState('');
     const [fromDate, setFromDate] = useState(null);
@@ -86,6 +85,27 @@ const Statements = () => {
     const [viewTransStatement, setViewTransStatement] = useState();
     const [formattedFromDate, setFormattedFromDate] = useState(null);
     const [formattedToDate, setFormattedToDate] = useState(null);
+
+    // let navigate = useNavigate();
+    // useEffect(() => {
+    //     let logintoken = sessionStorage.getItem('loginToken')
+    //     if(!logintoken){
+    //         navigate('/netbanking-personal-login')
+    //     }
+    // });
+
+    const navigate = useNavigate();
+    const isTokenExpired = () => {
+        const expirationTime = sessionStorage.getItem("expireTime");
+        return expirationTime && new Date().getTime() > parseInt(expirationTime, 10);
+    };
+    useEffect(() => {
+        if (isTokenExpired()) {
+            sessionStorage.clear();
+            sessionStorage.removeItem('loginToken')
+            navigate('/netbanking-personal-login');
+        }
+    }, [navigate]);
 
 
     const handleStartDateChange = (date) => {

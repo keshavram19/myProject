@@ -2,6 +2,7 @@ import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import { useState,useEffect } from "react";
 import { Link,useNavigate } from 'react-router-dom';
+import apiList from '../../../../lib/apiList';
 
 
 
@@ -16,7 +17,7 @@ const BillDetails = () => {
     getPayLater()
   },[])
   const getPayLater = async()=>{
-    const url = 'http://localhost:4444/api/payLaterAccount';
+    const url = `${apiList.payLater}`;
 
     const options = {
       method:'GET'
@@ -32,7 +33,7 @@ const BillDetails = () => {
 
   
   const paidBill = async()=>{
-    const url1 = 'http://localhost:4444/api/payLaterAccount/pay'
+    const url1 = `${apiList.billDetails}`
 
     const options = {
         headers: {

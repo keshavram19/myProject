@@ -2176,9 +2176,29 @@ outline: none;
   align-items: center;
 }
 .estatement_view {
+
   width: 60px;
   background-color: #faede2;
   border: none;
+
+  width: 210px;
+  border:1px  solid #2fb68e;
+  border-radius: 5px;
+  color: #2fb68e;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+.estatement_view:hover{
+  border: 1px solid #ebca28;
+  color: #ebca28;
+}
+.estatement_detailstatement{
+  width: 200px;
+  border:1px  solid #2fb68e;
+
   border-radius: 5px;
   color: #f18121;
   height: 30px;
