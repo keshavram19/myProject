@@ -33,7 +33,8 @@ const CreditCard = () => {
         totalAmountDue: "",
         currentOutstanding: "",
         availableCreditLimit: "",
-        maximumCreditLimit: ""
+        maximumCreditLimit: "",
+        
     });
     const [creditCardNum, setCreditCardNum] = useState('');
     const [cardLimit, setCardLimit] = useState('');
