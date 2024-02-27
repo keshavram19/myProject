@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import { MdCurrencyRupee } from "react-icons/md";
 import { AiFillPrinter } from "react-icons/ai";
 
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 import Navbar from '../Overview/Navbar';
@@ -73,6 +74,63 @@ const allTransactionsList = [
 const Accounts = () => {
 
     const [viewAccStatement, setViewAccStatement] = useState()
+    const [accountDetails, setAccountDetails] = useState()
+
+    // let navigate = useNavigate();
+    // let logintoken = sessionStorage.getItem('loginToken')
+    // useEffect(() => {
+    //     if(!logintoken){
+    //         navigate('/netbanking-personal-login');
+    //     }
+    //     const timeout = setTimeout(() => {
+    //         sessionStorage.removeItem('loginToken');
+    //         navigate('/netbanking-personal-login');
+    //     }, 60000); //300000
+    //     return () => clearTimeout(timeout);
+    // }, [logintoken, navigate]);
+
+    // let navigate = useNavigate();
+    // let logintoken = sessionStorage.getItem('loginToken')
+    // if(!logintoken){
+    //     navigate('/netbanking-personal-login');
+    // }
+
+    // let token = sessionStorage.getItem('loginToken');
+    // let tokenTime = sessionStorage.getItem('expireTime');
+    // let navigate = useNavigate();
+    // useEffect(() => {
+    //     if (token && tokenTime) {
+    //         const expireTime = new Date(tokenTime);
+    //         const currentTime = new Date();   
+    //         if (currentTime > expireTime) { 
+    //           sessionStorage.removeItem('loginToken');
+    //           sessionStorage.removeItem('expireTime');
+    //           navigate('/netbanking-personal-login');
+    //         }
+    //       }
+    //       else {
+    //         navigate('/netbanking-personal-login');
+    //       }
+    // }, []);
+
+    const navigate = useNavigate();
+    let logintoken = sessionStorage.getItem('loginToken')
+    const isTokenExpired = () => {
+        const expirationTime = sessionStorage.getItem("expireTime");
+        return expirationTime && new Date().getTime() > parseInt(expirationTime, 10);
+    };
+    useEffect(() => {
+        if (isTokenExpired()) {
+            sessionStorage.clear();
+            sessionStorage.removeItem('loginToken')
+            navigate('/netbanking-personal-login');
+        }
+        else if(!logintoken){
+            navigate('/netbanking-personal-login');
+        }
+    }, [navigate]);
+
+
     const accountStatement = () => {
         if (viewAccStatement === 'true') {
             setViewAccStatement('false')
@@ -86,7 +144,6 @@ const Accounts = () => {
         getUserAccountDetails()
     }, []);
     let accountNumber = 123456789;
-    const [accountDetails, setAccountDetails] = useState()
     const getUserAccountDetails = async () => {
         const options = {
             method: 'GET'
