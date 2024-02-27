@@ -920,32 +920,93 @@
     
     -webkit-box-shadow: none;
     box-shadow: none;
+    border: 1px solid #ced4da !important;
+    outline:none;
+  }
+  .Block_Credit_Card_OTP
+  {
+    border:none;
+    outline:none;
+    border: 1px solid #ced4da !important;
+    border-radius: 2px;
   }
   .Block_Credit_Card_Section span
   {
-    font-weight: 410
+    font-weight: 400
   }
   .Block_Credit_Card_submitBtn
   {
     width: auto;
-    height: auto;
+  height: auto;
+  
+  border: 1px solid  #f18121;
+  /* background-color: rgb(37, 184, 62); */
+  border-radius: 2px;
+  font-weight: 600;
+  color: #f18121;
+  margin-left: 30px;
+  font-size: 15px;
+  text-align: center;
+  background-color: white;
+    
+  }
+  .Block_Credit_Card_submitBtn:hover
+  {
+    background-color: #f18121;
     outline: none;
-    border: none;
-    /* background-color: rgb(37, 184, 62); */
+    color:white;
+  }
+  .Block_Credit_Card_OtpVerifying
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+  }
+  .Block_Credit_Card_sendOtpBtn
+  {
     border-radius: 2px;
     font-weight: 600;
-    color: white;
+    
     margin-left: 30px;
     font-size:14px;
     text-align: center;
-    background-color: #f18121 ;
+   border:1px solid  ;
+    width: auto;
+    height: auto;
+   color:#2fb68e;
+   background-color: white;
+    padding:3px;
+
+    
+  }
+  .Block_Credit_Card_sendOtpBtn:hover {
+    background-color:#2fb68e ; 
+    color:white;
+    outline:none;
+  }
+  .Block_Credit_Card_OTP
+  {
+    /* padding:3px;
+    font-size:14px;
+   width:120px;
+   */
+   border:none;
+  outline:none;
+  border: 1px solid #1e1e1f !important;
+  border-radius: 2px;
+  
+  font-size:13px;
+  padding:3px;
     
   }
   .blockcreditcard_note p{
-    font-size:13px;
+    font-size:12px;
    font-weight:400;
    padding-left:5px;
   }
+  
 /* Block Credit Card css emds */
 
 /* Alert Subscription css starts*/
@@ -953,6 +1014,8 @@
     
     -webkit-box-shadow: none;
     box-shadow: none;
+    border: 1px solid #ced4da !important;
+    outline:none;
   }
   .alert_subscription-form .form-control:focus {
     /* border-color: inherit; */
@@ -960,7 +1023,7 @@
     box-shadow: none;
   }
   .alert_subscription-form span{
-    font-weight:420;
+    font-weight:400;
     font-size:15px;
 }
 .alert_subscription-form label
@@ -984,23 +1047,30 @@
 {
     width: auto;
     height: auto;
-    outline: none;
-    border: none;
+    
+    border: 1px solid  #f18121;
     /* background-color: rgb(37, 184, 62); */
     border-radius: 2px;
     font-weight: 600;
-    color: white;
+    color: #f18121;
     margin-left: 30px;
-    font-size:14px;
+    font-size: 15px;
     text-align: center;
-    background-color: #f18121 ;
+    background-color: white;
+}
+.alert_Subscription_SubmitBtn:hover
+{
+  background-color: #f18121;
+  outline: none;
+  color:white;
 }
 .alert_Subscription_Notes p
 {
-   font-size:13px;
+   font-size:12px;
    font-weight:400;
    padding-left:5px;
 }
+
 /* Alert Subscription css ends*/
 
 /* Physical PIN css starts */

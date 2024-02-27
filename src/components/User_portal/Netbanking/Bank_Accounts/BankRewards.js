@@ -4,6 +4,7 @@ import axios from 'axios';
 import './Accounts.css';
 import BankRewardBgImg from '../../../../Images/bank_rewards.jpeg';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+import apiList from '../../../../lib/apiList';
 
 
 function BankRewardPoints() {
@@ -59,11 +60,11 @@ function BankRewardPoints() {
                   </tbody>
                 </table>
                 <div className='Bank-reward-note'>
-                  <p style={{ fontSize: "13px" }}>
-                    <span style={{ fontSize: "16px" }}>
-                      <b>Note:</b>
+                  <p style={{ fontSize: "11px" ,color:"#929090"}}>
+                    <span style={{ fontSize: "15px" ,color:"#495057"}}>
+                      <b>Note:  </b>
                     </span>
-                    The above-mentioned Reward Points are not eligible for cards such as Amazon Pay Credit Card, MakeMyTrip Royal Islamic Bank Platinum Credit Card, MakeMyTrip Royal Islamic Bank Signature Credit Card, etc. For a detailed list of cards, <a href='#' style={{ textDecoration: "underline" }}>CLICK HERE</a>
+                      The above-mentioned Reward Points are not eligible for cards such as Amazon Pay Credit Card, MakeMyTrip Royal Islamic Bank Platinum Credit Card, MakeMyTrip Royal Islamic Bank Signature Credit Card, etc. For a detailed list of cards, <a href='#' style={{ textDecoration: "underline" }}>CLICK HERE</a>
                   </p>
                 </div>
               </div>

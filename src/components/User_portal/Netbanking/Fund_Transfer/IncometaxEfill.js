@@ -66,6 +66,7 @@ const IncomeTaxEfill = () => {
       
       if (!isCheckboxChecked) {
         setFormError("Please agree to the Terms and Conditions.");
+        alert("Please agree to the Terms and Conditions.")
         return;
       }
 
@@ -100,11 +101,11 @@ const IncomeTaxEfill = () => {
         </div>
         <div className="col-9">
           <div className="">
-            <h1 style={{ color: "#f18121" }}>Income Tax e-Filling</h1>
+            <h3 style={{ color: "#ebca28" }}>Income Tax e-Filling</h3>
             <div className="incometax_filling card">
-              <h4 className="incometax_filling_heading4">
+              <h5 className="incometax_filling_heading4">
                 e-Fille your Income Tax Return
-              </h4>
+              </h5>
               <div className="incometax_form_information">
                 <div className="incometax_from_account  row">
                   <label className="col-sm-4 incometax_form_label">
@@ -156,16 +157,15 @@ const IncomeTaxEfill = () => {
                 <a href="#">Terms and Conditions.</a>
               </div>
             </div>
-            <div className="incometax_button">
+            
               <button
                 type="button"
-                class="btn btn_incometax_button"
-                style={{ background: "#f18121", color: "white" }}
+                className="Incometax_submits" 
                 onClick={handleSubmit}
               >
                 SUBMIT
               </button>
-            </div>
+            
             {formError && <p style={{ color: "red" }}>{formError}</p>}
 
             <p>
