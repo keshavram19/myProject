@@ -4,6 +4,10 @@ import { GrCreditCard } from "react-icons/gr";
 import { FaHandHoldingUsd } from "react-icons/fa";
 import { IoIosLink } from "react-icons/io";
 import { GrLink } from "react-icons/gr";
+import{ Link } from 'react-router-dom';
+import React, { useState , useEffect } from 'react';
+
+
 import './Customerservice.css'
 import DropDownBankAccount from "./Servierequestdropdown";
 const Servicerequest = () => {
@@ -67,14 +71,19 @@ const Servicerequest = () => {
                             <h6>
                                 Quick Links
                             </h6>
-                            <div className=''>
-                                <button className='QuickLinks_buttons' >Stop Cheques</button>
-                                <button className='QuickLinks_buttons' >Generate Card PIN</button>
-                                <button className='QuickLinks_buttons' >Block Credit Card</button>
-                                <button className='QuickLinks_buttons' >Cheque Book Request</button>
-                                <button className='QuickLinks_buttons' >Block or Unblock ATM/Debit card</button>
-                                <button className='QuickLinks_buttons' >Positive pay</button>
-                            </div>
+                            <div className='four_types_service_request'>
+                                {/* <button   className='QuickLinks_buttons' Link to=' ' >Stop Cheques</button> */}
+                                
+                                <button  className='QuickLinks_buttons' > 
+                                <Link to='/user/profile/generatepin' className=' DropDown_Sub_Lists_Loan_BankingAPP' >Generate Card PIN</Link></button>
+                                <button  className='QuickLinks_buttons'>
+                                  <Link to='/user/blockcreditcard' className=' DropDown_Sub_Lists_Loan_BankingAPP'>Block Credit Card</Link></button>
+                                <button   className='QuickLinks_buttons'>
+                                    <Link to='/user/account/chequebook-req' className=' DropDown_Sub_Lists_Loan_BankingAPP'>Cheque Book Request</Link></button>
+                                <button  className='QuickLinks_buttons' >
+                                    <Link to='/user/account/block-debit-card'className=' DropDown_Sub_Lists_Loan_BankingAPP' >Block or Unblock ATM/Debit card</Link></button>
+                                {/* <button  Link to='' className='QuickLinks_buttons' >Positive pay</button> */}
+                             </div>
                         </div>
 
                     </div>

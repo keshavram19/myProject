@@ -1432,56 +1432,73 @@ body {
 }
 
 .deposit_btn {
-  border: none;
-  border-radius: 14px;
-  color: #f18121;
-  display: inline-block;
-  font-family: revert;
-  margin: 5px;
-  text-align: center;
-  text-decoration: none;
-  transition-duration: 0.3s;
-  transition-property: background-color, color, opacity;
-  transition-timing-function: linear;
-  padding: 10px 20px;
-  background-color: #fac294;
+  
+    font-weight: 600;
+    font-size:15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: auto;
+    height: auto;
+   color:#16795b;
+  
+   background-color: #F8F9FA;
+    border:none;
+    
+}
+.deposit_btn_first
+{
+  font-weight: 600;
+    font-size:15px;
+    text-align: center;
+  margin-left:10px;
+ 
+    height: auto;
+   /* background-color:#2fb68e; */
+ 
+  color: #2fb68e;
+    border:none;
 }
 
-.deposit_cardbtn {
-  border-radius: 10px;
-  width: 50%;
-  padding: 10px 20px;
-  border: none;
-  background-color: #fac294;
-  color: #f18121;
+.deposit_btn:hover{
+   
+  transform: scale(1.1);
 }
-.deposit_card {
-  border-radius: 10px;
-  background-color: #faede2 !important;
-  color: black;
+.deposit_cardbtn {
+  
+  width: 50%;
+  
+  border: none;
+ font-size: 13px;
+  
+  border-radius: 50px;
+ 
+  background-color: #ebca28;
+  color:#0a6348;
+  font-weight:500;
+}
+.deposit_cardbtn:hover{ 
+  font-weight:600;
+  background-color: #2fb68e;
+  color:white;
 }
 .deposit_fixedheading {
-  color: #f18121;
+  color: #2fb68e;
 }
 
-.deposit_card1 {
-  border-radius: 10px;
-  background-color: white;
-}
 .deposit_img {
   width: 100%;
 }
 .deposit_icon {
   font-size: 40px;
-  color: #f18121;
+  color: #ebca28;
 }
 
 .deposit_btn1 {
-  background-color: #fac294;
+  /* background-color: #2fb68e;
   border: none;
-  border-bottom: 4px solid #f18121;
+  border-bottom: 4px solid #ebca28;
   border-radius: 4px;
-  color: #f18121;
+  color: white;
   display: inline-block;
   font-family: revert;
   margin: 5px;
@@ -1489,28 +1506,46 @@ body {
   text-decoration: none;
   transition-duration: 0.3s;
   transition-property: background-color, color, opacity;
-  transition-timing-function: linear;
-  padding: 10px 40px;
+  transition-timing-function: linear; */
+  width: 50%;
+  padding: 10px 20px;
+  border:1px solid;
+  border-radius: 5px;
+  
+  color:#2fb68e;
+  font-weight:600;
+  background-color: white;
+  
 }
 .deposit_btn1:hover {
-  background-color: #f18121;
-  color: black;
+  font-weight:600;
+  background-color: #A2E0CE;
+  color:#147558;
 }
 
 .deposit_image {
   height: 10vh;
 }
 
-.deposit_card2 {
-  border-radius: 10px;
-  background-color: #faede2 !important;
-  border-left: 4px solid gray;
-}
-
 .fixed_deposit_background_main {
   background-color: #f8f9fa;
 }
-
+.deposit_card1
+{
+  background-color: #f5edcf;
+  transition: transform 0.3s ease;
+  border: 1px solid #eed96e;
+  border-radius: 5px;
+  
+}
+.deposit_card1:hover{
+    
+    /* background-color: #f3e082; */
+    transform: scale(1.1);
+    /* border: 1px solid #f1cd14;
+    border-radius: 10px;
+    border-left:none; */
+}
 /* fixed deposit ends */
 /* recurring deposit starts */
 
@@ -1521,34 +1556,30 @@ body {
 }
 
 .recurring_rupeeicon {
-  color: #f18121;
+  color: #ebca28;
 }
 
 .recurring_btn {
-  background-color: #fac294;
-  border: none;
-  border-bottom: 4px solid #f18121;
-  border-radius: 4px;
-  color: #f18121;
-  display: inline-block;
-  font-family: revert;
-  margin: 5px;
-  text-align: center;
-  text-decoration: none;
-  transition-duration: 0.3s;
-  transition-property: background-color, color, opacity;
-  transition-timing-function: linear;
-  padding: 10px 20px;
+  font-weight:600;
+  background-color: #A2E0CE;
+  color:#147558;
+  border:1px solid #147558;
+  outline: none;
+  cursor: pointer;
+  width:100%;
+  font-size: 14px;
+  border-radius: 5px;
+  height:40px;
 }
 
 .recurring_btn1 {
-  background-color: #fac294;
-  border: none;
-  border-bottom: 4px solid #f18121;
-  border-radius: 14px;
-  color: #f18121;
+  background-color: #f8f4e0;
+  border: 1px solid #ebca28;
+  font-weight:500;
+  border-radius: 10px;
+  color: #1d7e61;
   display: inline-block;
-  font-family: revert;
+  
   margin: auto;
   text-align: center;
   text-decoration: none;
@@ -1559,30 +1590,27 @@ body {
 }
 
 .recurring_btn2 {
-  background-color: #fac294;
-  border: none;
-  border-bottom: 4px solid #f18121;
-  border-radius: 14px;
-  color: #f18121;
-  display: inline-block;
-  font-family: revert;
-  text-decoration: none;
-  transition-duration: 0.3s;
-  transition-property: background-color, color, opacity;
-  transition-timing-function: linear;
-  padding: 10px 30px;
+  
+  background-color: white;
+  color:#0a6348;
+  border:1px solid #0a6348;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .recurring_btn2:hover {
-  background-color: #f18121;
-  color: black;
+ 
+  font-weight:600;
+  background-color: #A2E0CE;
+  color:#147558;
+  border:1px solid #147558;
+  cursor: pointer;
+  width:100%;
+  border-radius: 5px;
 }
-.recurring_btn1:hover {
-  background-color: #f18121;
-  color: black;
-}
+
 .recurring_para {
-  color: #f18121;
+  color:#2fb68e
 }
 
 .recurring_amount {
@@ -1590,7 +1618,8 @@ body {
   margin-bottom: 60px;
 }
 .recurring_sideheading {
-  color: #f18121;
+  color: #207a5f;
+  font-weight: 420;
 }
 
 .recurring_background_main {
@@ -3040,23 +3069,19 @@ outline: none;
 
 /* fixedform css starts */
 
-.fdform_leftheading{
-  color: #f18121;
-  font-size: 80px;
-}
 
 .fdform_rightheading{
-  color: #f18121;
+  color: #2fb68e;
 }
 .fdform_accountnbrinput:focus{
   outline: none;
 }
 .fdform_accountnbrinput{
-  border: 1px solid #f18121;
+  
 }
 .fdform_addressinput{
   width: 58.5%;
-  border: 1px solid #f18121;
+ 
 }
 .fdform_addressinput:focus{
   outline: none;
@@ -3064,78 +3089,79 @@ outline: none;
 
 .fdform_addressinput4{
   width: 21.5%;
-  border: 1px solid #f18121;
+  
 }
 .fdform_addressinput4:focus{
  outline: none;
 }
 .fdform_addressinput5{
   width: 20.5%;
-  border: 1px solid #f18121;
+  
 }
 .fdform_addressinput5:focus{
   outline: none;
 }
 .fdform_input{
-  border: 1px solid #f18121;
+ 
+}
+.fdform_main_Container label
+{
+ font-weight: 420;
 }
 .fdform_input:focus{
   outline: none;
 }
 .fdform_subheading{
-  color: #f18121;
+  color: #207a5f;
 }
 .fdform_fdinput{
   width: 45.5%;
-  border: 1px solid #f18121;
+  
 }
 .fdform_fdinput:focus{
   outline: none;
 }
 .fdform_yearinput{
   width: 14.5%;
-  border: 1px solid #f18121;
+ 
 }
 .fdform_yearinput:focus{
   outline: none;
 }
 .fdform_fundingheading{
-  color: #f18121;
+  color: #207a5f;
 }
-.fdform_fundinginput{
-  border: 1px solid #f18121;
-}
+
+
 .fdform_fundinginput:focus{
  outline: none;
 }
-.fdform_rateinput{
-  border: 1px solid #f18121;
-}
+
 .fdform_rateinput:focus{
   outline: none;
 }
-.fdform_main{
-  background-color:#faede2;
-  padding-top: 30px;
-  
-}
+
 .fdform_submitbtn{
-  background-color:#fac294 ;
-  border:none;
-  color: #f18121;
-  border-radius: 15px;
-  padding: 20px 80px;
-  border-bottom: 4px solid #f18121;
-  text-align: center;
-  text-decoration: none;
-  transition-duration: 0.3s;
-  transition-property: background-color, color, opacity;
-  transition-timing-function: linear;
+  background-color: #A2E0CE;
+  color:#0a6348;
+  border:1px solid #0a6348;
+  cursor: pointer;
+  font-weight:600;
+  border-radius: 5px;
+  width:15%;
 }
-.fdform_submitbtn:hover{
-  background-color: #f18121;
-  color: white;
+
+.funding_para1 input
+{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid rgb(61, 61, 61);
+outline: none;
+padding-left: 10px;
 }
+
 
 
 /* fixedform css ends */
+

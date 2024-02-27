@@ -25,21 +25,21 @@ const RecurringDeposit = () => {
                         <div className="row">
                           
                             <p className="mt-3 text-end col-9">How to manage your fixed Deposits?</p>
-                            <button className="recurring_btn col-2">Watch iplay demo</button>
+                            <button className="recurring_btn col-2  p-1">Watch iplay demo</button>
 
                         </div>
                         <div className="row">
-                           <p className="col-12 recurring_sideheading" onClick={Backtodepositepage}>{'<'} Back to Deposit Page</p>
-                           <p className="col-xl-1 col-lg-1"></p>
-                            <button className="col-xl-2 col-lg-2 col-md-2 recurring_btn1 " onClick={Backtodepositepage}>Fixed Deposit</button>
-                            <button className="col-xl-2 col-lg-3 col-md-3 recurring_btn1">Credit card against FD</button>
-                            <button className="col-xl-2 col-lg-2 col-md-2 recurring_btn1">Recurring Deposit</button>
-                            <button className="col-xl-2 col-lg-2 col-md-2 recurring_btn1" onClick={iwishpage}>iwish</button>
+                           <p className="col-12 recurring_sideheading" onClick={Backtodepositepage} style={{cursor:"pointer"}}>{'<'} Back to Deposit Page</p>
+                           
+                            <button className=" col-md-2 recurring_btn1 " onClick={Backtodepositepage}>Fixed Deposit</button>
+                            <button className=" col-md-3 recurring_btn1">Credit card against FD</button>
+                            <button className=" col-md-3 recurring_btn1">Recurring Deposit</button>
+                            <button className="col-md-2 recurring_btn1" onClick={iwishpage}>iwish</button>
                             <p className="col-xl-1 col-lg-1"></p>
 
                         </div>
                         <div className="row">
-                            <div className="col-xl-8 col-lg-8 col-md-8 mt-5">
+                            <div className="col-md-8 mt-5">
                             <div classname="row">
 
                                 <p className="col-12">How much do you want to invest(min 500 and max 10,00,000)</p>
@@ -49,8 +49,6 @@ const RecurringDeposit = () => {
                                 <hr style={{borderBottom: '1px solid black'}}></hr>
                                 <p className="col-12">Tenure(Minimum 6 months and maximum 10 years and in multiples of 3)</p>
                     
-
-
                                 <div className="row col-12">
                                     <div className="col-xl-2">
                                         <input type="radio" name="gender" /> 1 year
@@ -81,7 +79,7 @@ const RecurringDeposit = () => {
 
                             </div>
                            
-                            <div className="col-xl-4 col-lg-4 col-md-4 mt-5">
+                            <div className="col-md-4 mt-5">
                                 <h5 className='recurring_sideheading'>Tax saver Fixed Deposit</h5>
                                 <p>Save Tax on your income and earn interest the same time.</p>
                                 <p className='recurring_para'><b className='recurring_sideheading'>KNOW MORE</b> |<b className='recurring_sideheading'> APPLY NOW</b> </p>

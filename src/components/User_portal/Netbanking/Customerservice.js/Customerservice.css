@@ -403,13 +403,21 @@ display: flex;
     background: none;
 
 }
+.four_types_service_request{
+  color: #2fb68e;
+  text-decoration: none;
+}
 .QuickLinks_buttons{
-    color: #f18121;
-    border: 1px solid #f18121;
+    /* color: #f18121; */
+    color: #2fb68e;
+    /* border: 1px solid #f18121; */
+border: 1px solid #2fb68e;
     border-radius: 30px;
-    background: none;
+  text-decoration: none;
+
     margin-top: 10px;
-    /* margin-right: 4px; */
+    
+    margin-right: 4px;
     font-size: 15px;
 }
 
