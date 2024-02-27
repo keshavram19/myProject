@@ -95,12 +95,8 @@ import CustomerserviceTaxCentre from "./components/User_portal/Netbanking/Custom
 import BillDetails from "./components/User_portal/Netbanking/Bank_Accounts/BillDetails";
 import FinancialJourney from "./components/User_portal/Netbanking/Profile/Financial_Journey/FinancialJourney";
 import Renewfixedform from "./components/User_portal/Netbanking/Bank_Accounts/Renewfixedform";
-
-
 import FixedRecurringForm from "./components/User_portal/Netbanking/Bank_Accounts/Fixed_recurringForm";
 import RecurringForm from "./components/User_portal/Netbanking/Bank_Accounts/Recurring_deposit_form";
-
-
 import UpdatePancardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/UpdatePancardOtp";
 import GenerateDebitCardPinOTP from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitPinOtp";
 import GenerateDebitCardPin from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitCardPin";
@@ -110,17 +106,13 @@ import ReissueCardRequest from "./components/User_portal/Netbanking/Bank_Account
 import OTPPage from "./components/User_portal/Netbanking/Fund_Transfer/OTPpage";
 import Form16A from "./components/User_portal/Netbanking/Customerservice.js/Form16A";
 import Form16AOTPPage from "./components/User_portal/Netbanking/Customerservice.js/Form16aOTP";
-
-
 import ConvertToEMISubmit from "./components/User_portal/Netbanking/CreditCards/ConverttoEMISubmit";
 import AutoDebitConfirm from "./components/User_portal/Netbanking/CreditCards/AutodebitSetupconfirm";
 import ConvertToEMIOtp from "./components/User_portal/Netbanking/CreditCards/convertToEMIOtp";
-
 import ManagrCardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/manageCardOtp";
 import CreditCardPin from "./components/User_portal/Netbanking/CreditCards/creditcardPin";
 import CreditCardPinOtp from "./components/User_portal/Netbanking/CreditCards/creditCardPinOtp";
 import CreditCardOtp from "./components/User_portal/Netbanking/CreditCards/CreditCardOtp";
-
 import AccountOpeningForm from "./components/User_portal/AccountOpeningForm/AccountOpeningForm";
 import AccountSuccessPage from "./components/User_portal/AccountOpeningForm/AccountSuccessPage";
 import Adminhome from "./components/User_portal/admin_portal/admin_home/Admihome";
