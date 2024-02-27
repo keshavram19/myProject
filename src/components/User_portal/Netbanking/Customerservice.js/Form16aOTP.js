@@ -126,7 +126,7 @@ const Form16AOTPPage = () => {
         try {
             await fetchData();
             const accountNumber = userDetails[0].userAccountNumber;
-            console.log(accountNumber);
+           
             const response = await axios.post(`${apiList.authenticateOTP}`, { accountNumber, otp });
     
             console.log(response.data);

@@ -11,7 +11,7 @@ import apiList from "../../../../lib/apiList";
     const [otp, setOTP] = useState('');
     const [message, setMessage] = useState('');
     // const [message, setMessage] = useState('');
-    const [showResendButton, setShowResendButton] = useState(false); // State variable to control the visibility of the "Re-send OTP" button
+    const [showResendButton, setShowResendButton] = useState(false); 
 
     const generateOTP = async () => {
       try {
@@ -19,7 +19,7 @@ import apiList from "../../../../lib/apiList";
               const response = await axios.post(apiList.taxOTPGenerate);
 
         setMessage(response.data.message);
-        setShowResendButton(true); // Show the "Re-send OTP" button after generating OTP
+        setShowResendButton(true); 
 
       } catch (error) {
         console.error('Error generating OTP:', error);

@@ -9,23 +9,16 @@ import { IoCallOutline } from "react-icons/io5";
 
 
 
-
-
-
-const OTPPage = () => {
-
-
-
+const OTPPage = () =>{
     const navigate = useNavigate();
 
     const [userDetails, setUserDetails] = useState([]);
     const [lastFourDigits, setLastFourDigits] = useState('');
     const [otp, setOtp] = useState('');
     const [validationError, setValidationError] = useState('');
-    const [timer, setTimer] = useState(60);
+    const [timer, setTimer] = useState(100);
     const [buttonsDisabled, setButtonsDisabled] = useState(true);
     const accountNumber = 1124563456;
-
 
 
     
@@ -47,14 +40,7 @@ const OTPPage = () => {
         } catch (error) {
             console.error('Error fetching user details:', error);
         }
-
-
-
         console.log('User Details:', userDetails);
-
-
-
-
 
     };
 
@@ -115,11 +101,8 @@ const OTPPage = () => {
                 });
 
                 console.log(otpResponse.data);
-
                 
                 setTimer(100);
-
-
                 setButtonsDisabled(true);
                 setOtp('');
             } else {
@@ -139,19 +122,12 @@ const OTPPage = () => {
             const response = await axios.post(`${apiList.authenticateOTP}`, { accountNumber, otp });
 
             console.log(response.data);
-
-
-            navigate("/user/generate-creditcard-pin");
-
-
-
-
+            navigate("/user/account/generate-debit-card-pin");
         } catch (error) {
             console.error('Error validating OTP:', error);
             setValidationError('Invalid OTP. Please try again.');
         }
     };
-
 
     return(
         <div className='container-fluid'>
@@ -213,6 +189,5 @@ const OTPPage = () => {
         </div>
     )
 }
-
 
 export default OTPPage;

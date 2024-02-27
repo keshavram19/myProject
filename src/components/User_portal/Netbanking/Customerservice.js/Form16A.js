@@ -5,8 +5,8 @@ import axios from "axios";
 import apiList from "../../../../lib/apiList";
 
 const Form16A = () => {
-  const accountNumber = 12456389;
-    const panNumber = "FAFPG7351A"; 
+  const accountNumber = 114912720;
+    const panNumber = "VVPAS2024M"; 
     const [userDetails, setUserDetails] = useState([]);
     const [formData, setFormData] = useState({});
     const [solutionsSubmitted, setSolutionsSubmitted] = useState(0);
@@ -53,7 +53,7 @@ const Form16A = () => {
 
   const fetchFormData = async () => {
     try {
-      const response = await fetch('http://localhost:4444/api/accountCreation/12456389');
+      const response = await fetch`${apiList.customerAccountDetails}${accountNumber}`;
       if (!response.ok) {
         throw new Error('Failed to fetch form data');
       }
