@@ -125,6 +125,7 @@ import AccountSuccessPage from "./components/User_portal/AccountOpeningForm/Acco
 import Adminhome from "./components/User_portal/admin_portal/admin_home/Admihome";
 import RequestedDatalist from "./components/User_portal/admin_portal/opening_requested_details/RequestedDatalist";
 import IndividualDatalist from "./components/User_portal/admin_portal/opening_requested_details/Individuallist/AccountOpeningForm";
+import VirtualPaye from "./components/User_portal/Netbanking/Fund_Transfer/VirtualPayee";
 
 
 
@@ -314,6 +315,10 @@ function App() {
         <Route
           path="/user/fundtransfer/confirm-payee"
           element={<ConfirmPayee />}
+        />
+        <Route
+        path="/user/fundtransfer/virtual-payee"
+        element={<VirtualPaye/>}
         />
         <Route
           path="/user/fundtransfer/inward-remitance"
