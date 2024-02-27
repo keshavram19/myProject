@@ -110,8 +110,8 @@ body {
 
   /* applyforloan css starts */
 .applyforloan_buttonon{
-    color: #f18121;
-    border-bottom: 2px solid #f18121;
+    color: #2fb68e;
+    border-bottom: 2px solid #2fb68e;
 }
 .applyforloan_content{
     margin-top: 3%;
@@ -137,7 +137,7 @@ body {
    
 }
 .applyforloan_heading{
-    color: #f18121;
+    color: #2fb68e;
     margin-top: 90px;
 }
 .applyforloan_icon{
@@ -154,14 +154,14 @@ body {
     margin-top: 1%;
 }
 .applyforloan_benefitsicon{
-    color: #f18121;
+    color: #2fb68e;
     margin-right: 1%;
     
 }
 .applyforloan_para2{
     font-size: small;
     text-decoration: underline;
-    color: #f18121;
+    color: #2fb68e;
     
 }
 .applyforloan_para3{
@@ -176,15 +176,19 @@ body {
 .applyforloan_btn{
     width: 120px;
     height: 40px;
-    background-color:#faede2;
-    color: #f18121;
-    border: none;
+    color: #2fb68e;
+    border: 1px solid #2fb68e;
     border-radius: 5px;
     font-size: small;
+    background-color: transparent;
+}
+.applyforloan_btn:hover{
+    color:#ebca28 ;
+    border:1px solid #ebca28;
 }
 .applyforloan_banner{
     height: 150px;
-    background: linear-gradient(rgba(0, 0, 0, 1),rgba(171, 106, 55, 0.858));
+    background: linear-gradient(rgba(0, 0, 0, 1),rgba(111, 206, 154, 0.858));
     margin-bottom: 2%;
     border-radius: 10px;
     text-align: center;
@@ -209,7 +213,7 @@ body {
 }
 .applyforloan_litres{
     font-size: xx-large;
-    color: #f18121;
+    color: #2fb68e;
 }
 .applyforloan_homeloanbanner{
   height: 190px;
@@ -231,13 +235,18 @@ justify-content: flex-end;
     padding: 1%;
 }
 .applyforloan_instantbtn{
-    background-color: #faede2;
-    color:#f18121;
+    background-color: #2fb68e;
+    color:#fff;
     border: none;
     border-radius: 3px;
     width: 200px;
     height: 40px;
     
+}
+.applyforloan_instantbtn:hover{
+    background-color: transparent;
+    color: #ebca28;
+    border: 1px solid #ebca28;
 }
 .applyforloan_carloanbanner{
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://financehub.co.in/wp-content/uploads/2021/03/Car-Loan.jpg);
@@ -255,8 +264,8 @@ justify-content: flex-end;
 /* loanapplication css starts */
 .loanapptracking_head{
     height: 40px;
-    background-color: #faede2;
-    color: #f18121;
+    background-color: #cce6df;
+    color: #2fb68e;
     text-align: center;
     line-height: 40px;
 
@@ -274,7 +283,7 @@ justify-content: flex-end;
     padding-left: 2%;
     height: 30px;
     border: none;
-    border-bottom: 1px solid #f18121;
+    border-bottom: 1px solid #2fb68e;
     
 }
 .loanapptracking_input2:focus{
@@ -284,8 +293,8 @@ justify-content: flex-end;
 .loanapptracking_proceedbtn{
     width: 100px;
     height: 30px;
-    background-color: #faede2;
-    color: #f18121;
+    background-color: #2fb68e;
+    color: #fff;
     border-radius: 5px;
    border: none;
    display: flex;
@@ -302,12 +311,12 @@ justify-content: flex-end;
     margin-top: 5%;
 }
 .loanapptracking_icon{
-    color: #f18121;
+    color: #2fb68e;
     margin-right: 1%;
     font-size: 10px;
 }
 .loanapptracking_mainhead{
-    color: #f18121;
+    color: #2fb68e;
     margin-top: 90px;
 }
 
@@ -318,7 +327,7 @@ justify-content: flex-end;
 
 
 .applyonline_mainheading{
-    color: #f18121;
+    color: #2fb68e;
     margin-top: 90px;
     }
     .applyonline_mainrow{
@@ -336,8 +345,8 @@ justify-content: flex-end;
         margin-left: 1%;
     }
     .applyonline_heading{
-        background-color: #faede2;
-        color: #f18121;
+        background-color: #cce6df;
+        color: #2fb68e;
         padding-left: 2%;
         height: 40px;
         line-height: 40px;
@@ -346,7 +355,7 @@ justify-content: flex-end;
     }
     .applyonline_badge{
         margin-left:5px;
-        background-color: #f18121;
+        background-color: #2fb68e;
     }
     .applyonline_headcontent{
         display: flex;
@@ -356,7 +365,7 @@ justify-content: flex-end;
     }
     .applyonline_icons{
         font-size: x-large;
-        color: #f18121;
+        color: #2fb68e;
     }
     .applyonline_bodycontent{
         height: 120px;
@@ -365,16 +374,16 @@ justify-content: flex-end;
         font-size: small;
     }
     .applyonline_divbutton{
-        background-color: #faede2;
+        background-color: #2fb68e;
         display: flex;
         justify-content: center;
         height: 40px;
+        align-items: center;
+        color: #fff;
         
     }
-    .applyonline_applybtn{
-        background-color: #faede2;
-        color: #f18121;
-        border: none;
+    .applyonline_divbutton:hover{
+        background-color: #ebca28;
     }
     .applyonline_mainrow .card{
         border-radius: 10px;
@@ -383,9 +392,12 @@ justify-content: flex-end;
     .applyonline_knowbtn{
         margin-top: 10%;
         border: none;
-        color: #f18121;
+        color: #2fb68e;
         background-color: transparent;
         padding: 0;
+    }
+    .applyonline_knowbtn:hover{
+        color: #ebca28;
     }
     .applyonline_para1{
         height: 50px;
@@ -393,3 +405,177 @@ justify-content: flex-end;
     
     
     /* apply online css ends */
+     /* view container styles start */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+.renew_hero_container {
+    margin: 0;
+   }
+.view_container{
+    margin-top: 50px;
+    background-color: rgb(219, 215, 215);
+    padding: 5px;
+    border-radius: 10px;
+    color: black;
+    padding-right: 80px;
+}
+   .view_containeriew_container h4{
+    color: orange;
+   }
+   .view_container h4{
+    color: orange;
+     margin-left: 20px;
+     }
+   .view-container_headding h4{
+     margin-right: 900px;
+     padding-top: 80px;
+     color: #2fb68e;
+     margin-left: 20px;
+   }
+ 
+  .view_personai_loan p{
+     margin-right: 500px;
+     padding-left: 40PX;
+
+  }
+  
+ .view_checkbox_conteanier{
+     /* background-color: rgb(239, 248, 248); */
+     box-shadow: 10px;
+     border-radius: 15px;
+     
+ 
+  }
+ .graph-container{
+    margin-left: 500px;
+    margin-bottom: 20px;
+    
+ }
+
+  
+  
+ .view_table_product td{
+     width: 100%;
+     color: rgb(165, 77, 43);
+     /* background-color: rgb(233, 229, 224); */
+   }
+  
+  
+  
+   .view_date_container{
+     
+     margin-left: 700px;
+   }
+   
+ .checkbox_containertype{
+     display: flex;
+     
+     
+   }
+   .view_container_note {
+     margin-top: 20px;
+   }
+    .garph_view{
+     height: 200px;
+     width: 50px;
+   } 
+   
+  
+   .view_checkbox_container input[type="checkbox"] {
+     margin-bottom: 5px;
+     
+   }
+   
+   
+   .table_product td, .table_product th {
+     border: 1px solid; 
+     padding: 8px; 
+   }
+   
+   
+   /* .table_product tbody tr:nth-child(even) {
+     background-color: #f9f9f9; 
+   } */
+   .percentage-label {
+     text-align: center;
+     font-size: 18px;
+     color: #333;
+     margin-top: 10px;
+   } 
+   /* view container styles end*/
+   /* loan service container styles start */
+ .loan_service_container{
+     background-color: rgb(223, 233, 230);
+  }
+  .renew_hero_container {
+    margin: 0;
+   }
+  .loan_container_fluid {
+     /* margin-right: 850px; */
+     padding-top: 20px;
+     -webkit-box-shadow: none;
+     box-shadow: none;
+     /* background-color: rgb(223, 233, 230); */
+     /* color: orange; */
+     margin-top: 100px;
+     
+    
+   
+  
+  }
+   
+   .loan_container_fluid h3 {
+     margin-top: 20px;
+     font-size: 34px;
+     color: #2fb68e;
+   }
+   
+   .loan_service_container {
+     margin-top: 20px;
+     
+   }
+    .loan_service_container span{
+  font-size: 20px;
+    }
+   
+   .form_inline {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     margin-bottom: 15px;
+     box-shadow: none;
+   }
+   
+   .form_inline label {
+     margin-right: 15px;
+     box-shadow: none;
+   }
+   
+   .loan_select {
+     width: 150%;
+     padding: 6px;
+   }
+   
+  .loan_submit_container{
+     background-color: rgb(223, 233, 230);
+     padding-top: 20px;
+     padding-bottom: 30px;
+     margin-top: 20px;
+     margin-bottom: 20px;
+  }
+   .loan_submit_container button {
+    
+     color: white;
+     border: none;
+     border-radius: 15px;
+     cursor: pointer;
+     margin-left: 50px;
+     background-color:#2fb68e; 
+     padding-left: 20px;
+     padding-top: 10px;
+     padding-bottom: 10px;
+     padding-right: 20px;
+     font-size: larger;
+    
+  
+   }
+   /* loan service container styles end */

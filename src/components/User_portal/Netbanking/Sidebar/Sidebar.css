@@ -67,3 +67,15 @@
   color: #002970;
   font-family: "poppins";
 }
+
+
+.bank_account_sidebar_link_tag{
+  border: 1px solid #2fbe92;
+  border-radius: 10px;
+} 
+
+.bank_account_sidebar_link_tag:hover{
+  background-color: #2fbe92;
+  color: #fff;
+  border-radius: 10px;
+}

@@ -1,31 +1,60 @@
 import React, { useState } from "react";
 import "./Accounts.css";
 import axios from "axios";
-import { Col, Container, Row } from "reactstrap";
+import { Col,  Row } from "reactstrap";
 import BankaccountSidebar from "../Sidebar/BankaccountSidebar";
 axios.defaults.baseURL = "http://localhost:4444/api/";
 const Fdadvice = () => {
+  // const [email, setEmail] = useState("");
+  // const [selectedOption, setSelectedOption] = useState(null);
+
+  // const handleSubmit = async () => {
+  //   if (!selectedOption) {
+  //     alert("Please select an option");
+  //     return;
+  //   }
+
+  //   try {
+  //     // Submit data to the backend
+  //     const response = await axios.post("/generate", {
+  //       email,
+  //       selectedOption,
+  //     });
+  //     console.log(response.data); // Assuming the server responds with some data
+  //   } catch (error) {
+  //     console.error("Error submitting data:", error);
+  //   }
+  // };
   const [email, setEmail] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
-
+  
   const handleSubmit = async () => {
     if (!selectedOption) {
       alert("Please select an option");
       return;
     }
-
+    
+  
     try {
-      // Submit data to the backend
       const response = await axios.post("/generate-pdf", {
         email,
         selectedOption,
       });
+  
+      if (selectedOption === "sendAdvice") {
+        alert("Advice email sent successfully.");
+      } else if (selectedOption === "downloadDevice") {
+        alert("PDF generated and downloaded successfully.");
+        // Optionally, you can trigger a file download here if needed.
+      }
+  
       console.log(response.data); // Assuming the server responds with some data
     } catch (error) {
       console.error("Error submitting data:", error);
+      alert("An error occurred. Please try again later."); // Provide user feedback
     }
   };
-
+  
   return (
     <section>
       <div className="container-fluid">
@@ -43,7 +72,7 @@ const Fdadvice = () => {
             <BankaccountSidebar />
           </Col>
           <Col sm="9">
-            <div className="Fixed_container ">
+            <div >
               {/* <div className="fixed-deposit-container"> */}
               <div className="fixed_deposit">
                 <h1>Fixed Deposit Accounts</h1>

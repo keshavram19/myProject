@@ -10,7 +10,7 @@
   height: 8vh;
 }
 .mypayee_heading{
-  color: #f18121;
+  color: #2fb68e;
   font-size: x-large;
 }
 .mypayee_addpayeelink{
@@ -26,8 +26,8 @@
   justify-content: center;
 }
 .mypayee_buttonon{
-  color: #f18121;
-  border-bottom: 2px solid #f18121;
+  color: #2fb68e;
+  border-bottom: 2px solid #2fb68e;
 }
 .mypayee_content{
   background-color: rgb(251, 250, 250);
@@ -72,17 +72,21 @@
 .mypayee_addbtn{
   width: 160px;
   height: 30px;
-  background-color: #faede2;
-  color: #f18121;
-  border: none;
+  border: 1px solid #2fb68e;
+  background-color: transparent;
+  color: #2fb68e;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: small;
 }
+.mypayee_addbtn:hover{
+  border: 1px solid #ebca28 ;
+  color: #ebca28;
+}
 .mypayee_search{
-  color: #f18121;
+  color: #2fb68e;
 }
 .mypayee_icons{
   font-size: large;
@@ -97,7 +101,7 @@
 }
 .mypayee_click{
   text-decoration: underline;
-  color: #f18121;
+  color: #2fb68e;
   cursor: pointer;
 }
 .mypayee_quick_details{
@@ -189,113 +193,114 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-.completed-transactions-page {
-  display: flex;
-  flex-wrap: wrap;
-  /* padding-left: 30%; */
+.completed_transactions_head{
+  color: #2fb68e;
 }
-.empty-header {
-  height: 100px;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.transaction-container {
-  width: 65%;
-  margin: auto;
-  padding: 50px;
-  background-color:#f8f9fa;
-  color: #f18121;
-}
-
-.transaction-heading {
-  width: 100%;
-  /* height: 150px; */
-  background-color: #faede2;
-  padding: 10px;
-}
-
-.transaction-heading h1 {
-  font-size: 25px;
-  font-weight: bold;
-  color: #333;
-}
-
-.left-side {
-  margin-left: 45%;
-  width: 100vh;
-}
-
-.search-section {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.search-section label {
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.search-section input,
-.search-section select {
-  margin-bottom: 10px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.search-section button {
-  width: 12%;
-  height: 40px;
-  background-color: #ff8c00;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.dwn-file {
-  margin-left: 55%;
-  margin-top: 35px;
+.completed_transactions_type{
+  background-color: rgb(247, 246, 246);
+  height: 50px;
   display: flex;
   align-items: center;
 }
-
-.dwn-file select {
-  width: 50%;
-  height: 40px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 8px;
+.completed_transaction_search{
+  width:480px ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-.dwn-file button {
-  height: 40px;
-  width: 45px;
-  font-size: 17px;
-  background-color: #ff8c00;
-  color: #fff;
+.completed_transaction_select1{
+  height: 30px;
+  width: 250px;
+  font-size: small;
+  outline: none;
+  padding:1%;
+}
+.completed_transaction_select1 option:hover{
+  background-color: #2fb68e;
+}
+.completed_transaction_cont1{
+  display: flex;
+}
+.completed_transaction_inputdate{
+  height: 30px;
+  font-size: small;
+  outline: none;
+  padding-left: 3%;
   border: none;
+  background: transparent;
+}
+.completed_transaction_inputdate1{
   border-radius: 5px;
+  height: 30px;
+  width: 250px;
+  font-size: small;
+  outline: none;
+  padding-left: 3%;
+  padding-right: 3%;
+  border: 1px solid lightgray;
 }
-
-.trs-note {
-  border-top: 1px solid #ccc;
-  padding-top: 20px;
+.completed_transaction_search1{
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 3%
 }
+.completed_transaction_get{
+  border: 1px solid #2fb68e;
+  background: transparent;
+  color: #2fb68e;
+  border-radius: 5px;
+  font-size: small;
+  height: 30px;
+  display: flex;
+  align-items: center;
 
-.text {
-  color: red;
 }
+.completed_transaction_ok{
+  background: #2fb68e;
+  color: #fff;
+  border-radius: 5px;
+  font-size: small;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border: none;
+}
+.completed_transaction_ok:hover{
+  background-color: #ebca28;
+}
+.completed_transaction_get:hover{
+background-color: #2fb68e;
+color: white;
+}
+.completed_transaction_details{
+  display: flex;
+  justify-content: flex-end;
+}
+.completed_transaction_details1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+}
+.completed_transaction_date1{
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  border: 1px solid lightgray;
+  align-items: center;
+  padding-right: 2%;
+  width: 250px;
+  border-radius: 5px;
+  height: 30px;
 
-/* .row input {
-  width: 220px;
-} */
+
+}
+.completed_transaction_date2{
+  cursor: pointer;
+  pointer-events: none;
+}
 
 /* completed transaction ends */
 
@@ -304,185 +309,58 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-.payment-container {
-  justify-content: center;
-  padding: 50px;
-  border-radius: 10px;
-  flex-wrap: wrap;
-  margin: auto;
-  background-color: #f8f9fa ;
-
-}
-
-.header-box {
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 130px;
-  width: 100%;
-  padding: 10px;
+.payment_summary_pending{
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  background-color:  #faede2;
-}
-
-.payment-summary-page h1 {
-  color: lightcoral;
-  font-size: 35px;
-  padding: 5px;
-}
-
-.header-box h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
-  color: #000;
-}
-.header-box p{
-  font-size: 20px;
-  margin-top: 15px;
-}
-
-.payment-radios label {
-  display: flex;
+  width: 330px;
   align-items: center;
-  margin-bottom: 10px;
-  color: #333;
-  font-size: 16px;
-  color: #f18121;
+  height: 85px;
+  font-size: small;
 }
-.payment-radios {
+.payment_summary_valid{
+  opacity: 0.6;
+}
+.payment_summary_cont1{
   display: flex;
-  flex-direction: column;
-  margin-left: 330px;
-  justify-content: end;
+  justify-content: space-between;
+  align-items: center;
+  font-size: small;
+  background-color: rgb(247, 246, 246);
 }
-.payment-header{
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: white;
+.payment_summary_list1{
+  list-style-type: none;
 }
-
-/* paymentSummaryPage.css ends*/
-
-
-/* calendar.css starts*/
-
-/* Updated calendar.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-.calandar-main {
-  width: 100%;
-  max-width: 100%;
-  color:#f18121;
-  line-height: 1.125em;
-  
+.payment_summary_dot1{
+  color: #ebca28;
 }
-
-.calendar-container {
-  color: black;
-  min-width: 44px;
-  background: none;
-  font-size: 25px;
-  margin-top: 8px;
-  /* border: solid black 1px; */
-  background-color:  #faede2;
+.payment_summary_dot2{
+  color: rgb(249, 69, 3);
 }
-
-.calendar-container:enabled:hover,
-.calendar-container:enabled:focus {
-  background-color:  #faede2;
+.payment_summary_dot3{
+  color: rgb(11, 11, 241);
 }
-
-.calendar-container[disabled] {
-  background-color: #f0f0f0;
+.payment_summary_head{
+  color: #2fb68e;
 }
-/* 
-abbr[title] {
-  text-decoration: none;
-} */
-
-.react-calendar__tile:enabled:hover,
-.react-calendar__tile:enabled:focus {
-  background: #f8f8fa;
-  color: #6f48eb;
-  border-radius: 6px;
+.payment_summary_cont3{
+  display: flex;
 }
-
-.react-calendar__tile--now {
-  background: #6f48eb33;
-  border-radius: 100px;
-  font-weight: bold;
-  color: #6f48eb;
-}
-
-.react-calendar__tile--now:enabled:hover,
-.react-calendar__tile--now:enabled:focus {
-  background: #6f48eb33;
-  border-radius: 100px;
-  font-weight: bold;
-  color: #6f48eb;
-}
-
-.react-calendar__tile--hasActive:enabled:hover,
-.react-calendar__tile--hasActive:enabled:focus {
-  background: #f8f8fa;
-}
-
-.react-calendar__tile--active {
-  background: #f18121;
-  border-radius: 6px;
-  font-weight: bold;
-  color: white;
-  background-color: #faede2;
-}
-
-.react-calendar__tile--active:enabled:hover,
-.react-calendar__tile--active:enabled:focus {
-  background: #f18121;
-  color: white;
-}
-
-.react-calendar--selectRange .react-calendar__tile--hover {
-  background-color: #f8f8fa;
-}
-
-.react-calendar__tile--range {
-  background: #faede2;
-  color:#f18121;
-  border-radius: 0;
-}
-
-.react-calendar__tile--rangeStart {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  background: #6f48eb;
-  color: white;
-}
-
-.react-calendar__tile--rangeEnd {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  background: #6f48eb;
-  color: white;
-}
-
-.calandar_text_center{
-  margin: 10px;
-  font-size: 20px;
+.payment_summary_cont2{
+  display: flex;
+  margin-top: 8%;
 }
 .react-calendar{
-  width: 100% !important;
-  background-color:  #faede2;
+  border: 1px solid lightgray;
 }
-.calendar_text_center{
-  text-align: center;
-  padding: 10px;
+
+.react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd {
+  border-radius: 50%;
+  background-color: #2fb68e;
+  color:white;
 }
- /* calendar.css ends*/
+
+
+/* paymentSummaryPage.css ends*/
 
  /* WireTransaction.css */
 
@@ -846,7 +724,12 @@ color: #fff;
   font-weight: 300;
   }
   .Inwbenifits_tag_hfive{
-    color : #f18121 ;
+    /* color : #f18121 ; */
+    /* color: #ebca28; */
+    
+    font-weight: 500;
+    /* color: #2fb68e; */
+     
   }
   .inward_ullist{
     display: flex;
@@ -862,12 +745,21 @@ color: #fff;
     }
     .inward_span_tag_main{
       font-size: 12px;
-      font-weight:500;
-      color : #f18121;
+      font-weight:800;
+      /* color : #f18121; */
+      color: #ebca28;
+      /* color: #2fb68e; */
 
       }
       .icons_inwardrem{
-        color : #f18121;
+        /* color : #f18121; */
+        /* color: #93ecd2; */
+        /* color: #2fb68e; */
+        color: #ebca28;
+
+
+                /* color: #ffd813; */
+
         width: 30px;
       margin-bottom:30px;
      }
@@ -879,10 +771,14 @@ color: #fff;
       margin: 0px 0px ;
     }
    .Inward_pink_box_request{
-    color : #f18121;
+    /* color : #f18121; */
+    color: #020202;
     border: 1px solid rgb(230, 228, 228);
     border-right: none;
-      background-color:#faede2 ;
+      /* background-color:#faede2 ; */
+      background-color: #fff1ad;
+      /* background-color: #93ecd2; */
+
     }
     .Inward_four_main_lists{
       color: #000f00;
@@ -895,7 +791,8 @@ color: #fff;
       border-radius: 50%;
        background-color: #fff;
        margin-right: 11px;
-      color: #f08080;
+      /* color: #f08080; */
+      color: #ebca28;
       padding: 4px 11px;
      }
      .two_inward{
@@ -903,7 +800,8 @@ color: #fff;
       border-radius: 50%;
        background-color: #fff;
        margin-right: 10px;
-      color: #f08080;
+      /* color: #f08080; */
+      color: #ebca28;
       padding: 4px 10px;
      }
      .four_inward{
@@ -911,7 +809,8 @@ color: #fff;
       border-radius: 50%;
        background-color: #fff;
        margin-right: 10px;
-      color: #f08080;
+      /* color: #f08080; */
+      color: #ebca28;
       padding: 4px 10px;
      }
      .Inward_pink_side_box{
@@ -925,7 +824,9 @@ color: #fff;
      .Inward_sel_Inacct_numbr{
       width: 160px;
       margin-left: 5px;
-      background-color: #f1ecec;
+      /* background-color: #f1ecec; */
+      /* background-color: #ebca28; */
+      background-color: #fff1ad;
       height: 25px;
        outline: none;
       font-size: small;
@@ -952,52 +853,71 @@ color: #fff;
  
  
 .Inward_remittance_Request_Form_one{
-  font-size: large;
-  font-weight: 600;
+  /* font-size: large; */
+  font-weight: 500;
 }
 .Inward_remittance_Request_Form_one_Sub{
-  font-size: medium;
-  margin-top: 20px;
+  /* font-size: medium; */
+   margin-top: 10px;
+  /* font-weight: 500; */ 
+  /* font-size: large; */
   font-weight: 500;
 }
 .Inward_remittance_Request_one{
-  font-size: medium;
-  margin-top: 20px;
-  font-weight: bold;
+  /* font-size: large; */
+  /* margin-top: 20px; */
+  font-weight: 500;
   }
+  
 
 
 /* Styles for form labels */
 .Inward_remittance_Request_Label {
-  margin-top: 10px;
-  font-weight: 500;
+  margin-top: 5px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
  }
  .Inward_remittance_Request_form_Option{
   margin-top: -32px;
   margin-left: 20px;
  }
-
+.inward_remittance_fields_Row{
+  display: flex;
+flex-direction: row;
+}
+.Inward_remittance_row_two{
+    margin-left: 200px;
+}
 /* Styles for input fields */
 .Inward_remittance_Request_input_form {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
+  width: 300px; 
+  padding: 4px;
+  margin-top: 2px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
+   border-radius: 4px;
+   outline: none;
   box-sizing: border-box;
 }
+.Inward_remittance_Request_input_form_check{
+  outline: none;
+
+}
 .Inward_remittance_Request_form_ptag_Del{
-  padding: 10px 5px;
+  padding: 0px 5px;
   margin-top: 15px;
  }
 .Inward_remittance_Request_form_ptag_Pur{
 margin-top: -20px;
 }
-
+.inward_review_accuracy_form{
+  display: flex;
+  flex-direction: row;
+}
  .Inward_remittance_Request_form_checkbox {
   display: flex;
-  margin-top: -15px;
+  margin-top: -20px;
+  margin-bottom: 0px;
   align-items: center;
  }
 
@@ -1014,17 +934,21 @@ margin-top: -20px;
   padding: 10px 10px;
  
   font-size: smaller;
-  background-color:  #f18121 ;
+  /* background-color:  #f18121 ; */
+  background-color: #2fb68e;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  width: 100%;
   transition: background-color 0.3s ease;
 }
 
 .Inward_remittance_Request_form_ptag:hover{
-  background-color:  #f18121;
+  /* background-color:  #f18121; */
+  background-color: #07b17e;
   color: #000;
+  width: 100%;
   font-size: smaller;
   padding: 10px 10px;
 
@@ -1061,20 +985,27 @@ margin-top: -20px;
 
   }
   .user_header_tax_color{
-    color : #f18121;
-     font-size: 20px;
+    /* color : #ebca28; */
+     /* font-size: 20px; */
+      font-weight: 500;
+
   }
   .Tax_hrline_box_shadow{
     box-shadow:   1px 1px 3px rgb(141, 91, 91);
     border: none;
   }
   .light_bg_color_tax{
-    background-color:  #fdefef;
+    /* background-color:  #5dfa77; */
+    background-color: #eff5f5
+    /* background-color: #f7eaab; */
+
    }
   .ptag_tax_center{
      padding: 5px 10px;
      font-weight: 400;
-    background-color:#fae2e5 ;
+    /* background-color:#fae2e5 ; */
+    /* background-color: #f1d961; */
+    background-color: #67b9a1;
     color: #000;
   }
   .Tax_ptag_please_para{
@@ -1089,6 +1020,7 @@ margin-top: -20px;
     display: flex;
     flex-direction:column;
     width: 150px;
+    font-size: smaller;
     outline: none;
     height: 24px;
 
@@ -1113,18 +1045,24 @@ margin-top: -20px;
     margin-bottom: 10px;
     padding: 8px;
      color:#000000;
-     background-color:#f5b176 ;
+     /* background-color:#f5b176 ; */
+     background-color: #2fb68e;
+
     cursor: pointer;
      font-size: small;
     margin-left: 10px;
     border: none;
     border-radius: 4px;
   }
+  .Tax_center_but_appGen:hover{
+  background-color: #07b984be;
+  }
   .Tax_center_but_appGen{
     margin-bottom: 10px;
     padding: 8px;
      color:#000000;
-     background-color:#f5b176 ;
+     /* background-color:#f5b176 ; */
+     background-color: #2fb68e;
     cursor: pointer;
      font-size: small;
     margin-top: 10px;
@@ -1142,7 +1080,7 @@ margin-top: -20px;
   }
   
   .Tax_center_but_app:hover {
-    background-color: #fa9a46;
+    background-color: #07b984be;
 color: #000;     
   } 
   .Tax_center_but_app:focus{
@@ -1174,9 +1112,10 @@ color: #000;
     margin-left: 30px;
   }
   .main_my_scheduled_tran{
-    color:    #f18121;
-    font-size: 20px;
-    font-weight: 400;
+    /* color:    #f18121; */
+    /* color: #ebca28; */
+    /* font-size: 20px; */
+    font-weight: 500;
   }
   .my_Sch_tag_line{
     border: 1px solid  #c3ccc3;
@@ -1189,9 +1128,10 @@ color: #000;
  }
 .search_section_mainheader_mytran{
   margin-top: 10px;
-  background-color: #faede2;
-
-      padding: 10px 10px;
+  /* background-color: #faede2; */
+/* background-color: #ebca28; */
+background-color: #2fb68e;
+      padding: 5px 10px;
 }
 .myalabel_trans_type_sch{
   display: flex;
@@ -1216,13 +1156,16 @@ color: #000;
   margin:0px 8px ;
   border: none;
   outline: none;
-  background-color: #f18121;
-  border-radius: 10px;
-  cursor: pointer;    
+  /* background-color: #f18121; */
+background-color: #2fb68e;
+  border-radius: 5px;
+  cursor: pointer;   
+  color: white; 
   font-size: small;
 }
 .mya_sch_searchbtn:hover{
-  background-color: #ff7700;
+  /* background-color: #ff7700; */
+  background-color: #07b17e;
 }
 .mya_Trasch_download_detail{
   display: flex;
@@ -1244,7 +1187,8 @@ margin-top: 3px;
     height: 25px;
    }
   .My_transac_download_ok_button{
-    background-color:  #f18121;
+    /* background-color:  #f18121; */
+    background-color: #2fb68e;
     color: #fff;
     cursor: pointer;
     border-radius: 3px;
@@ -1257,7 +1201,6 @@ margin-top: 3px;
   
   /* MyTransaction CSS Ends */
 
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 /* interest & TDS certificate css Start */
 
@@ -1280,7 +1223,8 @@ margin-top: 3px;
 }
 
 .interest_certificate_heading5 {
-  background-color: #faede2;
+  background-color: #81cfb6;
+  color: white;
   padding: 10px;
 }
 
@@ -1311,29 +1255,34 @@ margin-top: 3px;
   padding-top: 3%;
 }
 
-.btn_interest_button:focus {
+/* .btn_interest_button:focus {
   outline: none;
   border-color: initial;
   box-shadow: none;
-}
+} */
 
 .btn_interest_button {
+  margin: 4%;
   outline: none;
-  overflow: hidden;
-  background-color: #f18121;
-  font-weight: 500;
-  color: white;
+  text-align: center;
+  border: 1px solid #2fb68e;
+  border-radius: 4px;
+  color: #2fb68e;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px;
+  cursor: pointer;
+  margin-left: 40%;
+  margin-right: 40%;
+  
 }
 
 .btn_interest_button:hover {
   color: white;
+  background-color: #2fb68e;
 }
-
-.interet_buuton {
-  padding-top: 50px;
-  text-align: center;
-  color: white;
-}
+  
 
 .inerest_heading6 {
   padding-top: 5%;
@@ -1354,31 +1303,30 @@ margin-top: 3px;
   padding-bottom: 10px;
 }
 
-
-
 /* interest & TDS certificate css end */
 
 /* Disclaimer css start */
 .Disclaimer_container_fluid{
-  box-sizing: border-box;
-  padding: 20px;
-  overflow: none;
+  /* box-sizing: border-box; */
+  /* padding: 20px; */
+
   font-family: 'Poppins', sans-serif;
   
 }
-.Disclainer_pera{
+/* .Disclainer_pera{
   padding: 5%;
-  padding-top: 10%;
-}
+ 
+} */
 .Disclainer_border{
   border: 1px solid black;
   padding: 3%;
   border-radius: 15px;
-
+  
 }
+
 .Disclainer_border_heading5{
   text-align: center;
-  color: #f18121;
+  color: #ebca28;
 }
 .Disclaimer_button{
   text-align: center;
@@ -1387,7 +1335,7 @@ margin-top: 3px;
   justify-items: center;
 }
 .btn_Disclaimer_button{
-  background-color: #f18121;
+  border-radius: 1px solid #2fb68e;
   font-weight: 500;
   border-style: none;
   color: white;
@@ -1399,6 +1347,7 @@ margin-top: 3px;
 }
 .btn_Disclaimer_button:hover{
   color: white;
+  background-color: #2fb68e;
 }
 
 /* Disclaimer css end */
@@ -1424,19 +1373,29 @@ padding: 2%;
 
 .TaxPayment_pera_heading5{
   text-align: center;
-  color: #f18121;
+  color: #ebca28;
 }
 
 .taxpayment_button{
   font-weight: 500;
   text-align: center;
- 
+  cursor: pointer;
+  width: 100px;
+  border-radius: 10px;
+  color: #2fb68e;
+  margin-left: 45%;
+}
+.taxpayment_button:hover{
+  color: white;
+  background-color: #2fb68e;
+
 }
 
 .btn_taxpayment_button{
-  background-color: #f18121;
-  color: white;
-  
+  border: 1px solid #2fb68e;
+  cursor: pointer;
+  color: #2fb68e;
+  text-align: center;
 }
 
 .btn_taxpayment_button:focus{
@@ -1447,6 +1406,7 @@ padding: 2%;
 
 .btn_taxpayment_button:hover{
   color: white;
+  background-color: #2fb68e;
 }
 
 .TaxPayment_note{
@@ -1472,7 +1432,8 @@ padding: 2%;
   padding: 3%;
 }
 .incometax_filling_heading4{
-  background-color: #faede2;
+  background-color: #81cfb6;
+  color: white;
   padding: 1%;
   
 }
@@ -1488,15 +1449,31 @@ padding: 2%;
 padding: 2%;
 }
 
-.btn_incometax_button{
+
+
+.Incometax_submits{
   margin: 4%;
-  background-color: #f18121;
-  font-weight: 500;
-  color: white;
+  outline: none;
+  text-align: center;
+  border: 1px solid #2fb68e;
+  border-radius: 4px;
+  color: #2fb68e;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px;
+  cursor: pointer;
+  width: 90px;
+  margin-left: 30px;
+
 }
-.btn_incometax_button:hover{
-  color: white;
+
+.Incometax_submits:hover{
+  background-color: #2fb68e;
+  color: #fff;
 }
+
+
 .btn_incometax_button:focus{
   outline: none;
   border-color: initial;

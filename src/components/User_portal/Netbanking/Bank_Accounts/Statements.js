@@ -4,13 +4,15 @@ import { FcCalendar } from "react-icons/fc";
 import { AiFillPrinter } from "react-icons/ai";
 
 import DatePicker from 'react-datepicker';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import apiList from '../../../../lib/apiList';
 import { format } from 'date-fns';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import html2pdf from 'html2pdf.js';
+import banklogo from '../../../../Images/banklogo.png';
 
 const allTransactionsList = [
     {
@@ -72,7 +74,7 @@ const allTransactionsList = [
 ];
 
 const Statements = () => {
-
+    
     const [savingsAccNumber, setAccountNumber] = useState('');
     const [accountType, setAccountType] = useState('');
     const [fromDate, setFromDate] = useState(null);
@@ -83,6 +85,27 @@ const Statements = () => {
     const [viewTransStatement, setViewTransStatement] = useState();
     const [formattedFromDate, setFormattedFromDate] = useState(null);
     const [formattedToDate, setFormattedToDate] = useState(null);
+
+    // let navigate = useNavigate();
+    // useEffect(() => {
+    //     let logintoken = sessionStorage.getItem('loginToken')
+    //     if(!logintoken){
+    //         navigate('/netbanking-personal-login')
+    //     }
+    // });
+
+    const navigate = useNavigate();
+    const isTokenExpired = () => {
+        const expirationTime = sessionStorage.getItem("expireTime");
+        return expirationTime && new Date().getTime() > parseInt(expirationTime, 10);
+    };
+    useEffect(() => {
+        if (isTokenExpired()) {
+            sessionStorage.clear();
+            sessionStorage.removeItem('loginToken')
+            navigate('/netbanking-personal-login');
+        }
+    }, [navigate]);
 
 
     const handleStartDateChange = (date) => {
@@ -194,6 +217,115 @@ const Statements = () => {
         }
         return true;
     }) : [];
+
+    let transactionRef = useRef();
+    const handleDownloadTransactions = () => {
+        const options = {
+            margin: 10,
+            filename: 'transactions.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 }
+        };
+
+        const bankLogo = `
+            <div class='statements_bank_logo_container'>
+                <div>
+                    <img src='../../../../Images/banklogo.png' class='statements_bank_logo'>
+                </div>
+            </div>    
+        `;
+
+        const customerInfo = `
+            <div class='customer_info_container'>
+                <div class='customer_account_info'>
+                    <div class='customer_details_heading'>Account Name:</div>
+                    <div>${accountTypeDetails.accountHolderName}</div>
+                </div>
+
+                <div class='customer_account_info'>
+                    <div class='customer_details_heading'>Address: </div>
+                    <div></div>
+                </div>
+
+                <div class='customer_account_info'>
+                    <div class='customer_details_heading'>Date: </div>
+                    <div>21 Feb 2024</div>
+                </div>
+
+                <div class='customer_account_info'>
+                    <div class='customer_details_heading'>Account Number: </div>
+                    <div>${accountTypeDetails.userAccountNumber}</div>
+                </div>
+            
+                <div class='customer_account_info'>
+                    <div class='customer_details_heading'>Account Type: </div>
+                    <div>${accountTypeDetails.userAccountType}</div>
+                </div>
+
+                <div class='customer_account_info'>
+                    <div class='customer_details_heading'>Branch: </div>
+                    <div>${accountTypeDetails.bankBranchName}</div>
+                </div>
+
+                <div class='customer_account_info'>
+                    <div class='customer_details_heading'>CIF No: </div>
+                    <div>90132177309</div>
+                </div>
+
+                <div class='customer_account_info'>
+                    <div class='customer_details_heading'>IFS Code: </div>
+                    <div>${accountTypeDetails.bankBranchIfscCode}</div>
+                </div>
+            
+                <div class='customer_account_info'>
+                    <div class='customer_details_heading'>MICR Code: </div>
+                    <div>520002682</div>
+                </div>
+                
+                <div class='customer_account_info'>
+                    <div class='customer_details_heading'>Nomination Registered: </div>
+                    <div>Yes</div>
+                </div>
+
+                <div class='customer_account_info'>
+                    <div class='customer_details_heading'>Balance: </div>
+                    <div>INR ${accountTypeDetails.userAccountBalance}</div>
+                </div>
+
+                <div class='customer_account_info'>
+                    <div class='customer_details_heading'>Transaction Type: </div>
+                    <div>${transactionType}</div>
+                </div>
+
+                <div class='customer_account_info'>
+                    <div class='customer_details_heading'>Search for: </div>
+                    <div>${formattedFromDate} to ${formattedToDate}</div>
+                </div>
+            </div>
+        `;
+
+        const footerInfo = `
+            <div class='footer_info'>
+                <div class='statement'>
+                    Please do not share your ATM, Debit/Credit card number, PIN and OTP with anyone over mail, SMS, phone call
+                    or any other media. Bank never ask for such information.
+                </div>
+                <div>
+                    *** This is computer generated statement and does not require a signature.
+                </div>
+            </div>
+        `;
+        const transactionTableHTML = transactionRef.current.innerHTML;
+        const combinedHTML = `
+            <div>
+                ${bankLogo}
+                ${customerInfo}
+                ${transactionTableHTML}
+                ${footerInfo}
+            </div>
+        `;
+        html2pdf().from(combinedHTML).set(options).save();
+    }
 
 
     return (
@@ -342,7 +474,7 @@ const Statements = () => {
                                         }
                                     </div>
                                     <div className='d-flex justify-content-between'>
-                                        <div className='d-flex align-items-center' style={{fontSize: '15px'}}>
+                                        <div className='d-flex align-items-center' style={{ fontSize: '15px' }}>
                                             <div className='mr-2'>Period: </div>
                                             <div className='mr-2'>{formattedFromDate} to {formattedToDate}</div>
                                             <div>
@@ -356,17 +488,17 @@ const Statements = () => {
                                         </div>
                                     </div>
                                 </div>
-                                
-                                    <div className='d-flex justify-content-end'>
-                                        <div className='tran_statement_closing_bal'>Closing Balance:</div>
-                                        {accountTypeDetails &&
-                                            <div className='tran_statement_balance'>
-                                                INR {accountTypeDetails.userAccountBalance}
-                                            </div>
-                                        }
-                                    </div>
-                                
-                                <div className='my-3'>
+
+                                <div className='d-flex justify-content-end'>
+                                    <div className='tran_statement_closing_bal'>Closing Balance:</div>
+                                    {accountTypeDetails &&
+                                        <div className='tran_statement_balance'>
+                                            INR {accountTypeDetails.userAccountBalance}
+                                        </div>
+                                    }
+                                </div>
+
+                                <div className='my-3' ref={transactionRef}>
                                     <table className='table table-bordered'>
                                         <thead className='tran_statement_table_header'>
                                             <tr>
@@ -392,7 +524,7 @@ const Statements = () => {
                                         )}
                                     </table>
                                 </div>
-                                <div className='d-flex align-items-center my-2'>
+                                {/* <div className='d-flex align-items-center my-2'>
                                     <div className='tran_statement_format'>Select Format:</div>
                                     <div>
                                         <select className='form-control statement_select_format'>
@@ -400,9 +532,10 @@ const Statements = () => {
                                             <option>Word</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div>
-                                    <button type='button' className='statement_download_btn'>
+                                    <button type='button' className='statement_download_btn'
+                                        onClick={handleDownloadTransactions}>
                                         Download
                                     </button>
                                 </div>
