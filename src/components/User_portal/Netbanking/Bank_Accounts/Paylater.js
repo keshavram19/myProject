@@ -1,5 +1,4 @@
 import './Accounts.css';
-import paylaterimage from '../../../../Images/paylaterimage.jpg'
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import { useState,useEffect } from "react";
 import { Link } from 'react-router-dom';
@@ -95,9 +94,6 @@ const PayLater = () => {
           <div className="paylater_container">
         <p className="paylater_heading">View and manage my PayLater</p>
         <hr />
-        <div>
-          <img src={paylaterimage} className="paylater_image1" alt="paylaterimage" />
-        </div>
         <div className="table-responsive-lg paylater_table">
           <table className="table table-bordered">
             <thead className="paylater_tablehead">
