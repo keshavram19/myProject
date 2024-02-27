@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,44 +8,51 @@ import apiList from '../../../../lib/apiList';
 
 
  function AlertSubscription() {
-  const [CreditCardNumber, setCreditCardNumber] = useState('');
-  const [emailAddress, setEmailAddress] = useState('');
-  const [MobileNumber, setMobileNumber] = useState('');
-  const [subscriptionStatus, setSubscriptionStatus] = useState('');
-  const creditCardDetails = {
-    CreditCardNumber:CreditCardNumber,
-    emailAddress:emailAddress,
-    MobileNumber:MobileNumber,
-    subscriptionStatus:subscriptionStatus
-  }
-
-  const handleAlertSubscription = async () => {
-    try {
-      const response = await axios.post(apiList.AlertSubscription, {
-        CreditCardNumber,
-        emailAddress,
-        MobileNumber,
-        subscriptionStatus,
-      });
-      
-      if (response.status === 201) {
-        toast.warning('You are already subscribed to the alert notifications.');
-      } else {
-        toast.success('Your alertSubscription status was successful!');
-      }
-      
-      console.log(response.data);
-      setCreditCardNumber('');
-      setEmailAddress('');
-      setMobileNumber('');
-      setSubscriptionStatus('');
-
-    } catch (error) {
-      console.error('Error SubscriptionAlert:', error.response.data.message); // accessing error message from server response
-      toast.error('Failed to submit alertSubscription. Please try again.'
-        );
-    }
+  const [customerAccData, setCustomerAccData] = useState([]);
+    const accountNumber = 123456789;
+    const [individualCreditCard, setIndividualCreditCard] = useState({
+      AlertSubscription:"",
+    });
+    const [creditCardNum, setCreditCardNum] = useState('');
+    const [customerDetails, setCustomerDetails] = useState();
+    useEffect(() => {
+      getUserDetails()
+  }, []);
+  const getUserDetails = async () => {
+      const options = {
+          method: 'GET'
+      };
+      const response = await fetch(`${apiList.customerAccountDetails}${accountNumber}`, options);
+      const data = await response.json();
+      setCustomerDetails(data.details);
+      setCustomerAccData(data.details.userCreditCardDetails);
+      setCreditCardNum(data.details.userCreditCardDetails[0].creditCardNumber);
   };
+
+  useEffect(() => {
+    if (!creditCardNum && customerAccData.length > 0) {
+        setCreditCardNum(customerAccData[0].creditCardNumber);
+    }
+    else {
+        getIndividualCreditCard(creditCardNum);
+    }
+}, [creditCardNum]);
+const handleCreditCardNumber = (event) => {
+    setCreditCardNum(event.target.value);
+};
+const getIndividualCreditCard = async (selectedCreditCardNum) => {
+  const options = {
+      method: 'POST'
+  };
+  try {
+      const response = await fetch(`${apiList.customerCreditCardDetails}${accountNumber}/${creditCardNum}`, options);
+      const data = await response.json();
+      setIndividualCreditCard(data);
+  } catch (error) {
+      console.error('Error fetching individual credit card:', error);
+  }
+};
+
   
   return (
     <>
@@ -56,20 +63,20 @@ import apiList from '../../../../lib/apiList';
           <h4 className='alert_subscription-form_heading2 p-3' style={{ backgroundColor:'#2fb68e',color:'white'}}>Alert Subscription</h4>
           <label for="creditCardNumber" className='form-inline'>
                      <span className='col-md-3'>Credit Card Number</span>
-                     <input type="text" className='form-control form-control-sm col-md-3 w-25' placeholder='XXXX-XXXX-XXXX' value={CreditCardNumber} onChange={(e) => setCreditCardNumber(e.target.value)}/>
+                     <select required className=' custom-select custom-select-sm col-md-3 w-25'
+                                                        value={creditCardNum} onChange={handleCreditCardNumber}>
+                                                        {customerAccData.map((creditcard, index) => (
+                                                            <option key={index} value={creditcard.creditCardNumber}>
+                                                                {creditcard.creditCardNumber}
+                                                            </option>
+                                                        ))}
+                                                    </select>
                    </label>
-                     <label for="EmailAddress" className='form-inline'>
-                     <span className='col-md-3'>E-Mail Address</span>
-                     <input type="text" className='form-control form-control-sm col-md-3 w-25' placeholder='XXXXXXXXXX@gmail.com' value={emailAddress} onChange={(e) => setEmailAddress(e.target.value)}/>
-                   </label>                                                                                                                                                                                                          
-                   <label for="MobileNumber" className='form-inline'>
-                     <span className='col-md-3'>Mobile Number</span>
-                     <input type="text" className='form-control form-control-sm col-md-3 w-25' placeholder='XXXXXX2345' value={MobileNumber} onChange={(e) => setMobileNumber(e.target.value)}/>
-                   </label>
+                                                                                                                                                                                               
                    
-                    <label for='alertSubscription' className='form-inline '>
+          <label for='alertSubscription' className='form-inline '>
           <span className='col-md-3'>Subscription Alert</span>
-          <select name="cardNumber" className="custom-select custom-select-sm col-md-3 w-25" value={subscriptionStatus} onChange={(e) => setSubscriptionStatus(e.target.value)} >
+          <select name="cardNumber" className="custom-select custom-select-sm col-md-3 w-25">
          <option value="" selected>Please select</option>
         <option value="Yes">Yes</option>
         <option value="No">No</option>
@@ -81,7 +88,7 @@ import apiList from '../../../../lib/apiList';
                    <hr/>
                    <div className='alert_Subscription_Btns p-3'> 
                    <button className='alert_Subscription_ResetBtn p-2'>RESET</button>
-                   <button className='alert_Subscription_SubmitBtn p-2' onClick={handleAlertSubscription} type='button'>SUBMIT</button>
+                   <button className='alert_Subscription_SubmitBtn p-2'  type='button'>SUBMIT</button>
                    </div> 
                    </div>
                    <div className='alert_Subscription_Notes p-2'>
