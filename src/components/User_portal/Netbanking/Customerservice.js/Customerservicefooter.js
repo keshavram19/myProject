@@ -4,7 +4,7 @@ import './Customerservice.css'
 
 const Footer = () => {
   return (
-    <footer className="footer Footer_height_toall">
+    <footer className="Footer_height_toall">
       <div className="container-fluid footer_container_fluid">
         <div className="row  footer_fix_row">
           <div className="footer_allcolumns  col-sm-4 col-lg-4">

@@ -10,7 +10,7 @@
   height: 8vh;
 }
 .mypayee_heading{
-  color: #f18121;
+  color: #2fb68e;
   font-size: x-large;
 }
 .mypayee_addpayeelink{
@@ -26,8 +26,8 @@
   justify-content: center;
 }
 .mypayee_buttonon{
-  color: #f18121;
-  border-bottom: 2px solid #f18121;
+  color: #2fb68e;
+  border-bottom: 2px solid #2fb68e;
 }
 .mypayee_content{
   background-color: rgb(251, 250, 250);
@@ -72,17 +72,21 @@
 .mypayee_addbtn{
   width: 160px;
   height: 30px;
-  background-color: #faede2;
-  color: #f18121;
-  border: none;
+  border: 1px solid #2fb68e;
+  background-color: transparent;
+  color: #2fb68e;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: small;
 }
+.mypayee_addbtn:hover{
+  border: 1px solid #ebca28 ;
+  color: #ebca28;
+}
 .mypayee_search{
-  color: #f18121;
+  color: #2fb68e;
 }
 .mypayee_icons{
   font-size: large;
@@ -97,7 +101,7 @@
 }
 .mypayee_click{
   text-decoration: underline;
-  color: #f18121;
+  color: #2fb68e;
   cursor: pointer;
 }
 .mypayee_quick_details{
@@ -559,21 +563,34 @@ abbr[title] {
     justify-content: space-around;
     display: flex;
     align-items: center;
-     Background-color : #f8f9fa
+     Background-color : #2fb68e;
   }
   .upi_transaction_date{
-     Background-color : #f8f9fa}
-  .upi_transaction_node{
-   Background-color : #f8f9fa
+     Background-color : #f8f9fa;
+    color: #2fb68e;}
+  .upi_transaction_node h6{
+   
+   color: #2fb68e;
   
   }
   .upi_transaction_value{
-    border-radius:5px;
-    padding: 5px;
-    border: none;
-    
-    background-color:#f18121
+    color: #2fb68e;
+    border: 1px solid #2fb68e;
+    background-color: transparent;
+    padding: 5px 14px;
+    outline: none;
+    font-size: 14px;
+      font-weight: 600;
+    border-radius: 10px;
   
+  }
+  .upi_transaction_value:hover{
+    background-color: #2fb68e; 
+    color: #fff; 
+    border-radius: 10px;
+  }
+  .upi_transaction_q{
+    color: #2fb68e;
   }
   /* upi transaction css ends*/
   
@@ -583,32 +600,30 @@ abbr[title] {
   *{
     font-family: Poppins;
   }
-  .quickfund_transfer_note{
-     Background : #faede2;
-     color:#f18121;
-     ;
-  }
-  
   .quickfund_transfer_code{
-     Background-color : #f8f9fa}
-  .quickfund_transfer_node{
-     Background-color : #f8f9fa;
-    
-    
-    }
-  .quickfund_transfer_turn{
-      border-radius:5px;
-       background-color : #faede2;
   
-    border: none;
+  color: #2fb68e;
+     
   }
-  .quickfund_transfer_join{
-      border-radius:5px;
-      background-color : #faede2;
+  .quickfund_transfer_node h4{
+    background-color: #2fb68e;
+    color: #fff;
+  }
+  .quickfund_transfer_turn {
+    color: #2fb68e;
+    border: 1px solid #2fb68e;
+    background-color: transparent;
+    padding: 5px 14px;
+    outline: none;
+    font-size: 14px;
+      font-weight: 600;
+    border-radius: 10px;
+  }
   
-  
-    
-    border: none;
+  .quickfund_transfer_turn:hover{
+    background-color: #2fb68e; 
+    color: #fff; 
+    border-radius: 10px;
   }
   .quick_fund_transfer_paragraph{
     font-size: 15px;
@@ -616,37 +631,45 @@ abbr[title] {
     flex-direction: row;
   
   }
+  .quick_fund_tranfer_p{
+    color: #2fb68e;
+  }
   /* quickfund transfer ends */
   
   /* otppage.css starts */
 
-.generate_debit_pin_button_logos{
+.quick_fund_transfer_button_logos{
   font-size: 20px;
 }
 
+
+/* .quick_fund_transfer_button{ */
+
 .generate_debit_pin_button{
+
   color: #2fb68e;
   border: 1px solid #2fb68e;
   outline: none;
   align-items: center;
   background-color: none;
   font-size: 16px;
+  font-weight: 600;
   padding-left: 15px;
   padding-right: 15px;
   border-radius: 10px;
 }
 
-.generate_debit_pin_para{
+.quick_fund_transfer_para{
   font-size: small;
   font-weight:  400;
 }
 
-.generate_debit_pin_icon{
+.quick_fund_transfer_icon{
   display: flex;
   flex-direction: row;
 }
 
-.generate_debit_pin_div_label{
+.quick_fund_transfer_div_label{
   display: flex;
   flex-direction:column;
   width: 150px;
@@ -655,12 +678,34 @@ abbr[title] {
   /* width: 200px; */
   }
 
-  .generate_debit_pin_icon_otp{
+  .quick_fund_transfer_icon_otp{
     border: 1px solid rgb(207, 203, 203);
     margin: 0px 5px;
     height: 25px;
     width: 30px;
     padding:1px 1px;
+}
+
+
+.quick_fund_buttons {
+  color: #2fb68e;
+  border: 1px solid #2fb68e;
+  background-color: transparent;
+  padding: 5px 14px;
+  outline: none;
+  font-size: 14px;
+    font-weight: 600;
+  border-radius: 10px;
+}
+.quick_fund_submits {
+  color: #2fb68e;
+  border: 1px solid #2fb68e;
+  background-color: transparent;
+  padding: 5px 14px;
+  outline: none;
+  font-size: 14px;
+    font-weight: 600;
+  border-radius: 10px;
 }
 
 
@@ -761,7 +806,12 @@ abbr[title] {
   font-weight: 300;
   }
   .Inwbenifits_tag_hfive{
-    color : #f18121 ;
+    /* color : #f18121 ; */
+    /* color: #ebca28; */
+    
+    font-weight: 500;
+    /* color: #2fb68e; */
+     
   }
   .inward_ullist{
     display: flex;
@@ -777,12 +827,21 @@ abbr[title] {
     }
     .inward_span_tag_main{
       font-size: 12px;
-      font-weight:500;
-      color : #f18121;
+      font-weight:800;
+      /* color : #f18121; */
+      color: #ebca28;
+      /* color: #2fb68e; */
 
       }
       .icons_inwardrem{
-        color : #f18121;
+        /* color : #f18121; */
+        /* color: #93ecd2; */
+        /* color: #2fb68e; */
+        color: #ebca28;
+
+
+                /* color: #ffd813; */
+
         width: 30px;
       margin-bottom:30px;
      }
@@ -794,10 +853,14 @@ abbr[title] {
       margin: 0px 0px ;
     }
    .Inward_pink_box_request{
-    color : #f18121;
+    /* color : #f18121; */
+    color: #020202;
     border: 1px solid rgb(230, 228, 228);
     border-right: none;
-      background-color:#faede2 ;
+      /* background-color:#faede2 ; */
+      background-color: #fff1ad;
+      /* background-color: #93ecd2; */
+
     }
     .Inward_four_main_lists{
       color: #000f00;
@@ -810,7 +873,8 @@ abbr[title] {
       border-radius: 50%;
        background-color: #fff;
        margin-right: 11px;
-      color: #f08080;
+      /* color: #f08080; */
+      color: #ebca28;
       padding: 4px 11px;
      }
      .two_inward{
@@ -818,7 +882,8 @@ abbr[title] {
       border-radius: 50%;
        background-color: #fff;
        margin-right: 10px;
-      color: #f08080;
+      /* color: #f08080; */
+      color: #ebca28;
       padding: 4px 10px;
      }
      .four_inward{
@@ -826,7 +891,8 @@ abbr[title] {
       border-radius: 50%;
        background-color: #fff;
        margin-right: 10px;
-      color: #f08080;
+      /* color: #f08080; */
+      color: #ebca28;
       padding: 4px 10px;
      }
      .Inward_pink_side_box{
@@ -840,7 +906,9 @@ abbr[title] {
      .Inward_sel_Inacct_numbr{
       width: 160px;
       margin-left: 5px;
-      background-color: #f1ecec;
+      /* background-color: #f1ecec; */
+      /* background-color: #ebca28; */
+      background-color: #fff1ad;
       height: 25px;
        outline: none;
       font-size: small;
@@ -867,52 +935,71 @@ abbr[title] {
  
  
 .Inward_remittance_Request_Form_one{
-  font-size: large;
-  font-weight: 600;
+  /* font-size: large; */
+  font-weight: 500;
 }
 .Inward_remittance_Request_Form_one_Sub{
-  font-size: medium;
-  margin-top: 20px;
+  /* font-size: medium; */
+   margin-top: 10px;
+  /* font-weight: 500; */ 
+  /* font-size: large; */
   font-weight: 500;
 }
 .Inward_remittance_Request_one{
-  font-size: medium;
-  margin-top: 20px;
-  font-weight: bold;
+  /* font-size: large; */
+  /* margin-top: 20px; */
+  font-weight: 500;
   }
+  
 
 
 /* Styles for form labels */
 .Inward_remittance_Request_Label {
-  margin-top: 10px;
-  font-weight: 500;
+  margin-top: 5px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
  }
  .Inward_remittance_Request_form_Option{
   margin-top: -32px;
   margin-left: 20px;
  }
-
+.inward_remittance_fields_Row{
+  display: flex;
+flex-direction: row;
+}
+.Inward_remittance_row_two{
+    margin-left: 200px;
+}
 /* Styles for input fields */
 .Inward_remittance_Request_input_form {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
+  width: 300px; 
+  padding: 4px;
+  margin-top: 2px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
+   border-radius: 4px;
+   outline: none;
   box-sizing: border-box;
 }
+.Inward_remittance_Request_input_form_check{
+  outline: none;
+
+}
 .Inward_remittance_Request_form_ptag_Del{
-  padding: 10px 5px;
+  padding: 0px 5px;
   margin-top: 15px;
  }
 .Inward_remittance_Request_form_ptag_Pur{
 margin-top: -20px;
 }
-
+.inward_review_accuracy_form{
+  display: flex;
+  flex-direction: row;
+}
  .Inward_remittance_Request_form_checkbox {
   display: flex;
-  margin-top: -15px;
+  margin-top: -20px;
+  margin-bottom: 0px;
   align-items: center;
  }
 
@@ -929,17 +1016,21 @@ margin-top: -20px;
   padding: 10px 10px;
  
   font-size: smaller;
-  background-color:  #f18121 ;
+  /* background-color:  #f18121 ; */
+  background-color: #2fb68e;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  width: 100%;
   transition: background-color 0.3s ease;
 }
 
 .Inward_remittance_Request_form_ptag:hover{
-  background-color:  #f18121;
+  /* background-color:  #f18121; */
+  background-color: #07b17e;
   color: #000;
+  width: 100%;
   font-size: smaller;
   padding: 10px 10px;
 
@@ -976,20 +1067,27 @@ margin-top: -20px;
 
   }
   .user_header_tax_color{
-    color : #f18121;
-     font-size: 20px;
+    /* color : #ebca28; */
+     /* font-size: 20px; */
+      font-weight: 500;
+
   }
   .Tax_hrline_box_shadow{
     box-shadow:   1px 1px 3px rgb(141, 91, 91);
     border: none;
   }
   .light_bg_color_tax{
-    background-color:  #fdefef;
+    /* background-color:  #5dfa77; */
+    background-color: #eff5f5
+    /* background-color: #f7eaab; */
+
    }
   .ptag_tax_center{
      padding: 5px 10px;
      font-weight: 400;
-    background-color:#fae2e5 ;
+    /* background-color:#fae2e5 ; */
+    /* background-color: #f1d961; */
+    background-color: #67b9a1;
     color: #000;
   }
   .Tax_ptag_please_para{
@@ -1004,6 +1102,7 @@ margin-top: -20px;
     display: flex;
     flex-direction:column;
     width: 150px;
+    font-size: smaller;
     outline: none;
     height: 24px;
 
@@ -1028,18 +1127,24 @@ margin-top: -20px;
     margin-bottom: 10px;
     padding: 8px;
      color:#000000;
-     background-color:#f5b176 ;
+     /* background-color:#f5b176 ; */
+     background-color: #2fb68e;
+
     cursor: pointer;
      font-size: small;
     margin-left: 10px;
     border: none;
     border-radius: 4px;
   }
+  .Tax_center_but_appGen:hover{
+  background-color: #07b984be;
+  }
   .Tax_center_but_appGen{
     margin-bottom: 10px;
     padding: 8px;
      color:#000000;
-     background-color:#f5b176 ;
+     /* background-color:#f5b176 ; */
+     background-color: #2fb68e;
     cursor: pointer;
      font-size: small;
     margin-top: 10px;
@@ -1057,7 +1162,7 @@ margin-top: -20px;
   }
   
   .Tax_center_but_app:hover {
-    background-color: #fa9a46;
+    background-color: #07b984be;
 color: #000;     
   } 
   .Tax_center_but_app:focus{
@@ -1089,9 +1194,10 @@ color: #000;
     margin-left: 30px;
   }
   .main_my_scheduled_tran{
-    color:    #f18121;
-    font-size: 20px;
-    font-weight: 400;
+    /* color:    #f18121; */
+    /* color: #ebca28; */
+    /* font-size: 20px; */
+    font-weight: 500;
   }
   .my_Sch_tag_line{
     border: 1px solid  #c3ccc3;
@@ -1104,9 +1210,10 @@ color: #000;
  }
 .search_section_mainheader_mytran{
   margin-top: 10px;
-  background-color: #faede2;
-
-      padding: 10px 10px;
+  /* background-color: #faede2; */
+/* background-color: #ebca28; */
+background-color: #2fb68e;
+      padding: 5px 10px;
 }
 .myalabel_trans_type_sch{
   display: flex;
@@ -1131,13 +1238,16 @@ color: #000;
   margin:0px 8px ;
   border: none;
   outline: none;
-  background-color: #f18121;
-  border-radius: 10px;
-  cursor: pointer;    
+  /* background-color: #f18121; */
+background-color: #2fb68e;
+  border-radius: 5px;
+  cursor: pointer;   
+  color: white; 
   font-size: small;
 }
 .mya_sch_searchbtn:hover{
-  background-color: #ff7700;
+  /* background-color: #ff7700; */
+  background-color: #07b17e;
 }
 .mya_Trasch_download_detail{
   display: flex;
@@ -1159,7 +1269,8 @@ margin-top: 3px;
     height: 25px;
    }
   .My_transac_download_ok_button{
-    background-color:  #f18121;
+    /* background-color:  #f18121; */
+    background-color: #2fb68e;
     color: #fff;
     cursor: pointer;
     border-radius: 3px;
@@ -1172,7 +1283,6 @@ margin-top: 3px;
   
   /* MyTransaction CSS Ends */
 
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 /* interest & TDS certificate css Start */
 
@@ -1195,7 +1305,8 @@ margin-top: 3px;
 }
 
 .interest_certificate_heading5 {
-  background-color: #faede2;
+  background-color: #81cfb6;
+  color: white;
   padding: 10px;
 }
 
@@ -1226,29 +1337,34 @@ margin-top: 3px;
   padding-top: 3%;
 }
 
-.btn_interest_button:focus {
+/* .btn_interest_button:focus {
   outline: none;
   border-color: initial;
   box-shadow: none;
-}
+} */
 
 .btn_interest_button {
+  margin: 4%;
   outline: none;
-  overflow: hidden;
-  background-color: #f18121;
-  font-weight: 500;
-  color: white;
+  text-align: center;
+  border: 1px solid #2fb68e;
+  border-radius: 4px;
+  color: #2fb68e;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px;
+  cursor: pointer;
+  margin-left: 40%;
+  margin-right: 40%;
+  
 }
 
 .btn_interest_button:hover {
   color: white;
+  background-color: #2fb68e;
 }
-
-.interet_buuton {
-  padding-top: 50px;
-  text-align: center;
-  color: white;
-}
+  
 
 .inerest_heading6 {
   padding-top: 5%;
@@ -1269,31 +1385,30 @@ margin-top: 3px;
   padding-bottom: 10px;
 }
 
-
-
 /* interest & TDS certificate css end */
 
 /* Disclaimer css start */
 .Disclaimer_container_fluid{
-  box-sizing: border-box;
-  padding: 20px;
-  overflow: none;
+  /* box-sizing: border-box; */
+  /* padding: 20px; */
+
   font-family: 'Poppins', sans-serif;
   
 }
-.Disclainer_pera{
+/* .Disclainer_pera{
   padding: 5%;
-  padding-top: 10%;
-}
+ 
+} */
 .Disclainer_border{
   border: 1px solid black;
   padding: 3%;
   border-radius: 15px;
-
+  
 }
+
 .Disclainer_border_heading5{
   text-align: center;
-  color: #f18121;
+  color: #ebca28;
 }
 .Disclaimer_button{
   text-align: center;
@@ -1302,7 +1417,7 @@ margin-top: 3px;
   justify-items: center;
 }
 .btn_Disclaimer_button{
-  background-color: #f18121;
+  border-radius: 1px solid #2fb68e;
   font-weight: 500;
   border-style: none;
   color: white;
@@ -1314,6 +1429,7 @@ margin-top: 3px;
 }
 .btn_Disclaimer_button:hover{
   color: white;
+  background-color: #2fb68e;
 }
 
 /* Disclaimer css end */
@@ -1339,19 +1455,29 @@ padding: 2%;
 
 .TaxPayment_pera_heading5{
   text-align: center;
-  color: #f18121;
+  color: #ebca28;
 }
 
 .taxpayment_button{
   font-weight: 500;
   text-align: center;
- 
+  cursor: pointer;
+  width: 100px;
+  border-radius: 10px;
+  color: #2fb68e;
+  margin-left: 45%;
+}
+.taxpayment_button:hover{
+  color: white;
+  background-color: #2fb68e;
+
 }
 
 .btn_taxpayment_button{
-  background-color: #f18121;
-  color: white;
-  
+  border: 1px solid #2fb68e;
+  cursor: pointer;
+  color: #2fb68e;
+  text-align: center;
 }
 
 .btn_taxpayment_button:focus{
@@ -1362,6 +1488,7 @@ padding: 2%;
 
 .btn_taxpayment_button:hover{
   color: white;
+  background-color: #2fb68e;
 }
 
 .TaxPayment_note{
@@ -1387,7 +1514,8 @@ padding: 2%;
   padding: 3%;
 }
 .incometax_filling_heading4{
-  background-color: #faede2;
+  background-color: #81cfb6;
+  color: white;
   padding: 1%;
   
 }
@@ -1403,15 +1531,31 @@ padding: 2%;
 padding: 2%;
 }
 
-.btn_incometax_button{
+
+
+.Incometax_submits{
   margin: 4%;
-  background-color: #f18121;
-  font-weight: 500;
-  color: white;
+  outline: none;
+  text-align: center;
+  border: 1px solid #2fb68e;
+  border-radius: 4px;
+  color: #2fb68e;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px;
+  cursor: pointer;
+  width: 90px;
+  margin-left: 30px;
+
 }
-.btn_incometax_button:hover{
-  color: white;
+
+.Incometax_submits:hover{
+  background-color: #2fb68e;
+  color: #fff;
 }
+
+
 .btn_incometax_button:focus{
   outline: none;
   border-color: initial;

@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ELocker = () => {
   const [agree, setAgree] = useState(false);
@@ -12,7 +11,7 @@ const ELocker = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    // Your submission logic goes here
   };
 
   const styles = {
@@ -23,27 +22,34 @@ const ELocker = () => {
     box: {
       border: '1px solid #ccc',
       borderRadius: '10px',
-      padding: '20px',
+      padding: '20px'
     },
     heading: {
-      color: '#007bff',
-      background: 'beige',
+      color: 'black',
+      marginTop: '30px',
+      padding: '20px 0px'
     },
     formGroup: {
       textAlign: 'left',
       overflowWrap: 'break-word',
     },
     form: {
-      marginLeft: '0', 
-      marginRight: 'auto',
       margin: 'auto',
       maxWidth: '600px',
       textAlign: 'left',
+      marginLeft: 'revert',
     },
     submitButton: {
       marginTop: '10px',
       borderRadius: '15px',
-      marginLeft: '0',
+      textAlign: 'left',
+      backgroundColor: '#2fb68e',
+      outline: 'none',
+    },
+    checkbox: {
+      outline: 'none', 
+      marginbottom: '20px',
+      // Set outline to none
     },
   };
 
@@ -52,9 +58,9 @@ const ELocker = () => {
       <div style={styles.box}>
         <Row>
           <Col md={12}>
-            <h2 style={styles.heading}>
+            <h3 style={styles.heading}>
               Store your important documents electronically with Royal Islamic e-Locker
-            </h2>
+            </h3>
             <p>
               With Royal Islamic e-Locker service, you can store your documents in one central secured location and access them with just a few clicks
             </p>
@@ -80,7 +86,7 @@ const ELocker = () => {
           <Form.Group controlId="formAgree" style={styles.formGroup}>
             <Form.Check
               type="checkbox"
-              label="I have read, understood and agree to be bound by the terms and conditions."
+              label="I have read,understood and agree to be bound by the terms and conditions."
               checked={agree}
               onChange={handleAgreeChange}
             />
@@ -95,4 +101,4 @@ const ELocker = () => {
   );
 };
 
-export default ELocker; 
+export default ELocker;
