@@ -309,7 +309,7 @@ const Estatement = () => {
                         <div className='estatement_select'>
                             <div className='estatement_option'>
                             <select id="month-select" className='estatement_periodselect1' onChange={handleBankAccountMonthChange} value={selectedBankAccountMonth || ''}>
-                <option value="">Select</option>
+                <option hidden>Select</option>
                 <option value="Jan 2024">January 2024</option>
                 <option value="Feb 2023">February 2023</option>
             </select>
@@ -339,7 +339,7 @@ const Estatement = () => {
                         <div className='estatement_anumber'>Period:</div>
                         
                             <select id="month-select" className='estatement_periodselect' onChange={handleCreditCardMonthChange} value={selectedCreditCardMonth || ''}>
-                <option value="">Select</option>
+                <option hidden>Select</option>
                 <option value="Jan 2024">January 2024</option>
                 <option value="Feb 2023">February 2023</option>
             </select>
