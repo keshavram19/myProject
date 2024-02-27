@@ -607,59 +607,103 @@ color: white;
        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 
-.buttons_managepay{
-    margin-Right:'5px';
-    height: 38px;
-    margin-right: 5px;
-    width: 90px;
-    font-size: 14px;
-    background-color: rgb(247, 144, 10);
-    border-width: 0.5px;
-    color: rgb(241, 236, 236);
-    margin-top: 5px;
-    font-family: "poppins";
-    border: none;
-    align-items: center;
-   
-    
-}
-.buttons_managepay11{
-  margin-Right:'5px';
-  height: 38px;
-  margin-right: 5px;
-  width: 90px;
-  font-size: 14px;
-  background-color: rgb(247, 144, 10);
-  border-width: 0.5px;
-  color: rgb(241, 236, 236);
-  margin-top: 5px;
-  font-family: "poppins";
-  border: none;
-  align-items: center;
- 
-  
-}
-.manage_payee{
-    background-color: rgb(230, 238, 238);
-    font-family: "poppins";
-}
-.content_managepay{
-    width:500px ;
-    font-family: "poppins";
-    font-weight: 400;
-    padding-left: 5px;
-    padding-top: 5px;
-}
-.btn-text{
-    display: flex;
-    padding: 0px  0px 0px 20px;
-    
-}
-.headers_manage{
-   font-family: "poppins";
-}
+       .manage_payee_all_buttons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .manage_payee_buttons{
+        border: 1px solid #2fb68e;
+        background: none;
+        outline: none;
+        padding: 5px 14px;
+        border-radius:  10px;
+        white-space: nowrap;
+      }
+      
+      .manage_payee_buttons:hover {
+        background-color: #2fb68e;
+        color: #fff;  
+      }
+      
+      .manage_payee_paragaph_button{
+        margin-left: 5px;
+        margin-top: 10px;
+      }
+      
+      .manage_payee_cards_width .card{
+        height: 22vh;
+      }
+      .manage_payee_cards_width h6{
+        color: #2fb68e;
+      }
+      .manage_pay_cards_manage h5{
+        color: #2fb68e;
+      }
+      .manage_pay_cards_manage h4{
+        background-color: #2fb68e;
+color: #fff;
+      }
+      
+      
 
 /* manage payee ends */
+/*confirm biller css starts*/
+.confirm_biller_tags{
+  align-items: center;
+}
+
+
+
+.confirm_biller h6{
+  color: #2fb68e;
+  }
+.confirm_biller{
+    background-color: #2fb68e;
+    color: #fff
+  }
+
+.confirm_biller_buttons{
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.confirm_biller_buttons_tag_account{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;  
+}
+
+.confirm_biller_buttons_account{
+  border: 1px solid #2fb68e;
+  background: none;
+  outline: none;
+  padding: 5px 14px;
+  border-radius:  10px;
+  white-space: nowrap;
+}
+.confirm_biller_buttons_account:hover{
+  background-color: #2fb68e;
+  color: #fff;  
+}
+
+.confirm_biller_buttons_accounting{
+  border: 1px solid #2fb68e;
+  background: none;
+  outline: none;
+  padding: 5px 16px;
+  border-radius:  10px;
+  white-space: nowrap;
+}
+.confirm_biller_buttons_accounting:hover{
+  background-color: #2fb68e;
+  color: #fff;  
+}
+
+/*confirm biller css ends*/
 
 /* InwardRemitance CSS Starts */
 

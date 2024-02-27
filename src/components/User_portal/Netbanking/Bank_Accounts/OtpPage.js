@@ -20,6 +20,7 @@ const OtpPage = () => {
     const accountNumber = 1124563456;
 
 
+
     const fetchData = async () => {
         try {
             const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);

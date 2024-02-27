@@ -122,6 +122,7 @@ import AccountSuccessPage from "./components/User_portal/AccountOpeningForm/Acco
 import Adminhome from "./components/User_portal/admin_portal/admin_home/Admihome";
 import RequestedDatalist from "./components/User_portal/admin_portal/opening_requested_details/RequestedDatalist";
 import IndividualDatalist from "./components/User_portal/admin_portal/opening_requested_details/Individuallist/AccountOpeningForm";
+import VirtualPaye from "./components/User_portal/Netbanking/Fund_Transfer/VirtualPayee";
 
 import MyProtectedComponent from './components/ProtectedRoute/tokenExpire';
 
@@ -135,10 +136,7 @@ function App() {
   return (
     <div>
       {!hide && <Navbar />}
-
-
-      
-        <Routes>
+      <Routes>
           <Route>
             {/* user portal starts */}
 
@@ -561,7 +559,6 @@ function App() {
           </Route>
         </Routes>
       
-
 
     </div>
   );
