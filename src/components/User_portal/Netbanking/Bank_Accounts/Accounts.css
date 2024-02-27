@@ -2175,7 +2175,7 @@ outline: none;
   align-items: center;
 }
 .estatement_view {
-  width: 180px;
+  width: 210px;
   border:1px  solid #2fb68e;
   border-radius: 5px;
   color: #2fb68e;
@@ -2190,7 +2190,7 @@ outline: none;
   color: #ebca28;
 }
 .estatement_detailstatement{
-  width: 180px;
+  width: 200px;
   border:1px  solid #2fb68e;
   border-radius: 5px;
   color: #2fb68e;

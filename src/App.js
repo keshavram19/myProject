@@ -116,8 +116,6 @@ import ConvertToEMISubmit from "./components/User_portal/Netbanking/CreditCards/
 import AutoDebitConfirm from "./components/User_portal/Netbanking/CreditCards/AutodebitSetupconfirm";
 import ConvertToEMIOtp from "./components/User_portal/Netbanking/CreditCards/convertToEMIOtp";
 
-
-
 import ManagrCardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/manageCardOtp";
 import CreditCardPin from "./components/User_portal/Netbanking/CreditCards/creditcardPin";
 import CreditCardPinOtp from "./components/User_portal/Netbanking/CreditCards/creditCardPinOtp";
