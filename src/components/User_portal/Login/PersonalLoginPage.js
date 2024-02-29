@@ -5,6 +5,12 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import ReCAPTCHA from "react-google-recaptcha";
 import logo from "../../../Images/Royal islamic.png";
 import logIn from "../../../Images/login_img.png";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import apiList from "../../../lib/apiList";
+
+
 const PersonalLoginPage = () => {
   const handleRecaptchaChange = (value) => {
     // Handle the reCAPTCHA value change
@@ -12,6 +18,270 @@ const PersonalLoginPage = () => {
   };
 
   const [form, setForm] = useState("login");
+
+  let navigate = useNavigate();
+  const [bankUserName, setBankUserName] = useState('');
+  const [bankPassword, setBankPassword] = useState('');
+  const [bankMailId, setBankMailId] = useState('');
+  const [bankOtp, setBankOtp] = useState('');
+  const [bankNewPassword, setBankNewPassword] = useState('')
+
+  const handleUserName = (event) => {
+    setBankUserName(event.target.value)
+  };
+  const handleBankPassword = (event) => {
+    setBankPassword(event.target.value)
+  };
+  const handleMailId = (event) => {
+    setBankMailId(event.target.value)
+  };
+  const handleMailOTP = (event) => {
+    setBankOtp(event.target.value)
+  };
+  const handleNewPassword = (event) => {
+    setBankNewPassword(event.target.value)
+  }
+
+
+  const handleBankLogin = async () => {
+
+    const options = {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        userId: bankUserName,
+        password: bankPassword
+      })
+    };
+
+    try {
+      const response = await fetch(apiList.customerLogin, options);
+      const data = await response.json();
+      if (response.status === 200) {
+
+        toast.success('Login Successful!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored"
+        });
+
+        sessionStorage.setItem('loginToken', data.token);
+        const expirationTime = new Date().getTime() + 5 * 60 * 1000;
+        // const expireTime = new Date();
+        // expireTime.setMinutes(expireTime.getMinutes() + 1);
+        sessionStorage.setItem('expireTime', expirationTime);
+        setTimeout(() => {
+          navigate('/user/account');
+        }, 1500);
+      } else {
+        toast.error(`${data.message || 'An error occurred.'}`, { 
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored"
+        });
+      }
+    } catch (error) {
+      console.error('Error at Personal Banking Login:', error);
+      toast.error('An unexpected error occurred.', { 
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored"
+      });
+    }
+    setBankUserName('')
+    setBankPassword('')
+  };
+
+  const handleSendingOTP = async () => {
+
+    const options = {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: bankMailId })
+    };
+
+    try {
+      const response = await fetch(apiList.customerForgotPasswordOtp, options);
+      const data = await response.json();
+      if (response.ok === true) {
+        toast.success('OTP Sent Successfully!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored"
+        });
+        setTimeout(() => {
+          setForm('verifyingOTP');
+        }, 1500);
+      }
+      else {
+        toast.error('Failed to send OTP!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored"
+        });
+      }
+
+    }
+    catch (error) {
+      console.error('Error Sending OTP:', error);
+      toast.error('Failed to send OTP!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored"
+      });
+    }
+  };
+
+  const handleVerifyOTP = async () => {
+
+    const options = {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: bankMailId,
+        gmailOTP: bankOtp
+      })
+    };
+
+    try {
+      const response = await fetch(apiList.customerPasswordOtpVerify, options);
+      const data = await response.json();
+      if (response.ok === true) {
+        toast.success('Valid OTP!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored"
+        });
+        setTimeout(() => {
+          setForm("changePassword");
+        }, 1500);
+      }
+      else {
+        toast.error('Invalid OTP!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored"
+        });
+      }
+    } catch (error) {
+      console.error('Error Verifying OTP at Forgot Password:', error);
+      toast.error('Invalid OTP!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored"
+      });
+    }
+  };
+
+  const handleUpdatePassword = async () => {
+
+    const options = {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: bankMailId,
+        newPassword: bankNewPassword
+      })
+    };
+
+    try {
+      const response = await fetch(apiList.customerLoginPasswordUpdate, options);
+      const data = await response.json();
+      if (response.ok === true) {
+        toast.success('Password Changed Successfully!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored"
+        });
+        setTimeout(() => {
+          setForm("login")
+        }, 1500);
+      }
+      else {
+        toast.error('Failed to Update Password!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored"
+        });
+      }
+
+    } catch (error) {
+      console.error('Error at Updating Password:', error);
+      toast.error('Failed to Update Password!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored"
+      });
+    }
+  };
 
   return (
     <div>
@@ -104,11 +374,15 @@ const PersonalLoginPage = () => {
                 type="text"
                 placeholder="Enter Bank Username"
                 className="form-control"
+                onChange={handleUserName}
+                value={bankUserName}
               />
               <input
                 type="Password"
                 placeholder="Enter Bank Password"
                 className="form-control"
+                onChange={handleBankPassword}
+                value={bankPassword}
               />
 
               <div className="mt-3">
@@ -120,7 +394,8 @@ const PersonalLoginPage = () => {
 
               <div className="row">
                 <div className="col-md-4">
-                  <button>Sign In Securly</button>
+                  <ToastContainer />
+                  <button type="button" onClick={handleBankLogin}>Sign In Securly</button>
                 </div>
                 <div className="col-md-4 m-auto text-right">
                   <Link
@@ -222,9 +497,11 @@ const PersonalLoginPage = () => {
               </h5>
 
               <input
-                type="text"
-                placeholder="Registred Mobile Number"
+                type="email"
+                placeholder="Enter Bank Mail Id"
                 className="form-control"
+                onChange={handleMailId}
+
               />
 
               <div className="mt-3">
@@ -235,10 +512,63 @@ const PersonalLoginPage = () => {
               </div>
 
               <div className="row ml-0">
-                <button>Continue</button>
+                <ToastContainer />
+                <button type="button" onClick={handleSendingOTP}>Generate OTP</button>
               </div>
+
             </div>
           )}
+
+          {form === "verifyingOTP" && (
+            <div className="col-md-7">
+              <h5>
+                <FaArrowLeftLong
+                  onClick={() => setForm("forgotpassword")}
+                  style={{ paddingRight: "5px", cursor: "pointer" }}
+                />
+                Verify OTP?
+              </h5>
+
+              <input
+                type="text"
+                placeholder="Enter OTP"
+                className="form-control"
+                onChange={handleMailOTP}
+
+              />
+
+              <div className="row ml-0">
+                <ToastContainer />
+                <button type="button" onClick={handleVerifyOTP}>Verify OTP</button>
+              </div>
+
+            </div>
+          )}
+
+          {form === 'changePassword' && (
+            <div className="col-md-7">
+              <h5>
+                <FaArrowLeftLong
+                  style={{ paddingRight: "5px", cursor: "pointer" }}
+                />
+                Change Password?
+              </h5>
+
+              <input
+                type="password"
+                placeholder="Enter New Password"
+                className="form-control"
+                onChange={handleNewPassword}
+              />
+
+              <div className="row ml-0">
+                <ToastContainer />
+                <button type="button" onClick={handleUpdatePassword}>Submit</button>
+              </div>
+
+            </div>
+          )}
+
         </div>
       </div>
       <hr className="landing_body_banner_bottom"></hr>

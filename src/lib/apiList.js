@@ -6,8 +6,14 @@ const apiList ={
 
 
     customerAccountDetails: `${server}/api/userDetails/`,
-
     userAuthentication: `${server}/api/otp-send`,
+
+    // Personal banking login
+    customerLogin: `${server}/auth/login-netbanking`,
+    customerForgotPasswordOtp: `${server}/auth/forgot-password-otp`,
+    customerPasswordOtpVerify: `${server}/auth/verify-forgot-password-otp`,
+    customerLoginPasswordUpdate: `${server}/auth/update-newpassword`,
+    
 
     fixeddepositeform:`${server}/api/fixeddeposites`,
     fixedadvice:`${server}/api/generate-pdf`,
