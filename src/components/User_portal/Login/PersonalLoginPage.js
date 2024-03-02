@@ -58,6 +58,7 @@ const PersonalLoginPage = () => {
 
     try {
       const response = await fetch(apiList.customerLogin, options);
+      console.log('Response:', response);
       const data = await response.json();
       if (response.status === 200) {
 
