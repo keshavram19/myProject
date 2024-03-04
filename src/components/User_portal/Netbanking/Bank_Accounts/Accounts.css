@@ -40,7 +40,8 @@
   border-radius: 5px;
   padding: 3px 15px;
   border: 1px solid #2fb68e;
-  background-color: #fff;
+  background: transparent;
+  font-size: 13px;
 }
 .account_statement_view_btn:hover{
   background-color: #2fb68e;
@@ -99,12 +100,9 @@
   font-size: 15px;
 }
 .savings_acct_note_points {
-  line-height: 1.5;
   margin: 5px 0px;
   font-size: 13px;
-}
-.savings_acct_note_order_list {
-  font-size: 13px;
+  color: #7d7d7d;
 }
 .savings_acc_note_atag {
   color: #4094ef;
@@ -116,13 +114,16 @@
 /* statemenst css starts */
 
 .savings_acct_statement_heading {
-  font-size: 16px;
-  font-weight: 450;
+  font-size: 15px;
+  font-weight: 410;
+  background-color: #2fb68e;
+  color: #fff;
+  padding: 10px 10px;
+  margin-bottom: 10px;
 }
 .acct_statements_months_cont {
   border: 1px solid #dee2e6;
-  box-shadow: 0px 0px 5px #b2b9bf;
-  margin: 15px 0px;
+  margin-bottom: 10px;
   background-color: rgb(253, 253, 253);
   font-size: 13px;
 }
@@ -221,12 +222,17 @@
   padding: 10px 20px;
 }
 .transactions_view_btn {
-  border: none;
+  border: 1px solid #2fb68e;
   outline: none;
-  padding: 5px 20px;
+  padding: 3px 15px;
+  border-radius: 5px;
+  background: transparent;
+  font-size: 13px;
+}
+.transactions_view_btn:hover{
   background-color: #2fb68e;
   color: #fff;
-  border-radius: 5px;
+  transition: 0.4s;
 }
 
 .statement_savings_acct_num_cont{
@@ -275,11 +281,16 @@ select.form-control.statement_select_format {
   height: 30px;
 }
 .statement_download_btn{
-  border: none;
+  border: 1px solid #2fb68e;
+  border-radius: 5px;
+  padding: 3px 15px;
+  font-size: 13px;
+  background: transparent;
+}
+.statement_download_btn:hover{
   background-color: #2fb68e;
   color: #fff;
-  border-radius: 5px;
-  padding: 5px 15px;
+  transition: 0.5s;
 }
 
 .savings_acct_statement_note {
@@ -300,25 +311,20 @@ select.form-control.statement_select_format {
 
 /* Statement By Email CSS Starts */
 
-.savings_acct_user_auth_heading {
-  font-size: 17px;
-  font-weight: 450;
-  margin-bottom: 10px;
-}
 .savings_acct_user_auth_container {
   width: 100%;
   height: auto;
   background-color: rgb(254, 253, 253);
-  box-shadow: 0px 0px 5px rgb(152, 150, 150);
+  border: 1px solid #dee2e6;
   padding: 0px 0px 20px 0px;
   font-size: 13px;
 }
 .savings_acct_user_auth_container_header {
   font-size: 16px;
   font-weight: 410;
-  background-color: #faede2;
+  background-color: #2fb68e;
   padding: 10px 20px;
-  color: rgb(82, 75, 75);
+  color: #fff;
 }
 .savings_acct_user_auth_details_container {
   padding: 20px 25px;
@@ -328,12 +334,9 @@ select.form-control.statement_select_format {
   font-weight: 500;
   margin: 10px 0px;
 }
-.otp_verifi_text {
-  font-size: 16px;
-  font-weight: 410;
-}
 .otp_code_mobile {
   font-weight: 410;
+  font-size: 14px;
 }
 .otp_code_box1,
 .otp_code_box2,
@@ -359,44 +362,39 @@ select.form-control.statement_select_format {
 }
 .otp_verify_btn_container {
   margin: 10px 0px;
+  display: flex;
+  justify-content: center;
 }
 .otp_verify_btn {
-  width: 100%;
-  border: none;
+  width: 50%;
+  border: 1px solid #2fb68e;
   outline: none;
-  color: #fff;
-  background-color: #2fb68e;
+  background: transparent;
   border-radius: 5px;
   padding: 5px;
+  font-size: 14px;
+}
+.otp_verify_btn:hover{
+  background-color: #2fb68e;
+  color: #fff;
+  transition: 0.5s;
 }
 .savings_acct_user_auth_text1 {
-  font-size: 14px;
-  margin: 10px 0px;
-  font-weight: 500;
-  color: #999;
-}
-.savings_acct_user_auth_text2 {
-  font-size: 14px;
-  font-weight: 500;
-  color: #999;
-}
-.savings_acct_user_auth_text3 {
-  font-size: 14px;
-  margin: 10px 0px;
-  color: #999;
-}
-.savings_acct_user_auth_text3_atag {
-  color: #4094ef;
-  text-decoration: underline;
-  cursor: pointer;
+  font-size: 13px;
+  color: #7d7d7d;
 }
 .savings_acct_user_auth_submit_btn {
-  border: none;
+  border: 1px solid #2fb68e;
   outline: none;
-  color: #fff;
   padding: 5px 15px;
   border-radius: 5px;
-  background-color: #2fb68e
+  background: transparent;
+  font-size: 14px;
+}
+.savings_acct_user_auth_submit_btn:hover {
+  background-color: #2fb68e;
+  color: #fff;
+  transition: 0.5s
 }
 
 /* Statement By Email CSS ends */
@@ -1598,8 +1596,7 @@ body {
   border-radius: 5px;
 }
 
-.recurring_btn2:hover {
- 
+.recurring_btn2:hover{
   font-weight:600;
   background-color: #A2E0CE;
   color:#147558;
@@ -3076,9 +3073,9 @@ outline: none;
 .fdform_accountnbrinput:focus{
   outline: none;
 }
-.fdform_accountnbrinput{
+/* .fdform_accountnbrinput{
   
-}
+} */
 .fdform_addressinput{
   width: 58.5%;
  
@@ -3101,9 +3098,9 @@ outline: none;
 .fdform_addressinput5:focus{
   outline: none;
 }
-.fdform_input{
+/* .fdform_input{
  
-}
+} */
 .fdform_main_Container label
 {
  font-weight: 420;
