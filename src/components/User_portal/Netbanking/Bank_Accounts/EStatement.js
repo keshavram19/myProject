@@ -256,6 +256,12 @@ const Estatement = () => {
     const statementNavigate=()=>{
         navigate('/user/account/statement')
     }
+
+
+    const generateRandomTransactionId = () => {
+        const randomNumber = Math.floor(Math.random() * 1000) + 1;
+        return `RIB${String(randomNumber).padStart(4, '0')}`;
+      };
       
 
 
@@ -338,11 +344,15 @@ const Estatement = () => {
                     <div className='estatement_accounttype'>
                         <div className='estatement_anumber'>Period:</div>
                         
-                            <select id="month-select" className='estatement_periodselect' onChange={handleCreditCardMonthChange} value={selectedCreditCardMonth || ''}>
+                    <div className='estatement_select'>
+                        <div className='estatement_option'>
+                        <select  className='estatement_periodselect1' onChange={handleCreditCardMonthChange} value={selectedCreditCardMonth || ''}>
                 <option hidden>Select</option>
                 <option value="Jan 2024">January 2024</option>
                 <option value="Feb 2023">February 2023</option>
             </select>
+                        </div>
+                    </div>
             
                            
                     </div>
@@ -357,7 +367,7 @@ const Estatement = () => {
                 <div className='container-fluid estatement_buttons'>
                     <button onClick={LastTen} className='estatement_view'>Last 10 Transactions</button>
                     <button onClick={statementNavigate}  className='estatement_detailstatement'>Detailed Statement</button>
-                    <button onClick={handleDownload} className='estatement_download'>Download PDF</button>
+                    
 
                 </div>
 
@@ -371,6 +381,7 @@ const Estatement = () => {
          <thead className="paylater_tablehead">
            <tr >
            <th>Date</th>
+           <th>TransactionID</th>
                 <th>Transaction Remark</th>
     <th>DR</th>
                 <th>CR</th>
@@ -381,12 +392,17 @@ const Estatement = () => {
          {transactions.map((transaction, index) => (
                                                     <tr key={index}>
                                                         <td>{transaction.date}</td>
+                                                        <td>{generateRandomTransactionId()}</td>
                                                         <td>{transaction.narration}</td>
                                                         <td>{transaction.withdrawl}</td>
                                                         <td>{transaction.deposite}</td>
                                                         <td>{transaction.balance}</td>
                                                     </tr>
-                                                ))}</tbody> </table></div>:
+                                                ))}</tbody> </table>
+                                                <div className='d-flex justify-content-end'>
+                                                <button onClick={handleDownload} className='estatement_download'>Download PDF</button>
+                                                </div>
+                                                </div>:
                                                 <div className='estatement_noFound'>No Transactions Found</div>}
          
 
