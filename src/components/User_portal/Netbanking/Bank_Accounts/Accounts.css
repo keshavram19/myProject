@@ -1596,8 +1596,7 @@ body {
   border-radius: 5px;
 }
 
-.recurring_btn2:hover {
- 
+.recurring_btn2:hover{
   font-weight:600;
   background-color: #A2E0CE;
   color:#147558;
