@@ -176,6 +176,10 @@ const handleDownload = () => {
   html2pdf(transactionRef.current, pdfOptions).save();
   
 };
+const generateRandomTransactionId = () => {
+  const randomNumber = Math.floor(Math.random() * 1000) + 1;
+  return `RIB${String(randomNumber).padStart(4, '0')}`;
+};
 
 
   return (
@@ -255,7 +259,7 @@ const handleDownload = () => {
            <th>Date</th>
                 <th>Transaction Type</th>
     <th>Total Amount(INR)</th>
-                <th>Payment ID</th>
+                <th>Transaction ID</th>
                 <th>Status</th>
            </tr>
          </thead>
@@ -265,7 +269,7 @@ const handleDownload = () => {
                                                         <td>{transaction.date}</td>
                                                         <td>{transaction.type}</td>
                                                         <td>{transaction.Totalamount}</td>
-                                                        <td>{transaction.id}</td>
+                                                        <td>{generateRandomTransactionId()}</td>
                                                         <td>{transaction.Status}</td>
                                                     </tr>
                                                 ))}</tbody> </table>
