@@ -164,30 +164,11 @@ const Statements = () => {
         }
     };
 
-
-    // const filteredTransactions = allTransactionsList.filter((transaction) => {
-    //     const transactionDate = new Date(transaction.date);
-
-    //     if(fromDate && toDate){
-    //         const from = new Date(fromDate);
-    //         const to = new Date(toDate);
-    //         return transactionDate >= from && transactionDate <= to;
-    //     }
-    //     else if(fromDate){
-    //         const from = new Date(fromDate);
-    //         return transactionDate >= from;
-    //     }
-    //     else if(toDate){
-    //         const to = new Date(toDate);
-    //         return transactionDate <= to;
-    //     } 
-    // });
-
     const isFilterSelected = fromDate || toDate || transactionType;
     const filteredTransactions = isFilterSelected ? allTransactionsList.filter((transaction) => {
         const transactionDate = new Date(transaction.date);
 
-        // Filteration of fromDate and toDate
+        // From-Date and To-Date filtration
         if (fromDate && toDate) {
             const from = new Date(fromDate);
             const to = new Date(toDate);
@@ -209,10 +190,10 @@ const Statements = () => {
         }
 
         // Filteration of Transaction Type
-        if (transactionType === 'Only Withdrawals' && transaction.withdrawl === '') {
+        if (transactionType === 'Withdrawals' && transaction.withdrawl === '') {
             return false;
         }
-        else if (transactionType === 'Only Deposits' && transaction.deposite === '') {
+        else if (transactionType === 'Deposits' && transaction.deposite === '') {
             return false;
         }
         return true;
@@ -335,10 +316,10 @@ const Statements = () => {
                     <BankaccountSidebar />
                 </div>
                 <div className='col-9'>
-                    <div className='savings_acct_statement_heading'>
-                        Current & Previous Months Account Statements:
-                    </div>
                     <div className='acct_statements_months_cont' >
+                        <div className='savings_acct_statement_heading'>
+                            Current & Previous Months Account Statements:
+                        </div>
                         <div className='acct_type_cont'>
                             <div className='acct_type_text'>Account Type:</div>
                             <div className='d-flex align-items-center'>
@@ -363,7 +344,7 @@ const Statements = () => {
                                 </div>
                             </div>
                         }
-                        <div className='mini_statement_cont'>
+                        {/* <div className='mini_statement_cont'>
                             <div class="d-flex align-items-center">
                                 <div>
                                     <input type='radio' id='ministate' className='ministatement_radio_btn'
@@ -376,7 +357,7 @@ const Statements = () => {
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         <div className='d-flex period_cont'>
                             <div className='d-flex align-items-center period_data_cont'>
                                 <div>
@@ -423,8 +404,8 @@ const Statements = () => {
                                 <select className='form-control statement_select_format'
                                     disabled={accountType === 'Current'} onChange={handleTransactionType}>
                                     <option>All Transactions</option>
-                                    <option>Only Withdrawals</option>
-                                    <option>Only Deposits</option>
+                                    <option>Withdrawals</option>
+                                    <option>Deposits</option>
                                 </select>
                                 <IoCaretDownCircleOutline className={`all_trans_icon`} />
                             </div>
@@ -435,9 +416,8 @@ const Statements = () => {
                                     <select className='form-control statement_select_format'
                                         disabled={accountType === 'Current'} onChange={handlePerPageTransactions}>
                                         <option>10</option>
+                                        <option>15</option>
                                         <option>20</option>
-                                        <option>30</option>
-                                        <option>40</option>
                                     </select>
                                 </div>
                                 <div> Transactions</div>
@@ -477,11 +457,6 @@ const Statements = () => {
                                         <div className='d-flex align-items-center' style={{ fontSize: '15px' }}>
                                             <div className='mr-2'>Period: </div>
                                             <div className='mr-2'>{formattedFromDate} to {formattedToDate}</div>
-                                            <div>
-                                                <Link>
-                                                    Select Another Account / Period
-                                                </Link>
-                                            </div>
                                         </div>
                                         <div>
                                             <div className='trans_statement_pages'>Page 1 of 1</div>
@@ -503,9 +478,9 @@ const Statements = () => {
                                         <thead className='tran_statement_table_header'>
                                             <tr>
                                                 <th>Date</th>
-                                                <th>Narration</th>
-                                                <th>Withdrawal</th>
-                                                <th>Deposit</th>
+                                                <th>Description</th>
+                                                <th>Debited</th>
+                                                <th>Credited</th>
                                                 <th>Balance</th>
                                             </tr>
                                         </thead>
@@ -546,19 +521,20 @@ const Statements = () => {
 
                     <div>
                         <div className='savings_acct_statement_note'>Notes:</div>
-                        <ul className=''>
+                        <ul>
                             <li className='savings_acct_statement_note_points'>
-                                Transactions for the current and previous months only can be viewed or downloaded through this option.
+                                Transactions can be viewed or downloaded for the selected period only.
                             </li>
                             <li className='savings_acct_statement_note_points'>
-                                To downloaded statements prior to last month kindly use the Account statement upto 5 years - <a className='savings-acct-statement-note-points-atag' href='#'>click here</a>
+                                User can navigate through transaction pages, with each page displaying up to 20 transactions.
                             </li>
                             <li className='savings_acct_statement_note_points'>
-                                For an account statement less than or equal to 6 months, you can download a maximum of 2000 transactions at a time.
-                                If the transactions are more than that, you can download the statement in parts by adjusting the date range.
+                                If the total number of transactions exceeds 2000 for a period of six months or less, the statement can be downloaded
+                                in parts by adjusting the date range accordingly.
                             </li>
                             <li className='savings_acct_statement_note_points'>
-                                Please click on 'Select Period' option to save and download your account statement.
+                                Remember to confirm your selection by clicking on the 'Select Period' option to save and 
+                                download the account statement.
                             </li>
                         </ul>
                     </div>

@@ -10,11 +10,18 @@ function Userdetails() {
 
         const fetchUserDetails = async () => {
             try {
-                const email = 'giribabu8719@gmail.com'; 
-                const response = await fetch(`${apiList.requestedUserDetailsByEmail}${email}`);
+                const token = sessionStorage.getItem('loginToken');
+                const requestOptions = {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                };
+                const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
                 if (response.ok) {
                     const data = await response.json();
-                    setUserDetails([data]); 
+                    setUserDetails([data.user]); 
                     setLastVisited(new Date()); 
                 } else {
                     console.error('Error fetching user details:', response.statusText);
@@ -23,7 +30,7 @@ function Userdetails() {
                 console.error('Error fetching user details:', error);
             }
         };
-
+        
         fetchUserDetails();
     }, []);
 
@@ -35,6 +42,7 @@ function Userdetails() {
         return `${day}.${month}.${year}`;
     };
 
+    
     return (
         <div>
             <div className="container userContainer">

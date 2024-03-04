@@ -43,8 +43,14 @@ const apiList ={
     creditcardEmiconversion : `/emiConversion`,
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
+
     
     requestedUserDetailsByEmail: `${server}/api/individualrequesteduserdetails/`,
+
+
+
+//     requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+
 
 
     payLater:`${server}/api/payLaterAccount`,
