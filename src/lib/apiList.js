@@ -46,7 +46,7 @@ const apiList ={
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
 
-    requestedUserDetailsByEmail: `${server}/api/individualrequesteduserdetails/`
+    requestedUserDetailsByEmail: `${server}/api/individualrequesteduserdetails/`,
 
 
     payLater:`${server}/api/payLaterAccount`,
