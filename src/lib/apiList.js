@@ -52,6 +52,7 @@ const apiList ={
     payLater:`${server}/api/payLaterAccount`,
     billDetails:`${server}/api/payLaterAccount/pay`
 
+    
 }
 
 
