@@ -9,7 +9,7 @@ import Reissuecard from "./components/User_portal/Netbanking/Bank_Accounts/Reiss
 import ManageCardLimit from "./components/User_portal/Netbanking/Bank_Accounts/ManageCardLimit";
 
 
-// import OTPPage from "./components/User_portal/Netbanking/Bank_Accounts/OtpPage";
+//  import OTPPage from "./components/User_portal/Netbanking/Bank_Accounts/OtpPage";
 
 
 import ChequeBookReq from "./components/User_portal/Netbanking/Bank_Accounts/ChequeBookReq";
@@ -105,7 +105,7 @@ import FinancialJourney from "./components/User_portal/Netbanking/Profile/Financ
 import Renewfixedform from "./components/User_portal/Netbanking/Bank_Accounts/Renewfixedform";
 import FixedRecurringForm from "./components/User_portal/Netbanking/Bank_Accounts/Fixed_recurringForm";
 import RecurringForm from "./components/User_portal/Netbanking/Bank_Accounts/Recurring_deposit_form";
-import OtpPage from "./components/User_portal/Netbanking/Bank_Accounts/OtpPage";
+// import OtpPage from "./components/User_portal/Netbanking/Bank_Accounts/OtpPage";
 import UpdatePancardOtpPage from "./components/User_portal/Netbanking/Bank_Accounts/UpdatePancardOtp";
 import GenerateDebitCardPinOTP from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitPinOtp";
 import GenerateDebitCardPin from "./components/User_portal/Netbanking/Bank_Accounts/GenerateDebitCardPin";

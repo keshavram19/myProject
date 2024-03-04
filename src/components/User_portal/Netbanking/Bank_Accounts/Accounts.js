@@ -202,7 +202,7 @@ const Accounts = () => {
                                     <div className='savings_acct_user_headings'>Balance</div>
                                     <div className='d-flex align-items-center'><MdCurrencyRupee />{accountDetails.userAccountBalance}</div>
                                 </div>
-                                <div>
+                                <div className='d-flex align-items-center'>
                                     <button onClick={accountStatement} className='account_statement_view_btn'>
                                         {viewAccStatement === 'true' ? 'Hide' : 'View'}
                                     </button>
@@ -212,19 +212,18 @@ const Accounts = () => {
                     )}
                     {viewAccStatement === 'true' ?
                         <div>
-                            <div className='d-flex justify-content-between savings_acct_statement'>
-                                <div className='savings_acc_statement_cont_heading'>View/Download Account Statement</div>
+                            {/* <div className='d-flex justify-content-between savings_acct_statement'>
+                                <div className='savings_acc_statement_cont_heading'>View Account Statement</div>
                                 <div className='d-flex'>
                                     <div><AiFillPrinter className='acct_statement_printer_icon' /></div>
                                     <div className='acct_statement_printer_text'>Print This Page</div>
                                 </div>
-                            </div>
+                            </div> */}
                             <div>
                                 <div><span className='acct_statement_acct_num'>Account Number:</span> {accountDetails.userAccountNumber}, {accountDetails.bankBranchName}</div>
                             </div>
                             <div className='d-flex justify-content-between savings_acc_another_acct'>
                                 <div><Link to='/user/account/statement'>Select Another Account/Period</Link></div>
-                                {/* <div>Page 1 of 1</div> */}
                             </div>
                             <div className='d-flex justify-content-end'>
                                 <div className='d-flex align-items-center'>
@@ -236,9 +235,9 @@ const Accounts = () => {
                                     <thead className='savings_acct_trans_table_header'>
                                         <tr>
                                             <th>Date</th>
-                                            <th>Narration</th>
-                                            <th>Withdrawal</th>
-                                            <th>Deposit</th>
+                                            <th>Description</th>
+                                            <th>Debited</th>
+                                            <th>Credited</th>
                                             <th>Balance</th>
                                         </tr>
                                     </thead>
@@ -263,25 +262,18 @@ const Accounts = () => {
                     }
                     <div>
                         <div className='savings_account_note'>Notes:</div>
-                        <ul className='savings_account_note_points'>
+                        <ul>
                             <li className='savings_acct_note_points'>
-                                The available balance displayed includes the credit balance and overdraft limit (if any) in your account.
-                            </li>
-                            <ol type='i'>
-                                <li className='savings_acct_note_order_list'>It does not include uncleared funds.</li>
-                                <li className='savings_acct_note_order_list'>It includes amount marked for hold.</li>
-                            </ol>
-                            <li className='savings_acct_note_points'>
-                                The hold balance may also include pending service charges due to be recovered from your account.
+                                The available balance mentioned reflects both the credit balance any existing overdraft limit, if applicable.
                             </li>
                             <li className='savings_acct_note_points'>
-                                Savings account customers can now receive their statements monthly by email for free. To register - <a className='savings_acc_note_atag'>click here</a>
+                                This balance does not encompass funds that are yet to be cleared.
                             </li>
                             <li className='savings_acct_note_points'>
-                                What's new! now recharge your prepaid mobile and DTH connections through BillPay & recharge <a className='savings_acc_note_atag'>click here</a> to know more.
+                                Savings account holders now have the option to receive monthly statements via email at no cost. To enroll, <a className='savings_acc_note_atag'>click</a> on the provided link.
                             </li>
                             <li className='savings_acct_note_points'>
-                                Please <a className='savings_acc_note_atag'>click here</a> to check your PAN card details.
+                                For verification of your PAN card details, please <a className='savings_acc_note_atag'>click</a> on the provided link.
                             </li>
                         </ul>
                     </div>
