@@ -2001,14 +2001,14 @@ margin-top: 20px;
 }
 
 .paylater_transactions {
-  background-color: #b3ead9;
-  color: #2fb68e;
   display: flex;
   align-items: center;
   margin-top: 5%;
   height: 40px;
   padding-left: 2%;
   font-size: 14px;
+  border: 1px solid lightgray;
+  color: #2fb68e;
 }
 
 /* paylater css ends */
@@ -2257,6 +2257,10 @@ outline: none;
   justify-content: center;
   align-items: center;
 }
+.estatement_download:hover{
+  background-color: #ebca28;
+  color: #fff;
+}
 .estatement_note {
   margin-top: 5%;
   color: #f18121;
@@ -2267,7 +2271,7 @@ outline: none;
   margin-top: 3%;
 }
 .estatement_bankinput{
-  padding-left: 4%;
+  padding-left: 5%;
   border: none;
   outline: none;
 }
