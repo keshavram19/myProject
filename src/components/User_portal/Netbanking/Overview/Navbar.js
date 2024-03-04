@@ -17,8 +17,8 @@ const Navbar = () => {
             <nav className='afternav fixed-top'>
                 <ul>
                     <li className="dropdown">
-                            <Link to="/user/overview" className='navhead'>OVERVIEW</Link> <i style={{fontSize:"12px", paddingRight:"10px", color:'white'}} class="fa-solid fa-caret-down"></i>
-                        <div className="dropdown-content" style={{width:"max-content"}}>
+                        <Link to="/user/overview" className='navhead'>OVERVIEW</Link> <i style={{ fontSize: "12px", paddingRight: "10px", color: 'white' }} class="fa-solid fa-caret-down"></i>
+                        <div className="dropdown-content" style={{ width: "max-content" }}>
                             <div>
                                 <Link to="/user/overview" className='listItems1'>My View</Link>
                                 <Link to="/user/accountsummary/viewsummary" className='listItems1'>Account Summary</Link>
@@ -28,8 +28,8 @@ const Navbar = () => {
                         </div>
                     </li>
                     <li className="dropdown">
-                        <Link to="" className='navhead'>BANK ACCOUNTS</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
-                        <div className="dropdown-content" style={{width:"max-content"}}>
+                        <Link to="" className='navhead'>BANK ACCOUNTS</Link> <i style={{ fontSize: "12px", paddingRight: "10px", color: 'white' }} class="fa-solid fa-caret-down"></i>
+                        <div className="dropdown-content" style={{ width: "max-content" }}>
                             <div>
                                 <Link to="/user/account" className='listItems1'>Accounts</Link>
                                 <Link to="" className='listItems1'>Pockets</Link>
@@ -43,8 +43,8 @@ const Navbar = () => {
                             </div>
                         </div>
                     </li>
-                    <li className="dropdown"><Link to="" className='navhead'>PAYMENTS & TRANSFER</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
-                        <div className="dropdown-content" style={{width:"max-content"}}>
+                    <li className="dropdown"><Link to="" className='navhead'>PAYMENTS & TRANSFER</Link> <i style={{ fontSize: "12px", paddingRight: "10px", color: 'white' }} class="fa-solid fa-caret-down"></i>
+                        <div className="dropdown-content" style={{ width: "max-content" }}>
                             <div >
                                 <Link to="" className='listItems1'>Pay Bills</Link>
                                 <Link to="" className='listItems1'>Recharge</Link>
@@ -62,8 +62,8 @@ const Navbar = () => {
 
                         </div>
                     </li>
-                    <li className="dropdown"><Link to="/user/credit-cards" className='navhead'>CARDS & LOANS</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
-                        <div className="dropdown-content" style={{width:"max-content"}}>
+                    <li className="dropdown"><Link to="/user/credit-cards" className='navhead'>CARDS & LOANS</Link> <i style={{ fontSize: "12px", paddingRight: "10px", color: 'white' }} class="fa-solid fa-caret-down"></i>
+                        <div className="dropdown-content" style={{ width: "max-content" }}>
                             <div>
 
                                 <Link to="/user/credit-cards" className='listItems1'>Credit cards</Link>
@@ -83,8 +83,8 @@ const Navbar = () => {
                         </div>
                     </li>
                     <li className="dropdown">
-                        <Link to="" className='navhead'>INVESTMENTS & INSURANCE</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
-                        <div className="dropdown-content" style={{width:"max-content"}}>
+                        <Link to="" className='navhead'>INVESTMENTS & INSURANCE</Link> <i style={{ fontSize: "12px", paddingRight: "10px", color: 'white' }} class="fa-solid fa-caret-down"></i>
+                        <div className="dropdown-content" style={{ width: "max-content" }}>
                             <div >
 
                                 <Link to="" className='listItems1'>Invest Online</Link>
@@ -107,8 +107,8 @@ const Navbar = () => {
                         </div>
                     </li>
                     <li className="dropdown">
-                        <Link to="" className='navhead'>CUSTOMER SERVICE</Link> <i style={{fontSize:"12px", paddingRight:"10px",  color:'white'}} class="fa-solid fa-caret-down"></i>
-                        <div className="dropdown-content" style={{width:"max-content"}}>
+                        <Link to="" className='navhead'>CUSTOMER SERVICE</Link> <i style={{ fontSize: "12px", paddingRight: "10px", color: 'white' }} class="fa-solid fa-caret-down"></i>
+                        <div className="dropdown-content" style={{ width: "max-content" }}>
                             <div >
                                 <Link to="/user/customerservice/servicerequests" className='listItems1'>Service Requests</Link>
                                 <Link to="/user/customerservice/mymailbox" className='listItems1'>My Mailbox</Link>
@@ -122,10 +122,10 @@ const Navbar = () => {
 
                         </div>
                     </li>
-                    <li>                     
+                    <li>
                         <button type='button' className='logout_button' onClick={handleSessionTimeOut}>
                             Logout
-                        </button>                       
+                        </button>
                     </li>
                 </ul>
             </nav>
