@@ -67,9 +67,6 @@ const FixedRecurringForm = () => {
         const mobileStartPattern = /^[6-9]/;
         return mobileStartPattern.test(mobile);
     };
-
-
-
     let navigate = useNavigate();
     const [data, setdata] = useState([]);
 
@@ -175,9 +172,6 @@ const FixedRecurringForm = () => {
         setIsMobileValid1(isValidMobile1(mobile));
         setIsMobileStartValid1(isValidMobileStart1(mobile));
     };
-
-
-
     return (
         <>
             <div className="container-fluid fdform_main "style={{marginTop:"50px"}}>
@@ -190,7 +184,6 @@ const FixedRecurringForm = () => {
                     <h2 className='fdform_rightheading'>Fixed Deposit Account Opening Form</h2>
                     </div>
                 </div>
-
                 <hr style={{ border: '3px solid #ebca28' }}></hr>
                 <ToastContainer
                     position="top-center"
@@ -213,8 +206,7 @@ const FixedRecurringForm = () => {
                      <span className='col-md-3'>Account Number*</span>
                         <input type='text' className='form-control  form-control-md col-md-3 w-100 fdform_accountnbrinput' onChange={(e) => setFixeddepositAccountNumber(e.target.value)} value={FixeddepositAccountNumber} placeholder="Enter Your Account Number" />
                         </label>
-                        </div>
-                        
+                        </div>                        
                     <div className='row p-4 fdform_main_Container'>
                         <div className='col-md-6 '>
                             <h4 className='mb-4 fdform_subheading ' >Your Details (First Customer)</h4>
@@ -245,19 +237,18 @@ const FixedRecurringForm = () => {
                             <input type='radio' name="gender" className="form-check-input " style={{marginTop:"4px"}} onChange={(e) => setFixeddepositTitle(e.target.value)} value="other" />Other<br></br>
                             </label>
                             </div>
-                            </div>
-                            
+                            </div>                            
                             <div className="p-1">
                             <label className='form-inline'>First Name:</label>
                             <input type='text' className='form-control form-control-md w-75' onChange={(e) => setFixeddepositFirstname(e.target.value)} value={FixeddepositFirstname} />
                             </div>
                             <div className="p-1">
                             <label className='form-inline'>Middle Name:</label>
-                            <input type='text' className='form-control form-control-md w-75' onChange={(e) => setFixeddepositMiddlename(e.target.value)} value={FixeddepositMiddlename} />
+                            <input type='text' className='form-control form-control-md w-75' onChange={(e) => setFixeddepositMiddlename(e.target.value)} value={FixeddepositMiddlename}/>
                             </div>
                             <div className="p-1">
                             <label className='form-inline'>Surname:</label>
-                            <input type='text' className='form-control form-control-md w-75' onChange={(e) => setFixeddepositSurname(e.target.value)} value={FixeddepositSurname} />
+                            <input type='text' className='form-control form-control-md w-75' onChange={(e) => setFixeddepositSurname(e.target.value)} value={FixeddepositSurname}/>
                             </div>
                             <div className="p-1">
                             <label className='form-inline'>Date of Birth:</label>
@@ -277,7 +268,6 @@ const FixedRecurringForm = () => {
                             <label className='form-inline'>Email:</label>
                             <input type='text' className='form-control form-control-md w-75' onChange={(e) => setFixeddepositEmailId(e.target.value)} value={FixeddepositEmailId} />
                             </div>
-
                             <label className='row' style={{ marginLeft: '1px' }}> Current Address:</label><br></br>
                             <div style={{color:"rgb(85, 84, 84)"}}>
                             <label className='form-inline'><span className="col-md-2">Line 1 </span>
@@ -288,15 +278,13 @@ const FixedRecurringForm = () => {
                             </label>
                             <label className='form-inline'> <span className="col-md-2">Town</span>
                             <input type='text' className='form-control  form-control-md col-md-6 w-50' onChange={(e) => setFixeddepositTown(e.target.value)} value={FixeddepositTown} /><br></br>
-                            </label>
-                           
+                            </label>                          
                             <label className='form-inline'><span className="col-md-2">Country</span>
                             <input type='text' className='form-control  form-control  form-control-md col-md-6 w-50' onChange={(e) => setFixeddepositCountry(e.target.value)} value={FixeddepositCountry} />
                             </label>
                             <label className='form-inline'><span className="col-md-2">Postcode</span>
                             <input type='text' className='form-control  form-control  form-control-md col-md-6 w-50' onChange={(e) => setFixeddepositPostcode(e.target.value)} value={FixeddepositPostcode} />
                             </label>
-
                             </div>
                         </div>
                         <div className='col-md-6'>
@@ -358,8 +346,7 @@ const FixedRecurringForm = () => {
                             <div className="p-1">
                             <label className='form-inline'>Email:</label>
                             <input type='text' className='form-control form-control-md w-75' onChange={(e) => setNomineeEmailId(e.target.value)} value={NomineeEmailId} />
-                            </div>
-                            
+                            </div>                            
                             <label className='row' style={{ marginLeft: '1px' }}> Current Address:</label><br></br>
                            <div style={{color:"rgb(85, 84, 84)"}}>
                             <label className='form-inline'><span className="col-md-2">Line 1</span>
@@ -378,10 +365,7 @@ const FixedRecurringForm = () => {
                             <input type='text' className='form-control  form-control-md col-md-6 w-50' onChange={(e) => setNomineePostcode(e.target.value)} value={NomineePostcode} />
                             </label>
                             </div>
-
-                        </div>
-
-                    
+                        </div>                    
                     </div>
                     <div className='row p-4'>
                         <div className=''>
@@ -523,8 +507,7 @@ const FixedRecurringForm = () => {
 
 
                     </div>
-                </form>
-               
+                </form>               
                 <div className='row p-4'>
                     <h4 className='fdform_fundingheading mb-3 text-center p-2'  style={{backgroundColor:"#ebca28",marginBottom:"30px"}}>Tax Status</h4>
                     <p style={{fontSize:"13px"}}>All the interest we pay will be without any tax deducted i.e. paid at gross rate.
