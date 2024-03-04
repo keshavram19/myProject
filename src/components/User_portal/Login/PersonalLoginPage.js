@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import "./PersonalLoginPage.css";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import ReCAPTCHA from "react-google-recaptcha";
-import logo from "../../../Images/Royal islamic.png";
-import logIn from "../../../Images/login_img.png";
+// import logo from "../../../Images/Royal islamic.png";
+// import logIn from "../../../Images/login_img.png";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import apiList from "../../../lib/apiList";
+import logo from "../../../Images/RIB White logo (1).png";
+import No_Waiting_Img from "../../../Images/No_Waiting_Img.png";
 
 
 const PersonalLoginPage = () => {
@@ -74,8 +76,6 @@ const PersonalLoginPage = () => {
 
         sessionStorage.setItem('loginToken', data.token);
         const expirationTime = new Date().getTime() + 5 * 60 * 1000;
-        // const expireTime = new Date();
-        // expireTime.setMinutes(expireTime.getMinutes() + 1);
         sessionStorage.setItem('expireTime', expirationTime);
         setTimeout(() => {
           navigate('/user/account');
@@ -289,11 +289,11 @@ const PersonalLoginPage = () => {
         <div className="container">
           <div className="row">
             <div className="col-6">
-              <img src={logo} style={{ width: "100px" }} />
+              <img src={logo} alt="logo" style={{ width: "170px" }} />
             </div>
             <div className="col-6 text-right m-auto">
               <p className="mb-0">
-                <Link to="/netbanking-corporate-login">
+                <Link to="/netbanking-corporate-login" style={{ color: '#2fb68e'}}>
                   Login Corporate Banking
                 </Link>
               </p>
@@ -355,7 +355,7 @@ const PersonalLoginPage = () => {
               </div>
             </div>
             <button>Know more</button> */}
-            <img src={logIn} className="img-fluid" />
+            <img src={No_Waiting_Img} alt="no waiting logo" className="img-fluid"/>
           </div>
 
           {form === "login" && (
@@ -401,7 +401,7 @@ const PersonalLoginPage = () => {
                   <Link
                     to="#"
                     onClick={() => setForm("forgotusername")}
-                    style={{ color: "#f18121" }}
+                    style={{ color: "#2fb68e" }}
                   >
                     Forgot Username
                   </Link>
@@ -410,7 +410,7 @@ const PersonalLoginPage = () => {
                   <Link
                     to="#"
                     onClick={() => setForm("forgotpassword")}
-                    style={{ color: "#f18121" }}
+                    style={{ color: "#2fb68e" }}
                   >
                     Forgot Password
                   </Link>
@@ -498,7 +498,7 @@ const PersonalLoginPage = () => {
 
               <input
                 type="email"
-                placeholder="Enter Bank Mail Id"
+                placeholder="Enter Registered Email"
                 className="form-control"
                 onChange={handleMailId}
 
@@ -563,7 +563,7 @@ const PersonalLoginPage = () => {
 
               <div className="row ml-0">
                 <ToastContainer />
-                <button type="button" onClick={handleUpdatePassword}>Submit</button>
+                <button type="button" onClick={handleUpdatePassword}>Change Password</button>
               </div>
 
             </div>
@@ -577,3 +577,6 @@ const PersonalLoginPage = () => {
 };
 
 export default PersonalLoginPage;
+
+
+
