@@ -5,6 +5,10 @@ import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import apiList from "../../../../lib/apiList";
+// import logo from "../../../Images/Royal islamic.png";
+// import logo from "../../../Images/Royal islamic.png";
+
+
 
 const InterestCertificate = () => {
   const accountNumber = 114912720;
@@ -143,11 +147,11 @@ const InterestCertificate = () => {
     setEndDate(new Date(event.target.value));
   };
 
-  const calculateValues = async () => {
+  function calculateValues() {
     const interestRate = 0.05; // 5%
     const taxRate = 0.1; // 10%
 
-    if (userDetails.length === 0) {
+    if (userDetails.length === 0 || typeof userDetails[0].userAccountBalance !== 'string') {
       return { interestPaid: 0, taxWithheld: 0 };
     }
 
@@ -172,63 +176,67 @@ const InterestCertificate = () => {
       interestPaid: calculatedInterestPaid,
       taxWithheld: calculatedTaxWithheld,
     };
-  };
+}
 
-  const calculateValuesForAccount = async (
-    userDetails,
-    selectedPeriod,
-    startDate,
-    endDate
-  ) => {
-    const interestRate = 0.05; // 5%
-    const taxRate = 0.1; // 10%
 
-    if (userDetails.length === 0) {
+const calculateValuesForAccount = async (
+  userDetails,
+  selectedPeriod,
+  startDate,
+  endDate
+) => {
+  const interestRate = 0.05; // 5%
+  const taxRate = 0.1; // 10%
+
+  if (userDetails.length === 0 || typeof userDetails[0].userAccountBalance !== 'string') {
       return { interestPaid: 0, taxWithheld: 0 };
-    }
+  }
 
-    const userAccountBalance = parseFloat(
+  const userAccountBalance = parseFloat(
       userDetails[0].userAccountBalance.replace(/,/g, "")
-    );
+  );
 
-    let interestPeriodInMonths = 0;
+  let interestPeriodInMonths = 0;
 
-    const interestPaid =
+  const interestPaid =
       userAccountBalance * interestRate * interestPeriodInMonths;
-    const calculatedInterestPaid = isNaN(interestPaid) ? 0 : interestPaid;
+  const calculatedInterestPaid = isNaN(interestPaid) ? 0 : interestPaid;
 
-    const taxWithheld = calculatedInterestPaid * taxRate;
-    const calculatedTaxWithheld = isNaN(taxWithheld) ? 0 : taxWithheld;
+  const taxWithheld = calculatedInterestPaid * taxRate;
+  const calculatedTaxWithheld = isNaN(taxWithheld) ? 0 : taxWithheld;
 
-    if (selectedPeriod === "yearly") {
+  if (selectedPeriod === "yearly") {
       const getFinancialYearRange = (date, selectedYear) => {
-        const fiscalStartMonth = 3;
-        const fiscalYear =
-          date.getMonth() >= fiscalStartMonth
-            ? date.getFullYear()
-            : date.getFullYear() - 1;
+          const fiscalStartMonth = 3;
+          const fiscalYear =
+              date.getMonth() >= fiscalStartMonth
+                  ? date.getFullYear()
+                  : date.getFullYear() - 1;
 
-        const startYear = selectedYear || fiscalYear;
-        const endYear = parseInt(startYear, 10) + 1;
+          const startYear = selectedYear || fiscalYear;
+          const endYear = parseInt(startYear, 10) + 1;
 
-        const startDate = new Date(`${startYear}-04-01`);
-        const endDate = new Date(`${endYear}-03-31`);
+          const startDate = new Date(`${startYear}-04-01`);
+          const endDate = new Date(`${endYear}-03-31`);
 
-        interestPeriodInMonths = calculateMonthsDifference(startDate, endDate);
+          interestPeriodInMonths = calculateMonthsDifference(startDate, endDate);
       };
       getFinancialYearRange(new Date(), selectedYear);
-    } else if (selectedPeriod === "monthly" && startDate && endDate) {
+  } else if (selectedPeriod === "monthly" && startDate && endDate) {
       interestPeriodInMonths = calculateMonthsDifference(startDate, endDate);
-    } else {
+  } else {
       console.error("Invalid selection or missing date range");
       return { interestPaid: 0, taxWithheld: 0 };
-    }
+  }
 
-    return {
+  return {
       interestPaid: calculatedInterestPaid,
       taxWithheld: calculatedTaxWithheld,
-    };
   };
+};
+
+
+
 
   useEffect(() => {
     if (selectedAccount && userDetails.length > 0 && interestPeriod) {
@@ -270,6 +278,7 @@ const InterestCertificate = () => {
       alert("Please select either a financial year or start and end dates, not both");
       return;
     }
+    
     try {
       let interestPeriodValue = isInterestPeriodSelected ? selectedYear : "";
 
@@ -298,8 +307,12 @@ const InterestCertificate = () => {
         taxWithheld: values.taxWithheld,
       };
 
+
       const pdf = new jsPDF();
-      pdf.text(20, 10, `Royal Islamic Bank`);
+      // pdf.addImage(logo, "PNG", 20, 10, 50, 20);
+      // const logoWidth = 50; 
+      // const logoHeight = 20; 
+      // pdf.addImage(logo, "PNG", 20, 10, logoWidth, logoHeight);
       pdf.text(20, 20, `Date: ${new Date().toLocaleDateString()}`);
       pdf.text(
         20,
