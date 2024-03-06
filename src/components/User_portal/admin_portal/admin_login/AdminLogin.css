@@ -1,0 +1,54 @@
+.admin_login .admin_login_coloumn {
+    padding: 100px 50px;
+    color: #000;
+    background-color: #faede2;
+  }
+  
+  .admin_login .admin_login_coloumn h2 {
+    font-size: 25px;
+    padding-bottom: 20px;
+  }
+  .admin_login .admin_login_coloumn div {
+    margin-top: 15px;
+  }
+  .admin_login .admin_login_coloumn div h5 {
+    font-size: 18px;
+    margin-bottom: 0px !important;
+  }
+  .admin_login .admin_login_coloumn div p {
+    font-size: 13px;
+    margin-bottom: 0px !important;
+  }
+  .admin_login .admin_login_coloumn button {
+    background-color: #fff;
+    border: 1px solid #faede2;
+    border-radius: 25px;
+    padding: 8px 15px;
+    margin-top: 20px;
+  }
+  .admin_login .admin_login_col {
+    background-color: #fff;
+    padding: 100px;
+  }
+  .personal_dont_password {
+    font-size: 15px;
+  }
+  .admin_login .admin_login_col input {
+    margin-top: 20px;
+    height: 50px;
+  }
+  .admin_login .admin_login_col button {
+    background-color: #2fb68e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 10px;
+    margin-top: 20px;
+  }
+  .admin_login_pp p {
+    font-size: 11px;
+  }
+  
+  .login_nav {
+    border-bottom: 1px solid #ddd !important;
+  }
