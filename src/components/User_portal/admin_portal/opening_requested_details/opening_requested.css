@@ -68,10 +68,10 @@
   color: #4a4a4aeb;
 }
 
-.requested_data_list_table_headings th:first-child,
+/* .requested_data_list_table_headings th:first-child,
 .requested_data_list_table_content td:first-child {
-  /* width: 10% !important; */
-}
+  width: 10% !important;
+} */
 
 .requested_data_list_icon_button {
   background: none;
