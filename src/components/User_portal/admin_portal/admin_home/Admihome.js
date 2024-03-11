@@ -122,7 +122,7 @@ const Adminhome = () => {
                       <tr key={index} className="admin_home_table_content">
                         <td>{index + 1}</td>
                         <td>{customer.accountNumber}</td>
-                        <td>{`${customer.firstname} ${customer.lastname}`}</td>
+                        <td>{`${customer.firstname} ${customer.lastname}`}</td>     
                         <td>{customer.openaccount}</td>
                         <td>{customer.email}</td>
                         <td>{customer.mobilenumber}</td>

@@ -48,155 +48,7 @@ export default function AccountOpeningForm() {
     "Your Profile",
     "Submitted",
   ];
-
-  // Step 1 Content
-  // const Step1Content = ({ nextStep, formData, setFormData }) => {
-  //   const { userData, setUserData } = useStateValue({});
-
-  //   const handleChange = (e) => {
-  //     setUserData({ ...userData, [e.target.name]: e.target.value });
-  //   };
-
-  //   const validateInputs = () => {
-  //     // Check if the required fields are filled in
-  //     if (!userData.mobilenumber || !userData.email) {
-  //       toast.error("Please fill in all required fields.");
-  //       return false;
-  //     }
-  //     return true;
-  //   };
-
-  //   const handleNextStep = () => {
-  //     if (validateInputs()) {
-  //       // Proceed to the next step
-  //       nextStep();
-  //     }
-  //   };
-
-  //   console.log(userData);
-
-  //   // const submitt = (e) => {
-  //   //   e.preventDefault();
-  //   //   console.log(userData);
-  //   // };
-
-  //   return (
-  //     <div className="mt-5 account_opening">
-  //       <h5>
-  //         Welcome to{" "}
-  //         <span style={{ color: "#f18121" }}>ROYAL ISLAMIC BANK</span>
-  //       </h5>
-
-  //       <div className="row account_opening_Identify_yourself">
-  //         <div className="col-md-6 col-sm-12 col-12">
-  //           <div className="card">
-  //             <h6>
-  //               Enter Your Mobile Number
-  //               <span style={{ color: "red", paddingLeft: "3px" }}>*</span>
-  //             </h6>
-
-  //             <input
-  //               type="text"
-  //               className="form-control"
-  //               placeholder="Enter Your Mobile Number"
-  //               required
-  //               name="mobilenumber"
-  //               value={userData.mobilenumber}
-  //               onChange={handleChange}
-  //             />
-  //             <p>We will be sending you an OTP to this number, keep it handy</p>
-  //           </div>
-  //         </div>
-  //         <div className="col-md-6  col-sm-12 col-12">
-  //           <div className="card">
-  //             <h6>
-  //               Enter Your Email
-  //               <span style={{ color: "red", paddingLeft: "3px" }}>*</span>
-  //             </h6>
-
-  //             <div class="input-group mb-3">
-  //               <input
-  //                 type="text"
-  //                 class="form-control"
-  //                 placeholder="Enter Email"
-  //                 aria-label="Recipient's username"
-  //                 aria-describedby="basic-addon2"
-  //                 name="email"
-  //                 value={userData.email}
-  //                 onChange={handleChange}
-  //               />
-  //               <div class="input-group-append">
-  //                 <button
-  //                   className="btn btn-outline-secondary"
-  //                   type="button"
-  //                   data-toggle="modal"
-  //                   data-target="#myModal"
-  //                 >
-  //                   Get OTP
-  //                 </button>
-
-  //                 <div class="modal" id="myModal">
-  //                   <div class="modal-dialog">
-  //                     <div class="modal-content">
-  //                       <div class="modal-header">
-  //                         <h4 class="modal-title">Modal Heading</h4>
-  //                         <button
-  //                           type="button"
-  //                           class="close"
-  //                           data-dismiss="modal"
-  //                         >
-  //                           &times;
-  //                         </button>
-  //                       </div>
-
-  //                       <div class="modal-body">Modal body..</div>
-
-  //                       <div class="modal-footer">
-  //                         <button
-  //                           type="button"
-  //                           class="btn btn-danger"
-  //                           data-dismiss="modal"
-  //                         >
-  //                           Close
-  //                         </button>
-  //                       </div>
-  //                     </div>
-  //                   </div>
-  //                 </div>
-  //               </div>
-  //             </div>
-  //             <p class="help-block">Enter your Email</p>
-  //           </div>
-  //         </div>
-  //       </div>
-
-  //       {/* Add more form fields as needed */}
-  //       <div className="text-right">
-  //         <Button
-  //           onClick={handleNextStep}
-  //           className="account_opening_Identify_yourself_nextbtn"
-  //         >
-  //           Next
-  //         </Button>
-  //       </div>
-  //       <ToastContainer
-  //         position="top-center"
-  //         autoClose={1000}
-  //         hideProgressBar={false}
-  //         newestOnTop={false}
-  //         closeOnClick
-  //         rtl={false}
-  //         pauseOnFocusLoss
-  //         draggable
-  //         pauseOnHover
-  //         transition={Bounce}
-  //         theme="dark"
-  //         className="custom-toast-container"
-  //       />
-  //     </div>
-  //   );
-  // };
-
+ 
   const Step1Content = ({ nextStep, formData, setFormData }) => {
     const { userData, setUserData } = useStateValue({});
 
@@ -234,37 +86,7 @@ export default function AccountOpeningForm() {
     const handleemailerror = () => {
       toast.error("enter email address");
     };
-
-    // const handleGetOTP = async () => {
-    //   try {
-    //     // Check if the entered email is in a valid format
-    //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    //     if (!emailRegex.test(userData.email)) {
-    //       toast.error("Please enter a valid email address.");
-    //       return;
-    //     }
-    //     console.log(ismailValid);
-
-    //     // Send a request to the backend to trigger OTP sending
-    //     const response = await axios.post("http://localhost:4444/send-otp", {
-    //       email: userData.email,
-    //     });
-    //     console.log(response);
-    //     setismailValid(true);
-    //     setSeconds(60); // Reset seconds to 60 when starting
-    //     setIsRunning(true);
-    //     console.log(ismailValid);
-
-    //     // Set OTP expiration, reset countdown, and display the modal
-    //   } catch (error) {
-    //     toast.error("invalid email address");
-    //     console.error(
-    //       "Error sending OTP:",
-    //       error.response ? error.response.data.message : error.message
-    //     );
-    //   }
-    // };
-
+ 
     const [handlemodal, setmodal] = useState(false);
     const [handleDisplayContent, setdisplayContent] = useState(false);
 
@@ -305,26 +127,7 @@ export default function AccountOpeningForm() {
         );
       }
     };
-
-    // const handleVerifyOTP = async () => {
-    //   try {
-    //     // Send a request to the backend to verify the OTP
-    //     const response = await axios.post("http://localhost:4444/verify-otp", {
-    //       email: userData.email,
-    //       otp,
-    //     });
-    //     console.log(response.data);
-
-    //     // Mark the email as verified and close the modal
-    //     setIsVerified(true);
-    //     setIsModalOpen(false);
-    //   } catch (error) {
-    //     console.error(
-    //       "Error verifying OTP:",
-    //       error.response ? error.response.data.message : error.message
-    //     );
-    //   }
-    // };
+ 
 
     const handleVerifyOTP = async () => {
       try {
@@ -370,30 +173,7 @@ export default function AccountOpeningForm() {
       // Similar to the logic in handleGetOTP
     };
 
-    // useEffect(() => {
-    //   let countdownInterval;
-
-    //   if (otpExpiration) {
-    //     const initialCountdown = Math.ceil(
-    //       (otpExpiration - new Date().getTime()) / 1000
-    //     );
-
-    //     if (initialCountdown > 0) {
-    //       setCountdown(initialCountdown);
-
-    //       countdownInterval = setInterval(() => {
-    //         setCountdown((prevCountdown) => prevCountdown - 1);
-    //       }, 1000);
-    //     } else {
-    //       setIsVerified(false);
-    //       setOtpExpiration(null);
-    //       setIsModalOpen(false);
-    //       setResendButton(true); // Show resend button
-    //     }
-    //   }
-
-    //   return () => clearInterval(countdownInterval);
-    // }, [otpExpiration]);
+   
 
     const [seconds, setSeconds] = useState(0);
     const [isRunning, setIsRunning] = useState(false);
@@ -415,7 +195,7 @@ export default function AccountOpeningForm() {
       setSeconds(60);
       handleGetOTP();
     };
-
+    
     return (
       <div className="mt-5 account_opening">
         <h5>
