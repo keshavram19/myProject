@@ -104,7 +104,7 @@ const Adminhome = () => {
                   onClick={applyFilters}
                 >
                   Search
-                </button>
+                </button> 
               </div>
               <div>
                 <table className="admin_home_table_head">

@@ -132,6 +132,9 @@ import VirtualPaye from "./components/User_portal/Netbanking/Fund_Transfer/Virtu
 
 import MyProtectedComponent from './components/ProtectedRoute/tokenExpire';
 
+import AdminChequeBookRequest from "./components/User_portal/admin_portal/admin_home/ChequeBookRequest";
+
+
 function App() {
   const location = useLocation();
   const hide =
@@ -559,6 +562,7 @@ function App() {
             <Route path="/requested-data" element={<RequestedDatalist />} />
             <Route path="/confirm-details" element={<IndividualDatalist />} />
             <Route path="/all-data" element={<Adminhome />} />
+            <Route path="/admin-chequebookreq" element={<AdminChequeBookRequest />} />
             {/* Admin side  */}
 
             {/* user portal ends */}
