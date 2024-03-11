@@ -6,6 +6,8 @@ import { useReactToPrint } from 'react-to-print';
 function Loanservices1() {
   const componentPDF = useRef();
   const [selectedAccount, setSelectedAccount] = useState("");
+
+  
   const [emiStatementData, setEmiStatementData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
