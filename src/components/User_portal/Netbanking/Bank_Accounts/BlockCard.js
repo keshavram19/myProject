@@ -49,7 +49,7 @@ const BlockCard = () => {
         try {
             if (blockReason && blockRemarks) {
                 await axios.put(`${apiList.blockATMCard}${accountNumber}`, {
-                    reason: blockReason,
+                    userReason: blockReason,
                     remarks: blockRemarks,
                 });
                 alert('Card blocked successfully');

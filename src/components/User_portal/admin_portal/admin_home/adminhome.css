@@ -28,8 +28,8 @@
 }
 
 .accounts_admin_home .admin_home_table_content td {
-  /* background-color: #f2f3f2; */
-  /* width: 100%; */
+   /* background-color: #f2f3f2; 
+   width: 100%;  */
   font-size: 13px;
   color: #4a4a4a;
   margin-top: 0rem;
@@ -51,9 +51,13 @@
 
 .accounts_admin_home .admin_home_table_head .admin_home_table_headings th {
   padding: 15px 8px;
-  background-color: #f2f3f2;
+  background-color: #2fb68e;
+
+  color: white;
+
   /* width: 30%; */
   font-weight: 600;
+  color:white
 }
 
 .accounts_admin_home .admin_home_table_head .admin_home_table_content td {
@@ -62,10 +66,12 @@
   color: #4a4a4aeb;
 }
 
-.admin_home_table_headings th:first-child,
+/* .admin_home_table_headings th:first-child,
 .admin_home_table_content td:first-child {
-  /* width: 10% !important; */
-}
+
+  width: 10% !important; 
+} */
+
 
 .admin_home_icon_button {
   background: none;
@@ -78,13 +84,13 @@
   font-size: 10px;
   color: #fff;
   letter-spacing: 0.1rem;
-  background: #eb6c18c8;
+  background: #2fb68e;
   display: inline;
   cursor: pointer;
   text-transform: uppercase;
 
   text-align: center;
-  border: 1px solid #eb6c18c8;
+  border: 1px solid #2fb68e;
   /* padding-right: 8px!important;
       padding-left: 8px!important; */
 }
@@ -98,13 +104,92 @@
   font-size: 10px;
   color: #fff;
   width: auto;
-  background: #eb6c18;
+
+  background: #2fbe92;
+
   display: inline;
   cursor: pointer;
   text-transform: uppercase;
 
   text-align: center;
-  border: 1px solid #ce6200;
+
+  border: 1px solid #2fbe92;
+
   /* padding-right: 8px!important;
       padding-left: 8px!important; */
 }
+
+.accounts_admin_home h1{
+  font-size: 24px;
+  color: #ebca28;
+  font-weight: 400;
+}
+
+
+/* cheque book request admin css starts */
+
+.admin_chequebook_searchbtn
+{
+  
+  padding: 7px 14px;
+  font-weight: 600;
+  font-size: 11px;
+  border:1px solid;
+  border-radius: 5px;
+  color:#147558;
+  background-color: #A2E0CE;
+  
+}
+.admin_chequeBook_pagination {
+  /* Add your custom styles for pagination here */
+  /* For example: */
+  
+  outline: none; 
+  border: none; 
+  box-shadow: none;
+  background-color: #FFFFFF;
+ 
+}
+.admin_chequeBook_pagination nav{
+  box-shadow: none;
+
+}
+
+.pagination
+{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin_chequeBook_pagination .pagination li.page-item.active {
+  outline: none; 
+  border: none; 
+  background-color: #4fb697;
+} 
+
+.admin_chequeBook_pagination .pagination li.page-item button {
+  
+  outline: none; 
+  border: none; 
+}
+.admin_chequeBook_pagination .page-item.active .page-link{
+  background-color: #2fb68e;
+  border-color: none;
+  outline: none;
+  border: none;
+  color: #fff; /* Set text color to white for better visibility */
+  
+}
+
+
+
+
+
+
+
+
+
+
+/* cheque book request admin css ends */
+
