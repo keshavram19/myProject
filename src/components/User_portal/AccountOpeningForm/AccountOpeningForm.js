@@ -6,6 +6,7 @@ import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import "./AccountOpeningForm.css";
+import apiList from "../../../lib/apiList";
 import { StateProvider, useStateValue } from "./AccountOpenParentComponent";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -271,15 +272,17 @@ export default function AccountOpeningForm() {
     const handleGetOTP = async () => {
       try {
         // Check if the entered email is in a valid format
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(userData.email)) {
-          toast.error("Please enter a valid email address.");
-          return;
+        console.log("user email:" , userData.email);
+      // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(userData.email)) {
+        toast.error("Please enter a valid email address.");
+        return;
         }
         setismailValid(true);
         // Send a request to the backend to trigger OTP sending
         const response = await axios.post(
-          "http://localhost:4444/api/send-otp",
+          `${apiList.UserDetailsAccountOpeningSendOTP}`,
           {
             email: userData.email,
           }
@@ -330,7 +333,7 @@ export default function AccountOpeningForm() {
       try {
         // Send a request to the backend to verify the OTP
         const response = await axios.post(
-          "http://localhost:4444/api/verify-otp",
+          `${apiList.UserDetailsAccountOpeningVerifyOTP}`,
           {
             email: userData.email,
             otp,
@@ -1780,7 +1783,7 @@ export default function AccountOpeningForm() {
       const fetchUserDetails = async () => {
         try {
           const response = await axios.get(
-            "http://localhost:4444/api/userdetails"
+            `${apiList.UserDetailsAccountOpening}`, 
           );
           const data = response.data;
 
@@ -2024,20 +2027,23 @@ export default function AccountOpeningForm() {
         return { ...prevUserData, [e.target.name]: isChecked ? "yes" : "no" };
       });
     };
+   
 
     const handleNextClick1 = () => {
       if (isCheckboxChecked1) {
         handleSubmit();
+        navigate('/netbanking-personal-login');
       } else {
-        toast.error("Please agree all declarations");
+        toast.error("Please agree to all declarations");
       }
     };
+    
 
     const handleSubmit = async (e) => {
       // e.preventDefault();
 
       try {
-        const response = await fetch("http://localhost:4444/api/userdetails", {
+        const response = await fetch(`${apiList.UserDetailsAccountOpening}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -2048,9 +2054,10 @@ export default function AccountOpeningForm() {
         const data = await response.json();
         console.log(response);
         if (response.status === 200) {
-          toast.success("Accout Created successfully!");
+          toast.success("Account Created successfully!");
           navigate("/account-success");
           console.log("User created successfully:", data.newUser);
+          navigate("/netbanking-personal-login");
         } else if (response.status === 402) {
           console.log("User already exists:", data.message);
         } else {
@@ -2258,3 +2265,4 @@ export default function AccountOpeningForm() {
     </div>
   );
 }
+

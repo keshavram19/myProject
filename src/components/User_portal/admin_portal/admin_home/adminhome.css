@@ -52,6 +52,9 @@
 .accounts_admin_home .admin_home_table_head .admin_home_table_headings th {
   padding: 15px 8px;
   background-color: #2fb68e;
+
+  color: white;
+
   /* width: 30%; */
   font-weight: 600;
   color:white
@@ -63,10 +66,12 @@
   color: #4a4a4aeb;
 }
 
-.admin_home_table_headings th:first-child,
+/* .admin_home_table_headings th:first-child,
 .admin_home_table_content td:first-child {
-   /* width: 10% !important;  */
-}
+
+  width: 10% !important; 
+} */
+
 
 .admin_home_icon_button {
   background: none;
@@ -79,13 +84,13 @@
   font-size: 10px;
   color: #fff;
   letter-spacing: 0.1rem;
-  background: #eb6c18c8;
+  background: #2fb68e;
   display: inline;
   cursor: pointer;
   text-transform: uppercase;
 
   text-align: center;
-  border: 1px solid #eb6c18c8;
+  border: 1px solid #2fb68e;
   /* padding-right: 8px!important;
       padding-left: 8px!important; */
 }
@@ -99,13 +104,17 @@
   font-size: 10px;
   color: #fff;
   width: auto;
+
   background: #2fbe92;
+
   display: inline;
   cursor: pointer;
   text-transform: uppercase;
 
   text-align: center;
+
   border: 1px solid #2fbe92;
+
   /* padding-right: 8px!important;
       padding-left: 8px!important; */
 }

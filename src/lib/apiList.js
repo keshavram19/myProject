@@ -51,12 +51,22 @@ const apiList ={
     creditcardEmiconversion : `/emiConversion`,
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
+
+
+    getuserrequesteddetails: `${server}/api/requesteduserdetails/`,
+    requestedUserDetailsByEmail: `${server}/api/individualrequesteduserdetails/`,
+
+
+    addAccountDetails:`${server}/api/add-account-details/`,
+    UserDetailsAccountOpening:`${server}/api/userdetails`,
+    UserDetailsAccountOpeningSendOTP:`${server}/api/send-otp`,
+    UserDetailsAccountOpeningVerifyOTP:`${server}/api/verify-otp`,
+   
+
     
-    // requestedUserDetailsByEmail: `${server}/api/individualrequesteduserdetails/`,
-
-
 
   requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+
 
 
     payLater:`${server}/api/payLaterAccount`,
@@ -64,8 +74,6 @@ const apiList ={
 
 
 }
-
-
 
 
 export default apiList;

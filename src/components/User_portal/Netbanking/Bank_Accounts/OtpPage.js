@@ -10,8 +10,8 @@ import { IoCallOutline } from "react-icons/io5";
 
 
 const OTPPage = () =>{
-
     const navigate = useNavigate();
+
     const [userDetails, setUserDetails] = useState([]);
     const [lastFourDigits, setLastFourDigits] = useState('');
     const [otp, setOtp] = useState('');
@@ -21,7 +21,7 @@ const OTPPage = () =>{
     const accountNumber = 1124563456;
 
 
-
+    
     const fetchData = async () => {
         try {
             const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
@@ -101,7 +101,7 @@ const OTPPage = () =>{
                 });
 
                 console.log(otpResponse.data);
-
+                
                 setTimer(100);
                 setButtonsDisabled(true);
                 setOtp('');
@@ -118,74 +118,71 @@ const OTPPage = () =>{
         try {
             await fetchData();
             const accountNumber = userDetails[0].userAccountNumber;
+            console.log(accountNumber);
             const response = await axios.post(`${apiList.authenticateOTP}`, { accountNumber, otp });
+
             console.log(response.data);
-
-            navigate("/user/generate-creditcard-pin");
-
-
+            navigate("/user/account/generate-debit-card-pin");
         } catch (error) {
             console.error('Error validating OTP:', error);
             setValidationError('Invalid OTP. Please try again.');
         }
     };
 
-
     return(
-
         <div className='container-fluid'>
             <div className='row'>
                 <div className='col-sm-12'>
-                    <p className="pl-2">Please enter these details to authorize the transaction</p>
+                <p className="pl-2">Please enter these details to authorize the transaction</p>
 
-                    <div className=" generate_debit_pin_para p-2">
-                        <label htmlFor="otp">One Time Password</label>
-                        <div className="generate_debit_pin_icon">
-                            <input
-                                className="generate_debit_pin_div_label"
-                                type="text"
-                                id="otp"
-                                name="otp"
-                                value={otp}
-                                onChange={handleOtpChange}
-                            />
+<div className=" generate_debit_pin_para p-2">
+    <label htmlFor="otp">One Time Password</label>
+    <div className="generate_debit_pin_icon">
+        <input
+            className="generate_debit_pin_div_label"
+            type="text"
+            id="otp"
+            name="otp"
+            value={otp}
+            onChange={handleOtpChange}
+        />
 
-                            <button className="generate_debit_pin_icon_otp">
-                                <i class="fa-solid fa-keyboard fa-xl"></i>
-                            </button>
-                            <p className='ml-1'>OTP has been generated with validity of 100 seconds</p>
-                        </div>
-                        <p>Still didn't get OTP? Resend OTP in {formatTime(timer)} seconds</p>
-                    </div>
+        <button className="generate_debit_pin_icon_otp">
+            <i class="fa-solid fa-keyboard fa-xl"></i>
+        </button>
+        <p className='ml-1'>OTP has been generated with validity of 100 seconds</p>
+    </div>
+    <p>Still didn't get OTP? Resend OTP in {formatTime(timer)} seconds</p>
+</div>
 
-                    <div className='row  p-2' >
-                        <div className='col-sm-6'>
-                            <div className=''>
-                                <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('sms')} disabled={buttonsDisabled}><MdOutlineMessage className='generate_debit_pin_button_logos' /> SMS</button>
-                                <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('email')} disabled={buttonsDisabled}><MdOutlineMail className='generate_debit_pin_button_logos' /> Email</button>
-                                <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('call')} disabled={buttonsDisabled}><IoCallOutline className='generate_debit_pin_button_logos' /> Call</button>
+<div className='row  p-2' >
+    <div className='col-sm-6'>
+        <div className=''>
+            <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('sms')} disabled={buttonsDisabled}><MdOutlineMessage className='generate_debit_pin_button_logos' /> SMS</button>
+            <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('email')} disabled={buttonsDisabled}><MdOutlineMail className='generate_debit_pin_button_logos'/> Email</button>
+            <button className='generate_debit_pin_button ml-2' onClick={() => handleOtpGeneration('call')} disabled={buttonsDisabled}><IoCallOutline className='generate_debit_pin_button_logos' /> Call</button>
 
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </div>
+</div>
 
-                    <div className='mt-1 p-2'>
-                        <p>If there is a delay in receipt of OTP, you can send a request to receive it. SMS IBOTP to 5676766 or 9215676766. Request should be sent from the mobile number registered in our records.</p>
-                    </div>
-                    <div className='p-2'>
-                        <p>Please do not share OTP with anyone, even if the person claims to be an ICICI Bank official. For further details please <Link>click here.</Link></p>
-                    </div>
+<div className='mt-1 p-2'>
+    <p>If there is a delay in receipt of OTP, you can send a request to receive it. SMS IBOTP to 5676766 or 9215676766. Request should be sent from the mobile number registered in our records.</p>
+    </div>
+    <div className='p-2'>
+        <p>Please do not share OTP with anyone, even if the person claims to be an ICICI Bank official. For further details please <Link>click here.</Link></p>
+    </div>
 
-                    {validationError && <div style={{ color: 'red' }}>{validationError}</div>}
+{validationError && <div style={{ color: 'red' }}>{validationError}</div>}
 
-                    <div className="d-flex mt-3 mb-3">
-                        <button type="button" className="genrate_pin_buttons ml-3">
-                            BACK
-                        </button>
-                        <button type="button" className="genrate_pin_submits ml-5" onClick={handleOtpValidation} >
-                            SUBMIT
-                        </button>
-                    </div>
+<div className="d-flex mt-3 mb-3">
+    <button type="button" className="genrate_pin_buttons ml-3">
+        BACK
+    </button>
+    <button type="button" className="genrate_pin_submits ml-5" onClick={handleOtpValidation} >
+        SUBMIT
+    </button>
+</div>
                 </div>
 
             </div>
@@ -194,4 +191,3 @@ const OTPPage = () =>{
 }
 
 export default OTPPage;
-
