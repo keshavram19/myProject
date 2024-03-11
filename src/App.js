@@ -131,6 +131,8 @@ import IndividualDatalist from "./components/User_portal/admin_portal/opening_re
 import VirtualPaye from "./components/User_portal/Netbanking/Fund_Transfer/VirtualPayee";
 
 import MyProtectedComponent from './components/ProtectedRoute/tokenExpire';
+import ReissueCardTable from "./components/User_portal/admin_portal/reissuecardTrack/reissueCardTrack";
+import ReissueGenerateOrReject from "./components/User_portal/admin_portal/reissuecardTrack/reissuecardGenerateorReject";
 
 function App() {
   const location = useLocation();
@@ -559,6 +561,10 @@ function App() {
             <Route path="/requested-data" element={<RequestedDatalist />} />
             <Route path="/confirm-details" element={<IndividualDatalist />} />
             <Route path="/all-data" element={<Adminhome />} />
+            <Route path="/admin-reissuecard" element={<ReissueCardTable />} />
+            <Route path="/admin-reissuecardGenerateorReject" element={<ReissueGenerateOrReject />} />
+
+            
             {/* Admin side  */}
 
             {/* user portal ends */}
