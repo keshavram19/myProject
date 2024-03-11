@@ -7,6 +7,10 @@ const apiList ={
 
     adminLogin: `${server}/admin/admin-login`,
 
+    individualrequestedetails: `${server}/admin/individualrequesteduserdetails`,
+    getuserrequesteddetails: `${server}/admin/requesteduserdetails/`,
+    requestedUserDetailsByEmail: `${server}/admin/individualrequesteduserdetails/`,
+
 
     // admin login ends
 
@@ -51,15 +55,6 @@ const apiList ={
     creditcardEmiconversion : `/emiConversion`,
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
-
-
-  
- individualrequestedetails: `${server}/api/individualrequesteduserdetails`,
-
-
-    getuserrequesteddetails: `${server}/account/requesteduserdetails/`,
-    requestedUserDetailsByEmail: `${server}/account/individualrequesteduserdetails/`,
-
 
     addAccountDetails:`${server}/api/add-account-details/`,
     UserDetailsAccountOpening:`${server}/api/userdetails`,
