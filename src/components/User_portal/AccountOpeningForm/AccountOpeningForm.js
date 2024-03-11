@@ -2241,7 +2241,7 @@ export default function AccountOpeningForm() {
   };
 
   return (
-    <div className="container" style={{ marginTop: "130px" }}>
+    <div className="container" style={{ marginTop: "20px" }}>
       <StateProvider>
         <div className="row">
           <div className="col-12">

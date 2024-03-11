@@ -2,6 +2,14 @@ export const server = "http://localhost:4444";
 
 
 const apiList ={
+
+    // admin login starts
+
+    adminLogin: `${server}/admin/admin-login`,
+
+
+    // admin login ends
+
     generateCertificate: `${server}/api/generateCertificate`,
     customerAccountDetails: `${server}/api/userDetails/`,
     userAuthentication: `${server}/api/otp-send`,
@@ -44,8 +52,10 @@ const apiList ={
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
 
+
     getuserrequesteddetails: `${server}/api/requesteduserdetails/`,
     requestedUserDetailsByEmail: `${server}/api/individualrequesteduserdetails/`,
+
 
     addAccountDetails:`${server}/api/add-account-details/`,
     UserDetailsAccountOpening:`${server}/api/userdetails`,
@@ -55,13 +65,13 @@ const apiList ={
 
     
 
-//     requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
-
+  requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
 
 
 
     payLater:`${server}/api/payLaterAccount`,
     billDetails:`${server}/api/payLaterAccount/pay`,
+
 
 }
 

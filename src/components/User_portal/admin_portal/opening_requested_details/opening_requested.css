@@ -71,7 +71,9 @@
 
 /* .requested_data_list_table_headings th:first-child,
 .requested_data_list_table_content td:first-child {
+
   /* width: 10% !important; 
+\
 } */
 
 .requested_data_list_icon_button {
@@ -85,13 +87,17 @@
   font-size: 10px;
   color: #fff;
   letter-spacing: 0.1rem;
-  background: #2fb68e;
+
+  background: #2fbe98;
+
   display: inline;
   cursor: pointer;
   text-transform: uppercase;
 
   text-align: center;
-  border: 1px solid #2fb68e;
+
+  border: 1px solid #2fbe98;
+
   /* padding-right: 8px!important;
       padding-left: 8px!important; */
 }
@@ -105,13 +111,17 @@
   font-size: 10px;
   color: #fff;
   width: auto;
-  background: #2fb68e;
+
+  background: #2fbe98;
+
   display: inline;
   cursor: pointer;
   text-transform: uppercase;
 
   text-align: center;
-  border: 1px solid #2fb68e;
+
+  border: 1px solid #2fbe98;
+
   /* padding-right: 8px!important;
       padding-left: 8px!important; */
 }

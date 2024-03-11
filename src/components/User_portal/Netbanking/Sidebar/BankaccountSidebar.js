@@ -115,19 +115,17 @@ function BankaccountSidebar() {
               {" "}
               <Link to="/user/account/fixed-deposits" className={isActiveLink("/user/account/fixed-deposits") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Deposit Accounts</Link>
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Open Deposits</Link>
-              {/* <Link to="/user/account/iwish-deposits">iWish Golas</Link> */}
               <Link to="/user/account/fd-advice" className={isActiveLink("/user/account/fd-advice") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>FD Advice</Link>
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Service Requests</Link>
               <Link to="/user/account/renew-fd" className={isActiveLink("/user/account/renew-fd") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>Renew FD</Link>
             </div>
-
-            {/* <button
+            <button
               type="button"
               className={`collapsible sidebarButton ${activeIndex === 2 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(2)}
             >
-              <span> iWish Goals</span> <span>{getButtonContent(2)} </span>
+              <span> e-Statements</span> <span>{getButtonContent(2)}</span>
             </button>
             <div
               className="content"
@@ -138,9 +136,11 @@ function BankaccountSidebar() {
               ref={contentRefs[2]}
             >
               {" "}
-              <Link to="/user/account/iwish-deposits">iWish Goals</Link>
-            </div> */}
-
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Bank Accounts</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Credit Cards</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Demat</Link>
+              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>PPF Accounts</Link>
+            </div>
             <button
               type="button"
               className={`collapsible sidebarButton ${activeIndex === 3 ? "active buttonActive" : ""
@@ -222,42 +222,6 @@ function BankaccountSidebar() {
               {" "}
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1 mb-1" : "mt-1 mb-1"} onClick={stopPropagation}> SSY Account </Link>
             </div>
-
-            <button
-              type="button"
-              className={`collapsible sidebarButton ${activeIndex === 7 ? "active buttonActive" : ""
-                } d-flex justify-content-between sidebar_button`}
-              onClick={() => toggleCollapsible(7)}
-            >
-              <span> e-Statements</span> <span>{getButtonContent(7)}</span>
-            </button>
-            <div
-              className="content"
-              style={{
-                maxHeight: `${contentHeights[7]}px`,
-                display: activeIndex === 7 ? "block" : "none",
-              }}
-              ref={contentRefs[7]}
-            >
-              {" "}
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Bank Accounts</Link>
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Credit Cards</Link>
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Demat</Link>
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>PPF Accounts</Link>
-            </div>
-
-            <button
-              type="button"
-              className={`collapsible sidebarButton ${activeIndex === 8 ? "active buttonActive" : ""
-                } d-flex justify-content-between sidebar_button`}
-              onClick={() => toggleCollapsible(8)}
-            >
-              <span> iFinance</span>
-            </button>
-            <div
-              className="content"
-              style={{ display: activeIndex === 8 ? "block" : "none" }}
-            ></div>
           </div>
         </div>
       </div>
