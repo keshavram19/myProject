@@ -17,7 +17,8 @@ import apiList from "../../../../lib/apiList";
     const generateOTP = async () => {
       try {
         // const response = await axios.post('http://localhost:4444/api/generate-otp');
-              const response = await axios.post(apiList.taxOTPGenerate);
+              const response = await axios.post
+              (apiList.taxOTPGenerate);
 
         setMessage(response.data.message);
 

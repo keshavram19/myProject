@@ -73,8 +73,9 @@ const RequestedDatalist = () => {
 
   const getRequestedDetailslist = async (req, res) => {
     try {
-      const response = await axios.get(apiList.getuserrequesteddetails);
-      const filteredData = response.data.filter(
+       const response = await axios.get
+      (apiList.getuserrequesteddetails)
+       const filteredData = response.data.filter(
         (customer) => !customer.accountNumber || !customer.mobilenumber
       );
       setRequestedDataList(filteredData);
@@ -163,7 +164,7 @@ const RequestedDatalist = () => {
                         <td>{`${customer.firstname} ${customer.lastname}`}</td>
                         <td>{customer.email}</td>
                         <td>{customer.mobilenumber}</td>
-                        <td onClick={() => navigateIndividual(customer.email)}>
+                        <td onClick={() => navigateIndividual(customer.email)} className="requested_view_btn">
                           View
                         </td>
                       </tr>
