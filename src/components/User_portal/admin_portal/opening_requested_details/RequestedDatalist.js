@@ -40,16 +40,7 @@ const RequestedDatalist = () => {
     email: "",
   });
 
-  //   const applyFilters = () => {
-  //     let filteredData = requestedDatalist.filter((customer) => {
-  //       return (
-  //         customer.pannumber.includes(filters.pannumber) &&
-  //         customer.mobilenumber.includes(filters.mobilenumber) &&
-  //         customer.email.includes(filters.email)
-  //       );
-  //     });
-  //     return filteredData;
-  //   };
+
 
   const applyFilters = () => {
     let filteredData = requestedDatalist.filter((customer) => {
@@ -79,7 +70,7 @@ const RequestedDatalist = () => {
         (customer) => !customer.accountNumber || !customer.mobilenumber
       );
       setRequestedDataList(filteredData);
-      console.log(filteredData);
+     
     } catch (err) {
       console.log("Error in getting requested details list", err);
     }
