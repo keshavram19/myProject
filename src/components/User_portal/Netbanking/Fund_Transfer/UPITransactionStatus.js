@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+    import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './FundTransfer.css';
 import { Link } from 'react-router-dom';
@@ -152,7 +152,7 @@ const UpiTransaction = () => {
                                         <th>Withdrawal</th>
                                         <th>Deposit</th>
                                         <th>Balance</th>
-                                    </tr>
+                                     </tr>
                                 </thead>
                                 <tbody>
                                     {userDetails[0]?.transactions.map((transaction, index) => (
