@@ -26,13 +26,13 @@
     border-right: 1px solid rgba(255, 255, 255, 0.7);
     transition: width 0.3s ease;
     height: 100vh;
-    background-image: url("../../../../Images/hero-bg.jpg");
+    
 }
 
 .sidebar:hover {
     width: 260px;
     height: 100vh;
-    background-image: url("../../../../Images/hero-bg.jpg");
+   
     
 }
 
