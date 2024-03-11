@@ -38,19 +38,30 @@ const apiList ={
     form60OtpVerification:`${server}/form60Userdetails/verify-otp`,
     form60UserDetails:`${server}/form60Userdetails/userdetails`,
     GenerateCreditcardpin : `${server}/api/generate-Credit-Card-Pin`,
-    BlockingCreditCard: `${server}/api/blockcreditcard/`,
-    BlockCardOTPValidation:`${server}/api/OtpValidation/`,
-    BlockCardOTPVerifying:`${server}/api/verifyOTP`,
-    AlertSubscription:`${server}/api/alertsubscription/`,
+    BlockCreditCard:`${server}/api/blockcreditcard`,
+    BlockCreditCardOTPVerify:`${server}/api/verifyOTP`,
     creditcardEmiconversion : `/emiConversion`,
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
 
+    getuserrequesteddetails: `${server}/api/requesteduserdetails/`,
     requestedUserDetailsByEmail: `${server}/api/individualrequesteduserdetails/`,
+
+    addAccountDetails:`${server}/api/add-account-details/`,
+    UserDetailsAccountOpening:`${server}/api/userdetails`,
+    UserDetailsAccountOpeningSendOTP:`${server}/api/send-otp`,
+    UserDetailsAccountOpeningVerifyOTP:`${server}/api/verify-otp`,
+   
+
+    
+
+//     requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+
+
 
 
     payLater:`${server}/api/payLaterAccount`,
-    billDetails:`${server}/api/payLaterAccount/pay`
+    billDetails:`${server}/api/payLaterAccount/pay`,
 
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./FundTransfer.css";
-import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
+ import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 import apiList from "../../../../lib/apiList";
 
 const IncomeTaxEfill = () => {

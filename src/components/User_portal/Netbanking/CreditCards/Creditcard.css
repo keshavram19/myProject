@@ -1,36 +1,41 @@
-.credit_card_tabs_text{
+.credit_card_tabs_text {
     text-align: center;
     font-weight: 500 !important;
-    font-size: 18px !important;
+    font-size: 17px !important;
     cursor: pointer;
 }
+
 .list-group-horizontal>.list-group-item.active {
     background-color: #2fb68e;
     border: none;
     text-align: center;
 }
-.list-group-horizontal>.list-group-item{
+
+.list-group-horizontal>.list-group-item {
     background-color: #f1eded;
     border: none;
     text-align: center;
     color: gray;
 }
+
 .list-group.list-group-horizontal {
     border: 1px solid #c2baba;
 }
 
 /* View Your Card */
-.view_your_card_container{
+.view_your_card_container {
     margin: 15px 0px;
     width: 100%;
     height: auto;
     box-shadow: 0px 0px 5px #b2b9bf;
     padding: 25px 20px;
 }
-.primary_credit_card{
+
+.primary_credit_card {
     width: 250px;
 }
-.primary_card_text{
+
+.primary_card_text {
     font-size: 18px;
     font-weight: 500;
     margin-right: 15px;
@@ -38,98 +43,106 @@
     align-items: center;
 }
 
-.all_credit_cards_text{
+.all_credit_cards_text {
     font-weight: 500;
     font-size: 18px;
     margin-top: 15px;
 }
-.all_credit_cards_container{
+
+.all_credit_cards_container {
     background-color: #faede2;
     padding: 10px 0px;
     border-radius: 10px;
     height: 175px;
 }
-.all_credit_cards_slider{
-  width: 250px;
-  text-align: center;
+
+.all_credit_cards_slider {
+    width: 250px;
+    text-align: center;
 }
 
-.credit_card_limit_text{
-    font-size: 18px;
-    font-weight: 500;
-    color: #7b7878;
-}
-.credit_card_limit_works_text{
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: 1px underline;
-    color: #7b7878;
+.credit_card_limit_text {
+    font-size: 16px;
+    font-weight: 410;
 }
 
-.view_your_card_amount_cont{
+.credit_card_limit_works_text {
+    font-size: 16px;
+    font-weight: 410;
+}
+
+.view_your_card_amount_cont {
     width: 250px;
 }
-.total_amount_due_icon{
+
+.total_amount_due_icon {
     color: red;
     margin-right: 7px;
     font-size: 17px;
 }
-.current_outstanding_icon{
+
+.current_outstanding_icon {
     color: orange;
     margin-right: 7px;
     font-size: 17px;
 }
-.available_credit_limit_icon{
+
+.available_credit_limit_icon {
     color: green;
     margin-right: 7px;
     font-size: 17px;
 }
-.credit_card_progress_text{
+
+.credit_card_progress_text {
     color: #7b7878;
+    font-size: 15px;
 }
 
-.credit_card_pay_bill_btn{
+.credit_card_pay_bill_btn {
     border: none;
     outline: none;
     background-color: #2fb68e;
     color: #fff;
     padding: 5px 20px;
     border-radius: 20px;
-}
-.credit_card_due_date{
-    font-weight: 410;
-    font-size: 15px;
-}
-.credit_card_payment_reflect{
     font-size: 14px;
 }
 
-.credit_card_details_btns{
-    padding: 7px 25px;
+.credit_card_due_date {
+    font-weight: 410;
+    font-size: 14px;
+}
+
+.credit_card_payment_reflect {
+    font-size: 13px;
+}
+
+.credit_card_details_btns {
+    padding: 6px 25px;
     border-radius: 25px;
     outline: none;
     border: 1px solid #2fb68e;
-    color: #2fb68e;
     background: transparent;
-    font-weight: 410;
-}
-.credit_card_details_btns:hover{
-    color: #fff;
-    background-color: #2fb68e;
-    border: 0px;
-    transition: 0.8s;
+    font-size: 14px;
 }
 
-.credit_card_manage_subscr_cont{
+.credit_card_details_btns:hover {
+    color: #fff;
+    background-color: #2fb68e;
+    transition: 0.5s;
+}
+
+.credit_card_manage_subscr_cont {
     background-color: #eee9e3;
     padding: 15px 20px;
     margin: 20px 0px;
     border-radius: 5px;
     box-shadow: 0px 3px 4px #b2b9bf;
 }
-.hand_holding_rupee_images_cont{
-    width: 50px;
-    height: 50px;
+
+.hand_holding_rupee_images_cont {
+    width: 45px;
+    height: 45px;
     border: 1px solid #2fb68e;
     border-radius: 50%;
     background-color: #fff;
@@ -138,57 +151,82 @@
     align-items: center;
     margin-right: 10px;
 }
-.hand_holding_rupee_images{
-    width: 40px;
-    height: 40px;
+
+.hand_holding_rupee_images {
+    width: 35px;
+    height: 35px;
 }
-.view_card_manage_subscrip_headings{
+
+.view_card_manage_subscrip_headings {
+    font-size: 15px;
     font-weight: 410;
 }
-.manage_subscript_btns{
-    border: none;
+
+.view_card_manage_text {
+    font-size: 14px;
+}
+
+.manage_subscript_btns {
+    border: 1px solid #2fb68e;
     outline: none;
+    background: transparent;
+    padding: 6px 25px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.manage_subscript_btns:hover {
     background-color: #2fb68e;
     color: #fff;
-    padding: 7px 25px;
-    border-radius: 20px;
+    transition: 0.5s;
 }
 
 /* Manage Your Card Limit*/
-.manage_your_card_container{
+.manage_your_card_container {
     margin: 20px 0px;
     width: 100%;
     height: auto;
     box-shadow: 0px 0px 5px #b2b9bf;
 }
-.manage_credit_limits_header{
+
+.manage_credit_limits_header {
     background-color: #faede2;
     width: 100%;
     height: 50px;
     display: flex;
     align-items: center;
 }
-.manage_credit_limits_heading{
-    font-size: 17px;
-    font-weight: 450;
+
+.manage_credit_limits_heading {
+    font-size: 15px;
+    font-weight: 410;
 }
-.manage_credit_limits_icon{
+
+.manage_credit_limits_icon {
     font-size: 17px;
     margin-right: 5px;
 }
 
-.manage_your_card_inner_cont{
+.manage_your_card_inner_cont {
     padding: 25px 20px;
 }
-.credit_cards_lists{
+
+.credit_cards_dropdown{
+    font-size: 15px;
+}
+
+.credit_cards_lists {
     border: none;
     outline: none;
-    box-shadow: 1px 3px 4px rgb(95, 95, 95);
+    box-shadow: 1px 2px 2px rgb(160, 156, 156);
     padding: 7px 10px 5px 5px;
     border-radius: 5px;
 }
-.existing_credit_card_limit{
+
+.existing_credit_card_limit {
     font-weight: 410;
+    font-size: 15px;
+    margin-right: 5px;
 }
 
 .credit_card_limit_range::-webkit-slider-thumb {
@@ -200,28 +238,33 @@
     -webkit-appearance: none !important;
     box-shadow: 0px 0px 5px rgb(96, 95, 95);
 }
-.credit_limit_generate_otp_btn{
+
+.credit_limit_generate_otp_btn {
     border: none;
     background-color: #2fb68e;
     color: #fff;
     border-radius: 20px;
     padding: 5px 20px;
+    font-size: 14px;
 }
 
 /* Manage Credit Card Usage */
 
-.manage_credit_card_usage_cont{
+.manage_credit_card_usage_cont {
     margin: 20px 0px;
     width: 100%;
     height: auto;
     box-shadow: 0px 0px 5px #b2b9bf;
 }
-.manage_card_usage_container{
+
+.manage_card_usage_container {
     padding: 25px 20px;
 }
-.credit_card_usage_table th{
+
+.credit_card_usage_table th {
     font-weight: 500;
 }
+
 .card_trans_limit {
     box-shadow: 1px 1px 4px #8b8a8afc;
     width: 45%;
@@ -230,7 +273,8 @@
     outline: none;
     border: none;
 }
-.card_trans_limit_empty{
+
+.card_trans_limit_empty {
     box-shadow: 0px 0px 2px #7e7d7dfc;
     width: 45%;
     background-color: #e9e5e5;
@@ -240,19 +284,23 @@
     border: none;
 }
 
-.card_usage_note_heading{
+.card_usage_note_heading {
     font-weight: 410;
     font-size: 15px;
 }
-.card_usage_auth_trans{
-    font-size: 18px;
+
+.card_usage_auth_trans {
+    font-size: 15px;
     font-weight: 410;
+    margin-bottom: 5px;
 }
-.card_usage_otp_text{
+
+.card_usage_otp_text {
     font-weight: 410;
     margin: 5px 0px;
 }
-.card_usage_otp_box{
+
+.card_usage_otp_box {
     border: none;
     outline: 0px;
     box-shadow: 0px 0px 3px black;
@@ -260,34 +308,38 @@
     padding: 4px 10px;
     margin-right: 10px;
 }
-.card_usage_otp_notes{
+
+.card_usage_otp_notes {
     margin: 0px 0px;
     color: #7d7d7d;
-    font-size: 14px;
+    font-size: 13px;
 }
-.card_usage_submit_btn{
+
+.card_usage_submit_btn {
     border: 0px;
     font-weight: 410;
     background-color: #2fb68e;
     color: #fff;
     border-radius: 15px;
     padding: 5px 20px;
+    font-size: 14px;
 }
 
 /* Registeredbillers.css starts */
 
 
-.registered_billers_card .card{
+.registered_billers_card .card {
     border: none;
     background-color: #f8f9fa;
 }
 
-.registered_billers_heading{
+.registered_billers_heading {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.registered_billers_items{
+
+.registered_billers_items {
     padding-top: 25px;
     text-align: center;
     align-items: center;
@@ -298,8 +350,8 @@
     font-weight: 600;
 }
 
-.registered_biller_item{    
-    padding : 10px;
+.registered_biller_item {
+    padding: 10px;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -310,53 +362,58 @@
 
 }
 
-.registered_billers_card h3{
+.registered_billers_card h3 {
     color: #2fb68e;
 }
 
-.registered_billers_card p{
+.registered_billers_card p {
     font-weight: 500;
 }
 
-.registered_billers_coloumn{
-  padding-top: 15px;
-   text-align: center;
-   align-items:center;
-   justify-content:center;
-   border: 1px solid rgb(241, 231, 231);
+.registered_billers_coloumn {
+    padding-top: 15px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(241, 231, 231);
 }
 
-.registered_biller_col{
+.registered_biller_col {
     padding: 6px;
-   text-align: center;
-   align-items:center;
-   justify-content:center;
-   border: 1px solid rgb(241, 231, 231);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(241, 231, 231);
 }
 
-.registered_billers_buttons_container{
+.registered_billers_buttons_container {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 15px;
 }
-.registered_billers_download_button{
+
+.registered_billers_download_button {
     border: none;
 }
-.registered_billers_biller_button{
+
+.registered_billers_biller_button {
     border: none;
     cursor: pointer;
-    background: none ;
+    background: none;
 }
-.registered_billers_biller_download{
+
+.registered_billers_biller_download {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.registered_billers_select_tag{
+
+.registered_billers_select_tag {
     width: 280px;
 }
-.registered_billers_ok_buttton{
+
+.registered_billers_ok_buttton {
     color: #2fb68e;
     border: 1px solid #2fb68e;
     background-color: transparent;
@@ -367,18 +424,18 @@
     border-radius: 10px;
 }
 
-.registered_billers_ok_buttton:hover{
+.registered_billers_ok_buttton:hover {
     color: #fff;
     background-color: #2fb68e;
 }
 
-.registered_billers_biller_download .registered_billers_select_tag:focus{
+.registered_billers_biller_download .registered_billers_select_tag:focus {
     border: none;
     padding: 0.375rem 0.75rem;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.5;
-      width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    width: 100%;
 }
 
 
@@ -389,12 +446,12 @@
 /* ConvertToEmi.css starts */
 
 
-.convert_to_emi_card h3{
+.convert_to_emi_card h3 {
     color: #2fb68e;
 }
 
 
-.convert_to_emi_button{
+.convert_to_emi_button {
     color: #2fb68e;
     border: 1px solid #2fb68e;
     background-color: transparent;
@@ -405,12 +462,12 @@
     border-radius: 10px;
 }
 
-.convert_to_emi_button:hover{
-    background-color:  #2fb68e;
+.convert_to_emi_button:hover {
+    background-color: #2fb68e;
     color: #fff;
 }
 
-.convert_to_emi_row{
+.convert_to_emi_row {
     text-align: justify;
     align-items: center;
 }
@@ -420,15 +477,15 @@
 
 /* ConvertToEmiSubmit.css starts */
 
-.convert_to_emi_submit_button h3{
+.convert_to_emi_submit_button h3 {
     color: #2fb68e;
 }
 
-.convert_to_emi_submit_button .card{
+.convert_to_emi_submit_button .card {
     border: none;
 }
 
-.convert_to_emi_items{
+.convert_to_emi_items {
     padding-top: 25px;
     text-align: center;
     align-items: center;
@@ -439,8 +496,8 @@
     color: #2fb68e;
 }
 
-.convert_to_emi_ref{
-    padding : 10px;
+.convert_to_emi_ref {
+    padding: 10px;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -450,90 +507,92 @@
     color: #2fb68e;
 }
 
-.convert_to_emi_coloumn{
-    padding-top : 15px;
+.convert_to_emi_coloumn {
+    padding-top: 15px;
     text-align: center;
-    align-items:center;
-    justify-content:center;
+    align-items: center;
+    justify-content: center;
     border: 1px solid rgb(241, 231, 231);
 }
 
-.convert_to_emi_date{
+.convert_to_emi_date {
     padding: 1px 5px;
-    padding-top:15px;
+    padding-top: 15px;
     text-align: center;
-    align-items:center;
-    justify-content:center;
+    align-items: center;
+    justify-content: center;
     border: 1px solid rgb(241, 231, 231);
 }
 
-.convert_to_emi_faqs{
+.convert_to_emi_faqs {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
 }
 
-.convert_to_emi_button_convert{
+.convert_to_emi_button_convert {
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 
-.convert_to_emi_button_submit{
+.convert_to_emi_button_submit {
     color: #2fb68e;
     border: 1px solid #2fb68e;
     background-color: transparent;
     padding: 10px 18px;
     outline: none;
     font-size: 14px;
-      font-weight: 600;
+    font-weight: 600;
     border-radius: 10px;
 }
 
-.convert_to_emi_button_submit:hover{
+.convert_to_emi_button_submit:hover {
     color: #fff;
     background-color: #2fb68e;
 }
+
 /* ConvertToEmiSubmit.css ends */
 
 
 
 /* AutoDebitInstructions.css starts */
 
-.auto_debit_instructions h3{
+.auto_debit_instructions h3 {
     color: #2fb68e;
 }
 
 
-.auto_debit_instructions_card{
+.auto_debit_instructions_card {
     border: none;
-    
+
 }
 
-.auto_debit_buttons{
+.auto_debit_buttons {
     color: #2fb68e;
     border: 1px solid #2fb68e;
     background-color: transparent;
     padding: 5px 14px;
     outline: none;
     font-size: 14px;
-      font-weight: 600;
+    font-weight: 600;
     border-radius: 10px;
 }
 
-.auto_debit_buttons:hover{
+.auto_debit_buttons:hover {
     background-color: #2fb68e;
     color: #fff;
 }
 
-.auto_debit_instructions_card .form-control:focus{
+.auto_debit_instructions_card .form-control:focus {
     border: none;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    width: 100%;
 }
+
 /* AutoDebitInstructions.css ends */
 
 /* virtual credit card css starts */
@@ -542,7 +601,7 @@
     border: none;
     font-weight: 400;
     font-family: Poppins;
-  border: 1px solid #ebeaea;
+    border: 1px solid #ebeaea;
 
 }
 
@@ -586,12 +645,12 @@
     font-weight: 600;
     padding: 4px;
     width: 50px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .virtual_credit_card .ok_Btn:hover {
-    background-color: #2fb68e; 
-    color: #fff; 
+    background-color: #2fb68e;
+    color: #fff;
 }
 
 .virtual_credit_card_links {
@@ -603,7 +662,7 @@
 .virtual_credit_card .credit-card {
     width: 375px;
     height: 200px;
-    background-image: linear-gradient(#3348c0,rgb(170, 144, 212));
+    background-image: linear-gradient(#3348c0, rgb(170, 144, 212));
     background-color: #3348c0;
     border-radius: 15px;
     padding: 10px;
@@ -630,11 +689,11 @@
     border: none;
     font-weight: 400;
     font-family: Poppins;
-  border: 1px solid #ebeaea;
+    border: 1px solid #ebeaea;
 }
 
-.billing_cycle .request_heading{
-    background-color: #2fb68e; 
+.billing_cycle .request_heading {
+    background-color: #2fb68e;
     color: #fff;
     font-size: 16px;
     font-weight: 500;
@@ -656,62 +715,62 @@
     padding-left: 5px;
 }
 
-.billing_cycle .submit_Btn{
+.billing_cycle .submit_Btn {
     outline: none;
-  border: 1px solid #2fb68e;
-  border-radius: 4px;
-  color: #2fb68e;
-  background-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 4px;
-  width: 80px;
-  cursor: pointer; 
-  }
-
-  .billing_cycle .submit_Btn:hover {
-    background-color: #2fb68e; 
-    color: #fff; 
-}
-
-  .billing_cycle .reset_Btn{
     border: 1px solid #2fb68e;
-  border-radius: 4px;
-  color: #2fb68e;
-  background-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 4px;
-  width: 60px;
-  cursor: pointer; 
-  }
-
-  .billing_cycle .reset_Btn:hover {
-    background-color: #2fb68e; 
-    color: #fff; 
+    border-radius: 4px;
+    color: #2fb68e;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px;
+    width: 80px;
+    cursor: pointer;
 }
 
-  .billing_cycle .billing_cycle_notes {
+.billing_cycle .submit_Btn:hover {
+    background-color: #2fb68e;
+    color: #fff;
+}
+
+.billing_cycle .reset_Btn {
+    border: 1px solid #2fb68e;
+    border-radius: 4px;
+    color: #2fb68e;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px;
+    width: 60px;
+    cursor: pointer;
+}
+
+.billing_cycle .reset_Btn:hover {
+    background-color: #2fb68e;
+    color: #fff;
+}
+
+.billing_cycle .billing_cycle_notes {
     font-size: 15px;
     color: #808080;
     font-weight: 500;
 }
 
-  /* Billing cycle change css ends */
+/* Billing cycle change css ends */
 
-  /* generate credit-pin css starts */
+/* generate credit-pin css starts */
 
 .generate_credit_pin .card {
     border: none;
     font-weight: 500;
     font-family: Poppins;
-  border: 1px solid #ebeaea;
+    border: 1px solid #ebeaea;
 
 }
 
 .generate_credit_pin .generate_credit_pin_heading {
-    background-color: #2fb68e; 
-    color: #fff; 
+    background-color: #2fb68e;
+    color: #fff;
 }
 
 .generate_credit_pin .credit_card_input {
@@ -725,8 +784,7 @@
     padding-left: 5px;
 }
 
-.generate_credit_pin 
-.card_details_generate_pin_input_tag{
+.generate_credit_pin .card_details_generate_pin_input_tag {
     font-size: 14px;
     font-weight: 500;
 }
@@ -742,118 +800,6 @@
 }
 
 .generate_credit_pin .submit_Btn {
-  outline: none;
-  border: 1px solid #2fb68e;
-  border-radius: 4px;
-  color: #2fb68e;
-  background-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 4px;
-  width: 80px;
-  cursor: pointer; 
-}
-
-.generate_credit_pin .submit_Btn:hover {
-    background-color: #2fb68e; 
-    color: #fff; 
-}
-
-.generate_credit_pin .generate_Btn{
-    outline: none;
-    border: 1px solid #2fb68e;
-    border-radius: 4px;
-    color: #2fb68e;
-    background-color: transparent;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 5px;
-    cursor: pointer; 
-}
-
-.generate_credit_pin .generate_Btn:hover {
-    background-color: #2fb68e; 
-    color: #fff; 
-}
-
-/* generate-creditcard-otp */
-
-.generate_credit_otp_pin{
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.card_details_generate_credit_pin_heading{
-    background-color: #2fb68e; 
-    color: #fff; 
-}
-
-.generate_credit_pin_button_logos{
-    font-size: 20px;
-  }
-  
-  .generate_credit_pin_button{
-    color: #2fb68e;
-    border: 1px solid #2fb68e;
-    outline: none;
-    align-items: center;
-    background-color: transparent;
-    font-size: 16px;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 10px;
-  }
-
-  .generate_credit_pin_button:hover{
-    background-color: #2fb68e;
-    color: #fff;
-  }
-  
-  .generate_credit_pin_para{
-    font-size: small;
-    font-weight:  400;
-  }
-  
-  .generate_credit_pin_icon{
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .generate_credit_pin_div_label{
-    display: flex;
-    flex-direction:column;
-    width: 150px;
-    outline: none;
-    height: 24px;
-    }
-  
-    .generate_credit_pin_icon_otp{
-      border: 1px solid rgb(207, 203, 203);
-      margin: 0px 5px;
-      height: 25px;
-      width: 30px;
-      padding:1px 1px;
-  }
-
-  .genrate_pin_buttons{
-    outline: none;
-    border: 1px solid #2fb68e;
-    border-radius: 4px;
-    color: #2fb68e;
-    background-color: transparent;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 4px;
-    width: 60px;
-    cursor: pointer; 
-  }
-
-  .genrate_pin_buttons:hover{
-    background-color: #2fb68e;
-    color: #fff;
-  }
-
-  .genrate_pin_submits{
     outline: none;
     border: 1px solid #2fb68e;
     border-radius: 4px;
@@ -863,25 +809,137 @@
     font-weight: 600;
     padding: 4px;
     width: 80px;
-    cursor: pointer; 
-  }
+    cursor: pointer;
+}
 
-  .genrate_pin_submits:hover{
+.generate_credit_pin .submit_Btn:hover {
     background-color: #2fb68e;
     color: #fff;
-  }
-  
-  .generateCredit_pin{
+}
+
+.generate_credit_pin .generate_Btn {
+    outline: none;
+    border: 1px solid #2fb68e;
+    border-radius: 4px;
+    color: #2fb68e;
+    background-color: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.generate_credit_pin .generate_Btn:hover {
+    background-color: #2fb68e;
+    color: #fff;
+}
+
+/* generate-creditcard-otp */
+
+.generate_credit_otp_pin {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.card_details_generate_credit_pin_heading {
+    background-color: #2fb68e;
+    color: #fff;
+}
+
+.generate_credit_pin_button_logos {
+    font-size: 20px;
+}
+
+.generate_credit_pin_button {
+    color: #2fb68e;
+    border: 1px solid #2fb68e;
+    outline: none;
+    align-items: center;
+    background-color: transparent;
+    font-size: 16px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+}
+
+.generate_credit_pin_button:hover {
+    background-color: #2fb68e;
+    color: #fff;
+}
+
+.generate_credit_pin_para {
+    font-size: small;
+    font-weight: 400;
+}
+
+.generate_credit_pin_icon {
+    display: flex;
+    flex-direction: row;
+}
+
+.generate_credit_pin_div_label {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    outline: none;
+    height: 24px;
+}
+
+.generate_credit_pin_icon_otp {
+    border: 1px solid rgb(207, 203, 203);
+    margin: 0px 5px;
+    height: 25px;
+    width: 30px;
+    padding: 1px 1px;
+}
+
+.genrate_pin_buttons {
+    outline: none;
+    border: 1px solid #2fb68e;
+    border-radius: 4px;
+    color: #2fb68e;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px;
+    width: 60px;
+    cursor: pointer;
+}
+
+.genrate_pin_buttons:hover {
+    background-color: #2fb68e;
+    color: #fff;
+}
+
+.genrate_pin_submits {
+    outline: none;
+    border: 1px solid #2fb68e;
+    border-radius: 4px;
+    color: #2fb68e;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.genrate_pin_submits:hover {
+    background-color: #2fb68e;
+    color: #fff;
+}
+
+.generateCredit_pin {
     font-size: 15px;
     font-weight: 500;
-  }
+}
 
-  .generateCredit_pin_heading{
+.generateCredit_pin_heading {
     background-color: #2fb68e;
     color: #fff;
-  }
+}
 
-  .generateCredit_pin .generate_now_Btn{
+.generateCredit_pin .generate_now_Btn {
     outline: none;
     border: 1px solid #2fb68e;
     border-radius: 4px;
@@ -891,15 +949,15 @@
     font-weight: 600;
     padding: 4px;
     width: 120px;
-    cursor: pointer; 
-  }
+    cursor: pointer;
+}
 
-  .generateCredit_pin .generate_now_Btn:hover{
+.generateCredit_pin .generate_now_Btn:hover {
     background-color: #2fb68e;
     color: #fff;
-  }
+}
 
-  .generateCredit_pin .credit_card_input {
+.generateCredit_pin .credit_card_input {
     width: 250px;
     padding: 4px;
     box-shadow: inset 0 0 2px rgba(131, 128, 128, 0.3);
@@ -917,138 +975,142 @@
 /* Block Credit Card css Starts */
 
 .Block_Credit_Card_Section .custom-select:focus {
-    
+
     -webkit-box-shadow: none;
     box-shadow: none;
     border: 1px solid #ced4da !important;
-    outline:none;
-  }
-  .Block_Credit_Card_OTP
-  {
-    border:none;
-    outline:none;
+    outline: none;
+}
+
+.Block_Credit_Card_OTP {
+    border: none;
+    outline: none;
     border: 1px solid #ced4da !important;
     border-radius: 2px;
-  }
-  .Block_Credit_Card_Section span
-  {
+}
+
+.Block_Credit_Card_Section span {
     font-weight: 400
-  }
-  .Block_Credit_Card_submitBtn
-  {
+}
+
+.Block_Credit_Card_submitBtn {
     width: auto;
-  height: auto;
-  
-  border: 1px solid  #f18121;
-  /* background-color: rgb(37, 184, 62); */
-  border-radius: 2px;
-  font-weight: 600;
-  color: #f18121;
-  margin-left: 30px;
-  font-size: 15px;
-  text-align: center;
-  background-color: white;
-    
-  }
-  .Block_Credit_Card_submitBtn:hover
-  {
+    height: auto;
+
+    border: 1px solid #f18121;
+    /* background-color: rgb(37, 184, 62); */
+    border-radius: 2px;
+    font-weight: 600;
+    color: #f18121;
+    margin-left: 30px;
+    font-size: 15px;
+    text-align: center;
+    background-color: white;
+
+}
+
+.Block_Credit_Card_submitBtn:hover {
     background-color: #f18121;
     outline: none;
-    color:white;
-  }
-  .Block_Credit_Card_OtpVerifying
-  {
+    color: white;
+}
+
+.Block_Credit_Card_OtpVerifying {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    
-  }
-  .Block_Credit_Card_sendOtpBtn
-  {
+
+}
+
+.Block_Credit_Card_sendOtpBtn {
     border-radius: 2px;
     font-weight: 600;
-    
+
     margin-left: 30px;
-    font-size:14px;
+    font-size: 14px;
     text-align: center;
-   border:1px solid  ;
+    border: 1px solid;
     width: auto;
     height: auto;
-   color:#2fb68e;
-   background-color: white;
-    padding:3px;
+    color: #2fb68e;
+    background-color: white;
+    padding: 3px;
 
-    
-  }
-  .Block_Credit_Card_sendOtpBtn:hover {
-    background-color:#2fb68e ; 
-    color:white;
-    outline:none;
-  }
-  .Block_Credit_Card_OTP
-  {
+
+}
+
+.Block_Credit_Card_sendOtpBtn:hover {
+    background-color: #2fb68e;
+    color: white;
+    outline: none;
+}
+
+.Block_Credit_Card_OTP {
     /* padding:3px;
     font-size:14px;
    width:120px;
    */
-   border:none;
-  outline:none;
-  border: 1px solid #1e1e1f !important;
-  border-radius: 2px;
-  
-  font-size:13px;
-  padding:3px;
-    
-  }
-  .blockcreditcard_note p{
-    font-size:12px;
-   font-weight:400;
-   padding-left:5px;
-  }
-  
+    border: none;
+    outline: none;
+    border: 1px solid #1e1e1f !important;
+    border-radius: 2px;
+
+    font-size: 13px;
+    padding: 3px;
+
+}
+
+.blockcreditcard_note p {
+    font-size: 12px;
+    font-weight: 400;
+    padding-left: 5px;
+}
+
 /* Block Credit Card css emds */
 
 /* Alert Subscription css starts*/
 .alert_subscription-form .custom-select:focus {
-    
+
     -webkit-box-shadow: none;
     box-shadow: none;
     border: 1px solid #ced4da !important;
-    outline:none;
-  }
-  .alert_subscription-form .form-control:focus {
+    outline: none;
+}
+
+.alert_subscription-form .form-control:focus {
     /* border-color: inherit; */
     -webkit-box-shadow: none;
     box-shadow: none;
-  }
-  .alert_subscription-form span{
-    font-weight:400;
-    font-size:15px;
 }
-.alert_subscription-form label
-{
+
+.alert_subscription-form span {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.alert_subscription-form label {
     margin-top: 15px;
-    font-weight:500;
+    font-weight: 500;
 }
-.alert_Subscription_ResetBtn
-{
+
+.alert_Subscription_ResetBtn {
     width: auto;
     height: auto;
-    outline:none;
-    border:1px solid rgba(92, 92, 89, 0.5);
-    background-color:#e4e3e1;
+    outline: none;
+    border: 1px solid rgba(92, 92, 89, 0.5);
+    background-color: #e4e3e1;
     border-radius: 2px;
-    font-weight:600;
-    font-size:14px;
+    font-weight: 600;
+    font-size: 14px;
     text-align: center;
 }
-.alert_Subscription_SubmitBtn
-{
+
+.alert_Subscription_SubmitBtn {
     width: auto;
     height: auto;
-    
-    border: 1px solid  #f18121;
+
+    border: 1px solid #f18121;
     /* background-color: rgb(37, 184, 62); */
     border-radius: 2px;
     font-weight: 600;
@@ -1058,38 +1120,39 @@
     text-align: center;
     background-color: white;
 }
-.alert_Subscription_SubmitBtn:hover
-{
-  background-color: #f18121;
-  outline: none;
-  color:white;
+
+.alert_Subscription_SubmitBtn:hover {
+    background-color: #f18121;
+    outline: none;
+    color: white;
 }
-.alert_Subscription_Notes p
-{
-   font-size:12px;
-   font-weight:400;
-   padding-left:5px;
+
+.alert_Subscription_Notes p {
+    font-size: 12px;
+    font-weight: 400;
+    padding-left: 5px;
 }
 
 /* Alert Subscription css ends*/
 
 /* Physical PIN css starts */
 .physicalPIN_MainContainer .custom-select:focus {
-    
+
     -webkit-box-shadow: none;
     box-shadow: none;
-  }
-  .physicalPIN_MainContainer span
-  {
+}
+
+.physicalPIN_MainContainer span {
     font-weight: 410
-  }
-.PhysicalPin_notes p{
-    font-size:13px;
-   font-weight:400;
-   padding-left:5px;
-  }
-.physicalPin_SubmitBtn
-{
+}
+
+.PhysicalPin_notes p {
+    font-size: 13px;
+    font-weight: 400;
+    padding-left: 5px;
+}
+
+.physicalPin_SubmitBtn {
     width: auto;
     height: auto;
     outline: none;
@@ -1099,14 +1162,14 @@
     font-weight: 600;
     color: white;
     margin-left: 30px;
-    font-size:14px;
+    font-size: 14px;
     text-align: center;
-    background-color: #f18121 ;
+    background-color: #f18121;
 }
-.physicalPIN_heading_Section
-{
+
+.physicalPIN_heading_Section {
     display: flex;
-   justify-content: space-between;
+    justify-content: space-between;
 }
 
 
@@ -1123,116 +1186,124 @@ body {
 }
 
 
-.viewcredit_icon{
-    font-size:8px;
-    margin-right:15px;
+.viewcredit_icon {
+    font-size: 8px;
+    margin-right: 15px;
 }
-.viewcredit_heading{
-    color:#f18121;
+
+.viewcredit_heading {
+    color: #f18121;
 }
-.viewcredit_btn{
-    background-color:#fac294;
+
+.viewcredit_btn {
+    background-color: #fac294;
     color: #f18121;
     border: none;
-    
+
 }
+
 .viewcredit_input:focus {
     outline: none;
 }
-.viewcredit_input{
-    width:30%;
+
+.viewcredit_input {
+    width: 30%;
     font-size: small;
-   
+
 }
 
-.viewcredit_card1{
-   background-color:#faede2!important;
-   padding: 15px;
-   color:#f18121!important;
+.viewcredit_card1 {
+    background-color: #faede2 !important;
+    padding: 15px;
+    color: #f18121 !important;
 }
-.viewcredit_card2{
-    background-color: #fbf5f0!important;
+
+.viewcredit_card2 {
+    background-color: #fbf5f0 !important;
 }
-.viewcredit_card3{
+
+.viewcredit_card3 {
     padding: 25px 100px;
     background-color: white;
 }
 
-.viewcredit_btn1{
+.viewcredit_btn1 {
     background-color: #fac294;
-    color:#f18121;
+    color: #f18121;
     border: none;
     border-radius: 4px;
 }
-.viewcredit_para{
+
+.viewcredit_para {
     margin-bottom: -50px;
 }
 
 
 
 
-  .viewcredit_dropdown-symbol {
+.viewcredit_dropdown-symbol {
     position: absolute;
     top: 50%;
     right: 90px;
     transform: translateY(-50%);
-    pointer-events: none; 
-  }
- 
-
-  .viewcredit_input {
-    padding-right: 25px; 
-  }
+    pointer-events: none;
+}
 
 
- .viewcredit_dropdown-container{
+.viewcredit_input {
+    padding-right: 25px;
+}
+
+
+.viewcredit_dropdown-container {
     position: relative;
     display: inline-block;
-  }
- .ciewcredit-icondropdown{
-    margin-left:-70px;
+}
+
+.ciewcredit-icondropdown {
+    margin-left: -70px;
     padding-right: 60px;
- }
+}
 
 .viewcredit_dropdown {
     position: relative;
     display: inline-block;
-  }
-  
-  .viewcredit_input {
+}
+
+.viewcredit_input {
     width: 30%;
     font-size: small;
-  }
-  
-  .ciewcredit-icondropdown {
+}
+
+.ciewcredit-icondropdown {
     margin-left: -70px;
     padding-right: 60px;
     cursor: pointer;
-  }
-  
-  .viewcredit_dropdown_content {
+}
+
+.viewcredit_dropdown_content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    bottom: 0; 
-  }
-  
-  .viewcredit_dropdown_content div {
+    bottom: 0;
+}
+
+.viewcredit_dropdown_content div {
     padding: 12px 16px;
     color: #333;
     cursor: pointer;
-  }
-  
-  .viewcredit_dropdown_content div:hover {
+}
+
+.viewcredit_dropdown_content div:hover {
     background-color: #ddd;
-  }
-  
-  .viewcredit_dropdown:hover .viewcredit_dropdown_content {
+}
+
+.viewcredit_dropdown:hover .viewcredit_dropdown_content {
     display: block;
-  }
-  
+}
+
 /* view last credit css ends */
 
 /* rewards css starts */
@@ -1244,40 +1315,44 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.rewards_startheading{
+.rewards_startheading {
     color: #f18121;
 }
 
 
-.rewards_img1{
-    width:100%;
+.rewards_img1 {
+    width: 100%;
     transform: rotate(-20deg);
     margin-top: -30px;
-    
-    
+
+
 }
-.rewards_img2{
-    width:100%;
+
+.rewards_img2 {
+    width: 100%;
     transform: rotate(-8deg);
-    margin-left:-50px;
+    margin-left: -50px;
     margin-top: -30px;
-    
-    
+
+
 }
-.rewards_img3{
-    width:100%;
+
+.rewards_img3 {
+    width: 100%;
     transform: rotate(30deg);
-    margin-left:-80px;
+    margin-left: -80px;
     margin-top: -30px;
-    
+
 }
-.rewards_img4{
-    width:100%;
-    height:100%;
+
+.rewards_img4 {
+    width: 100%;
+    height: 100%;
     margin-top: -30px;
-    
+
 }
-.rewards_main{
+
+.rewards_main {
     border-right: 1px solid gray;
     border-top: 1px solid gray;
     border-top-right-radius: 60px;
@@ -1288,121 +1363,134 @@ body {
 /* rewards css ends */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 /* forex card css starts here */
-.forex_button{
-    border:none;
+.forex_button {
+    border: none;
     color: #f18121;
     background-color: #faede2;
-    width:150px;
-    height:35px;
-   border-radius: 10px;
-   font-family: 'poppins';
-   margin-left: 65px;
-   padding-top: 6px;
-   
-    
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    font-family: 'poppins';
+    margin-left: 65px;
+    padding-top: 6px;
+
+
 }
-.forex_button2{
-    border:none;
-    color:  #f18121;
+
+.forex_button2 {
+    border: none;
+    color: #f18121;
     background-color: #faede2;
-    width:150px;
-    height:35px;
-   border-radius: 10px;
-   font-family: 'poppins';
-   margin-left: 65px;
-   padding-top: 6px;
-   
-    
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    font-family: 'poppins';
+    margin-left: 65px;
+    padding-top: 6px;
+
+
 }
-.forex_button3{
-    border:none;
-    color:  #f18121;
+
+.forex_button3 {
+    border: none;
+    color: #f18121;
     background-color: #faede2;
-    width:150px;
-    height:35px;
-   border-radius: 10px;
-   font-family: 'poppins';
-   margin-left: 70px;
-   padding-top: 6px;
-   
-    
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    font-family: 'poppins';
+    margin-left: 70px;
+    padding-top: 6px;
+
+
 }
-.forex_button4{
-    border:none;
-    color:  #f18121;
+
+.forex_button4 {
+    border: none;
+    color: #f18121;
     background-color: #faede2;
-    width:150px;
-    height:35px;
-   border-radius: 10px;
-   font-family: 'poppins';
-   margin-left: 65px;
-   padding-top: 6px;
-   
-   
-    
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    font-family: 'poppins';
+    margin-left: 65px;
+    padding-top: 6px;
+
+
+
 }
-.forexcard_heading{
-    background-color:navy;
+
+.forexcard_heading {
+    background-color: navy;
     color: white;
     padding: 10px;
     font-family: 'poppins';
     display: flex;
     justify-content: space-around;
-    margin-left:10px;
+    margin-left: 10px;
 
 }
 
-.forexcard-title{
+.forexcard-title {
     font-family: 'poppins';
     margin-left: 15px;
 }
-.forexcard-title2{
+
+.forexcard-title2 {
     font-family: 'poppins';
     margin-left: 5px;
     margin-top: 15px;
-    
+
 }
-.forexcard-title3{
+
+.forexcard-title3 {
     font-family: 'poppins';
     margin-left: 15px;
 }
-.forexcard-title4{
+
+.forexcard-title4 {
     font-family: 'poppins';
     margin-left: 15px;
 }
-.forex_img{
-    width:340px;
-    height:190px;
+
+.forex_img {
+    width: 340px;
+    height: 190px;
     border-radius: 30px;
-    padding:20px;    
-    
-           
+    padding: 20px;
+
+
 }
-.forex_img2{
-    width:250px;
-    height:170px;
+
+.forex_img2 {
+    width: 250px;
+    height: 170px;
     border-radius: 30px;
     margin-left: 15px;
-    padding:20px;
-      
+    padding: 20px;
+
 }
-.forex_img3{
-    width:330px;
-    height:160px;
+
+.forex_img3 {
+    width: 330px;
+    height: 160px;
     margin-left: 10px;
-    padding:20px;
-   
-        
+    padding: 20px;
+
+
 }
-.forex_img4{
-    width:250px;
-    height:170px; 
-    margin-left: 25px; 
-    padding:20px;
-      
+
+.forex_img4 {
+    width: 250px;
+    height: 170px;
+    margin-left: 25px;
+    padding: 20px;
+
 }
-.forex_gst{
+
+.forex_gst {
     font-family: 'poppins';
     padding-left: 25px;
 }
@@ -1411,62 +1499,70 @@ body {
 
 /* prepaid card css starts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 /* prepaid card css starts here */
-.prepaidcard_id{
+.prepaidcard_id {
     background-color: #f8f9fe;
     font-family: 'poppins';
 }
-.prepaidcard_heading{
+
+.prepaidcard_heading {
     background-color: #faede2;
     font-family: 'poppins';
 }
 
-.prepaid_card{
-background-color: rgb(249, 247, 252);
-font-family: 'poppins';
+.prepaid_card {
+    background-color: rgb(249, 247, 252);
+    font-family: 'poppins';
 }
-.prepaidcard_button{
+
+.prepaidcard_button {
     border: none;
     background-color: #faede2;
     color: #f18121;
     font-family: 'poppins';
 }
+
 /* prepaid card css ends here */
 
 /* merchant standing instructions css ends here */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 /* merchant css starts here */
-.merchant_heading{
+.merchant_heading {
     color: #f18121;
     font-family: 'poppins';
-    
+
 }
-.merchant_list{
+
+.merchant_list {
     background-color: #f8f9fa;
     color: black;
     display: grid;
     text-align: center;
     font-family: 'poppins';
     text-align: left;
-    
+
 }
-.merchant_checkbox{
-    margin-left:2px;
+
+.merchant_checkbox {
+    margin-left: 2px;
     font-family: 'poppins';
 }
 
-.merchant_button1{
+.merchant_button1 {
     margin-left: 15px;
-    border:none;
+    border: none;
     color: #f18121;
     background-color: #faede2;
     border-radius: 10px;
     font-family: 'poppins';
-    
-    
+
+
 }
-.merchant_button{
-    border:none;
+
+.merchant_button {
+    border: none;
     color: #f18121;
     background-color: #faede2;
     margin-left: 10px;
@@ -1474,4 +1570,5 @@ font-family: 'poppins';
     font-family: 'poppins';
 
 }
+
 /* merchant css ends here */

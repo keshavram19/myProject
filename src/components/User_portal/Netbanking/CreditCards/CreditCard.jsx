@@ -17,6 +17,7 @@ import Toggle from 'react-toggle';
 import 'react-toggle/style.css';
 import { Tab, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 
 const CreditCard = () => {
@@ -100,7 +101,6 @@ const CreditCard = () => {
         }
     }, [individualCreditCard]);
     const handleRangeChange = (event) => {
-        // const newCreditLimit = Math.min(parseInt(event.target.value, 10), individualCreditCard.maximumCreditLimit);
         const newCreditLimit = Math.min(
             Math.max(parseInt(event.target.value, 10), individualCreditCard.creditCardLimit),
             individualCreditCard.maximumCreditLimit
@@ -192,6 +192,7 @@ const CreditCard = () => {
             console.log('Error Verifying OTP:', error);
         }
     };
+
     const handleVerifyCreditCardOTP = async (event) => {
         try {
             await verificationOfCreditCardLimitOTP();
@@ -234,6 +235,7 @@ const CreditCard = () => {
             })
         }
     };
+
     const handleOnlineTransaction = (event) => {
         const changedValue2 = event.target.value;
         if(changedValue2 === '' || (parseInt(changedValue2) <= 20000 && parseInt(changedValue2) >= 0)){
@@ -252,6 +254,7 @@ const CreditCard = () => {
             });
         }
     };
+
     const handleMerchantOutlets = (event) => {
         const changedValue3 = event.target.value;
         if(changedValue3 === '' || (parseInt(changedValue3) <= 20000 && parseInt(changedValue3) >= 0)){
@@ -270,6 +273,7 @@ const CreditCard = () => {
             });
         }
     };
+
     const handlePayTransaction = (event) => {
         const changedValue4 = event.target.value;
         if(changedValue4 === '' || (parseInt(changedValue4) <= 20000 && parseInt(changedValue4) >= 0)){
@@ -287,7 +291,7 @@ const CreditCard = () => {
                 theme: "colored"
             });
         }
-    }
+    };
 
     const updateDomesticCard = async () => {
         const options = {
@@ -409,15 +413,14 @@ const CreditCard = () => {
                                                     <div className='credit_card_limit_text'>Credit Limit:</div>
                                                     <div className='d-flex align-items-center'>
                                                         <div><MdCurrencyRupee /></div>
-                                                        <div>
-                                                            {
-                                                                individualCreditCard &&
-                                                                <div>{individualCreditCard.creditCardLimit}</div>
-                                                            }
-                                                        </div>
+                                                        <div>{individualCreditCard.creditCardLimit}</div>
                                                     </div>
                                                 </div>
-                                                <div className='credit_card_limit_works_text'>How Credit Limit Works?</div>
+                                                <div className='credit_card_limit_works_text'>
+                                                    <Link>
+                                                        How Credit Limit Works?
+                                                    </Link>
+                                                </div>
                                             </div>
 
                                             <div class="progress my-2">
@@ -538,7 +541,9 @@ const CreditCard = () => {
                                                 </div>
                                                 <div>
                                                     <div className='view_card_manage_subscrip_headings'>MANAGE SUBSCRIPTION</div>
-                                                    <div>Manage standing instruction and recurring charges</div>
+                                                    <div className='view_card_manage_text'>
+                                                        Manage standing instruction and recurring charges
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div>
@@ -559,7 +564,9 @@ const CreditCard = () => {
                                                 </div>
                                                 <div>
                                                     <div className='view_card_manage_subscrip_headings'>MANAGE TOKENS</div>
-                                                    <div>Manage your Royal Islamic bank credit card tokens</div>
+                                                    <div className='view_card_manage_text'>
+                                                        Manage your Royal Islamic bank credit card tokens
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div>
@@ -580,7 +587,9 @@ const CreditCard = () => {
                                                 </div>
                                                 <div>
                                                     <div className='view_card_manage_subscrip_headings'>CREDIT CARD</div>
-                                                    <div>Get a feature-packed Royal Islamic bank credit card on the fly</div>
+                                                    <div className='view_card_manage_text'>
+                                                        Get a feature-packed Royal Islamic bank credit card on the fly
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div>
@@ -593,7 +602,7 @@ const CreditCard = () => {
                                 </div>
                             </Tab.Pane>
                             <Tab.Pane eventKey="#link2">
-                                <div id="manageyourcard" class="">
+                                <div id="manageyourcard">
                                     <div className='manage_your_card_container'>
                                         <div className='manage_credit_limits_header'>
                                             <div className='d-flex align-items-center ml-4'>
@@ -604,7 +613,9 @@ const CreditCard = () => {
 
                                         <div className='manage_your_card_inner_cont'>
                                             <div>
-                                                <div className='mb-1'>Select Credit Card Number:</div>
+                                                <div className='mb-1 credit_cards_dropdown'>
+                                                    Select Credit Card Number
+                                                </div>
                                                 <div>
                                                     <select required className='credit_cards_lists'
                                                         value={creditCardNum} onChange={handleCreditCardNumber}>
@@ -617,20 +628,26 @@ const CreditCard = () => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className='d-flex justify-content-between my-3 existing_credit_card_limit'>
+                                                <div className='d-flex justify-content-between my-3'>
                                                     <div className='d-flex align-items-center'>
-                                                        <div className='mr-1'>Existing Credit Limit: </div>
+                                                        <div className='existing_credit_card_limit'>
+                                                            Existing Credit Limit: 
+                                                        </div>
                                                         <div>{individualCreditCard.creditCardLimit}</div>
                                                     </div>
                                                     <div className='d-flex align-items-center'>
-                                                        <div className='mr-1'>Maximum Credit Limit: </div>
+                                                        <div className='existing_credit_card_limit'>
+                                                            Maximum Credit Limit: 
+                                                        </div>
                                                         <div>{individualCreditCard.maximumCreditLimit}</div>
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <div>Select your desired credit limit</div>
+                                                    <div style={{fontSize: '15px'}}>Select your desired credit limit</div>
                                                     <div className="form-group">
-                                                        <label htmlFor="formControlRange">Credit Limit (INR)</label>
+                                                        <label htmlFor="formControlRange" style={{fontSize: '15px'}}>
+                                                            Credit Limit (INR)
+                                                        </label>
                                                         <input
                                                             type="range"
                                                             className="form-control-range credit_card_limit_range"
@@ -648,8 +665,9 @@ const CreditCard = () => {
                                                                 appearance: 'none',
                                                             }}
                                                         />
-                                                        <div className='mt-3'>
-                                                            Selected Credit Limit: INR {creditLimit}
+                                                        <div className='d-flex align-items-center'>
+                                                            <div>Selected Credit Limit: </div>
+                                                            <div>{creditLimit}</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -865,9 +883,9 @@ const CreditCard = () => {
                                             </div>
                                             <div>
                                                 <div>
-                                                    <div className='card_usage_note_heading'>Note:</div>
+                                                    <div className='card_usage_note_heading'>Notes:</div>
                                                     <div>
-                                                        <ul style={{ fontSize: '14px' }}>
+                                                        <ul style={{ fontSize: '13px' }}>
                                                             <li>
                                                                 You can only change the transaction type or transaction limit for one card at a time
                                                             </li>
@@ -888,13 +906,14 @@ const CreditCard = () => {
                                                 </div>
                                                 <div className='px-2'>
                                                     <div className='card_usage_auth_trans'>Enter OTP For Credit Card Limits & Usage:</div>
-                                                    {/* <div className='card_usage_otp_text'>One Time Password</div> */}
                                                     <div className='d-flex align-items-center'>
                                                         <input className='card_usage_otp_box'
                                                             onChange={readCreditCardLimitOTP} value={creditCardOtp}>
 
                                                         </input>
-                                                        <div>OTP has been send to your registered Mail Id</div>
+                                                        <div style={{ fontSize: '14px'}}>
+                                                            OTP has been send to your registered Mail Id
+                                                        </div>
                                                     </div>
                                                     <div className='my-3'>
                                                         <div className='card_usage_otp_notes'>

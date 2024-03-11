@@ -54,7 +54,8 @@
   .requested_data_list_table_headings
   th {
   padding: 15px 8px;
-  background-color: #f2f3f2;
+  background-color: #2fb68e;
+  color: white;
   /* width: 30%; */
   font-weight: 600;
 }
@@ -68,10 +69,10 @@
   color: #4a4a4aeb;
 }
 
-.requested_data_list_table_headings th:first-child,
+/* .requested_data_list_table_headings th:first-child,
 .requested_data_list_table_content td:first-child {
-  /* width: 10% !important; */
-}
+  /* width: 10% !important; 
+} */
 
 .requested_data_list_icon_button {
   background: none;
@@ -84,13 +85,13 @@
   font-size: 10px;
   color: #fff;
   letter-spacing: 0.1rem;
-  background: #eb6c18c8;
+  background: #2fb68e;
   display: inline;
   cursor: pointer;
   text-transform: uppercase;
 
   text-align: center;
-  border: 1px solid #eb6c18c8;
+  border: 1px solid #2fb68e;
   /* padding-right: 8px!important;
       padding-left: 8px!important; */
 }
@@ -104,13 +105,13 @@
   font-size: 10px;
   color: #fff;
   width: auto;
-  background: #eb6c18;
+  background: #2fb68e;
   display: inline;
   cursor: pointer;
   text-transform: uppercase;
 
   text-align: center;
-  border: 1px solid #ce6200;
+  border: 1px solid #2fb68e;
   /* padding-right: 8px!important;
       padding-left: 8px!important; */
 }

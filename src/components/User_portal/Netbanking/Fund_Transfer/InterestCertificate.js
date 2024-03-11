@@ -5,8 +5,13 @@ import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import apiList from "../../../../lib/apiList";
-// import logo from "../../../Images/Royal islamic.png";
-// import logo from "../../../Images/Royal islamic.png";
+import logo from "../../../../Images/banklogo.png";
+
+
+
+
+
+
 
 
 
@@ -236,8 +241,6 @@ const calculateValuesForAccount = async (
 };
 
 
-
-
   useEffect(() => {
     if (selectedAccount && userDetails.length > 0 && interestPeriod) {
       const values = calculateValuesForAccount(userDetails, selectedYear);
@@ -309,22 +312,22 @@ const calculateValuesForAccount = async (
 
 
       const pdf = new jsPDF();
-      // pdf.addImage(logo, "PNG", 20, 10, 50, 20);
-      // const logoWidth = 50; 
-      // const logoHeight = 20; 
-      // pdf.addImage(logo, "PNG", 20, 10, logoWidth, logoHeight);
+      const centerX = pdf.internal.pageSize.getWidth() / 2;
+      const centerY = pdf.internal.pageSize.getHeight() / 2;
+      pdf.addImage(logo, "PNG", centerX - 25, 10, 50, 20);
+   
       pdf.text(20, 20, `Date: ${new Date().toLocaleDateString()}`);
       pdf.text(
         20,
         30,
-        `Account Holder Name: ${certificateData.accountHolderName}`
+        `Name: ${certificateData.accountHolderName}`
       );
       pdf.text(
         20,
         40,
-        `Account Holder Address: ${certificateData.accountHolderAddress}`
+        ` Address: ${certificateData.accountHolderAddress}`
       );
-      pdf.text(20, 50, `Bank Branch Name: ${certificateData.bankBranchName}`);
+      pdf.text(20, 50, `Bank Branch : ${certificateData.bankBranchName}`);
       pdf.text(20, 60, "Interest Certificate");
       pdf.text(20, 70, "Dear Customer,");
       pdf.text(
