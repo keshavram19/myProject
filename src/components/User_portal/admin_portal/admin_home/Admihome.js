@@ -137,7 +137,6 @@ const Adminhome = () => {
                     Search
                   </button>
                 </div>
-
                 <div>
                   <table className="admin_home_table_head">
                     <tbody>
@@ -149,65 +148,6 @@ const Adminhome = () => {
                         <th>E-mail</th>
                         <th>Phone number</th>
                         <th>View</th>
-
-              </div>
-            </div>
-            <div className="services">
-              <p className=" admin_home_heading">All Customers</p>
-              <div className="d-flex my-4">
-                <input
-                  placeholder="Enter Account no "
-                  className="form-control mr-2 w-50"
-                  value={filters.accountNo}
-                  onChange={(e) =>
-                    setFilters({ ...filters, accountNumber: e.target.value })
-                  }
-                />
-                <input
-                  placeholder="Enter Mobile no"
-                  className="form-control ml-2 w-50"
-                  value={filters.phoneNumber}
-                  onChange={(e) =>
-                    setFilters({ ...filters, mobilenumber: e.target.value })
-                  }
-                />
-                <input
-                  placeholder="Enter E-mail"
-                  className="form-control ml-2 mr-4 w-50"
-                  value={filters.email}
-                  onChange={(e) =>
-                    setFilters({ ...filters, email: e.target.value })
-                  }
-                />
-                <button
-                  className="admin_home_Add_customer"
-                  onClick={applyFilters}
-                >
-                  Search
-                </button> 
-              </div>
-              <div>
-                <table className="admin_home_table_head">
-                  <tbody>
-                    <tr className="admin_home_table_headings">
-                      <th>SR No.</th>
-                      <th>Account No.</th>
-                      <th>Account Holder Name</th>
-                      <th>Account Type</th>
-                      <th>E-mail</th>
-                      <th>Phone number</th>
-                      <th>View</th>
-                    </tr>
-                    {applyFilters().map((customer, index) => (
-                      <tr key={index} className="admin_home_table_content">
-                        <td>{index + 1}</td>
-                        <td>{customer.accountNumber}</td>
-                        <td>{`${customer.firstname} ${customer.lastname}`}</td>     
-                        <td>{customer.openaccount}</td>
-                        <td>{customer.email}</td>
-                        <td>{customer.mobilenumber}</td>
-                        <td>View</td>
-
                       </tr>
                       {applyFilters().map((customer, index) => (
                         <tr key={index} className="admin_home_table_content">
@@ -233,5 +173,6 @@ const Adminhome = () => {
     </div>
   );
 };
+
 
 export default Adminhome;
