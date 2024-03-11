@@ -53,14 +53,12 @@ const apiList ={
     autoDebitSetupNo: `${server}/api/autodebit/no`,
 
 
-    
- 
-    getuserrequesteddetails:`${server}/api/requesteduserdetails`,
+  
  individualrequestedetails: `${server}/api/individualrequesteduserdetails`,
 
 
-    getuserrequesteddetails: `${server}/api/requesteduserdetails/`,
-    requestedUserDetailsByEmail: `${server}/api/individualrequesteduserdetails/`,
+    getuserrequesteddetails: `${server}/account/requesteduserdetails/`,
+    requestedUserDetailsByEmail: `${server}/account/individualrequesteduserdetails/`,
 
 
     addAccountDetails:`${server}/api/add-account-details/`,
@@ -68,7 +66,7 @@ const apiList ={
     UserDetailsAccountOpeningSendOTP:`${server}/api/send-otp`,
     UserDetailsAccountOpeningVerifyOTP:`${server}/api/verify-otp`,
 
-  requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+  // requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
 
 
 
