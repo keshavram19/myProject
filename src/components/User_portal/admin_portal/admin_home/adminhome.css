@@ -99,16 +99,23 @@
   font-size: 10px;
   color: #fff;
   width: auto;
-  background: #eb6c18;
+  background: #2fbe92;
   display: inline;
   cursor: pointer;
   text-transform: uppercase;
 
   text-align: center;
-  border: 1px solid #ce6200;
+  border: 1px solid #2fbe92;
   /* padding-right: 8px!important;
       padding-left: 8px!important; */
 }
+
+.accounts_admin_home h1{
+  font-size: 24px;
+  color: #ebca28;
+  font-weight: 400;
+}
+
 
 /* cheque book request admin css starts */
 
@@ -176,3 +183,4 @@
 
 
 /* cheque book request admin css ends */
+
