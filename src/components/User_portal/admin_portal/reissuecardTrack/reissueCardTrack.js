@@ -94,7 +94,7 @@ const ReissueCardTable = () => {
 
   const onViewClick = (user) => {
     console.log('Viewing user:', user);
-    navigate('/admin-reissuecardGenerateorReject');
+    navigate('/admin/reissuecardGenerateorReject');
   };
 
   const getStatus = (user) => {
@@ -109,7 +109,7 @@ const ReissueCardTable = () => {
   };
 
   return (
-    <div style={{marginTop:'90px'}}  className="table-container container">
+    <div className="table-container container">
       <h4 className='ml-3 text-success'>Reissue Card Generated Requests</h4>
       <table>
         <thead>

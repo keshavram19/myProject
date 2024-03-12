@@ -83,6 +83,11 @@ const PayLater = () => {
     }
   }
 
+  const generateRandomTransactionId = () => {
+    const randomNumber = Math.floor(Math.random() * 1000) + 1;
+    return `RIB${String(randomNumber).padStart(4, '0')}`;
+  };
+
   
   return (
     <>
@@ -136,6 +141,7 @@ const PayLater = () => {
             <thead className="paylater_tablehead">
               <tr >
                 <th>Date</th>
+                <th>TransactionID</th>
                 <th>Transaction Remark</th>
     <th>DR</th>
                 <th>CR</th>
@@ -147,6 +153,7 @@ const PayLater = () => {
             {allTransactionsList.map((transaction, index) => (
                                                     <tr key={index}>
                                                         <td>{transaction.date}</td>
+                                                        <td>{generateRandomTransactionId()}</td>
                                                         <td>{transaction.narration}</td>
                                                         <td>{transaction.withdrawl}</td>
                                                         <td>{transaction.deposite}</td>

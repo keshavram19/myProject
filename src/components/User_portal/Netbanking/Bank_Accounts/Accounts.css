@@ -11,6 +11,7 @@
   margin-bottom: 20px;
   font-size: 13px;
 }
+
 .savings_account_header {
   width: 100%;
   display: flex;
@@ -19,23 +20,39 @@
   color: #fff;
   border-bottom: 1px solid #cdc2c2;
   padding: 10px 5px;
-  font-size: 15px;
 }
+
 .savings_acct_type_heading {
   font-weight: 410;
+  font-size: 14px;
+  margin-right: 5px;
 }
+
+.savings_acct_type_text {
+  font-size: 14px;
+}
+
 .savings_acct_avail_bal {
   font-weight: 410;
+  font-size: 14px;
+  margin-right: 5px;
 }
+
+.savings_acct_avail_bal_text {
+  font-size: 14px;
+}
+
 .savings_account_user_details_cont {
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 10px 5px;
 }
+
 .savings_acct_user_headings {
   font-weight: 410;
 }
+
 .account_statement_view_btn {
   border-radius: 5px;
   padding: 3px 15px;
@@ -43,7 +60,8 @@
   background: transparent;
   font-size: 13px;
 }
-.account_statement_view_btn:hover{
+
+.account_statement_view_btn:hover {
   background-color: #2fb68e;
   color: #fff;
   border: none;
@@ -53,45 +71,65 @@
 .savings_acct_statement {
   margin: 5px 0px;
 }
+
 .savings_acc_statement_cont_heading {
   font-weight: 410;
   font-size: 16px;
 }
+
 .acct_statement_printer_icon {
   font-size: 18px;
   font-weight: 500;
   margin-right: 5px;
 }
+
 .acct_statement_printer_text {
   font-size: 16px;
   color: blue;
   text-decoration: underline;
   cursor: pointer;
 }
+
 .acct_statement_acct_num {
   font-weight: 410;
+  font-size: 15px;
+  margin-right: 5px;
 }
+
+.acct_statement_num_text {
+  font-size: 14px;
+}
+
 .savings_acc_another_acct {
   margin: 7px 0px;
-  font-size: 15px;
+  font-size: 14px;
 }
+
 .savings_acct_mybalnace {
   font-weight: 410;
-  font-size: 15px;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.savings_acct_mybal_text {
+  font-size: 14px;
 }
 
 .savings_acct_trans_table {
   border-collapse: collapse;
 }
+
 .savings_acct_trans_table_header {
   font-size: 15px;
 }
+
 .savings_acct_trans_table th {
   font-weight: 450;
   background-color: #2fb68e !important;
   color: #fff !important;
 }
-.savings_acct_trans_table_body{
+
+.savings_acct_trans_table_body {
   font-size: 13px;
 }
 
@@ -99,11 +137,13 @@
   font-weight: 450;
   font-size: 15px;
 }
+
 .savings_acct_note_points {
   margin: 5px 0px;
   font-size: 13px;
   color: #7d7d7d;
 }
+
 .savings_acc_note_atag {
   color: #4094ef;
   cursor: pointer;
@@ -121,82 +161,88 @@
   padding: 10px 10px;
   margin-bottom: 10px;
 }
+
 .acct_statements_months_cont {
   border: 1px solid #dee2e6;
   margin-bottom: 10px;
   background-color: rgb(253, 253, 253);
   font-size: 13px;
 }
+
 .acct_type_cont {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #dee2e6;
   padding: 10px 20px;
 }
+
 .acct_type_text {
   width: 190px;
   font-weight: 410;
   display: flex;
   align-items: center;
 }
-.statement_acct_type_icon{
+
+.statement_acct_type_icon {
   color: #2fb68e;
   font-size: 25px;
 }
+
 .acct_num_cont {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #dee2e6;
   padding: 10px 20px;
 }
+
 .acct_num_text {
   width: 190px;
   font-weight: 410;
 }
-.mini_statement_cont {
-  border-bottom: 1px solid #dee2e6;
-  padding: 10px 20px;
-}
-.ministatement_radio_btn {
-  width: 17px;
-  height: 17px;
-  margin-right: 6px;
-}
+
 .period_cont {
   border-bottom: 1px solid #dee2e6;
   padding: 10px 20px;
 }
+
 .period_data_cont {
   width: 190px;
 }
+
 .period_radio_btn {
   width: 17px;
   height: 17px;
   margin-right: 6px;
 }
+
 .period_from_to {
   width: 50px;
 }
+
 .from_date_period {
   border: 1px solid #dee2e6;
   outline: none;
   border-radius: 5px;
   padding: 3px 10px;
 }
+
 .calender_icon {
   font-size: 20px;
   margin-left: 5px;
 }
+
 .show_transactions_cont {
   display: flex;
   align-items: center;
   padding: 10px 20px;
   border-bottom: 1px solid #dee2e6;
 }
+
 .show_transactions_text {
   width: 190px;
   font-weight: 410;
 }
+
 .show_all_transa {
   width: 190px;
   display: flex;
@@ -204,7 +250,7 @@
   margin-right: 40px;
 }
 
-.per_page_tarns{
+.per_page_tarns {
   width: 210px;
   display: flex;
   align-items: center;
@@ -214,13 +260,16 @@
   font-size: 25px;
   color: #2fb68e;
 }
-.page_trans_icon{
+
+.page_trans_icon {
   color: #2fb68e;
-  font-size: 15px;
+  font-size: 20px;
 }
+
 .transactions_view_btn_cont {
   padding: 10px 20px;
 }
+
 .transactions_view_btn {
   border: 1px solid #2fb68e;
   outline: none;
@@ -229,65 +278,71 @@
   background: transparent;
   font-size: 13px;
 }
-.transactions_view_btn:hover{
+
+.transactions_view_btn:hover {
   background-color: #2fb68e;
   color: #fff;
   transition: 0.4s;
 }
 
-.statement_savings_acct_num_cont{
+.statement_savings_acct_num_cont {
   border: 1px solid #cec9c9;
   border-radius: 5px;
   padding: 6px 10px;
   margin: 10px 0px;
 }
-.statement_savings_acct_num{
+
+.statement_savings_acct_num {
   font-weight: 410;
   margin-right: 7px;
   color: #2fb68e;
 }
-.statement_savings_acct_branch{
+
+.statement_savings_acct_branch {
   font-weight: 410;
   font-size: 16px;
   color: #2fb68e;
 }
-.trans_statement_pages{
+
+.trans_statement_pages {
   font-size: 15px;
 }
-.tran_statement_closing_bal{
+
+.tran_statement_closing_bal {
   font-weight: 410;
   font-size: 15px;
   margin-right: 5px;
 }
-.tran_statement_balance{
+
+.tran_statement_balance {
   font-size: 15px;
 }
-.tran_statement_table_header th{
+
+.tran_statement_table_header th {
   font-weight: 410;
   font-size: 15px;
   background-color: #2fb68e !important;
   color: #fff !important;
 }
-tbody.tran_statement_table_body{
+
+tbody.tran_statement_table_body {
   font-size: 13px;
 }
-.tran_statement_format{
-  font-size: 15px;
-  margin-right: 5px;
-  font-weight: 400;
-}
+
 select.form-control.statement_select_format {
   font-size: 13px;
   height: 30px;
 }
-.statement_download_btn{
+
+.statement_download_btn {
   border: 1px solid #2fb68e;
   border-radius: 5px;
   padding: 3px 15px;
   font-size: 13px;
   background: transparent;
 }
-.statement_download_btn:hover{
+
+.statement_download_btn:hover {
   background-color: #2fb68e;
   color: #fff;
   transition: 0.5s;
@@ -297,14 +352,48 @@ select.form-control.statement_select_format {
   font-weight: 450;
   font-size: 15px;
 }
+
 .savings_acct_statement_note_points {
   color: #7d7d7d;
   margin: 5px 0px;
   font-size: 13px;
 }
+
 .savings_acct_statement_note_points_atag {
   color: #4094ef;
   text-decoration: underline;
+}
+
+
+.statements_bank_logo {
+  width: 170px;
+}
+
+.customer_info_container {
+  margin: 15px 0px;
+}
+
+.customer_account_info {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin: 10px 0px;
+}
+
+.customer_details_heading {
+  width: 200px;
+}
+
+.customer_details_heading_semicol {
+  width: 10px;
+}
+
+.footer_info {
+  font-size: 13px;
+}
+
+.footer_info_statement {
+  margin: 10px;
 }
 
 /* statemenst css ends */
@@ -319,6 +408,7 @@ select.form-control.statement_select_format {
   padding: 0px 0px 20px 0px;
   font-size: 13px;
 }
+
 .savings_acct_user_auth_container_header {
   font-size: 16px;
   font-weight: 410;
@@ -326,18 +416,22 @@ select.form-control.statement_select_format {
   padding: 10px 20px;
   color: #fff;
 }
+
 .savings_acct_user_auth_details_container {
   padding: 20px 25px;
 }
+
 .savings_acct_user_auth_details_heading {
   font-size: 18px;
   font-weight: 500;
   margin: 10px 0px;
 }
+
 .otp_code_mobile {
   font-weight: 410;
   font-size: 14px;
 }
+
 .otp_code_box1,
 .otp_code_box2,
 .otp_code_box3,
@@ -353,18 +447,22 @@ select.form-control.statement_select_format {
   background-color: #dadada;
   text-align: center;
 }
+
 .otp_code_box1 {
   margin-left: 0px;
 }
+
 .resend_code_text {
   color: #4094ef;
   cursor: pointer;
 }
+
 .otp_verify_btn_container {
   margin: 10px 0px;
   display: flex;
   justify-content: center;
 }
+
 .otp_verify_btn {
   width: 50%;
   border: 1px solid #2fb68e;
@@ -374,15 +472,18 @@ select.form-control.statement_select_format {
   padding: 5px;
   font-size: 14px;
 }
-.otp_verify_btn:hover{
+
+.otp_verify_btn:hover {
   background-color: #2fb68e;
   color: #fff;
   transition: 0.5s;
 }
+
 .savings_acct_user_auth_text1 {
   font-size: 13px;
   color: #7d7d7d;
 }
+
 .savings_acct_user_auth_submit_btn {
   border: 1px solid #2fb68e;
   outline: none;
@@ -391,6 +492,7 @@ select.form-control.statement_select_format {
   background: transparent;
   font-size: 14px;
 }
+
 .savings_acct_user_auth_submit_btn:hover {
   background-color: #2fb68e;
   color: #fff;
@@ -406,6 +508,7 @@ select.form-control.statement_select_format {
 * {
   font-family: Poppins;
 }
+
 .atm_card_details .card {
   width: auto;
   margin: 0 auto;
@@ -419,8 +522,9 @@ select.form-control.statement_select_format {
 }
 
 .atm_card_details_debit_card p {
-font-size: 13px;
+  font-size: 13px;
 }
+
 .atm_card_details_button_container {
   margin: 10px 0;
   align-items: center;
@@ -455,13 +559,13 @@ font-size: 13px;
   margin: 0;
 }
 
-.atm_card_details_button:hover{
+.atm_card_details_button:hover {
   border-bottom: 1px solid #2fb68e;
   border-radius: 5px;
 }
 
 
-.atm_card_details_button_upgrade:hover{
+.atm_card_details_button_upgrade:hover {
   background-color: #2fb68e;
   color: #fff;
 }
@@ -479,6 +583,7 @@ font-size: 13px;
   border: none;
   font-size: 14px;
 }
+
 .genrate_pin_buttons {
   color: #2fb68e;
   border: 1px solid #2fb68e;
@@ -486,9 +591,10 @@ font-size: 13px;
   padding: 5px 14px;
   outline: none;
   font-size: 14px;
-    font-weight: 600;
+  font-weight: 600;
   border-radius: 10px;
 }
+
 .genrate_pin_submits {
   color: #2fb68e;
   border: 1px solid #2fb68e;
@@ -496,25 +602,27 @@ font-size: 13px;
   padding: 5px 14px;
   outline: none;
   font-size: 14px;
-    font-weight: 600;
+  font-weight: 600;
   border-radius: 10px;
 }
 
-.genrate_pin_submits:hover{
-  background-color: #2fb68e; 
-  color: #fff; 
-  border-radius: 10px;
-}
-
-.genrate_pin_buttons:hover{
-  background-color: #2fb68e; 
+.genrate_pin_submits:hover {
+  background-color: #2fb68e;
   color: #fff;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
+
+.genrate_pin_buttons:hover {
+  background-color: #2fb68e;
+  color: #fff;
+  border-radius: 10px;
+}
+
 .card_details_generate_pin_heading {
   background-color: #2fb68e;
   color: #fff;
 }
+
 .card_details_generate_pin_notes {
   font-size: 13px;
 }
@@ -542,11 +650,11 @@ font-size: 13px;
 
 /* Generatedebitpinotp.css starts */
 
-.generate_debit_pin_button_logos{
+.generate_debit_pin_button_logos {
   font-size: 20px;
 }
 
-.generate_debit_pin_button{
+.generate_debit_pin_button {
   color: #2fb68e;
   border: 1px solid #2fb68e;
   outline: none;
@@ -559,38 +667,38 @@ font-size: 13px;
   border-radius: 10px;
 }
 
-.generate_debit_pin_button:hover{
+.generate_debit_pin_button:hover {
   background-color: #2fb68e;
   color: #fff;
 }
 
-.generate_debit_pin_para{
+.generate_debit_pin_para {
   font-size: small;
-  font-weight:  400;
+  font-weight: 400;
 }
 
-.generate_debit_pin_icon{
+.generate_debit_pin_icon {
   display: flex;
   flex-direction: row;
 }
 
-.generate_debit_pin_div_label{
+.generate_debit_pin_div_label {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   width: 150px;
   outline: none;
   height: 24px;
-  }
-
-  .generate_debit_pin_icon_otp{
-    border: 1px solid rgb(207, 203, 203);
-    margin: 0px 5px;
-    height: 25px;
-    width: 30px;
-    padding:1px 1px;
 }
 
-.card_details_generate_pin_tags .form-control:focus{
+.generate_debit_pin_icon_otp {
+  border: 1px solid rgb(207, 203, 203);
+  margin: 0px 5px;
+  height: 25px;
+  width: 30px;
+  padding: 1px 1px;
+}
+
+.card_details_generate_pin_tags .form-control:focus {
   border: none;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
@@ -618,9 +726,10 @@ font-size: 13px;
   padding: 5px 14px;
   outline: none;
   font-size: 14px;
-    font-weight: 600;
+  font-weight: 600;
   border-radius: 10px;
 }
+
 .card_details_block_card_hotlisting .confirm {
   color: #2fb68e;
   border: 1px solid #2fb68e;
@@ -628,18 +737,20 @@ font-size: 13px;
   padding: 5px 14px;
   outline: none;
   font-size: 14px;
-    font-weight: 600;
+  font-weight: 600;
   border-radius: 10px;
 }
 
-.card_details_block_card_hotlisting .confirm:focus{
+.card_details_block_card_hotlisting .confirm:focus {
   background-color: #2fb68e;
   color: #fff;
 }
+
 .card_details_block_card_hotlisting .back:focus {
   background-color: #2fb68e;
   color: #fff;
 }
+
 .card_details_block_card_fields {
   border: 1px solid rgb(230, 221, 221);
   padding: 3px;
@@ -670,6 +781,7 @@ font-size: 13px;
   border-radius: 10px;
   font-weight: 500;
 }
+
 .reissue_card .card h6 {
   color: #2fb68e;
   font-weight: 700;
@@ -687,10 +799,12 @@ font-size: 13px;
   font-weight: 500;
   border-radius: 50px;
 }
-.reissue_card_button:hover{
+
+.reissue_card_button:hover {
   background-color: #2fb68e;
   color: #fff;
 }
+
 .reissue_card .note {
   font-weight: 400;
 }
@@ -743,7 +857,7 @@ font-size: 13px;
   width: 100%;
 }
 
-.reissue_card_button_disabled{
+.reissue_card_button_disabled {
   color: #b2b9bf;
   border: 1px solid #b2b9bf;
 }
@@ -758,8 +872,8 @@ font-size: 13px;
   border: 1px solid #ebeaea;
 }
 
-.card_limit .manage_card_heading{
-  color: #ebca28 ;
+.card_limit .manage_card_heading {
+  color: #ebca28;
 }
 
 .card_limit .card .form_container {
@@ -821,12 +935,12 @@ font-size: 13px;
   font-weight: 600;
   padding: 4px;
   width: 60px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .card_limit .back_btn:hover {
-  background-color: #2fb68e; 
-  color: #fff; 
+  background-color: #2fb68e;
+  color: #fff;
 }
 
 .card_limit .submit_btn {
@@ -839,12 +953,12 @@ font-size: 13px;
   font-weight: 600;
   padding: 4px;
   width: 80px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .card_limit .submit_btn:hover {
-  background-color: #2fb68e; 
-  color: #fff; 
+  background-color: #2fb68e;
+  color: #fff;
 }
 
 .card_limit .input_range {
@@ -921,11 +1035,11 @@ font-size: 13px;
 
 
 /* manage-cardlimit-otppage starts*/
-.limit_request_confirmation_btn_logos{
+.limit_request_confirmation_btn_logos {
   font-size: 20px;
 }
 
-.limit_request_confirmation_btn{
+.limit_request_confirmation_btn {
   color: #2fb68e;
   border: 1px solid #2fb68e;
   outline: none;
@@ -935,38 +1049,38 @@ font-size: 13px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .limit_request_confirmation_btn:hover {
-  background-color: #2fb68e; 
-  color: #fff; 
+  background-color: #2fb68e;
+  color: #fff;
 }
 
-.limit_request_confirmation_para{
+.limit_request_confirmation_para {
   font-size: small;
-  font-weight:  400;
+  font-weight: 400;
 }
 
-.limit_request_confirmation_icon{
+.limit_request_confirmation_icon {
   display: flex;
   flex-direction: row;
 }
 
-.limit_request_confirmation_div_label{
+.limit_request_confirmation_div_label {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   width: 150px;
   outline: none;
   height: 24px;
-  }
+}
 
-  .limit_request_confirmation_icon_otp{
-    border: 1px solid rgb(207, 203, 203);
-    margin: 0px 5px;
-    height: 25px;
-    width: 30px;
-    padding:1px 1px;
+.limit_request_confirmation_icon_otp {
+  border: 1px solid rgb(207, 203, 203);
+  margin: 0px 5px;
+  height: 25px;
+  width: 30px;
+  padding: 1px 1px;
 }
 
 .limit_request_confirmation_submits {
@@ -975,12 +1089,12 @@ font-size: 13px;
   background-color: transparent;
   padding: 5px 10px;
   border-radius: 4px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .limit_request_confirmation_submits:hover {
-  background-color: #2fb68e; 
-  color: #fff; 
+  background-color: #2fb68e;
+  color: #fff;
 }
 
 .limit_request_confirmation_buttons {
@@ -989,12 +1103,12 @@ font-size: 13px;
   padding: 5px 10px;
   border: 2px solid #2fb68e;
   border-radius: 4px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .limit_request_confirmation_buttons:hover {
-  background-color: #2fb68e; 
-  color: #fff; 
+  background-color: #2fb68e;
+  color: #fff;
 }
 
 .limit_request_confirmation_heading .card .form_container {
@@ -1002,24 +1116,26 @@ font-size: 13px;
   font-size: 14px;
 }
 
-.limit_request_confirmation_heading{
+.limit_request_confirmation_heading {
   background-color: #faede2;
 }
 
-.request_confirmation_heading{
+.request_confirmation_heading {
   color: #ebca28;
 }
-.limit_request_confirmation .bacKBtn_link{
+
+.limit_request_confirmation .bacKBtn_link {
   text-decoration: none;
-  color: #2fb68e; 
-  cursor: pointer; 
-}
-.limit_request_confirmation .bacKBtn_link:hover {
-  background-color: #2fb68e; 
-  color: #fff; 
+  color: #2fb68e;
+  cursor: pointer;
 }
 
-.limit_request_confirmation .text{
+.limit_request_confirmation .bacKBtn_link:hover {
+  background-color: #2fb68e;
+  color: #fff;
+}
+
+.limit_request_confirmation .text {
   font-size: 14px;
 }
 
@@ -1058,6 +1174,7 @@ font-size: 13px;
   outline: none;
   padding-left: 5px;
 }
+
 .bookrequest .back_button {
   border: 2px solid #2fb68e;
   border-radius: 4px;
@@ -1067,18 +1184,18 @@ font-size: 13px;
   font-weight: 600;
   padding: 4px;
   width: 80px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .bookrequest .back_button:hover {
-  background-color: #2fb68e; 
-  color: #fff; 
+  background-color: #2fb68e;
+  color: #fff;
 }
 
 /* checkbook-request css ends */
 
 /* update pancard css starts */
-  
+
 .pancard .card {
   border: none;
   font-weight: 400;
@@ -1122,9 +1239,9 @@ font-size: 13px;
 }
 
 
-.pancard .pancard_heading{
-  background-color: #2fb68e; 
-  color: #fff; 
+.pancard .pancard_heading {
+  background-color: #2fb68e;
+  color: #fff;
 }
 
 .pancard .mandatory_field {
@@ -1150,11 +1267,12 @@ font-size: 13px;
   font-weight: 600;
   padding: 4px;
   width: 60px;
-  cursor: pointer; 
+  cursor: pointer;
 }
+
 .pancard .back_Btn:hover {
-  background-color: #2fb68e; 
-  color: #fff; 
+  background-color: #2fb68e;
+  color: #fff;
 }
 
 .pancard .submit_Btn {
@@ -1167,12 +1285,12 @@ font-size: 13px;
   font-weight: 600;
   padding: 4px;
   width: 80px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .pancard .submit_Btn:hover {
-  background-color: #2fb68e; 
-  color: #fff; 
+  background-color: #2fb68e;
+  color: #fff;
 }
 
 
@@ -1182,14 +1300,17 @@ font-size: 13px;
 .nav_section {
   height: 5vh;
 }
+
 .update_form_section label {
   margin-top: 15px;
-  margin-left:2px;
+  margin-left: 2px;
 }
+
 .update_form_section span {
   font-weight: 420;
   font-size: 13px;
 }
+
 /* .update_form_section input{
   margin-left:15px;
 } */
@@ -1204,11 +1325,12 @@ font-size: 13px;
   font-size: 15px;
   text-align: center;
 }
+
 .update_form_submit_btn {
   width: auto;
   height: auto;
-  
-  border: 1px solid  #f18121;
+
+  border: 1px solid #f18121;
   /* background-color: rgb(37, 184, 62); */
   border-radius: 2px;
   font-weight: 600;
@@ -1218,15 +1340,16 @@ font-size: 13px;
   text-align: center;
   background-color: white;
 }
-.update_form_submit_btn:hover
-{
+
+.update_form_submit_btn:hover {
   background-color: #f18121;
   outline: none;
-  color:white;
+  color: white;
 }
+
 .update_form_heading {
   background-color: #2fb68e;
-  color:white;
+  color: white;
 }
 
 .update_form_section .form-control:focus {
@@ -1234,36 +1357,39 @@ font-size: 13px;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.Update_form60_Otp
-{
-  border:none;
-  outline:none;
+
+.Update_form60_Otp {
+  border: none;
+  outline: none;
   border: 1px solid #1e1e1f !important;
   border-radius: 2px;
-  
-  font-size:13px;
-  padding:3px;
+
+  font-size: 13px;
+  padding: 3px;
 
 }
-.update_form_sendOtp_btn{
+
+.update_form_sendOtp_btn {
   border-radius: 2px;
-    font-weight: 600;
-    
-    margin-left: 30px;
-    font-size:14px;
-    text-align: center;
-   border:1px solid  ;
-    width: auto;
-    height: auto;
-   color:#2fb68e;
-   background-color: white;
-    padding:3px;
+  font-weight: 600;
+
+  margin-left: 30px;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid;
+  width: auto;
+  height: auto;
+  color: #2fb68e;
+  background-color: white;
+  padding: 3px;
 }
+
 .update_form_sendOtp_btn:hover {
-  background-color:#2fb68e ; 
-  color:white;
-  outline:none;
+  background-color: #2fb68e;
+  color: white;
+  outline: none;
 }
+
 /* Update Form 60 css ends*/
 
 /* PMSocialSecuritySchemes css Starts */
@@ -1272,6 +1398,7 @@ font-size: 13px;
   font-size: 10px;
   text-decoration: underline;
 }
+
 .PMSSS_form_back_btn {
   width: auto;
   height: auto;
@@ -1283,10 +1410,12 @@ font-size: 13px;
   font-size: 15px;
   text-align: center;
 }
+
 .PMSSS_form_section span {
   font-weight: 420;
   font-size: 15px;
 }
+
 .PMSSS_form_submit_btn {
   width: auto;
   height: auto;
@@ -1301,6 +1430,7 @@ font-size: 13px;
   text-align: center;
   background-color: #f18121;
 }
+
 .PMSSS_form_section label {
   margin-top: 15px;
   font-weight: 500;
@@ -1312,20 +1442,24 @@ font-size: 13px;
   background-color: rgb(248, 239, 228);
   margin: 0px;
 }
+
 .PMSSS_main_heading1 {
   font-weight: 400;
   margin: 0px;
   background-color: rgb(228, 239, 241);
 }
+
 .PMSSS_form_section .custom-select:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
 .PMSSS_form_section .form-control:focus {
   /* border-color: inherit; */
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
 /* PMSocialSecuritySchemes  css ends*/
 
 /* service reqest starts */
@@ -1344,6 +1478,7 @@ body {
   border: 1px solid #d3d0cbff;
   padding: 5px;
 }
+
 .service_table_heading {
   color: #f18121;
 }
@@ -1384,8 +1519,8 @@ body {
 }
 
 .service_btn:hover {
-  background-color:#f18121;
-  color:white;
+  background-color: #f18121;
+  color: white;
 }
 
 .service_sendicon {
@@ -1411,6 +1546,7 @@ body {
   border-bottom: 4px solid gray;
   background-color: #faede2 !important;
 }
+
 .service_background_main {
   background-color: #f8f9fa;
 }
@@ -1430,55 +1566,58 @@ body {
 }
 
 .deposit_btn {
-  
-    font-weight: 600;
-    font-size:15px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    width: auto;
-    height: auto;
-   color:#16795b;
-  
-   background-color: #F8F9FA;
-    border:none;
-    
-}
-.deposit_btn_first
-{
+
   font-weight: 600;
-    font-size:15px;
-    text-align: center;
-  margin-left:10px;
- 
-    height: auto;
-   /* background-color:#2fb68e; */
- 
-  color: #2fb68e;
-    border:none;
+  font-size: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  width: auto;
+  height: auto;
+  color: #16795b;
+
+  background-color: #F8F9FA;
+  border: none;
+
 }
 
-.deposit_btn:hover{
-   
+.deposit_btn_first {
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  margin-left: 10px;
+
+  height: auto;
+  /* background-color:#2fb68e; */
+
+  color: #2fb68e;
+  border: none;
+}
+
+.deposit_btn:hover {
+
   transform: scale(1.1);
 }
+
 .deposit_cardbtn {
-  
+
   width: 50%;
-  
+
   border: none;
- font-size: 13px;
-  
+  font-size: 13px;
+
   border-radius: 50px;
- 
+
   background-color: #ebca28;
-  color:#0a6348;
-  font-weight:500;
+  color: #0a6348;
+  font-weight: 500;
 }
-.deposit_cardbtn:hover{ 
-  font-weight:600;
+
+.deposit_cardbtn:hover {
+  font-weight: 600;
   background-color: #2fb68e;
-  color:white;
+  color: white;
 }
+
 .deposit_fixedheading {
   color: #2fb68e;
 }
@@ -1486,6 +1625,7 @@ body {
 .deposit_img {
   width: 100%;
 }
+
 .deposit_icon {
   font-size: 40px;
   color: #ebca28;
@@ -1507,18 +1647,19 @@ body {
   transition-timing-function: linear; */
   width: 50%;
   padding: 10px 20px;
-  border:1px solid;
+  border: 1px solid;
   border-radius: 5px;
-  
-  color:#2fb68e;
-  font-weight:600;
+
+  color: #2fb68e;
+  font-weight: 600;
   background-color: white;
-  
+
 }
+
 .deposit_btn1:hover {
-  font-weight:600;
+  font-weight: 600;
   background-color: #A2E0CE;
-  color:#147558;
+  color: #147558;
 }
 
 .deposit_image {
@@ -1528,22 +1669,24 @@ body {
 .fixed_deposit_background_main {
   background-color: #f8f9fa;
 }
-.deposit_card1
-{
+
+.deposit_card1 {
   background-color: #f5edcf;
   transition: transform 0.3s ease;
   border: 1px solid #eed96e;
   border-radius: 5px;
-  
+
 }
-.deposit_card1:hover{
-    
-    /* background-color: #f3e082; */
-    transform: scale(1.1);
-    /* border: 1px solid #f1cd14;
+
+.deposit_card1:hover {
+
+  /* background-color: #f3e082; */
+  transform: scale(1.1);
+  /* border: 1px solid #f1cd14;
     border-radius: 10px;
     border-left:none; */
 }
+
 /* fixed deposit ends */
 /* recurring deposit starts */
 
@@ -1558,26 +1701,26 @@ body {
 }
 
 .recurring_btn {
-  font-weight:600;
+  font-weight: 600;
   background-color: #A2E0CE;
-  color:#147558;
-  border:1px solid #147558;
+  color: #147558;
+  border: 1px solid #147558;
   outline: none;
   cursor: pointer;
-  width:100%;
+  width: 100%;
   font-size: 14px;
   border-radius: 5px;
-  height:40px;
+  height: 40px;
 }
 
 .recurring_btn1 {
   background-color: #f8f4e0;
   border: 1px solid #ebca28;
-  font-weight:500;
+  font-weight: 500;
   border-radius: 10px;
   color: #1d7e61;
   display: inline-block;
-  
+
   margin: auto;
   text-align: center;
   text-decoration: none;
@@ -1588,10 +1731,10 @@ body {
 }
 
 .recurring_btn2 {
-  
+
   background-color: white;
-  color:#0a6348;
-  border:1px solid #0a6348;
+  color: #0a6348;
+  border: 1px solid #0a6348;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -1599,21 +1742,22 @@ body {
 .recurring_btn2:hover{
   font-weight:600;
   background-color: #A2E0CE;
-  color:#147558;
-  border:1px solid #147558;
+  color: #147558;
+  border: 1px solid #147558;
   cursor: pointer;
-  width:100%;
+  width: 100%;
   border-radius: 5px;
 }
 
 .recurring_para {
-  color:#2fb68e
+  color: #2fb68e
 }
 
 .recurring_amount {
   font-size: small;
   margin-bottom: 60px;
 }
+
 .recurring_sideheading {
   color: #207a5f;
   font-weight: 420;
@@ -1635,6 +1779,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(214, 210, 210, 0.1);
 }
+
 .Deposite_container_content h1 {
   color: black;
   margin-right: 200px;
@@ -1642,17 +1787,21 @@ body {
   margin: 0px 150px 8px 0px;
   padding-left: 70px;
 }
+
 .Deposite_container_content p {
   margin-left: 10px;
 }
+
 .Deposite_container_steps h1 {
   color: black;
   font-size: x-large;
   margin-right: 20px;
 }
+
 .Deposite_container_steps {
   padding-right: 20px;
 }
+
 .Deposite_hero_container {
   margin-right: 5px;
   padding-top: 100px;
@@ -1662,10 +1811,12 @@ body {
 
   border-radius: 8px;
 }
+
 .Deposite_container {
   background-color: rgb(246, 247, 248);
   padding-right: 50px;
 }
+
 .Deposite_p_container {
   margin-right: 5px;
   max-width: 1000px;
@@ -1674,29 +1825,36 @@ body {
   background-color: #ffff;
   border-radius: 8px;
 }
+
 .container-content p {
   color: black;
 }
+
 .Deposite_why_container h2 {
   margin-right: 180px;
   font-size: x-large;
 }
+
 .Deposite_goals_container h4 {
   color: black;
   font-size: medium;
 }
+
 .Deposite_goals_container img {
   width: 100px;
   margin-left: 30px;
 }
+
 .Deposite_stapes_container i {
   font-size: x-large;
   color: rgb(153, 50, 50);
   background-color: rgb(241, 198, 198);
 }
+
 .Deposite_stapes_container {
   margin-left: 150px;
 }
+
 .Deposite_cards_deposite {
   row-gap: 10px;
   column-gap: 60px;
@@ -1704,24 +1862,29 @@ body {
   margin-top: 30px;
   padding-bottom: 20px;
 }
+
 .Deposite_goals_container_head {
   padding-bottom: 20px;
   gap: 80px;
 }
+
 .create-container-steps h1 {
   color: black;
   margin-right: 150px;
 }
+
 .Deposite_user_icon i {
   font-size: x-large;
   color: rgb(153, 50, 50);
   background-color: rgb(241, 228, 228);
 }
+
 .Deposite_button_view {
   margin-top: 10px;
   color: rgb(218, 166, 71);
   padding-bottom: 19px;
 }
+
 .Deposite_container_content i {
   font-size: x-large;
   color: rgb(233, 182, 89);
@@ -1731,34 +1894,38 @@ body {
 .Deposite_goals_container i {
   font-size: x-large;
 }
+
 .deposite_icon {
   font-size: x-large;
 }
+
 /* /deposite cntainer end/ */
 
 /* fixed advice start*/
 /* .Fixed_container{
   margin-right: 300px;
 } */
- .fixed_deposit {
+.fixed_deposit {
   margin-left: 15px;
   /* max-width: 1000px; */
-   margin: 0 auto;
+  margin: 0 auto;
   padding: 20px;
   background-color: #2fb68e;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-} 
+}
 
 .fixed_deposit h1 {
   color: white;
   margin-right: 650px;
   font-size: x-large;
 }
+
 .fixed_selectOption {
   margin-right: 550px;
   padding-top: 30px;
 }
+
 /* .fixed_selectOption1{
     margin-left: 550px;
   } */
@@ -1773,6 +1940,7 @@ body {
   margin-top: 50px;
   background-color: #ffff;
 }
+
 .fixed_container_content1 {
   padding: 20px;
   border: 1px solid #ddd;
@@ -1783,6 +1951,7 @@ body {
   background-color: #ffff;
   margin-top: 50px;
 }
+
 .fixed_container_content h1 {
   color: black;
   margin-right: 5px;
@@ -1804,9 +1973,11 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .fixed_hero_container {
   height: 100px;
 }
+
 .fixed-container {
   padding-top: 50px;
   max-width: 800px;
@@ -1816,20 +1987,24 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .fixed_deposit_form {
   display: flex;
   flex-direction: column;
   margin-right: 550px;
 }
+
 .fixed_form_container {
   margin-right: 100px;
 }
+
 .fixed_deposit_form label {
   margin-bottom: 10px;
 }
+
 .fixed_button_container button {
   padding: 10px;
-   background-color: #2fb68e; 
+  background-color: #2fb68e;
   color: white;
   border: none;
   border-radius: 10px;
@@ -1839,10 +2014,11 @@ body {
   align-items: center;
   overflow: hidden;
 }
+
 .fixed_button_now {
   padding: 10px;
-  background-color:#2fb68e; 
-  color:white ;
+  background-color: #2fb68e;
+  color: white;
   overflow: hidden;
   border: none;
   border-radius: 10px;
@@ -1859,11 +2035,13 @@ body {
   text-align: center;
   background-color: rgb(247, 242, 242);
 }
+
 .renew_container h1 {
   color: #2fb68e;
   font-size: x-large;
   margin-right: 750px;
 }
+
 .renew_deposits_container {
   margin-top: 20px;
   background-color: rgb(219, 215, 215);
@@ -1872,10 +2050,12 @@ body {
   color: black;
   padding-right: 80px;
 }
+
 .renew_deposits_container p {
   padding-top: 10px;
   padding-left: 10px;
 }
+
 .renew_deposits_container i {
   padding-bottom: 20px;
   margin-top: 20px;
@@ -1885,27 +2065,32 @@ body {
 
 /* renew advice end*/
 /* fixed deposite start */
-.fixed_form_section{
+.fixed_form_section {
   background-color: rgb(250, 245, 245);
   margin-left: 80px;
 }
+
 .fixed_form_section span {
   font-weight: 420;
   font-size: 20px;
 }
+
 .fixed_form_section label {
   margin-top: 15px;
-  
-  
+
+
 }
+
 .fixed_form_section input {
   font-size: 15px;
 }
+
 .fixed_form_heading {
-  background-color: #2fb68e ;
+  background-color: #2fb68e;
   color: white;
 }
-.fixed_form_submit_btn{
+
+.fixed_form_submit_btn {
   padding: 10px;
   background-color: #2fb68e;
   color: white;
@@ -1917,11 +2102,12 @@ body {
   align-items: center;
   overflow: hidden;
   font-size: larger;
-/* background-color: #ebca28 ; */
-margin-left: 370px;
-margin-top: 20px;
+  /* background-color: #ebca28 ; */
+  margin-left: 370px;
+  margin-top: 20px;
 
 }
+
 /* fixed deposite end */
 
 /* paylater css starts */
@@ -1933,7 +2119,7 @@ margin-top: 20px;
 
 .paylater_heading {
   font-size: x-large;
-  color: #f18121;
+  color: #2fb68e;
 }
 
 .paylater_image1 {
@@ -1942,7 +2128,7 @@ margin-top: 20px;
 }
 
 .paylater_tablehead {
-  background-color: #f8f9fa;
+  background-color: #63ab95;
   font-size: 10px;
 }
 
@@ -1966,20 +2152,19 @@ margin-top: 20px;
   max-width: 400px;
 }
 
-.paylater_paynow {
-  border: 1px solid white;
+.paylater_paynow ,.paylater_statement{
+  border: 1px solid #2fb68e;
   font-size: 10px;
-  color: #f18121;
-  background-color: #faede2;
+  color: #2fb68e;
+  background-color: transparent;
   height: 35px;
   border-radius: 5px;
 }
 
-.paylater_bill,
-.paylater_statement {
+.paylater_bill {
   font-size: 10px;
-  color: #f18121;
-  background-color: #faede2;
+  color: #fff;
+  background-color: #2fb68e;
   height: 35px;
   border-radius: 5px;
   border: none;
@@ -1991,87 +2176,112 @@ margin-top: 20px;
   box-shadow: none;
 }
 
-.paylater_paynow:hover {
-  color: #f18121;
+.paylater_paynow:hover ,.paylater_statement:hover{
+  color: #ebca28;
+  border: 1px solid #ebca28;
 }
 
-.paylater_bill:hover,
-.paylater_statement:hover {
-  color: #f18121;
+.paylater_bill:hover{
+  color: white;
+  background-color: #ebca28;
 }
 
 .paylater_transactions {
-  background-color: #faede2;
-  color: #f18121;
   display: flex;
   align-items: center;
   margin-top: 5%;
   height: 40px;
   padding-left: 2%;
   font-size: 14px;
+  border: 1px solid lightgray;
+  color: #2fb68e;
 }
 
 /* paylater css ends */
 
 /* billdetails css starts */
 
-.billDetails_mybill{
+.billDetails_mybill {
   display: flex;
   width: 500px;
   justify-content: space-between;
   align-items: center;
 }
-.billDetails_okbtn{
+
+.billDetails_okbtn {
   border: none;
   height: 30px;
-  background: #faede2;
-  color: #f18121;
+  background: #2fb68e;
+  color: white;
   display: flex;
   align-items: center;
   border-radius: 5px;
 }
+
+.billDetails_okbtn:hover{
+background-color: #ebca28;
+color: white;
+}
 .billDetails_input1:focus{
 outline: none;
+
 }
-.billDetails_cont1{
+
+.billDetails_cont1 {
   height: 50px;
-  background-color: #faede2;
-  color: #f18121;
+  background-color: #b3ead9;
+  color: #2fb68e;
   display: flex;
   align-items: center;
 }
-.dillDetails_billcontent{
+
+.dillDetails_billcontent {
   display: flex;
   justify-content: space-between;
   width: 90%;
 }
-.dillDetails_billcontent1{
+
+.dillDetails_billcontent1 {
   width: 300px;
   display: flex;
   justify-content: space-between;
   font-size: small;
 
 }
-.billDetails_backbtn{
+
+.billDetails_backbtn {
   border: none;
   height: 30px;
-  border: 1px solid #f18121;
-  color: #f18121;
+  border: 1px solid #2fb68e;
+  color: #2fb68e;
   display: flex;
   align-items: center;
   margin-right: 5%;
   border-radius: 5px;
 }
+
+.billDetails_backbtn:hover{
+  border: 1px solid #ebca28;
+  color: #ebca28;
+}
 .billDetails_pay{
   border: none;
-  background-color: #f18121;
+  background-color: #2fb68e;
   color: #fffefe;
   height: 30px;
   display: flex;
   align-items: center;
   border-radius: 5px;
 }
+
+
+
+.billDetails_pay:hover{
+  background-color: #ebca28;
+  color: white;
+}
 .billDetails_link{
+
   text-decoration: none;
 }
 
@@ -2081,22 +2291,26 @@ outline: none;
 
 .estatement_heading {
   font-size: x-large;
-  color: #f18121;
+  color: #2fb68e;
 }
+
 .estatement_container {
   font-size: small;
 }
+
 .estatement_accountmain,
 .estatement_show {
   border: 1px solid lightgray;
 }
+
 .estatement_accounttype {
-  max-width: 400px;
+  max-width: 450px;
   height: 8vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .estatement_select {
   display: flex;
   width: 230px;
@@ -2111,7 +2325,6 @@ outline: none;
 
 .estatement_option {
   width: 100%;
-  appearance: none;
   padding-left: 3%;
   border: none;
 }
@@ -2126,6 +2339,7 @@ outline: none;
   cursor: pointer;
   pointer-events: none;
 }
+
 .estatement_icon1 {
   font-size: xx-large;
   color: #f18121;
@@ -2139,23 +2353,29 @@ outline: none;
   width: 130px;
   justify-content: space-between;
 }
+
 .estatement_fccalender {
   font-size: x-large;
 }
+
 .estatement_downicon1 {
   margin-left: 5%;
 }
+
 .estatement_calenderbtn {
   border: none;
   background: none;
 }
+
 .estatement_datepick {
   padding-left: 3%;
   margin-top: 6%;
 }
+
 .estatement_datepick:focus {
   outline: none;
 }
+
 .estatement_subshow {
   display: flex;
   height: 8vh;
@@ -2168,39 +2388,47 @@ outline: none;
   position: relative;
   width: 130px;
 }
+
 .estatement_showselect1 {
   display: flex;
   position: relative;
   width: 175px;
   margin-left: 2%;
 }
+
 .estatement_showoption {
   appearance: none;
   border: none;
   width: 100%;
 }
+
 .estatement_showoption:focus {
   outline: none;
 }
+
 .estatement_showidiv {
   position: absolute;
   right: 0;
   cursor: pointer;
   pointer-events: none;
 }
+
 .estatement_showmain {
   display: flex;
   justify-content: space-between;
 }
+
 .estatement_showhead {
   width: 30%;
 }
+
 .estatement_buttons {
   border: 1px solid lightgrey;
   height: 8vh;
   display: flex;
   align-items: center;
 }
+
 .estatement_view {
 
   width: 60px;
@@ -2208,7 +2436,7 @@ outline: none;
   border: none;
 
   width: 210px;
-  border:1px  solid #2fb68e;
+  border: 1px solid #2fb68e;
   border-radius: 5px;
   color: #2fb68e;
   height: 30px;
@@ -2217,42 +2445,66 @@ outline: none;
   align-items: center;
   background-color: transparent;
 }
-.estatement_view:hover{
+
+.estatement_view:hover {
   border: 1px solid #ebca28;
   color: #ebca28;
 }
-.estatement_detailstatement{
+
+.estatement_detailstatement {
   width: 200px;
-  border:1px  solid #2fb68e;
+  border: 1px solid #2fb68e;
 
   border-radius: 5px;
-  color: #f18121;
+  color: #2fb68e;
+  background-color: transparent;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 4%;
 }
+
 .estatement_download {
   margin-left: 4%;
-  width: 80px;
-  background-color: #faede2;
+  width: 160px;
+  background-color: #2fb68e;
   border: none;
   border-radius: 5px;
-  color: #f18121;
+  color: white;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.estatement_download:hover{
+  background-color: #ebca28;
+  color: #fff;
+}
+
 .estatement_note {
   margin-top: 5%;
   color: #f18121;
 }
-.estatement_noFound{
+
+.estatement_noFound {
   display: flex;
   justify-content: center;
   margin-top: 3%;
 }
+.estatement_bankinput{
+  padding-left: 5%;
+  border: none;
+  outline: none;
+}
+.estatement_periodselect1{
+  padding-left: 0;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
 
 /* estatement css ends */
 
@@ -2267,6 +2519,7 @@ outline: none;
   background-color: lightgray;
   height: 8vh;
 }
+
 .mypayee_navmain li {
   cursor: pointer;
   border-left: 1px solid white;
@@ -2275,18 +2528,22 @@ outline: none;
   align-items: center;
   justify-content: center;
 }
+
 .mypayee_buttonon {
   color: #8f3737;
   border-bottom: 2px solid #8f3737;
 }
+
 .mypayee_content {
   background-color: rgb(241, 241, 241);
 }
+
 .mypayee_text {
   display: flex;
   height: 20vh;
   align-items: center;
 }
+
 .mypayee_addmain {
   display: flex;
   justify-content: space-between;
@@ -2294,6 +2551,7 @@ outline: none;
   margin-top: 5%;
   height: 15vh;
 }
+
 .mypayee_input {
   width: 65%;
   display: flex;
@@ -2303,13 +2561,16 @@ outline: none;
   padding-left: 2%;
   background-color: white;
 }
+
 .mypayee_input1 {
   width: 100%;
 }
+
 .mypayee_input2 {
   border: none;
   background-color: transparent;
 }
+
 .mypayee_input2:focus {
   outline: none;
   box-shadow: none;
@@ -2327,20 +2588,25 @@ outline: none;
   align-items: center;
   justify-content: center;
 }
+
 .mypayee_search {
   color: #8f3737;
 }
+
 .mypayee_icons {
   font-size: large;
 }
+
 .mypayee_icons3 {
   margin-left: 2%;
   margin-right: 2%;
   font-size: large;
 }
+
 .mypayee_icons4 {
   font-size: xx-large;
 }
+
 .mypayee_click {
   text-decoration: underline;
   color: #8f3737;
@@ -2351,11 +2617,13 @@ outline: none;
 .category_container {
   overflow: hidden !important;
 }
+
 .personalize_Limit_container {
   padding-left: 20px;
   overflow: hidden;
   margin-left: 180px;
 }
+
 .current_limit_container {
   margin-left: 200px;
 }
@@ -2421,6 +2689,7 @@ outline: none;
   margin-left: 10px;
   margin-top: 20px;
 }
+
 .InputDebit_Account_container {
   margin-left: 60px;
   overflow: hidden;
@@ -2492,9 +2761,11 @@ outline: none;
   overflow: hidden;
   width: 100px;
 }
+
 .card-paybill_contaiiner:hover {
   color: orange;
 }
+
 .cardIcon_section_container {
   margin: 0px;
   width: 50px;
@@ -2512,6 +2783,7 @@ outline: none;
   margin-top: -145px;
   font-size: 1rem;
 }
+
 .Biller_payBiller_container {
   margin-top: 80px;
   padding-left: 10px;
@@ -2592,11 +2864,13 @@ outline: none;
 .category_container {
   overflow: hidden !important;
 }
+
 .personalize_Limit_container {
   padding-left: 20px;
   overflow: hidden;
   margin-left: 180px;
 }
+
 .current_limit_container {
   margin-left: 200px;
 }
@@ -2662,6 +2936,7 @@ outline: none;
   margin-left: 10px;
   margin-top: 20px;
 }
+
 .InputDebit_Account_container {
   margin-left: 60px;
   overflow: hidden;
@@ -2692,6 +2967,7 @@ outline: none;
 .ViewPayee-container {
   overflow: hidden !important;
 }
+
 .BankAccount_navbar {
   display: flex;
   background-color: lightgray;
@@ -2700,6 +2976,7 @@ outline: none;
   font-family: "poppins";
   padding: 10px;
 }
+
 .deletePayee_buttonon {
   border-bottom: 2px solid orange;
   color: orange;
@@ -3058,107 +3335,118 @@ outline: none;
 }
 
 
-.Payment_paragraphbank_container{
-	margin-bottom: 0px;
-	font-family:'poppins';
+.Payment_paragraphbank_container {
+  margin-bottom: 0px;
+  font-family: 'poppins';
 }
 
 
 /* fixedform css starts */
 
 
-.fdform_rightheading{
+.fdform_rightheading {
   color: #2fb68e;
 }
-.fdform_accountnbrinput:focus{
+
+.fdform_accountnbrinput:focus {
   outline: none;
 }
+
 /* .fdform_accountnbrinput{
   
 } */
-.fdform_addressinput{
+.fdform_addressinput {
   width: 58.5%;
- 
+
 }
-.fdform_addressinput:focus{
+
+.fdform_addressinput:focus {
   outline: none;
 }
 
-.fdform_addressinput4{
+.fdform_addressinput4 {
   width: 21.5%;
-  
+
 }
-.fdform_addressinput4:focus{
- outline: none;
-}
-.fdform_addressinput5{
-  width: 20.5%;
-  
-}
-.fdform_addressinput5:focus{
+
+.fdform_addressinput4:focus {
   outline: none;
 }
+
+.fdform_addressinput5 {
+  width: 20.5%;
+
+}
+
+.fdform_addressinput5:focus {
+  outline: none;
+}
+
 /* .fdform_input{
  
 } */
-.fdform_main_Container label
-{
- font-weight: 420;
+.fdform_main_Container label {
+  font-weight: 420;
 }
-.fdform_input:focus{
+
+.fdform_input:focus {
   outline: none;
 }
-.fdform_subheading{
+
+.fdform_subheading {
   color: #207a5f;
 }
-.fdform_fdinput{
+
+.fdform_fdinput {
   width: 45.5%;
-  
+
 }
-.fdform_fdinput:focus{
+
+.fdform_fdinput:focus {
   outline: none;
 }
-.fdform_yearinput{
+
+.fdform_yearinput {
   width: 14.5%;
- 
+
 }
-.fdform_yearinput:focus{
+
+.fdform_yearinput:focus {
   outline: none;
 }
-.fdform_fundingheading{
+
+.fdform_fundingheading {
   color: #207a5f;
 }
 
 
-.fdform_fundinginput:focus{
- outline: none;
-}
-
-.fdform_rateinput:focus{
+.fdform_fundinginput:focus {
   outline: none;
 }
 
-.fdform_submitbtn{
-  background-color: #A2E0CE;
-  color:#0a6348;
-  border:1px solid #0a6348;
-  cursor: pointer;
-  font-weight:600;
-  border-radius: 5px;
-  width:15%;
+.fdform_rateinput:focus {
+  outline: none;
 }
 
-.funding_para1 input
-{
+.fdform_submitbtn {
+  background-color: #A2E0CE;
+  color: #0a6348;
+  border: 1px solid #0a6348;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 5px;
+  width: 15%;
+}
+
+.funding_para1 input {
   -webkit-box-shadow: none;
   box-shadow: none;
   border: none;
   border-bottom: 1px solid rgb(61, 61, 61);
-outline: none;
-padding-left: 10px;
+  outline: none;
+  padding-left: 10px;
 }
 
 
 
 /* fixedform css ends */
-

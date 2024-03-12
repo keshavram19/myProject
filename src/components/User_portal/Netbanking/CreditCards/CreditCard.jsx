@@ -5,7 +5,8 @@ import creditcard from '../../../../Images/creditcard.jpg';
 import rupee_1523526 from '../../../../Images/rupee_1523526.png';
 import creditcard1 from '../../../../Images/creditcard1.png';
 import creditcard2 from '../../../../Images/creditcard2.jpg';
-import primary_credit_card from '../../../../Images/primary_credit_card.jpeg'
+import primary_credit_card from '../../../../Images/primary_credit_card.jpeg';
+import RIB_DEBIT_CARDS from '../../../../Images/RIB_DEBIT_CARDS.png';
 
 import { RiCheckboxBlankFill } from "react-icons/ri";
 import { MdOutlineIndeterminateCheckBox } from "react-icons/md";
@@ -370,7 +371,7 @@ const CreditCard = () => {
                                         <div className='d-flex justify-content-center my-2'>
                                             <div className='primary_card_text'>Primary Card</div>
                                             <div>
-                                                <img src={primary_credit_card} alt='Primary Credit Card' className='primary_credit_card rounded'>
+                                                <img src={RIB_DEBIT_CARDS} alt='Primary Credit Card' className='img-fluid primary_credit_card'>
 
                                                 </img>
                                             </div>
