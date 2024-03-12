@@ -39,11 +39,11 @@ const AdminSidebar = () => {
         </li>
         <li>
           <span className="material-symbols-outlined admin_sidebar_logos">add_card</span>
-          <Link to='/admin/reissuecard-admin'>Card Requests</Link>
+          <Link to='/admin/reissuecard'>Card Requests</Link>
         </li>
         <li>
           <span className="material-symbols-outlined admin_sidebar_logos">checkbook</span>
-          <Link to='/admin/requested-data'>Checkbook Requests</Link>
+          <Link to='/admin/chequebookreq'>Checkbook Requests</Link>
         </li>
 
         <li>
