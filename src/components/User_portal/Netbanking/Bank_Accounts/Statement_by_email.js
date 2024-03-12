@@ -105,6 +105,7 @@ const StatementByMail = () => {
         catch (error) {
             console.log('Error Verifying OTP:', error);
         }
+        setOtp(['','','','','',''])
     };
     const verifyCode = () => {
         verifyOTP()
