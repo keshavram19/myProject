@@ -10,8 +10,8 @@ import apiList from '../../../../lib/apiList';
  function AlertSubscription() {
   const [customerAccData, setCustomerAccData] = useState([]);
     const accountNumber = 123456789;
-    const [individualCreditCard, setIndividualCreditCard] = useState({
-      AlertSubscription:"",
+    const [subscriptionAlert, setSubscriptionAlert] = useState('');
+    const [individualCreditCard, setIndividualCreditCard] = useState({  
     });
     const [creditCardNum, setCreditCardNum] = useState('');
     const [customerDetails, setCustomerDetails] = useState();
@@ -28,7 +28,6 @@ import apiList from '../../../../lib/apiList';
       setCustomerAccData(data.details.userCreditCardDetails);
       setCreditCardNum(data.details.userCreditCardDetails[0].creditCardNumber);
   };
-
   useEffect(() => {
     if (!creditCardNum && customerAccData.length > 0) {
         setCreditCardNum(customerAccData[0].creditCardNumber);
@@ -42,22 +41,41 @@ const handleCreditCardNumber = (event) => {
 };
 const getIndividualCreditCard = async (selectedCreditCardNum) => {
   const options = {
-      method: 'POST'
+      method: 'GET'
   };
   try {
       const response = await fetch(`${apiList.customerCreditCardDetails}${accountNumber}/${creditCardNum}`, options);
       const data = await response.json();
       setIndividualCreditCard(data);
+      
   } catch (error) {
       console.error('Error fetching individual credit card:', error);
   }
 };
 
+const handleSubscriptionAlert = (event) => {
+  setSubscriptionAlert(event.target.value);
+};
+
+const handleSubmit = async () => {
+  try {
+      const response = await axios.put(`${apiList.customerCreditCardDetails}${accountNumber}/${creditCardNum}`, {
+          subscriptionAlert: subscriptionAlert
+      });
+      console.log(response.data);
+      toast.success('Subscription alert updated successfully');
+  } catch (error) {
+      console.error('Error updating subscription alert:', error);
+      toast.error('Failed to update subscription alert');
+  }
+};
+
+
   
   return (
     <>
       <div className='container-fluid'>
-      <h2 style={{color:'#EA6A47'}} className='p-2'>Alert Subscription</h2>
+      <h2 style={{color:'#EA6A47'}} className='p-3'>Alert Subscription</h2>
         <div className='Alert_Subscription_MainContainer'>
           <div className='alert_subscription-form ' >
           <h4 className='alert_subscription-form_heading2 p-3' style={{ backgroundColor:'#2fb68e',color:'white'}}>Alert Subscription</h4>
@@ -71,24 +89,22 @@ const getIndividualCreditCard = async (selectedCreditCardNum) => {
                                                             </option>
                                                         ))}
                                                     </select>
-                   </label>
-                                                                                                                                                                                               
-                   
-          <label for='alertSubscription' className='form-inline '>
-          <span className='col-md-3'>Subscription Alert</span>
-          <select name="cardNumber" className="custom-select custom-select-sm col-md-3 w-25">
-         <option value="" selected>Please select</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-        
-      </select>
-                      
-                   </label>
+                   </label>                                                                                                                                                                                               
+                   <label htmlFor='alertSubscription' className='form-inline '>
+                            <span className='col-md-3'>Subscription Alert</span>
+                            <select name="cardNumber" className="custom-select custom-select-sm col-md-3 w-25"
+                                value={subscriptionAlert} onChange={handleSubscriptionAlert}>
+                                <option value="" selected>Please select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </label>
                       {/* <a href="#" style={{textDecoration:'underline', fontSize:'14px', color:'black'}} className='p-3'>VIEW SAMPLE</a> */}
                    <hr/>
                    <div className='alert_Subscription_Btns p-3'> 
                    <button className='alert_Subscription_ResetBtn p-2'>RESET</button>
-                   <button className='alert_Subscription_SubmitBtn p-2'  type='button'>SUBMIT</button>
+                   <button className='alert_Subscription_SubmitBtn p-2' type='button' onClick={handleSubmit}>SUBMIT</button>
+               
                    </div> 
                    </div>
                    <div className='alert_Subscription_Notes p-2'>
@@ -102,7 +118,18 @@ const getIndividualCreditCard = async (selectedCreditCardNum) => {
         </div>
 
       </div>
-      <ToastContainer/>
+      <ToastContainer
+      position="top-center" // Set the position to top-center
+      autoClose={3000} // Close the toast after 5 seconds
+      hideProgressBar={false} // Show the progress bar
+      newestOnTop={false} // Show newest toast on top
+      closeOnClick // Close the toast when clicked
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      toastStyle={{ width: '400px' }}
+     />
     </>
   )
 }

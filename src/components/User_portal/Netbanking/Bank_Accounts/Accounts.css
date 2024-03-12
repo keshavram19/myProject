@@ -1739,9 +1739,8 @@ body {
   border-radius: 5px;
 }
 
-.recurring_btn2:hover {
-
-  font-weight: 600;
+.recurring_btn2:hover{
+  font-weight:600;
   background-color: #A2E0CE;
   color: #147558;
   border: 1px solid #147558;
@@ -2120,7 +2119,7 @@ body {
 
 .paylater_heading {
   font-size: x-large;
-  color: #f18121;
+  color: #2fb68e;
 }
 
 .paylater_image1 {
@@ -2129,7 +2128,7 @@ body {
 }
 
 .paylater_tablehead {
-  background-color: #f8f9fa;
+  background-color: #63ab95;
   font-size: 10px;
 }
 
@@ -2153,20 +2152,19 @@ body {
   max-width: 400px;
 }
 
-.paylater_paynow {
-  border: 1px solid white;
+.paylater_paynow ,.paylater_statement{
+  border: 1px solid #2fb68e;
   font-size: 10px;
-  color: #f18121;
-  background-color: #faede2;
+  color: #2fb68e;
+  background-color: transparent;
   height: 35px;
   border-radius: 5px;
 }
 
-.paylater_bill,
-.paylater_statement {
+.paylater_bill {
   font-size: 10px;
-  color: #f18121;
-  background-color: #faede2;
+  color: #fff;
+  background-color: #2fb68e;
   height: 35px;
   border-radius: 5px;
   border: none;
@@ -2178,24 +2176,25 @@ body {
   box-shadow: none;
 }
 
-.paylater_paynow:hover {
-  color: #f18121;
+.paylater_paynow:hover ,.paylater_statement:hover{
+  color: #ebca28;
+  border: 1px solid #ebca28;
 }
 
-.paylater_bill:hover,
-.paylater_statement:hover {
-  color: #f18121;
+.paylater_bill:hover{
+  color: white;
+  background-color: #ebca28;
 }
 
 .paylater_transactions {
-  background-color: #faede2;
-  color: #f18121;
   display: flex;
   align-items: center;
   margin-top: 5%;
   height: 40px;
   padding-left: 2%;
   font-size: 14px;
+  border: 1px solid lightgray;
+  color: #2fb68e;
 }
 
 /* paylater css ends */
@@ -2212,21 +2211,26 @@ body {
 .billDetails_okbtn {
   border: none;
   height: 30px;
-  background: #faede2;
-  color: #f18121;
+  background: #2fb68e;
+  color: white;
   display: flex;
   align-items: center;
   border-radius: 5px;
 }
 
-.billDetails_input1:focus {
-  outline: none;
+.billDetails_okbtn:hover{
+background-color: #ebca28;
+color: white;
+}
+.billDetails_input1:focus{
+outline: none;
+
 }
 
 .billDetails_cont1 {
   height: 50px;
-  background-color: #faede2;
-  color: #f18121;
+  background-color: #b3ead9;
+  color: #2fb68e;
   display: flex;
   align-items: center;
 }
@@ -2248,17 +2252,21 @@ body {
 .billDetails_backbtn {
   border: none;
   height: 30px;
-  border: 1px solid #f18121;
-  color: #f18121;
+  border: 1px solid #2fb68e;
+  color: #2fb68e;
   display: flex;
   align-items: center;
   margin-right: 5%;
   border-radius: 5px;
 }
 
-.billDetails_pay {
+.billDetails_backbtn:hover{
+  border: 1px solid #ebca28;
+  color: #ebca28;
+}
+.billDetails_pay{
   border: none;
-  background-color: #f18121;
+  background-color: #2fb68e;
   color: #fffefe;
   height: 30px;
   display: flex;
@@ -2266,7 +2274,14 @@ body {
   border-radius: 5px;
 }
 
-.billDetails_link {
+
+
+.billDetails_pay:hover{
+  background-color: #ebca28;
+  color: white;
+}
+.billDetails_link{
+
   text-decoration: none;
 }
 
@@ -2276,7 +2291,7 @@ body {
 
 .estatement_heading {
   font-size: x-large;
-  color: #f18121;
+  color: #2fb68e;
 }
 
 .estatement_container {
@@ -2289,7 +2304,7 @@ body {
 }
 
 .estatement_accounttype {
-  max-width: 400px;
+  max-width: 450px;
   height: 8vh;
   display: flex;
   align-items: center;
@@ -2310,7 +2325,6 @@ body {
 
 .estatement_option {
   width: 100%;
-  appearance: none;
   padding-left: 3%;
   border: none;
 }
@@ -2442,24 +2456,31 @@ body {
   border: 1px solid #2fb68e;
 
   border-radius: 5px;
-  color: #f18121;
+  color: #2fb68e;
+  background-color: transparent;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4%;
+}
+
+.estatement_download {
+  margin-left: 4%;
+  width: 160px;
+  background-color: #2fb68e;
+  border: none;
+  border-radius: 5px;
+  color: white;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.estatement_download {
-  margin-left: 4%;
-  width: 80px;
-  background-color: #faede2;
-  border: none;
-  border-radius: 5px;
-  color: #f18121;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.estatement_download:hover{
+  background-color: #ebca28;
+  color: #fff;
 }
 
 .estatement_note {
@@ -2472,6 +2493,18 @@ body {
   justify-content: center;
   margin-top: 3%;
 }
+.estatement_bankinput{
+  padding-left: 5%;
+  border: none;
+  outline: none;
+}
+.estatement_periodselect1{
+  padding-left: 0;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
 
 /* estatement css ends */
 

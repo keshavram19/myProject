@@ -4,7 +4,9 @@ import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaCalendarWeek } from "react-icons/fa";
-import html2pdf from 'html2pdf.js';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
+import { html2pdf } from 'html2pdf.js';
 const allTransactionsList = [
   {
     type: 'ICICI',
@@ -171,10 +173,34 @@ const transactions = filterTransactions();
 
 let transactionRef = useRef()
 const handleDownload = () => {
-  const pdfOptions = { margin: 10, filename: 'transactions.pdf', image: { type: 'jpeg', quality: 0.98 } };
+  const pdf = new jsPDF();
 
-  html2pdf(transactionRef.current, pdfOptions).save();
-  
+  pdf.setFontSize(8);
+  pdf.text(`Account Number:123456789 `, 10, 10);
+  pdf.text(`Account Holder Name:Moola Srinivasa Reddy `, 10, 20);
+  pdf.text(`Branch Bank Name:Royal Islamic Bank `, 10, 30);
+  pdf.text(`Account type :Savings`, 10, 40);
+  pdf.text(`Account Holder DOB:24-08-1999 `, 10, 50);
+  pdf.text(`Bank Branch IfscCode:RIBN0000201 `, 10, 60);
+  pdf.text(`Account Balance:2000`, 10, 70);
+  pdf.text(`Mobile Number:8106423221`, 10, 80);
+  pdf.text(`Email ID:srinivasreddy@gmail.com`, 10, 90);
+
+  const input = transactionRef.current;
+  const A4_WIDTH = 210; 
+  const A4_HEIGHT = 297; 
+
+  html2canvas(input).then((canvas) => {
+    const imgData = canvas.toDataURL('image/png');
+    const imgWidth = A4_WIDTH; 
+    const imgHeight = (A4_WIDTH / canvas.width) * canvas.height; // Maintain aspect ratio
+    pdf.addImage(imgData, 'PNG', 2, 100, imgWidth, imgHeight); // Adjust x, y, width, and height as needed
+    pdf.save('transactions.pdf');
+  });
+};
+const generateRandomTransactionId = () => {
+  const randomNumber = Math.floor(Math.random() * 1000) + 1;
+  return `RIB${String(randomNumber).padStart(4, '0')}`;
 };
 
 
@@ -255,7 +281,7 @@ const handleDownload = () => {
            <th>Date</th>
                 <th>Transaction Type</th>
     <th>Total Amount(INR)</th>
-                <th>Payment ID</th>
+                <th>Transaction ID</th>
                 <th>Status</th>
            </tr>
          </thead>
@@ -265,17 +291,18 @@ const handleDownload = () => {
                                                         <td>{transaction.date}</td>
                                                         <td>{transaction.type}</td>
                                                         <td>{transaction.Totalamount}</td>
-                                                        <td>{transaction.id}</td>
+                                                        <td>{generateRandomTransactionId()}</td>
                                                         <td>{transaction.Status}</td>
                                                     </tr>
                                                 ))}</tbody> </table>
-                                                <div className='d-flex justify-content-end' >
-                    <button className='completed_transaction_ok' onClick={handleDownload}>Download PDF</button>
-                  </div>
+                      
                                                 </div>:
                                                 <div className='estatement_noFound'>No Transactions Found</div>}
          </div>
          }
+         {view ==='get'&&transactions.length>0&&<div className='d-flex justify-content-end'>
+                                                <button onClick={handleDownload} className='estatement_download'>Download PDF</button>
+                                                </div>}
 
               <div className='mt-5'>
                 <p style={{color:'#2fb68e'}}><b>Note:</b></p>
