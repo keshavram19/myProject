@@ -153,7 +153,11 @@ function App() {
     location.pathname === "/admin/confirm-details" ||
     location.pathname === "/admin/all-data" ||
     location.pathname === "/account-opening" ||
-    location.pathname === "/account-success";
+    location.pathname === "/account-success" ||
+    location.pathname === "/admin/chequebookreq" ||
+    location.pathname === "/admin/reissuecard" ||
+    location.pathname === "/admin/reissuecardGenerateorReject" ;
+
 
 
   return (
