@@ -58,8 +58,8 @@ const apiList ={
 
     addAccountDetails:`${server}/api/add-account-details/`,
     UserDetailsAccountOpening:`${server}/api/userdetails`,
-    UserDetailsAccountOpeningSendOTP:`${server}/api/send-otp`,
-    UserDetailsAccountOpeningVerifyOTP:`${server}/api/verify-otp`,
+    UserDetailsAccountOpeningSendOTP:`${server}/admin/send-otp`,
+    UserDetailsAccountOpeningVerifyOTP:`${server}/admin/verify-otp`,
 
   // requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
 
