@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './reissuecardGenerateorReject.css';
+import { useNavigate,useLocation } from 'react-router-dom';
 
 function ReissueGenerateOrReject() {
     const [userDetails, setUserDetails] = useState(null);
@@ -8,6 +9,31 @@ function ReissueGenerateOrReject() {
     const [rejectedUsers, setRejectedUsers] = useState([]);
     const [generatedUsers, setGeneratedUsers] = useState([]);
     const [currentDate, setCurrentDate] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const isAuthenticated = () => {
+        const token = sessionStorage.getItem("adminloginToken");
+        const expireTime = sessionStorage.getItem("adminexpireTime");
+        return token && new Date().getTime() < expireTime;
+      };
+    
+      useEffect(() => {
+        // Redirect to admin login if URL is manipulated
+        if (!location.pathname.includes("/admin/")) {
+          sessionStorage.removeItem("adminloginToken");
+          sessionStorage.removeItem("adminexpireTime");
+          navigate("/admin/login");
+        }
+      }, [location.pathname, navigate]);
+    
+      useEffect(() => {
+        // Check if the user is authenticated
+        if (!isAuthenticated()) {
+          // If not authenticated, navigate to admin login page
+          navigate("/admin/login");
+        } 
+      }, [isAuthenticated]);
 
 
     useEffect(() => {
