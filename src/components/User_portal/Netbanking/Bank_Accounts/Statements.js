@@ -1,98 +1,43 @@
 import './Accounts.css';
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { IoCaretDownCircleOutline } from "react-icons/io5";
 import { FcCalendar } from "react-icons/fc";
 import { AiFillPrinter } from "react-icons/ai";
 
 import DatePicker from 'react-datepicker';
-import React, { useState, useEffect, useRef } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import apiList from '../../../../lib/apiList';
-import { format } from 'date-fns';
-import { Link, useNavigate } from 'react-router-dom';
-import html2pdf from 'html2pdf.js';
 import banklogo from '../../../../Images/banklogo.png';
 
-const allTransactionsList = [
-    {
-        date: '15 Feb 2024',
-        narration: 'UPI-BADE NAGARAJU-Q857498653@ybl-YESBOYBLUPI-439140239946-Payment from Phone',
-        withdrawl: '20.00',
-        deposite: '',
-        balance: '1.48'
-    },
-    {
-        date: '14 Feb 2024',
-        narration: 'UPI-Mr RAVI TEJA-7032256838@ybl-IDIB000M160-402484923876-Payment to 7032256',
-        withdrawl: '10,000.00',
-        deposite: '',
-        balance: '21.48'
-    },
-    {
-        date: '13 Feb 2024',
-        narration: 'UPI-PRATHIPATI PAWAN-89788426211@ybl-SBIN0011101-438930608914-Payment from Phone',
-        withdrawl: '',
-        deposite: '10,000.00',
-        balance: '10,021.48'
-    },
-    {
-        date: '12 Feb 2024',
-        narration: 'UPI-KANDRA SUNIL-9676350447@ybl-IOBA0003640-402376683037-Payment to 9676350',
-        withdrawl: '10,000.00',
-        deposite: '',
-        balance: '21.48'
-    },
-    {
-        date: '11 Feb 2024',
-        narration: 'UPI-Mr SAI TEJA-7032256838@ybl-IDIB000M160-438905881961-Payment from Phone',
-        withdrawl: '',
-        deposite: '10,000.00',
-        balance: '10,021.48'
-    },
-    {
-        date: '10 Feb 2024',
-        narration: 'UPI-Southern Power Distr-TELANGANASSPDCL-@ybl-YESBOYBLUPI-438578208304-Payment from Phone',
-        withdrawl: '579.00',
-        deposite: '',
-        balance: '34.43'
-    },
-    {
-        date: '09 Feb 2024',
-        narration: 'UPI-S J ENTERPRISES-paytmqr281005050101ohcg3wn30uhq@paytm-PYTM0123456-401914284585-Payment from Phone',
-        withdrawl: '30.00',
-        deposite: '',
-        balance: '613.43'
-    },
-    {
-        date: '08 Feb 2024',
-        narration: 'UPI-FAMOUS CHICKEN CENTER-paytmqr1r7sb4s8ks@paytm-PYTM0123456-401897267622-Payment from Phone',
-        withdrawl: '45.00',
-        deposite: '',
-        balance: '643.43'
-    }
-];
+import { format } from 'date-fns';
+import html2pdf from 'html2pdf.js';
+
 
 const Statements = () => {
-    
+
     const [savingsAccNumber, setAccountNumber] = useState('');
     const [accountType, setAccountType] = useState('');
     const [fromDate, setFromDate] = useState(null);
     const [toDate, setToDate] = useState(null);
-    const [transactionType, setTransactionType] = useState('');
+    const [transactionType, setTransactionType] = useState('allTransactions');
     const [perPageTransactions, setPerPageTransactions] = useState('');
-    const [accountTypeDetails, setAccountTypeDetails] = useState();
-    const [viewTransStatement, setViewTransStatement] = useState();
+    const [accountTypeDetails, setAccountTypeDetails] = useState({
+        userAccountNumber: '',
+        bankBranchName: '',
+        userAccountBalance: ''
+    });
     const [formattedFromDate, setFormattedFromDate] = useState(null);
     const [formattedToDate, setFormattedToDate] = useState(null);
+    const [accountTransactions, setAccountTransactions] = useState([]);
+    const [errorMsgStatus, setErrorMsgStatus] = useState('false');
+    const [errorMsg, setErrorMsg] = useState('');
+    const [periodRangeStatus, setPeriodRangeStatus] = useState(false);
 
-    // let navigate = useNavigate();
-    // useEffect(() => {
-    //     let logintoken = sessionStorage.getItem('loginToken')
-    //     if(!logintoken){
-    //         navigate('/netbanking-personal-login')
-    //     }
-    // });
 
     const navigate = useNavigate();
     const isTokenExpired = () => {
@@ -142,6 +87,10 @@ const Statements = () => {
         setPerPageTransactions(event.target.value)
     };
 
+    const handlePeriodRange = () => {
+        setPeriodRangeStatus(!periodRangeStatus)
+    };
+
     useEffect(() => {
         getAccountTypeDetails()
     }, []);
@@ -155,49 +104,40 @@ const Statements = () => {
         setAccountTypeDetails(data.details)
     };
 
-    const handleTransStatement = () => {
-        if (viewTransStatement === 'true') {
-            setViewTransStatement('false')
-        }
-        else {
-            setViewTransStatement('true')
-        }
-    };
+    // const isFilterSelected = fromDate || toDate || transactionType;
+    // const filteredTransactions = isFilterSelected ? allTransactionsList.filter((transaction) => {
+    //     const transactionDate = new Date(transaction.date);
 
-    const isFilterSelected = fromDate || toDate || transactionType;
-    const filteredTransactions = isFilterSelected ? allTransactionsList.filter((transaction) => {
-        const transactionDate = new Date(transaction.date);
+    //     // From-Date and To-Date filtration
+    //     if (fromDate && toDate) {
+    //         const from = new Date(fromDate);
+    //         const to = new Date(toDate);
+    //         if (transactionDate < from || transactionDate > to) {
+    //             return false;
+    //         }
+    //     }
+    //     else if (fromDate) {
+    //         const from = new Date(fromDate);
+    //         if (transactionDate < from) {
+    //             return false;
+    //         }
+    //     }
+    //     else if (toDate) {
+    //         const to = new Date(toDate);
+    //         if (transactionDate > to) {
+    //             return false;
+    //         }
+    //     }
 
-        // From-Date and To-Date filtration
-        if (fromDate && toDate) {
-            const from = new Date(fromDate);
-            const to = new Date(toDate);
-            if (transactionDate < from || transactionDate > to) {
-                return false;
-            }
-        }
-        else if (fromDate) {
-            const from = new Date(fromDate);
-            if (transactionDate < from) {
-                return false;
-            }
-        }
-        else if (toDate) {
-            const to = new Date(toDate);
-            if (transactionDate > to) {
-                return false;
-            }
-        }
-
-        // Filteration of Transaction Type
-        if (transactionType === 'Withdrawals' && transaction.withdrawl === '') {
-            return false;
-        }
-        else if (transactionType === 'Deposits' && transaction.deposite === '') {
-            return false;
-        }
-        return true;
-    }) : [];
+    //     // Filteration of Transaction Type
+    //     if (transactionType === 'Withdrawals' && transaction.withdrawl === '') {
+    //         return false;
+    //     }
+    //     else if (transactionType === 'Deposits' && transaction.deposite === '') {
+    //         return false;
+    //     }
+    //     return true;
+    // }) : [];
 
     let transactionRef = useRef();
     const handleDownloadTransactions = () => {
@@ -211,7 +151,7 @@ const Statements = () => {
         const bankLogo = `
             <div class='statements_bank_logo_container'>
                 <div>
-                    <img src='../../../../Images/banklogo.png' class='statements_bank_logo'>
+                    <img src=${banklogo} class='statements_bank_logo'>
                 </div>
             </div>    
         `;
@@ -219,67 +159,80 @@ const Statements = () => {
         const customerInfo = `
             <div class='customer_info_container'>
                 <div class='customer_account_info'>
-                    <div class='customer_details_heading'>Account Name:</div>
+                    <div class='customer_details_heading'>Account Name</div>
+                    <div class='customer_details_heading_semicol'>:</div>
                     <div>${accountTypeDetails.accountHolderName}</div>
                 </div>
 
                 <div class='customer_account_info'>
-                    <div class='customer_details_heading'>Address: </div>
+                    <div class='customer_details_heading'>Address</div>
+                    <div class='customer_details_heading_semicol'>:</div>
                     <div></div>
                 </div>
 
                 <div class='customer_account_info'>
-                    <div class='customer_details_heading'>Date: </div>
+                    <div class='customer_details_heading'>Date</div>
+                    <div class='customer_details_heading_semicol'>:</div>
                     <div>21 Feb 2024</div>
                 </div>
 
                 <div class='customer_account_info'>
-                    <div class='customer_details_heading'>Account Number: </div>
+                    <div class='customer_details_heading'>Account Number</div>
+                    <div class='customer_details_heading_semicol'>:</div>
                     <div>${accountTypeDetails.userAccountNumber}</div>
                 </div>
             
                 <div class='customer_account_info'>
-                    <div class='customer_details_heading'>Account Type: </div>
+                    <div class='customer_details_heading'>Account Type</div>
+                    <div class='customer_details_heading_semicol'>:</div>
                     <div>${accountTypeDetails.userAccountType}</div>
                 </div>
 
                 <div class='customer_account_info'>
-                    <div class='customer_details_heading'>Branch: </div>
+                    <div class='customer_details_heading'>Branch</div>
+                    <div class='customer_details_heading_semicol'>:</div>
                     <div>${accountTypeDetails.bankBranchName}</div>
                 </div>
 
                 <div class='customer_account_info'>
-                    <div class='customer_details_heading'>CIF No: </div>
+                    <div class='customer_details_heading'>CIF No</div>
+                    <div class='customer_details_heading_semicol'>:</div>
                     <div>90132177309</div>
                 </div>
 
                 <div class='customer_account_info'>
-                    <div class='customer_details_heading'>IFS Code: </div>
+                    <div class='customer_details_heading'>IFS Code</div>
+                    <div class='customer_details_heading_semicol'>:</div>
                     <div>${accountTypeDetails.bankBranchIfscCode}</div>
                 </div>
             
                 <div class='customer_account_info'>
-                    <div class='customer_details_heading'>MICR Code: </div>
+                    <div class='customer_details_heading'>MICR Code</div>
+                    <div class='customer_details_heading_semicol'>:</div>
                     <div>520002682</div>
                 </div>
                 
                 <div class='customer_account_info'>
-                    <div class='customer_details_heading'>Nomination Registered: </div>
+                    <div class='customer_details_heading'>Nomination Registered</div>
+                    <div class='customer_details_heading_semicol'>:</div>
                     <div>Yes</div>
                 </div>
 
                 <div class='customer_account_info'>
-                    <div class='customer_details_heading'>Balance: </div>
+                    <div class='customer_details_heading'>Balance</div>
+                    <div class='customer_details_heading_semicol'>:</div>
                     <div>INR ${accountTypeDetails.userAccountBalance}</div>
                 </div>
 
                 <div class='customer_account_info'>
-                    <div class='customer_details_heading'>Transaction Type: </div>
+                    <div class='customer_details_heading'>Transaction Type</div>
+                    <div class='customer_details_heading_semicol'>:</div>
                     <div>${transactionType}</div>
                 </div>
 
                 <div class='customer_account_info'>
-                    <div class='customer_details_heading'>Search for: </div>
+                    <div class='customer_details_heading'>Search for</div>
+                    <div class='customer_details_heading_semicol'>:</div>
                     <div>${formattedFromDate} to ${formattedToDate}</div>
                 </div>
             </div>
@@ -287,7 +240,7 @@ const Statements = () => {
 
         const footerInfo = `
             <div class='footer_info'>
-                <div class='statement'>
+                <div class='footer_info_statement'>
                     Please do not share your ATM, Debit/Credit card number, PIN and OTP with anyone over mail, SMS, phone call
                     or any other media. Bank never ask for such information.
                 </div>
@@ -306,8 +259,42 @@ const Statements = () => {
             </div>
         `;
         html2pdf().from(combinedHTML).set(options).save();
-    }
+    };
 
+    const handleTransStatement = () => {
+        fetchTransactions()
+    };
+    const fetchTransactions = async () => {
+
+        const fromDate = formattedFromDate;
+        const toDate = formattedToDate;
+        const acctNum = savingsAccNumber;
+        const acctType = accountType;
+        const transType = transactionType;
+
+        const url = `http://localhost:4444/api/getTransaction/${acctNum}/${acctType}?fromDate=${fromDate}&toDate=${toDate}&transType=${transType}`;
+        const options = {
+            method: "GET"
+        };
+
+        try {
+            const response = await fetch(url, options);
+
+            if (response.ok) {
+                const data = await response.json();
+                setErrorMsgStatus('false')
+                setAccountTransactions(data.transactions);
+            } else {
+                const data1 = await response.json();
+                setErrorMsgStatus('true')
+                setErrorMsg(data1.message)
+            }
+        }
+        catch (error) {
+            console.log('Error while fetching transactions:', error);
+        }
+    };
+    let reverseTransactions = accountTransactions.slice().reverse();
 
     return (
         <div className='container-fluid' style={{ marginTop: "90px" }}>
@@ -331,38 +318,25 @@ const Statements = () => {
                                 <IoCaretDownCircleOutline className='statement_acct_type_icon' />
                             </div>
                         </div>
-                        {accountTypeDetails &&
-                            <div className='acct_num_cont'>
-                                <div className='acct_num_text'>Account Number:</div>
-                                <div className='d-flex align-items-center'>
-                                    <select className='form-control statement_select_format'
-                                        disabled={accountType === 'Current'} onChange={handleAccountNumber}>
-                                        <option hidden>Select Account Number</option>
-                                        <option>{accountTypeDetails.userAccountNumber}</option>
-                                    </select>
-                                    <IoCaretDownCircleOutline className='statement_acct_type_icon' />
-                                </div>
+
+                        <div className='acct_num_cont'>
+                            <div className='acct_num_text'>Account Number:</div>
+                            <div className='d-flex align-items-center'>
+                                <select className='form-control statement_select_format'
+                                    disabled={accountType === 'Current'} onChange={handleAccountNumber}>
+                                    <option hidden>Select Account Number</option>
+                                    <option>{accountTypeDetails.userAccountNumber}</option>
+                                </select>
+                                <IoCaretDownCircleOutline className='statement_acct_type_icon' />
                             </div>
-                        }
-                        {/* <div className='mini_statement_cont'>
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <input type='radio' id='ministate' className='ministatement_radio_btn'
-                                        disabled={accountType === 'Current'} name='radioBtn' value='1'>
-                                    </input>
-                                </div>
-                                <div>
-                                    <label htmlFor='ministate'>
-                                        Mini Statement
-                                    </label>
-                                </div>
-                            </div>
-                        </div> */}
+                        </div>
+
                         <div className='d-flex period_cont'>
                             <div className='d-flex align-items-center period_data_cont'>
                                 <div>
                                     <input type='radio' id='period' className='period_radio_btn'
-                                        disabled={accountType === 'Current'} name='radioBtn' value='2'>
+                                        disabled={accountType === 'Current'} name='radioBtn' value='2'
+                                        onChange={handlePeriodRange}>
                                     </input>
                                 </div>
                                 <div>
@@ -376,7 +350,7 @@ const Statements = () => {
                                         <DatePicker
 
                                             selected={fromDate} onChange={handleStartDateChange}
-                                            className='from_date_period' disabled={accountType === 'Current'}
+                                            className='from_date_period' disabled={periodRangeStatus === false}
                                             selectsStart dateFormat="dd MMM yyyy" fromDate={fromDate} toDate={toDate}
                                         />
                                         <FcCalendar className='calender_icon' />
@@ -388,14 +362,13 @@ const Statements = () => {
                                         <DatePicker
 
                                             selected={toDate} dateFormat="dd MMM yyyy" onChange={handleEndDateChange}
-                                            disabled={accountType === 'Current'} selectsEnd fromDate={fromDate}
+                                            disabled={periodRangeStatus === false} selectsEnd fromDate={fromDate}
                                             toDate={toDate} minDate={fromDate} className='from_date_period'>
 
                                         </DatePicker>
                                         <FcCalendar className='calender_icon' />
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div className='show_transactions_cont'>
@@ -403,15 +376,15 @@ const Statements = () => {
                             <div className='show_all_transa'>
                                 <select className='form-control statement_select_format'
                                     disabled={accountType === 'Current'} onChange={handleTransactionType}>
-                                    <option>All Transactions</option>
-                                    <option>Withdrawals</option>
-                                    <option>Deposits</option>
+                                    <option value='allTransactions'>All Transactions</option>
+                                    <option value='withdrawal'>Withdrawals</option>
+                                    <option value='deposit'>Deposits</option>
                                 </select>
                                 <IoCaretDownCircleOutline className={`all_trans_icon`} />
                             </div>
 
                             <div className='per_page_tarns'>
-                                <div>Page</div>
+                                <div className='mr-2'>Transactions</div>
                                 <div>
                                     <select className='form-control statement_select_format'
                                         disabled={accountType === 'Current'} onChange={handlePerPageTransactions}>
@@ -420,7 +393,6 @@ const Statements = () => {
                                         <option>20</option>
                                     </select>
                                 </div>
-                                <div> Transactions</div>
                                 <div>
                                     <IoCaretDownCircleOutline className='page_trans_icon' />
                                 </div>
@@ -428,96 +400,88 @@ const Statements = () => {
                         </div>
                         <div className='transactions_view_btn_cont'>
                             <button className='transactions_view_btn' type='button' onClick={handleTransStatement}>
-                                {viewTransStatement === 'true' ? 'Hide' : 'View'}
+                                View
                             </button>
                         </div>
                     </div>
                     {
-                        viewTransStatement === 'true' ?
-                            (<div className='my-5'>
-                                <div>
-                                    <div className='d-flex justify-content-between'>
-                                        <div className='savings_acc_statement_cont_heading'>
-                                            View/Download Account Statement
-                                        </div>
-                                        <div className='d-flex'>
-                                            <div><AiFillPrinter className='acct_statement_printer_icon' /></div>
-                                            <div className='acct_statement_printer_text'>Print This Page</div>
-                                        </div>
+                        reverseTransactions.length > 0 &&
+                        (<div className='my-5'>
+                            <div>
+                                <div className='d-flex justify-content-between'>
+                                    <div className='savings_acc_statement_cont_heading'>
+                                        View/Download Account Statement
                                     </div>
-                                    <div className='d-flex statement_savings_acct_num_cont'>
-                                        <div className='statement_savings_acct_num'>Savings Account No: </div>
-                                        {accountTypeDetails &&
-                                            <div className='statement_savings_acct_branch'>
-                                                {accountTypeDetails.userAccountNumber}, {accountTypeDetails.bankBranchName}
-                                            </div>
-                                        }
-                                    </div>
-                                    <div className='d-flex justify-content-between'>
-                                        <div className='d-flex align-items-center' style={{ fontSize: '15px' }}>
-                                            <div className='mr-2'>Period: </div>
-                                            <div className='mr-2'>{formattedFromDate} to {formattedToDate}</div>
-                                        </div>
-                                        <div>
-                                            <div className='trans_statement_pages'>Page 1 of 1</div>
-                                        </div>
+                                    <div className='d-flex'>
+                                        <div><AiFillPrinter className='acct_statement_printer_icon' /></div>
+                                        <div className='acct_statement_printer_text'>Print This Page</div>
                                     </div>
                                 </div>
-
-                                <div className='d-flex justify-content-end'>
-                                    <div className='tran_statement_closing_bal'>Closing Balance:</div>
-                                    {accountTypeDetails &&
-                                        <div className='tran_statement_balance'>
-                                            INR {accountTypeDetails.userAccountBalance}
-                                        </div>
-                                    }
+                                <div className='d-flex statement_savings_acct_num_cont'>
+                                    <div className='statement_savings_acct_num'>Savings Account No: </div>
+                                    <div className='statement_savings_acct_branch'>
+                                        {accountTypeDetails.userAccountNumber}, {accountTypeDetails.bankBranchName}
+                                    </div>
                                 </div>
-
-                                <div className='my-3' ref={transactionRef}>
-                                    <table className='table table-bordered'>
-                                        <thead className='tran_statement_table_header'>
-                                            <tr>
-                                                <th>Date</th>
-                                                <th>Description</th>
-                                                <th>Debited</th>
-                                                <th>Credited</th>
-                                                <th>Balance</th>
-                                            </tr>
-                                        </thead>
-                                        {isFilterSelected && (
-                                            <tbody className='tran_statement_table_body'>
-                                                {filteredTransactions.map((transaction, index) => (
-                                                    <tr key={index}>
-                                                        <td>{transaction.date}</td>
-                                                        <td>{transaction.narration}</td>
-                                                        <td>{transaction.withdrawl}</td>
-                                                        <td>{transaction.deposite}</td>
-                                                        <td>{transaction.balance}</td>
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        )}
-                                    </table>
-                                </div>
-                                {/* <div className='d-flex align-items-center my-2'>
-                                    <div className='tran_statement_format'>Select Format:</div>
+                                <div className='d-flex justify-content-between'>
+                                    <div className='d-flex align-items-center' style={{ fontSize: '15px' }}>
+                                        <div className='mr-2'>Period: </div>
+                                        <div className='mr-2'>{formattedFromDate} to {formattedToDate}</div>
+                                    </div>
                                     <div>
-                                        <select className='form-control statement_select_format'>
-                                            <option>PDF</option>
-                                            <option>Word</option>
-                                        </select>
+                                        <div className='trans_statement_pages'>Page 1 of 1</div>
                                     </div>
-                                </div> */}
-                                <div>
-                                    <button type='button' className='statement_download_btn'
-                                        onClick={handleDownloadTransactions}>
-                                        Download
-                                    </button>
                                 </div>
-                            </div>)
-                            : ''
+                            </div>
+
+                            <div className='d-flex justify-content-end'>
+                                <div className='tran_statement_closing_bal'>Closing Balance:</div>
+                                <div className='tran_statement_balance'>
+                                    INR {accountTypeDetails.userAccountBalance}
+                                </div>
+                            </div>
+
+                            <div className='my-3' ref={transactionRef}>
+                                <table className='table table-bordered'>
+                                    <thead className='tran_statement_table_header'>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Description</th>
+                                            <th>Debited</th>
+                                            <th>Credited</th>
+                                            <th>Balance</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody className='tran_statement_table_body'>
+                                        {reverseTransactions.map((transaction, index) => (
+                                            <tr key={index}>
+                                                <td style={{ width: '100px' }}>{transaction.date}</td>
+                                                <td>{transaction.description}</td>
+                                                <td>{transaction.withdrawal}</td>
+                                                <td>{transaction.deposit}</td>
+                                                <td>{transaction.balance}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+
+                                </table>
+                            </div>
+                            <div>
+                                <button type='button' className='statement_download_btn'
+                                    onClick={handleDownloadTransactions}>
+                                    Download
+                                </button>
+                            </div>
+                        </div>)
                     }
 
+                    {
+                        errorMsgStatus === 'true' ?
+                            (<div className='d-flex justify-content-center my-3 text-danger'>
+                                {errorMsg}
+                            </div>) : ''
+                    }
 
                     <div>
                         <div className='savings_acct_statement_note'>Notes:</div>
@@ -533,7 +497,7 @@ const Statements = () => {
                                 in parts by adjusting the date range accordingly.
                             </li>
                             <li className='savings_acct_statement_note_points'>
-                                Remember to confirm your selection by clicking on the 'Select Period' option to save and 
+                                Remember to confirm your selection by clicking on the 'Select Period' option to save and
                                 download the account statement.
                             </li>
                         </ul>

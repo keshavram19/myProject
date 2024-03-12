@@ -6,7 +6,10 @@ const apiList ={
     // admin login starts
 
     adminLogin: `${server}/admin/admin-login`,
-
+    addAccountDetails:`${server}/admin/add-account-details/`,
+    UserDetailsAccountOpening:`${server}/admin/userdetails`,
+    UserDetailsAccountOpeningSendOTP:`${server}/admin/send-otp`,
+    UserDetailsAccountOpeningVerifyOTP:`${server}/admin/verify-otp`,
     individualrequestedetails: `${server}/admin/individualrequesteduserdetails`,
     getuserrequesteddetails: `${server}/admin/requesteduserdetails/`,
     requestedUserDetailsByEmail: `${server}/admin/individualrequesteduserdetails/`,
@@ -58,8 +61,8 @@ const apiList ={
 
     addAccountDetails:`${server}/api/add-account-details/`,
     UserDetailsAccountOpening:`${server}/api/userdetails`,
-    UserDetailsAccountOpeningSendOTP:`${server}/admin/send-otp`,
-    UserDetailsAccountOpeningVerifyOTP:`${server}/admin/verify-otp`,
+    UserDetailsAccountOpeningSendOTP:`${server}/api/send-otp`,
+    UserDetailsAccountOpeningVerifyOTP:`${server}/api/verify-otp`,
 
   // requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
 

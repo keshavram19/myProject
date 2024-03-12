@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./adminhome.css";
 import axios from "axios";
+import AdminSidebar from "../admin_sidebar/AdminSidebar";
 
 function AdminChequeBookRequest() {
   const [accountDetails, setAccountDetails] = useState([]);
@@ -48,9 +49,12 @@ function AdminChequeBookRequest() {
   return (
     <>
       <div>
-        <section className="container-fluid" style={{ marginTop: "90px" }}>
+        <section className="container-fluid">
           <div className="row">
-            <div className="col-12 accounts_admin_home">
+            <div className="col-3">
+                <AdminSidebar />
+            </div>
+            <div className="col-9 accounts_admin_home">
               <div className="viewSummary">
                 <div className="row">
                   <div className="col-md-6">

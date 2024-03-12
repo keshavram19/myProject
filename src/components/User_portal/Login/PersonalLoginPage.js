@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import "./PersonalLoginPage.css";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import ReCAPTCHA from "react-google-recaptcha";
-// import logo from "../../../Images/Royal islamic.png";
-// import logIn from "../../../Images/login_img.png";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,7 +24,7 @@ const PersonalLoginPage = () => {
   const [bankPassword, setBankPassword] = useState('');
   const [bankMailId, setBankMailId] = useState('');
   const [bankOtp, setBankOtp] = useState('');
-  const [bankNewPassword, setBankNewPassword] = useState('')
+  const [bankNewPassword, setBankNewPassword] = useState('');
 
   const handleUserName = (event) => {
     setBankUserName(event.target.value)
@@ -60,7 +58,6 @@ const PersonalLoginPage = () => {
 
     try {
       const response = await fetch(apiList.customerLogin, options);
-      console.log('Response:', response);
       const data = await response.json();
       if (response.status === 200) {
 
@@ -72,7 +69,7 @@ const PersonalLoginPage = () => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "colored"
+          theme: "light"
         });
 
         sessionStorage.setItem('loginToken', data.token);
@@ -90,7 +87,7 @@ const PersonalLoginPage = () => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "colored"
+          theme: "light"
         });
       }
     } catch (error) {
@@ -103,7 +100,7 @@ const PersonalLoginPage = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "colored"
+        theme: "light"
       });
     }
     setBankUserName('')
@@ -356,7 +353,7 @@ const PersonalLoginPage = () => {
               </div>
             </div>
             <button>Know more</button> */}
-            <img src={No_Waiting_Img} alt="no waiting logo" className="img-fluid"/>
+            <img src={No_Waiting_Img} alt="no waiting logo" className="img-fluid" style={{ width: '100%', height: '85vh'}}/>
           </div>
 
           {form === "login" && (
@@ -377,6 +374,7 @@ const PersonalLoginPage = () => {
                 className="form-control"
                 onChange={handleUserName}
                 value={bankUserName}
+                style={{fontSize: '14px'}}
               />
               <input
                 type="Password"
@@ -384,6 +382,7 @@ const PersonalLoginPage = () => {
                 className="form-control"
                 onChange={handleBankPassword}
                 value={bankPassword}
+                style={{fontSize: '14px'}}
               />
 
               <div className="mt-3">

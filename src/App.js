@@ -153,7 +153,11 @@ function App() {
     location.pathname === "/admin/confirm-details" ||
     location.pathname === "/admin/all-data" ||
     location.pathname === "/account-opening" ||
-    location.pathname === "/account-success";
+    location.pathname === "/account-success" ||
+    location.pathname === "/admin/chequebookreq" ||
+    location.pathname === "/admin/reissuecard" ||
+    location.pathname === "/admin/reissuecardGenerateorReject" ;
+
 
 
   return (
@@ -577,9 +581,9 @@ function App() {
           <Route path="/admin/all-data" element={<Adminhome />} />
           <Route path="/admin/confirm-details" element={<IndividualDatalist />} />
           <Route path="/admin/requested-data" element={<RequestedDatalist />} />
-          <Route path="/admin-chequebookreq" element={<AdminChequeBookRequest />} />
-             <Route path="/admin-reissuecard" element={<ReissueCardTable />} />
-            <Route path="/admin-reissuecardGenerateorReject" element={<ReissueGenerateOrReject />} />
+          <Route path="/admin/chequebookreq" element={<AdminChequeBookRequest />} />
+             <Route path="/admin/reissuecard" element={<ReissueCardTable />} />
+            <Route path="/admin/reissuecardGenerateorReject" element={<ReissueGenerateOrReject />} />
           {/* Admin side  */}
 
           {/* user portal ends */}
