@@ -583,12 +583,12 @@ const toggleDepositsDropdown = () => {
       <div className='DropDown_Forex_content_Side'>
       <div className='dropdown_flex_trial'>
         <div className='DropDown_Forex_list_Ditems'>
-<div className="DropDown_Forextrav_Header_BankingAPP  " onClick={toggleForexTravelCardsDropdown}>
+{/* <div className="DropDown_Forextrav_Header_BankingAPP  " onClick={toggleForexTravelCardsDropdown}>
 <i class="Drop_down_ICo fa-solid fa-users-line mr-2"></i>
-        Forex & Travel cards 
-        {/* {bankAccountArrowUp ? <i className="dropdown_arrow_down fa-solid fa-chevron-up"></i> */}
-         {/* : <i className="dropdown_arrow_down fa-solid fa-chevron-down"></i>} */}
-       </div>
+        Forex & Travel cards  */}
+
+        
+       {/* </div> */}
       </div>
       <div className='DropDown_lForex_list_subitems'>
       {forexTravelCardsDropdown && (
@@ -612,11 +612,10 @@ const toggleDepositsDropdown = () => {
 <div className='DropDown_Forex_content_Side'>
       <div className='dropdown_flex_trial'>
         <div className='DropDown_Pockets_list_Ditems'>
-  <div className=" DropDown_Pockets_Header_BankingAPP  " onClick={togglePocketsDropdown}>
+  {/* <div className=" DropDown_Pockets_Header_BankingAPP  " onClick={togglePocketsDropdown}>
   <i class="Drop_down_ICo fa-brands fa-get-pocket fa-xl mr-2"></i>
         Pockets
-         {/* {bankAccountArrowUp ? <i className="dropdown_arrow_down fa-solid fa-chevron-up"></i> : <i className="dropdown_arrow_down fa-solid fa-chevron-down"></i>} */}
-       </div>
+        {/* </div> */} 
       </div>
       <div className='DropDown_Pockets_list_subitems'>
       {pocketsDropdown && (

@@ -2,6 +2,18 @@ export const server = "http://localhost:4444";
 
 
 const apiList ={
+
+    // admin login starts
+
+    adminLogin: `${server}/admin/admin-login`,
+
+    individualrequestedetails: `${server}/admin/individualrequesteduserdetails`,
+    getuserrequesteddetails: `${server}/admin/requesteduserdetails/`,
+    requestedUserDetailsByEmail: `${server}/admin/individualrequesteduserdetails/`,
+
+
+    // admin login ends
+
     generateCertificate: `${server}/api/generateCertificate`,
     customerAccountDetails: `${server}/api/userDetails/`,
     userAuthentication: `${server}/api/otp-send`,
@@ -44,24 +56,18 @@ const apiList ={
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
 
-    getuserrequesteddetails: `${server}/api/requesteduserdetails/`,
-    requestedUserDetailsByEmail: `${server}/api/individualrequesteduserdetails/`,
-
     addAccountDetails:`${server}/api/add-account-details/`,
     UserDetailsAccountOpening:`${server}/api/userdetails`,
     UserDetailsAccountOpeningSendOTP:`${server}/api/send-otp`,
     UserDetailsAccountOpeningVerifyOTP:`${server}/api/verify-otp`,
-   
 
-    
-
-//     requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
-
+  // requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
 
 
 
     payLater:`${server}/api/payLaterAccount`,
     billDetails:`${server}/api/payLaterAccount/pay`,
+
 
 }
 
