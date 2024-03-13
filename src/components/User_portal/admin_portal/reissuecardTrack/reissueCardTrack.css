@@ -1,48 +1,46 @@
 .table-container {
-    width: 100%;
-    border-radius: 10px;
-    padding: 30px 30px;
-    border: 1px solid #2fb68e;  
-    box-shadow:0 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
- 
-  .table-container table {
-    margin-left: 10px;
-    width: 100%;
-    border-collapse: collapse; 
-  }
-  
+  width: 100%;
+  border-radius: 10px;
+  padding: 30px 30px;
+  border: 1px solid #2fb68e;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
 
-  .table-container th,
-  .table-container td {
-    border: 1px solid #f2f2f2;
-    padding: 8px;
-    text-align: left;
-  }
 
-  .table-container td { 
-    background-color: #dddddd;
-  }
-  
-  .table-container th {
-    background-color: #40dfaf;
-    color: #fff;
-    font-weight: 500;
-  }
+.table-container table {
+  margin-left: 10px;
+  width: 100%;
+  border-collapse: collapse;
+}
 
- 
-  .table-container button {
-    padding: 5px 10px;
-    color: #2fb68e;
-    border: 1px solid #2fb68e;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .table-container button:hover {
-    background-color: #2fb68e;
-    color: #fff;
-  }
-  
 
+.table-container th,
+.table-container td {
+  border: 1px solid #f2f2f2;
+  padding: 8px;
+  text-align: left;
+}
+
+.table-container td {
+  background-color: #dddddd;
+}
+
+.table-container th {
+  background-color: #40dfaf;
+  color: #fff;
+  font-weight: 500;
+}
+
+
+.table-container button {
+  padding: 5px 10px;
+  color: #2fb68e;
+  border: 1px solid #2fb68e;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.table-container button:hover {
+  background-color: #2fb68e;
+  color: #fff;
+}
