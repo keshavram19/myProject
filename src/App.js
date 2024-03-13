@@ -148,15 +148,9 @@ function App() {
     location.pathname === "/" ||
     location.pathname === "/netbanking-personal-login" ||
     location.pathname === "/netbanking-corporate-login" ||
-    location.pathname === "/admin/login" ||
-    location.pathname === "/admin/requested-data" ||
-    location.pathname === "/admin/confirm-details" ||
-    location.pathname === "/admin/all-data" ||
     location.pathname === "/account-opening" ||
     location.pathname === "/account-success" ||
-    location.pathname === "/admin/chequebookreq" ||
-    location.pathname === "/admin/reissuecard" ||
-    location.pathname === "/admin/reissuecardGenerateorReject" ;
+    location.pathname.includes("/admin/");
 
 
 

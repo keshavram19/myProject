@@ -55,6 +55,7 @@ const RequestedDatalist = () => {
         customer.email.includes(filters.email)
       );
     });
+    console.log(filteredData)
     return filteredData;
   };
 
@@ -70,6 +71,7 @@ const RequestedDatalist = () => {
         (customer) => !customer.accountNumber || !customer.mobilenumber
       );
       setRequestedDataList(filteredData);
+      console.log(filteredData);
      
     } catch (err) {
       console.log("Error in getting requested details list", err);
@@ -89,7 +91,6 @@ const RequestedDatalist = () => {
        {isAuthenticated() ? (
       <section className="container-fluid" style={{marginTop:"5px"}}>
         <div className="row">
-          {/* <div style={{ height: "1px", border: "1px solid #cdcdcd" }}></div> */}
           <div className="col-3">
             <AdminSidebar />
             </div>
