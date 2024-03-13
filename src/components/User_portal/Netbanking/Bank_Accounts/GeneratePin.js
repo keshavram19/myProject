@@ -15,38 +15,41 @@ const GeneratePin = () => {
     const [cvv, setCvv] = useState('');
     const [otpMethod, setOtpMethod] = useState('sms');
     const [formError, setFormError] = useState('');
-    const accountNumber = 1124563456;
 
-
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-            const userDetailsData = response.data.details;
-
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
-                setSelectedDebitCard(userDetailsData[0].userDebitCardDetails.userDebitCardNumber);
-                setLastFourDigits(userDetailsData[0].userMobileNumber);
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
-                setSelectedDebitCard(userDetailsData.userDebitCardDetails.userDebitCardNumber);
-                setLastFourDigits(userDetailsData.userMobileNumber);
-            } else {
-                console.error('Invalid user details format:', userDetailsData);
-            }
-
-        } catch (error) {
-            console.error('Error fetching user details:', error);
-        }
-        console.log('User Details:', userDetails);
-
-    };
 
     useEffect(() => {
-        if (selectedAccount === '') {
-            fetchData();
-        }
-    }, [selectedAccount]);
+
+        const fetchData = async () => {
+            try {
+                const token = sessionStorage.getItem('loginToken');
+                const requestOptions = {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                };
+                const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+                if (response.ok) {
+                    const data = await response.json();
+                    setUserDetails([data.user]);
+                } else {
+                    console.error('Error fetching user details:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching user details:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const accountNumber = userDetails.length > 0 ? userDetails[0].accountNumber : '';
+    const debitCardNumber = userDetails.length > 0 && userDetails[0].userDebitCardDetails ? userDetails[0].userDebitCardDetails.userDebitCardNumber : '';
+
+    console.log('Account Number:', accountNumber);
+    console.log('Debit Card Number:', debitCardNumber);
+
 
     const handleAccountChange = (event) => {
         setSelectedAccount(event.target.value);
@@ -79,8 +82,6 @@ const GeneratePin = () => {
                 setFormError('Please enter a valid CVV.');
                 return;
             }
-
-            await fetchData();
 
             if (Array.isArray(userDetails) && userDetails.length > 0) {
                 const storedCVV = userDetails[0].userDebitCardDetails.userDebitCardcvv;
@@ -140,8 +141,8 @@ const GeneratePin = () => {
                                         >
                                             <option value="">Select Account Number</option>
                                             {userDetails.map((account, index) => (
-                                                <option key={index} value={account.userAccountNumber}>
-                                                    {account.userAccountNumber}
+                                                <option key={index} value={account.accountNumber}>
+                                                    {account.accountNumber}
                                                 </option>
                                             ))}
                                         </select>
@@ -161,11 +162,12 @@ const GeneratePin = () => {
                                         >
                                             <option value="">Select</option>
 
-                                            {userDetails.length > 0 && (
+                                            {userDetails.length > 0 && userDetails[0].userDebitCardDetails && (
                                                 <option value={formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber)}>
                                                     {formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber)}
                                                 </option>
                                             )}
+
 
                                         </select>
 
