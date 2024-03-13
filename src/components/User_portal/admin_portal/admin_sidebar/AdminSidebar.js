@@ -1,6 +1,7 @@
 import React from "react";
 import "./AdminSidebar.css";
 import { Link, useNavigate } from "react-router-dom";
+import banklogo from '../../../../Images/banklogo.png';
 
 const AdminSidebar = () => {
   let navigate = useNavigate();
@@ -16,7 +17,11 @@ const AdminSidebar = () => {
 
 
   return (
-    <aside className="sidebar">
+    <div>  
+      <aside className="admin_sidebar">
+      <div className="logo-container">
+        <img className="logo" src={banklogo} alt="logo" />
+      </div>
       <ul className="links">
         <h4>Main Menu</h4>
         <li>
@@ -60,6 +65,7 @@ const AdminSidebar = () => {
         </li>
       </ul>
     </aside>
+    </div>
   );
 };
 
