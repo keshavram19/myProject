@@ -71,8 +71,6 @@ const GenerateRequestLostATM = () => {
         navigate('/user/account/reissue-card')
     }
 
-    console.log(userDetails);
-
     const handleRadioButtonChange = (event) => {
         setRadioButtonValue(event.target.value);
         setIsAddressCorrect(event.target.value === 'yes');
@@ -121,8 +119,12 @@ const GenerateRequestLostATM = () => {
         }
         try {
             const response = await axios.post(`${apiList.createReissueCard}`, {
-                userAccountNumber: userDetails[0].accountNumber,
-            });
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  'Content-Type': 'application/json',
+                },
+              }
+            );
             const { srn } = response.data;
 
             navigate('/user/account/generate-request-lost-service-atm');
@@ -214,7 +216,7 @@ const GenerateRequestLostATM = () => {
                                         <input
                                             type='text'
                                             className='form-control'
-                                            value={userDetails[0].currentAddress.pincode}
+                                            value={maskPinCode(userDetails[0].currentAddress.pincode)}
                                         />
                                     )}
 
