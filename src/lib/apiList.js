@@ -54,10 +54,10 @@ const apiList ={
     GenerateCreditcardpin : `${server}/api/generate-Credit-Card-Pin`,
     BlockCreditCard:`${server}/api/blockcreditcard`,
     BlockCreditCardOTPVerify:`${server}/api/verifyOTP`,
-    creditcardEmiconversion : `/emiConversion`,
+    creditcardEmiconversion : `${server}/emiConversion`,
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
-
+    createReissueCard: `${server}/api/createReissueCard`,
   
 
  requestedUserDetailsByEmail: `${server}/auth/user-account-details`,

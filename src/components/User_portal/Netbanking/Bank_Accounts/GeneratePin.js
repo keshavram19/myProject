@@ -15,13 +15,14 @@ const GeneratePin = () => {
     const [cvv, setCvv] = useState('');
     const [otpMethod, setOtpMethod] = useState('sms');
     const [formError, setFormError] = useState('');
+    const token = sessionStorage.getItem('loginToken');
 
 
     useEffect(() => {
 
         const fetchData = async () => {
             try {
-                const token = sessionStorage.getItem('loginToken');
+              
                 const requestOptions = {
                     method: 'GET',
                     headers: {
@@ -33,6 +34,7 @@ const GeneratePin = () => {
                 if (response.ok) {
                     const data = await response.json();
                     setUserDetails([data.user]);
+                    setLastFourDigits([data.user.mobilenumber])
                 } else {
                     console.error('Error fetching user details:', response.statusText);
                 }
@@ -43,12 +45,6 @@ const GeneratePin = () => {
 
         fetchData();
     }, []);
-
-    const accountNumber = userDetails.length > 0 ? userDetails[0].accountNumber : '';
-    const debitCardNumber = userDetails.length > 0 && userDetails[0].userDebitCardDetails ? userDetails[0].userDebitCardDetails.userDebitCardNumber : '';
-
-    console.log('Account Number:', accountNumber);
-    console.log('Debit Card Number:', debitCardNumber);
 
 
     const handleAccountChange = (event) => {
@@ -90,14 +86,23 @@ const GeneratePin = () => {
                     return;
                 }
 
-                const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
-                    accountNumber: selectedAccount,
-                    debitCardNumber: selectedDebitCard,
-                    cvv: cvv,
-                    mobileNumber: lastFourDigits,
-                    otpMethod: otpMethod,
-                });
-
+                const otpResponse = await axios.post(
+                    `${apiList.createVerificationCode}`,
+                    {
+                      accountNumber: selectedAccount,
+                      debitCardNumber: selectedDebitCard,
+                      cvv: cvv,
+                      mobileNumber: lastFourDigits,
+                      otpMethod: otpMethod,
+                    },
+                    {
+                      headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                      },
+                    }
+                  );
+                  
                 console.log(otpResponse.data);
                 navigate('/user/account/generate-debit-card-pin-otp');
             } else {
@@ -259,7 +264,7 @@ const GeneratePin = () => {
                                 {otpMethod === 'sms' || otpMethod === 'call'
                                     ? `OTP will be sent to registered mobile number XXXXXXX${String(lastFourDigits).slice(-4)}`
                                     : otpMethod === 'email'
-                                        ? `OTP will be sent to registered email ${userDetails.length > 0 ? maskEmail(userDetails[0].userEmailId) : ''}`
+                                        ? `OTP will be sent to registered email ${userDetails.length > 0 ? maskEmail(userDetails[0].email) : ''}`
                                         : ''}
                             </p>
                             <hr />
