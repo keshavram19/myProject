@@ -9,7 +9,6 @@ import apiList from '../../../../lib/apiList';
 
 const ManageCardLimit = () => {
 
-  const accountNumber = 1124563456;
 
   const [otpMethod, setOtpMethod] = useState('');
 
@@ -22,14 +21,12 @@ const ManageCardLimit = () => {
         return;
       }
 
-
       const updatedDomesticLimits = {
         cashWithdrawalLimit: domesticLimit1,
         retailTransactionLimit: domesticLimit2,
         ecommerceTransactionLimit: domesticLimit3,
         contactlessPaymentLimit: domesticLimit4
       };
-
 
       const updatedInternationalLimits = {
         cashWithdrawalLimit: internationalLimit1,
@@ -38,19 +35,23 @@ const ManageCardLimit = () => {
         contactlessPaymentLimit: internationalLimit4
       };
 
+      const token = sessionStorage.getItem('loginToken');
+      const requestOptions = {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      };
 
-      await axios.put(`${apiList.updateDomesticLimits}${accountNumber}`, {
+      await axios.put(`${apiList.updateDomesticLimits}/${selectedAccount}`, {
         newDomesticLimits: updatedDomesticLimits
-      });
+      }, requestOptions);
 
-      await axios.put(`${apiList.updateInternationalLimits}${accountNumber}`, {
+      await axios.put(`${apiList.updateInternationalLimits}/${selectedAccount}`, {
         newInternationalLimits: updatedInternationalLimits
-      });
-
+      }, requestOptions);
 
       await handleOtpGeneration();
-
-
     } catch (error) {
       console.error('Error updating limits:', error);
       alert('Failed to update limits. Please try again.');
@@ -141,35 +142,48 @@ const ManageCardLimit = () => {
   const [selectedAccount, setSelectedAccount] = useState('');
   const [selectedDebitCard, setSelectedDebitCard] = useState('');
   const [lastFourDigits, setLastFourDigits] = useState('');
-  const [userEmailId, setUserEmailId] = useState('');
+  const [userEmailId, setemail] = useState('');
+
 
 
   const fetchData = async () => {
-
     try {
-      const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-      const userDetailsData = response.data.details;
-
-      if (Array.isArray(userDetailsData)) {
-        setUserDetails(userDetailsData);
-        setSelectedDebitCard(userDetailsData[0].userDebitCardDetails.userDebitCardNumber);
-        setLastFourDigits(userDetailsData[0].userMobileNumber);
-        setUserEmailId(userDetailsData[0].userEmailId);
-      } else if (typeof userDetailsData === 'object') {
-        setUserDetails([userDetailsData]);
-        setSelectedDebitCard(userDetailsData.userDebitCardDetails.userDebitCardNumber);
-        setLastFourDigits(userDetailsData.userMobileNumber);
-        setUserEmailId(userDetailsData.userEmailId)
+      const token = sessionStorage.getItem('loginToken');
+      const requestOptions = {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      };
+      const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+      if (response.ok) {
+        const data = await response.json();
+        const userDetailsData = data.user;
+        if (Array.isArray(userDetailsData)) {
+          setUserDetails(userDetailsData);
+          setSelectedAccount(userDetailsData[0].userAccountNumber);
+          setLastFourDigits(data.user[0].mobilenumber);
+          setemail(data.user[0].email);
+        } else if (typeof userDetailsData === 'object') {
+          setUserDetails([userDetailsData]);
+          setSelectedAccount(userDetailsData.userAccountNumber);
+          setLastFourDigits(data.user.mobilenumber);
+          setemail(data.user.email);
+        } else {
+          console.error('Invalid user details format:', userDetailsData);
+        }
       } else {
-        console.error('Invalid user details format:', userDetailsData);
+        console.error('Error fetching user details:', response.statusText);
       }
-
     } catch (error) {
       console.error('Error fetching user details:', error);
     }
-    console.log('User Details:', userDetails);
-
   };
+
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   useEffect(() => {
     if (selectedAccount === '') {
@@ -218,7 +232,7 @@ const ManageCardLimit = () => {
         const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
           accountNumber: userDetails[0].userAccountNumber,
           debitCardNumber: selectedDebitCard,
-          mobileNumber: lastFourDigits,
+          mobilenumber: lastFourDigits,
           otpMethod: otpMethod,
         });
 
@@ -227,7 +241,7 @@ const ManageCardLimit = () => {
         const { message } = otpResponse.data;
 
         if (message === 'OTP sent successfully') {
-          // alert('Your OTP has been successfully generated!');
+
           window.location.href = '/user/account/manage-card-otp';
         } else {
           alert('Failed to generate OTP. Please try again.');
@@ -272,9 +286,9 @@ const ManageCardLimit = () => {
                         onChange={handleAccountChange}
                       >
                         {userDetails.map((account, index) => (
-                          <option key={index} value={account.userAccountNumber}>
-                            {account.userAccountNumber}
-                            <p>-{account.accountHolderName}</p>
+                          <option key={index} value={account.accountNumber}>
+                            {account.accountNumber}
+                            <p>-{account.firstname}{account.lastname}</p>
                           </option>
                         ))}
                       </select>
@@ -812,3 +826,6 @@ const ManageCardLimit = () => {
 
 
 export default ManageCardLimit;
+
+
+
