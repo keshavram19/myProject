@@ -12,8 +12,7 @@ const apiList ={
     UserDetailsAccountOpeningVerifyOTP:`${server}/admin/verify-otp`,
     individualrequestedetails: `${server}/admin/individualrequesteduserdetails`,
     getuserrequesteddetails: `${server}/admin/requesteduserdetails/`,
-    requestedUserDetailsByEmail: `${server}/admin/individualrequesteduserdetails/`,
-
+ 
 
     // admin login ends
 
@@ -38,8 +37,10 @@ const apiList ={
     taxOTPVerify:`${server}/api/verify-OneTP`,
     taxOTPGenerate:`${server}/api/generated-otp`,
     taxOTPReSend:`${server}/api/resend-otp`,
-    paymentTransaction:`${server}/api/payment-Type`,
-    transferTransaction:`${server}/api/transfer-Type`,
+
+    paymentTransaction:`${server}/api/Payment-type-transaction`,
+    transferTransaction:`${server}/api/Transfer-type-transaction`,
+
     userAuthVerify: `${server}/api/verify-otp`,
     customerCreditCardDetails: `${server}/api/creditcarddetails/`,
     customerCrediCardLimitOTP: `${server}/api/creditcardlimit-otp`,
@@ -59,12 +60,13 @@ const apiList ={
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
 
-    addAccountDetails:`${server}/api/add-account-details/`,
-    UserDetailsAccountOpening:`${server}/api/userdetails`,
-    UserDetailsAccountOpeningSendOTP:`${server}/api/send-otp`,
-    UserDetailsAccountOpeningVerifyOTP:`${server}/api/verify-otp`,
+    // addAccountDetails:`${server}/api/add-account-details/`,
+    // UserDetailsAccountOpening:`${server}/api/userdetails`,
+    // UserDetailsAccountOpeningSendOTP:`${server}/api/send-otp`,
+    // UserDetailsAccountOpeningVerifyOTP:`${server}/api/verify-otp`,
 
-  // requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+  requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+  // requestUserDetailsByEm: `${server}/auth/user-account-details`,
 
 
 
