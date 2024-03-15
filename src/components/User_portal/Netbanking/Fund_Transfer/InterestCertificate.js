@@ -9,15 +9,10 @@ import logo from "../../../../Images/banklogo.png";
 
 
 
-
-
-
-
-
-
 const InterestCertificate = () => {
-  const accountNumber = 114912720;
+  // const accountNumber = 114912720;
   const [userDetails, setUserDetails] = useState([]);
+  const [LastVisited, setLastVisited] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState("");
   const [interestPeriod, setInterestPeriod] = useState("");
   const [selectedPeriod, setSelectedPeriod] = useState("");
@@ -38,9 +33,7 @@ const InterestCertificate = () => {
     }
   }, []);
 
-  useEffect(() => {
-    fetchData();
-  }, [selectedAccount, userDetails]);
+ 
 
   useEffect(() => {
     if (userDetails.length > 0) {
@@ -72,33 +65,38 @@ const InterestCertificate = () => {
     return months;
   }
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        `${apiList.customerAccountDetails}${accountNumber}`
-      );
 
-      const userDetailsData = response.data.details;
-
-      if (Array.isArray(userDetailsData)) {
-        setUserDetails(userDetailsData);
-
-        const calculatedValues = calculateValues();
-        setInterestPaid(calculatedValues.interestPaid);
-        setTaxWithheld(calculatedValues.taxWithheld);
-      } else if (typeof userDetailsData === "object") {
-        setUserDetails([userDetailsData]);
-      } else {
-        console.error("Invalid user details format:", userDetailsData);
-      }
-    } catch (error) {
-      console.error("Error fetching user details:", error);
-    }
-  };
 
   useEffect(() => {
-    fetchData();
-  }, [selectedAccount, userDetails]);
+    const fetchUserDetails = async () => {
+      try {
+        const token = sessionStorage.getItem('loginToken');
+        const requestOptions = {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        };
+        const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+        if (response.ok) {
+          const data = await response.json();
+          const userDetailsFromAPI = data.user;
+          console.log('Fetched user details:', userDetailsFromAPI); // Debug log
+          setUserDetails(userDetailsFromAPI);
+          setLastVisited(new Date());
+          setUserDetails([data.user]);
+        } else {
+          console.error('Error fetching user details:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching user details:', error);
+      }
+    };
+    fetchUserDetails();
+  }, []);
+
+
 
   const handleAccountChange = (event) => {
     setSelectedAccount(event.target.value);
@@ -259,9 +257,17 @@ const calculateValuesForAccount = async (
     selectedYear,
   ]);
 
+
+
+
   const handledownload = async (event) => {
     if (event && event.preventDefault) {
       event.preventDefault();
+    }
+    if (!userDetails || Object.keys(userDetails).length === 0) {
+      console.error("User details not populated correctly.");
+      alert("User details not populated correctly. Please try again later.");
+      return;
     }
 
     if (!selectedAccount) {
@@ -295,53 +301,60 @@ const calculateValuesForAccount = async (
       console.log("Interest Paid:", interestPaid);
       console.log("Tax Withheld:", taxWithheld);
 
+
+   
+
       const certificateData = {
-        userId: userDetails[0]?.userAccountNumber,
-        accountHolderName: userDetails[0]?.accountHolderName,
-        bankBranchName: userDetails[0]?.bankBranchName,
-        userAccountNumber: userDetails[0]?.userAccountNumber,
-        userAccountType: userDetails[0]?.userAccountType,
-        accountHolderAddress: userDetails[0]?.accountHolderAddress,
-        interestPeriod: interestPeriod,
-        startDate:
-          startDate instanceof Date ? startDate.toLocaleDateString() : "",
-        endDate: endDate instanceof Date ? endDate.toLocaleDateString() : "",
-        interestPaid: values.interestPaid,
-        taxWithheld: values.taxWithheld,
+        accountHolderName: userDetails.accountHolderName,
+    userAccountNumber: userDetails.userAccountNumber,
+    accountHolderAddress: userDetails.currentAddress,
+    bankBranchName: userDetails.bankBranchName,
+    userAccountType: userDetails.openaccount,
+    interestPeriod: interestPeriod,
+    startDate: startDate instanceof Date ? startDate.toLocaleDateString() : "",
+    endDate: endDate instanceof Date ? endDate.toLocaleDateString() : "",
+    interestPaid: values.interestPaid,
+    taxWithheld: values.taxWithheld,
       };
 
 
       const pdf = new jsPDF();
       const centerX = pdf.internal.pageSize.getWidth() / 2;
       const centerY = pdf.internal.pageSize.getHeight() / 2;
-      pdf.addImage(logo, "PNG", centerX - 25, 10, 50, 20);
+      pdf.addImage(logo, "PNG", centerX - 40, 10, 70, 40);
    
-      pdf.text(20, 20, `Date: ${new Date().toLocaleDateString()}`);
+     const dateText = `Date: ${new Date().toLocaleDateString()}`;
+     const dateTextWidth = pdf.getStringUnitWidth(dateText) * pdf.internal.getFontSize();
+
+     pdf.text(dateText, pdf.internal.pageSize.getWidth() - 20, 40, { align: 'right' });
+
       pdf.text(
         20,
-        30,
+        50,
         `Name: ${certificateData.accountHolderName}`
       );
+      pdf.text(20, 60, ` Address: ${certificateData.accountHolderAddress}`);
+      pdf.text(20, 70, `Bank Branch : ${certificateData.bankBranchName}`);
+      const interestCertificateText = "Interest Certificate";
+      const interestCertificateTextWidth = pdf.getStringUnitWidth(interestCertificateText) * pdf.internal.getFontSize();
+      const interestCertificateTextX = (pdf.internal.pageSize.getWidth() - interestCertificateTextWidth) / 2;
+
+      pdf.text(interestCertificateTextX, 80, interestCertificateText);
+
+
+      pdf.text(20, 90, "Dear Customer,");
       pdf.text(
         20,
-        40,
-        ` Address: ${certificateData.accountHolderAddress}`
-      );
-      pdf.text(20, 50, `Bank Branch : ${certificateData.bankBranchName}`);
-      pdf.text(20, 60, "Interest Certificate");
-      pdf.text(20, 70, "Dear Customer,");
-      pdf.text(
-        20,
-        80,
+        100,
         `Please find below confirmation of the Interest paid and Tax withheld/Tax 
         Deducted at Source/Interest Collected towards various 
         Deposit/Loan accounts held under for 
         the Interest Period: ${certificateData.interestPeriod} ${certificateData.startDate} - ${certificateData.endDate}`
       );
-      pdf.text(20, 90, ``);
+      pdf.text(20, 110, ``);
       pdf.text(
         20,
-        110,
+        130,
         `User Account Type: ${certificateData.userAccountType}`
       );
 
@@ -364,7 +377,7 @@ const calculateValuesForAccount = async (
       };
 
       pdf.autoTable({
-        startY: 120,
+        startY: 140,
         head: [
           [
             "Sr.No",
@@ -419,7 +432,7 @@ const calculateValuesForAccount = async (
                 </label>
                 <div className="col-sm-6">
                   <div className="interest_account_select">
-                    <select
+                    {/* <select
                       typeof="number"
                       id="number"
                       className="inerest_selection_form form-control"
@@ -432,7 +445,19 @@ const calculateValuesForAccount = async (
                           {account.userAccountNumber}
                         </option>
                       ))}
-                    </select>
+                    </select> */}
+                    <select
+    className="inerest_selection_form form-control"
+    value={selectedAccount}
+    onChange={handleAccountChange}
+>
+    <option value="">Select Account Number</option>
+    {userDetails.map((account, index) => (
+        <option key={index} value={account.accountNumber}>
+            {account.accountNumber}
+        </option>
+    ))}
+</select>
                   </div>
                 </div>
               </div>

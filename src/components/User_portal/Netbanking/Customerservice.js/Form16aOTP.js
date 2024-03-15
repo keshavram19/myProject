@@ -11,7 +11,7 @@ import { MdOutlineMessage } from "react-icons/md";
 
 const Form16AOTPPage = () => {
     const navigate = useNavigate();
-    const accountNumber = 1124563456;
+    // const accountNumber = 1124563456;
     const [userDetails, setUserDetails] = useState([]);
     const [lastFourDigits, setLastFourDigits] = useState('');
     const [otp, setOtp] = useState('');
@@ -24,7 +24,16 @@ const Form16AOTPPage = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
+
+            const token = sessionStorage.getItem('loginToken');
+            const requestOptions = {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            };
+            const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
             const userDetailsData = response.data.details;
 
             if (Array.isArray(userDetailsData)) {

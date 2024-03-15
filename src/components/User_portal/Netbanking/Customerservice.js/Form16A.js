@@ -8,6 +8,7 @@ const Form16A = () => {
   const accountNumber = 114912720;
     const panNumber = "VVPAS2024M"; 
     const [userDetails, setUserDetails] = useState([]);
+    const [LastVisited, setLastVisited] = useState([]);
     const [formData, setFormData] = useState({});
     const [solutionsSubmitted, setSolutionsSubmitted] = useState(0);
     const [ratePerSolution, setRatePerSolution] = useState(0);
@@ -22,33 +23,37 @@ const Form16A = () => {
     fetchFormData();
   }, []);
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        `${apiList.customerAccountDetails}${accountNumber}`
-      );
-
-
-      const userDetailsData = response.data.details;
-
-      if (Array.isArray(userDetailsData)) {
-        setUserDetails(userDetailsData);
-        
-        
-      } else if (typeof userDetailsData === "object") {
-        setUserDetails([userDetailsData]);
-        
-      } else {
-        console.error("Invalid user details format:", userDetailsData);
-      }
-    } catch (error) {
-      console.error("Error fetching user details:", error);
-    }
-  };
-
   useEffect(() => {
-    fetchData();
-  }, [ userDetails]);
+
+    const fetchUserDetails = async () => {
+        try {
+            const token = sessionStorage.getItem('loginToken');
+            const requestOptions = {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            };
+            const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+            if (response.ok) {
+                const data = await response.json();
+                setUserDetails([data.user]); 
+                setLastVisited(new Date()); 
+            } else {
+                console.error('Error fetching user details:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error fetching user details:', error);
+        }
+    };
+    
+    fetchUserDetails();
+}, []);
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, [ userDetails]);
 
 
   const fetchFormData = async () => {
