@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,12 +7,15 @@ import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import apiList from '../../../../lib/apiList';
 
 const UpdatePancard = () => {
-
   const [otpMethod, setOtpMethod] = useState('');
   const [userDetails, setUserDetails] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState('');
   const [lastFourDigits, setLastFourDigits] = useState('');
-  const [email, setemail] = useState('');
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const fetchData = async () => {
     try {
@@ -29,13 +31,13 @@ const UpdatePancard = () => {
       if (response.ok) {
         const data = await response.json();
         if (Array.isArray(data.user)) {
-          setUserDetails(data.user);
+          setUserDetails(data.user[0]);
           setLastFourDigits(data.user[0].mobilenumber);
-          setemail(data.user[0].email);
+          setEmail(data.user[0].email);
         } else if (typeof data.user === 'object') {
-          setUserDetails([data.user]);
+          setUserDetails(data.user);
           setLastFourDigits(data.user.mobilenumber);
-          setemail(data.user.email);
+          setEmail(data.user.email);
         } else {
           console.error('Invalid user details format:', data.user);
         }
@@ -46,13 +48,6 @@ const UpdatePancard = () => {
       console.error('Error fetching user details:', error);
     }
   };
-
-
-  useEffect(() => {
-    if (selectedAccount === '') {
-      fetchData();
-    }
-  }, [selectedAccount]);
 
   const handleAccountChange = (event) => {
     setSelectedAccount(event.target.value);
@@ -69,35 +64,41 @@ const UpdatePancard = () => {
     setOtpMethod(event.target.value);
   };
 
-
-
-
   const handleOtpGeneration = async () => {
     try {
-      await fetchData();
+        const token = sessionStorage.getItem('loginToken');
+        const otpResponse = await axios.post(
+            `${apiList.createVerificationCode}`,
+            {
+                accountNumber: selectedAccount,
+                mobileNumber: lastFourDigits,
+                otpMethod: otpMethod,
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            }
+        );
 
-      const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
-        accountNumber: userDetails.userAccountNumber,
-        mobileNumber: lastFourDigits,
-        otpMethod: otpMethod,
-      });
+        console.log(otpResponse.data);
 
-      console.log(otpResponse.data);
+        const { message } = otpResponse.data;
 
-      const { message } = otpResponse.data;
-
-      if (message === 'OTP sent successfully') {
-        toast.success('Your OTP has been successfully generated!', {
-          onClose: () => window.location.href = '/user/account/update-pancard-otp'
-        });
-      } else {
-        toast.error('Failed to generate OTP. Please try again.');
-      }
+        if (message === 'OTP sent successfully') {
+            toast.success('Your OTP has been successfully generated!', {
+                onClose: () => window.location.href = '/user/account/update-pancard-otp'
+            });
+        } else {
+            toast.error('Failed to generate OTP. Please try again.');
+        }
     } catch (error) {
-      console.error('Error generating OTP:', error);
-      toast.error('An error occurred while generating OTP. Please check your mobile for the OTP.');
+        console.error('Error generating OTP:', error);
+        toast.error('An error occurred while generating OTP. Please check your mobile for the OTP.');
     }
-  };
+};
+
 
   return (
     <div>
@@ -125,12 +126,12 @@ const UpdatePancard = () => {
                         value={selectedAccount}
                         onChange={handleAccountChange}
                       >
-                        {userDetails.map((account, index) => (
-                          <option key={index} value={account.accountNumber}>
-                            {account.accountNumber}
-                            <p>-{account.firstname}{account.lastname}</p>
+                        {userDetails && (
+                          <option value={userDetails.accountNumber}>
+                            {userDetails.accountNumber}
+                            <p>-{userDetails.firstname}{userDetails.lastname}</p>
                           </option>
-                        ))}
+                        )}
                       </select>
                     </div>
                   </div>
@@ -139,9 +140,7 @@ const UpdatePancard = () => {
                       <label htmlFor="text">Applicants Name*</label>
                     </div>
                     <div className="col-sm-3">
-                      {userDetails.map((account, index) => (
-                        <input type="text" className="form_input" id="text" value={account.firstname + ' ' + account.lastname} />
-                      ))}
+                      <input type="text" className="form_input" value={`${userDetails.firstname} ${userDetails.lastname}`} readOnly />
                     </div>
                   </div>
                   <div className="row mt-3">
@@ -149,9 +148,7 @@ const UpdatePancard = () => {
                       <label htmlFor="text">PAN Number*</label>
                     </div>
                     <div className="col-sm-3">
-                      {userDetails.map((account, index) => (
-                        <input type="text" className="form_input" id="text" value={account.pannumber} />
-                      ))}
+                      <input type="text" className="form_input" value={userDetails.pannumber} readOnly />
                     </div>
                   </div>
                   <div className="row mt-3">
@@ -162,8 +159,8 @@ const UpdatePancard = () => {
                       <input
                         type="text"
                         className="form_input"
-                        id="text"
                         value={`XXXXXX${String(lastFourDigits).slice(-4)}`}
+                        readOnly
                       />
                     </div>
                   </div>
@@ -175,15 +172,15 @@ const UpdatePancard = () => {
                       <input
                         type="text"
                         className="form_input"
-                        id="text"
                         value={maskEmail(email)}
+                        readOnly
                       />
                     </div>
                   </div>
                 </div>
                 <div className='mandatory_field'>
                   <p className="pl-3">*Mandatory Fields</p>
-                  <p className="pl-3">By clicking "Submit",you are agreeing to all the terms indicated below</p>
+                  <p className="pl-3">By clicking "Submit", you are agreeing to all the terms indicated below</p>
                 </div>
                 <hr />
                 <div className="row pl-2 otp_container mb-1">

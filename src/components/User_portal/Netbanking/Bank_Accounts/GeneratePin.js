@@ -113,6 +113,7 @@ const GeneratePin = () => {
         }
     };
 
+
     function maskEmail(email) {
         const parts = email.split('@');
         const maskedUsername = parts[0].slice(0, 3) + '*'.repeat(parts[0].length - 3);
