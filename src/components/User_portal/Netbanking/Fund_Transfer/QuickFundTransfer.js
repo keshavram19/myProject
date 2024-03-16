@@ -133,7 +133,7 @@ const QuickFundTransfer = () => {
     };
 
     return (
-        <div className='card-details-container container-fluid' style={{ marginTop: "90px" }}>
+           <div className='card-details-container container-fluid' style={{ marginTop: "90px" }}>
             <div className='card-details-header'></div>
             <div className='row'>
                 <div className="col-3">
