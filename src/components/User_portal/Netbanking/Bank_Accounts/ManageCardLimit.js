@@ -9,54 +9,12 @@ import apiList from '../../../../lib/apiList';
 
 const ManageCardLimit = () => {
 
+  const token = sessionStorage.getItem('loginToken');
 
   const [otpMethod, setOtpMethod] = useState('');
 
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = async () => {
-    try {
-      if (otpMethod !== 'sms' && otpMethod !== 'email') {
-        setErrorMessage('Please select SMS or email for OTP generation.');
-        return;
-      }
-
-      const updatedDomesticLimits = {
-        cashWithdrawalLimit: domesticLimit1,
-        retailTransactionLimit: domesticLimit2,
-        ecommerceTransactionLimit: domesticLimit3,
-        contactlessPaymentLimit: domesticLimit4
-      };
-
-      const updatedInternationalLimits = {
-        cashWithdrawalLimit: internationalLimit1,
-        retailTransactionLimit: internationalLimit2,
-        ecommerceTransactionLimit: internationalLimit3,
-        contactlessPaymentLimit: internationalLimit4
-      };
-
-      const token = sessionStorage.getItem('loginToken');
-      const requestOptions = {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      };
-
-      await axios.put(`${apiList.updateDomesticLimits}/${selectedAccount}`, {
-        newDomesticLimits: updatedDomesticLimits
-      }, requestOptions);
-
-      await axios.put(`${apiList.updateInternationalLimits}/${selectedAccount}`, {
-        newInternationalLimits: updatedInternationalLimits
-      }, requestOptions);
-
-      await handleOtpGeneration();
-    } catch (error) {
-      console.error('Error updating limits:', error);
-      alert('Failed to update limits. Please try again.');
-    }
-  };
 
   const [isChecked1, setChecked1] = useState(false);
   const [isChecked2, setChecked2] = useState(false);
@@ -68,8 +26,31 @@ const ManageCardLimit = () => {
   const [domesticLimit3, setDomesticLimit3] = useState(0);
   const [domesticLimit4, setDomesticLimit4] = useState(0);
 
-
   const [showDomestic, setShowDomestic] = useState(true);
+
+
+  
+  const [isChecked5, setChecked5] = useState(false);
+  const [isChecked6, setChecked6] = useState(false);
+  const [isChecked7, setChecked7] = useState(false);
+  const [isChecked8, setChecked8] = useState(false);
+
+  const [internationalLimit1, setInternationalLimit1] = useState(0);
+  const [internationalLimit2, setInternationalLimit2] = useState(0);
+  const [internationalLimit3, setInternationalLimit3] = useState(0);
+  const [internationalLimit4, setInternationalLimit4] = useState(0);
+
+  
+  const [userDetails, setUserDetails] = useState([]);
+  const [selectedAccount, setSelectedAccount] = useState('');
+  const [selectedDebitCard, setSelectedDebitCard] = useState('');
+  const [lastFourDigits, setLastFourDigits] = useState('');
+  const [userEmailId, setemail] = useState('');
+  
+
+  
+
+ 
 
   const handleRadioChange = (event) => {
     setShowDomestic(event.target.value === 'domestic');
@@ -110,16 +91,6 @@ const ManageCardLimit = () => {
   };
 
 
-  const [isChecked5, setChecked5] = useState(false);
-  const [isChecked6, setChecked6] = useState(false);
-  const [isChecked7, setChecked7] = useState(false);
-  const [isChecked8, setChecked8] = useState(false);
-
-  const [internationalLimit1, setInternationalLimit1] = useState(0);
-  const [internationalLimit2, setInternationalLimit2] = useState(0);
-  const [internationalLimit3, setInternationalLimit3] = useState(0);
-  const [internationalLimit4, setInternationalLimit4] = useState(0);
-
 
   const handleToggle5 = () => {
     setChecked5(!isChecked5);
@@ -138,17 +109,49 @@ const ManageCardLimit = () => {
   };
 
 
-  const [userDetails, setUserDetails] = useState([]);
-  const [selectedAccount, setSelectedAccount] = useState('');
-  const [selectedDebitCard, setSelectedDebitCard] = useState('');
-  const [lastFourDigits, setLastFourDigits] = useState('');
-  const [userEmailId, setemail] = useState('');
-
-
+  const handleSubmit = async () => {
+    try {
+      if (otpMethod !== 'sms' && otpMethod !== 'email') {
+        setErrorMessage('Please select SMS or email for OTP generation.');
+        return;
+      }
+  
+      const updatedDomesticLimits = {
+        cashWithdrawalLimit: domesticLimit1,
+        retailTransactionLimit: domesticLimit2,
+        ecommerceTransactionLimit: domesticLimit3,
+        contactlessPaymentLimit: domesticLimit4
+      };
+  
+      const updatedInternationalLimits = {
+        cashWithdrawalLimit: internationalLimit1,
+        retailTransactionLimit: internationalLimit2,
+        ecommerceTransactionLimit: internationalLimit3,
+        contactlessPaymentLimit: internationalLimit4
+      };
+  
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      };
+  
+      await axios.put(apiList.updateDomesticLimits, { newDomesticLimits: updatedDomesticLimits }, config);
+      await axios.put(apiList.updateInternationalLimits, { newInternationalLimits: updatedInternationalLimits }, config);
+  
+      await handleOtpGeneration();
+    } catch (error) {
+      console.error('Error updating limits:', error);
+      alert('Failed to update limits. Please try again.');
+    }
+  };
+  
+    
 
   const fetchData = async () => {
     try {
-      const token = sessionStorage.getItem('loginToken');
+     
       const requestOptions = {
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -186,15 +189,9 @@ const ManageCardLimit = () => {
   }, []);
 
   useEffect(() => {
-    if (selectedAccount === '') {
-      fetchData();
-    }
-  }, [selectedAccount]);
+    handleSubmit();
+  }, []);
 
-  const handleAccountChange = (event) => {
-    setSelectedAccount(event.target.value);
-    console.log('Selected Account:', event.target.value);
-  };
 
 
   const formatDebitCardNumber = (cardNumber) => {
@@ -223,18 +220,24 @@ const ManageCardLimit = () => {
   };
 
 
+
   const handleOtpGeneration = async () => {
     try {
-
-      await fetchData();
-
-      if (Array.isArray(userDetails) && userDetails.length > 0) {
-        const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
-          accountNumber: userDetails[0].userAccountNumber,
-          debitCardNumber: selectedDebitCard,
-          mobilenumber: lastFourDigits,
-          otpMethod: otpMethod,
-        });
+        
+        const otpResponse = await axios.post(
+            `${apiList.createVerificationCode}`,
+            {
+                accountNumber: selectedAccount,
+                mobileNumber: lastFourDigits,
+                otpMethod: otpMethod,
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            }
+        );
 
         console.log(otpResponse.data);
 
@@ -246,15 +249,11 @@ const ManageCardLimit = () => {
         } else {
           alert('Failed to generate OTP. Please try again.');
         }
-      } else {
-        console.error('Invalid user details:', userDetails);
+      } catch (error) {
+        console.error('Error generating OTP:', error);
+        alert('An error occurred while generating OTP. Please check your mobile for the OTP.');
       }
-    } catch (error) {
-      console.error('Error generating OTP:', error);
-      alert('An error occurred while generating OTP. Please check your mobile for the OTP.');
-    }
-
-  };
+};
 
   return (
 
@@ -282,8 +281,7 @@ const ManageCardLimit = () => {
                     <div className="col-sm-3">
                       <select
                         className="form_input"
-                        value={selectedAccount}
-                        onChange={handleAccountChange}
+                        
                       >
                         {userDetails.map((account, index) => (
                           <option key={index} value={account.accountNumber}>

@@ -52,7 +52,7 @@ const ChequeBookReq = () => {
     try {
       const token = sessionStorage.getItem('loginToken');
       const response = await axios.post('http://localhost:4444/api/createChequebookRequest', {
-        userAccountNumber: selectedAccount
+        accountNumber: selectedAccount
       }, {
         headers: {
           'Authorization': `Bearer ${token}`
@@ -67,6 +67,8 @@ const ChequeBookReq = () => {
     }
   };
 
+  
+  
   return (
     <div>
       <div className='bookrequest_container container-fluid' style={{ marginTop: "90px" }}>
@@ -112,7 +114,7 @@ const ChequeBookReq = () => {
                         onChange={handleAddressChange}
                       >
                         {userDetails.map((account, index) => (
-                          account.currentAddress && ( // Add conditional check here
+                          account.currentAddress && ( 
                             <option key={index} value={`${account.currentAddress.city}, ${account.currentAddress.state}, ${account.currentAddress.pincode}`}>
                               {`${account.currentAddress.city}, ${account.currentAddress.state}, ${account.currentAddress.pincode}`}
                             </option>
@@ -141,3 +143,5 @@ const ChequeBookReq = () => {
 };
 
 export default ChequeBookReq;
+
+
