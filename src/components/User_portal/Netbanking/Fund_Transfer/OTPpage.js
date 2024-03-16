@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate,useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './FundTransfer.css';
 
@@ -12,45 +12,45 @@ import apiList from '../../../../lib/apiList';
 
 
 const OTPPage = () =>{
+    const location = useLocation();
     const navigate = useNavigate();
-
+    const formData = location ? location.state : null;
     const [userDetails, setUserDetails] = useState([]);
     const [lastFourDigits, setLastFourDigits] = useState('');
     const [otp, setOtp] = useState('');
     const [validationError, setValidationError] = useState('');
     const [timer, setTimer] = useState(100);
     const [buttonsDisabled, setButtonsDisabled] = useState(true);
-    const accountNumber = 1124563456;
-
-    
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-            const userDetailsData = response.data.details;
-
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
-                setLastFourDigits(userDetailsData[0].userMobileNumber);
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
-                setLastFourDigits(userDetailsData.userMobileNumber);
-            } else {
-                console.error('Invalid user details format:', userDetailsData);
-            }
-
-        } catch (error) {
-            console.error('Error fetching user details:', error);
-        }
-        console.log('User Details:', userDetails);
-
-    };
+    const token = sessionStorage.getItem('loginToken');
 
     useEffect(() => {
+
+        const fetchData = async () => {
+            try {
+              
+                const requestOptions = {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                };
+                const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+                if (response.ok) {
+                    const data = await response.json();
+                    setUserDetails([data.user]);
+                } else {
+                    console.error('Error fetching user details:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching user details:', error);
+            }
+        };
+
         fetchData();
     }, []);
 
     const handleOtpChange = (event) => {
-        console.log('OTP Changed:', event.target.value);
         setOtp(event.target.value);
         setValidationError('');
     };
@@ -91,21 +91,26 @@ const OTPPage = () =>{
 
     const handleOtpGeneration = async (chosenMethod) => {
         try {
-            await fetchData();
-
             if (Array.isArray(userDetails) && userDetails.length > 0) {
-                const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
-                    accountNumber: userDetails[0].userAccountNumber,
-                    debitCardNumber: formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber),
-                    mobileNumber: lastFourDigits,
-                    otpMethod: chosenMethod,
-                });
-
-                console.log(otpResponse.data);
-                
-                setTimer(60);
-                setButtonsDisabled(true);
-                setOtp('');
+                const otpResponse = await axios.post(
+                    `${apiList.createVerificationCode}`,
+                    {
+                        accountNumber: userDetails[0].accountNumber,
+                        debitCardNumber: formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber),
+                        mobileNumber: lastFourDigits,
+                        otpMethod: chosenMethod
+                    },
+                    {
+                      headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                      },
+                    }
+                  );                
+                  console.log(otpResponse.data);
+                  setTimer(60);
+                  setButtonsDisabled(true);
+                  setOtp('');
             } else {
                 console.error('Invalid user details:', userDetails);
             }
@@ -114,16 +119,28 @@ const OTPPage = () =>{
         }
     };
 
-
     const handleOtpValidation = async () => {
         try {
-            await fetchData();
-            const accountNumber = userDetails[0].userAccountNumber;
-            console.log(accountNumber);
-            const response = await axios.post(`${apiList.authenticateOTP}`, { accountNumber, otp });
+            const AccountNumber = userDetails[0].accountNumber;
+            const response = await axios.post(`${apiList.authenticateOTP}`, { AccountNumber, otp },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+              },
+            });
 
+            if(response.ok){
+                const response = await fetch(`${apiList.quickFundTransfer}`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                });
+            }
             console.log(response.data);
-            alert('Transaction successfull')
             navigate("/user/fundtransfer/quickfundtransfer");
         } catch (error) {
             console.error('Error validating OTP:', error);
