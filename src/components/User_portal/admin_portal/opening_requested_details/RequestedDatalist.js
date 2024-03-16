@@ -1,11 +1,38 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Navigate , useLocation} from "react-router-dom";
 import "./opening_requested.css";
 import axios from "axios";
 import apiList from "../../../../lib/apiList";
+import AdminSidebar from "../admin_sidebar/AdminSidebar";
+
 const RequestedDatalist = () => {
   const [requestedDatalist, setRequestedDataList] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Function to check if the user is authenticated
+  const isAuthenticated = () => {
+    const token = sessionStorage.getItem("adminloginToken");
+    const expireTime = sessionStorage.getItem("adminexpireTime");
+    return token && new Date().getTime() < expireTime;
+  };
+
+  useEffect(() => {
+    // Redirect to admin login if URL is manipulated
+    if (!location.pathname.includes("/admin/")) {
+      sessionStorage.removeItem("adminloginToken");
+      sessionStorage.removeItem("adminexpireTime");
+      navigate("/admin/login");
+    }
+  }, [location.pathname, navigate]);
+
+  useEffect(() => {
+    // Check if the user is authenticated
+    if (!isAuthenticated()) {
+      // If not authenticated, navigate to admin login page
+      navigate("/admin/login");
+    } 
+  }, [isAuthenticated]);
 
   const [filters, setFilters] = useState({
     pannumber: "",
@@ -13,16 +40,7 @@ const RequestedDatalist = () => {
     email: "",
   });
 
-  //   const applyFilters = () => {
-  //     let filteredData = requestedDatalist.filter((customer) => {
-  //       return (
-  //         customer.pannumber.includes(filters.pannumber) &&
-  //         customer.mobilenumber.includes(filters.mobilenumber) &&
-  //         customer.email.includes(filters.email)
-  //       );
-  //     });
-  //     return filteredData;
-  //   };
+
 
   const applyFilters = () => {
     let filteredData = requestedDatalist.filter((customer) => {
@@ -37,40 +55,46 @@ const RequestedDatalist = () => {
         customer.email.includes(filters.email)
       );
     });
+    console.log(filteredData)
     return filteredData;
   };
 
   const navigateIndividual = (requestedemail) => {
-    navigate("/confirm-details", { state: requestedemail });
+    navigate("/admin/confirm-details", { state: requestedemail });
   };
 
   const getRequestedDetailslist = async (req, res) => {
     try {
-      const response = await axios.get(apiList.getuserrequesteddetails);
-      const filteredData = response.data.filter(
+       const response = await axios.get
+      (apiList.getuserrequesteddetails)
+       const filteredData = response.data.filter(
         (customer) => !customer.accountNumber || !customer.mobilenumber
       );
       setRequestedDataList(filteredData);
       console.log(filteredData);
+     
     } catch (err) {
       console.log("Error in getting requested details list", err);
     }
   };
 
   const handleNavigateAllcustomers = () => {
-    navigate("/all-data");
+    navigate("/admin/all-data");
   };
 
   useEffect(() => {
     getRequestedDetailslist();
   }, []);
+
   return (
     <div>
-      <section className="container-fluid"       style={{marginTop:"90px"}}>
+       {isAuthenticated() ? (
+      <section className="container-fluid" style={{marginTop:"5px"}}>
         <div className="row">
-          {/* <div style={{ height: "1px", border: "1px solid #cdcdcd" }}></div> */}
-
-          <div className="col-12 accounts_requested_data_list">
+          <div className="col-3">
+            <AdminSidebar />
+            </div>
+          <div className="col-9 accounts_requested_data_list">
             <div className="services">
               <p className=" requested_data_list_heading">
                 Account opening requested list
@@ -132,7 +156,7 @@ const RequestedDatalist = () => {
                         <td>{`${customer.firstname} ${customer.lastname}`}</td>
                         <td>{customer.email}</td>
                         <td>{customer.mobilenumber}</td>
-                        <td onClick={() => navigateIndividual(customer.email)}>
+                        <td onClick={() => navigateIndividual(customer.email)} className="requested_view_btn">
                           View
                         </td>
                       </tr>
@@ -143,9 +167,14 @@ const RequestedDatalist = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section>  
+       ) : (
+        <Navigate to="/admin/login" state={{ from: location }} />
+      )}
     </div>
   );
 };
 
 export default RequestedDatalist;
+
+

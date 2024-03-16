@@ -9,35 +9,34 @@ import apiList from '../../../../lib/apiList';
 const GenerateDebitCardPinOTP = () => {
     const [userDetails, setUserDetails] = useState([]);
     const [lastFourDigits, setLastFourDigits] = useState('');
-    const accountNumber = 1124563456;
-
-
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-            const userDetailsData = response.data.details;
-
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
-
-                setLastFourDigits(userDetailsData[0].userMobileNumber);
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
-                setLastFourDigits(userDetailsData.userMobileNumber);
-            } else {
-                console.error('Invalid user details format:', userDetailsData);
-            }
-
-        } catch (error) {
-            console.error('Error fetching user details:', error);
-        }
-        console.log('User Details:', userDetails);
-
-    };
+    const token = sessionStorage.getItem('loginToken');
 
     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const requestOptions = {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                };
+                const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+                if (response.ok) {
+                    const data = await response.json();
+                    setUserDetails([data.user]);
+                    setLastFourDigits([data.user.mobilenumber])
+                } else {
+                    console.error('Error fetching user details:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching user details:', error);
+            }
+        };
+
         fetchData();
     }, []);
+
 
     const formatDebitCardNumber = (cardNumber) => {
 
@@ -68,11 +67,11 @@ const GenerateDebitCardPinOTP = () => {
                                         <label for="ac_number">Account Number</label>
                                     </div>
                                     <div className="col-sm-4 ">
-                                        {userDetails.map((account, index) => (
-                                            <p key={index} value={account.userAccountNumber}>
-                                                {account.userAccountNumber}
-                                            </p>
-                                        ))}
+                                    {userDetails.map((account, index) => (
+                                                <option key={index} value={account.accountNumber}>
+                                                    {account.accountNumber}
+                                                </option>
+                                            ))}
                                     </div>
                                 </div>
                                 <div className="row card_details_generate_pin_select_tag ">

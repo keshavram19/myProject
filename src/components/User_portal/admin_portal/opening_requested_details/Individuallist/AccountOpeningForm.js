@@ -24,7 +24,8 @@ export default function IndividualDatalist() {
     accountName: "",
     // Add more fields as needed
   });
-
+ 
+ 
   const nextStep = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -54,22 +55,28 @@ export default function IndividualDatalist() {
 
   // get individual details using state from uselocation()
   const getindividualRequestedDetails = async (req, res) => {
-    try {
-      let response = await axios.get(
-        `${apiList.individualrequestedetails}/${state}`
-      );
+  
+    try { 
+      const response = await axios.get(
+         `${apiList.individualrequestedetails}/${state}`)
+
+     
       console.log(response.data);
       setIndividualRequesteddata(response.data);
+       
+     
     } catch (err) {
       console.error("Error in getting individual requested details from API");
     }
   };
-
+ 
   useEffect(() => {
     if (state) {
       getindividualRequestedDetails();
     }
   }, []);
+ 
+ 
 
   // Step 1 Content
   const Step1Content = ({ nextStep, formData, setFormData }) => {
@@ -81,7 +88,9 @@ export default function IndividualDatalist() {
     };
 
     console.log(userData);
+ 
 
+     
     return (
       <div className="mt-5 account_opening">
         <h5>
@@ -106,7 +115,7 @@ export default function IndividualDatalist() {
                 placeholder="Enter Your Mobile Number"
                 required
                 value={individualRequesteddata.mobilenumber}
-              />
+ />
             </div>
           </div>
           <div className="col-md-6  col-sm-12 col-12">
@@ -121,7 +130,7 @@ export default function IndividualDatalist() {
                 class="form-control"
                 placeholder="Enter Your Email"
                 value={individualRequesteddata.email}
-              />
+              /> 
             </div>
           </div>
         </div>
@@ -865,7 +874,9 @@ export default function IndividualDatalist() {
                   className="form-control"
                   placeholder="Enter your flatnumber"
                   name="currentAddress.flatnumber"
-                  value={individualRequesteddata.currentAddress.flatnumber}
+                  value={individualRequesteddata?.currentAddress?.flatnumber}
+
+                  // value={individualRequesteddata.currentAddress.flatnumber}
                 />
               </div>
               <div className="col-4">
@@ -880,7 +891,7 @@ export default function IndividualDatalist() {
                   className="form-control"
                   placeholder="Enter your buildingname"
                   name="currentAddress.buildingname"
-                  value={individualRequesteddata.currentAddress.buildingname}
+                  value={individualRequesteddata?.currentAddress?.buildingname}
                 />
               </div>
               <div className="col-4">
@@ -890,7 +901,7 @@ export default function IndividualDatalist() {
                   className="form-control"
                   placeholder="Enter landmark"
                   name="currentAddress.landmark"
-                  value={individualRequesteddata.currentAddress.landmark}
+                  value={individualRequesteddata?.currentAddress?.landmark}
                 />
               </div>
             </div>
@@ -903,7 +914,7 @@ export default function IndividualDatalist() {
                   className="form-control"
                   placeholder="Enter city"
                   name="currentAddress.city"
-                  value={individualRequesteddata.currentAddress.city}
+                  value={individualRequesteddata?.currentAddress?.city}
                 />
               </div>
               <div className="col-4">
@@ -913,7 +924,7 @@ export default function IndividualDatalist() {
                   className="form-control"
                   placeholder="Enter State"
                   name="currentAddress.state"
-                  value={individualRequesteddata.currentAddress.state}
+                  value={individualRequesteddata?.currentAddress?.state}
                 />
               </div>
               <div className="col-4">
@@ -923,7 +934,7 @@ export default function IndividualDatalist() {
                   className="form-control"
                   placeholder="Enter country"
                   name="currentAddress.country"
-                  value={individualRequesteddata.currentAddress.country}
+                  value={individualRequesteddata?.currentAddress?.country}
                 />
               </div>
             </div>
@@ -936,7 +947,7 @@ export default function IndividualDatalist() {
                   className="form-control"
                   placeholder="Enter pincode"
                   name="currentAddress.pincode"
-                  value={individualRequesteddata.currentAddress.pincode}
+                  value={individualRequesteddata?.currentAddress?.pincode}
                 />
               </div>
             </div>
@@ -951,8 +962,7 @@ export default function IndividualDatalist() {
                 onChange={AddressSameAS}
                 value="yes"
                 checked={
-                  individualRequesteddata.currentAddress
-                    .permanantAddressStatus === "yes"
+                  individualRequesteddata?.currentAddress?.permanantAddressStatus === "yes"
                 }
               />{" "}
               <label
@@ -974,8 +984,7 @@ export default function IndividualDatalist() {
                 id="address_sameas_no"
                 value="no"
                 checked={
-                  individualRequesteddata.currentAddress
-                    .permanantAddressStatus === "no"
+                  individualRequesteddata?.currentAddress?.permanantAddressStatus === "no"
                 }
                 onChange={AddressSameAS}
               />{" "}
@@ -993,7 +1002,7 @@ export default function IndividualDatalist() {
               </label>
             </p>
 
-            {individualRequesteddata.currentAddress.permanantAddressStatus ===
+            {individualRequesteddata?.currentAddress?.permanantAddressStatus ===
             "no" ? (
               <div>
                 <h6
@@ -1015,7 +1024,7 @@ export default function IndividualDatalist() {
                       placeholder="Enter your firstName"
                       name="permanentAddress.flatnumber"
                       value={
-                        individualRequesteddata.permanentAddress.flatnumber
+                        individualRequesteddata?.permanentAddress?.flatnumber
                       }
                     />
                   </div>
@@ -1034,7 +1043,7 @@ export default function IndividualDatalist() {
                       placeholder="Enter buildingname"
                       name="permanentAddress.buildingname"
                       value={
-                        individualRequesteddata.permanentAddress.buildingname
+                        individualRequesteddata?.permanentAddress?.buildingname
                       }
                     />
                   </div>
@@ -1045,7 +1054,7 @@ export default function IndividualDatalist() {
                       className="form-control"
                       placeholder="Enter landmark"
                       name="permanentAddress.landmark"
-                      value={individualRequesteddata.permanentAddress.landmark}
+                      value={individualRequesteddata?.permanentAddress?.landmark}
                     />
                   </div>
                 </div>
@@ -1058,7 +1067,7 @@ export default function IndividualDatalist() {
                       className="form-control"
                       placeholder="Enter city"
                       name="permanentAddress.city"
-                      value={individualRequesteddata.permanentAddress.city}
+                      value={individualRequesteddata?.permanentAddress?.city}
                     />
                   </div>
                   <div className="col-4">
@@ -1068,7 +1077,7 @@ export default function IndividualDatalist() {
                       className="form-control"
                       placeholder="Enter state"
                       name="permanentAddress.state"
-                      value={individualRequesteddata.permanentAddress.state}
+                      value={individualRequesteddata?.permanentAddress?.state}
                     />
                   </div>
                   <div className="col-4">
@@ -1078,7 +1087,7 @@ export default function IndividualDatalist() {
                       className="form-control"
                       placeholder="Enter country"
                       name="permanentAddress.country"
-                      value={individualRequesteddata.permanentAddress.country}
+                      value={individualRequesteddata?.permanentAddress?.country}
                     />
                   </div>
                 </div>
@@ -1091,7 +1100,7 @@ export default function IndividualDatalist() {
                       className="form-control"
                       placeholder="Enter pincode"
                       name="permanentAddress.pincode"
-                      value={individualRequesteddata.permanentAddress.pincode}
+                      value={individualRequesteddata?.permanentAddress?.pincode}
                     />
                   </div>
                 </div>
@@ -1162,7 +1171,10 @@ export default function IndividualDatalist() {
 
     const handleSubmitAccountDetails = async () => {
       try {
-        const response = await axios.put(
+        // const response = await axios.put(
+          const response = await axios.put(
+          // (`http://localhost:4444/api/add-account-details/${state}`,
+
           `${apiList.addAccountDetails}/${state}`,
           accountDetails
         );

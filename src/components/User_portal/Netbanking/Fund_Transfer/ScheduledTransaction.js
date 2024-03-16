@@ -44,7 +44,9 @@ const ScheduledTransaction = () => {
 
   const handleDownloadPDF = () => {
     // if (!userDetails) {
-      if (!userDetails || transactions.length === 0) {
+      if (!
+        userDetails || 
+        transactions.length === 0) {
 
       return; // Exit early if userDetails is not defined or populated
     }
@@ -126,7 +128,9 @@ useEffect(() => {
   // Fetch user details when component mounts
   fetchData();
 }, []);
+
 console.log(userDetails);
+
   return (
     <>
 

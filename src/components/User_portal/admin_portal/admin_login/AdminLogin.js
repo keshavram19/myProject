@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./PersonalLoginPage.css";
+import "./AdminLogin.css";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import apiList from "../../../lib/apiList";
-import logo from "../../../Images/RIB White logo (1).png";
-import No_Waiting_Img from "../../../Images/No_Waiting_Img.png";
+import apiList from "../../../../lib/apiList";
+import Admin_Login_Page_img  from "../../../../Images/Admin_Login_Page_img.png" ; 
+import banklogo from "../../../../Images/banklogo.png";  
 
 
-const PersonalLoginPage = () => {
+const AdminLogin = () => {
   const handleRecaptchaChange = (value) => {
-    // Handle the reCAPTCHA value change
     console.log("ReCAPTCHA value:", value);
   };
 
@@ -24,7 +23,7 @@ const PersonalLoginPage = () => {
   const [bankPassword, setBankPassword] = useState('');
   const [bankMailId, setBankMailId] = useState('');
   const [bankOtp, setBankOtp] = useState('');
-  const [bankNewPassword, setBankNewPassword] = useState('');
+  const [bankNewPassword, setBankNewPassword] = useState('')
 
   const handleUserName = (event) => {
     setBankUserName(event.target.value)
@@ -51,13 +50,14 @@ const PersonalLoginPage = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        userId: bankUserName,
+        username: bankUserName,
         password: bankPassword
       })
     };
 
     try {
-      const response = await fetch(apiList.customerLogin, options);
+      const response = await fetch(apiList.adminLogin, options);
+      console.log('Response:', response);
       const data = await response.json();
       if (response.status === 200) {
 
@@ -69,14 +69,14 @@ const PersonalLoginPage = () => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light"
+          theme: "colored"
         });
 
-        sessionStorage.setItem('loginToken', data.token);
-        const expirationTime = new Date().getTime() + 5 * 60 * 1000;
-        sessionStorage.setItem('expireTime', expirationTime);
+        sessionStorage.setItem('adminloginToken', data.token);
+        const expirationTime = new Date().getTime() + 1 * 60 * 1000; 
+        sessionStorage.setItem('adminexpireTime', expirationTime);
         setTimeout(() => {
-          navigate('/user/account');
+          navigate('/admin/all-data');
         }, 1500);
       } else {
         toast.error(`${data.message || 'An error occurred.'}`, { 
@@ -87,7 +87,7 @@ const PersonalLoginPage = () => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light"
+          theme: "colored"
         });
       }
     } catch (error) {
@@ -100,7 +100,7 @@ const PersonalLoginPage = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light"
+        theme: "colored"
       });
     }
     setBankUserName('')
@@ -287,94 +287,25 @@ const PersonalLoginPage = () => {
         <div className="container">
           <div className="row">
             <div className="col-6">
-              <img src={logo} alt="logo" style={{ width: "170px" }} />
-            </div>
-            <div className="col-6 text-right m-auto">
-              <p className="mb-0">
-                <Link to="/netbanking-corporate-login" style={{ color: '#2fb68e'}}>
-                  Login Corporate Banking
-                </Link>
-              </p>
+              <img src={banklogo} alt="logo" style={{ width: "170px" }} />
             </div>
           </div>
         </div>
       </div>
       <div className="container-fluid">
-        <div className="row personal_login">
-          <div className="col-md-5 p-0">
-            {/* <h2>One Account with many benefits</h2>
-
-            <div className="row">
-              <div className="col-md-2 text-center m-auto">
-                <img
-                  src="https://webapp.paytmbank.com/assets/static/images/24x7.svg"
-                  className="img-fluid"
-                />
-              </div>
-              <div className="col-md-10 p-0">
-                <h5>24 * 7 Transactions</h5>
-                <p>To all bank accounts, no restriction</p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-2 text-center m-auto">
-                <img
-                  src="https://webapp.paytmbank.com/assets/static/images/Bank.svg"
-                  className="img-fluid"
-                />
-              </div>
-              <div className="col-md-10 p-0">
-                <h5>Secure Banking</h5>
-                <p>Banking with peace of mind</p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-2 text-center m-auto">
-                <img
-                  src="https://webapp.paytmbank.com/assets/static/images/debitcard.svg"
-                  className="img-fluid"
-                />
-              </div>
-              <div className="col-md-10 p-0">
-                <h5>Personalized Debit card</h5>
-                <p>For all your POS & Online spends</p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-2 text-center m-auto">
-                <img
-                  src="https://webapp.paytmbank.com/assets/static/images/fixeddeposit.svg"
-                  className="img-fluid"
-                />
-              </div>
-              <div className="col-md-10 p-0">
-                <h5>Super Liquid Fixed Deposit</h5>
-                <p>No withdrawal penalties, instant remittances & payments</p>
-              </div>
-            </div>
-            <button>Know more</button> */}
-            <img src={No_Waiting_Img} alt="no waiting logo" className="img-fluid" style={{ width: '100%', height: '85vh'}}/>
-          </div>
+        <div className="row admin_login">
+          
 
           {form === "login" && (
-            <div className="col-md-7">
-              <h5>Login to Access Your Personal Banking</h5>
-              {/* <p className="personal_dont_password">
-                <Link
-                  to="#"
-                  onClick={() => setForm("createuser")}
-                  style={{ color: "#f18121" }}
-                >
-                  Don't have a username? Create Now
-                </Link>
-              </p> */}
+            <div className="col-md-6 admin_login_col">
+              <h5>Login to Access Your Admin Portal</h5>
+             
               <input
                 type="text"
                 placeholder="Enter Bank Username"
                 className="form-control"
                 onChange={handleUserName}
                 value={bankUserName}
-                style={{fontSize: '14px'}}
               />
               <input
                 type="Password"
@@ -382,7 +313,6 @@ const PersonalLoginPage = () => {
                 className="form-control"
                 onChange={handleBankPassword}
                 value={bankPassword}
-                style={{fontSize: '14px'}}
               />
 
               <div className="mt-3">
@@ -397,7 +327,7 @@ const PersonalLoginPage = () => {
                   <ToastContainer />
                   <button type="button" onClick={handleBankLogin}>Sign In Securly</button>
                 </div>
-                <div className="col-md-4 m-auto text-right">
+                <div className="col-md-4 mt-4 text-right">
                   <Link
                     to="#"
                     onClick={() => setForm("forgotusername")}
@@ -406,7 +336,7 @@ const PersonalLoginPage = () => {
                     Forgot Username
                   </Link>
                 </div>
-                <div className="col-md-4  m-auto">
+                <div className="col-md-4  mt-4">
                   <Link
                     to="#"
                     onClick={() => setForm("forgotpassword")}
@@ -416,7 +346,7 @@ const PersonalLoginPage = () => {
                   </Link>
                 </div>
               </div>
-              <div className="row mt-5 personal_login_pp">
+              <div className="row mt-5 admin_login_pp">
                 <p>
                   {" "}
                   By signing in, you agree to our{" "}
@@ -428,37 +358,9 @@ const PersonalLoginPage = () => {
             </div>
           )}
 
-          {/* {form === "createuser" && (
-            <div className="col-md-7">
-              <h5>
-                <FaArrowLeftLong
-                  onClick={() => setForm("login")}
-                  style={{ paddingRight: "5px", cursor: "pointer" }}
-                />
-                Activate Your Personal Banking
-              </h5>
-
-              <input
-                type="text"
-                placeholder="Registred Mobile Number"
-                className="form-control"
-              />
-
-              <div className="mt-3">
-                <ReCAPTCHA
-                  sitekey="6Ldbdg0TAAAAAI7KAf72Q6uagbWzWecTeBWmrCpJ" // Replace with your site key
-                  onChange={handleRecaptchaChange}
-                />
-              </div>
-
-              <div className="row ml-0">
-                <button>Continue</button>
-              </div>
-            </div>
-          )} */}
 
           {form === "forgotusername" && (
-            <div className="col-md-7">
+            <div className="col-md-6  admin_login_col">
               <h5>
                 <FaArrowLeftLong
                   onClick={() => setForm("login")}
@@ -487,7 +389,7 @@ const PersonalLoginPage = () => {
           )}
 
           {form === "forgotpassword" && (
-            <div className="col-md-7">
+            <div className="col-md-6  admin_login_col">
               <h5>
                 <FaArrowLeftLong
                   onClick={() => setForm("login")}
@@ -520,7 +422,7 @@ const PersonalLoginPage = () => {
           )}
 
           {form === "verifyingOTP" && (
-            <div className="col-md-7">
+            <div className="col-md-6  admin_login_col">
               <h5>
                 <FaArrowLeftLong
                   onClick={() => setForm("forgotpassword")}
@@ -546,7 +448,7 @@ const PersonalLoginPage = () => {
           )}
 
           {form === 'changePassword' && (
-            <div className="col-md-7">
+            <div className="col-md-6 admin_login_col">
               <h5>
                 <FaArrowLeftLong
                   style={{ paddingRight: "5px", cursor: "pointer" }}
@@ -569,6 +471,10 @@ const PersonalLoginPage = () => {
             </div>
           )}
 
+          <div className="col-md-6  admin_login_coloumn p-0">
+            <img src={Admin_Login_Page_img} alt="no waiting logo" className="img-fluid"/>
+          </div>
+
         </div>
       </div>
       <hr className="landing_body_banner_bottom"></hr>
@@ -576,7 +482,4 @@ const PersonalLoginPage = () => {
   );
 };
 
-export default PersonalLoginPage;
-
-
-
+export default AdminLogin;

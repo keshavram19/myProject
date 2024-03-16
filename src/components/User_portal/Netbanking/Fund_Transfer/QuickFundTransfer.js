@@ -11,27 +11,33 @@ const QuickFundTransfer = () => {
     const [userDetails, setUserDetails] = useState([]);
     const [selectedAccount, setSelectedAccount] = useState('');
     const [selectedTransferType, setSelectedTransferType] = useState('royal');
-    const accountNumber = 1124563456;
+    const token = sessionStorage.getItem('loginToken');
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-            const userDetailsData = response.data.details;
-
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
-            } else {
-                console.error('Invalid user details format:', userDetailsData);
-            }
-
-        } catch (error) {
-            console.error('Error fetching user details:', error);
-        }
-    };
 
     useEffect(() => {
+
+        const fetchData = async () => {
+            try {
+              
+                const requestOptions = {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                };
+                const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+                if (response.ok) {
+                    const data = await response.json();
+                    setUserDetails([data.user]);
+                } else {
+                    console.error('Error fetching user details:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching user details:', error);
+            }
+        };
+
         fetchData();
     }, []);
 
@@ -63,53 +69,41 @@ const QuickFundTransfer = () => {
 
     const sendFormDataToServer = async () => {
         try {
-            const response = await fetch(`${apiList.quickFundTransfer}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if (response.ok) {
-               
-                console.log('Data saved successfully');
-                console.log(userDetails[0].userEmailId);
-                console.log(formData.amount);
-                const debitNotificationResponse = await axios.post(`${apiList.debitNotification}`, {
-                    email: userDetails[0].userEmailId,
-                    amountDebited: formData.amount,
-                });
-                console.log(debitNotificationResponse.data);
-                const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
-                    accountNumber: selectedAccount,
-                    otpMethod: otpMethod,
-                });
+              const otpResponse = await axios.post(
+                    `${apiList.createVerificationCode}`,
+                    {
+                      accountNumber: selectedAccount,
+                      otpMethod: otpMethod,
+                    },
+                    {
+                      headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                      },
+                    }
+                  );
+                  
                 alert("otp generated successfully");
-                console.log(otpResponse.data);
-                navigate('/user/fundtransfer/quickfundtransfer-otp-page');
 
-                // Reset form data after successful transfer
+                navigate('/user/fundtransfer/quickfundtransfer-otp-page', { state: formData });
+
                 resetFormData();
-
-            } else {
-                console.error('Error saving data');
-            }
         } catch (error) {
             console.error('Error:', error);
         }
     };
-
+    
     useEffect(() => {
         if (formData.transferType) {
             sendFormDataToServer();
         }
     }, [formData.transferType, formData.toAccountNumber]);
+    
 
     const handleFormSubmit = () => {
-        const toAccountNumber = parseInt(document.getElementById('toAccountNumber').value, 10);
-        const confirmAccountNumber = parseInt(document.getElementById('confirmAccountNumber').value, 10);
-
+        const toAccountNumber = document.getElementById('toAccountNumber').value.trim();
+        const confirmAccountNumber = document.getElementById('confirmAccountNumber').value.trim();
+    
         if (toAccountNumber === confirmAccountNumber) {
             const updatedFormData = {
                 transferType: document.getElementById('royal').checked
@@ -127,6 +121,7 @@ const QuickFundTransfer = () => {
             alert("Error: To Account Number and Confirm Account Number do not match.");
         }
     };
+    
 
     const handleAccountChange = (event) => {
         setSelectedAccount(event.target.value);
@@ -184,10 +179,10 @@ const QuickFundTransfer = () => {
                                 >
                                     <option value="">Select Account Number</option>
                                     {userDetails.map((account, index) => (
-                                        <option key={index} value={account.userAccountNumber}>
-                                            {account.userAccountNumber}
-                                        </option>
-                                    ))}
+                                                <option key={index} value={account.accountNumber}>
+                                                    {account.accountNumber}
+                                                </option>
+                                            ))}
                                 </select>
                                 <p className="quick_fund_transfer_paragraph text-danger">Total Available amount is {userDetails.length > 0 && selectedAccount !== '' && (
                                     <p className="ml-1">
@@ -199,12 +194,12 @@ const QuickFundTransfer = () => {
                             <div className="col-sm-4">
 
                                 <label htmlFor="text" className="d-flex">To Account Number <p className="quick_fund_tranfer_p">*</p></label>
-                                <input type="number" className="form-control" id="toAccountNumber" />
+                                <input type="text" className="form-control" id="toAccountNumber" />
                             </div>
                             <div className="col-sm-4">
                                 <label htmlFor="text" className="d-flex">Confirm Account Number <p className="quick_fund_tranfer_p">*</p></label>
 
-                                <input type="number" className="form-control" id="confirmAccountNumber" />
+                                <input type="text" className="form-control" id="confirmAccountNumber" />
                             </div>
                         </div>
                         <div className="row">

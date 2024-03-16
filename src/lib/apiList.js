@@ -2,6 +2,20 @@ export const server = "http://localhost:4444";
 
 
 const apiList ={
+
+    // admin login starts
+
+    adminLogin: `${server}/admin/admin-login`,
+    addAccountDetails:`${server}/admin/add-account-details`,
+    UserDetailsAccountOpening:`${server}/admin/userdetails`,
+    UserDetailsAccountOpeningSendOTP:`${server}/admin/send-otp`,
+    UserDetailsAccountOpeningVerifyOTP:`${server}/admin/verify-otp`,
+    individualrequestedetails: `${server}/admin/individualrequesteduserdetails`,
+    getuserrequesteddetails: `${server}/admin/requesteduserdetails/`,
+
+
+    // admin login ends
+
     generateCertificate: `${server}/api/generateCertificate`,
     customerAccountDetails: `${server}/api/userDetails/`,
     userAuthentication: `${server}/api/otp-send`,
@@ -38,23 +52,25 @@ const apiList ={
     form60OtpVerification:`${server}/form60Userdetails/verify-otp`,
     form60UserDetails:`${server}/form60Userdetails/userdetails`,
     GenerateCreditcardpin : `${server}/api/generate-Credit-Card-Pin`,
-    BlockingCreditCard: `${server}/api/blockcreditcard/`,
-    BlockCardOTPValidation:`${server}/api/OtpValidation/`,
-    BlockCardOTPVerifying:`${server}/api/verifyOTP`,
-    AlertSubscription:`${server}/api/alertsubscription/`,
-    creditcardEmiconversion : `/emiConversion`,
+    BlockCreditCard:`${server}/api/blockcreditcard`,
+    BlockCreditCardOTPVerify:`${server}/api/verifyOTP`,
+    creditcardEmiconversion : `${server}/emiConversion`,
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
+    createReissueCard: `${server}/api/createReissueCard`,
+  
 
-    requestedUserDetailsByEmail: `${server}/api/individualrequesteduserdetails/`,
+
+ requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+
+
 
 
     payLater:`${server}/api/payLaterAccount`,
-    billDetails:`${server}/api/payLaterAccount/pay`
+    billDetails:`${server}/api/payLaterAccount/pay`,
+
 
 }
-
-
 
 
 export default apiList;

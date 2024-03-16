@@ -8,12 +8,12 @@ import apiList from '../../../../lib/apiList';
 
 const StatementByMail = () => {
 
-    useEffect(()=> {
+    useEffect(() => {
         getAuthenticatioDetails()
-    },[])
+    }, [])
     const [authDetails, setAuthDetails] = useState()
     let accountNumber = 123456789;
-    const getAuthenticatioDetails = async ()=> {
+    const getAuthenticatioDetails = async () => {
         const options = {
             method: 'GET'
         };
@@ -21,16 +21,16 @@ const StatementByMail = () => {
             const response = await fetch(`${apiList.customerAccountDetails}${accountNumber}`, options);
             const data = await response.json();
             setAuthDetails(data.details);
-        } 
+        }
         catch (error) {
             console.error('Error Fetching Authentication Details:', error);
         }
     };
 
 
-    useEffect(()=> {
+    useEffect(() => {
         sendCodeToGmail()
-    },[authDetails])
+    }, [authDetails])
     const sendCodeToGmail = async () => {
 
         if (!authDetails || !authDetails.userEmailId) {
@@ -44,7 +44,7 @@ const StatementByMail = () => {
             },
             body: JSON.stringify({ email: authDetails.userEmailId }),
         };
-        
+
         try {
             const response = await fetch(apiList.userAuthentication, options);
             const result = await response.json();
@@ -55,9 +55,9 @@ const StatementByMail = () => {
 
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
     const handleInputChange = (index, value) => {
-      const newOtp = [...otp];
-      newOtp[index] = value;
-      setOtp(newOtp.join(''));
+        const newOtp = [...otp];
+        newOtp[index] = value;
+        setOtp(newOtp.join(''));
     };
 
     const handleResendOTP = () => {
@@ -65,17 +65,17 @@ const StatementByMail = () => {
     };
 
 
-    const verifyOTP = async ()=> {
+    const verifyOTP = async () => {
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({email: authDetails.userEmailId, gmailOTP: otp})
+            body: JSON.stringify({ email: authDetails.userEmailId, gmailOTP: otp })
         };
-        try{
+        try {
             const response = await fetch(apiList.userAuthVerify, options);
-            if(response.status === 200){
+            if (response.status === 200) {
                 const data = await response.json();
                 toast.success('Successfully verified!', {
                     position: "top-center",
@@ -86,9 +86,9 @@ const StatementByMail = () => {
                     draggable: true,
                     progress: undefined,
                     theme: "colored"
-                    });
+                });
             }
-            else{
+            else {
                 const data = await response.json();
                 toast.error('Invalid OTP!', {
                     position: "top-center",
@@ -100,13 +100,14 @@ const StatementByMail = () => {
                     progress: undefined,
                     theme: "colored"
                 });
-            }   
+            }
         }
-        catch(error){
+        catch (error) {
             console.log('Error Verifying OTP:', error);
         }
+        setOtp(['','','','','',''])
     };
-    const verifyCode = ()=> {
+    const verifyCode = () => {
         verifyOTP()
     };
 
@@ -119,22 +120,20 @@ const StatementByMail = () => {
                         <BankaccountSidebar />
                     </div>
                     <div className='col-9'>
-                        <div className='savings_acct_user_auth_heading'>User Authentication Details:</div>
                         <div className='savings_acct_user_auth_container'>
-                            <div className='savings_acct_user_auth_container_header'>Please Enter OTP To Authorize</div>
+                            <div className='savings_acct_user_auth_container_header'>Account Statement To Email:</div>
                             <div className='savings_acct_user_auth_details_container'>
                                 <div className='d-flex justify-content-center'>
                                     {
                                         authDetails &&
                                         (<div>
-                                            <div className='otp_verifi_text'>OTP Verification</div>
                                             <div className='otp_code_mobile'>Enter OTP Code sent to {authDetails.userEmailId}</div>
                                             <div>
-                                                <input className='otp_code_box1' type='text' maxLength={1} 
+                                                <input className='otp_code_box1' type='text' maxLength={1}
                                                     value={otp[0]} onChange={(e) => handleInputChange(0, e.target.value)}>
 
                                                 </input>
-                                                <input className='otp_code_box2' maxLength={1} 
+                                                <input className='otp_code_box2' maxLength={1}
                                                     value={otp[1]} onChange={(e) => handleInputChange(1, e.target.value)}>
 
                                                 </input>
@@ -143,12 +142,12 @@ const StatementByMail = () => {
 
                                                 </input>
                                                 <input className='otp_code_box4' maxLength={1} value={otp[3]}
-                                                     onChange={(e) => handleInputChange(3, e.target.value)}>
-                                                     
+                                                    onChange={(e) => handleInputChange(3, e.target.value)}>
+
                                                 </input>
-                                                <input className='otp_code_box5' maxLength={1}  value={otp[4]}
+                                                <input className='otp_code_box5' maxLength={1} value={otp[4]}
                                                     onChange={(e) => handleInputChange(4, e.target.value)}>
-                                                     
+
                                                 </input>
                                                 <input className='otp_code_box6' maxLength={1} value={otp[5]}
                                                     onChange={(e) => handleInputChange(5, e.target.value)}>
@@ -167,18 +166,20 @@ const StatementByMail = () => {
                                             </div>
                                         </div>)
                                     }
-                                    
+
                                 </div>
                                 <div className='savings_acct_user_auth_text1'>
-                                    OTP has been generated with validity of 60 seconds and sent to your registered mail id
-                                </div>
-                                <div className='savings_acct_user_auth_text2'>
-                                    If there is a delay in receiving of OTP, you can send a request to receive it. SMS IBOTP to 5676766 or
-                                    92156766. Request should be sent from the registered mobile number.
-                                </div>
-                                <div className='savings_acct_user_auth_text3'>
-                                    Please don't share OTP to anyone, even if person claims to be an Royal Islamic bank official. For further details
-                                    please <a className='savings_acct_user_auth_text3_atag'>click here</a>.
+                                    <div>
+                                        The OTP code has a validity of 60 seconds and is sent to your registered email address.
+                                    </div>
+                                    <div className='my-2'>
+                                        If you experience a delay in receiving the OTP, you can request it via SMS by sending IBOTP to 
+                                        either 5676766 or 92156766 from your registered mobile number.
+                                    </div>
+                                    <div>
+                                        It's crucial not to share the OTP with anyone, even if they claim to be a Roayl Islamic bank official. 
+                                        For additional information, <a href='#'>click here</a>.
+                                    </div>
                                 </div>
                                 <div className='d-flex justify-content-center'>
                                     <button type='button' className='savings_acct_user_auth_submit_btn'>
