@@ -68,8 +68,6 @@ function ReissueGenerateOrReject() {
             console.error("Reissue Error:", error);
         }
     };
-
-
     function getFormattedDate(date) {
         const year = date.getFullYear();
         let month = date.getMonth() + 1;
@@ -86,10 +84,10 @@ function ReissueGenerateOrReject() {
     }
 
     // const handleDelete = (index) => {
-    //     const updatedUsers = [...generatedUsers];
-    //     updatedUsers.splice(index, 1);
-    //     setGeneratedUsers(updatedUsers);
-    //     localStorage.setItem('generatedUsers', JSON.stringify(updatedUsers));
+    //  const updatedUsers = [...generatedUsers];
+    //  updatedUsers.splice(index, 1);
+    //  setGeneratedUsers(updatedUsers);
+    //  localStorage.setItem('generatedUsers', JSON.stringify(updatedUsers));
     // };
 
     return (
@@ -156,13 +154,11 @@ function ReissueGenerateOrReject() {
                             <label>CVV </label>
                             <input className='debitdetails_input' value={userDetails[0].userDebitCardDetails.userDebitCardcvv} readOnly />
                         </div>
-
                     </div>
                     <div className="buttons-container mt-3">
                         <button className="reject-button" onClick={handleReject}>Reject</button>
                         <button className="generate-button" onClick={handleGenerate}>Generate</button>
                     </div>
-
                 </div>
             )}
 

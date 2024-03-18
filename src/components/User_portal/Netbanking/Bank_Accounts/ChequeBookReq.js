@@ -46,7 +46,7 @@ const ChequeBookReq = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:4444/api/createChequebookRequest', {
+      const response = await axios.post(`/createChequebookRequest`, {
         userAccountNumber: selectedAccount
       });
       const { srn } = response.data;
@@ -70,12 +70,12 @@ const ChequeBookReq = () => {
               <div className="d-flex">
                 <h3 className='check_book_heading'>Check Book Request</h3>
               </div>
-              <div className="card">
+              <div cclassName="card">
                 <h6 className="bookrequest_heading p-3">Request For New Check Book</h6>
-                <div className="container-fluid pancard_details p-3">
+                <div lassName="container-fluid pancard_details p-3">
                   <div className="row mt-1">
                     <div className="col-sm-4">
-                      <label htmlFor="text">Select savings Account Number*</label>
+                      <label htmlFor=",">Select savings Account Number*</label>
                     </div>
                     <div className="col-sm-3">
                       <select
