@@ -95,6 +95,7 @@ function ReissueGenerateOrReject() {
         }
     };
 
+
     function getFormattedDate(date) {
         const year = date.getFullYear();
         let month = date.getMonth() + 1;
@@ -110,12 +111,21 @@ function ReissueGenerateOrReject() {
         return `${day}-${month}-${year}`;
     }
 
+
+    // const handleDelete = (index) => {
+    //  const updatedUsers = [...generatedUsers];
+    //  updatedUsers.splice(index, 1);
+    //  setGeneratedUsers(updatedUsers);
+    //  localStorage.setItem('generatedUsers', JSON.stringify(updatedUsers));
+    // };
+
     const handleDelete = (index) => {
         const updatedUsers = [...generatedUsers];
         updatedUsers.splice(index, 1);
         setGeneratedUsers(updatedUsers);
         localStorage.setItem('generatedUsers', JSON.stringify(updatedUsers));
     };
+
 
     return (
         <div className='container-fluid'>
@@ -195,6 +205,35 @@ function ReissueGenerateOrReject() {
                             </div>
 
                         </div>
+                    </div>
+                    <div className='debit-details col-sm-12'>
+                        <p>Debit Card Details:</p>
+                    </div>
+                    <div className="debit_details col-sm-12">
+                        <div className='debit_values'>
+                            <label>Debit Card Number: </label>
+                            <input className='debitdetails_input' value={userDetails[0].userDebitCardDetails.userDebitCardNumber} readOnly />
+                        </div>
+                        <div className='debit_values'>
+                            <label>Status: </label>
+                            <input className={`debitdetails_input ${userDetails[0].userDebitCardDetails.userDebitCardStatus === 'active' ? 'green-status' : 'gray-status'}`} value={userDetails[0].userDebitCardDetails.userDebitCardStatus} readOnly />
+                        </div>
+                        <div className='debit_values'>
+                            <label>ExpiryDate: </label>
+                            <input className='debitdetails_input' value={userDetails[0].userDebitCardDetails.userDebitCardExpiryDate} readOnly />
+                        </div>
+                        <div className='debit_values'>
+                            <label>CVV </label>
+                            <input className='debitdetails_input' value={userDetails[0].userDebitCardDetails.userDebitCardcvv} readOnly />
+                        </div>
+                    </div>
+                    <div className="buttons-container mt-3">
+                        <button className="reject-button" onClick={handleReject}>Reject</button>
+                        <button className="generate-button" onClick={handleGenerate}>Generate</button>
+                    </div>
+
+
+                        </div>
                     )}
 
                     <div className="table-container container mt-5 mb-5">
@@ -248,6 +287,7 @@ function ReissueGenerateOrReject() {
                             <li className="page-item"><a className="page-link" href="#">Next</a></li>
                         </ul>
                     </div>
+
                 </div>
             </div>
 
