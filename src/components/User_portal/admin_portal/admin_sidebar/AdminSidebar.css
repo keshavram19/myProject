@@ -10,56 +10,60 @@
 }
 
 
-
-.sidebar {
+.admin_sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 110px;
+    width: 110px; /* Adjust the width as needed */
     height: 100%;
     display: flex;
-    align-items: center;
     flex-direction: column;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(17px);
     --webkit-backdrop-filter: blur(17px);
     border-right: 1px solid rgba(255, 255, 255, 0.7);
     transition: width 0.3s ease;
-    height: 100vh;
-    
 }
 
-.sidebar:hover {
+.logo-container {
+    text-align: center;
+}
+
+.admin_sidebar:hover {
     width: 260px;
-    height: 100vh;
-   
+    height: auto;
     
 }
 
-.sidebar .logo {
-    color: #ebca28;
-    display: flex;
-    align-items: center;
-    padding: 25px 10px 15px;
-}
-
-.logo img {
-    width: 43px;
+.logo-container img {
+    width: 170px;
     border-radius: 50%;
 }
 
+
+.links {
+    list-style: none;
+    margin-top: auto;
+    padding-bottom: 20px; 
+}
+
+
+
+.logo img {
+    width: 60px; /* Adjust the size as needed */
+    border-radius: 50%;
+}
+
+/* Show logo text on hover */
 .logo h2 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    margin-left: 15px;
     display: none;
 }
 
-.sidebar:hover .logo h2 {
+.admin_sidebar:hover .logo h2 {
     display: block;
 }
 
-.sidebar .links {
+.admin_sidebar .links {
     list-style: none;
     margin-top: 20px;
     overflow-y: auto;
@@ -67,7 +71,7 @@
     height: calc(100% - 70px);
 }
 
-.sidebar .links::-webkit-scrollbar {
+.admin_sidebar .links::-webkit-scrollbar {
     display: none;
 }
 
@@ -93,7 +97,7 @@
     margin-bottom: 10px;
 }
 
-.sidebar:hover .links h4 {
+.admin_sidebar:hover .links h4 {
     display: block;
 }
 
@@ -102,7 +106,7 @@
     border: 1px solid #4c4c4c;
 }
 
-.sidebar:hover .links hr {
+.admin_sidebar:hover .links hr {
     border-color: transparent;
 }
 
@@ -119,12 +123,12 @@
     text-decoration: none;
 }
 
-.sidebar:hover .links li a {
+.admin_sidebar:hover .links li a {
     display: block;
 }
 
 .links .logout-link {
-    margin-top: 20px;
+    margin-top: 5px;
 
 }
 

@@ -381,7 +381,7 @@ select.form-control.statement_select_format {
 }
 
 .customer_details_heading {
-  width: 200px;
+  width: 170px;
 }
 
 .customer_details_heading_semicol {
@@ -604,6 +604,7 @@ select.form-control.statement_select_format {
   font-size: 14px;
   font-weight: 600;
   border-radius: 10px;
+  white-space: nowrap;
 }
 
 .genrate_pin_submits:hover {

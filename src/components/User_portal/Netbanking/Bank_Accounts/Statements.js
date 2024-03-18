@@ -27,8 +27,11 @@ const Statements = () => {
     const [transactionType, setTransactionType] = useState('allTransactions');
     const [perPageTransactions, setPerPageTransactions] = useState('');
     const [accountTypeDetails, setAccountTypeDetails] = useState({
-        userAccountNumber: '',
-        bankBranchName: '',
+        accountNumber: '',
+        firstname: "",
+        lastname: "",
+        openaccount: "",
+        ifscCode: "",
         userAccountBalance: ''
     });
     const [formattedFromDate, setFormattedFromDate] = useState(null);
@@ -37,6 +40,15 @@ const Statements = () => {
     const [errorMsgStatus, setErrorMsgStatus] = useState('false');
     const [errorMsg, setErrorMsg] = useState('');
     const [periodRangeStatus, setPeriodRangeStatus] = useState(false);
+    const [customerAddress, setCustomerAddress] = useState({
+        flatnumber: '',
+        buildingname: '',
+        landmark: '',
+        city: '',
+        state: '',
+        country: '',
+        pincode: ''
+    })
 
 
     const navigate = useNavigate();
@@ -94,50 +106,28 @@ const Statements = () => {
     useEffect(() => {
         getAccountTypeDetails()
     }, []);
-    let accountNumber = 123456789;
     const getAccountTypeDetails = async () => {
+        const token = sessionStorage.getItem('loginToken');
         const options = {
-            method: 'GET'
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
         };
-        const response = await fetch(`${apiList.customerAccountDetails}${accountNumber}`, options);
-        const data = await response.json()
-        setAccountTypeDetails(data.details)
+
+        try {
+            const response = await fetch(apiList.customerDetails, options);
+            if(response.ok){
+                const data = await response.json();
+                setAccountTypeDetails(data.user);
+                setCustomerAddress(data.user.currentAddress)
+            }
+        } 
+        catch (error) {
+            console.log(error.message);
+        }
     };
-
-    // const isFilterSelected = fromDate || toDate || transactionType;
-    // const filteredTransactions = isFilterSelected ? allTransactionsList.filter((transaction) => {
-    //     const transactionDate = new Date(transaction.date);
-
-    //     // From-Date and To-Date filtration
-    //     if (fromDate && toDate) {
-    //         const from = new Date(fromDate);
-    //         const to = new Date(toDate);
-    //         if (transactionDate < from || transactionDate > to) {
-    //             return false;
-    //         }
-    //     }
-    //     else if (fromDate) {
-    //         const from = new Date(fromDate);
-    //         if (transactionDate < from) {
-    //             return false;
-    //         }
-    //     }
-    //     else if (toDate) {
-    //         const to = new Date(toDate);
-    //         if (transactionDate > to) {
-    //             return false;
-    //         }
-    //     }
-
-    //     // Filteration of Transaction Type
-    //     if (transactionType === 'Withdrawals' && transaction.withdrawl === '') {
-    //         return false;
-    //     }
-    //     else if (transactionType === 'Deposits' && transaction.deposite === '') {
-    //         return false;
-    //     }
-    //     return true;
-    // }) : [];
 
     let transactionRef = useRef();
     const handleDownloadTransactions = () => {
@@ -161,37 +151,34 @@ const Statements = () => {
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>Account Name</div>
                     <div class='customer_details_heading_semicol'>:</div>
-                    <div>${accountTypeDetails.accountHolderName}</div>
+                    <div>${accountTypeDetails.firstname} ${accountTypeDetails.lastname}</div>
                 </div>
 
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>Address</div>
                     <div class='customer_details_heading_semicol'>:</div>
-                    <div></div>
+                    <div>
+                        ${customerAddress.flatnumber}, ${customerAddress.buildingname}, ${customerAddress.landmark}, ${customerAddress.city},
+                         ${customerAddress.state}, ${customerAddress.country} ${customerAddress.pincode}
+                    </div>
                 </div>
 
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>Date</div>
                     <div class='customer_details_heading_semicol'>:</div>
-                    <div>21 Feb 2024</div>
+                    <div>15 Mar 2024</div>
                 </div>
 
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>Account Number</div>
                     <div class='customer_details_heading_semicol'>:</div>
-                    <div>${accountTypeDetails.userAccountNumber}</div>
+                    <div>${accountTypeDetails.accountNumber}</div>
                 </div>
             
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>Account Type</div>
                     <div class='customer_details_heading_semicol'>:</div>
-                    <div>${accountTypeDetails.userAccountType}</div>
-                </div>
-
-                <div class='customer_account_info'>
-                    <div class='customer_details_heading'>Branch</div>
-                    <div class='customer_details_heading_semicol'>:</div>
-                    <div>${accountTypeDetails.bankBranchName}</div>
+                    <div>${accountTypeDetails.openaccount}</div>
                 </div>
 
                 <div class='customer_account_info'>
@@ -203,19 +190,13 @@ const Statements = () => {
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>IFS Code</div>
                     <div class='customer_details_heading_semicol'>:</div>
-                    <div>${accountTypeDetails.bankBranchIfscCode}</div>
+                    <div>${accountTypeDetails.ifscCode}</div>
                 </div>
             
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>MICR Code</div>
                     <div class='customer_details_heading_semicol'>:</div>
                     <div>520002682</div>
-                </div>
-                
-                <div class='customer_account_info'>
-                    <div class='customer_details_heading'>Nomination Registered</div>
-                    <div class='customer_details_heading_semicol'>:</div>
-                    <div>Yes</div>
                 </div>
 
                 <div class='customer_account_info'>
@@ -312,7 +293,7 @@ const Statements = () => {
                             <div className='d-flex align-items-center'>
                                 <select className='form-control statement_select_format' onChange={handleAccountType}>
                                     <option hidden> Select Account Type </option>
-                                    <option value='Savings'>Savings</option>
+                                    <option value='savings'>Savings</option>
                                     <option value='Current'>Current</option>
                                 </select>
                                 <IoCaretDownCircleOutline className='statement_acct_type_icon' />
@@ -325,7 +306,7 @@ const Statements = () => {
                                 <select className='form-control statement_select_format'
                                     disabled={accountType === 'Current'} onChange={handleAccountNumber}>
                                     <option hidden>Select Account Number</option>
-                                    <option>{accountTypeDetails.userAccountNumber}</option>
+                                    <option>{accountTypeDetails.accountNumber}</option>
                                 </select>
                                 <IoCaretDownCircleOutline className='statement_acct_type_icon' />
                             </div>
@@ -420,7 +401,7 @@ const Statements = () => {
                                 <div className='d-flex statement_savings_acct_num_cont'>
                                     <div className='statement_savings_acct_num'>Savings Account No: </div>
                                     <div className='statement_savings_acct_branch'>
-                                        {accountTypeDetails.userAccountNumber}, {accountTypeDetails.bankBranchName}
+                                        {accountTypeDetails.accountNumber}
                                     </div>
                                 </div>
                                 <div className='d-flex justify-content-between'>

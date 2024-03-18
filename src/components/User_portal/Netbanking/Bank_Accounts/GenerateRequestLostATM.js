@@ -3,6 +3,8 @@ import './Accounts.css';
 import axios from 'axios';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import { Link, useNavigate } from 'react-router-dom';
+import apiList from '../../../../lib/apiList';
+
 
 
 const steps = [
@@ -22,6 +24,7 @@ const GenerateRequestLostATM = () => {
     const [selectedDebitCardDetails, setSelectedDebitCardDetails] = useState('');
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
     const [formSubmitted, setFormSubmitted] = useState(false);
+    const token = sessionStorage.getItem('loginToken');
 
 
     const Step = ({ title, isCompleted }) => {
@@ -36,36 +39,37 @@ const GenerateRequestLostATM = () => {
         );
     };
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('http://localhost:4444/api/userDetails/1124563456');
-            const userDetailsData = response.data.details;
-
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
-                setLastFourDigits(userDetailsData[0].userMobileNumber);
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
-                setLastFourDigits(userDetailsData.userMobileNumber);
-            } else {
-                console.error('Invalid user details format:', userDetailsData);
-            }
-
-        } catch (error) {
-            console.error('Error fetching user details:', error);
-        }
-        console.log('User Details:', userDetails);
-
-    };
-
     useEffect(() => {
+
+        const fetchData = async () => {
+            try {
+
+                const requestOptions = {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                };
+                const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+                if (response.ok) {
+                    const data = await response.json();
+                    setUserDetails([data.user]);
+                    setLastFourDigits([data.user.mobilenumber])
+                } else {
+                    console.error('Error fetching user details:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching user details:', error);
+            }
+        };
+
         fetchData();
     }, []);
 
     const handleBackCard = () => {
         navigate('/user/account/reissue-card')
     }
-
 
     const handleRadioButtonChange = (event) => {
         setRadioButtonValue(event.target.value);
@@ -94,7 +98,7 @@ const GenerateRequestLostATM = () => {
     };
 
     const handleDebitCardChange = (event) => {
-        fetchData();
+
         const selectedCardNumber = event.target.value;
         setSelectedDebitCard(selectedCardNumber);
 
@@ -110,16 +114,19 @@ const GenerateRequestLostATM = () => {
 
         setFormSubmitted(true);
         if (!selectedDebitCard) {
-            // Add a condition to check if the debit card is selected
             console.warn('Please select a debit card before submitting.');
             return;
         }
         try {
-            const response = await axios.post('http://localhost:4444/api/createReissueCard', {
-                userAccountNumber: userDetails[0].userAccountNumber,
-            });
+            const response = await axios.post(`${apiList.createReissueCard}`, {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  'Content-Type': 'application/json',
+                },
+              }
+            );
             const { srn } = response.data;
-            
+
             navigate('/user/account/generate-request-lost-service-atm');
         } catch (error) {
             console.error('Error submitting reissue card request:', error);
@@ -159,8 +166,8 @@ const GenerateRequestLostATM = () => {
                                         defaultChecked
                                     >
                                         {userDetails.map((account, index) => (
-                                            <option key={index} value={account.userAccountNumber}>
-                                                {account.userAccountNumber}
+                                            <option key={index} value={account.accountNumber}>
+                                                {account.accountNumber}
                                             </option>
                                         ))}
                                     </select>
@@ -180,11 +187,24 @@ const GenerateRequestLostATM = () => {
                                 <h6>Communication Address</h6>
                                 <div className="col-sm-5 ml-3  mt-2">
                                     <p>Communication Address</p>
-                                    <input type='text' className='form-control' value={userDetails.length > 0 ? userDetails[0].accountHolderAddress.communicationAddress : ''} />
+                                    {userDetails.length > 0 && userDetails[0].currentAddress && (
+                                        <input
+                                            type='text'
+                                            className='form-control'
+                                            value={`${userDetails[0].currentAddress.flatnumber}, ${userDetails[0].currentAddress.buildingname}, ${userDetails[0].currentAddress.landmark}`}
+                                        />
+                                    )}
+
                                 </div>
                                 <div className="col-sm-5">
                                     <p>City</p>
-                                    <input type='text' className='form-control' value={userDetails.length > 0 ? userDetails[0].accountHolderAddress.city : ''} />
+                                    {userDetails.length > 0 && userDetails[0].currentAddress && (
+                                        <input
+                                            type='text'
+                                            className='form-control'
+                                            value={userDetails[0].currentAddress.city}
+                                        />
+                                    )}
 
                                 </div>
                             </div>
@@ -192,12 +212,24 @@ const GenerateRequestLostATM = () => {
 
                                 <div className="col-sm-5 ml-3  ">
                                     <p>PINCode</p>
-                                    <input type='text' className='form-control' value={userDetails.length > 0 ? maskPinCode(userDetails[0].accountHolderAddress.pincode) : ''} />
+                                    {userDetails.length > 0 && userDetails[0].currentAddress && (
+                                        <input
+                                            type='text'
+                                            className='form-control'
+                                            value={maskPinCode(userDetails[0].currentAddress.pincode)}
+                                        />
+                                    )}
+
                                 </div>
                                 <div className="col-sm-5">
                                     <p>State</p>
-                                    <input type='text' className='form-control' value={userDetails.length > 0 ? userDetails[0].accountHolderAddress.state : ''} />
-
+                                    {userDetails.length > 0 && userDetails[0].currentAddress && (
+                                        <input
+                                            type='text'
+                                            className='form-control'
+                                            value={userDetails[0].currentAddress.state}
+                                        />
+                                    )}
                                 </div>
                             </div>
                             <div className="row my-3 align-items-center">
@@ -222,7 +254,7 @@ const GenerateRequestLostATM = () => {
                                 </div>
                                 <div className="col-sm-5">
                                     <p>Customer Name</p>
-                                    <input type='text' className='form-control' value={selectedDebitCardDetails ? userDetails[0].accountHolderName : ''} />
+                                    <input type='text' className='form-control' value={selectedDebitCardDetails ? userDetails[0].firstname : ''} />
 
 
                                 </div>
@@ -245,7 +277,7 @@ const GenerateRequestLostATM = () => {
                                         type="text"
                                         className="form-control"
                                         id="text"
-                                        value={`${userDetails.length > 0 ? maskEmail(userDetails[0].userEmailId) : ''}`}
+                                        value={`${userDetails.length > 0 ? maskEmail(userDetails[0].email) : ''}`}
                                         readOnly
                                     />
                                 </div>
@@ -298,7 +330,7 @@ const GenerateRequestLostATM = () => {
                                     className={`reissue_card_button ml-2 ${isCheckboxChecked ? 'reissue_card_button_enabled' : 'reissue_card_button_disabled'}`}
                                     onClick={handleSubmit}
                                     disabled={!isCheckboxChecked}
-                                    
+
                                 >
                                     Submit
                                 </button>
@@ -311,4 +343,4 @@ const GenerateRequestLostATM = () => {
     );
 };
 
-export default GenerateRequestLostATM;
+export default GenerateRequestLostATM;  

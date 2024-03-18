@@ -43,24 +43,6 @@
     align-items: center;
 }
 
-.all_credit_cards_text {
-    font-weight: 500;
-    font-size: 18px;
-    margin-top: 15px;
-}
-
-.all_credit_cards_container {
-    background-color: #faede2;
-    padding: 10px 0px;
-    border-radius: 10px;
-    height: 175px;
-}
-
-.all_credit_cards_slider {
-    width: 250px;
-    text-align: center;
-}
-
 .credit_card_limit_text {
     font-size: 16px;
     font-weight: 410;
@@ -323,6 +305,17 @@
     border-radius: 15px;
     padding: 5px 20px;
     font-size: 14px;
+}
+
+.view_your_card_noCard{
+    width: 100%;
+    height: 81vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 20px;
+    font-weight: 410;
 }
 
 /* Registeredbillers.css starts */
@@ -920,7 +913,7 @@
     font-size: 14px;
     font-weight: 600;
     padding: 4px;
-    width: 80px;
+    /* width: 80px; */
     cursor: pointer;
 }
 
