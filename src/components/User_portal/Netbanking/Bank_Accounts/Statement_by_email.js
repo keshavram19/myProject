@@ -8,22 +8,34 @@ import apiList from '../../../../lib/apiList';
 
 const StatementByMail = () => {
 
+    const [authDetails, setAuthDetails] = useState({
+        email: ''
+    });
+
+    let token = sessionStorage.getItem('loginToken');
+
     useEffect(() => {
         getAuthenticatioDetails()
-    }, [])
-    const [authDetails, setAuthDetails] = useState()
-    let accountNumber = 123456789;
+    }, []);
     const getAuthenticatioDetails = async () => {
+        
         const options = {
-            method: 'GET'
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
         };
+
         try {
-            const response = await fetch(`${apiList.customerAccountDetails}${accountNumber}`, options);
-            const data = await response.json();
-            setAuthDetails(data.details);
-        }
+           const response = await fetch(apiList.customerDetails, options);
+           if(response.ok){
+                const data = await response.json();
+                setAuthDetails(data.user)
+           }
+        } 
         catch (error) {
-            console.error('Error Fetching Authentication Details:', error);
+            console.log(error.message);
         }
     };
 
@@ -33,16 +45,16 @@ const StatementByMail = () => {
     }, [authDetails])
     const sendCodeToGmail = async () => {
 
-        if (!authDetails || !authDetails.userEmailId) {
+        if (!authDetails || !authDetails.email) {
             console.error('User email is not available');
             return;
         }
         const options = {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email: authDetails.userEmailId }),
+            body: JSON.stringify({ email: authDetails.email }),
         };
 
         try {
@@ -71,7 +83,7 @@ const StatementByMail = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email: authDetails.userEmailId, gmailOTP: otp })
+            body: JSON.stringify({ email: authDetails.email, gmailOTP: otp })
         };
         try {
             const response = await fetch(apiList.userAuthVerify, options);
@@ -127,7 +139,7 @@ const StatementByMail = () => {
                                     {
                                         authDetails &&
                                         (<div>
-                                            <div className='otp_code_mobile'>Enter OTP Code sent to {authDetails.userEmailId}</div>
+                                            <div className='otp_code_mobile'>Enter OTP Code sent to {authDetails.email}</div>
                                             <div>
                                                 <input className='otp_code_box1' type='text' maxLength={1}
                                                     value={otp[0]} onChange={(e) => handleInputChange(0, e.target.value)}>

@@ -3,8 +3,6 @@ import './Accounts.css';
 import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-import { MdCurrencyRupee } from "react-icons/md";
-
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import Navbar from '../Overview/Navbar';
 import apiList from '../../../../lib/apiList';
@@ -14,13 +12,15 @@ const Accounts = () => {
 
     const [viewAccStatement, setViewAccStatement] = useState();
     const [accountDetails, setAccountDetails] = useState({
-        userAccountType: '',
-        userAccountBalance: '',
-        userAccountNumber: '',
-        accountHolderName: '',
-        userDateOfBirth: '',
-        accountHolderPAN: '',
-        bankBranchName: ''
+        accountNumber: '',
+        firstname: '',
+        lastname: '',
+        dateofbirth: '',
+        pannumber: '',
+        ifscCode: '',
+        openaccount: '',
+        mobilenumber: '',
+        userAccountBalance: ''
     });
     const [recentTransactions, setRecentTransactions] = useState([]);
 
@@ -88,22 +88,29 @@ const Accounts = () => {
         }
     };
 
-    useEffect(() => {
-        getUserAccountDetails()
-    }, []);
-    let accountNumber = 123456789;
-    const getUserAccountDetails = async () => {
 
+    useEffect(() => {
+        coustmerDetails()
+    }, []);
+    const coustmerDetails = async () => {
+        const token = sessionStorage.getItem('loginToken')
         const options = {
-            method: 'GET'
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
         };
 
         try {
-            const response = await fetch(`${apiList.customerAccountDetails}${accountNumber}`, options);
+            const response = await fetch(apiList.customerDetails, options);
             if (response.ok) {
                 const data = await response.json();
-                setAccountDetails(data.details);
-                setRecentTransactions(data.details.transactions);
+                setAccountDetails(data.user)
+                setRecentTransactions(data.user.transactions)
+            }
+            else {
+                console.log(response);
             }
         }
         catch (error) {
@@ -134,7 +141,7 @@ const Accounts = () => {
                                     Account Type:
                                 </div>
                                 <div className='savings_acct_type_text'>
-                                    {accountDetails.userAccountType}
+                                    {accountDetails.openaccount}
                                 </div>
                             </div>
                             <div className='d-flex align-items-center'>
@@ -149,27 +156,27 @@ const Accounts = () => {
                         <div className='savings_account_user_details_cont'>
                             <div>
                                 <div className='savings_acct_user_headings'>Account No:</div>
-                                <div>{accountDetails.userAccountNumber}</div>
+                                <div>{accountDetails.accountNumber}</div>
                             </div>
                             <div>
-                                <div className='savings_acct_user_headings'>Name</div>
-                                <div>{accountDetails.accountHolderName}</div>
+                                <div className='savings_acct_user_headings'>First Name</div>
+                                <div>{accountDetails.firstname}</div>
                             </div>
                             <div>
                                 <div className='savings_acct_user_headings'>Date of Birth</div>
-                                <div>{accountDetails.userDateOfBirth}</div>
+                                <div>{accountDetails.dateofbirth}</div>
                             </div>
                             <div>
                                 <div className='savings_acct_user_headings'>PAN</div>
-                                <div>{accountDetails.accountHolderPAN}</div>
+                                <div>{accountDetails.pannumber}</div>
                             </div>
                             <div>
-                                <div className='savings_acct_user_headings'>Branch</div>
-                                <div>{accountDetails.bankBranchName}</div>
+                                <div className='savings_acct_user_headings'>IFSC Code</div>
+                                <div>{accountDetails.ifscCode}</div>
                             </div>
                             <div>
-                                <div className='savings_acct_user_headings'>Balance</div>
-                                <div className='d-flex align-items-center'><MdCurrencyRupee />{accountDetails.userAccountBalance}</div>
+                                <div className='savings_acct_user_headings'>Mobile No:</div>
+                                <div>{accountDetails.mobilenumber}</div>
                             </div>
                             <div className='d-flex align-items-center'>
                                 <button onClick={accountStatement} className='account_statement_view_btn'>
@@ -186,7 +193,7 @@ const Accounts = () => {
                                     Account Number:
                                 </div>
                                 <div className='acct_statement_num_text'>
-                                    {accountDetails.userAccountNumber}, {accountDetails.bankBranchName}
+                                    {accountDetails.accountNumber}
                                 </div>
                             </div>
                             <div className='d-flex justify-content-between savings_acc_another_acct'>
@@ -202,6 +209,7 @@ const Accounts = () => {
                                     </div>
                                 </div>
                             </div>
+
                             <div className='my-3'>
                                 <table className='table table-bordered savings_acct_trans_table'>
                                     <thead className='savings_acct_trans_table_header'>
