@@ -11,6 +11,7 @@ const Adminhome = () => {
     mobilenumber: "",
     email: "",
   });
+  
   const [customerDataList, setCustomerDataList] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();

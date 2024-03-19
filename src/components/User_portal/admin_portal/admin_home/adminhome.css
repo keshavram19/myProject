@@ -128,6 +128,70 @@
 
 /* cheque book request admin css starts */
 
+.chequebook_admin_home .form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da !important;
+  outline: 0;
+  box-shadow: none !important;
+  font-size: small;
+}
+.chequebook_admin_home .form-control:placeholder-shown {
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da !important;
+  outline: 0;
+  box-shadow: none !important;
+  font-size: small;
+}
+.chequebook_admin_home .chequebook_admin_home_heading{
+  color: #4a4a4a;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.714286px;
+  margin-bottom: 14px;
+  margin-top: 14px;
+}
+.chequebook_admin_home .admin_chequebook_content td {
+  /* background-color: #f2f3f2; 
+  width: 100%;  */
+ font-size: 13px;
+ color: #383838;
+ 
+
+ box-shadow: none;
+}
+.chequebook_admin_home .admin_Chequebook_table_head {
+  /* background-color: #f2f3f2; */
+  width: 100%;
+  font-size: 13px;
+  color: #4a4a4a;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+
+  box-shadow: 0 1.90246px 4.75615px #a8b4bf;
+}
+.chequebook_admin_home .admin_Chequebook_table_head .admin_chequebook_table_headings th {
+  padding: 5px 5px;
+  background-color: #2fb68e;
+
+  color: white;
+text-align: center;
+  /* width: 30%; */
+  font-weight: 600;
+  color:white
+}
+.chequebook_admin_home .admin_Chequebook_table_head .admin_chequebook_content td {
+  padding: 5px;
+  /* width: 23%; */
+  color: #4a4a4aeb;
+  text-align: center;
+  
+}
+
 .admin_chequebook_searchbtn
 {
   
@@ -157,9 +221,7 @@
 
 .pagination
 {
-  display:flex;
-  align-items: center;
-  justify-content: center;
+  margin-left: 70vh;
 }
 
 .admin_chequeBook_pagination .pagination li.page-item.active {
@@ -181,15 +243,13 @@
   color: #fff; /* Set text color to white for better visibility */
   
 }
-
-
-
-
-
-
-
-
-
-
+.admin_chequebook_status{
+  font-weight: 500 !important;
+  color: #2FB68E !important;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  text-align: center;
+  font-size: 25px !important;
+  font-family: poppins !important;
+  }
+  
 /* cheque book request admin css ends */
-

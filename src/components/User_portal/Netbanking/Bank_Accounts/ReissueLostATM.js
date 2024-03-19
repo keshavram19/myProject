@@ -3,6 +3,8 @@ import './Accounts.css';
 import axios from 'axios';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import { useNavigate } from 'react-router-dom';
+import apiList from '../../../../lib/apiList';
+
 
 
 const steps = [
@@ -16,6 +18,7 @@ const ReissueLostATMcard = () => {
     const navigate = useNavigate();
     const [userDetails, setUserDetails] = useState([]);
     const [preferedaddress, setPreferedaddress] = useState('');
+     const token = sessionStorage.getItem('loginToken');
 
     const Step = ({ title, isCompleted }) => {
 
@@ -29,27 +32,32 @@ const ReissueLostATMcard = () => {
         );
     };
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('http://localhost:4444/api/userDetails/1124563456');
-            const userDetailsData = response.data.details;
-
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
-            } else {
-                console.error('Invalid user details format:', userDetailsData);
-            }
-
-        } catch (error) {
-            console.error('Error fetching user details:', error);
-        }
-        console.log('User Details:', userDetails);
-
-    };
-
+   
+    
     useEffect(() => {
+
+        const fetchData = async () => {
+            try {
+              
+                const requestOptions = {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                };
+                const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+                if (response.ok) {
+                    const data = await response.json();
+                    setUserDetails([data.user]);
+                } else {
+                    console.error('Error fetching user details:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching user details:', error);
+            }
+        };
+
         fetchData();
     }, []);
 
@@ -60,7 +68,6 @@ const ReissueLostATMcard = () => {
     const handleChangePreferredAddress = (e) => {
         const selectedValue = e.target.value;
         if (selectedValue === 'address') {
-
             navigate('/user/account/generate-request-lost-atm-card');
         }
 
@@ -100,10 +107,10 @@ const ReissueLostATMcard = () => {
                                         defaultChecked
                                     >
                                         {userDetails.map((account, index) => (
-                                            <option key={index} value={account.userAccountNumber}>
-                                                {account.userAccountNumber}
-                                            </option>
-                                        ))}
+                                                <option key={index} value={account.accountNumber}>
+                                                    {account.accountNumber}
+                                                </option>
+                                            ))}
                                     </select>
                                 </div>
                             </div>
