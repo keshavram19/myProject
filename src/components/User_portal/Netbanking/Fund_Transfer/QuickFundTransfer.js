@@ -158,7 +158,7 @@ const QuickFundTransfer = () => {
                                     type="radio"
                                     id="other"
                                     value="other"
-                                    checked={selectedTransferType === 'other'}
+                                       checked={selectedTransferType === 'other'}
                                     onChange={handleTransferTypeChange}
                                 />
                                 <label htmlFor="other" className="ml-2"><p>To Other Bank Account(using IMPS)</p></label>
