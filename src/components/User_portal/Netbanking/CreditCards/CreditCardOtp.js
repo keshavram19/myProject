@@ -18,33 +18,34 @@ const CreditCardOtp = () => {
     const [validationError, setValidationError] = useState('');
     const [timer, setTimer] = useState(100);
     const [buttonsDisabled, setButtonsDisabled] = useState(true);
-    const accountNumber = 1124563456;
+
+    const token = sessionStorage.getItem('loginToken');
 
 
-
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-            const userDetailsData = response.data.details;
-
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
-                setLastFourDigits(userDetailsData[0].userMobileNumber);
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
-                setLastFourDigits(userDetailsData.userMobileNumber);
-            } else {
-                console.error('Invalid user details format:', userDetailsData);
-            }
-
-        } catch (error) {
-            console.error('Error fetching user details:', error);
-        }
-        console.log('User Details:', userDetails);
-
-    };
 
     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const requestOptions = {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                };
+                const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+                if (response.ok) {
+                    const data = await response.json();
+                    setUserDetails([data.user]);
+                    setLastFourDigits([data.user.mobilenumber])
+                } else {
+                    console.error('Error fetching user details:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching user details:', error);
+            }
+        };
+
         fetchData();
     }, []);
 
@@ -88,19 +89,27 @@ const CreditCardOtp = () => {
         return `${firstFourDigits}${maskedDigits}${lastFourDigits}`;
     };
 
+
     const handleOtpGeneration = async (chosenMethod) => {
         try {
-            await fetchData();
-
             if (Array.isArray(userDetails) && userDetails.length > 0) {
-                const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
-                    mobileNumber: lastFourDigits,
-                    otpMethod: chosenMethod,
-                });
-
+                const otpResponse = await axios.post(
+                    `${apiList.createVerificationCode}`,
+                    {
+                        accountNumber: userDetails[0].accountNumber,
+                        debitCardNumber: formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber),
+                        mobileNumber: lastFourDigits,
+                        otpMethod: chosenMethod
+                    },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            'Content-Type': 'application/json',
+                        },
+                    }
+                );
                 console.log(otpResponse.data);
-
-                setTimer(100);
+                setTimer(60);
                 setButtonsDisabled(true);
                 setOtp('');
             } else {
@@ -111,14 +120,16 @@ const CreditCardOtp = () => {
         }
     };
 
-
     const handleOtpValidation = async () => {
         try {
-            await fetchData();
-            const accountNumber = userDetails[0].userAccountNumber;
-            console.log(accountNumber);
-            const response = await axios.post(`${apiList.authenticateOTP}`, { accountNumber, otp });
-
+            const AccountNumber = userDetails[0].accountNumber;
+            const response = await axios.post(`${apiList.authenticateOTP}`, { AccountNumber, otp },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                });
             console.log(response.data);
             navigate("/user/generate-creditcard-pin");
         } catch (error) {

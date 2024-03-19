@@ -29,7 +29,7 @@ const ManageCardLimit = () => {
   const [showDomestic, setShowDomestic] = useState(true);
 
 
-  
+
   const [isChecked5, setChecked5] = useState(false);
   const [isChecked6, setChecked6] = useState(false);
   const [isChecked7, setChecked7] = useState(false);
@@ -40,17 +40,17 @@ const ManageCardLimit = () => {
   const [internationalLimit3, setInternationalLimit3] = useState(0);
   const [internationalLimit4, setInternationalLimit4] = useState(0);
 
-  
+
   const [userDetails, setUserDetails] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState('');
   const [selectedDebitCard, setSelectedDebitCard] = useState('');
   const [lastFourDigits, setLastFourDigits] = useState('');
   const [userEmailId, setemail] = useState('');
-  
 
-  
 
- 
+
+
+
 
   const handleRadioChange = (event) => {
     setShowDomestic(event.target.value === 'domestic');
@@ -115,43 +115,43 @@ const ManageCardLimit = () => {
         setErrorMessage('Please select SMS or email for OTP generation.');
         return;
       }
-  
+
       const updatedDomesticLimits = {
         cashWithdrawalLimit: domesticLimit1,
         retailTransactionLimit: domesticLimit2,
         ecommerceTransactionLimit: domesticLimit3,
         contactlessPaymentLimit: domesticLimit4
       };
-  
+
       const updatedInternationalLimits = {
         cashWithdrawalLimit: internationalLimit1,
         retailTransactionLimit: internationalLimit2,
         ecommerceTransactionLimit: internationalLimit3,
         contactlessPaymentLimit: internationalLimit4
       };
-  
+
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         }
       };
-  
+
       await axios.put(apiList.updateDomesticLimits, { newDomesticLimits: updatedDomesticLimits }, config);
       await axios.put(apiList.updateInternationalLimits, { newInternationalLimits: updatedInternationalLimits }, config);
-  
+
       await handleOtpGeneration();
     } catch (error) {
       console.error('Error updating limits:', error);
       alert('Failed to update limits. Please try again.');
     }
   };
-  
-    
+
+
 
   const fetchData = async () => {
     try {
-     
+
       const requestOptions = {
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -208,9 +208,11 @@ const ManageCardLimit = () => {
 
   const maskEmail = (email) => {
     const atIndex = email.indexOf('@');
-    const maskedPart = email.substring(0, atIndex).replace(/./g, 'X');
-    const visiblePart = email.substring(atIndex);
-    return `${maskedPart}${visiblePart}`;
+    const domainIndex = email.indexOf('.com');
+    const visibleUsername = email.substring(0, 2);
+    const maskedPart = email.substring(2, atIndex).replace(/./g, 'X');
+    const visibleDomain = email.substring(atIndex - 2, domainIndex + 4);
+    return `${visibleUsername}${maskedPart}${visibleDomain}`;
   };
 
 
@@ -220,40 +222,39 @@ const ManageCardLimit = () => {
   };
 
 
-
   const handleOtpGeneration = async () => {
     try {
-        
-        const otpResponse = await axios.post(
-            `${apiList.createVerificationCode}`,
-            {
-                accountNumber: selectedAccount,
-                mobileNumber: lastFourDigits,
-                otpMethod: otpMethod,
-            },
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json',
-                },
-            }
-        );
 
-        console.log(otpResponse.data);
-
-        const { message } = otpResponse.data;
-
-        if (message === 'OTP sent successfully') {
-
-          window.location.href = '/user/account/manage-card-otp';
-        } else {
-          alert('Failed to generate OTP. Please try again.');
+      const otpResponse = await axios.post(
+        `${apiList.createVerificationCode}`,
+        {
+          accountNumber: selectedAccount,
+          mobileNumber: lastFourDigits,
+          otpMethod: otpMethod,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
         }
-      } catch (error) {
-        console.error('Error generating OTP:', error);
-        alert('An error occurred while generating OTP. Please check your mobile for the OTP.');
+      );
+
+      console.log(otpResponse.data);
+
+      const { message } = otpResponse.data;
+
+      if (message === 'OTP sent successfully') {
+
+        window.location.href = '/user/account/manage-card-otp';
+      } else {
+        alert('Failed to generate OTP. Please try again.');
       }
-};
+    } catch (error) {
+      console.error('Error generating OTP:', error);
+      alert('An error occurred while generating OTP. Please check your mobile for the OTP.');
+    }
+  };
 
   return (
 
@@ -281,7 +282,7 @@ const ManageCardLimit = () => {
                     <div className="col-sm-3">
                       <select
                         className="form_input"
-                        
+
                       >
                         {userDetails.map((account, index) => (
                           <option key={index} value={account.accountNumber}>

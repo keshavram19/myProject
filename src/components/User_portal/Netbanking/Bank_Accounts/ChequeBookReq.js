@@ -68,8 +68,8 @@ const ChequeBookReq = () => {
   };
   
 
-  
-  
+
+
   return (
     <div>
       <div className='bookrequest_container container-fluid' style={{ marginTop: "90px" }}>
@@ -115,7 +115,7 @@ const ChequeBookReq = () => {
                         onChange={handleAddressChange}
                       >
                         {userDetails.map((account, index) => (
-                          account.currentAddress && ( 
+                          account.currentAddress && (
                             <option key={index} value={`${account.currentAddress.city}, ${account.currentAddress.state}, ${account.currentAddress.pincode}`}>
                               {`${account.currentAddress.city}, ${account.currentAddress.state}, ${account.currentAddress.pincode}`}
                             </option>

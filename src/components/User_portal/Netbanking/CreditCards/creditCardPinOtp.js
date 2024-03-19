@@ -9,30 +9,36 @@ import apiList from '../../../../lib/apiList';
 const CreditCardPinOtp = () => {
     const [userDetails, setUserDetails] = useState([]);
     const [lastFourDigits, setLastFourDigits] = useState('');
-    const accountNumber = 1124563456;
+    const token = sessionStorage.getItem('loginToken');
 
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-            const userDetailsData = response.data.details;
-
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
-
-                setLastFourDigits(userDetailsData[0].userMobileNumber);
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
-                setLastFourDigits(userDetailsData.userMobileNumber);
+            const requestOptions = {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            };
+            const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+            if (response.ok) {
+                const data = await response.json();
+                const userDetailsData = data.user;
+                if (Array.isArray(userDetailsData)) {
+                    setUserDetails(userDetailsData);
+                    setLastFourDigits(data.user[0].mobilenumber);
+                } else if (typeof userDetailsData === 'object') {
+                    setUserDetails([userDetailsData]);
+                    setLastFourDigits(data.user.mobilenumber);
+                } else {
+                    console.error('Invalid user details format:', userDetailsData);
+                }
             } else {
-                console.error('Invalid user details format:', userDetailsData);
+                console.error('Error fetching user details:', response.statusText);
             }
-
         } catch (error) {
             console.error('Error fetching user details:', error);
         }
-        console.log('User Details:', userDetails);
-
     };
 
     useEffect(() => {
@@ -68,8 +74,8 @@ const CreditCardPinOtp = () => {
                                     </div>
                                     <div className="col-sm-4">
                                         {userDetails.map((account, index) => (
-                                            <p key={index} value={account.userAccountNumber}>
-                                                {account.userAccountNumber}
+                                            <p key={index} value={account.accountNumber}>
+                                                {account.accountNumber}
                                             </p>
                                         ))}
                                     </div>
@@ -81,9 +87,9 @@ const CreditCardPinOtp = () => {
                                     <div className="col-sm-4">
 
                                         {userDetails.length > 0 && (
-                                             <option value={formatCreditCardNumber(userDetails[0].userCreditCardDetails[0].creditCardNumber)}>
-                                             {formatCreditCardNumber(userDetails[0].userCreditCardDetails[0].creditCardNumber)}
-                                         </option>
+                                            <option value={formatCreditCardNumber(userDetails[0].userCreditCardDetails[0].creditCardNumber)}>
+                                                {formatCreditCardNumber(userDetails[0].userCreditCardDetails[0].creditCardNumber)}
+                                            </option>
                                         )}
                                     </div>
                                 </div>
@@ -95,7 +101,7 @@ const CreditCardPinOtp = () => {
                                         <p>{`XXXXXX${String(lastFourDigits).slice(-4)}`}</p>
                                     </div>
                                 </div>
-                                <hr/>
+                                <hr />
                             </div>
 
                             <CreditCardOtp />
