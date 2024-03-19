@@ -37,8 +37,10 @@ const apiList ={
     taxOTPVerify:`${server}/api/verify-OneTP`,
     taxOTPGenerate:`${server}/api/generated-otp`,
     taxOTPReSend:`${server}/api/resend-otp`,
-    paymentTransaction:`${server}/api/payment-Type`,
-    transferTransaction:`${server}/api/transfer-Type`,
+
+    paymentTransaction:`${server}/api/Payment-type-transaction`,
+    transferTransaction:`${server}/api/Transfer-type-transaction`,
+
     userAuthVerify: `${server}/api/verify-otp`,
     customerCreditCardDetails: `${server}/api/creditcarddetails/`,
     customerCrediCardLimitOTP: `${server}/api/creditCard-limit-usage-otp`,
@@ -57,11 +59,19 @@ const apiList ={
     creditcardEmiconversion : `${server}/emiConversion`,
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
+
+
+   
+
+  requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+ 
+
     createReissueCard: `${server}/api/createReissueCard`,
   
 
 
  requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+
 
 
 

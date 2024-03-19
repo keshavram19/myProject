@@ -137,7 +137,7 @@ export default function AccountOpeningForm() {
         // Send a request to the backend to verify the OTP
         const response = await axios.post(
           `${apiList.UserDetailsAccountOpeningVerifyOTP}`,
-          {
+           {
             email: userData.email,
             otp,
           }

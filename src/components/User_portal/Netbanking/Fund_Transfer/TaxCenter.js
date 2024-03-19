@@ -16,6 +16,7 @@ import apiList from "../../../../lib/apiList";
 
     const generateOTP = async () => {
       try {
+               
         // const response = await axios.post('http://localhost:4444/api/generate-otp');
               const response = await axios.post
               (apiList.taxOTPGenerate);
@@ -24,7 +25,9 @@ import apiList from "../../../../lib/apiList";
 
         setShowResendButton(true); 
 
-      } catch (error) {
+      } 
+    //   
+      catch (error) {
         console.error('Error generating OTP:', error);
         setMessage('Failed to generate OTP.');
       }

@@ -34,7 +34,7 @@ const Adminhome = () => {
       );
     });
     console.log(filteredData);
-    return filteredData;
+    return filteredData; 
   };
 
   const handlenavigateRequestedDetails = () => {

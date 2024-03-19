@@ -58,7 +58,7 @@ export default function IndividualDatalist() {
   
     try { 
       const response = await axios.get(
-         `${apiList.individualrequestedetails}/${state}`)
+         `${apiList.individualrequestedetails}${state}`)
 
      
       console.log(response.data);
@@ -1175,7 +1175,7 @@ export default function IndividualDatalist() {
           const response = await axios.put(
           // (`http://localhost:4444/api/add-account-details/${state}`,
 
-          `${apiList.addAccountDetails}/${state}`,
+          `${apiList.addAccountDetails}${state}`,
           accountDetails
         );
         toast.success("account details added successfully");
