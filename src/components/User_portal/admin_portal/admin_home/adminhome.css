@@ -179,7 +179,7 @@
   background-color: #2fb68e;
 
   color: white;
-text-align: center;
+
   /* width: 30%; */
   font-weight: 600;
   color:white
@@ -188,7 +188,7 @@ text-align: center;
   padding: 5px;
   /* width: 23%; */
   color: #4a4a4aeb;
-  text-align: center;
+ 
   
 }
 
@@ -247,7 +247,7 @@ text-align: center;
   font-weight: 500 !important;
   color: #2FB68E !important;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  text-align: center;
+  
   font-size: 25px !important;
   font-family: poppins !important;
   }

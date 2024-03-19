@@ -3,6 +3,7 @@ import { useNavigate,useLocation} from "react-router-dom";
 import "./adminhome.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import apiList from "../../../../lib/apiList";
 import AdminSidebar from "../admin_sidebar/AdminSidebar";
 import {
   Button,
@@ -37,7 +38,7 @@ function AdminChequeBookRequest() {
   const [open, setOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("");
   const [filteredAccounts, setFilteredAccounts] = useState([]); 
-
+  let token = sessionStorage.getItem('loginToken');
   const handleOpen = () => {
     setOpen(true);
   };
@@ -72,10 +73,14 @@ function AdminChequeBookRequest() {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get("http://localhost:4444/api/userDetails");
+        const response = await axios.get("http://localhost:4444/api/userDetails", {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
         if (response.status === 200) {
           setAccountDetails(response.data.accountDetails);
-          setFilteredAccounts(response.data.accountDetails); // Initialize filteredAccounts with all accounts
+          setFilteredAccounts(response.data.accountDetails);
           setError(null);
         } else {
           setError("Failed to fetch user details");
@@ -85,14 +90,13 @@ function AdminChequeBookRequest() {
         setError("Error fetching user details");
       }
     };
-
     fetchUserDetails();
   }, []);
 
   const handleSearch = () => {
     // Filter accountDetails based on either account number or service request number
     const filteredByAccountNumber = accountDetails.filter(
-      (account) => account.userAccountNumber === parseInt(searchAccountNo)
+      (account) => account.accountNumber === parseInt(searchAccountNo)
     );
   
     const filteredByServiceRequestNumber = accountDetails.filter((account) =>
@@ -110,7 +114,7 @@ function AdminChequeBookRequest() {
       (account, index, self) =>
         index ===
         self.findIndex(
-          (t) => t.userAccountNumber === account.userAccountNumber
+          (t) => t.accountNumber === account.accountNumber
         )
     );
   
@@ -146,22 +150,31 @@ function AdminChequeBookRequest() {
           }
         ]
       };
-      
+  
       const updatedAccounts = filteredAccounts.map(account => {
-        if (account.userAccountNumber === selectedAccount.userAccountNumber) {
+        if (account.accountNumber === selectedAccount.accountNumber) {
           return updatedAccount;
         }
         return account;
       });
   
       setFilteredAccounts(updatedAccounts);
-      
+  
+      // Save selected status to local storage
+      localStorage.setItem('selectedStatus', selectedStatus);
+  
       const response = await axios.put(
-        `http://localhost:4444/api/updateChequeBookRequest/${selectedAccount.userAccountNumber}/${selectedAccount.userChequeBookRequest[0]?.srn}`,
-        { requestStatus: selectedStatus }
+        `http://localhost:4444/api/updateChequeBookRequest/${selectedAccount.accountNumber}/${selectedAccount.userChequeBookRequest[0]?.srn}`,
+        { requestStatus: selectedStatus },
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        }
       );
-      
+  
       console.log("Cheque book request updated:", response.data);
+  
       // Close the dialog after successful update
       handleClose();
     } catch (error) {
@@ -169,6 +182,16 @@ function AdminChequeBookRequest() {
       // Handle error scenario
     }
   };
+  
+  // Load selected status from local storage on component mount
+  useEffect(() => {
+    const selectedStatusFromStorage = localStorage.getItem('selectedStatus');
+    if (selectedStatusFromStorage) {
+      setSelectedStatus(selectedStatusFromStorage);
+    }
+  }, []);
+  
+  
   
   return (
     <>
@@ -222,11 +245,11 @@ function AdminChequeBookRequest() {
                       {currentItems.map((account, index) => (
                         <tr key={index} className="admin_chequebook_content">
                           <td>{index + 1 + (currentPage - 1) * itemsPerPage}</td>
-                          <td>{account.userAccountNumber}</td>
-                          <td>{account.accountHolderName}</td>
-                          <td>{account.userEmailId}</td>
-                          <td>{account.userMobileNumber}</td>
-                          <td>{`${account.accountHolderAddress?.village}, ${account.accountHolderAddress?.city}, ${account.accountHolderAddress?.state}, ${account.accountHolderAddress?.pincode}`}</td>
+                          <td>{account.accountNumber}</td>
+                          <td>{account.firstname}</td>
+                          <td>{account.email}</td>
+                          <td>{account.mobilenumber}</td>
+                          <td>{`${account.permanentAddress?.country}, ${account.permanentAddress?.city}, ${account.permanentAddress?.state}, ${account.permanentAddress?.pincode}`}</td>
                           {account.userChequeBookRequest.map((chequeBook, index) => (
                             <td key={index}>{chequeBook.srn}</td>
                           ))}
@@ -290,7 +313,7 @@ function AdminChequeBookRequest() {
                     required
                     fullWidth
                     className="text_field"
-                    value={selectedAccount.userAccountNumber}
+                    value={selectedAccount.accountNumber}
                   />
                 </Grid>
                 <Grid item xs={6}>
@@ -300,7 +323,7 @@ function AdminChequeBookRequest() {
                     required
                     fullWidth
                     className="text_field"
-                    value={selectedAccount.accountHolderName}
+                    value={selectedAccount.firstname}
                   />
                 </Grid>
                 <Grid item xs={6}>
