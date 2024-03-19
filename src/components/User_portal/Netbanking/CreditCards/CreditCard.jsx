@@ -1,11 +1,12 @@
 import './Creditcard.css';
 import React, { useEffect, useState } from 'react';
 
-import creditcard from '../../../../Images/creditcard.jpg';
+// import creditcard from '../../../../Images/creditcard.jpg';
+// import creditcard1 from '../../../../Images/creditcard1.png';
+// import creditcard2 from '../../../../Images/creditcard2.jpg';
+// import primary_credit_card from '../../../../Images/primary_credit_card.jpeg';
+
 import rupee_1523526 from '../../../../Images/rupee_1523526.png';
-import creditcard1 from '../../../../Images/creditcard1.png';
-import creditcard2 from '../../../../Images/creditcard2.jpg';
-import primary_credit_card from '../../../../Images/primary_credit_card.jpeg';
 import RIB_DEBIT_CARDS from '../../../../Images/RIB_DEBIT_CARDS.png';
 
 import { RiCheckboxBlankFill } from "react-icons/ri";
@@ -18,10 +19,12 @@ import Toggle from 'react-toggle';
 import 'react-toggle/style.css';
 import { Tab, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 const CreditCard = () => {
+    const location = useLocation();
+    console.log(location);
 
     const [customerAccData, setCustomerAccData] = useState([]);
     const [individualCreditCard, setIndividualCreditCard] = useState({
@@ -91,7 +94,10 @@ const CreditCard = () => {
 
     const getIndividualCreditCard = async (selectedCreditCardNum) => {
         const options = {
-            method: 'GET'
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
         };
         try {
             const response = await fetch(`${apiList.customerCreditCardDetails}${customerDetails.accountNumber}/${creditCardNum}`, options);
@@ -134,7 +140,8 @@ const CreditCard = () => {
         const options = {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify({ email: customerDetails.email })
         };
@@ -178,7 +185,8 @@ const CreditCard = () => {
         const options = {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify({ email: customerDetails.email, gmailOTP: creditCardOtp })
         };
@@ -311,7 +319,8 @@ const CreditCard = () => {
         const options = {
             method: "PUT",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify({
 
@@ -359,7 +368,6 @@ const CreditCard = () => {
         }
     };
 
-    console.log(customerAccData);
 
     return (
         <div className='container-fluid' style={{ marginTop: "90px" }}>
@@ -485,7 +493,7 @@ const CreditCard = () => {
                                                         </button>
                                                     </div>
                                                     <div>
-                                                        <div className='credit_card_due_date'>(Due Date: 29-02-2024)</div>
+                                                        <div className='credit_card_due_date'>(Due Date: 29-03-2024)</div>
                                                         <div className='credit_card_payment_reflect'>
                                                             Pay instantly through Royal Islamic Bank! Payments made through other platforms may take up to 48 hours to reflect.
                                                         </div>
