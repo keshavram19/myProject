@@ -7,19 +7,60 @@ import Footer from "./Customerservicefooter";
 
 const CustomerserviceTaxCentre = () => {
   const navigate = useNavigate();
-      
-  const accountNumber = 1124563456;
-  // const [otpMethod, setotpMethod] = useState("");
+  const [userDetails, setUserDetails] = useState([]);
+  const [LastVisited, setLastVisited] = useState([]); 
+  // const accountNumber = 1124563456;
+  const token = sessionStorage.getItem('loginToken');
+ 
+
+  useEffect(() => {
+
+    const fetchUserDetails = async () => {
+        try {
+           
+            const requestOptions = {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            };
+            const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+            if (response.ok) {
+                const data = await response.json();
+                setUserDetails([data.user]); 
+                setLastVisited(new Date()); 
+            } else {
+                console.error('Error fetching user details:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error fetching user details:', error);
+        }
+    };
+    
+    fetchUserDetails();
+}, []);
 
  
   
   
   const handleOtpGeneration = async () => {
     try {
-      const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
-        accountNumber: accountNumber,
-        otpMethod: "sms",
-      });
+
+   
+      const otpResponse = await axios.post(
+        `${apiList.createVerificationCode}`,
+        {
+        
+          otpMethod: "sms",
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
      
 
       console.log('OTP Response:', otpResponse.data);

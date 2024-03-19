@@ -5,80 +5,92 @@ import axios from "axios";
 import apiList from "../../../../lib/apiList";
 
 const Form16A = () => {
-  const accountNumber = 114912720;
-    const panNumber = "VVPAS2024M"; 
-    const [userDetails, setUserDetails] = useState([]);
-    const [LastVisited, setLastVisited] = useState([]);
-    const [formData, setFormData] = useState({});
-    const [solutionsSubmitted, setSolutionsSubmitted] = useState(0);
-    const [ratePerSolution, setRatePerSolution] = useState(0);
-    const [payPercentage, setPayPercentage] = useState(0);
-    const [grossEarningPreBonus, setGrossEarningPreBonus] = useState(0);
-    const [grossBonus, setGrossBonus] = useState(0);
-    const [grossEarnings, setGrossEarnings] = useState(0);
-    const [tdsDeduction, setTdsDeduction] = useState(0);
-    const [netEarnings, setNetEarnings] = useState(0);
-
+  const [panNumber, setPanNumber] = useState("");
+  const [userDetails, setUserDetails] = useState({});
+  const [formData, setFormData] = useState({});
+  const [solutionsSubmitted, setSolutionsSubmitted] = useState(0);
+  const [ratePerSolution, setRatePerSolution] = useState(0);
+  const [payPercentage, setPayPercentage] = useState(0);
+  const [grossEarningPreBonus, setGrossEarningPreBonus] = useState(0);
+  const [grossBonus, setGrossBonus] = useState(0);
+  const [grossEarnings, setGrossEarnings] = useState(0);
+  const [tdsDeduction, setTdsDeduction] = useState(0);
+  const [netEarnings, setNetEarnings] = useState(0);
+  const [isFetchingUserDetails, setIsFetchingUserDetails] = useState(true);
+  const [isFetchingFormData, setIsFetchingFormData] = useState(true);
+  const token = sessionStorage.getItem("loginToken");
+  
   useEffect(() => {
-    fetchFormData();
+    fetchUserDetails();
+    fetchFormData(); 
   }, []);
 
-  useEffect(() => {
-
-    const fetchUserDetails = async () => {
-        try {
-            const token = sessionStorage.getItem('loginToken');
-            const requestOptions = {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                }
-            };
-            const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
-            if (response.ok) {
-                const data = await response.json();
-                setUserDetails([data.user]); 
-                setLastVisited(new Date()); 
-            } else {
-                console.error('Error fetching user details:', response.statusText);
-            }
-        } catch (error) {
-            console.error('Error fetching user details:', error);
-        }
-    };
-    
-    fetchUserDetails();
-}, []);
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, [ userDetails]);
-
-
-  const fetchFormData = async () => {
+  const fetchUserDetails = async () => {
     try {
-      const response = await fetch`${apiList.customerAccountDetails}${accountNumber}`;
-      if (!response.ok) {
-        throw new Error('Failed to fetch form data');
-      }
+      const requestOptions = {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      };
+      const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
   
-      const formData = await response.json();
-      const amount = formData.amount;
-      setFormData({ ...formData, amount });
+      if (response.ok) {
+        const data = await response.json();
+        console.log('User Details API Response:', data); // Log the entire response data
+        // Set user details and PAN number
+        setUserDetails(data.user);
+        setPanNumber(data.user?.pannumber); // Make sure you set the PAN number here
+      } else {
+        console.error('Error fetching user details:', response.statusText);
+      }
     } catch (error) {
-      console.error('Error fetching form data:', error);
+      console.error('Error fetching user details:', error);
     }
   };
   
 
+  useEffect(() => {
+    console.log('User Details:', userDetails);
+  }, [userDetails]);
+
+useEffect(() => {
+  console.log('Pan Number State:', panNumber);
+}, [panNumber]);
+
+  
+
+const fetchFormData = async () => {
+  try {
+    const response = await fetch(`${apiList.customerAccountDetails}${userDetails?.userAccountNumber}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch form data');
+    }
+
+    const formData = await response.json();
+    console.log('Form Data:', formData); // Log the form data
+    const amount = formData.amount;
+    setFormData({ ...formData, amount });
+  } catch (error) {
+    console.error('Error fetching form data:', error);
+  } finally {
+    setIsFetchingFormData(false);
+  }
+};
+
+  
   const formatPanNumber = (pan) => {
-    if (pan.length !== 10) return "Invalid PAN";
+    if (!pan || pan.length !== 10) return "Invalid PAN";
     const firstTwo = pan.substring(0, 2);
     const lastTwo = pan.substring(pan.length - 2);
     const middle = "xxxxxx";
     return `${firstTwo}${middle}${lastTwo}`;
   };
+
+    console.log('User Details:', userDetails);
+console.log('PAN Number:', panNumber);
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -88,19 +100,35 @@ const Form16A = () => {
 
   const fetchAccountBalance = async () => {
     try {
-        const response = await axios.get(
-            `${apiList.customerAccountDetails}${accountNumber}`
-        );
-
-        const accountBalance = response.data.userAccountBalance;
+      
+      const requestOptions = {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      };
+      const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+  
+      if (response.ok) {
+        const data = await response.json();
+        const accountBalance = data.userAccountBalance;
         console.log('Account Balance:', accountBalance);
-
         return accountBalance;
+      } else {
+        throw new Error('Failed to fetch account balance');
+      }
     } catch (error) {
-        console.error('Error fetching account balance:', error);
-        return null;
+      console.error('Error fetching account balance:', error);
+      return null;
     }
-};
+  };
+
+  const calculateInterest = (netEarnings, interestRate, numberOfMonths) => {
+    const interest = netEarnings * interestRate * (numberOfMonths / 12);
+    return interest;
+  };
+
 
 useEffect(() => {
   const fetchAndCalculate = async () => {
@@ -135,44 +163,49 @@ useEffect(() => {
   fetchAndCalculate();
 }, []);
 
+useEffect(() => {
+  if (userDetails.accountHolderName && userDetails.userEmailId && userDetails.bankBranchIfscCode && userDetails.pannumber && userDetails.userAccountNumber) {
+    generatePDF();
+  }
+}, [userDetails]);
 
+const generatePDF = () => {
+  console.log('Generating PDF with user details:', userDetails);
 
-  const generatePDF = () => {
+  // Check if userDetails contains the required information
+  if (!userDetails || !userDetails.firstname || !userDetails.email || !userDetails.ifscCode || !userDetails.pannumber || !userDetails.accountNumber) {
+    console.error('User details incomplete or missing');
+    return;
+  }
 
-    if (!formData.financialYear || !formData.quarter) {
-      alert("Please select Financial Year and Period before generating PDF.");
-      return; 
-    }
+  // Logic for generating PDF
+  const docWidth = 260;
+  const docHeight = 260;
 
-    const docWidth = 260; 
-    const docHeight = 260; 
+  const certificateData = {
+    accountHolderName: userDetails.firstname,
+    userEmailId: userDetails.email,
+    bankBranchIfscCode: userDetails.ifscCode,
+    accountHolderPAN: userDetails.pannumber,
+    userAccountNumber: userDetails.accountNumber,
+  };
 
-    const certificateData = {
-        
-        accountHolderName: userDetails[0]?.accountHolderName,
-        userEmailId: userDetails[0]?.userEmailId,
-        bankBranchIfscCode: userDetails[0]?.bankBranchIfscCode,
-        accountHolderPAN: userDetails[0]?.accountHolderPAN,
-        userAccountNumber: userDetails[0]?.userAccountNumber,
-       
-      };
+  const doc = new jsPDF({
+    orientation: "portrait",
+    unit: "mm",
+    format: [docWidth, docHeight],
+  });
 
+  doc.setFontSize(20);
+  doc.text('Form 16A', docWidth / 2, 10, { align: 'center' });
 
+  doc.setFontSize(12);
+  doc.text(`Name: ${certificateData.accountHolderName}`, 10, 20);
+  doc.text(`Email ID: ${certificateData.userEmailId}`, 10, 30);
+  doc.text(`IFSC Code: ${certificateData.bankBranchIfscCode}`, 10, 40);
+  doc.text(`PAN Number: ${certificateData.accountHolderPAN}`, 10, 50);
+  doc.text(`Account Number: ${certificateData.userAccountNumber}`, 10, 60);
 
-      const doc = new jsPDF({
-        orientation: "portrait", 
-        unit: "mm",
-        format: [docWidth, docHeight],
-      });
-    doc.setFontSize(20);
-    doc.text('Form 16A', docWidth / 2, 10,  { align: 'center' });
-
-    doc.setFontSize(12);
-    doc.text(`Name: ${certificateData.accountHolderName}`, 10, 20);
-    doc.text(`Email ID: ${certificateData.userEmailId}`, 10, 30);
-    doc.text(`IFSC Code: ${certificateData.bankBranchIfscCode}`, 10, 40);
-    doc.text(`PAN Number: ${certificateData.accountHolderPAN}`, 10, 50);
-    doc.text(`Account Number: ${certificateData.userAccountNumber}`, 10, 60);
 
 
     

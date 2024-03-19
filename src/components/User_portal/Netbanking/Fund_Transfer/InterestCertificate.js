@@ -82,10 +82,13 @@ const InterestCertificate = () => {
         if (response.ok) {
           const data = await response.json();
           const userDetailsFromAPI = data.user;
-          console.log('Fetched user details:', userDetailsFromAPI); // Debug log
-          setUserDetails(userDetailsFromAPI);
+          console.log("Data received from API:", data);
+          setUserDetails([data.user]); 
+          // setUserDetails(userDetailsFromAPI);
+
+          
           setLastVisited(new Date());
-          setUserDetails([data.user]);
+          
         } else {
           console.error('Error fetching user details:', response.statusText);
         }
@@ -118,17 +121,27 @@ const InterestCertificate = () => {
       console.log("Financial Year:", financialYear);
       setInterestPeriod(financialYear);
       setInterestPeriodDate("InterestPeriodDate");
-      setSelectedYear(financialYear);
+      setSelectedYear(financialYear); // Set selectedYear state to the calculated financial year
       setStartDate(currentDate);
       setEndDate(null);
       setSelectedPeriod(selectedValue);
       console.log("Selected else if:", financialYear);
     } else {
-      setSelectedPeriod(selectedValue);
+      console.log("Selected financial year:", selectedValue);
+      const selectedYear = selectedValue; 
+      const startYear = selectedYear.substring(0, 4); 
+      const endYear = selectedYear.substring(5, 9); 
       setInterestPeriod(selectedValue);
+      setInterestPeriodDate("InterestPeriodDate");
+      setSelectedYear(selectedYear); 
+      setStartDate(new Date(`${startYear}-04-01`)); 
+      setEndDate(new Date(`${endYear}-03-31`)); 
+      setSelectedPeriod(selectedValue);
     }
   };
-
+  
+  
+  
   const getFinancialYear = (date) => {
     const fiscalStartMonth = 3;
     const fiscalYear =
@@ -143,12 +156,39 @@ const InterestCertificate = () => {
   };
 
   const handleStartDate = (event) => {
-    setStartDate(new Date(event.target.value));
+    const selectedDate = new Date(event.target.value);
+    const isValidDate = !isNaN(selectedDate.getTime()); // Check if the selected date is valid
+  
+    if (isValidDate) {
+      setStartDate(selectedDate);
+      const diffInDays = (endDate - selectedDate) / (1000 * 60 * 60 * 24);
+      if (diffInDays < 28 || diffInDays > 31) {
+        alert("Please select a valid end date exactly one month after the start date.");
+        setEndDate(null);
+      }
+    } else {
+      alert("Please select a valid start date.");
+      setStartDate(null);
+    }
   };
-
+  
   const handleEndDate = (event) => {
-    setEndDate(new Date(event.target.value));
+    const selectedDate = new Date(event.target.value);
+    const isValidDate = !isNaN(selectedDate.getTime()); // Check if the selected date is valid
+  
+    if (isValidDate) {
+      setEndDate(selectedDate);
+      const diffInDays = (selectedDate - startDate) / (1000 * 60 * 60 * 24);
+      if (diffInDays < 28 || diffInDays > 31) {
+        alert("Please select a valid start date exactly one month before the end date.");
+        setStartDate(null);
+      }
+    } else {
+      alert("Please select a valid end date.");
+      setEndDate(null);
+    }
   };
+  
 
   function calculateValues() {
     const interestRate = 0.05; // 5%
@@ -186,62 +226,66 @@ const calculateValuesForAccount = async (
   userDetails,
   selectedPeriod,
   startDate,
-  endDate
+  endDate,
+  selectedYear // add selectedYear parameter
 ) => {
   const interestRate = 0.05; // 5%
   const taxRate = 0.1; // 10%
-
-  if (userDetails.length === 0 || typeof userDetails[0].userAccountBalance !== 'string') {
-      return { interestPaid: 0, taxWithheld: 0 };
+  
+  if (!Array.isArray(userDetails) || userDetails.length === 0 || typeof userDetails[0].userAccountBalance !== 'string') {
+    return { interestPaid: 0, taxWithheld: 0 };
   }
 
   const userAccountBalance = parseFloat(
-      userDetails[0].userAccountBalance.replace(/,/g, "")
+    userDetails[0].userAccountBalance.replace(/,/g, "")
   );
 
   let interestPeriodInMonths = 0;
 
   const interestPaid =
-      userAccountBalance * interestRate * interestPeriodInMonths;
+    userAccountBalance * interestRate * interestPeriodInMonths;
   const calculatedInterestPaid = isNaN(interestPaid) ? 0 : interestPaid;
 
   const taxWithheld = calculatedInterestPaid * taxRate;
   const calculatedTaxWithheld = isNaN(taxWithheld) ? 0 : taxWithheld;
 
   if (selectedPeriod === "yearly") {
-      const getFinancialYearRange = (date, selectedYear) => {
-          const fiscalStartMonth = 3;
-          const fiscalYear =
-              date.getMonth() >= fiscalStartMonth
-                  ? date.getFullYear()
-                  : date.getFullYear() - 1;
+    const getFinancialYearRange = (date, selectedYear) => {
+      const fiscalStartMonth = 3;
+      const fiscalYear =
+        date.getMonth() >= fiscalStartMonth
+          ? date.getFullYear()
+          : date.getFullYear() - 1;
 
-          const startYear = selectedYear || fiscalYear;
-          const endYear = parseInt(startYear, 10) + 1;
+      const startYear = selectedYear || fiscalYear;
+      const endYear = parseInt(startYear, 10) + 1;
 
-          const startDate = new Date(`${startYear}-04-01`);
-          const endDate = new Date(`${endYear}-03-31`);
+      const startDate = new Date(`${startYear}-04-01`);
+      const endDate = new Date(`${endYear}-03-31`);
 
-          interestPeriodInMonths = calculateMonthsDifference(startDate, endDate);
-      };
-      getFinancialYearRange(new Date(), selectedYear);
-  } else if (selectedPeriod === "monthly" && startDate && endDate) {
       interestPeriodInMonths = calculateMonthsDifference(startDate, endDate);
+    };
+    getFinancialYearRange(new Date(), selectedYear);
+  } else if (selectedPeriod === "monthly" && startDate && endDate) {
+    interestPeriodInMonths = calculateMonthsDifference(startDate, endDate);
   } else {
-      console.error("Invalid selection or missing date range");
-      return { interestPaid: 0, taxWithheld: 0 };
+    console.error("Invalid selection or missing date range");
+    return { interestPaid: 0, taxWithheld: 0 };
   }
 
   return {
-      interestPaid: calculatedInterestPaid,
-      taxWithheld: calculatedTaxWithheld,
+    interestPaid: calculatedInterestPaid,
+    taxWithheld: calculatedTaxWithheld,
   };
 };
 
 
+
   useEffect(() => {
     if (selectedAccount && userDetails.length > 0 && interestPeriod) {
-      const values = calculateValuesForAccount(userDetails, selectedYear);
+      const values = calculateValuesForAccount(userDetails, selectedPeriod, startDate, endDate, selectedYear);
+
+
       setInterestPaid(values.interestPaid);
       setTaxWithheld(values.taxWithheld);
 
@@ -261,10 +305,11 @@ const calculateValuesForAccount = async (
 
 
   const handledownload = async (event) => {
+    event.preventDefault();
     if (event && event.preventDefault) {
       event.preventDefault();
     }
-    if (!userDetails || Object.keys(userDetails).length === 0) {
+    if (!userDetails || userDetails.length === 0) {
       console.error("User details not populated correctly.");
       alert("User details not populated correctly. Please try again later.");
       return;
@@ -276,18 +321,19 @@ const calculateValuesForAccount = async (
       return;
     }
 
-    
-
-    const isInterestPeriodSelected = selectedPeriod == "select";
+    const isInterestPeriodSelected = selectedPeriod === "select";
     const areDatesSelected = startDate && endDate;
+    const isOneMonthPeriod =
+      areDatesSelected && calculateMonthsDifference(startDate, endDate) === 1;
 
-    
-    if (isInterestPeriodSelected && areDatesSelected) {
-      console.error("Please select either a financial year or start and end dates, not both");
-      alert("Please select either a financial year or start and end dates, not both");
+    if (isInterestPeriodSelected && areDatesSelected && !isOneMonthPeriod) {
+      console.error(
+        "Please select a start and end date exactly one month apart."
+      );
+      alert("Please select a start and end date exactly one month apart.");
       return;
     }
-    
+
     try {
       let interestPeriodValue = isInterestPeriodSelected ? selectedYear : "";
 
@@ -295,52 +341,68 @@ const calculateValuesForAccount = async (
         interestPeriodValue = selectedYear;
       }
 
-      const values = await calculateValuesForAccount(userDetails);
+      const values = await calculateValuesForAccount(
+        userDetails,
+        selectedPeriod,
+        startDate,
+        endDate
+      );
       const { interestPaid, taxWithheld } = values;
 
       console.log("Interest Paid:", interestPaid);
       console.log("Tax Withheld:", taxWithheld);
 
-
-   
-
       const certificateData = {
-        accountHolderName: userDetails.accountHolderName,
-    userAccountNumber: userDetails.userAccountNumber,
-    accountHolderAddress: userDetails.currentAddress,
-    bankBranchName: userDetails.bankBranchName,
-    userAccountType: userDetails.openaccount,
-    interestPeriod: interestPeriod,
-    startDate: startDate instanceof Date ? startDate.toLocaleDateString() : "",
-    endDate: endDate instanceof Date ? endDate.toLocaleDateString() : "",
-    interestPaid: values.interestPaid,
-    taxWithheld: values.taxWithheld,
-      };
+        accountHolderName:
+          userDetails[0].firstname + " " + userDetails[0].lastname,
+        userAccountNumber: selectedAccount,
+        bankBranchName: userDetails[0].branchName,
+        accountHolderAddress: userDetails[0].currentAddress,
+        userAccountType: userDetails[0].openaccount,
 
+        interestPeriod: interestPeriodValue,
+        startDate:
+          startDate instanceof Date ? startDate.toLocaleDateString() : "",
+        endDate: endDate instanceof Date ? endDate.toLocaleDateString() : "",
+        interestPaid: interestPaid,
+        taxWithheld: taxWithheld,
+      };
+      console.log("Selected Year:", selectedYear);
 
       const pdf = new jsPDF();
       const centerX = pdf.internal.pageSize.getWidth() / 2;
       const centerY = pdf.internal.pageSize.getHeight() / 2;
       pdf.addImage(logo, "PNG", centerX - 40, 10, 70, 40);
-   
-     const dateText = `Date: ${new Date().toLocaleDateString()}`;
-     const dateTextWidth = pdf.getStringUnitWidth(dateText) * pdf.internal.getFontSize();
 
-     pdf.text(dateText, pdf.internal.pageSize.getWidth() - 20, 40, { align: 'right' });
+      const dateText = `Date: ${new Date().toLocaleDateString()}`;
+      const dateTextWidth =
+        pdf.getStringUnitWidth(dateText) * pdf.internal.getFontSize();
 
-      pdf.text(
-        20,
-        50,
-        `Name: ${certificateData.accountHolderName}`
-      );
-      pdf.text(20, 60, ` Address: ${certificateData.accountHolderAddress}`);
-      pdf.text(20, 70, `Bank Branch : ${certificateData.bankBranchName}`);
+      pdf.text(dateText, pdf.internal.pageSize.getWidth() - 20, 40, {
+        align: "right",
+      });
+
+      pdf.text(20, 50, `Name: ${certificateData.accountHolderName}`);
+      console.log("User Details:", userDetails);
+
+      const address = userDetails[0].currentAddress;
+      const street =
+        address && address.buildingname ? address.buildingname : "Unknown";
+      const city = address && address.city ? address.city : "Unknown";
+      const zipCode = address && address.pincode ? address.pincode : "Unknown";
+
+      // Print address fields
+      pdf.text(20, 60, ` Address: ${street}, ${city}, ${zipCode}`);
+
+      // pdf.text(20, 70, `Bank Branch : ${certificateData.bankBranchName}`);
       const interestCertificateText = "Interest Certificate";
-      const interestCertificateTextWidth = pdf.getStringUnitWidth(interestCertificateText) * pdf.internal.getFontSize();
-      const interestCertificateTextX = (pdf.internal.pageSize.getWidth() - interestCertificateTextWidth) / 2;
+      const interestCertificateTextWidth =
+        pdf.getStringUnitWidth(interestCertificateText) *
+        pdf.internal.getFontSize();
+      const interestCertificateTextX =
+        (pdf.internal.pageSize.getWidth() - interestCertificateTextWidth) / 2;
 
       pdf.text(interestCertificateTextX, 80, interestCertificateText);
-
 
       pdf.text(20, 90, "Dear Customer,");
       pdf.text(
@@ -399,7 +461,7 @@ const calculateValuesForAccount = async (
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-
+      window.location.reload();
       console.log("Certificate Data:", certificateData);
     } catch (error) {
       console.error("Error generating certificate:", error);

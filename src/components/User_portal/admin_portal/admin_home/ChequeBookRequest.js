@@ -1,13 +1,40 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate,useLocation} from "react-router-dom";
 import "./adminhome.css";
 import axios from "axios";
+import AdminSidebar from "../admin_sidebar/AdminSidebar";
 
 function AdminChequeBookRequest() {
   const [accountDetails, setAccountDetails] = useState([]);
   const [error, setError] = useState(null);
   const [searchAccountNo, setSearchAccountNo] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
+  const location = useLocation();
   const [itemsPerPage] = useState(5); // Number of items per page
+
+  const isAuthenticated = () => {
+    const token = sessionStorage.getItem("adminloginToken");
+    const expireTime = sessionStorage.getItem("adminexpireTime");
+    return token && new Date().getTime() < expireTime;
+  };
+
+  useEffect(() => {
+    // Redirect to admin login if URL is manipulated
+    if (!location.pathname.includes("/admin/")) {
+      sessionStorage.removeItem("adminloginToken");
+      sessionStorage.removeItem("adminexpireTime");
+      navigate("/admin/login");
+    }
+  }, [location.pathname, navigate]);
+
+  useEffect(() => {
+    // Check if the user is authenticated
+    if (!isAuthenticated()) {
+      // If not authenticated, navigate to admin login page
+      navigate("/admin/login");
+    } 
+  }, [isAuthenticated]);
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -48,9 +75,12 @@ function AdminChequeBookRequest() {
   return (
     <>
       <div>
-        <section className="container-fluid" style={{ marginTop: "90px" }}>
+        <section className="container-fluid">
           <div className="row">
-            <div className="col-12 accounts_admin_home">
+            <div className="col-3">
+                <AdminSidebar />
+            </div>
+            <div className="col-9 accounts_admin_home">
               <div className="viewSummary">
                 <div className="row">
                   <div className="col-md-6">
