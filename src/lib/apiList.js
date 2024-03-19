@@ -15,6 +15,10 @@ const apiList ={
 
 
     // admin login ends
+    // 
+    
+    requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+    // 
 
     generateCertificate: `${server}/api/generateCertificate`,
     // customerAccountDetails: `${server}/api/userDetails/`,
@@ -59,25 +63,7 @@ const apiList ={
     creditcardEmiconversion : `${server}/emiConversion`,
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
-
-
-   
-
-  requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
- 
-
     createReissueCard: `${server}/api/createReissueCard`,
-  
-
-  requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
-
-
-//  requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
-
-
-
-
-
 
     payLater:`${server}/api/payLaterAccount`,
     billDetails:`${server}/api/payLaterAccount/pay`,
