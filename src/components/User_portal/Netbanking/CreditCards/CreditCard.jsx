@@ -88,6 +88,9 @@ const CreditCard = () => {
             getIndividualCreditCard(creditCardNum);
         }
     }, [creditCardNum]);
+
+
+    
     const handleCreditCardNumber = (event) => {
         setCreditCardNum(event.target.value);
     };

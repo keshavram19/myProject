@@ -50,10 +50,6 @@ const ChequeBookReq = () => {
 
   const handleSubmit = async () => {
     try {
-
-      const response = await axios.post(`/createChequebookRequest`, {
-        userAccountNumber: selectedAccount
-
       const token = sessionStorage.getItem('loginToken');
       const response = await axios.post('http://localhost:4444/api/createChequebookRequest', {
         accountNumber: selectedAccount
@@ -61,7 +57,6 @@ const ChequeBookReq = () => {
         headers: {
           'Authorization': `Bearer ${token}`
         }
-
       });
       const { srn } = response.data;
       setSRN(srn);
@@ -71,6 +66,7 @@ const ChequeBookReq = () => {
       setCheckMsg('Error submitting chequebook request. Please try again.');
     }
   };
+  
 
   
   
