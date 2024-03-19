@@ -48,8 +48,10 @@ const Statements = () => {
         state: '',
         country: '',
         pincode: ''
-    })
+    });
+    const formatTodayDate = format(new Date(), "dd MMM yyyy");
 
+    let token = sessionStorage.getItem('loginToken');
 
     const navigate = useNavigate();
     const isTokenExpired = () => {
@@ -103,11 +105,11 @@ const Statements = () => {
         setPeriodRangeStatus(!periodRangeStatus)
     };
 
+
     useEffect(() => {
         getAccountTypeDetails()
     }, []);
     const getAccountTypeDetails = async () => {
-        const token = sessionStorage.getItem('loginToken');
         const options = {
             method: "GET",
             headers: {
@@ -166,7 +168,7 @@ const Statements = () => {
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>Date</div>
                     <div class='customer_details_heading_semicol'>:</div>
-                    <div>15 Mar 2024</div>
+                    <div>${formatTodayDate}</div>
                 </div>
 
                 <div class='customer_account_info'>
@@ -255,7 +257,10 @@ const Statements = () => {
 
         const url = `http://localhost:4444/api/getTransaction/${acctNum}/${acctType}?fromDate=${fromDate}&toDate=${toDate}&transType=${transType}`;
         const options = {
-            method: "GET"
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
         };
 
         try {

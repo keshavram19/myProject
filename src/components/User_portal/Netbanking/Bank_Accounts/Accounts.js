@@ -15,6 +15,7 @@ const Accounts = () => {
         accountNumber: '',
         firstname: '',
         lastname: '',
+        prefix: '',
         dateofbirth: '',
         pannumber: '',
         ifscCode: '',
@@ -24,45 +25,9 @@ const Accounts = () => {
     });
     const [recentTransactions, setRecentTransactions] = useState([]);
 
-    // let navigate = useNavigate();
-    // let logintoken = sessionStorage.getItem('loginToken')
-    // useEffect(() => {
-    //     if(!logintoken){
-    //         navigate('/netbanking-personal-login');
-    //     }
-    //     const timeout = setTimeout(() => {
-    //         sessionStorage.removeItem('loginToken');
-    //         navigate('/netbanking-personal-login');
-    //     }, 60000); //300000
-    //     return () => clearTimeout(timeout);
-    // }, [logintoken, navigate]);
-
-    // let navigate = useNavigate();
-    // let logintoken = sessionStorage.getItem('loginToken')
-    // if(!logintoken){
-    //     navigate('/netbanking-personal-login');
-    // }
-
-    // let token = sessionStorage.getItem('loginToken');
-    // let tokenTime = sessionStorage.getItem('expireTime');
-    // let navigate = useNavigate();
-    // useEffect(() => {
-    //     if (token && tokenTime) {
-    //         const expireTime = new Date(tokenTime);
-    //         const currentTime = new Date();   
-    //         if (currentTime > expireTime) { 
-    //           sessionStorage.removeItem('loginToken');
-    //           sessionStorage.removeItem('expireTime');
-    //           navigate('/netbanking-personal-login');
-    //         }
-    //       }
-    //       else {
-    //         navigate('/netbanking-personal-login');
-    //       }
-    // }, []);
 
     const navigate = useNavigate();
-    let logintoken = sessionStorage.getItem('loginToken')
+    let logintoken = sessionStorage.getItem('loginToken');
     const isTokenExpired = () => {
         const expirationTime = sessionStorage.getItem("expireTime");
         return expirationTime && new Date().getTime() > parseInt(expirationTime, 10);
@@ -70,7 +35,7 @@ const Accounts = () => {
     useEffect(() => {
         if (isTokenExpired()) {
             sessionStorage.clear();
-            sessionStorage.removeItem('loginToken')
+            sessionStorage.removeItem('loginToken');
             navigate('/netbanking-personal-login');
         }
         else if (!logintoken) {
@@ -78,6 +43,9 @@ const Accounts = () => {
         }
     }, [navigate]);
 
+    // const expiredTime = sessionStorage.getItem('expireTime');
+    // console.log(new Date().getTime());
+    // console.log(parseInt(expiredTime, 10));
 
     const accountStatement = () => {
         if (viewAccStatement === 'true') {
@@ -88,17 +56,17 @@ const Accounts = () => {
         }
     };
 
-
+    
     useEffect(() => {
         coustmerDetails()
     }, []);
     const coustmerDetails = async () => {
-        const token = sessionStorage.getItem('loginToken')
+        
         const options = {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${logintoken}`
             }
         };
 
@@ -120,6 +88,9 @@ const Accounts = () => {
 
     const latestTransactions = recentTransactions.slice().reverse();
     const reversedArray = latestTransactions.slice(0, 3);
+
+    const lastThreeDigits = (accountDetails.mobilenumber).slice(-4)
+    const maskedDigits = 'X'.repeat(6);
 
 
     return (
@@ -160,7 +131,7 @@ const Accounts = () => {
                             </div>
                             <div>
                                 <div className='savings_acct_user_headings'>First Name</div>
-                                <div>{accountDetails.firstname}</div>
+                                <div>{accountDetails.prefix} {accountDetails.firstname} {accountDetails.lastname}</div>
                             </div>
                             <div>
                                 <div className='savings_acct_user_headings'>Date of Birth</div>

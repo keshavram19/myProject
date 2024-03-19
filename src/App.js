@@ -188,7 +188,7 @@ function App() {
           <Route path="/user/account" element={<Accounts />} />
           {/* <Route path="/user/account" element={<MyProtectedComponent />}>
               <Route index element={<Accounts />} />
-            </Route> */}
+          </Route> */}
 
 
           <Route path="/user/account/statement" element={<Statements />} />

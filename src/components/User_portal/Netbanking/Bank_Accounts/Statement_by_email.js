@@ -52,7 +52,8 @@ const StatementByMail = () => {
         const options = {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify({ email: authDetails.email }),
         };
@@ -81,7 +82,8 @@ const StatementByMail = () => {
         const options = {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify({ email: authDetails.email, gmailOTP: otp })
         };
