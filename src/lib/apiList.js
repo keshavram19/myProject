@@ -61,7 +61,7 @@ const apiList ={
 
   
 
-  // requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+  requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
 
 
 
