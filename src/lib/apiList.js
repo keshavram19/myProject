@@ -69,8 +69,11 @@ const apiList ={
     createReissueCard: `${server}/api/createReissueCard`,
   
 
+  requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
 
- requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+
+//  requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+
 
 
 

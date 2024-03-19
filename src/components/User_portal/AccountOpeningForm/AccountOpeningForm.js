@@ -1812,7 +1812,7 @@ export default function AccountOpeningForm() {
     const handleNextClick1 = () => {
       if (isCheckboxChecked1) {
         handleSubmit();
-        navigate('/netbanking-personal-login');
+        navigate('/account-success');
       } else {
         toast.error("Please agree to all declarations");
       }
@@ -1834,10 +1834,10 @@ export default function AccountOpeningForm() {
         const data = await response.json();
         console.log(response);
         if (response.status === 200) {
-          toast.success("Account Created successfully!");
+          // toast.success("Account Created successfully!");
           navigate("/account-success");
           console.log("User created successfully:", data.newUser);
-          navigate("/netbanking-personal-login");
+          navigate("/account-success");
         } else if (response.status === 402) {
           console.log("User already exists:", data.message);
         } else {

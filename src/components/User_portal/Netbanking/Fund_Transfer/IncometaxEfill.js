@@ -1,33 +1,39 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./FundTransfer.css";
- import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
+import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 import apiList from "../../../../lib/apiList";
 
 const IncomeTaxEfill = () => {
-  const accountNumber = 1124563456;
   const [userDetails, setUserDetails] = useState([]);
+  const [LastVisited, setLastVisited] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState("");
   const [accountHolderPAN, setAccountHolderPAN] = useState("");
   const [panInput, setPanInput] = useState("");
   const [formError, setFormError] = useState("");
-
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
 
-  
-  const fetchData = async () => {
+  const fetchUserDetails = async () => {
     try {
-      const response = await axios.get(
-        `${apiList.customerAccountDetails}${accountNumber}`
+      const token = sessionStorage.getItem("loginToken");
+      const requestOptions = {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      };
+      const response = await fetch(
+        apiList.requestedUserDetailsByEmail,
+        requestOptions
       );
-      const userDetailsData = response.data.details;
-
-      if (Array.isArray(userDetailsData)) {
-        setUserDetails(userDetailsData);
-      } else if (typeof userDetailsData === "object") {
-        setUserDetails([userDetailsData]);
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched user details:", data);
+        setUserDetails([data.user]);
+        setLastVisited(new Date());
       } else {
-        console.error("Invalid user details format:", userDetailsData);
+        console.error("Error fetching user details:", response.statusText);
       }
     } catch (error) {
       console.error("Error fetching user details:", error);
@@ -35,17 +41,13 @@ const IncomeTaxEfill = () => {
   };
 
   useEffect(() => {
-    if (selectedAccount === "") {
-      fetchData();
-    }
-  }, [selectedAccount]);
+    fetchUserDetails();
+  }, []);
 
   const handleAccountChange = (event) => {
     const selectedAccountValue = event.target.value;
     setSelectedAccount(selectedAccountValue);
   };
-
-
 
   const handleCheckboxChange = () => {
     setIsCheckboxChecked(!isCheckboxChecked);
@@ -53,41 +55,48 @@ const IncomeTaxEfill = () => {
 
   const handleSubmit = async () => {
     try {
-      await fetchData();
-  
-      if (userDetails.length === 0) {
+      await fetchUserDetails();
+
+      if (!userDetails || userDetails.length === 0) {
         console.error("User details not available yet");
         return;
       }
-  
-      if (!isCheckboxChecked) {
-        setFormError("Please agree to the Terms and Conditions.");
-        alert("Please agree to the Terms and Conditions.");
+
+      if (!selectedAccount) {
+        setFormError("Please select an account number.");
         return;
       }
-  
-      const selectedUser = userDetails.find((user) => {
-        return user.userAccountNumber == selectedAccount;
-      });
-  
+
+      const selectedUser = userDetails.find(
+        (user) => user.accountNumber === selectedAccount
+      );
+      console.log("Selected user:", selectedUser);
+
+      if (!selectedUser) {
+        setFormError("User details not found for the selected account.");
+        return;
+      }
+
+      console.log("Entered PAN:", panInput);
+      console.log("User PAN:", selectedUser.accountHolderPAN);
+      console.log("Selected user:", selectedUser);
       if (
         selectedUser &&
-        selectedUser.accountHolderPAN.toUpperCase() === panInput.toUpperCase()
+        selectedUser.pannumber &&
+        selectedUser.pannumber.toUpperCase() === panInput.toUpperCase()
       ) {
         window.open(
           "https://incometaxindia.gov.in/Pages/tax-services/file-income-tax-return.aspx",
-          "_blank" 
+          "_blank"
         );
-        window.location.reload(); 
+        window.location.reload();
       } else {
-        setFormError("Invalid PAN number. Please check box  and try again.");
+        setFormError("Invalid PAN number. Please check and try again.");
       }
     } catch (error) {
       console.error("Error in handleSubmit:", error);
     }
   };
-  
-  
 
   return (
     <div
@@ -103,7 +112,7 @@ const IncomeTaxEfill = () => {
             <h3 style={{ color: "#2fb68e" }}>Income Tax e-Filling</h3>
             <div className="incometax_filling card">
               <h5 className="incometax_filling_heading4">
-                e-Fille your Income Tax Return
+                e-Fill your Income Tax Return
               </h5>
               <div className="incometax_form_information">
                 <div className="incometax_from_account  row">
@@ -117,15 +126,12 @@ const IncomeTaxEfill = () => {
                       onChange={handleAccountChange}
                     >
                       <option value="">Select Account Number</option>
-                      {userDetails.map((account, index) => (
-                        <option
-                          key={index}
-                          value={account.userAccountNumber}
-                          defaultChecked
-                        >
-                          {account.userAccountNumber}
-                        </option>
-                      ))}
+                      {userDetails &&
+                        userDetails.map((account, index) => (
+                          <option key={index} value={account.accountNumber}>
+                            {account.accountNumber}
+                          </option>
+                        ))}
                     </select>
                   </div>
                 </div>
@@ -152,37 +158,34 @@ const IncomeTaxEfill = () => {
                   checked={isCheckboxChecked}
                   onChange={handleCheckboxChange}
                 />
-                By clicking Submit button, you agree to the{" "}
+                By clicking the Submit button, you agree to the{" "}
                 <a href="#">Terms and Conditions.</a>
               </div>
             </div>
-            
-              <button
-                type="button"
-                className="Incometax_submits" 
-                onClick={handleSubmit}
-              >
-                SUBMIT
-              </button>
-            
+            <button
+              type="button"
+              className="Incometax_submits"
+              onClick={handleSubmit}
+            >
+              SUBMIT
+            </button>
             {formError && <p style={{ color: "red" }}>{formError}</p>}
-
             <p>
               <strong>Notes:</strong>
             </p>
             <p>
               1. Customers who have not submitted their PAN need to contact
               their nearest branch and provide a copy of the PAN card. They
-              should take along the original PAN card for venification.
+              should take along the original PAN card for verification.
             </p>
             <p>
               2. As per new section 206AA of the Income Tax Act, 1956 effective
-              from April 1, 2010 resident, whose tax is required to be deducted,
-              need to submit their valid PAN else tax will be deducted at the
-              prevailing rate or 20%, whichever is higher.
+              from April 1, 2010, resident, whose tax is required to be
+              deducted, need to submit their valid PAN else tax will be deducted
+              at the prevailing rate or 20%, whichever is higher.
             </p>
             <p>
-              3. in the absence of a valid PAN of a non-resident customer,
+              3. In the absence of a valid PAN of a non-resident customer,
               benefits of DTAA for lower deduction of tax will not be granted
               and tax would be deducted under section 195 at higher of a) the
               rate specified in the relevant provisions of this Act or b) rate
@@ -195,7 +198,7 @@ const IncomeTaxEfill = () => {
             </p>
             <p>
               5. Form 15G/H shall not be treated as valid unless a valid PAN is
-              mentioned and the benefit of exemption from TOS will be granted in
+              mentioned and the benefit of exemption from TDS will be granted in
               the absence of a valid PAN.
             </p>
           </div>
@@ -206,3 +209,4 @@ const IncomeTaxEfill = () => {
 };
 
 export default IncomeTaxEfill;
+
