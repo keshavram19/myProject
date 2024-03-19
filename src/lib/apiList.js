@@ -17,8 +17,8 @@ const apiList ={
     // admin login ends
 
     generateCertificate: `${server}/api/generateCertificate`,
-    customerAccountDetails: `${server}/api/userDetails/`,
-    userAuthentication: `${server}/api/otp-send`,
+    // customerAccountDetails: `${server}/api/userDetails/`,
+    userAuthentication: `${server}/api/userAuthentication-otp`,
 
     // Personal banking login
     customerLogin: `${server}/auth/login-netbanking`,
@@ -41,11 +41,11 @@ const apiList ={
     transferTransaction:`${server}/api/transfer-Type`,
     userAuthVerify: `${server}/api/verify-otp`,
     customerCreditCardDetails: `${server}/api/creditcarddetails/`,
-    customerCrediCardLimitOTP: `${server}/api/creditcardlimit-otp`,
+    customerCrediCardLimitOTP: `${server}/api/creditCard-limit-usage-otp`,
     updateDomesticCardUsage: `${server}/api/update-domesticcardusage`,
     debitNotification: `${server}/api/debit-notification`,
-    updateDomesticLimits: `${server}/api/updateDomesticLimits/`,
-    updateInternationalLimits: `${server}/api/updateInternationalLimits/`,   
+    updateDomesticLimits: `${server}/api/updateDomesticLimits`,
+    updateInternationalLimits: `${server}/api/updateInternationalLimits`,   
     GenerateCardPin : `${server}/api/generate-Debit-Card-Pin`,
     blockATMCard : `${server}/api/blockCard/`,
     form60OTPSend:`${server}/form60Userdetails/send-otp`,
@@ -72,7 +72,7 @@ const apiList ={
     payLater:`${server}/api/payLaterAccount`,
     billDetails:`${server}/api/payLaterAccount/pay`,
 
-
+    customerDetails: `${server}/auth/user-account-details`
 }
 
 
