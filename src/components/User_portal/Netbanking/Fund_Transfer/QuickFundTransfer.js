@@ -128,7 +128,7 @@ const QuickFundTransfer = () => {
     };
 
     return (
-        <div className='card-details-container container-fluid' style={{ marginTop: "90px" }}>
+           <div className='card-details-container container-fluid' style={{ marginTop: "90px" }}>
             <div className='card-details-header'></div>
             <div className='row'>
                 <div className="col-3">
@@ -158,7 +158,7 @@ const QuickFundTransfer = () => {
                                     type="radio"
                                     id="other"
                                     value="other"
-                                    checked={selectedTransferType === 'other'}
+                                       checked={selectedTransferType === 'other'}
                                     onChange={handleTransferTypeChange}
                                 />
                                 <label htmlFor="other" className="ml-2"><p>To Other Bank Account(using IMPS)</p></label>
