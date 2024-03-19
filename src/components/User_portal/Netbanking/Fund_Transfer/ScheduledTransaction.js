@@ -6,16 +6,19 @@ import html2canvas from 'html2canvas';
  import './FundTransfer.css'
 import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
  import apiList from '../../../../lib/apiList';
+import Userdetails from '../UserDetails/UserDetails';
 
 const ScheduledTransaction = () => {
   const [transactions, setTransactions] = useState([]);
   const [transactionType, setTransactionType] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const transactionsRef = useRef(null);
-  const accountNumber = 1124563456;
+  // const accountNumber = 1124563456;
   const [userDetails, setUserDetails] = useState([]); // Define userDetails state
+  // const [accountNumber, setAccountNumber] = useState([]);
 
-
+// 
+ 
 
   const handleSearch = async () => {
     if (transactionType === '') {
@@ -25,6 +28,8 @@ const ScheduledTransaction = () => {
     }
 
     try {
+      const token = sessionStorage.getItem('loginToken');
+
       let apiUrl = '';
       if (transactionType === 'payment') {
         apiUrl = apiList.paymentTransaction;
@@ -32,7 +37,14 @@ const ScheduledTransaction = () => {
         apiUrl = apiList.transferTransaction;
       }
 
-      const response = await axios.get(apiUrl);
+      const response = await axios.get(apiUrl,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+        );
+
       setTransactions(response.data);
       setErrorMessage(''); // Clear any previous error messages
     } catch (error) {
@@ -40,6 +52,7 @@ const ScheduledTransaction = () => {
       setErrorMessage('Error retrieving transactions');
     }
   };
+  console.log(transactions);
 
 
   const handleDownloadPDF = () => {
@@ -61,49 +74,24 @@ const ScheduledTransaction = () => {
     }
     const pdf = new jsPDF();
 
-    // const marginLeft = 10;
-    // const marginTop = 10;
-    // const lineHeight = 6;
-    // let currentHeight = marginTop;
+    
     pdf.setFontSize(12);
-    // Object.keys(userDetails[0].details).forEach((key, index) => {
-    //   pdf.text(`${key}: ${userDetails[0].details[key]}`, marginLeft, currentHeight);
-    //   currentHeight += lineHeight;
-    // });
+    
 
-     pdf.text(`Account Number: ${userDetails[0].details.userAccountNumber}`, 10, 10);
-    pdf.text(`Account Holder Name: ${userDetails[0].details.accountHolderName}`, 10, 20);
-    pdf.text(`Branch Bank Name: ${userDetails[0].details.bankBranchName}`, 10, 30);
-    pdf.text(`Account type : ${userDetails[0].details.userAccountType}`, 10, 40);
-    pdf.text(`Account Holder DOB: ${userDetails[0].details.userDateOfBirth}`, 10, 50);
-    pdf.text(`Bank Branch IfscCode: ${userDetails[0].details.bankBranchIfscCode}`, 10, 60);
-    pdf.text(`Account Balance: ${userDetails[0].details.userAccountBalance}`, 10, 70);
-    pdf.text(`Mobile Number: ${userDetails[0].details.userMobileNumber}`, 10, 80);
-    pdf.text(`Email ID: ${userDetails[0].details.userEmailId}`, 10, 90);
 
-    // // Save the PDF file
-    // pdf.save('user_details.pdf');
-//  
+    
+ 
 
-    // const input = transactionsRef.current;
-    // html2canvas(input).then((canvas) => {
-    //   const imgData = canvas.toDataURL('image/png');
-    //   // const pdf = new jsPDF();
-    //   pdf.addImage(imgData, 'PNG', 10, 100);
-    //   // pdf.save('transactions.pdf');
-    //   pdf.save('transactions_and_user_details.pdf');
-
-  //   const input = transactionsRef.current;
-  //   html2canvas(input).then((canvas) => {
-  //     const imgData = canvas.toDataURL('image/png');
-  //     pdf.addImage(imgData, 'PNG',5 , 100); // Adjust width and height as needed
-  //     pdf.save('transactions_and_user_details.pdf');
-  //   });
-  // // };
-   // const tableWidth = 180; // Adjust width as needed
-  // const tableHeight = 150; // Adjust height as needed
-  // pdf.rect(marginLeft - padding, currentHeight - padding, tableWidth + padding * 2, tableHeight + padding * 2);
-
+     pdf.text(`Account Number: ${userDetails[0].accountNumber}`, 10, 10);
+ 
+    pdf.text(`Email: ${userDetails[0].email}`, 10, 20);
+    pdf.text(`Mobile Number: ${ userDetails[0].mobilenumber}`, 10, 30);
+    pdf.text(`First Name: ${userDetails[0].firstname}`, 10, 40);
+    pdf.text(`Last Name: ${userDetails[0].lastname}`, 10, 50);
+    pdf.text(`IFSC Code: ${userDetails[0].ifscCode}`, 10, 60);
+  
+    
+       
  
   const input = transactionsRef.current;
   html2canvas(input).then((canvas) => {
@@ -111,26 +99,38 @@ const ScheduledTransaction = () => {
     pdf.addImage(imgData, 'PNG',2, 100); // Adjust width and height as needed
     pdf.save('transactions_and_user_details.pdf');
   });
-};
-   
-const fetchData = async () => {
-  try {
-      const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-      const userDetailsData = response.data;
-
-      // Update state with fetched user details
-      setUserDetails([userDetailsData]);
-  } catch (error) {
-      console.error('Error fetching user details:', error);
-  }
-};
+}; 
+ 
+ 
 useEffect(() => {
-  // Fetch user details when component mounts
-  fetchData();
+
+  const fetchUserDetails = async () => {
+      try {
+          const token = sessionStorage.getItem('loginToken');
+          const requestOptions = {
+              method: 'GET',
+              headers: {
+                  'Authorization': `Bearer ${token}`,
+                  'Content-Type': 'application/json'
+              }
+          };
+          const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+          if (response.ok) {
+              const data = await response.json();
+              setUserDetails([data.user]); 
+              // setLastVisited(new Date()); 
+          } else {
+              console.error('Error fetching user details:', response.statusText);
+          }
+      } catch (error) {
+          console.error('Error fetching user details:', error);
+      }
+  };
+  
+  fetchUserDetails();
 }, []);
 
-console.log(userDetails);
-
+ 
   return (
     <>
 
@@ -148,41 +148,7 @@ console.log(userDetails);
             {/* <hr/> */} 
       
             <p className='main_my_scheduled_tran'>Scheduled Transactions</p> 
-            {/* <div className="row">
-                    <div className="col-sm-4">
-                      <label for="text">Select the Account*</label>
-                    </div>
-                    <div className="col-sm-3">
-                      <select
-                        className="form_input"
-                        value={selectedAccount}
-                        onChange={handleAccountChange}
-                      >
-                        {userDetails.map((account, index) => (
-                          <option key={index} value={account.userAccountNumber}>
-                            {account.userAccountNumber}
-                            <p>-{account.accountHolderName}</p>
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-      {/* starts */}
-      {/* <div className="row mt-5">
-                    <div className="col-sm-4">
-                      <label for="text">Mobile Number*</label>
-                    </div>
-                    <div className="col-sm-3">
-                      <input
-                        type="text"
-                        className="form_input"
-                        id="text"
-                        value={`XXXXXX${String(lastFourDigits).slice(-4)}`}
-                      />
-                    </div>
-                    </div> */} 
-      {/* ends */}
-       
+          
            <div className='my_main_header_transch'>
              <div className="search_section_mainheader_mytran">
              <p>Search Transactions</p>
@@ -281,15 +247,7 @@ console.log(userDetails);
            </div>
           </div>
         </div>
-
- 
-{/* Aadhar */}
-
-  
-   
-{/* Aadhar */}
-
-    </div>
+</div>
     
       </>
 
@@ -297,23 +255,6 @@ console.log(userDetails);
 };
 
 export default ScheduledTransaction;
-
-
-
-
-
-
- 
- 
-
- 
-
-
-
-
-
-
-
 
 
 

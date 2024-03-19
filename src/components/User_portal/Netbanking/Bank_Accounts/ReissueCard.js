@@ -16,7 +16,7 @@ const Reissuecard = () => {
 
     const navigate = useNavigate();
     const [userDetails, setUserDetails] = useState([]);
-    const accountNumber = 1124563456;
+    const token = sessionStorage.getItem('loginToken');
 
     const Step = ({ title, isCompleted }) => {
       
@@ -30,29 +30,34 @@ const Reissuecard = () => {
         );
       };
 
-      const fetchData = async () => {
-        try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-            const userDetailsData = response.data.details;
-
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
-            } else {
-                console.error('Invalid user details format:', userDetailsData);
-            }
-
-        } catch (error) {
-            console.error('Error fetching user details:', error);
-        }
-        console.log('User Details:', userDetails);
-
-    };
-
-    useEffect(() => {
-            fetchData();
-    }, []);
+     
+    
+      useEffect(() => {
+  
+          const fetchData = async () => {
+              try {
+                
+                  const requestOptions = {
+                      method: 'GET',
+                      headers: {
+                          'Authorization': `Bearer ${token}`,
+                          'Content-Type': 'application/json'
+                      }
+                  };
+                  const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+                  if (response.ok) {
+                      const data = await response.json();
+                      setUserDetails([data.user]);
+                  } else {
+                      console.error('Error fetching user details:', response.statusText);
+                  }
+              } catch (error) {
+                  console.error('Error fetching user details:', error);
+              }
+          };
+  
+          fetchData();
+      }, []);
 
     const handleSubmitCard = () =>{
         navigate('/user/account/reissue-lost-atm-card')
@@ -89,9 +94,9 @@ const Reissuecard = () => {
                                             value={userDetails.userAccountNumber}
                                             defaultChecked
                                         >
-                                            {userDetails.map((account, index) => (
-                                                <option key={index} value={account.userAccountNumber}>
-                                                    {account.userAccountNumber}
+                                             {userDetails.map((account, index) => (
+                                                <option key={index} value={account.accountNumber}>
+                                                    {account.accountNumber}
                                                 </option>
                                             ))}
                                         </select>

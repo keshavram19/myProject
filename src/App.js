@@ -141,22 +141,22 @@ import AdminLogin from "./components/User_portal/admin_portal/admin_login/AdminL
 import AdminChequeBookRequest from "./components/User_portal/admin_portal/admin_home/ChequeBookRequest";
 
 
-
 function App() {
   const location = useLocation();
   const hide =
     location.pathname === "/" ||
     location.pathname === "/netbanking-personal-login" ||
     location.pathname === "/netbanking-corporate-login" ||
-    location.pathname === "/admin/login" ||
-    location.pathname === "/admin/requested-data" ||
-    location.pathname === "/admin/confirm-details" ||
-    location.pathname === "/admin/all-data" ||
     location.pathname === "/account-opening" ||
     location.pathname === "/account-success" ||
+
     location.pathname === "/admin/chequebookreq" ||
+    
     location.pathname === "/admin/reissuecard" ||
     location.pathname === "/admin/reissuecardGenerateorReject" ;
+
+    location.pathname.includes("/admin/");
+
 
 
 
@@ -582,6 +582,7 @@ function App() {
           <Route path="/admin/confirm-details" element={<IndividualDatalist />} />
           <Route path="/admin/requested-data" element={<RequestedDatalist />} />
           <Route path="/admin/chequebookreq" element={<AdminChequeBookRequest />} />
+          
              <Route path="/admin/reissuecard" element={<ReissueCardTable />} />
             <Route path="/admin/reissuecardGenerateorReject" element={<ReissueGenerateOrReject />} />
           {/* Admin side  */}

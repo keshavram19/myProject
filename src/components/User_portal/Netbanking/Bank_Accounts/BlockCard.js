@@ -9,29 +9,32 @@ const BlockCard = () => {
     const [userDetails, setUserDetails] = useState([]);
     const [blockReason, setBlockReason] = useState('');
     const [blockRemarks, setBlockRemarks] = useState('');
-    const accountNumber = 1124563456;
-
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-            const userDetailsData = response.data.details;
-
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
-            } else {
-                console.error('Invalid user details format:', userDetailsData);
-            }
-
-        } catch (error) {
-            console.error('Error fetching user details:', error);
-        }
-        console.log('User Details:', userDetails);
-
-    };
-
+    const token = sessionStorage.getItem('loginToken');
+    
     useEffect(() => {
+
+        const fetchData = async () => {
+            try {
+              
+                const requestOptions = {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                };
+                const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+                if (response.ok) {
+                    const data = await response.json();
+                    setUserDetails([data.user]);
+                } else {
+                    console.error('Error fetching user details:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching user details:', error);
+            }
+        };
+
         fetchData();
     }, []);
 
@@ -48,10 +51,22 @@ const BlockCard = () => {
     const blockCard = async () => {
         try {
             if (blockReason && blockRemarks) {
-                await axios.put(`${apiList.blockATMCard}${accountNumber}`, {
-                    userReason: blockReason,
-                    remarks: blockRemarks,
-                });
+                const config = {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                };
+    
+                await axios.put(
+                    `${apiList.blockATMCard}`,
+                    {
+                        userReason: blockReason,
+                        remarks: blockRemarks,
+                    },
+                    config
+                );
+    
                 alert('Card blocked successfully');
                 console.log('Card blocked successfully');
             } else {
@@ -79,11 +94,11 @@ const BlockCard = () => {
                                     <label>Card No:</label>
                                 </div>
                                 <div className='col-sm-4'>
-                                    {userDetails.length > 0 && (
-                                        <p value={userDetails[0].userDebitCardDetails.userDebitCardNumber}>
-                                            {formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber)}
-                                        </p>
-                                    )}
+                                {userDetails.length > 0 && userDetails[0].userDebitCardDetails && (
+                                                <p value={formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber)}>
+                                                    {formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber)}
+                                                </p>
+                                            )}
                                 </div>
                             </div>
                             <div className='row p-1 card_details_block_card_fields '>

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import './FundTransfer.css';
 import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
 import axios from 'axios';  
 import apiList from '../../../../lib/apiList';
-
+ 
 // 
 function InwardRemitance () {
    const [transferDetails, setTransferDetails] = useState({
@@ -21,7 +21,38 @@ function InwardRemitance () {
   
   });
   const [alertMessage, setAlertMessage] = useState('');
+//  
+
+
+  // 
+  const [accountNumberOptions, setAccountNumberOptions] = useState([]);
+
+  useEffect(() => {
+    fetchAccountNumber();
+  }, []);
+  const fetchAccountNumber = async () => {
+    try {
+      // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzRhODcwNDM4Mzc5YTA4M2RkZDc2NCIsImlhdCI6MTcxMDI2NzkzNiwiZXhwIjoxNzEwMjY3OTk2fQ.Jecq0iY5aTgJWxFR-i7bTiaGlVM3kSYSCwjP-JRVRvM'; // Replace this with your actual token
+      const token = sessionStorage.getItem('loginToken');
+
+      const response = await axios.get(apiList.requestedUserDetailsByEmail ,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }); 
  
+      // const response = await axios.get('http://localhost:4444/auth/user-account-details');
+      const  {accountNumber}  = response.data.user;
+      setTransferDetails(prevState => ({
+        ...prevState,
+        accountNumber: accountNumber
+      }));
+    } catch (error) {
+      console.error('Error fetching account number:', error);
+    }
+  };
+  // 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (
@@ -48,11 +79,17 @@ function InwardRemitance () {
   }
     try {
         //  const response = await axios.post('http://localhost:4444/api/submitForm', transferDetails);
-        const response = await axios.post(apiList.inwardRemittance, transferDetails);
+        const token = sessionStorage.getItem('loginToken');
+
+        const response = await axios.post(apiList.inwardRemittance, transferDetails, 
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }); 
         console.log(response.data);
         alert("user registered succeesfully");
-
-            //  setAlertMessage('Request sent to the email ID.');
+  
 
              setTransferDetails({
               accountNumber: '',
@@ -67,7 +104,8 @@ function InwardRemitance () {
               amount:'',
               currency:''
             });
-        
+ 
+
         console.log(response.data);  
     } catch (error) {
         console.error('Error submitting form:', error);
@@ -148,14 +186,26 @@ function InwardRemitance () {
        
        {/* Another input form */}
        <label className='acctnum_inward_head'>Account Number:</label>
-            <select className='Inward_sel_Inacct_numbr'
+       
+        
+                <select
+  className='Inward_sel_Inacct_numbr'
+  value={transferDetails.accountNumber}
+  onChange={handleAccountNumberChange}
+>
+  <option value="">Select</option>
+  <option value={transferDetails.accountNumber}>{transferDetails.accountNumber}</option>
+</select>
+          
+            {/* <select className='Inward_sel_Inacct_numbr'
                value={transferDetails.accountNumber}
               onChange={handleAccountNumberChange}
             >
               <option value="">Select</option>
-              <option value="123456789">123456789</option>
-              <option value="987654321">987654321</option>
-            </select>
+             <option value="number">{accountNumber}</option>
+              {/* <option value="123456789">123456789</option>
+              <option value="987654321">987654321</option> 
+             </select> */} 
             {/* ends input form */}
             <br/>
             <div className='inward_remittance_fields_Row'>
@@ -353,10 +403,12 @@ function InwardRemitance () {
 
    </>
  
-  );
+  ); 
 
-
+ 
 
 };
 
 export default InwardRemitance ;
+
+ 

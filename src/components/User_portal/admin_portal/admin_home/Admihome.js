@@ -11,6 +11,7 @@ const Adminhome = () => {
     mobilenumber: "",
     email: "",
   });
+  
   const [customerDataList, setCustomerDataList] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
@@ -33,7 +34,7 @@ const Adminhome = () => {
       );
     });
     console.log(filteredData);
-    return filteredData;
+    return filteredData; 
   };
 
   const handlenavigateRequestedDetails = () => {
