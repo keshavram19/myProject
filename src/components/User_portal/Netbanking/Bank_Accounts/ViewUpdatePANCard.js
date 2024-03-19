@@ -55,10 +55,13 @@ const UpdatePancard = () => {
 
   const maskEmail = (email) => {
     const atIndex = email.indexOf('@');
-    const maskedPart = email.substring(0, atIndex).replace(/./g, 'X');
-    const visiblePart = email.substring(atIndex);
-    return `${maskedPart}${visiblePart}`;
+    const domainIndex = email.indexOf('.com');
+    const visibleUsername = email.substring(0, 2);
+    const maskedPart = email.substring(2, atIndex).replace(/./g, 'X');
+    const visibleDomain = email.substring(atIndex - 2, domainIndex + 4);
+    return `${visibleUsername}${maskedPart}${visibleDomain}`;
   };
+
 
   const handleOtpMethodChange = (event) => {
     setOtpMethod(event.target.value);
@@ -66,38 +69,38 @@ const UpdatePancard = () => {
 
   const handleOtpGeneration = async () => {
     try {
-        const token = sessionStorage.getItem('loginToken');
-        const otpResponse = await axios.post(
-            `${apiList.createVerificationCode}`,
-            {
-                accountNumber: selectedAccount,
-                mobileNumber: lastFourDigits,
-                otpMethod: otpMethod,
-            },
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json',
-                },
-            }
-        );
-
-        console.log(otpResponse.data);
-
-        const { message } = otpResponse.data;
-
-        if (message === 'OTP sent successfully') {
-            toast.success('Your OTP has been successfully generated!', {
-                onClose: () => window.location.href = '/user/account/update-pancard-otp'
-            });
-        } else {
-            toast.error('Failed to generate OTP. Please try again.');
+      const token = sessionStorage.getItem('loginToken');
+      const otpResponse = await axios.post(
+        `${apiList.createVerificationCode}`,
+        {
+          accountNumber: selectedAccount,
+          mobileNumber: lastFourDigits,
+          otpMethod: otpMethod,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
         }
+      );
+
+      console.log(otpResponse.data);
+
+      const { message } = otpResponse.data;
+
+      if (message === 'OTP sent successfully') {
+        toast.success('Your OTP has been successfully generated!', {
+          onClose: () => window.location.href = '/user/account/update-pancard-otp'
+        });
+      } else {
+        toast.error('Failed to generate OTP. Please try again.');
+      }
     } catch (error) {
-        console.error('Error generating OTP:', error);
-        toast.error('An error occurred while generating OTP. Please check your mobile for the OTP.');
+      console.error('Error generating OTP:', error);
+      toast.error('An error occurred while generating OTP. Please check your mobile for the OTP.');
     }
-};
+  };
 
 
   return (

@@ -13,7 +13,7 @@ import { useLocation } from 'react-router-dom';
 
 const ManagrCardOtpPage = () => {
 
-    
+
     const token = sessionStorage.getItem('loginToken');
 
     const navigate = useNavigate();
@@ -102,16 +102,16 @@ const ManagrCardOtpPage = () => {
                         otpMethod: chosenMethod
                     },
                     {
-                      headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                      },
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            'Content-Type': 'application/json',
+                        },
                     }
-                  );                
-                  console.log(otpResponse.data);
-                  setTimer(60);
-                  setButtonsDisabled(true);
-                  setOtp('');
+                );
+                console.log(otpResponse.data);
+                setTimer(60);
+                setButtonsDisabled(true);
+                setOtp('');
             } else {
                 console.error('Invalid user details:', userDetails);
             }
@@ -124,12 +124,12 @@ const ManagrCardOtpPage = () => {
         try {
             const AccountNumber = userDetails[0].accountNumber;
             const response = await axios.post(`${apiList.authenticateOTP}`, { AccountNumber, otp },
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json',
-              },
-            });
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                });
             console.log(response.data);
             navigate("/user/account/manage-cardlimit");
         } catch (error) {

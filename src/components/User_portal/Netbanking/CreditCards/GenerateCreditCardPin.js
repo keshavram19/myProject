@@ -15,40 +15,47 @@ const GenerateCreditCardPin = () => {
     const [cvv, setCvv] = useState('');
     const [otpMethod, setOtpMethod] = useState('sms');
     const [formError, setFormError] = useState('');
-    const accountNumber = 1124563456;
+
+    const token = sessionStorage.getItem('loginToken');
+
 
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-            const userDetailsData = response.data.details;
-
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
-                setLastFourDigits(userDetailsData[0].userMobileNumber);
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
-                setLastFourDigits(userDetailsData.userMobileNumber);
+            const requestOptions = {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            };
+            const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+            if (response.ok) {
+                const data = await response.json();
+                const userDetailsData = data.user;
+                if (Array.isArray(userDetailsData)) {
+                    setUserDetails(userDetailsData);
+                    setSelectedAccount(userDetailsData[0].userAccountNumber);
+                    setLastFourDigits(data.user[0].mobilenumber);
+                } else if (typeof userDetailsData === 'object') {
+                    setUserDetails([userDetailsData]);
+                    setSelectedAccount(userDetailsData.userAccountNumber);
+                    setLastFourDigits(data.user.mobilenumber);
+                } else {
+                    console.error('Invalid user details format:', userDetailsData);
+                }
             } else {
-                console.error('Invalid user details format:', userDetailsData);
+                console.error('Error fetching user details:', response.statusText);
             }
-
         } catch (error) {
             console.error('Error fetching user details:', error);
         }
-        console.log('User Details:', userDetails);
-
     };
 
     useEffect(() => {
-        if (selectedAccount === '') {
-            fetchData();
-        }
-    }, [selectedAccount]);
+        fetchData();
+    }, []);
 
-    const handleAccountChange = (event) => {
-        setSelectedAccount(event.target.value);
-    };
+
 
     const handleCvvChange = (event) => {
         setFormError('');
@@ -87,21 +94,35 @@ const GenerateCreditCardPin = () => {
                     return;
                 }
 
-                const otpResponse = await axios.post(`${apiList.createVerificationCode}`, {
-                    accountNumber: accountNumber,
-                    debitCardNumber: selectedCreditCard,
-                    cvv: cvv,
-                    mobileNumber: lastFourDigits,
-                    otpMethod: otpMethod,
-                });
+                const otpResponse = await axios.post(
+                    `${apiList.createVerificationCode}`,
+                    {
+                        accountNumber: selectedAccount,
+                        mobileNumber: lastFourDigits,
+                        otpMethod: otpMethod,
+                    },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            'Content-Type': 'application/json',
+                        },
+                    }
+                );
 
                 console.log(otpResponse.data);
-                navigate('/user/account/generate-credit-card-pin-otp');
-            } else {
-                console.error('Invalid user details:', userDetails);
+
+                const { message } = otpResponse.data;
+
+                if (message === 'OTP sent successfully') {
+
+                    window.location.href = '/user/account/generate-credit-card-pin-otp';
+                } else {
+                    alert('Failed to generate OTP. Please try again.');
+                }
             }
         } catch (error) {
             console.error('Error generating OTP:', error);
+            alert('An error occurred while generating OTP. Please check your mobile for the OTP.');
         }
     };
 
@@ -234,7 +255,7 @@ const GenerateCreditCardPin = () => {
                                 {otpMethod === 'sms' || otpMethod === 'call'
                                     ? `OTP will be sent to registered mobile number XXXXXXX${String(lastFourDigits).slice(-4)}`
                                     : otpMethod === 'email'
-                                        ? `OTP will be sent to registered email ${userDetails.length > 0 ? maskEmail(userDetails[0].userEmailId) : ''}`
+                                        ? `OTP will be sent to registered email ${userDetails.length > 0 ? maskEmail(userDetails[0].email) : ''}`
                                         : ''}
                             </p>
                             <hr />
