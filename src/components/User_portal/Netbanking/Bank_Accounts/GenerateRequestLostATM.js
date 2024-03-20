@@ -117,14 +117,18 @@ const GenerateRequestLostATM = () => {
             console.warn('Please select a debit card before submitting.');
             return;
         }
+        const requestOptions = {
+            method: 'POST',
+            url: apiList.createReissueCard,
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+        };
         try {
-            const response = await axios.post(`${apiList.createReissueCard}`, {
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                  'Content-Type': 'application/json',
-                },
-              }
-            );
+            
+            const response = await axios(requestOptions);
+            console.log(response.data)
             const { srn } = response.data;
 
             navigate('/user/account/generate-request-lost-service-atm');
