@@ -23,6 +23,9 @@ const OTPPage = () =>{
     const [buttonsDisabled, setButtonsDisabled] = useState(true);
     const token = sessionStorage.getItem('loginToken');
 
+
+    console.log(formData);
+
     useEffect(() => {
 
         const fetchData = async () => {
@@ -130,7 +133,7 @@ const OTPPage = () =>{
               },
             });
 
-            if(response.ok){
+            if(response.status===200){
                 const response = await fetch(`${apiList.quickFundTransfer}`, {
                     method: 'POST',
                     headers: {
@@ -139,9 +142,11 @@ const OTPPage = () =>{
                     },
                     body: JSON.stringify(formData),
                 });
+                alert("amount transfered succesfully");
+                navigate("/user/fundtransfer/quickfundtransfer");
             }
             console.log(response.data);
-            navigate("/user/fundtransfer/quickfundtransfer");
+         
         } catch (error) {
             console.error('Error validating OTP:', error);
             setValidationError('Invalid OTP. Please try again.');
