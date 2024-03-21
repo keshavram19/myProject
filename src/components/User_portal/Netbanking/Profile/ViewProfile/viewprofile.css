@@ -1,11 +1,46 @@
-.View-profile .col-3
-{
+.View-profile .col-3 {
     font-size: small;
     font-weight: 400;
 }
 
-.View-profile .col-9
-{
+
+.View-profile .col-9 {
     font-size: small;
     color: #495057c1;
+}
+
+.user-details-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px #e7e6e6;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
+.user-details-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: #2fb682;
+    margin-bottom: 20px;
+}
+
+
+.detail-item {
+    margin-bottom: 10px;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: #555555;
+    text-align: left;
+    display: inline-block;
+    min-width: 150px;
+}
+
+.detail-value {
+    color: #333333;
+    display: inline-block;
+    margin-left: 80px;
+    color: #2fb682;
 }

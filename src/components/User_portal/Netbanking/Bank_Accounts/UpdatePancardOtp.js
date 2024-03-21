@@ -128,6 +128,7 @@ const UpdatePancardOtpPage = () => {
                     },
                 });
             console.log(response.data);
+            alert('Success! Your PAN card has been successfully updated');
             navigate("/user/account/view-update-pancard");
         } catch (error) {
             console.error('Error validating OTP:', error);

@@ -131,6 +131,7 @@ const ManagrCardOtpPage = () => {
                     },
                 });
             console.log(response.data);
+            alert('Update Successful! Your debit card limit has been successfully adjusted');
             navigate("/user/account/manage-cardlimit");
         } catch (error) {
             console.error('Error validating OTP:', error);
