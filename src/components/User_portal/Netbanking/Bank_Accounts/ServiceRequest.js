@@ -137,12 +137,12 @@ const ServiceRequest = () => {
                             </div>
                             <div className='col-md-5'>
                                 <h6>Quick Links</h6>
-                                <button className='service_btn'>Stop Cheques</button>
+                                {/* <button className='service_btn'>Stop Cheques</button> */}
                                 <Link to='/user/account/generate-debitcard-pin' > <button className='service_btn'>Generate Card PIN</button></Link>
                                 <Link to='/user/account/block-debit-card'><button className='service_btn'>Block Credit Card</button></Link>
                                 <Link to='/user/account/chequebook-req'><button className='service_btn'>Cheque Book Request</button></Link>
                                 <Link to='/user/account/block-debit-card'><button className='service_btn'>Block or Unblock ATM/Debit Card</button></Link>
-                                <button className='service_btn'>Positive Pay</button>
+                                {/* <button className='service_btn'>Positive Pay</button> */}
                                 <div className='card p-3 mt-3 shadow'>
                                     <div className='card p-3  shadow servicerequest_subcard'>
                                         <h5 className='text-center service_table_heading'>Do  you need help with any of the following?</h5>
