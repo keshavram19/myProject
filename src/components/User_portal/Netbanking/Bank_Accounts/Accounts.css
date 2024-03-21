@@ -1151,9 +1151,9 @@ select.form-control.statement_select_format {
   border: 1px solid #ebeaea;
 }
 
-.bookrequest .card .pancard_details {
+.bookrequest .card .checkbk_details {
   font-weight: 500;
-  font-size: 14px;
+  font-size: 14px; 
 }
 
 .bookrequest .check_book_heading {

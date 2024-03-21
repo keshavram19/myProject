@@ -245,7 +245,6 @@ const ManageCardLimit = () => {
       const { message } = otpResponse.data;
 
       if (message === 'OTP sent successfully') {
-
         window.location.href = '/user/account/manage-card-otp';
       } else {
         alert('Failed to generate OTP. Please try again.');

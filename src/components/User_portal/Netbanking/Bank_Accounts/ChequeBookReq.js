@@ -66,7 +66,7 @@ const ChequeBookReq = () => {
       setCheckMsg('Error submitting chequebook request. Please try again.');
     }
   };
-  
+
 
 
 
@@ -82,9 +82,9 @@ const ChequeBookReq = () => {
               <div className="d-flex">
                 <h3 className='check_book_heading'>Check Book Request</h3>
               </div>
-              <div cclassName="card">
+              <div className="card">
                 <h6 className="bookrequest_heading p-3">Request For New Check Book</h6>
-                <div lassName="container-fluid pancard_details p-3">
+                <div className="container-fluid checkbk_details p-3">
                   <div className="row mt-1">
                     <div className="col-sm-4">
                       <label htmlFor=",">Select savings Account Number*</label>
@@ -128,13 +128,14 @@ const ChequeBookReq = () => {
                   <button className='back_button mt-5' size="sm">BACK</button>
                   <button className='back_button mt-5 ml-3' size="sm" onClick={handleSubmit}>SUBMIT</button>
                 </div>
+                {SRN && (
+                  <p className="text-success pl-3">SRN: {SRN}</p>
+                )}
+                {checkMsg && (
+                  <p className="text-success pl-3">{checkMsg}</p>
+                )}
               </div>
-              {SRN && (
-                <p className="text-success pl-3">SRN: {SRN}</p>
-              )}
-              {checkMsg && (
-                <p className="text-success pl-3">{checkMsg}</p>
-              )}
+
             </div>
           </div>
         </div>
