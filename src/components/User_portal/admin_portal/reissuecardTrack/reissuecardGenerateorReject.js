@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './reissuecardGenerateorReject.css';
 import AdminSidebar from '../admin_sidebar/AdminSidebar';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate,Navigate, useLocation } from 'react-router-dom';
+import { isAuthenticated, handleTokenExpiration } from "../../../ProtectedRoute/authUtils";
 
 function ReissueGenerateOrReject() {
     const [userDetails, setUserDetails] = useState(null);
@@ -12,12 +13,6 @@ function ReissueGenerateOrReject() {
     const [currentDate, setCurrentDate] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
-
-    const isAuthenticated = () => {
-        const token = sessionStorage.getItem("adminloginToken");
-        const expireTime = sessionStorage.getItem("adminexpireTime");
-        return token && new Date().getTime() < expireTime;
-    };
 
     useEffect(() => {
         // Redirect to admin login if URL is manipulated
@@ -29,12 +24,8 @@ function ReissueGenerateOrReject() {
     }, [location.pathname, navigate]);
 
     useEffect(() => {
-        // Check if the user is authenticated
-        if (!isAuthenticated()) {
-            // If not authenticated, navigate to admin login page
-            navigate("/admin/login");
-        }
-    }, [isAuthenticated]);
+        handleTokenExpiration(navigate);
+      }, [navigate]);
 
     useEffect(() => {
         fetchUserDetails();
@@ -115,6 +106,8 @@ function ReissueGenerateOrReject() {
     };
 
     return (
+        <>
+        {isAuthenticated() ? (
         <div className='container-fluid'>
             <div className="row">
                 <div className="col-sm-3">
@@ -242,6 +235,10 @@ function ReissueGenerateOrReject() {
                 </div>
             </div>
         </div>
+         ) : (
+            <Navigate to="/admin/login" state={{ from: location }} />
+          )}
+        </>
     );
 }
 

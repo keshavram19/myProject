@@ -9,14 +9,18 @@ import "./AccountOpeningForm.css";
 import { StateProvider, useStateValue } from "./AccountOpenParentComponent";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate,Navigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import apiList from "../../../../../lib/apiList";
+import AdminSidebar from "../../admin_sidebar/AdminSidebar";
+import { isAuthenticated, handleTokenExpiration } from "../../../../ProtectedRoute/authUtils";
 
 export default function IndividualDatalist() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [individualRequesteddata, setIndividualRequesteddata] = useState({});
   const { state } = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
   console.log(state);
   const [formData, setFormData] = React.useState({
     firstName: "",
@@ -26,6 +30,20 @@ export default function IndividualDatalist() {
   });
  
  
+  useEffect(() => {
+    // Redirect to admin login if URL is manipulated
+    if (!location.pathname.includes("/admin/")) {
+      sessionStorage.removeItem("adminloginToken");
+      sessionStorage.removeItem("adminexpireTime");
+      navigate("/admin/login");
+    }
+  }, [location.pathname, navigate]);
+
+  useEffect(() => {
+    handleTokenExpiration(navigate);
+  }, [navigate]);
+
+
   const nextStep = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -1542,10 +1560,15 @@ export default function IndividualDatalist() {
   };
 
   return (
+    <>
+    {isAuthenticated() ? (
     <div className="container mt-5">
       <StateProvider>
         <div className="row">
-          <div className="col-12">
+          <div className="col-2">
+              <AdminSidebar />
+          </div>
+          <div className="col-10">
             <Box sx={{ width: "100%" }}>
               <Stepper activeStep={activeStep}>
                 {steps.map((label) => (
@@ -1564,5 +1587,9 @@ export default function IndividualDatalist() {
         </div>
       </StateProvider>
     </div>
+    ) : (
+      <Navigate to="/admin/login" state={{ from: location }} />
+    )}
+    </>
   );
 }

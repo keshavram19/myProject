@@ -153,7 +153,7 @@ function App() {
     location.pathname === "/admin/chequebookreq" ||
     
     location.pathname === "/admin/reissuecard" ||
-    location.pathname === "/admin/reissuecardGenerateorReject" ;
+    location.pathname === "/admin/reissuecardGenerateorReject" ||
 
     location.pathname.includes("/admin/");
 

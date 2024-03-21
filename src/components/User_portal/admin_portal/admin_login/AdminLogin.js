@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 import "./AdminLogin.css";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import ReCAPTCHA from "react-google-recaptcha";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Navigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import apiList from "../../../../lib/apiList";
 import Admin_Login_Page_img  from "../../../../Images/Admin_Login_Page_img.png" ; 
-import banklogo from "../../../../Images/banklogo.png";  
+import banklogo from "../../../../Images/banklogo.png";
+import { isAuthenticated } from "../../../ProtectedRoute/authUtils";  
 
 
 const AdminLogin = () => {
+ 
+
   const handleRecaptchaChange = (value) => {
     console.log("ReCAPTCHA value:", value);
   };
@@ -42,6 +45,10 @@ const AdminLogin = () => {
   }
 
 
+  if (isAuthenticated()) {
+    return <Navigate to="/admin/all-data" />;
+  }
+  
   const handleBankLogin = async () => {
 
     const options = {

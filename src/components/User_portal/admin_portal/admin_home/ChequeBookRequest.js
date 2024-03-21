@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate,useLocation} from "react-router-dom";
+import { useNavigate,Navigate,useLocation} from "react-router-dom";
 import "./adminhome.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import apiList from "../../../../lib/apiList";
+import { isAuthenticated, handleTokenExpiration } from "../../../ProtectedRoute/authUtils";
 import AdminSidebar from "../admin_sidebar/AdminSidebar";
 import {
   Button,
@@ -47,11 +48,9 @@ function AdminChequeBookRequest() {
     setOpen(false);
   };
 
-  const isAuthenticated = () => {
-    const token = sessionStorage.getItem("adminloginToken");
-    const expireTime = sessionStorage.getItem("adminexpireTime");
-    return token && new Date().getTime() < expireTime;
-  };
+  useEffect(() => {
+    handleTokenExpiration(navigate);
+  }, [navigate]);
 
   useEffect(() => {
     // Redirect to admin login if URL is manipulated
@@ -62,13 +61,7 @@ function AdminChequeBookRequest() {
     }
   }, [location.pathname, navigate]);
 
-  useEffect(() => {
-    // Check if the user is authenticated
-    if (!isAuthenticated()) {
-      // If not authenticated, navigate to admin login page
-      navigate("/admin/login");
-    } 
-  }, [isAuthenticated]);
+ 
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -195,6 +188,7 @@ function AdminChequeBookRequest() {
   
   return (
     <>
+     {isAuthenticated() ? (
       <div>
         <section className="container-fluid">
           <div className="row">
@@ -298,6 +292,9 @@ function AdminChequeBookRequest() {
           </div>
         </section>
       </div>
+       ) : (
+        <Navigate to="/admin/login" state={{ from: location }} />
+      )}
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle className="admin_chequebook_status">
           ChequeBook Status Approval
@@ -365,6 +362,7 @@ function AdminChequeBookRequest() {
           </Button>
         </DialogActions>
       </Dialog>
+     
     </>
   );
 }

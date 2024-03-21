@@ -4,18 +4,13 @@ import "./opening_requested.css";
 import axios from "axios";
 import apiList from "../../../../lib/apiList";
 import AdminSidebar from "../admin_sidebar/AdminSidebar";
+import { isAuthenticated, handleTokenExpiration } from "../../../ProtectedRoute/authUtils";
 
 const RequestedDatalist = () => {
   const [requestedDatalist, setRequestedDataList] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Function to check if the user is authenticated
-  const isAuthenticated = () => {
-    const token = sessionStorage.getItem("adminloginToken");
-    const expireTime = sessionStorage.getItem("adminexpireTime");
-    return token && new Date().getTime() < expireTime;
-  };
 
   useEffect(() => {
     // Redirect to admin login if URL is manipulated
@@ -27,12 +22,8 @@ const RequestedDatalist = () => {
   }, [location.pathname, navigate]);
 
   useEffect(() => {
-    // Check if the user is authenticated
-    if (!isAuthenticated()) {
-      // If not authenticated, navigate to admin login page
-      navigate("/admin/login");
-    } 
-  }, [isAuthenticated]);
+    handleTokenExpiration(navigate);
+  }, [navigate]);
 
   const [filters, setFilters] = useState({
     pannumber: "",
