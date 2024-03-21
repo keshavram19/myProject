@@ -274,6 +274,7 @@ function App() {
             element={<ServiceRequest />}
           />
           <Route path="/user/account/fixed-deposits" element={<FixedDeposit />} />
+          {/* <Route path="/user/account/iwish-deposits" element={} /> */}
           <Route
             path="/user/account/reccuring-deposits"
             element={<RecurringDeposit />}

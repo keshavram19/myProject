@@ -114,9 +114,9 @@ function BankaccountSidebar() {
             >
               {" "}
               <Link to="/user/account/fixed-deposits" className={isActiveLink("/user/account/fixed-deposits") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Deposit Accounts</Link>
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Open Deposits</Link>
+              {/* <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Open Deposits</Link> */}
               <Link to="/user/account/fd-advice" className={isActiveLink("/user/account/fd-advice") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>FD Advice</Link>
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Service Requests</Link>
+              {/* <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Service Requests</Link> */}
               <Link to="/user/account/renew-fd" className={isActiveLink("/user/account/renew-fd") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>Renew FD</Link>
             </div>
             <button
@@ -136,20 +136,21 @@ function BankaccountSidebar() {
               ref={contentRefs[2]}
             >
               {" "}
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Bank Accounts</Link>
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Credit Cards</Link>
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Demat</Link>
-              <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>PPF Accounts</Link>
+              <Link to="/user/account" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Bank Accounts</Link>
+              <Link to="/user/credit-cards" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Credit Cards</Link>
+              {/* <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Demat</Link> */}
+              {/* <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>PPF Accounts</Link> */}
             </div>
-            <button
+
+            {/* <button
               type="button"
               className={`collapsible sidebarButton ${activeIndex === 3 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(3)}
             >
               <span> Pockets</span> <span>{getButtonContent(3)}</span>
-            </button>
-            <div
+            </button> */}
+            {/* <div
               className="content"
               style={{
                 maxHeight: `${contentHeights[3]}px`,
@@ -161,7 +162,7 @@ function BankaccountSidebar() {
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Pockets Account</Link>
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Add Funds</Link>
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>View Card Details</Link>
-            </div>
+            </div> */}
 
             <button
               type="button"
@@ -183,15 +184,15 @@ function BankaccountSidebar() {
               <Link to="/user/account/paylater" className={isActiveLink("/user/account/paylater") ? "bank_account_sidebar_link_tag mt-1 mb-1" : "mt-1 mb-1"} onClick={stopPropagation}>PayLater</Link>
             </div>
 
-            <button
+            {/* <button
               type="button"
               className={`collapsible sidebarButton ${activeIndex === 5 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(5)}
             >
               <span> PPF Accounts</span> <span>{getButtonContent(5)}</span>
-            </button>
-            <div
+            </button> */}
+            {/* <div
               className="content"
               style={{
                 maxHeight: `${contentHeights[5]}px`,
@@ -201,17 +202,17 @@ function BankaccountSidebar() {
             >
               {" "}
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1 mb-1" : "mt-1 mb-1"} onClick={stopPropagation}>PPF Account</Link>
-            </div>
+            </div> */}
 
-            <button
+            {/* <button
               type="button"
               className={`collapsible sidebarButton ${activeIndex === 6 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(6)}
             >
               <span> SSY Accounts</span> <span>{getButtonContent(6)}</span>
-            </button>
-            <div
+            </button> */}
+            {/* <div
               className="content"
               style={{
                 maxHeight: `${contentHeights[6]}px`,
@@ -221,7 +222,8 @@ function BankaccountSidebar() {
             >
               {" "}
               <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1 mb-1" : "mt-1 mb-1"} onClick={stopPropagation}> SSY Account </Link>
-            </div>
+            </div> */}
+
           </div>
         </div>
       </div>
