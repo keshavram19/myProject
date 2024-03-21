@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate,useLocation } from 'react-router-dom';
+import { useNavigate,Navigate,useLocation } from 'react-router-dom';
 import './reissueCardTrack.css';
 import AdminSidebar from '../admin_sidebar/AdminSidebar';
+import { isAuthenticated, handleTokenExpiration } from "../../../ProtectedRoute/authUtils";
 
 const ReissueCardTable = () => {
   const [userData, setUserData] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
 
-
-  const isAuthenticated = () => {
-    const token = sessionStorage.getItem("adminloginToken");
-    const expireTime = sessionStorage.getItem("adminexpireTime");
-    return token && new Date().getTime() < expireTime;
-  };
 
   useEffect(() => {
     // Redirect to admin login if URL is manipulated
@@ -26,12 +21,8 @@ const ReissueCardTable = () => {
   }, [location.pathname, navigate]);
 
   useEffect(() => {
-    // Check if the user is authenticated
-    if (!isAuthenticated()) {
-      // If not authenticated, navigate to admin login page
-      navigate("/admin/login");
-    } 
-  }, [isAuthenticated]);
+    handleTokenExpiration(navigate);
+  }, [navigate]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,6 +54,8 @@ const ReissueCardTable = () => {
   };
 
   return (
+    <> 
+    {isAuthenticated() ? (
     <div className='row container-fluid'>
       <div className='col-sm-3'>
         <AdminSidebar />
@@ -112,6 +105,10 @@ const ReissueCardTable = () => {
         </div>
       </div>
     </div>
+    ) : (
+      <Navigate to="/admin/login" state={{ from: location }} />
+    )}
+    </>
   );
 };
 

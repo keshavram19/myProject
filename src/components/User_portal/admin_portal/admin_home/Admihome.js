@@ -3,6 +3,7 @@ import "./adminhome.css";
 import apiList from "../../../../lib/apiList";
 import axios from "axios";
 import {useNavigate,Navigate,useLocation } from "react-router-dom";
+import { isAuthenticated, handleTokenExpiration } from "../../../ProtectedRoute/authUtils";
 import AdminSidebar from "../admin_sidebar/AdminSidebar";
 
 const Adminhome = () => {
@@ -15,13 +16,6 @@ const Adminhome = () => {
   const [customerDataList, setCustomerDataList] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
-
-  // Function to check if the user is authenticated
-  const isAuthenticated = () => {
-    const token = sessionStorage.getItem("adminloginToken");
-    const expireTime = sessionStorage.getItem("adminexpireTime");
-    return token && new Date().getTime() < expireTime;
-  };
 
 
   const applyFilters = () => {
@@ -59,12 +53,10 @@ const Adminhome = () => {
   }, []);
 
   useEffect(() => {
-    // Check if the user is authenticated
-    if (!isAuthenticated()) {
-      // If not authenticated, navigate to admin login page
-      navigate("/admin/login");
-    } 
-  }, [isAuthenticated]);
+    handleTokenExpiration(navigate);
+  }, [navigate]);
+
+  
 
   useEffect(() => {
     // Redirect to admin login if URL is manipulated
