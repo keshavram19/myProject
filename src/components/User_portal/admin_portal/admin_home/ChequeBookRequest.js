@@ -8,13 +8,7 @@ import AdminSidebar from "../admin_sidebar/AdminSidebar";
 import {
   Button,
   TextField,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
+
   Dialog,
   DialogTitle,
   DialogContent,
@@ -160,9 +154,6 @@ function AdminChequeBookRequest() {
   
       setFilteredAccounts(updatedAccounts);
   
-      // Save selected status to local storage
-      localStorage.setItem('selectedStatus', selectedStatus);
-  
       const response = await axios.put(
         `http://localhost:4444/api/updateChequeBookRequest/${selectedAccount.accountNumber}/${selectedAccount.userChequeBookRequest[0]?.srn}`,
         { requestStatus: selectedStatus },
@@ -182,15 +173,6 @@ function AdminChequeBookRequest() {
       // Handle error scenario
     }
   };
-  
-  // Load selected status from local storage on component mount
-  useEffect(() => {
-    const selectedStatusFromStorage = localStorage.getItem('selectedStatus');
-    if (selectedStatusFromStorage) {
-      setSelectedStatus(selectedStatusFromStorage);
-    }
-  }, []);
-  
   
   
   return (
@@ -347,7 +329,7 @@ function AdminChequeBookRequest() {
                       onChange={(e) => setSelectedStatus(e.target.value)}
                     >
                       <MenuItem value="Approved">Approved</MenuItem>
-                      <MenuItem value="Pending">Pending</MenuItem>
+                           <MenuItem value="Pending">Pending</MenuItem>
                       <MenuItem value="Rejected">Rejected</MenuItem>
                     </Select>
                   </FormControl>
@@ -363,7 +345,7 @@ function AdminChequeBookRequest() {
           <Button color="primary" type="button"  onClick={handleSubmit} >
             Submit
           </Button>
-        </DialogActions>
+           </DialogActions>
       </Dialog>
     </>
   );

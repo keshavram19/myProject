@@ -133,7 +133,7 @@ function UpdateForm60() {
   // };
 //   const handleVerifyOtp = async () => {
 //     try {
-//       const response = await axios.post(`form60Userdetails/verify-otp/${formData.EmailID}`, { enteredOtp });
+//       const response = await axios.post(form60Userdetails/verify-otp/${formData.EmailID}, { enteredOtp });
 //       console.log(response.data);
 //       alert('OTP verification successful!');
 //       setOtpVerificationSuccess(true);
@@ -166,8 +166,7 @@ const handleSubmit = async (e) => {
 console.log(formData);
 const handleVerifyOtp = async () => {
   try {
-  console.log(`${apiList.form60OtpVerification}/${formData.EmailID}`)
-      const response = await axios.post(`${apiList.form60OtpVerification}/${formData.EmailID}` ,{ enteredOtp })
+      const response = await axios.post(`${apiList.form60OtpVerification}/${formData.EmailID}`, { enteredOtp });
       console.log(response.data);
       toast.success('OTP verified and form submitted successfully.');
       setFormData({
@@ -199,6 +198,7 @@ const handleVerifyOtp = async () => {
       toast.error('Invalid OTP. Please try again.');
   }
 };
+
 const handleSendOtp = async () => {
   if (!formData.EmailID) {
     toast.warning('Please enter your email address before sending OTP.');
