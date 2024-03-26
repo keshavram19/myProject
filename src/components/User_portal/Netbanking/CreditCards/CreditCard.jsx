@@ -23,8 +23,6 @@ import { Link, useLocation } from 'react-router-dom';
 
 
 const CreditCard = () => {
-    const location = useLocation();
-    console.log(location);
 
     const [customerAccData, setCustomerAccData] = useState([]);
     const [individualCreditCard, setIndividualCreditCard] = useState({

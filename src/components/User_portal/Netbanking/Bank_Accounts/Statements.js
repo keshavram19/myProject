@@ -120,12 +120,12 @@ const Statements = () => {
 
         try {
             const response = await fetch(apiList.customerDetails, options);
-            if(response.ok){
+            if (response.ok) {
                 const data = await response.json();
                 setAccountTypeDetails(data.user);
                 setCustomerAddress(data.user.currentAddress)
             }
-        } 
+        }
         catch (error) {
             console.log(error.message);
         }
@@ -265,15 +265,25 @@ const Statements = () => {
 
         try {
             const response = await fetch(url, options);
+            const responseData = await response.json();
 
-            if (response.ok) {
-                const data = await response.json();
+            // console.log(response);
+            // console.log(responseData);
+
+            if (response.status === 200) {
                 setErrorMsgStatus('false')
-                setAccountTransactions(data.transactions);
+                const formattedTransactions = responseData.transactions.map(transaction => ({
+                    ...transaction,
+                    date: new Date(transaction.date).toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric'
+                    })
+                }));
+                setAccountTransactions(formattedTransactions);
             } else {
-                const data1 = await response.json();
                 setErrorMsgStatus('true')
-                setErrorMsg(data1.message)
+                setErrorMsg(responseData.message)
             }
         }
         catch (error) {
