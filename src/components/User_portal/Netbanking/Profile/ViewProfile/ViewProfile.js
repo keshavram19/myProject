@@ -78,10 +78,10 @@ const ViewProfile = () => {
                     <span className="detail-label">E-Mail</span>
                     <span className="detail-value">: {userDetails.email}</span>
                   </div>
-                  <div className="detail-item">
+                  {/* <div className="detail-item">
                     <span className="detail-label">Nominee</span>
                     <span className="detail-value">: {userDetails.nominee}</span>
-                  </div>
+                  </div> */}
                 </>
               )}
             </div>

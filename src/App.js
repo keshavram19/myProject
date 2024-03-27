@@ -141,6 +141,9 @@ import AdminLogin from "./components/User_portal/admin_portal/admin_login/AdminL
 import AdminChequeBookRequest from "./components/User_portal/admin_portal/admin_home/ChequeBookRequest";
 
 
+
+
+
 function App() {
   const location = useLocation();
   const hide =
@@ -585,12 +588,20 @@ function App() {
           
              <Route path="/admin/reissuecard" element={<ReissueCardTable />} />
             <Route path="/admin/reissuecardGenerateorReject" element={<ReissueGenerateOrReject />} />
+            
+
+           
+          
+
           {/* Admin side  */}
 
           {/* user portal ends */}
 
           {/* Default route */}
           <Route path="*" element={<Navigate to="/" />} />
+       
+          
+
         </Route>
 
       </Routes>
