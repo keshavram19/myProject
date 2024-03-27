@@ -141,20 +141,20 @@ const ManagrCardOtpPage = () => {
 
 
     return (
-        <div className='container-fluid' style={{ marginTop: '80px' }}>
+        <div className='container-fluid manage_card_otp' style={{ marginTop: '80px' }}>
             <div className='row'>
 
                 <div className='col-sm-3'>
                     <BankaccountSidebar />
                 </div>
-                <div className='col-sm-9 limit_request_confirmation card'>
+                <div className='col-sm-9 card'>
                     <div className='row'>
                         <div className='col-sm-12'>
-                            <div className='limit_request_confirmation_para p-2'>
+                            <div className='manage_card_otp_para p-2'>
                                 <label htmlFor='otp' style={{ color: 'green' }}>One Time Password</label>
-                                <div className='limit_request_confirmation_icon'>
+                                <div className='manage_card_otp_icon'>
                                     <input
-                                        className='limit_request_confirmation_div_label'
+                                        className='manage_card_otp_div_label'
                                         type='text'
                                         id='otp'
                                         name='otp'
@@ -162,7 +162,7 @@ const ManagrCardOtpPage = () => {
                                         onChange={handleOtpChange}
                                     />
 
-                                    <button className='limit_request_confirmation_icon_otp'>
+                                    <button className='manage_card_otp_icon_otp'>
                                         <i className='fa-solid fa-keyboard fa-xl'></i>
                                     </button>
                                     <p className='ml-1'>OTP has been generated with validity of 100 seconds</p>
@@ -174,25 +174,25 @@ const ManagrCardOtpPage = () => {
                                 <div className='col-sm-6'>
                                     <div className=''>
                                         <button
-                                            className='limit_request_confirmation_btn ml-2'
+                                            className='manage_card_otp_btn'
                                             onClick={() => handleOtpGeneration('sms')}
                                             disabled={buttonsDisabled}
                                         >
-                                            <MdOutlineMessage className='limit_request_confirmation_btn_logos' /> SMS
+                                            <MdOutlineMessage className='manage_card_otp_btn_logos' /> SMS
                                         </button>
                                         <button
-                                            className='limit_request_confirmation_btn ml-2'
+                                            className='manage_card_otp_btn ml-2'
                                             onClick={() => handleOtpGeneration('email')}
                                             disabled={buttonsDisabled}
                                         >
-                                            <MdOutlineMail className='limit_request_confirmation_btn_logos' /> Email
+                                            <MdOutlineMail className='manage_card_otp_btn_logos' /> Email
                                         </button>
                                         <button
-                                            className='limit_request_confirmation_btn ml-2'
+                                            className='manage_card_otp_btn ml-2'
                                             onClick={() => handleOtpGeneration('call')}
                                             disabled={buttonsDisabled}
                                         >
-                                            <IoCallOutline className='limit_request_confirmation_btn_logos' /> Call
+                                            <IoCallOutline className='manage_card_otp_btn_logos' /> Call
                                         </button>
                                     </div>
                                 </div>
@@ -213,11 +213,12 @@ const ManagrCardOtpPage = () => {
 
                             {validationError && <div style={{ color: 'red' }}>{validationError}</div>}
 
-                            <div className='d-flex mt-3 mb-5'>
-                                <button type='button' className='limit_request_confirmation_buttons ml-3'>
-                                    <Link to="/user/account/manage-cardlimit" style={{ textDecoration: 'none' }} className='bacKBtn_link'>BACK</Link>
-                                </button>
-                                <button type='button' className='limit_request_confirmation_submits ml-3' onClick={handleOtpValidation}>
+                            <div className='d-flex mt-1 mb-4'>
+
+                                <Link to='/user/account/manage-cardlimit'>
+                                    <button type="button" className="manage_card_otp_back_buttons ml-2">BACK</button>
+                                </Link>
+                                <button type='button' className='manage_card_otp_submits ml-3' onClick={handleOtpValidation}>
                                     SUBMIT
                                 </button>
                             </div>

@@ -65,30 +65,45 @@ const VirtualCreditCards = () => {
             html2canvas: { scale: 2 },
             jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
         };
-
+    
         if (creditCardRef.current) {
             const formattedContent = `
-                <div>
-                    <p>Royal Islamic Credit card</p>
-                    <p>Card Number: ${userDetails[0].userCreditCardDetails[0].creditCardNumber}</p>
-                    <p>Account Holder Name: ${userDetails[0].accountHolderName}</p>
-                    <p>Expiry Date: ${userDetails[0].userCreditCardDetails[0].userCreditCardExpiryDate}</p>
-                    <p>Credit Card Limit: ${userDetails[0].userCreditCardDetails[0].creditCardLimit}</p>
-                    <p>Total Amount Due: ${userDetails[0].userCreditCardDetails[0].totalAmountDue}</p>
-                    <p>Current Outstanding: ${userDetails[0].userCreditCardDetails[0].currentOutstanding}</p>
-                    <p>Available Credit Limit: ${userDetails[0].userCreditCardDetails[0].availableCreditLimit}</p>
-                    <p>CVV: ${userDetails[0].userCreditCardDetails[0].userCreditCardcvv}</p>
-                    <p>Status: ${userDetails[0].userCreditCardDetails[0].userCreditCardStatus}</p>
+                <div style="font-family: Arial, sans-serif; padding: 10px;">
+                    <h2 style="color: #ebca28; margin-bottom: 30px;">Royal Islamic Credit Card Details</h2>
+                    <div style="display: grid; grid-template-columns: auto auto;">
+                        <div>
+                            <p><strong>Card Number</strong></p>
+                            <p><strong>Account Holder Name</strong></p>
+                            <p><strong>Expiry Date</strong></p>
+                            <p><strong>Credit Card Limit</strong></p>
+                            <p><strong>Total Amount Due</strong></p>
+                            <p><strong>Current Outstanding</strong></p>
+                            <p><strong>Available Credit Limit</strong></p>
+                            <p><strong>CVV</strong></p>
+                            <p><strong>Status</strong></p>
+                        </div>
+                        <div>
+                            <p>: ${formatCreditCardNumber(userDetails[0].userCreditCardDetails[0].creditCardNumber)}</p>
+                            <p>: ${userDetails[0].firstname} ${userDetails[0].lastname}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].userCreditCardExpiryDate}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].creditCardLimit}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].totalAmountDue}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].currentOutstanding}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].availableCreditLimit}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].userCreditCardcvv}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].userCreditCardStatus}</p>
+                        </div>
+                    </div>
                 </div>
             `;
-
+    
             html2pdf().from(formattedContent).set(opt).save();
         } else {
             console.error('Element not found:', creditCardRef.current);
         }
     };
-
-
+    
+    
 
     return (
         <div>
