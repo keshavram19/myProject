@@ -39,23 +39,26 @@ const getUserDetails = async () => {
       const response = await fetch(apiList.customerDetails, options)
       if (response.ok) {
           const data = await response.json()
-          setCustomerDetails(data.user)
-          setCustomerAccData(data.user.userCreditCardDetails)
-          setCreditCardNum(data.user.userCreditCardDetails[0].creditCardNumber)
+          setCustomerDetails(data.user);
+          if (data.user.userCreditCardDetails && data.user.userCreditCardDetails.length > 0) {
+              setCustomerAccData(data.user.userCreditCardDetails);
+              setCreditCardNum(data.user.userCreditCardDetails[0].creditCardNumber);
+          }
       }
-  }
-  catch (error) {
+  } catch (error) {
       console.log(error.message);
   }
 };
+
+
 useEffect(() => {
-  if (!creditCardNum && customerAccData.length > 0) {
+  if (customerAccData.length > 0) {
       setCreditCardNum(customerAccData[0].creditCardNumber);
   }
   else {
-      getIndividualCreditCard(creditCardNum);
+      // handle the case where customerAccData is empty
   }
-}, [creditCardNum]);
+}, [customerAccData]);
 
 
 
@@ -146,7 +149,8 @@ const handleVerify = async () => {
             
             <label for="CVVNumber" className='form-inline'>
              <span className='col-md-3'>CVV Number</span>
-             <input type="text" className='form-control form-control-sm col-md-3 w-25' placeholder='XXX'         value={customerDetails && customerDetails.userCreditCardDetails[0].userCreditCardcvv} />
+             <input type="text" className='form-control form-control-sm col-md-3 w-25' placeholder='XXX'        value={customerDetails?.userCreditCardDetails?.[0]?.userCreditCardcvv}
+ />
             </label>
          <label for='crediCardNumber' className='form-inline '>
           <span className='col-md-3'>Reason for Blocking</span>
