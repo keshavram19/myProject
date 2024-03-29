@@ -139,6 +139,8 @@ import ReissueGenerateOrReject from "./components/User_portal/admin_portal/reiss
 import AdminLogin from "./components/User_portal/admin_portal/admin_login/AdminLogin";
 
 import AdminChequeBookRequest from "./components/User_portal/admin_portal/admin_home/ChequeBookRequest";
+import Dashboard from "./components/User_portal/Netbanking/Dashbord/Dashboard";
+import Creditcardapplication from "./components/User_portal/Netbanking/Loans/Creditcardapplication";
 
 
 
@@ -506,6 +508,8 @@ function App() {
           <Route exact path="/user/viewaccounts" element={<Viewaccount />} />
           <Route exact path="/user/loanservices" element={<Loanservices />} />
           <Route exact path="/user/loanservices1" element={<Loanservices1 />} />
+          <Route exact path="/user/Dashboard"element={<Dashboard/>}/>
+          <Route exact path="/user/Creditcardapplication"element={<Creditcardapplication/>}/>
 
           {/* CARDS & LOANS ends */}
 
