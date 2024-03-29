@@ -302,7 +302,7 @@ nav .wrapper {
   }
 }
 
-nav input {
+  nav input[type=radio] {
   display: none;
 }
 
