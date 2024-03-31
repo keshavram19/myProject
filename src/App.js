@@ -139,8 +139,12 @@ import ReissueGenerateOrReject from "./components/User_portal/admin_portal/reiss
 import AdminLogin from "./components/User_portal/admin_portal/admin_login/AdminLogin";
 
 import AdminChequeBookRequest from "./components/User_portal/admin_portal/admin_home/ChequeBookRequest";
+
+import LimitExceed from "./components/User_portal/Netbanking/Fund_Transfer/LimitExced";
+
 import Dashboard from "./components/User_portal/Netbanking/Dashbord/Dashboard";
 import Creditcardapplication from "./components/User_portal/Netbanking/Loans/Creditcardapplication";
+
 
 
 
@@ -332,6 +336,7 @@ function App() {
             path="/user/fundtransfer/quickfundtransfer"
             element={<QuickFundTransfer />}
           />
+          <Route path="/user/fundtransfer/limitexceed" element={<LimitExceed/>} />
           <Route
             exact
             path="/user/fundtransfer/quickfundtransfer-otp-page"
