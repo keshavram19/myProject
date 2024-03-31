@@ -1,0 +1,462 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+.royal_dashboard {
+    overflow: auto;
+}
+
+.royal_dashboard .adm_sdbar {
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    align-items: center;
+    backdrop-filter: blur(17px);
+    --webkit-backdrop-filter: blur(17px);
+    border-right: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+
+
+.royal_dashboard .logo-container img {
+    width: 250px;
+    border-radius: 50%;
+}
+
+.royal_dashboard .side_lnk {
+    list-style: none;
+    margin-top: auto;
+    padding-bottom: 20px;
+    margin-left: -20px;
+    font-size: 18px;
+
+
+}
+
+.royal_dashboard .side_lnk :hover {
+    color: #ebca28;
+}
+
+.royal_dashboard .side_lnk li {
+    display: flex;
+    border-radius: 4px;
+}
+
+.royal_dashboard .side_lnk h4 {
+    color: #ebca28;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.royal_dashboard .side_lnk hr {
+    margin: 10px 8px;
+    border: 1px solid #4c4c4c;
+}
+
+.royal_dashboard .side_lnk li a {
+    padding: 10px;
+    color: #fff;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+
+
+
+.royal_dashboard .side_lnk li a svg {
+    margin-right: 15px;
+    font-size: larger;
+}
+
+.royal_dashboard .adm_sdbar_button {
+    outline: none;
+    background: none;
+    border: none;
+    color: #fff;
+}
+
+.royal_dashboard .welcome_text {
+
+    color: #fff;
+    margin-left: 22px;
+}
+
+.royal_dashboard .welcome_text h2 {
+    color: #187559;
+}
+
+.royal_dashboard .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.royal_dashboard .navbar-brand img {
+    height: 40px;
+}
+
+.royal_dashboard .navbar-nav {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.royal_dashboard .nav-item {
+    margin-right: 10px;
+}
+
+.royal_dashboard .nav-link {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.royal_dashboard .logout-button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.royal_dashboard .logout-button:focus {
+    outline: none;
+}
+
+/* TransactionComponent.css */
+
+.royal_dashboard .transaction {
+
+    border-radius: 5px;
+    width: 140%;
+
+}
+
+.royal_dashboard .transaction h4 {
+
+    color: #ebca28;
+}
+
+.royal_dashboard .transaction h4 {
+    text-align: start;
+    margin-bottom: 20px;
+}
+
+.royal_dashboard .transaction-icon {
+    margin-right: 20px;
+    background: #187559;
+    color: #fff;
+    padding-left: 8px;
+    border-radius: 10px;
+    width: 40px;
+    height: 35px;
+    padding-top: 5px;
+
+
+}
+
+.royal_dashboard .transaction-icon i {
+    font-size: 24px;
+}
+
+.royal_dashboard .transaction-details {
+    flex-grow: 1;
+    text-align: left;
+}
+
+
+.royal_dashboard .transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+.royal_dashboard .transaction-details {
+    display: flex;
+    align-items: center;
+}
+
+
+.royal_dashboard .transaction-amount p {
+    margin-top: 5px;
+    margin: 0px 10px;
+}
+
+
+.royal_dashboard .negative {
+    color: rgb(230, 157, 157);
+    margin-left: auto;
+}
+
+.royal_dashboard .positive {
+    color: #187559;
+    margin-left: auto;
+}
+
+.royal_dashboard .ammount_icon p {
+    width: 30px;
+}
+
+.royal_dashboard .card_container {
+    padding: 40px 40px;
+    margin-top: 3px;
+}
+
+.royal_dashboard .container_card {
+    background-color: #187559;
+    border-radius: 10px;
+    color: #fff;
+    height: 230px;
+    padding: 40px;
+    margin-top: 5px;
+}
+
+.royal_dashboard .creditcard_royalbank {
+    margin-left: auto;
+}
+
+.royal_dashboard .container_card p {
+    margin-left: 12px;
+}
+
+.royal_dashboard .container_card h1 {
+    color: #ebca28;
+    text-align: left;
+}
+
+.royal_dashboard .container_card h6 {
+    text-align: left;
+}
+
+.royal_dashboard .credit_card_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.royal_dashboard .credit_amount {
+
+
+    margin-left: 10px;
+
+}
+
+
+.royal_dashboard .image_row img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin-right: 20px;
+}
+
+.royal_dashboard .image_col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.royal_dashboard .navbar {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #000;
+    padding-top: 10px;
+}
+
+.royal_dashboard .left-side {
+    display: flex;
+    align-items: center;
+}
+
+.royal_dashboard .left-side .dashboard {
+    margin-right: 20px;
+}
+
+.royal_dashboard .right-side1 {
+    display: flex;
+    align-items: center;
+    margin-right: 120px;
+
+
+
+}
+
+.royal_dashboard .right-side1 img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+
+.royal_dashboard .right-side1 input[type="text"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+    border: 4px solid #187559;
+    border-radius: 20px;
+}
+
+.royal_dashboard .right-side1 .search_input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+    border: 4px solid #187559;
+    border-radius: 20px;
+}
+
+.royal_dashboard .right-side1 .search_icon {
+    position: absolute;
+    top: 50%;
+    right: 19%;
+    margin-top: -7px;
+
+}
+
+.royal_dashboard .right-side1 .msg-icon,
+.royal_dashboard .right-side1 .bell-icon {
+    margin-right: 10px;
+}
+
+.royal_dashboard .send-to-friend h4 {
+    text-align: start;
+}
+
+.royal_dashboard .navbar_img {
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+}
+
+/* TransactionInfo.css */
+
+.royal_dashboard .credit_amount {
+    margin-top: 3px;
+
+}
+
+.royal_dashboard .d-flex {
+    display: flow-root;
+    justify-content: flex-start;
+
+}
+
+.royal_dashboard .transaction_signal {
+    display: flex;
+    justify-content: center;
+}
+
+.royal_dashboard .transaction_signall {
+    margin-right: 270px;
+    font-weight: normal;
+    justify-content: space-between;
+    margin-right: 180px;
+    display: flex;
+    align-items: center;
+
+
+}
+
+.royal_dashboard .transaction_signall p {
+    margin: 0 10px;
+    margin-right: 50px;
+}
+
+.royal_dashboard .transaction-amountt {
+    font-weight: normal;
+    justify-content: space-between;
+    margin-right: 50px;
+
+}
+
+.royal_dashboard .transaction-amountt p {
+    margin-right: 120px;
+}
+
+
+.royal_dashboard .negative {
+    color: red;
+}
+
+.royal_dashboard .positive {
+    color: green;
+}
+
+
+
+
+.royal_dashboard .send-to-friend h4 {
+
+    margin-top: 50px;
+
+}
+
+.royal_dashboard .transactionn h4 {
+    margin-top: 20px;
+    margin-right: 220px;
+    margin-bottom: 20px;
+}
+
+.credit_card_container {
+    display: flex;
+    justify-content: center;
+
+}
+
+.container_card {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container_card h6 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.container_card h1 {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.container_card p {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.text-left {
+    flex: 1;
+}
+
+.creditcard_royalbank {
+    flex: 1;
+    text-align: right;
+}
