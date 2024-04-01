@@ -200,7 +200,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="col-sm-5 ml-5">
+            {/* <div className="col-sm-5 ml-5">
               <div className="transaction mt-2">
                 <h4>Transaction</h4>
 
@@ -245,7 +245,58 @@ const Dashboard = () => {
                       );
                     })}
               </div>
+            </div> */}
+            <div className="col-sm-5 ml-5">
+  <div className="transaction mt-2">
+    <h4>Transaction</h4>
+
+    <div className="row mb-2">
+      <div className="col-sm-2">
+        <h6>Name</h6>
+      </div>
+      <div className="col-sm-4">
+        <h6>Date</h6>
+      </div>
+      <div className="col-sm-3">
+        <h6>Amount</h6>
+      </div>
+    </div>
+
+    {userDetails &&
+      userDetails.user &&
+      userDetails.user.transactions &&
+      userDetails.user.transactions
+        .slice(-5)
+        .map((transaction, index) => {
+          const name = transaction.description.split("/")[3];
+          // Determine the class based on whether the transaction is a deposit or withdrawal
+          const amountClass = transaction.deposit >= 0 ? "positive-amount" : "negative-amount";
+          const amountText = transaction.deposit >= 0 ? transaction.deposit : transaction.withdrawal;
+          <div className="col-sm-3">
+  <p className={transaction.deposit >= 0 ? "positive-amount" : "negative-amount"}>
+    {transaction.deposit >= 0 ? "+" : "-"}
+    {Math.abs(transaction.deposit >= 0 ? transaction.deposit : transaction.withdrawal)}
+  </p>
+</div>
+
+          return (
+            <div key={index} className="row">
+              <div className="col-sm-2">
+                <p>{name}</p>
+              </div>
+              <div className="col-sm-4">
+                <p>{transaction.date}</p>
+              </div>
+
+              <div className={`col-sm-3 ${amountClass}`}>
+                <p>{amountText}</p>
+              </div>
             </div>
+          );
+        })}
+  </div>
+</div>
+
           </div>
 
           <div className="row mt-4">

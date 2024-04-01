@@ -42,11 +42,11 @@
     font-size: small;
   }
 
-  .side-headings p {
+  .side-headings1 p {
     padding: 0px 15px;
   }
 
-  .side-headings button {
+  .side-headings1 button {
     padding: 0px 15px;
     margin-left: 15px;
 
@@ -68,7 +68,7 @@
   }
   
 
-  .side-headings {
+  .side-headings1 {
     background: #f4f4f4;
     padding: 0px 0px 15px 0px;
 }
