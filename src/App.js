@@ -61,6 +61,7 @@ import ChangeEmail from "./components/User_portal/Netbanking/Profile/change-emai
 import ChangeFormat from "./components/User_portal/Netbanking/Profile/change-format/ChangeFormat";
 import ChangePassword from "./components/User_portal/Netbanking/Profile/change-password/ChangePassword";
 import GenerateDebitOrCreditPin from "./components/User_portal/Netbanking/Profile/generate-card-pin/GeneratePin";
+import PaymentTransactionLimit from "./components/User_portal/Netbanking/Profile/paymenttransactionlimit/paymenttranslimit";
 import ChangeUserId from "./components/User_portal/Netbanking/Profile/change-userID/ChangeUserId";
 import UpdateProfilePhoto from "./components/User_portal/Netbanking/Profile/update-profile-photo/UpdateProfilePhoto";
 import UpdateAccountPreferences from "./components/User_portal/Netbanking/Profile/update-account-preferences/UpdateAccountPreferences";
@@ -446,7 +447,16 @@ function App() {
             path="/user/profile/financialjourney"
             element={<FinancialJourney />}
           />
-
+          <Route
+            exact
+            path="/user/profile/payment"
+            element={<FinancialJourney />}
+          />
+           <Route
+            exact
+            path="/user/profile/paymenttransactionlimit"
+            element={<PaymentTransactionLimit />}
+          />
           {/* account opening starts */}
           <Route exact path="/account-opening" element={<AccountOpeningForm />} />
           <Route exact path="/account-success" element={<AccountSuccessPage />} />
