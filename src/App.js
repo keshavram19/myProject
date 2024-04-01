@@ -139,6 +139,7 @@ import ReissueGenerateOrReject from "./components/User_portal/admin_portal/reiss
 import AdminLogin from "./components/User_portal/admin_portal/admin_login/AdminLogin";
 
 import AdminChequeBookRequest from "./components/User_portal/admin_portal/admin_home/ChequeBookRequest";
+import ShareMyAccountDetails from "./components/User_portal/Netbanking/Profile/ShareMyAccountDetails/ShareMyAccountDetails";
 
 
 function App() {
@@ -434,6 +435,11 @@ function App() {
             exact
             path="/user/profile/financialjourney"
             element={<FinancialJourney />}
+          />
+             <Route
+            exact
+            path="/user/profile/sharemyaccountdetails"
+            element={<ShareMyAccountDetails/>}
           />
 
           {/* account opening starts */}

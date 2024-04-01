@@ -78,7 +78,7 @@ function OverviewSidebar() {
                             <Link to="/user/profile/changeuserid">update User ID</Link>
                             <Link to="/user/profile/changeprofilephoto">Update Profile Photo</Link>
                             <Link to="/user/profile/generatepin">Generate Debit / Credit Card PIN</Link>
-                            <Link to="">Share My Account Details</Link>
+                            <Link to="/user/profile/sharemyaccountdetails">Share My Account Details</Link>
                         </div>
 
                         <button
