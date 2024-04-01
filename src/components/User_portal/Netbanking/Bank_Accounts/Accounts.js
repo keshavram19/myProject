@@ -56,12 +56,38 @@ const Accounts = () => {
         }
     };
 
-    
+
     useEffect(() => {
-        coustmerDetails()
+        customerDetails()
     }, []);
-    const coustmerDetails = async () => {
-        
+
+    // const customerDetails = async () => {
+
+    //     const options = {
+    //         method: "GET",
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${logintoken}`
+    //         }
+    //     };
+
+    //     try {
+    //         const response = await fetch(apiList.customerDetails, options);
+    //         if (response.ok) {
+    //             const data = await response.json();
+    //             setAccountDetails(data.user)
+    //             setRecentTransactions(data.user.transactions)
+    //         }
+    //         else {
+    //             console.log(response);
+    //         }
+    //     }
+    //     catch (error) {
+    //         console.log(error.message);
+    //     }
+    // };
+
+    const customerDetails = async () => {
         const options = {
             method: "GET",
             headers: {
@@ -74,23 +100,34 @@ const Accounts = () => {
             const response = await fetch(apiList.customerDetails, options);
             if (response.ok) {
                 const data = await response.json();
-                setAccountDetails(data.user)
-                setRecentTransactions(data.user.transactions)
-            }
-            else {
+
+                // Format dates in recentTransactions
+                const formattedTransactions = data.user.transactions.map(transaction => ({
+                    ...transaction,
+                    date: new Date(transaction.date).toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric'
+                    })
+                }));
+
+                setAccountDetails(data.user);
+                setRecentTransactions(formattedTransactions);
+            } else {
                 console.log(response);
             }
-        }
-        catch (error) {
+        } catch (error) {
             console.log(error.message);
         }
     };
+    // console.log(recentTransactions);
+
 
     const latestTransactions = recentTransactions.slice().reverse();
     const reversedArray = latestTransactions.slice(0, 3);
 
-    const lastThreeDigits = (accountDetails.mobilenumber).slice(-4)
-    const maskedDigits = 'X'.repeat(6);
+    // const lastThreeDigits = (accountDetails.mobilenumber).slice(-4)
+    // const maskedDigits = 'X'.repeat(6);
 
 
     return (

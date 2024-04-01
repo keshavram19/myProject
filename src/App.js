@@ -61,6 +61,7 @@ import ChangeEmail from "./components/User_portal/Netbanking/Profile/change-emai
 import ChangeFormat from "./components/User_portal/Netbanking/Profile/change-format/ChangeFormat";
 import ChangePassword from "./components/User_portal/Netbanking/Profile/change-password/ChangePassword";
 import GenerateDebitOrCreditPin from "./components/User_portal/Netbanking/Profile/generate-card-pin/GeneratePin";
+import PaymentTransactionLimit from "./components/User_portal/Netbanking/Profile/paymenttransactionlimit/paymenttranslimit";
 import ChangeUserId from "./components/User_portal/Netbanking/Profile/change-userID/ChangeUserId";
 import UpdateProfilePhoto from "./components/User_portal/Netbanking/Profile/update-profile-photo/UpdateProfilePhoto";
 import UpdateAccountPreferences from "./components/User_portal/Netbanking/Profile/update-account-preferences/UpdateAccountPreferences";
@@ -140,6 +141,15 @@ import AdminLogin from "./components/User_portal/admin_portal/admin_login/AdminL
 
 import AdminChequeBookRequest from "./components/User_portal/admin_portal/admin_home/ChequeBookRequest";
 import ShareMyAccountDetails from "./components/User_portal/Netbanking/Profile/ShareMyAccountDetails/ShareMyAccountDetails";
+
+import LimitExceed from "./components/User_portal/Netbanking/Fund_Transfer/LimitExced";
+
+import Dashboard from "./components/User_portal/Netbanking/Dashbord/Dashboard";
+import Creditcardapplication from "./components/User_portal/Netbanking/Loans/Creditcardapplication";
+
+
+
+
 
 
 function App() {
@@ -274,7 +284,8 @@ function App() {
             path="/user/account/service-request"
             element={<ServiceRequest />}
           />
-          <Route path="/user/account/fixed-deposits" element={<FixedDeposit />} />
+          <Route path="/user/account/fixed-deposits" 
+          element={<FixedDeposit />} />
           {/* <Route path="/user/account/iwish-deposits" element={} /> */}
           <Route
             path="/user/account/reccuring-deposits"
@@ -328,6 +339,7 @@ function App() {
             path="/user/fundtransfer/quickfundtransfer"
             element={<QuickFundTransfer />}
           />
+          <Route path="/user/fundtransfer/limitexceed" element={<LimitExceed/>} />
           <Route
             exact
             path="/user/fundtransfer/quickfundtransfer-otp-page"
@@ -436,10 +448,22 @@ function App() {
             path="/user/profile/financialjourney"
             element={<FinancialJourney />}
           />
-             <Route
+
+            <Route
             exact
             path="/user/profile/sharemyaccountdetails"
             element={<ShareMyAccountDetails/>}
+          />
+
+          <Route
+            exact
+            path="/user/profile/payment"
+            element={<FinancialJourney />}
+          />
+           <Route
+            exact
+            path="/user/profile/paymenttransactionlimit"
+            element={<PaymentTransactionLimit />}
           />
 
           {/* account opening starts */}
@@ -509,6 +533,8 @@ function App() {
           <Route exact path="/user/viewaccounts" element={<Viewaccount />} />
           <Route exact path="/user/loanservices" element={<Loanservices />} />
           <Route exact path="/user/loanservices1" element={<Loanservices1 />} />
+          <Route exact path="/user/Dashboard"element={<Dashboard/>}/>
+          <Route exact path="/user/Creditcardapplication"element={<Creditcardapplication/>}/>
 
           {/* CARDS & LOANS ends */}
 
@@ -592,12 +618,20 @@ function App() {
           
              <Route path="/admin/reissuecard" element={<ReissueCardTable />} />
             <Route path="/admin/reissuecardGenerateorReject" element={<ReissueGenerateOrReject />} />
+            
+
+           
+          
+
           {/* Admin side  */}
 
           {/* user portal ends */}
 
           {/* Default route */}
           <Route path="*" element={<Navigate to="/" />} />
+       
+          
+
         </Route>
 
       </Routes>

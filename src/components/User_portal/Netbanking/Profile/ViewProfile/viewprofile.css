@@ -1,46 +1,43 @@
-.View-profile .col-3 {
-    font-size: small;
-    font-weight: 400;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+.personal_details_card {
+  font-weight: 500;
+}
+
+.personal_details_card .col-sm-6 {
+  color: #2fb68e;
+}
+
+.personal_details_card .card {
+  border: 1px solid #5c5b5b;
+}
+
+.personal_details_card hr {
+  color: #000;
+}
+
+.personal_details_card .contact_details_heading {
+  background-color: #2fb68e;
+  border-bottom: 1px solid #5c5b5b;
+  color: #fff;
 }
 
 
-.View-profile .col-9 {
-    font-size: small;
-    color: #495057c1;
+.personal_details_card .table_heading {
+  background-color: #2fb68e;
+  color: #fff;
 }
 
-.user-details-card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 2px 2px 2px 2px #e7e6e6;
-    padding: 20px;
-    margin-bottom: 20px;
+.personal_details_card .custom-table {
+  border-collapse: collapse;
 }
 
-
-.user-details-title {
-    font-size: 24px;
-    font-weight: 500;
-    color: #2fb682;
-    margin-bottom: 20px;
+.personal_details_card .custom-table td {
+  border: 1px solid #5c5b5b;
+  padding: 8px;
 }
 
-
-.detail-item {
-    margin-bottom: 10px;
-}
-
-.detail-label {
-    font-weight: 500;
-    color: #555555;
-    text-align: left;
-    display: inline-block;
-    min-width: 150px;
-}
-
-.detail-value {
-    color: #333333;
-    display: inline-block;
-    margin-left: 80px;
-    color: #2fb682;
+.personal_details_card .contact_details_notes {
+  font-size: 15px;
+  color: #5c5b5b;
 }

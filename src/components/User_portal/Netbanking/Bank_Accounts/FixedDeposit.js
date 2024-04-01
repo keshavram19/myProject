@@ -1,9 +1,12 @@
 
+
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+
+
 import './Accounts.css';
 import { Link, useNavigate } from "react-router-dom";
 
-const FixedDeposit = () => {
+ export const FixedDeposit = () => {
     let navigate = useNavigate();
 
     const Recurringpage = () => {

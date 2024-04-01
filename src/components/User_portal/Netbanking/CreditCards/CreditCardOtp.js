@@ -139,7 +139,7 @@ const CreditCardOtp = () => {
     };
 
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid '>
             <div className='row'>
                 <div className='col-sm-12'>
                     <p className="pl-2">Please enter these details to authorize the transaction</p>
@@ -183,11 +183,11 @@ const CreditCardOtp = () => {
 
                     {validationError && <div style={{ color: 'red' }}>{validationError}</div>}
 
-                    <div className="d-flex mt-3 mb-3">
+                    <div className="d-flex mt-2 mb-3">
                         <Link to='/user/generate-credit-card-pin'>
-                            <button type="button" className="genrate_pin_buttons ml-3">BACK</button>
+                            <button type="button" className="genrate_credit_pin_buttons ml-2">BACK</button>
                         </Link>
-                        <button type="button" className="genrate_pin_submits ml-3" onClick={handleOtpValidation} >
+                        <button type="button" className="genrate_credit_pin_submits ml-3" onClick={handleOtpValidation} >
                             SUBMIT
                         </button>
                     </div>

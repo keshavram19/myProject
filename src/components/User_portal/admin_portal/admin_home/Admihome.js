@@ -140,7 +140,9 @@ const Adminhome = () => {
                         <th>Account Type</th>
                         <th>E-mail</th>
                         <th>Phone number</th>
-                        <th>View</th>
+                        <th>Customer ID</th>
+
+                        {/* <th>View</th> */}
                       </tr>
                       {applyFilters().map((customer, index) => (
                         <tr key={index} className="admin_home_table_content">
@@ -150,7 +152,7 @@ const Adminhome = () => {
                           <td>{customer.openaccount}</td>
                           <td>{customer.email}</td>
                           <td>{customer.mobilenumber}</td>
-                          <td>View</td>
+                          <td>{customer.customerID}</td>
                         </tr>
                       ))}
                     </tbody>

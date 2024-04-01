@@ -1,6 +1,7 @@
 import React from "react";
 import "./GeneratePin.css";
 import OverviewSidebar from "../../Sidebar/OverViewSidebar";
+import { Link } from "react-router-dom";
 
 const GenerateDebitOrCreditPin = () => {
   return (
@@ -26,31 +27,33 @@ const GenerateDebitOrCreditPin = () => {
             <div className="row">
               <div className="col-6">
                 <div className="debit-card-content">
-                  <h6>Debit Card PIN</h6>{" "}
-                  <div className="d-flex debit-card-inner-content">
-                    <button>GENERATE</button>
+                  <h6>Debit Card PIN</h6>
+                  <div className="debit-card-inner-content m-0 p-0">
+                  <p style={{fontSize:"13px",color:"#9e9a93"}}>
+                      Generate your ATM / Debit Card PIN online.
+                    </p>
+                    
+                  <Link to='/user/account/generate-debitcard-pin'style={{textDecoration:"none"}} > <button>GENERATE</button></Link>
                     {/* <p className="ml-5">
                       Generate your ATM / Debit Card PIN online.
                     </p> */}
-                    <div className="ml-3">
-                      {" "}
-                      your ATM / Debit Card PIN online.
-                    </div>
+                    
                   </div>
                 </div>
               </div>
               <div className="col-6">
                 <div className="debit-card-content">
-                  <h6>Credit Card PIN</h6>{" "}
-                  <div className="d-flex debit-card-inner-content">
-                    <button>GENERATE</button>
+                  <h6>Credit Card PIN</h6>
+                  <div className=" debit-card-inner-content m-0 p-0">
+                      <p style={{fontSize:"13px",color:"#9e9a93"}}>
+                      Generate your ATM / Debit Card PIN online.
+                    </p>
+                   
+                  <Link to='/user/generate-credit-card-pin' style={{textDecoration:"none"}} > <button>GENERATE</button></Link>
                     {/* <p className="ml-5">
                       Generate your ATM / Debit Card PIN online.
                     </p> */}
-                    <div className="ml-3">
-                      {" "}
-                      your Credit Card PIN online.
-                    </div>
+                   
                   </div>
                 </div>
               </div>

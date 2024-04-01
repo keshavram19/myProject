@@ -65,11 +65,6 @@ const apiList ={
     autoDebitSetupNo: `${server}/api/autodebit/no`,
 
 
-  
-
-  requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
-
-
 
     createReissueCard: `${server}/api/createReissueCard`,
 
@@ -77,7 +72,10 @@ const apiList ={
     payLater:`${server}/api/payLaterAccount`,
     billDetails:`${server}/api/payLaterAccount/pay`,
 
-    customerDetails: `${server}/auth/user-account-details`
+    customerDetails: `${server}/auth/user-account-details`,
+
+    changeEmail:` ${server}/api/change-email`,
+    UpdateEmailverifyOTP: `${server}/api/otp-verification`
 }
 
 
