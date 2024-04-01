@@ -140,6 +140,7 @@ import ReissueGenerateOrReject from "./components/User_portal/admin_portal/reiss
 import AdminLogin from "./components/User_portal/admin_portal/admin_login/AdminLogin";
 
 import AdminChequeBookRequest from "./components/User_portal/admin_portal/admin_home/ChequeBookRequest";
+import ShareMyAccountDetails from "./components/User_portal/Netbanking/Profile/ShareMyAccountDetails/ShareMyAccountDetails";
 
 import LimitExceed from "./components/User_portal/Netbanking/Fund_Transfer/LimitExced";
 
@@ -447,6 +448,13 @@ function App() {
             path="/user/profile/financialjourney"
             element={<FinancialJourney />}
           />
+
+            <Route
+            exact
+            path="/user/profile/sharemyaccountdetails"
+            element={<ShareMyAccountDetails/>}
+          />
+
           <Route
             exact
             path="/user/profile/payment"
@@ -457,6 +465,7 @@ function App() {
             path="/user/profile/paymenttransactionlimit"
             element={<PaymentTransactionLimit />}
           />
+
           {/* account opening starts */}
           <Route exact path="/account-opening" element={<AccountOpeningForm />} />
           <Route exact path="/account-success" element={<AccountSuccessPage />} />
