@@ -65,11 +65,6 @@ const apiList ={
     autoDebitSetupNo: `${server}/api/autodebit/no`,
 
 
-  
-
-  // requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
-
-
 
     createReissueCard: `${server}/api/createReissueCard`,
 
