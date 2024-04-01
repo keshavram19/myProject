@@ -64,6 +64,8 @@ const apiList ={
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
 
+
+
     createReissueCard: `${server}/api/createReissueCard`,
 
 

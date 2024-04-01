@@ -15,6 +15,8 @@ import apiList from "../../../../../lib/apiList";
 import AdminSidebar from "../../admin_sidebar/AdminSidebar";
 import { isAuthenticated, handleTokenExpiration } from "../../../../ProtectedRoute/authUtils";
 
+ 
+ 
 export default function IndividualDatalist() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [individualRequesteddata, setIndividualRequesteddata] = useState({});
@@ -29,7 +31,6 @@ export default function IndividualDatalist() {
     // Add more fields as needed
   });
  
- 
   useEffect(() => {
     // Redirect to admin login if URL is manipulated
     if (!location.pathname.includes("/admin/")) {
@@ -42,7 +43,6 @@ export default function IndividualDatalist() {
   useEffect(() => {
     handleTokenExpiration(navigate);
   }, [navigate]);
-
 
   const nextStep = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -76,7 +76,7 @@ export default function IndividualDatalist() {
   
     try { 
       const response = await axios.get(
-         `${apiList.individualrequestedetails}${state}`)
+         `${apiList.individualrequestedetails}/${state}`)
 
      
       console.log(response.data);
@@ -1170,6 +1170,8 @@ export default function IndividualDatalist() {
       ifscCode: "",
       netBankingUserID: "",
       netBankingPassword: "",
+      customerID:"",
+      bankBranch:"",
     });
     const handleCheckboxChange = () => {
       setIsCheckboxChecked(!isCheckboxChecked);
@@ -1193,7 +1195,7 @@ export default function IndividualDatalist() {
           const response = await axios.put(
           // (`http://localhost:4444/api/add-account-details/${state}`,
 
-          `${apiList.addAccountDetails}${state}`,
+          `${apiList.addAccountDetails}/${state}`,
           accountDetails
         );
         toast.success("account details added successfully");
@@ -1256,6 +1258,57 @@ export default function IndividualDatalist() {
               </div>
             </div>
           </div>
+
+          <div className="row mt-5">
+             <div className="col-md-6 col-sm-12 col-12">
+              <div className="">
+                <h6 style={{ fontSize: "12px", fontWeight: "500" }}>
+                Customer ID      
+                </h6>
+
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Customer ID Number generated  by system"
+                  required
+                  style={{ padding: "21px" }}
+                  name="Customer ID"
+                  onChange={handleChange}
+                  value={accountDetails.customerID}
+                  disabled
+                />
+              </div>
+            </div>
+
+            <div className="col-md-6 col-sm-12 col-12">
+              <div className="">
+                <h6 style={{ fontSize: "12px", fontWeight: "500" }}>
+Bank Branch                </h6>
+
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter bank branch"
+                  // required
+                  style={{ padding: "21px" }}
+                  name="bankBranch" // <-- This should match the state key
+                  onChange={handleChange}
+                  value={accountDetails.bankBranch} // <-- This should display the state value
+                  />
+                {/* <p
+                  style={{ color: "#000", fontSize: "10px" }}
+                  className="mt-1 mb-0"
+                >
+                  <b>Note</b> : UserID should have atleast 1 Uppercase,
+                  Lowercase and number, no symbols
+                </p>
+                <p style={{ color: "#000", fontSize: "10px" }}>
+                  Length should be more than 8 to have unique UserID
+                </p> */}
+              </div>
+            </div> 
+
+           </div> 
 
           <div className="row mt-5">
             <div className="col-md-6 col-sm-12 col-12">
@@ -1565,10 +1618,7 @@ export default function IndividualDatalist() {
     <div className="container mt-5">
       <StateProvider>
         <div className="row">
-          <div className="col-2">
-              <AdminSidebar />
-          </div>
-          <div className="col-10">
+          <div className="col-12">
             <Box sx={{ width: "100%" }}>
               <Stepper activeStep={activeStep}>
                 {steps.map((label) => (
@@ -1587,9 +1637,43 @@ export default function IndividualDatalist() {
         </div>
       </StateProvider>
     </div>
-    ) : (
-      <Navigate to="/admin/login" state={{ from: location }} />
-    )}
-    </>
+ ) : (
+  <Navigate to="/admin/login" state={{ from: location }} />
+)}
+</>
+
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
