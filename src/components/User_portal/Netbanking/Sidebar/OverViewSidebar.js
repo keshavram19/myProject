@@ -70,7 +70,7 @@ function OverviewSidebar() {
                             <Link to="/user/profile/changeformat">Date & Amount Format</Link>
                             <Link to="">Favourite Acounts</Link>
                             <Link to="">Favourite Activities</Link>
-                            <Link to="">Personalize Transcation Limits</Link>
+                            <Link to="/user/profile/paymenttransactionlimit">Personalize Transcation Limits</Link>
                             <Link to="/user/profile/updateaccountpreferences">Primary Account</Link>
                             <Link to="/user/profile/changeemail">Update email ID</Link>
                             <Link to="">Link My Account</Link>
@@ -78,7 +78,7 @@ function OverviewSidebar() {
                             <Link to="/user/profile/changeuserid">update User ID</Link>
                             <Link to="/user/profile/changeprofilephoto">Update Profile Photo</Link>
                             <Link to="/user/profile/generatepin">Generate Debit / Credit Card PIN</Link>
-                            <Link to="">Share My Account Details</Link>
+                            <Link to="/user/profile/sharemyaccountdetails">Share My Account Details</Link>
                         </div>
 
                         <button
