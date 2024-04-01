@@ -4,11 +4,13 @@ import { useNavigate,Navigate,useLocation } from 'react-router-dom';
 import './reissueCardTrack.css';
 import AdminSidebar from '../admin_sidebar/AdminSidebar';
 import { isAuthenticated, handleTokenExpiration } from "../../../ProtectedRoute/authUtils";
+import apiList from '../../../../lib/apiList';
 
 const ReissueCardTable = () => {
   const [userData, setUserData] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
+  const token = sessionStorage.getItem('adminloginToken');
 
 
   useEffect(() => {
@@ -27,7 +29,12 @@ const ReissueCardTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/trackAndReissueCard');
+        const response = await axios.get(`${apiList.getReissuecardDetails}`,{
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        });
         setUserData(response.data);
       } catch (error) {
         console.error('Error fetching user data:', error);
