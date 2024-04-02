@@ -125,8 +125,8 @@ const ChequeBookReq = () => {
                     </div>
 
                   </div>
-                  <button className='back_button mt-5' size="sm">BACK</button>
-                  <button className='back_button mt-5 ml-3' size="sm" onClick={handleSubmit}>SUBMIT</button>
+                  <button className='back_button mt-3' size="sm">BACK</button>
+                  <button className='back_button mt-3 ml-3' size="sm" onClick={handleSubmit}>SUBMIT</button>
                 </div>
                 {SRN && (
                   <p className="text-success pl-3">SRN: {SRN}</p>

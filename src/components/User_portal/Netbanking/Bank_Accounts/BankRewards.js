@@ -36,7 +36,7 @@ function BankRewardPoints() {
             <div className='col-3'>
               <BankaccountSidebar />
             </div>
-            <div className='col-9 ' >
+            <div className='col-9'>
               <div className='bank_reward_sec-2'>
                 <div><h3 className='text-center'>Bank Rewards</h3></div>
                 <img src={BankRewardBgImg} style={{ height: '300px', width: '100%' }} alt='bank reward img' />
@@ -77,3 +77,4 @@ function BankRewardPoints() {
 }
 
 export default BankRewardPoints;
+

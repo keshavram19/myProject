@@ -80,7 +80,7 @@ const AdminLogin = () => {
         });
 
         sessionStorage.setItem('adminloginToken', data.token);
-        const expirationTime = new Date().getTime() + 1 * 60 * 1000; 
+        const expirationTime = new Date().getTime() + 7 * 60 * 1000; 
         sessionStorage.setItem('adminexpireTime', expirationTime);
         setTimeout(() => {
           navigate('/admin/all-data');
