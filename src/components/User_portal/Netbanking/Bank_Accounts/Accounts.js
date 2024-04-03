@@ -1,120 +1,33 @@
 import './Accounts.css';
 
 import { useEffect, useState } from 'react';
-import { MdCurrencyRupee } from "react-icons/md";
-import { AiFillPrinter } from "react-icons/ai";
+import { useNavigate, Link } from 'react-router-dom';
 
-import { Link, Navigate, useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
-
 import Navbar from '../Overview/Navbar';
 import apiList from '../../../../lib/apiList';
 
 
-const allTransactionsList = [
-    {
-        date: '15 Feb 2024',
-        narration: 'UPI-BADE NAGARAJU-Q857498653@ybl-YESBOYBLUPI-439140239946-Payment from Phone',
-        withdrawl: '20.00',
-        deposite: '',
-        balance: '1.48'
-    },
-    {
-        date: '14 Feb 2024',
-        narration: 'UPI-Mr RAVI TEJA-7032256838@ybl-IDIB000M160-402484923876-Payment to 7032256',
-        withdrawl: '10,000.00',
-        deposite: '',
-        balance: '21.48'
-    },
-    {
-        date: '13 Feb 2024',
-        narration: 'UPI-PRATHI PAWAN KALYAN-89788426211@ybl-SBIN0011101-438930608914-Payment from Phone',
-        withdrawl: '',
-        deposite: '10,000.00',
-        balance: '10,021.48'
-    },
-    {
-        date: '12 Feb 2024',
-        narration: 'UPI-KANDRA SUNIL-9676350447@ybl-IOBA0003640-402376683037-Payment to 9676350',
-        withdrawl: '10,000.00',
-        deposite: '',
-        balance: '21.48'
-    },
-    {
-        date: '11 Feb 2024',
-        narration: 'UPI-Mr SAI TEJA-7032256838@ybl-IDIB000M160-438905881961-Payment from Phone',
-        withdrawl: '',
-        deposite: '10,000.00',
-        balance: '10,021.48'
-    },
-    {
-        date: '10 Feb 2024',
-        narration: 'UPI-Southern Power Distr-TELANGANASSPDCL-@ybl-YESBOYBLUPI-438578208304-Payment from Phone',
-        withdrawl: '579.00',
-        deposite: '',
-        balance: '34.43'
-    },
-    {
-        date: '09 Feb 2024',
-        narration: 'UPI-S J ENTERPRISES-paytmqr281005050101ohcg3wn30uhq@paytm-PYTM0123456-401914284585-Payment from Phone',
-        withdrawl: '30.00',
-        deposite: '',
-        balance: '613.43'
-    },
-    {
-        date: '08 Feb 2024',
-        narration: 'UPI-FAMOUS CHICKEN CENTER-paytmqr1r7sb4s8ks@paytm-PYTM0123456-401897267622-Payment from Phone',
-        withdrawl: '45.00',
-        deposite: '',
-        balance: '643.43'
-    }
-];
-
 const Accounts = () => {
 
-    const [viewAccStatement, setViewAccStatement] = useState()
-    const [accountDetails, setAccountDetails] = useState()
+    const [viewAccStatement, setViewAccStatement] = useState();
+    const [accountDetails, setAccountDetails] = useState({
+        accountNumber: '',
+        firstname: '',
+        lastname: '',
+        prefix: '',
+        dateofbirth: '',
+        pannumber: '',
+        ifscCode: '',
+        openaccount: '',
+        mobilenumber: '',
+        userAccountBalance: ''
+    });
+    const [recentTransactions, setRecentTransactions] = useState([]);
 
-    // let navigate = useNavigate();
-    // let logintoken = sessionStorage.getItem('loginToken')
-    // useEffect(() => {
-    //     if(!logintoken){
-    //         navigate('/netbanking-personal-login');
-    //     }
-    //     const timeout = setTimeout(() => {
-    //         sessionStorage.removeItem('loginToken');
-    //         navigate('/netbanking-personal-login');
-    //     }, 60000); //300000
-    //     return () => clearTimeout(timeout);
-    // }, [logintoken, navigate]);
-
-    // let navigate = useNavigate();
-    // let logintoken = sessionStorage.getItem('loginToken')
-    // if(!logintoken){
-    //     navigate('/netbanking-personal-login');
-    // }
-
-    // let token = sessionStorage.getItem('loginToken');
-    // let tokenTime = sessionStorage.getItem('expireTime');
-    // let navigate = useNavigate();
-    // useEffect(() => {
-    //     if (token && tokenTime) {
-    //         const expireTime = new Date(tokenTime);
-    //         const currentTime = new Date();   
-    //         if (currentTime > expireTime) { 
-    //           sessionStorage.removeItem('loginToken');
-    //           sessionStorage.removeItem('expireTime');
-    //           navigate('/netbanking-personal-login');
-    //         }
-    //       }
-    //       else {
-    //         navigate('/netbanking-personal-login');
-    //       }
-    // }, []);
 
     const navigate = useNavigate();
-    let logintoken = sessionStorage.getItem('loginToken')
+    let logintoken = sessionStorage.getItem('loginToken');
     const isTokenExpired = () => {
         const expirationTime = sessionStorage.getItem("expireTime");
         return expirationTime && new Date().getTime() > parseInt(expirationTime, 10);
@@ -122,14 +35,17 @@ const Accounts = () => {
     useEffect(() => {
         if (isTokenExpired()) {
             sessionStorage.clear();
-            sessionStorage.removeItem('loginToken')
+            sessionStorage.removeItem('loginToken');
             navigate('/netbanking-personal-login');
         }
-        else if(!logintoken){
+        else if (!logintoken) {
             navigate('/netbanking-personal-login');
         }
     }, [navigate]);
 
+    // const expiredTime = sessionStorage.getItem('expireTime');
+    // console.log(new Date().getTime());
+    // console.log(parseInt(expiredTime, 10));
 
     const accountStatement = () => {
         if (viewAccStatement === 'true') {
@@ -140,20 +56,78 @@ const Accounts = () => {
         }
     };
 
-    useEffect(() => {
-        getUserAccountDetails()
-    }, []);
-    let accountNumber = 123456789;
-    const getUserAccountDetails = async () => {
-        const options = {
-            method: 'GET'
-        };
-        const response = await fetch(`${apiList.customerAccountDetails}${accountNumber}`, options);
-        const data = await response.json();
-        setAccountDetails(data.details)
-    };
 
-    const latestTransactions = allTransactionsList.slice(0, 3)
+    useEffect(() => {
+        customerDetails()
+    }, []);
+
+    // const customerDetails = async () => {
+
+    //     const options = {
+    //         method: "GET",
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${logintoken}`
+    //         }
+    //     };
+
+    //     try {
+    //         const response = await fetch(apiList.customerDetails, options);
+    //         if (response.ok) {
+    //             const data = await response.json();
+    //             setAccountDetails(data.user)
+    //             setRecentTransactions(data.user.transactions)
+    //         }
+    //         else {
+    //             console.log(response);
+    //         }
+    //     }
+    //     catch (error) {
+    //         console.log(error.message);
+    //     }
+    // };
+
+    const customerDetails = async () => {
+        const options = {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${logintoken}`
+            }
+        };
+
+        try {
+            const response = await fetch(apiList.customerDetails, options);
+            if (response.ok) {
+                const data = await response.json();
+
+                // Format dates in recentTransactions
+                const formattedTransactions = data.user.transactions.map(transaction => ({
+                    ...transaction,
+                    date: new Date(transaction.date).toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric'
+                    })
+                }));
+
+                setAccountDetails(data.user);
+                setRecentTransactions(formattedTransactions);
+            } else {
+                console.log(response);
+            }
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+    // console.log(recentTransactions);
+
+
+    const latestTransactions = recentTransactions.slice().reverse();
+    const reversedArray = latestTransactions.slice(0, 3);
+
+    // const lastThreeDigits = (accountDetails.mobilenumber).slice(-4)
+    // const maskedDigits = 'X'.repeat(6);
 
 
     return (
@@ -167,69 +141,83 @@ const Accounts = () => {
                     </div>
                 </div>
                 <div className='col-9'>
-                    {accountDetails && (
-                        <div className='accounts_container'>
-                            <div className='savings_account_header'>
-                                <div>
-                                    <span className='savings_acct_type_heading'>Account Type</span>: {accountDetails.userAccountType}
+
+                    <div className='accounts_container'>
+                        <div className='savings_account_header'>
+                            <div className='d-flex align-items-center'>
+                                <div className='savings_acct_type_heading'>
+                                    Account Type:
                                 </div>
-                                <div>
-                                    <span className='savings_acct_avail_bal'>Available Balance:</span> <MdCurrencyRupee />{accountDetails.userAccountBalance}
+                                <div className='savings_acct_type_text'>
+                                    {accountDetails.openaccount}
                                 </div>
                             </div>
-                            <div className='savings_account_user_details_cont'>
-                                <div>
-                                    <div className='savings_acct_user_headings'>Account No:</div>
-                                    <div>{accountDetails.userAccountNumber}</div>
+                            <div className='d-flex align-items-center'>
+                                <div className='savings_acct_avail_bal'>
+                                    Available Balance:
                                 </div>
-                                <div>
-                                    <div className='savings_acct_user_headings'>Name</div>
-                                    <div>{accountDetails.accountHolderName}</div>
-                                </div>
-                                <div>
-                                    <div className='savings_acct_user_headings'>Date of Birth</div>
-                                    <div>{accountDetails.userDateOfBirth}</div>
-                                </div>
-                                <div>
-                                    <div className='savings_acct_user_headings'>PAN</div>
-                                    <div>{accountDetails.accountHolderPAN}</div>
-                                </div>
-                                <div>
-                                    <div className='savings_acct_user_headings'>Branch</div>
-                                    <div>{accountDetails.bankBranchName}</div>
-                                </div>
-                                <div>
-                                    <div className='savings_acct_user_headings'>Balance</div>
-                                    <div className='d-flex align-items-center'><MdCurrencyRupee />{accountDetails.userAccountBalance}</div>
-                                </div>
-                                <div className='d-flex align-items-center'>
-                                    <button onClick={accountStatement} className='account_statement_view_btn'>
-                                        {viewAccStatement === 'true' ? 'Hide' : 'View'}
-                                    </button>
+                                <div className='savings_acct_avail_bal_text'>
+                                    {accountDetails.userAccountBalance}
                                 </div>
                             </div>
                         </div>
-                    )}
+                        <div className='savings_account_user_details_cont'>
+                            <div>
+                                <div className='savings_acct_user_headings'>Account No:</div>
+                                <div>{accountDetails.accountNumber}</div>
+                            </div>
+                            <div>
+                                <div className='savings_acct_user_headings'>First Name</div>
+                                <div>{accountDetails.prefix} {accountDetails.firstname} {accountDetails.lastname}</div>
+                            </div>
+                            <div>
+                                <div className='savings_acct_user_headings'>Date of Birth</div>
+                                <div>{accountDetails.dateofbirth}</div>
+                            </div>
+                            <div>
+                                <div className='savings_acct_user_headings'>PAN</div>
+                                <div>{accountDetails.pannumber}</div>
+                            </div>
+                            <div>
+                                <div className='savings_acct_user_headings'>IFSC Code</div>
+                                <div>{accountDetails.ifscCode}</div>
+                            </div>
+                            <div>
+                                <div className='savings_acct_user_headings'>Mobile No:</div>
+                                <div>{accountDetails.mobilenumber}</div>
+                            </div>
+                            <div className='d-flex align-items-center'>
+                                <button onClick={accountStatement} className='account_statement_view_btn'>
+                                    {viewAccStatement === 'true' ? 'Hide' : 'View'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                     {viewAccStatement === 'true' ?
                         <div>
-                            {/* <div className='d-flex justify-content-between savings_acct_statement'>
-                                <div className='savings_acc_statement_cont_heading'>View Account Statement</div>
-                                <div className='d-flex'>
-                                    <div><AiFillPrinter className='acct_statement_printer_icon' /></div>
-                                    <div className='acct_statement_printer_text'>Print This Page</div>
+                            <div className='d-flex align-items-center'>
+                                <div className='acct_statement_acct_num'>
+                                    Account Number:
                                 </div>
-                            </div> */}
-                            <div>
-                                <div><span className='acct_statement_acct_num'>Account Number:</span> {accountDetails.userAccountNumber}, {accountDetails.bankBranchName}</div>
+                                <div className='acct_statement_num_text'>
+                                    {accountDetails.accountNumber}
+                                </div>
                             </div>
                             <div className='d-flex justify-content-between savings_acc_another_acct'>
                                 <div><Link to='/user/account/statement'>Select Another Account/Period</Link></div>
                             </div>
                             <div className='d-flex justify-content-end'>
                                 <div className='d-flex align-items-center'>
-                                    <span className='savings_acct_mybalnace'>My Balance:</span> <MdCurrencyRupee />{accountDetails.userAccountBalance}
+                                    <div className='savings_acct_mybalnace'>
+                                        My Balance:
+                                    </div>
+                                    <div className='savings_acct_mybal_text'>
+                                        {accountDetails.userAccountBalance}
+                                    </div>
                                 </div>
                             </div>
+
                             <div className='my-3'>
                                 <table className='table table-bordered savings_acct_trans_table'>
                                     <thead className='savings_acct_trans_table_header'>
@@ -243,13 +231,13 @@ const Accounts = () => {
                                     </thead>
                                     <tbody className='savings_acct_trans_table_body'>
                                         {
-                                            latestTransactions.map((eachTran) => (
+                                            reversedArray.map((transaction) => (
                                                 <tr>
-                                                    <td>{eachTran.date}</td>
-                                                    <td>{eachTran.narration}</td>
-                                                    <td>{eachTran.withdrawl}</td>
-                                                    <td>{eachTran.deposite}</td>
-                                                    <td>{eachTran.balance}</td>
+                                                    <td style={{ width: '100px' }}>{transaction.date}</td>
+                                                    <td>{transaction.description}</td>
+                                                    <td>{transaction.withdrawal}</td>
+                                                    <td>{transaction.deposit}</td>
+                                                    <td>{transaction.balance}</td>
                                                 </tr>
                                             ))
                                         }

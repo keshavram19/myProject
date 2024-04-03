@@ -14,28 +14,40 @@ const CreditCardPin = () => {
     const [confirmCreditCardPin, setConfirmCreditCardPin] = useState('');
     const [userDetails, setUserDetails] = useState([]);
 
-    const accountNumber = 1124563456;
+    const token = sessionStorage.getItem('loginToken');
 
-    useEffect(() => {
-        fetchData();
-    }, []);
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-            const userDetailsData = response.data.details;
+            const requestOptions = {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            };
+            const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+            if (response.ok) {
+                const data = await response.json();
+                const userDetailsData = data.user;
+                if (Array.isArray(userDetailsData)) {
+                    setUserDetails(userDetailsData);
 
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
+                } else if (typeof userDetailsData === 'object') {
+                    setUserDetails([userDetailsData]);
+                } else {
+                    console.error('Invalid user details format:', userDetailsData);
+                }
             } else {
-                console.error('Invalid user details format:', userDetailsData);
+                console.error('Error fetching user details:', response.statusText);
             }
         } catch (error) {
             console.error('Error fetching user details:', error);
         }
     };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     const handleGeneratePin = async () => {
         const errors = [];
@@ -52,13 +64,20 @@ const CreditCardPin = () => {
 
         if (errors.length === 0) {
             try {
+                const requestOptions = {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                };
                 await fetchData();
 
-                const response = await axios.post(`${apiList.GenerateCreditcardpin}`, {
-                    userAccountNumber: userDetails[0].userAccountNumber,
+                const response = await axios.post(apiList.GenerateCreditcardpin, {
+                    accountNumber: userDetails[0].accountNumber,
                     creditCardPin,
                     confirmCreditCardPin,
-                });
+                }, requestOptions);
+
 
                 console.log(response.data);
 

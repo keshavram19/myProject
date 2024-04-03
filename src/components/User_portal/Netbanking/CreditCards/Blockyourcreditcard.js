@@ -7,47 +7,72 @@ import apiList from '../../../../lib/apiList';
  function BlockCreditCard() {
  
   const [customerAccData, setCustomerAccData] = useState([]);
-  const accountNumber = 123456789;
+  
   const [reason, setReason] = useState('');
-    const [CVVNumber, setCVVNumber] = useState('');
+    
   const [individualCreditCard, setIndividualCreditCard] = useState({
     
   });
   const [otp, setOtp] = useState('');
  
   const [creditCardNum, setCreditCardNum] = useState('');
-  const [customerDetails, setCustomerDetails] = useState();
+  const [customerDetails, setCustomerDetails] = useState({
+    accountNumber: ''
+});
+
+let token = sessionStorage.getItem('loginToken');
+
   useEffect(() => {
     getUserDetails()
 }, []);
+
 const getUserDetails = async () => {
-    const options = {
-        method: 'GET'
-    };
-    const response = await fetch(`${apiList.customerAccountDetails}${accountNumber}`, options);
-    const data = await response.json();
-    setCustomerDetails(data.details);
-    setCustomerAccData(data.details.userCreditCardDetails);
-    setCreditCardNum(data.details.userCreditCardDetails[0].creditCardNumber);
+  const options = {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+      }
+  };
+
+  try {
+      const response = await fetch(apiList.customerDetails, options)
+      if (response.ok) {
+          const data = await response.json()
+          setCustomerDetails(data.user);
+          if (data.user.userCreditCardDetails && data.user.userCreditCardDetails.length > 0) {
+              setCustomerAccData(data.user.userCreditCardDetails);
+              setCreditCardNum(data.user.userCreditCardDetails[0].creditCardNumber);
+          }
+      }
+  } catch (error) {
+      console.log(error.message);
+  }
 };
+
+
 useEffect(() => {
-  if (!creditCardNum && customerAccData.length > 0) {
+  if (customerAccData.length > 0) {
       setCreditCardNum(customerAccData[0].creditCardNumber);
   }
   else {
-      getIndividualCreditCard(creditCardNum);
+      // handle the case where customerAccData is empty
   }
-}, [creditCardNum]);
+}, [customerAccData]);
+
+
+
 const handleCreditCardNumber = (event) => {
   setCreditCardNum(event.target.value);
 };
+
 const getIndividualCreditCard = async (selectedCreditCardNum) => {
 const options = {
     method: 'GET'
 };
 try {
-    const response = await fetch(`${apiList.customerCreditCardDetails}${accountNumber}/${creditCardNum}`, options);
-    const data = await response.json();
+  const response = await fetch(`${apiList.customerCreditCardDetails}${customerDetails.accountNumber}/${creditCardNum}`, options);
+  const data = await response.json();
     setIndividualCreditCard(data);
     
 } catch (error) {
@@ -57,11 +82,16 @@ try {
   
 const handleSubmit = async () => {
   try {
-      const response = await axios.put(`${apiList.BlockCreditCard}/${accountNumber}/${creditCardNum}`, {
+      const response = await axios.put(`${apiList.BlockCreditCard}/${customerDetails.accountNumber}/${creditCardNum}`, {
           reason,
-          CVVNumber,
+         
           CreditCardStatus: 'blocked' // Assuming you want to set the credit card status to blocked
+      },{
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
       });
+      
       toast.success(response.data.message);
       // Reset the form fields after successful submission
      
@@ -73,14 +103,18 @@ const handleSubmit = async () => {
 
 const handleVerify = async () => {
   try {
-      const response = await axios.post(`${apiList.BlockCreditCardOTPVerify}/${accountNumber}/${creditCardNum}`, {
+      const response = await axios.post(`${apiList.BlockCreditCardOTPVerify}/${customerDetails.accountNumber}/${creditCardNum}`, {
           receivedOTP: otp
+      },{
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
       });
       toast.success(response.data.message);
       // Reset the OTP field after successful submission
       setOtp('');
       setReason('');
-      setCVVNumber('');
+      
   } catch (error) {
       console.error('Error verifying OTP:', error);
       toast.error('Invalid OTP. Credit card block failed.');
@@ -109,13 +143,14 @@ const handleVerify = async () => {
                    </label>
             <label for="CardHolderName" className='form-inline'>
              <span className='col-md-3'>Card Holder Name</span>
-              <input type="text" className='form-control form-control-sm col-md-3 w-25' placeholder='Enter Your Name' value={customerDetails && customerDetails.accountHolderName} readOnly />
+              <input type="text" className='form-control form-control-sm col-md-3 w-25' placeholder='Enter Your Name'  value={`${customerDetails && customerDetails.firstname} ${customerDetails && customerDetails.lastname}`} 
+        readOnly/>
             </label>  
             
             <label for="CVVNumber" className='form-inline'>
              <span className='col-md-3'>CVV Number</span>
-             <input type="text" className='form-control form-control-sm col-md-3 w-25' placeholder='XXX'
-                                value={CVVNumber} onChange={(e) => setCVVNumber(e.target.value)} />
+             <input type="text" className='form-control form-control-sm col-md-3 w-25' placeholder='XXX'        value={customerDetails?.userCreditCardDetails?.[0]?.userCreditCardcvv}
+ />
             </label>
          <label for='crediCardNumber' className='form-inline '>
           <span className='col-md-3'>Reason for Blocking</span>
@@ -134,7 +169,7 @@ const handleVerify = async () => {
          </label>
          <label for="email" className='form-inline'>
              <span className='col-md-3'>Email</span>
-              <input type="text" className='form-control form-control-sm col-md-3 w-25' placeholder='XXXXXXXXXX@gmail.com'  value={customerDetails && customerDetails.userEmailId} readOnly/>
+              <input type="text" className='form-control form-control-sm col-md-3 w-25' placeholder='XXXXXXXXXX@gmail.com'  value={customerDetails && customerDetails.email} readOnly/>
             </label>
           </div>
 <hr/>

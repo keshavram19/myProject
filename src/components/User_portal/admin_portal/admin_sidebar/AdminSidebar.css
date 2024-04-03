@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+ 
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+
+.admin_sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 110px; /* Adjust the width as needed */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(17px);
+    --webkit-backdrop-filter: blur(17px);
+    border-right: 1px solid rgba(255, 255, 255, 0.7);
+    transition: width 0.3s ease;
+}
+
+.logo-container {
+    text-align: center;
+}
+
+.admin_sidebar:hover {
+    width: 260px;
+    height: auto;
+    
+}
+
+.logo-container img {
+    width: 170px;
+    border-radius: 50%;
+}
+
+
+.links {
+    list-style: none;
+    margin-top: auto;
+    padding-bottom: 20px; 
+}
+
+
+
+.logo img {
+    width: 60px; /* Adjust the size as needed */
+    border-radius: 50%;
+}
+
+/* Show logo text on hover */
+.logo h2 {
+    display: none;
+}
+
+.admin_sidebar:hover .logo h2 {
+    display: block;
+}
+
+.admin_sidebar .links {
+    list-style: none;
+    margin-top: 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    height: calc(100% - 70px);
+}
+
+.admin_sidebar .links::-webkit-scrollbar {
+    display: none;
+}
+
+.links li {
+    display: flex;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.links li:hover {
+    cursor: pointer;
+    background: #fff;
+}
+
+.admin_sidebar_logos{
+  color: #187559;
+}
+
+.links h4 {
+    color: #ebca28;
+    font-weight: 500;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.admin_sidebar:hover .links h4 {
+    display: block;
+}
+
+.links hr {
+    margin: 10px 8px;
+    border: 1px solid #4c4c4c;
+}
+
+.admin_sidebar:hover .links hr {
+    border-color: transparent;
+}
+
+.links li span {
+    padding: 12px 10px;
+}
+
+.links li a {
+    padding: 10px;
+    color: #187559;
+    display: none;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.admin_sidebar:hover .links li a {
+    display: block;
+}
+
+.links .logout-link {
+    margin-top: 5px;
+
+}
+
+.admin_sidebar_button{
+  outline: none;
+  background: none;
+  border: none;
+  color: #187559;
+
+}

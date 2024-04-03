@@ -14,7 +14,11 @@
     box-shadow: none !important;
     font-size: small;
   }
-  
+  .viewSummary h1 {
+    font-size: 24px;
+    color: #2fb68e;
+    font-weight: 400;
+}
   .accounts_preferences .account_preferences_heading {
     color: #4a4a4a;
     font-family: Helvetica;
@@ -77,13 +81,13 @@
     font-size: small;
     color: #fff;
     /* letter-spacing: 0.1rem; */
-    background: #eb6c18c8;
+    background: #2fb68e;
     display: inline;
     cursor: pointer;
     text-transform: uppercase;
   
     text-align: center;
-    border: 1px solid #eb6c18c8;
+    border: 1px solid #fff;
 }
   
 

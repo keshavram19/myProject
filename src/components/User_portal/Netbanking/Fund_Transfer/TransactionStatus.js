@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
 
 function TransactionStatus() {
-    const navigate=useNavigate();
+    const navigate=useNavigate();    
 
     function handleClick (){
 

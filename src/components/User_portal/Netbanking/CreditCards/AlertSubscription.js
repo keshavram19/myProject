@@ -9,25 +9,42 @@ import apiList from '../../../../lib/apiList';
 
  function AlertSubscription() {
   const [customerAccData, setCustomerAccData] = useState([]);
-    const accountNumber = 123456789;
+    
     const [subscriptionAlert, setSubscriptionAlert] = useState('');
     const [individualCreditCard, setIndividualCreditCard] = useState({  
     });
     const [creditCardNum, setCreditCardNum] = useState('');
-    const [customerDetails, setCustomerDetails] = useState();
+    const [customerDetails, setCustomerDetails] = useState({
+      accountNumber: ''
+  }); 
+
+  let token = sessionStorage.getItem('loginToken');
+
     useEffect(() => {
       getUserDetails()
   }, []);
   const getUserDetails = async () => {
-      const options = {
-          method: 'GET'
-      };
-      const response = await fetch(`${apiList.customerAccountDetails}${accountNumber}`, options);
-      const data = await response.json();
-      setCustomerDetails(data.details);
-      setCustomerAccData(data.details.userCreditCardDetails);
-      setCreditCardNum(data.details.userCreditCardDetails[0].creditCardNumber);
+  const options = {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+      }
   };
+
+  try {
+      const response = await fetch(apiList.customerDetails, options)
+      if (response.ok) {
+          const data = await response.json()
+          setCustomerDetails(data.user)
+          setCustomerAccData(data.user.userCreditCardDetails)
+          setCreditCardNum(data.user.userCreditCardDetails[0].creditCardNumber)
+      }
+  }
+  catch (error) {
+      console.log(error.message);
+  }
+};
   useEffect(() => {
     if (!creditCardNum && customerAccData.length > 0) {
         setCreditCardNum(customerAccData[0].creditCardNumber);
@@ -36,22 +53,24 @@ import apiList from '../../../../lib/apiList';
         getIndividualCreditCard(creditCardNum);
     }
 }, [creditCardNum]);
+
 const handleCreditCardNumber = (event) => {
     setCreditCardNum(event.target.value);
 };
+
 const getIndividualCreditCard = async (selectedCreditCardNum) => {
   const options = {
       method: 'GET'
   };
   try {
-      const response = await fetch(`${apiList.customerCreditCardDetails}${accountNumber}/${creditCardNum}`, options);
-      const data = await response.json();
+    const response = await fetch(`${apiList.customerCreditCardDetails}${customerDetails.accountNumber}/${creditCardNum}`, options);
+    const data = await response.json();
       setIndividualCreditCard(data);
       
   } catch (error) {
       console.error('Error fetching individual credit card:', error);
   }
-};
+  };
 
 const handleSubscriptionAlert = (event) => {
   setSubscriptionAlert(event.target.value);
@@ -59,14 +78,18 @@ const handleSubscriptionAlert = (event) => {
 
 const handleSubmit = async () => {
   try {
-      const response = await axios.put(`${apiList.customerCreditCardDetails}${accountNumber}/${creditCardNum}`, {
-          subscriptionAlert: subscriptionAlert
-      });
-      console.log(response.data);
-      toast.success('Subscription alert updated successfully');
+    const response = await axios.put(`${apiList.customerCreditCardDetails}${customerDetails.accountNumber}/${creditCardNum}`, {
+      updateFields: { AlertSubscription: subscriptionAlert }
+    }, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    console.log(response.data);
+    toast.success('Subscription alert updated successfully');
   } catch (error) {
-      console.error('Error updating subscription alert:', error);
-      toast.error('Failed to update subscription alert');
+    console.error('Error updating subscription alert:', error);
+    toast.error('Failed to update subscription alert');
   }
 };
 

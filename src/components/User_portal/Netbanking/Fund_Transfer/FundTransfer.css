@@ -582,6 +582,35 @@ color: white;
   border-radius: 10px;
 }
 
+/* .limit_exceed.css starts */
+
+.limit_exceed_exclamation{
+  font-size: 40px;
+  color: red;
+}
+.limit_exceed_para{
+  font-size: 25px;
+  margin-top: 5px
+}
+
+.limit_exceed_turn {
+  color: #2fb68e;
+  border: 1px solid #2fb68e;
+  background-color: transparent;
+  padding: 5px 14px;
+  outline: none;
+  font-size: 14px;
+    font-weight: 600;
+  border-radius: 10px;
+}
+
+.limit_exceed_turn:hover{
+  background-color: #2fb68e; 
+  color: #fff; 
+  border-radius: 10px;
+}
+/* .limit_exceed.css ends */
+
 
 /*otppage.css ends */
   
@@ -826,7 +855,7 @@ color: #fff;
       margin-left: 5px;
       /* background-color: #f1ecec; */
       /* background-color: #ebca28; */
-      background-color: #fff1ad;
+      /* background-color: #fff1ad; */
       height: 25px;
        outline: none;
       font-size: small;

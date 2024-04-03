@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import apiList from '../../../../lib/apiList';
 import './Creditcard.css';
@@ -13,35 +12,33 @@ const VirtualCreditCards = () => {
     const [userDetails, setUserDetails] = useState([]);
     const [selectedAccount, setSelectedAccount] = useState('');
     const [selectedCreditCard, setSelectedCreditCard] = useState('');
-    const [lastFourDigits, setLastFourDigits] = useState('');
-    const accountNumber = 1124563456;
-
-    
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-            const userDetailsData = response.data.details;
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
-                setLastFourDigits(userDetailsData[0].userMobileNumber);
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
-                setLastFourDigits(userDetailsData.userMobileNumber);
+            const token = sessionStorage.getItem('loginToken');
+            const requestOptions = {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            };
+            const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+            if (response.ok) {
+                const data = await response.json();
+                setUserDetails([data.user]);
             } else {
-                console.error('Invalid user details format:', userDetailsData);
+                console.error('Error fetching user details:', response.statusText);
             }
         } catch (error) {
             console.error('Error fetching user details:', error);
         }
-        console.log('User Details:', userDetails);
     };
 
+
     useEffect(() => {
-        if (selectedAccount === '') {
-            fetchData();
-        }
-    }, [selectedAccount]);
+        fetchData();
+    }, []);
 
     const handleAccountChange = (event) => {
         setSelectedAccount(event.target.value);
@@ -55,8 +52,6 @@ const VirtualCreditCards = () => {
         return ` ${firstFourDigits}${maskedDigits}${lastFourDigits}`;
     };
 
-   
-    
 
     const handlePdfOptionChange = (event) => {
         setPdfOption(event.target.value);
@@ -73,17 +68,32 @@ const VirtualCreditCards = () => {
     
         if (creditCardRef.current) {
             const formattedContent = `
-                <div>
-                    <p>Royal Islamic Credit card</p>
-                    <p>Card Number: ${userDetails[0].userCreditCardDetails[0].creditCardNumber}</p>
-                    <p>Account Holder Name: ${userDetails[0].accountHolderName}</p>
-                    <p>Expiry Date: ${userDetails[0].userCreditCardDetails[0].userCreditCardExpiryDate}</p>
-                    <p>Credit Card Limit: ${userDetails[0].userCreditCardDetails[0].creditCardLimit}</p>
-                    <p>Total Amount Due: ${userDetails[0].userCreditCardDetails[0].totalAmountDue}</p>
-                    <p>Current Outstanding: ${userDetails[0].userCreditCardDetails[0].currentOutstanding}</p>
-                    <p>Available Credit Limit: ${userDetails[0].userCreditCardDetails[0].availableCreditLimit}</p>
-                    <p>CVV: ${userDetails[0].userCreditCardDetails[0].userCreditCardcvv}</p>
-                    <p>Status: ${userDetails[0].userCreditCardDetails[0].userCreditCardStatus}</p>
+                <div style="font-family: Arial, sans-serif; padding: 10px;">
+                    <h2 style="color: #ebca28; margin-bottom: 30px;">Royal Islamic Credit Card Details</h2>
+                    <div style="display: grid; grid-template-columns: auto auto;">
+                        <div>
+                            <p><strong>Card Number</strong></p>
+                            <p><strong>Account Holder Name</strong></p>
+                            <p><strong>Expiry Date</strong></p>
+                            <p><strong>Credit Card Limit</strong></p>
+                            <p><strong>Total Amount Due</strong></p>
+                            <p><strong>Current Outstanding</strong></p>
+                            <p><strong>Available Credit Limit</strong></p>
+                            <p><strong>CVV</strong></p>
+                            <p><strong>Status</strong></p>
+                        </div>
+                        <div>
+                            <p>: ${formatCreditCardNumber(userDetails[0].userCreditCardDetails[0].creditCardNumber)}</p>
+                            <p>: ${userDetails[0].firstname} ${userDetails[0].lastname}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].userCreditCardExpiryDate}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].creditCardLimit}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].totalAmountDue}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].currentOutstanding}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].availableCreditLimit}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].userCreditCardcvv}</p>
+                            <p>: ${userDetails[0].userCreditCardDetails[0].userCreditCardStatus}</p>
+                        </div>
+                    </div>
                 </div>
             `;
     
@@ -136,8 +146,8 @@ const VirtualCreditCards = () => {
                                             onChange={handleAccountChange}
                                         >
                                             {userDetails.map((account, index) => (
-                                                <p key={index} value={account.userAccountNumber}>
-                                                    <p>{account.accountHolderName}</p>
+                                                <p key={index} value={account.accountNumber}>
+                                                    <p>{account.firstname}{account.lastname}</p>
                                                 </p>
                                             ))}
                                         </p>
@@ -173,13 +183,13 @@ const VirtualCreditCards = () => {
                                                 </button>
                                             </div>
                                         </div>
-                                       <div style={{marginTop:'80px'}}>
-                                       <ul className='virtual_credit_card_links'>
-                                            <li>Useful Links :</li>
-                                            <li><Link to="">Terms and Conditions</Link></li>
-                                            <li><Link to="">FAQs</Link></li>
-                                        </ul>
-                                       </div>
+                                        <div style={{ marginTop: '80px' }}>
+                                            <ul className='virtual_credit_card_links'>
+                                                <li>Useful Links :</li>
+                                                <li><Link to="">Terms and Conditions</Link></li>
+                                                <li><Link to="">FAQs</Link></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

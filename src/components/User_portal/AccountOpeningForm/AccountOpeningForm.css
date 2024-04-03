@@ -34,7 +34,7 @@
   padding: 20px;
 }
 .account_opening_Identify_yourself_nextbtn {
-  background-color: #f18121 !important;
+  background-color: #2fb68e !important;
   color: #fff !important;
   padding: 7px 30px !important;
   border: none;
@@ -91,13 +91,13 @@
 }
 
 .account_opening_profile_nextbtn {
-  background-color: #f18121 !important;
+  background-color: #2fb68e !important;
   color: #fff !important;
   padding: 7px 30px !important;
   margin-left: 2px !important;
 }
 .account_opening_profile_prevbtn {
-  background-color: #f18121 !important;
+  background-color: #2fb68e !important;
   color: #fff !important;
   padding: 7px 30px !important;
   margin: 1;
@@ -180,3 +180,30 @@
 }
 
 
+/* Account Successful css start*/
+.account_successful{
+  border: 2px solid #2fb68e;
+  padding: 5%;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 5%;
+}
+.account_successful_button{
+  margin: 2%;
+  outline: none;
+  overflow: hidden;
+  border: 1px solid #2fb68e;
+  border-radius: 4px;
+  color: white;
+  background-color: #2fb68e;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px;
+
+}
+
+
+.account_successful_heading{
+  color: #2fb68e;
+}
+/* Account Successful css end*/

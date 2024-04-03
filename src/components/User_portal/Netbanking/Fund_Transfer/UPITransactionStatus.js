@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+    import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './FundTransfer.css';
 import { Link } from 'react-router-dom';
@@ -13,7 +13,7 @@ const UpiTransaction = () => {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [viewAccStatement, setViewAccStatement] = useState();
-    const accountNumber= 1124563456;
+    const token = sessionStorage.getItem('loginToken');
 
     const accountStatement = () => {
         if (selectedAccount && startDate && endDate) {
@@ -25,35 +25,42 @@ const UpiTransaction = () => {
         }
     };
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(`${apiList.customerAccountDetails}${accountNumber}`);
-            const userDetailsData = response.data.details;
 
-            if (Array.isArray(userDetailsData)) {
-                setUserDetails(userDetailsData);
 
-            } else if (typeof userDetailsData === 'object') {
-                setUserDetails([userDetailsData]);
-            } else {
-                console.error('Invalid user details format:', userDetailsData);
+        const fetchData = async () => {
+            try {
+              
+                const requestOptions = {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                };
+                const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
+                if (response.ok) {
+                    const data = await response.json();
+                    setUserDetails([data.user]);
+                } else {
+                    console.error('Error fetching user details:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching user details:', error);
             }
-
-        } catch (error) {
-            console.error('Error fetching user details:', error);
-        }
-        console.log('User Details:', userDetails);
-
-    };
+        };
 
     useEffect(() => {
-        if (selectedAccount === '') {
             fetchData();
-        }
-    }, [selectedAccount]);
+    }, []);
 
     const handleAccountChange = (event) => {
         setSelectedAccount(event.target.value);
+    };
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const options = { day: 'numeric', month: 'short', year: 'numeric' };
+        return date.toLocaleDateString('en-GB', options);
     };
 
     return (
@@ -83,10 +90,10 @@ const UpiTransaction = () => {
                                 >
                                     <option value="">Select Account Number</option>
                                     {userDetails.map((account, index) => (
-                                        <option key={index} value={account.userAccountNumber}>
-                                            {account.userAccountNumber}
-                                        </option>
-                                    ))}
+                                                <option key={index} value={account.accountNumber}>
+                                                    {account.accountNumber}
+                                                </option>
+                                            ))}
                                 </select>
                             </div>
                         </div>
@@ -134,7 +141,7 @@ const UpiTransaction = () => {
                                 </div>
                             </div>
                             <div>
-                                <div><span className='acct_statement_acct_num'>Account Number:</span> {userDetails[0].userAccountNumber}, {userDetails[0].bankBranchName}</div>
+                                <div><span className='acct_statement_acct_num'>Account Number:</span> {userDetails[0].accountNumber}, {userDetails[0].bankBranchName}</div>
                             </div>
                             <div className='d-flex justify-content-end savings_acc_another_acct'>
                                 <div>Page 1 of 1</div>
@@ -152,12 +159,12 @@ const UpiTransaction = () => {
                                         <th>Withdrawal</th>
                                         <th>Deposit</th>
                                         <th>Balance</th>
-                                    </tr>
+                                     </tr>
                                 </thead>
                                 <tbody>
                                     {userDetails[0]?.transactions.map((transaction, index) => (
                                         <tr key={index}>
-                                            <td>{transaction.date}</td>
+                                             <td>{formatDate(transaction.date)}</td>
                                             <td>{transaction.description}</td>
                                             <td>{transaction.withdrawal}</td>
                                             <td>{transaction.deposit}</td>

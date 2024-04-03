@@ -2,9 +2,28 @@ export const server = "http://localhost:4444";
 
 
 const apiList ={
+
+    // admin login starts
+
+    adminLogin: `${server}/admin/admin-login`,
+    addAccountDetails:`${server}/admin/add-account-details`,
+    UserDetailsAccountOpening:`${server}/admin/userdetails`,
+    UserDetailsAccountOpeningSendOTP:`${server}/admin/send-otp`,
+    UserDetailsAccountOpeningVerifyOTP:`${server}/admin/verify-otp`,
+    individualrequestedetails: `${server}/admin/individualrequesteduserdetails`,
+    getuserrequesteddetails: `${server}/admin/requesteduserdetails/`,
+    getReissuecardDetails: `${server}/admin/trackAndReissueCard`,
+
+
+    // admin login ends
+    // 
+    
+    requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
+    // 
+
     generateCertificate: `${server}/api/generateCertificate`,
-    customerAccountDetails: `${server}/api/userDetails/`,
-    userAuthentication: `${server}/api/otp-send`,
+    // customerAccountDetails: `${server}/api/userDetails/`,
+    userAuthentication: `${server}/api/userAuthentication-otp`,
 
     // Personal banking login
     customerLogin: `${server}/auth/login-netbanking`,
@@ -23,15 +42,17 @@ const apiList ={
     taxOTPVerify:`${server}/api/verify-OneTP`,
     taxOTPGenerate:`${server}/api/generated-otp`,
     taxOTPReSend:`${server}/api/resend-otp`,
-    paymentTransaction:`${server}/api/payment-Type`,
-    transferTransaction:`${server}/api/transfer-Type`,
+
+    paymentTransaction:`${server}/api/Payment-type-transaction`,
+    transferTransaction:`${server}/api/Transfer-type-transaction`,
+
     userAuthVerify: `${server}/api/verify-otp`,
     customerCreditCardDetails: `${server}/api/creditcarddetails/`,
-    customerCrediCardLimitOTP: `${server}/api/creditcardlimit-otp`,
+    customerCrediCardLimitOTP: `${server}/api/creditCard-limit-usage-otp`,
     updateDomesticCardUsage: `${server}/api/update-domesticcardusage`,
     debitNotification: `${server}/api/debit-notification`,
-    updateDomesticLimits: `${server}/api/updateDomesticLimits/`,
-    updateInternationalLimits: `${server}/api/updateInternationalLimits/`,   
+    updateDomesticLimits: `${server}/api/updateDomesticLimits`,
+    updateInternationalLimits: `${server}/api/updateInternationalLimits`,   
     GenerateCardPin : `${server}/api/generate-Debit-Card-Pin`,
     blockATMCard : `${server}/api/blockCard/`,
     form60OTPSend:`${server}/form60Userdetails/send-otp`,
@@ -40,25 +61,23 @@ const apiList ={
     GenerateCreditcardpin : `${server}/api/generate-Credit-Card-Pin`,
     BlockCreditCard:`${server}/api/blockcreditcard`,
     BlockCreditCardOTPVerify:`${server}/api/verifyOTP`,
-    creditcardEmiconversion : `/emiConversion`,
+    creditcardEmiconversion : `${server}/emiConversion`,
     autoDebitSetupYes: `${server}/api/autodebit/yes`,
     autoDebitSetupNo: `${server}/api/autodebit/no`,
 
-    
-    requestedUserDetailsByEmail: `${server}/api/individualrequesteduserdetails/`,
 
 
-
-//     requestedUserDetailsByEmail: `${server}/auth/user-account-details`,
-
+    createReissueCard: `${server}/api/createReissueCard`,
 
 
     payLater:`${server}/api/payLaterAccount`,
     billDetails:`${server}/api/payLaterAccount/pay`,
 
+    customerDetails: `${server}/auth/user-account-details`,
+
+    changeEmail:` ${server}/api/change-email`,
+    UpdateEmailverifyOTP: `${server}/api/otp-verification`
 }
-
-
 
 
 export default apiList;
