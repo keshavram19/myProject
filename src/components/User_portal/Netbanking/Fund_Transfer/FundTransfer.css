@@ -1,23 +1,25 @@
 /* maypayee css starts */
 
-.mypayee_navmain{
+.mypayee_navmain {
   display: flex;
-  
+
   list-style-type: none;
   text-align: center;
   font-size: 13px;
   background-color: rgb(236, 236, 236);
   height: 8vh;
 }
-.mypayee_heading{
+
+.mypayee_heading {
   color: #2fb68e;
   font-size: x-large;
 }
-.mypayee_addpayeelink{
+
+.mypayee_addpayeelink {
   text-decoration: none;
 }
 
-.mypayee_navmain li{
+.mypayee_navmain li {
   cursor: pointer;
   border-left: 1px solid white;
   width: 300px;
@@ -25,51 +27,59 @@
   align-items: center;
   justify-content: center;
 }
-.mypayee_buttonon{
+
+.mypayee_buttonon {
   color: #2fb68e;
   border-bottom: 2px solid #2fb68e;
 }
-.mypayee_content{
+
+.mypayee_content {
   background-color: rgb(251, 250, 250);
 }
-.mypayee_text{
+
+.mypayee_text {
   display: flex;
   height: 20vh;
   align-items: center;
 }
-.mypayee_addmain{
+
+.mypayee_addmain {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 5%;
   height: 15vh;
 }
-.mypayee_input{
+
+.mypayee_input {
   width: 65%;
   display: flex;
-  border: 1px  solid rgb(76, 74, 74);
+  border: 1px solid rgb(76, 74, 74);
   align-items: center;
   height: 30px;
   padding-left: 2%;
   background-color: white;
-  
+
 }
-.mypayee_input1{
+
+.mypayee_input1 {
   width: 100%;
 }
-.mypayee_input22{
+
+.mypayee_input22 {
   border: none;
   background-color: transparent;
   width: 100%;
   margin-left: 2%;
 }
-.mypayee_input22:focus{
+
+.mypayee_input22:focus {
   outline: none;
   box-shadow: none;
   background-color: transparent;
 }
 
-.mypayee_addbtn{
+.mypayee_addbtn {
   width: 160px;
   height: 30px;
   border: 1px solid #2fb68e;
@@ -81,58 +91,70 @@
   justify-content: center;
   font-size: small;
 }
-.mypayee_addbtn:hover{
-  border: 1px solid #ebca28 ;
+
+.mypayee_addbtn:hover {
+  border: 1px solid #ebca28;
   color: #ebca28;
 }
-.mypayee_search{
+
+.mypayee_search {
   color: #2fb68e;
 }
-.mypayee_icons{
+
+.mypayee_icons {
   font-size: large;
 }
-.mypayee_icons3{
+
+.mypayee_icons3 {
   margin-left: 2%;
   margin-right: 2%;
   font-size: large;
 }
-.mypayee_icons4{
+
+.mypayee_icons4 {
   font-size: xx-large;
 }
-.mypayee_click{
+
+.mypayee_click {
   text-decoration: underline;
   color: #2fb68e;
   cursor: pointer;
 }
-.mypayee_quick_details{
+
+.mypayee_quick_details {
   height: 50px;
   background-color: #faede2;
   color: #f18121;
   display: flex;
   align-items: center;
 }
-.mypayee_quick_inputs{
+
+.mypayee_quick_inputs {
   width: 500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 3%;
 }
-.mypayee_quick_input1{
-  border:none;
+
+.mypayee_quick_input1 {
+  border: none;
   border-bottom: 1px solid #000;
 }
-.mypayee_quick_input1:focus{
+
+.mypayee_quick_input1:focus {
   outline: none;
 
 }
-.mypayee_quick_buttons{
+
+.mypayee_quick_buttons {
   width: 250px;
   display: flex;
   justify-content: space-between;
   margin-top: 6%;
 }
-.mypayee_quick_backbtn{
+
+.mypayee_quick_backbtn {
   border: 1px solid #f18121;
   background-color: transparent;
   color: #f18121;
@@ -142,8 +164,9 @@
   align-items: center;
   border-radius: 5px;
 }
-.mypayee_quick_proceedbtn{
-  background-color:#faede2 ;
+
+.mypayee_quick_proceedbtn {
+  background-color: #faede2;
   color: #f18121;
   font-size: small;
   height: 30px;
@@ -152,6 +175,7 @@
   border-radius: 5px;
   border: none;
 }
+
 .mypayee_quick_input1::-webkit-outer-spin-button,
 .mypayee_quick_input1::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -162,29 +186,34 @@
 /* mypayee css ends */
 
 /* overseas css starts */
-.overseas_path{
+.overseas_path {
   display: flex;
   justify-content: space-around;
   font-family: 'poppins';
 }
-.overseas-row1{
-  background-color:#f8f9fa   ;
+
+.overseas-row1 {
+  background-color: #f8f9fa;
   margin-top: 5%;
   padding: 10px;
   font-family: 'poppins';
- 
+
 }
-.overseas_bank{
+
+.overseas_bank {
   color: orange;
 }
-.overseas_sign{
+
+.overseas_sign {
   color: orange;
-  
+
 }
-.overseas_add-path{
+
+.overseas_add-path {
   display: flex;
   font-family: 'poppins';
 }
+
 /* overseas css ends */
 
 
@@ -193,35 +222,42 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-.completed_transactions_head{
+
+.completed_transactions_head {
   color: #2fb68e;
 }
-.completed_transactions_type{
+
+.completed_transactions_type {
   background-color: rgb(247, 246, 246);
   height: 50px;
   display: flex;
   align-items: center;
 }
-.completed_transaction_search{
-  width:480px ;
+
+.completed_transaction_search {
+  width: 480px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.completed_transaction_select1{
+
+.completed_transaction_select1 {
   height: 30px;
   width: 250px;
   font-size: small;
   outline: none;
-  padding:1%;
+  padding: 1%;
 }
-.completed_transaction_select1 option:hover{
+
+.completed_transaction_select1 option:hover {
   background-color: #2fb68e;
 }
-.completed_transaction_cont1{
+
+.completed_transaction_cont1 {
   display: flex;
 }
-.completed_transaction_inputdate{
+
+.completed_transaction_inputdate {
   height: 30px;
   font-size: small;
   outline: none;
@@ -229,7 +265,8 @@
   border: none;
   background: transparent;
 }
-.completed_transaction_inputdate1{
+
+.completed_transaction_inputdate1 {
   border-radius: 5px;
   height: 30px;
   width: 250px;
@@ -239,14 +276,16 @@
   padding-right: 3%;
   border: 1px solid lightgray;
 }
-.completed_transaction_search1{
+
+.completed_transaction_search1 {
   width: 350px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-left: 3%
 }
-.completed_transaction_get{
+
+.completed_transaction_get {
   border: 1px solid #2fb68e;
   background: transparent;
   color: #2fb68e;
@@ -257,7 +296,8 @@
   align-items: center;
 
 }
-.completed_transaction_ok{
+
+.completed_transaction_ok {
   background: #2fb68e;
   color: #fff;
   border-radius: 5px;
@@ -267,24 +307,29 @@
   align-items: center;
   border: none;
 }
-.completed_transaction_ok:hover{
+
+.completed_transaction_ok:hover {
   background-color: #ebca28;
 }
-.completed_transaction_get:hover{
-background-color: #2fb68e;
-color: white;
+
+.completed_transaction_get:hover {
+  background-color: #2fb68e;
+  color: white;
 }
-.completed_transaction_details{
+
+.completed_transaction_details {
   display: flex;
   justify-content: flex-end;
 }
-.completed_transaction_details1{
+
+.completed_transaction_details1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 500px;
 }
-.completed_transaction_date1{
+
+.completed_transaction_date1 {
   display: flex;
   position: relative;
   justify-content: space-between;
@@ -297,7 +342,8 @@ color: white;
 
 
 }
-.completed_transaction_date2{
+
+.completed_transaction_date2 {
   cursor: pointer;
   pointer-events: none;
 }
@@ -309,7 +355,7 @@ color: white;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-.payment_summary_pending{
+.payment_summary_pending {
   display: flex;
   justify-content: space-between;
   width: 330px;
@@ -317,209 +363,236 @@ color: white;
   height: 85px;
   font-size: small;
 }
-.payment_summary_valid{
+
+.payment_summary_valid {
   opacity: 0.6;
 }
-.payment_summary_cont1{
+
+.payment_summary_cont1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: small;
   background-color: rgb(247, 246, 246);
 }
-.payment_summary_list1{
+
+.payment_summary_list1 {
   list-style-type: none;
 }
-.payment_summary_dot1{
+
+.payment_summary_dot1 {
   color: #ebca28;
 }
-.payment_summary_dot2{
+
+.payment_summary_dot2 {
   color: rgb(249, 69, 3);
 }
-.payment_summary_dot3{
+
+.payment_summary_dot3 {
   color: rgb(11, 11, 241);
 }
-.payment_summary_head{
+
+.payment_summary_head {
   color: #2fb68e;
 }
-.payment_summary_cont3{
+
+.payment_summary_cont3 {
   display: flex;
 }
-.payment_summary_cont2{
+
+.payment_summary_cont2 {
   display: flex;
   margin-top: 8%;
 }
-.react-calendar{
+
+.react-calendar {
   border: 1px solid lightgray;
 }
 
 .react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd {
   border-radius: 50%;
   background-color: #2fb68e;
-  color:white;
+  color: white;
 }
 
 
 /* paymentSummaryPage.css ends*/
 
- /* WireTransaction.css */
+/* WireTransaction.css */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 .wire-transaction-container {
-    padding: 0px 0px 5px 0px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding-bottom: 10px;
-    background-color: #faede2;
-    color:  #f18121;
-  }
-  
-  .wire-transaction-container h1 {
-    font-size: 20px;
-  }
-  .wire-transaction-container header {
-    height: 50px;
-    width: 100%; /* Adjusted width to account for margin */
-    padding: 10px;
-    margin-right: 15px;
-    padding-left: 5px;
-    background-color: #faede2;
-    padding-top: 10px;
-    color: #000;
+  padding: 0px 0px 5px 0px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  background-color: #faede2;
+  color: #f18121;
 }
 
-  .transaction-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .transaction-form label {
-    margin-bottom: 8px;
-    font-size: 16px;
-    margin-left: 10px;
-  }
-  
-  .transaction-form input,
-  select {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  
-  .transaction-form button {
-    padding: 12px;
+.wire-transaction-container h1 {
+  font-size: 20px;
+}
+
+.wire-transaction-container header {
+  height: 50px;
+  width: 100%;
+  /* Adjusted width to account for margin */
+  padding: 10px;
+  margin-right: 15px;
+  padding-left: 5px;
+  background-color: #faede2;
+  padding-top: 10px;
+  color: #000;
+}
+
+.transaction-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-form label {
+  margin-bottom: 8px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.transaction-form input,
+select {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.transaction-form button {
+  padding: 12px;
   background-color: #ff8c00;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100px;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-  }
-  /* wire-transfer ends */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
 
-  /* Upi transaction starts css*/
+/* wire-transfer ends */
 
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+/* Upi transaction starts css*/
 
-  *{
-    font-family: Poppins;
-  }
-  .upi_transaction_range{
-    justify-content: space-around;
-    display: flex;
-    align-items: center;
-     Background-color : #2fb68e;
-  }
-  .upi_transaction_date{
-     Background-color : #f8f9fa;
-    color: #2fb68e;}
-  .upi_transaction_node h6{
-   
-   color: #2fb68e;
-  
-  }
-  .upi_transaction_value{
-    color: #2fb68e;
-    border: 1px solid #2fb68e;
-    background-color: transparent;
-    padding: 5px 14px;
-    outline: none;
-    font-size: 14px;
-      font-weight: 600;
-    border-radius: 10px;
-  
-  }
-  .upi_transaction_value:hover{
-    background-color: #2fb68e; 
-    color: #fff; 
-    border-radius: 10px;
-  }
-  .upi_transaction_q{
-    color: #2fb68e;
-  }
-  /* upi transaction css ends*/
-  
-  /* /quickfund tranfer starts css/ */
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-  
-  *{
-    font-family: Poppins;
-  }
-  .quickfund_transfer_code{
-  
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  font-family: Poppins;
+}
+
+.upi_transaction_range {
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  Background-color: #2fb68e;
+}
+
+.upi_transaction_date {
+  Background-color: #f8f9fa;
   color: #2fb68e;
-     
-  }
-  .quickfund_transfer_node h4{
-    background-color: #2fb68e;
-    color: #fff;
-  }
-  .quickfund_transfer_turn {
-    color: #2fb68e;
-    border: 1px solid #2fb68e;
-    background-color: transparent;
-    padding: 5px 14px;
-    outline: none;
-    font-size: 14px;
-      font-weight: 600;
-    border-radius: 10px;
-  }
-  
-  .quickfund_transfer_turn:hover{
-    background-color: #2fb68e; 
-    color: #fff; 
-    border-radius: 10px;
-  }
-  .quick_fund_transfer_paragraph{
-    font-size: 15px;
-    display: flex;
-    flex-direction: row;
-  
-  }
-  .quick_fund_tranfer_p{
-    color: #2fb68e;
-  }
-  /* quickfund transfer ends */
-  
-  /* otppage.css starts */
+}
 
-.quick_fund_transfer_button_logos{
+.upi_transaction_node h6 {
+
+  color: #2fb68e;
+
+}
+
+.upi_transaction_value {
+  color: #2fb68e;
+  border: 1px solid #2fb68e;
+  background-color: transparent;
+  padding: 5px 14px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+
+}
+
+.upi_transaction_value:hover {
+  background-color: #2fb68e;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.upi_transaction_q {
+  color: #2fb68e;
+}
+
+/* upi transaction css ends*/
+
+/* /quickfund tranfer starts css/ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  font-family: Poppins;
+}
+
+.quickfund_transfer_code {
+
+  color: #2fb68e;
+
+}
+
+.quickfund_transfer_node h4 {
+  background-color: #2fb68e;
+  color: #fff;
+}
+
+.quickfund_transfer_turn {
+  color: #2fb68e;
+  border: 1px solid #2fb68e;
+  background-color: transparent;
+  padding: 5px 14px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.quickfund_transfer_turn:hover {
+  background-color: #2fb68e;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.quick_fund_transfer_paragraph {
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.quick_fund_tranfer_p {
+  color: #2fb68e;
+}
+
+/* quickfund transfer ends */
+
+/* otppage.css starts */
+
+.quick_fund_transfer_button_logos {
   font-size: 20px;
 }
 
 
 /* .quick_fund_transfer_button{ */
 
-.generate_debit_pin_button{
+.generate_debit_pin_button {
 
   color: #2fb68e;
   border: 1px solid #2fb68e;
@@ -533,31 +606,31 @@ color: white;
   border-radius: 10px;
 }
 
-.quick_fund_transfer_para{
+.quick_fund_transfer_para {
   font-size: small;
-  font-weight:  400;
+  font-weight: 400;
 }
 
-.quick_fund_transfer_icon{
+.quick_fund_transfer_icon {
   display: flex;
   flex-direction: row;
 }
 
-.quick_fund_transfer_div_label{
+.quick_fund_transfer_div_label {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   width: 150px;
   outline: none;
   height: 24px;
   /* width: 200px; */
-  }
+}
 
-  .quick_fund_transfer_icon_otp{
-    border: 1px solid rgb(207, 203, 203);
-    margin: 0px 5px;
-    height: 25px;
-    width: 30px;
-    padding:1px 1px;
+.quick_fund_transfer_icon_otp {
+  border: 1px solid rgb(207, 203, 203);
+  margin: 0px 5px;
+  height: 25px;
+  width: 30px;
+  padding: 1px 1px;
 }
 
 
@@ -568,9 +641,10 @@ color: white;
   padding: 5px 14px;
   outline: none;
   font-size: 14px;
-    font-weight: 600;
+  font-weight: 600;
   border-radius: 10px;
 }
+
 .quick_fund_submits {
   color: #2fb68e;
   border: 1px solid #2fb68e;
@@ -578,129 +652,141 @@ color: white;
   padding: 5px 14px;
   outline: none;
   font-size: 14px;
-    font-weight: 600;
+  font-weight: 600;
   border-radius: 10px;
 }
 
 
 /*otppage.css ends */
-  
-  /* /get retrivev mmiv css starts/ */
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-  
-  *{
-    font-family: Poppins;
-  }
-   .generate_retrive_code{
-    background-color : #faede2
-  } 
-   .generate_retrive_node{
-    color : #f18121}
-   .generate_retrive_mern{
-     background-color : #f18121   ;
-           border-radius:5px;
-           padding: 5px;
-           border: none;
-         }
-         /* /get retrive css ends/ */
-         /* manage payee stars */
-       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* /get retrivev mmiv css starts/ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  font-family: Poppins;
+}
+
+.generate_retrive_code {
+  background-color: #faede2
+}
+
+.generate_retrive_node {
+  color: #f18121
+}
+
+.generate_retrive_mern {
+  background-color: #f18121;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+}
+
+/* /get retrive css ends/ */
+/* manage payee stars */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 
-       .manage_payee_all_buttons{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .manage_payee_buttons{
-        border: 1px solid #2fb68e;
-        background: none;
-        outline: none;
-        padding: 5px 14px;
-        border-radius:  10px;
-        white-space: nowrap;
-      }
-      
-      .manage_payee_buttons:hover {
-        background-color: #2fb68e;
-        color: #fff;  
-      }
-      
-      .manage_payee_paragaph_button{
-        margin-left: 5px;
-        margin-top: 10px;
-      }
-      
-      .manage_payee_cards_width .card{
-        height: 22vh;
-      }
-      .manage_payee_cards_width h6{
-        color: #2fb68e;
-      }
-      .manage_pay_cards_manage h5{
-        color: #2fb68e;
-      }
-      .manage_pay_cards_manage h4{
-        background-color: #2fb68e;
-color: #fff;
-      }
-      
-      
+.manage_payee_all_buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.manage_payee_buttons {
+  border: 1px solid #2fb68e;
+  background: none;
+  outline: none;
+  padding: 5px 14px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.manage_payee_buttons:hover {
+  background-color: #2fb68e;
+  color: #fff;
+}
+
+.manage_payee_paragaph_button {
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+.manage_payee_cards_width .card {
+  height: 22vh;
+}
+
+.manage_payee_cards_width h6 {
+  color: #2fb68e;
+}
+
+.manage_pay_cards_manage h5 {
+  color: #2fb68e;
+}
+
+.manage_pay_cards_manage h4 {
+  background-color: #2fb68e;
+  color: #fff;
+}
+
+
 
 /* manage payee ends */
 /*confirm biller css starts*/
-.confirm_biller_tags{
+.confirm_biller_tags {
   align-items: center;
 }
 
 
 
-.confirm_biller h6{
+.confirm_biller h6 {
   color: #2fb68e;
-  }
-.confirm_biller{
-    background-color: #2fb68e;
-    color: #fff
-  }
+}
 
-.confirm_biller_buttons{
+.confirm_biller {
+  background-color: #2fb68e;
+  color: #fff
+}
+
+.confirm_biller_buttons {
   background: none;
   outline: none;
   border: none;
 }
 
-.confirm_biller_buttons_tag_account{
+.confirm_biller_buttons_tag_account {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;  
+  justify-content: space-between;
 }
 
-.confirm_biller_buttons_account{
+.confirm_biller_buttons_account {
   border: 1px solid #2fb68e;
   background: none;
   outline: none;
   padding: 5px 14px;
-  border-radius:  10px;
+  border-radius: 10px;
   white-space: nowrap;
 }
-.confirm_biller_buttons_account:hover{
+
+.confirm_biller_buttons_account:hover {
   background-color: #2fb68e;
-  color: #fff;  
+  color: #fff;
 }
 
-.confirm_biller_buttons_accounting{
+.confirm_biller_buttons_accounting {
   border: 1px solid #2fb68e;
   background: none;
   outline: none;
   padding: 5px 16px;
-  border-radius:  10px;
+  border-radius: 10px;
   white-space: nowrap;
 }
-.confirm_biller_buttons_accounting:hover{
+
+.confirm_biller_buttons_accounting:hover {
   background-color: #2fb68e;
-  color: #fff;  
+  color: #fff;
 }
 
 /*confirm biller css ends*/
@@ -708,167 +794,190 @@ color: #fff;
 /* InwardRemitance CSS Starts */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
- 
 
- .Inward_Remitance_container{   
+
+.Inward_Remitance_container {
   text-align: left;
   padding: 20px 20px;
   border-radius: 8px;
- }
- .Inward_smart_wire_ptag{
+}
+
+.Inward_smart_wire_ptag {
   font-size: 20px;
- }
- .bankingapp_inward_ptag{
+}
+
+.bankingapp_inward_ptag {
   font-style: italic;
   font-size: small;
   font-weight: 300;
-  }
-  .Inwbenifits_tag_hfive{
-    /* color : #f18121 ; */
-    /* color: #ebca28; */
-    
-    font-weight: 500;
-    /* color: #2fb68e; */
-     
-  }
-  .inward_ullist{
-    display: flex;
-    margin-left: 10px;
-  }
-  .inward_remitance_flex{
-    list-style-type: none;
-     font-size: 12px;
-    justify-content:  left ;
-    text-align: left;
-    margin-left: -38px;
-     margin-right: 50px;
-    }
-    .inward_span_tag_main{
-      font-size: 12px;
-      font-weight:800;
-      /* color : #f18121; */
-      color: #ebca28;
-      /* color: #2fb68e; */
+}
 
-      }
-      .icons_inwardrem{
-        /* color : #f18121; */
-        /* color: #93ecd2; */
-        /* color: #2fb68e; */
-        color: #ebca28;
+.Inwbenifits_tag_hfive {
+  /* color : #f18121 ; */
+  /* color: #ebca28; */
+
+  font-weight: 500;
+  /* color: #2fb68e; */
+
+}
+
+.inward_ullist {
+  display: flex;
+  margin-left: 10px;
+}
+
+.inward_remitance_flex {
+  list-style-type: none;
+  font-size: 12px;
+  justify-content: left;
+  text-align: left;
+  margin-left: -38px;
+  margin-right: 50px;
+}
+
+.inward_span_tag_main {
+  font-size: 12px;
+  font-weight: 800;
+  /* color : #f18121; */
+  color: #ebca28;
+  /* color: #2fb68e; */
+
+}
+
+.icons_inwardrem {
+  /* color : #f18121; */
+  /* color: #93ecd2; */
+  /* color: #2fb68e; */
+  color: #ebca28;
 
 
-                /* color: #ffd813; */
+  /* color: #ffd813; */
 
-        width: 30px;
-      margin-bottom:30px;
-     }
-     .Inward_box_type_border{
-      margin-top: 0px;
-      margin-left: 10px;
-    }
-    .Inward_box_type_select{
-      margin: 0px 0px ;
-    }
-   .Inward_pink_box_request{
-    /* color : #f18121; */
-    color: #020202;
-    border: 1px solid rgb(230, 228, 228);
-    border-right: none;
-      /* background-color:#faede2 ; */
-      background-color: #fff1ad;
-      /* background-color: #93ecd2; */
+  width: 30px;
+  margin-bottom: 30px;
+}
 
-    }
-    .Inward_four_main_lists{
-      color: #000f00;
-     }
-     .Inward_four_lists{
-      font-size: small;
-    }
-    .one_inward{
-      border: 1px solid rgb(250, 206, 206);
-      border-radius: 50%;
-       background-color: #fff;
-       margin-right: 11px;
-      /* color: #f08080; */
-      color: #ebca28;
-      padding: 4px 11px;
-     }
-     .two_inward{
-      border: 1px solid rgb(250, 206, 206);
-      border-radius: 50%;
-       background-color: #fff;
-       margin-right: 10px;
-      /* color: #f08080; */
-      color: #ebca28;
-      padding: 4px 10px;
-     }
-     .four_inward{
-      border: 1px solid rgb(250, 206, 206);
-      border-radius: 50%;
-       background-color: #fff;
-       margin-right: 10px;
-      /* color: #f08080; */
-      color: #ebca28;
-      padding: 4px 10px;
-     }
-     .Inward_pink_side_box{
-      border: 1px solid rgb(230, 228, 228);
-      border-left: none;
-     }
-     .Inward_part_two{
-      display: flex;
-      flex-direction: row;
-     }
-     .Inward_sel_Inacct_numbr{
-      width: 160px;
-      margin-left: 5px;
-      /* background-color: #f1ecec; */
-      /* background-color: #ebca28; */
-      /* background-color: #fff1ad; */
-      height: 25px;
-       outline: none;
-      font-size: small;
-      padding: 0px 0px;
-    }
-    .ptag_inward_acct_num{
-      font-size: small;
-      margin-top: 2px;
-    }
+.Inward_box_type_border {
+  margin-top: 0px;
+  margin-left: 10px;
+}
+
+.Inward_box_type_select {
+  margin: 0px 0px;
+}
+
+.Inward_pink_box_request {
+  /* color : #f18121; */
+  color: #020202;
+  border: 1px solid rgb(230, 228, 228);
+  border-right: none;
+  /* background-color:#faede2 ; */
+  background-color: #fff1ad;
+  /* background-color: #93ecd2; */
+
+}
+
+.Inward_four_main_lists {
+  color: #000f00;
+}
+
+.Inward_four_lists {
+  font-size: small;
+}
+
+.one_inward {
+  border: 1px solid rgb(250, 206, 206);
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 11px;
+  /* color: #f08080; */
+  color: #ebca28;
+  padding: 4px 11px;
+}
+
+.two_inward {
+  border: 1px solid rgb(250, 206, 206);
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 10px;
+  /* color: #f08080; */
+  color: #ebca28;
+  padding: 4px 10px;
+}
+
+.four_inward {
+  border: 1px solid rgb(250, 206, 206);
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 10px;
+  /* color: #f08080; */
+  color: #ebca28;
+  padding: 4px 10px;
+}
+
+.Inward_pink_side_box {
+  border: 1px solid rgb(230, 228, 228);
+  border-left: none;
+}
+
+.Inward_part_two {
+  display: flex;
+  flex-direction: row;
+}
+
+.Inward_sel_Inacct_numbr {
+  width: 160px;
+  margin-left: 5px;
+  /* background-color: #f1ecec; */
+  /* background-color: #ebca28; */
+  /* background-color: #fff1ad; */
+  height: 25px;
+  outline: none;
+  font-size: small;
+  padding: 0px 0px;
+}
+
+.ptag_inward_acct_num {
+  font-size: small;
+  margin-top: 2px;
+}
+
 .inward_submit_app {
-    padding: 10px;
-    background-color: #faede2;
-    color : #f18121;
-     font-size: smaller;
-    cursor: pointer;
-      border: none;
-    border-radius: 4px;
-  }
-  .inward_submit_app:hover {
-    background-color: #fde2ca;
-  } 
- 
-  /* Inward form transfer */
- 
- 
-.Inward_remittance_Request_Form_one{
+  padding: 10px;
+  background-color: #faede2;
+  color: #f18121;
+  font-size: smaller;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+.inward_submit_app:hover {
+  background-color: #fde2ca;
+}
+
+/* Inward form transfer */
+
+
+.Inward_remittance_Request_Form_one {
   /* font-size: large; */
   font-weight: 500;
 }
-.Inward_remittance_Request_Form_one_Sub{
+
+.Inward_remittance_Request_Form_one_Sub {
   /* font-size: medium; */
-   margin-top: 10px;
-  /* font-weight: 500; */ 
+  margin-top: 10px;
+  /* font-weight: 500; */
   /* font-size: large; */
   font-weight: 500;
 }
-.Inward_remittance_Request_one{
+
+.Inward_remittance_Request_one {
   /* font-size: large; */
   /* margin-top: 20px; */
   font-weight: 500;
-  }
-  
+}
+
 
 
 /* Styles for form labels */
@@ -877,62 +986,71 @@ color: #fff;
   font-weight: 400;
   display: flex;
   flex-direction: column;
- }
- .Inward_remittance_Request_form_Option{
+}
+
+.Inward_remittance_Request_form_Option {
   margin-top: -32px;
   margin-left: 20px;
- }
-.inward_remittance_fields_Row{
-  display: flex;
-flex-direction: row;
 }
-.Inward_remittance_row_two{
-    margin-left: 200px;
-}
-/* Styles for input fields */
-.Inward_remittance_Request_input_form {
-  width: 300px; 
-  padding: 4px;
-  margin-top: 2px;
-  border: 1px solid #ccc;
-   border-radius: 4px;
-   outline: none;
-  box-sizing: border-box;
-}
-.Inward_remittance_Request_input_form_check{
-  outline: none;
 
-}
-.Inward_remittance_Request_form_ptag_Del{
-  padding: 0px 5px;
-  margin-top: 15px;
- }
-.Inward_remittance_Request_form_ptag_Pur{
-margin-top: -20px;
-}
-.inward_review_accuracy_form{
+.inward_remittance_fields_Row {
   display: flex;
   flex-direction: row;
 }
- .Inward_remittance_Request_form_checkbox {
+
+.Inward_remittance_row_two {
+  margin-left: 200px;
+}
+
+/* Styles for input fields */
+.Inward_remittance_Request_input_form {
+  width: 300px;
+  padding: 4px;
+  margin-top: 2px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.Inward_remittance_Request_input_form_check {
+  outline: none;
+
+}
+
+.Inward_remittance_Request_form_ptag_Del {
+  padding: 0px 5px;
+  margin-top: 15px;
+}
+
+.Inward_remittance_Request_form_ptag_Pur {
+  margin-top: -20px;
+}
+
+.inward_review_accuracy_form {
+  display: flex;
+  flex-direction: row;
+}
+
+.Inward_remittance_Request_form_checkbox {
   display: flex;
   margin-top: -20px;
   margin-bottom: 0px;
   align-items: center;
- }
+}
 
- 
-.acctnum_inward_head{
+
+.acctnum_inward_head {
   font-size: small;
 }
 
 /* Styles for submit button */
- 
+
 
 /* Styles for submit button */
-.Inward_remittance_Request_form_ptag{
+.Inward_remittance_Request_form_ptag {
   padding: 10px 10px;
- 
+
   font-size: smaller;
   /* background-color:  #f18121 ; */
   background-color: #2fb68e;
@@ -944,7 +1062,7 @@ margin-top: -20px;
   transition: background-color 0.3s ease;
 }
 
-.Inward_remittance_Request_form_ptag:hover{
+.Inward_remittance_Request_form_ptag:hover {
   /* background-color:  #f18121; */
   background-color: #07b17e;
   color: #000;
@@ -957,249 +1075,283 @@ margin-top: -20px;
 
 
 
-  /* InwardRemitance CSS Ends */
+/* InwardRemitance CSS Ends */
 
-  /* Tax Center css Starts */
+/* Tax Center css Starts */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 /* *{
   font-family: 'Poppins';
 } */
 .tax_centerbank_page {
-     padding: 20px 20px;
-  }
-   
-  
-  .tax_center_options_pfull {
-    margin-top: 10px;
-     text-align: left;
-     margin-left: 50px;
-  }
-  .ptag_view_yag_center{
-    font-size: small;
-  }
-  
-  .user_authenti_tax_header{
-    margin-top: 30px;
-    text-align: left;
+  padding: 20px 20px;
+}
 
-  }
-  .user_header_tax_color{
-    /* color : #ebca28; */
-     /* font-size: 20px; */
-      font-weight: 500;
 
-  }
-  .Tax_hrline_box_shadow{
-    box-shadow:   1px 1px 3px rgb(141, 91, 91);
-    border: none;
-  }
-  .light_bg_color_tax{
-    /* background-color:  #5dfa77; */
-    background-color: #eff5f5
+.tax_center_options_pfull {
+  margin-top: 10px;
+  text-align: left;
+  margin-left: 50px;
+}
+
+.ptag_view_yag_center {
+  font-size: small;
+}
+
+.user_authenti_tax_header {
+  margin-top: 30px;
+  text-align: left;
+
+}
+
+.user_header_tax_color {
+  /* color : #ebca28; */
+  /* font-size: 20px; */
+  font-weight: 500;
+
+}
+
+.Tax_hrline_box_shadow {
+  box-shadow: 1px 1px 3px rgb(141, 91, 91);
+  border: none;
+}
+
+.light_bg_color_tax {
+  /* background-color:  #5dfa77; */
+  background-color: #eff5f5
     /* background-color: #f7eaab; */
 
-   }
-  .ptag_tax_center{
-     padding: 5px 10px;
-     font-weight: 400;
-    /* background-color:#fae2e5 ; */
-    /* background-color: #f1d961; */
-    background-color: #67b9a1;
-    color: #000;
-  }
-  .Tax_ptag_please_para{
-    font-size: small;
-    font-weight:  400;
-  }
-  .otp_button_Tax_icon{
-    display: flex;
-    flex-direction: row;
-  }
-  .otp_Tax_div_label{
-    display: flex;
-    flex-direction:column;
-    width: 150px;
-    font-size: smaller;
-    outline: none;
-    height: 24px;
-
-    }
-
-    .but_Tax_on_icon_otp{
-      border: 1px solid rgb(207, 203, 203);
-      margin: 0px 5px;
-      height: 25px;
-      width: 30px;
-      padding:1px 1px;
-  }
-  .otp_tax_matters{
-    font-weight:300;
-    font-size: 12px;  
-     }
-.Tax_click_here_span{
-  text-decoration: underline;
-  cursor: pointer;
- }
-  .Tax_center_but_app {
-    margin-bottom: 10px;
-    padding: 8px;
-     color:#000000;
-     /* background-color:#f5b176 ; */
-     background-color: #2fb68e;
-
-    cursor: pointer;
-     font-size: small;
-    margin-left: 10px;
-    border: none;
-    border-radius: 4px;
-  }
-  .Tax_center_but_appGen:hover{
-  background-color: #07b984be;
-  }
-  .Tax_center_but_appGen{
-    margin-bottom: 10px;
-    padding: 8px;
-     color:#000000;
-     /* background-color:#f5b176 ; */
-     background-color: #2fb68e;
-    cursor: pointer;
-     font-size: small;
-    margin-top: 10px;
-    border: none;
-    border-radius: 4px;
-  }
-  .but_Tax_on_icon_otp{
-    border-radius: 5px;
-     color: #979595;
-
-  }
-  .but_Tax_on_icon_otp:hover{
-    background-color: #f7f0f0;
-    color: #666565;
-  }
-  
-  .Tax_center_but_app:hover {
-    background-color: #07b984be;
-color: #000;     
-  } 
-  .Tax_center_but_app:focus{
-    outline: none;
-    border: none;
-  }
-  
-  /* Tax Center CSS Ends  */
-/* MyTransaction CSS Starts */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-/* *{
-  font-family: 'Poppins';
- } */
-.Transaction_type_Table_row{
-   font-size: 13px;
 }
-.Transaction_type_row_data{
-  font-size: 13px;
+
+.ptag_tax_center {
+  padding: 5px 10px;
+  font-weight: 400;
+  /* background-color:#fae2e5 ; */
+  /* background-color: #f1d961; */
+  background-color: #67b9a1;
+  color: #000;
 }
-.My_sch_transaction{
-  text-align: left;
-  padding: 20px 20px;
-  }
-  .sub_heading_myschedule_trans_htag{
-    font-weight: 300;
-    margin-bottom: 20px;
-    font-size: 20px;
-    margin-left: 30px;
-  }
-  .main_my_scheduled_tran{
-    /* color:    #f18121; */
-    /* color: #ebca28; */
-    /* font-size: 20px; */
-    font-weight: 500;
-  }
-  .my_Sch_tag_line{
-    border: 1px solid  #c3ccc3;
-   padding: 10px;
-   font-size: small;
-   margin-top: 5px;
- }
- .my_main_header_transch{
-  background-color: #fcf9f9;
- }
-.search_section_mainheader_mytran{
-  margin-top: 10px;
-  /* background-color: #faede2; */
-/* background-color: #ebca28; */
-background-color: #2fb68e;
-      padding: 5px 10px;
+
+.Tax_ptag_please_para {
+  font-size: small;
+  font-weight: 400;
 }
-.myalabel_trans_type_sch{
+
+.otp_button_Tax_icon {
   display: flex;
   flex-direction: row;
 }
-.mya_sch_transaction_Type{
+
+.otp_Tax_div_label {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  font-size: smaller;
+  outline: none;
+  height: 24px;
+
+}
+
+.but_Tax_on_icon_otp {
+  border: 1px solid rgb(207, 203, 203);
+  margin: 0px 5px;
+  height: 25px;
+  width: 30px;
+  padding: 1px 1px;
+}
+
+.otp_tax_matters {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.Tax_click_here_span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.Tax_center_but_app {
+  margin-bottom: 10px;
+  padding: 8px;
+  color: #000000;
+  /* background-color:#f5b176 ; */
+  background-color: #2fb68e;
+
+  cursor: pointer;
+  font-size: small;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.Tax_center_but_appGen:hover {
+  background-color: #07b984be;
+}
+
+.Tax_center_but_appGen {
+  margin-bottom: 10px;
+  padding: 8px;
+  color: #000000;
+  /* background-color:#f5b176 ; */
+  background-color: #2fb68e;
+  cursor: pointer;
+  font-size: small;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.but_Tax_on_icon_otp {
+  border-radius: 5px;
+  color: #979595;
+
+}
+
+.but_Tax_on_icon_otp:hover {
+  background-color: #f7f0f0;
+  color: #666565;
+}
+
+.Tax_center_but_app:hover {
+  background-color: #07b984be;
+  color: #000;
+}
+
+.Tax_center_but_app:focus {
+  outline: none;
+  border: none;
+}
+
+/* Tax Center CSS Ends  */
+/* MyTransaction CSS Starts */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* *{
+  font-family: 'Poppins';
+ } */
+.Transaction_type_Table_row {
+  font-size: 13px;
+}
+
+.Transaction_type_row_data {
+  font-size: 13px;
+}
+
+.My_sch_transaction {
+  text-align: left;
+  padding: 20px 20px;
+}
+
+.sub_heading_myschedule_trans_htag {
+  font-weight: 300;
+  margin-bottom: 20px;
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+.main_my_scheduled_tran {
+  /* color:    #f18121; */
+  /* color: #ebca28; */
+  /* font-size: 20px; */
+  font-weight: 500;
+}
+
+.my_Sch_tag_line {
+  border: 1px solid #c3ccc3;
+  padding: 10px;
+  font-size: small;
+  margin-top: 5px;
+}
+
+.my_main_header_transch {
+  background-color: #fcf9f9;
+}
+
+.search_section_mainheader_mytran {
+  margin-top: 10px;
+  /* background-color: #faede2; */
+  /* background-color: #ebca28; */
+  background-color: #2fb68e;
+  padding: 5px 10px;
+}
+
+.myalabel_trans_type_sch {
+  display: flex;
+  flex-direction: row;
+}
+
+.mya_sch_transaction_Type {
   margin-left: 10px;
   font-size: small;
   margin-top: 12px;
   margin-bottom: 5px;
 }
-.my_Tatransaction_Type{
-  margin-left:10px;
-   margin-top: 10px;
-    height: 25px;
-    padding: 0px 10px;
-    font-size: small;
-    outline: none;
-    width: 150px;
+
+.my_Tatransaction_Type {
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 25px;
+  padding: 0px 10px;
+  font-size: small;
+  outline: none;
+  width: 150px;
 }
-.mya_sch_searchbtn{
-  margin:0px 8px ;
+
+.mya_sch_searchbtn {
+  margin: 0px 8px;
   border: none;
   outline: none;
   /* background-color: #f18121; */
-background-color: #2fb68e;
+  background-color: #2fb68e;
   border-radius: 5px;
-  cursor: pointer;   
-  color: white; 
+  cursor: pointer;
+  color: white;
   font-size: small;
 }
-.mya_sch_searchbtn:hover{
+
+.mya_sch_searchbtn:hover {
   /* background-color: #ff7700; */
   background-color: #07b17e;
 }
-.mya_Trasch_download_detail{
+
+.mya_Trasch_download_detail {
   display: flex;
-   flex-direction: row;
+  flex-direction: row;
   text-align: right;
   justify-content: right;
 }
-.my_sch_tra_label_downl{
+
+.my_sch_tra_label_downl {
   margin-right: 7px;
- font-size: small;
-margin-top: 3px;
+  font-size: small;
+  margin-top: 3px;
 }
-  .my_tran_sel_downl{
-    margin-right: 10px;
-    width: 150px;
-    padding: 0px 5px;
-    outline: none;
-    font-size: smaller;
-    height: 25px;
-   }
-  .My_transac_download_ok_button{
-    /* background-color:  #f18121; */
-    background-color: #2fb68e;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 3px;
-    width: 35px;
-    padding: 0px 2px;
-    font-size: smaller;
-    height: 25px;
-    border: none;
-  }
-  
-  /* MyTransaction CSS Ends */
+
+.my_tran_sel_downl {
+  margin-right: 10px;
+  width: 150px;
+  padding: 0px 5px;
+  outline: none;
+  font-size: smaller;
+  height: 25px;
+}
+
+.My_transac_download_ok_button {
+  /* background-color:  #f18121; */
+  background-color: #2fb68e;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  width: 35px;
+  padding: 0px 2px;
+  font-size: smaller;
+  height: 25px;
+  border: none;
+}
+
+/* MyTransaction CSS Ends */
 
 
 /* interest & TDS certificate css Start */
@@ -1228,9 +1380,10 @@ margin-top: 3px;
   padding: 10px;
 }
 
-.interest_all_forms{
+.interest_all_forms {
   margin-left: 20px;
 }
+
 .inerest_selection_form:focus {
   border-color: initial;
   box-shadow: none;
@@ -1275,14 +1428,14 @@ margin-top: 3px;
   cursor: pointer;
   margin-left: 40%;
   margin-right: 40%;
-  
+
 }
 
 .btn_interest_button:hover {
   color: white;
   background-color: #2fb68e;
 }
-  
+
 
 .inerest_heading6 {
   padding-top: 5%;
@@ -1306,46 +1459,51 @@ margin-top: 3px;
 /* interest & TDS certificate css end */
 
 /* Disclaimer css start */
-.Disclaimer_container_fluid{
+.Disclaimer_container_fluid {
   /* box-sizing: border-box; */
   /* padding: 20px; */
 
   font-family: 'Poppins', sans-serif;
-  
+
 }
+
 /* .Disclainer_pera{
   padding: 5%;
  
 } */
-.Disclainer_border{
+.Disclainer_border {
   border: 1px solid black;
   padding: 3%;
   border-radius: 15px;
-  
+
 }
 
-.Disclainer_border_heading5{
+.Disclainer_border_heading5 {
   text-align: center;
   color: #ebca28;
 }
-.Disclaimer_button{
+
+.Disclaimer_button {
   text-align: center;
   align-items: center;
   justify-content: center;
   justify-items: center;
 }
-.btn_Disclaimer_button{
+
+.btn_Disclaimer_button {
   border-radius: 1px solid #2fb68e;
   font-weight: 500;
   border-style: none;
   color: white;
 }
-.btn_Disclaimer_button:focus{
+
+.btn_Disclaimer_button:focus {
   outline: none;
   border-color: initial;
   box-shadow: none;
 }
-.btn_Disclaimer_button:hover{
+
+.btn_Disclaimer_button:hover {
   color: white;
   background-color: #2fb68e;
 }
@@ -1353,30 +1511,32 @@ margin-top: 3px;
 /* Disclaimer css end */
 
 /* Tax Payment css start */
-.TaxPayment_container_fluid{
+.TaxPayment_container_fluid {
   box-sizing: border-box;
   padding: 20px;
   overflow: none;
   font-family: 'Poppins', sans-serif;
 }
-.TaxPayment_all{
+
+.TaxPayment_all {
   padding: 7%;
 }
 
-.TaxPayment_border{
+.TaxPayment_border {
   border: 1px solid black;
   border-radius: 15px;
 }
-.TaxPayment_pera{
-padding: 2%;
+
+.TaxPayment_pera {
+  padding: 2%;
 }
 
-.TaxPayment_pera_heading5{
+.TaxPayment_pera_heading5 {
   text-align: center;
   color: #ebca28;
 }
 
-.taxpayment_button{
+.taxpayment_button {
   font-weight: 500;
   text-align: center;
   cursor: pointer;
@@ -1385,73 +1545,78 @@ padding: 2%;
   color: #2fb68e;
   margin-left: 45%;
 }
-.taxpayment_button:hover{
+
+.taxpayment_button:hover {
   color: white;
   background-color: #2fb68e;
 
 }
 
-.btn_taxpayment_button{
+.btn_taxpayment_button {
   border: 1px solid #2fb68e;
   cursor: pointer;
   color: #2fb68e;
   text-align: center;
 }
 
-.btn_taxpayment_button:focus{
+.btn_taxpayment_button:focus {
   outline: none;
   border-color: initial;
   box-shadow: none;
 }
 
-.btn_taxpayment_button:hover{
+.btn_taxpayment_button:hover {
   color: white;
   background-color: #2fb68e;
 }
 
-.TaxPayment_note{
+.TaxPayment_note {
   padding: 10px;
 }
 
 /* Tax Payment css end*/
 
 /* Income Tax css start*/
-.incometax_container_fluid{
+.incometax_container_fluid {
   box-sizing: border-box;
   padding: 20px;
   overflow: none;
- 
+
   font-family: 'Poppins', sans-serif;
-  
+
 }
-.incometax_account{
+
+.incometax_account {
   padding: 5%;
 }
 
-.incometax_filling{
+.incometax_filling {
   padding: 3%;
 }
-.incometax_filling_heading4{
+
+.incometax_filling_heading4 {
   background-color: #81cfb6;
   color: white;
   padding: 1%;
-  
+
 }
 
-.incometax_information:focus{
+.incometax_information:focus {
   border-color: initial;
   box-shadow: none;
 }
-.incometax_from_account{
+
+.incometax_from_account {
   padding: 2%;
 }
-.incometax_panNumber{
-padding: 2%;
+
+.incometax_panNumber {
+  padding: 2%;
 }
 
 
 
-.Incometax_submits{
+.Incometax_submits {
   margin: 4%;
   outline: none;
   text-align: center;
@@ -1468,13 +1633,13 @@ padding: 2%;
 
 }
 
-.Incometax_submits:hover{
+.Incometax_submits:hover {
   background-color: #2fb68e;
   color: #fff;
 }
 
 
-.btn_incometax_button:focus{
+.btn_incometax_button:focus {
   outline: none;
   border-color: initial;
   box-shadow: none;
@@ -1483,10 +1648,51 @@ padding: 2%;
 /* Income Tax css end*/
 
 
-.money_request{
+.money_request {
   display: flex;
 }
 
-.money_request_2{
+.money_request_2 {
   margin-left: 100px;
 }
+
+
+/* Bill Recharge CSS Starts */
+
+.recharge_opertor_type {
+  width: 200px;
+  font-weight: 410;
+  font-size: 14px;
+}
+
+select.form-control.operator_selection {
+  font-size: 13px;
+  height: 36px;
+  width: 220px;
+}
+
+.mobile_number_input {
+  border: 1px solid rgb(202 198 198);
+  outline: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  width: 220px;
+}
+
+.view_plans_btn {
+  border: none;
+  outline: none;
+  background-color: #2fb68e;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+.operator_type_selection_icon {
+  font-size: 23px;
+  color: #2fb68e;
+}
+
+/* Bill Recharge CSS Ends */

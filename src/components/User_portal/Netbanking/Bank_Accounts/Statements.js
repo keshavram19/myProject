@@ -267,9 +267,6 @@ const Statements = () => {
             const response = await fetch(url, options);
             const responseData = await response.json();
 
-            // console.log(response);
-            // console.log(responseData);
-
             if (response.status === 200) {
                 setErrorMsgStatus('false')
                 const formattedTransactions = responseData.transactions.map(transaction => ({
