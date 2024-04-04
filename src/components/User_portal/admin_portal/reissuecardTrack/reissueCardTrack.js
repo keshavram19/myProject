@@ -87,11 +87,11 @@ const ReissueCardTable = () => {
               {userData.map((user, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td>{user.userAccountType}</td>
-                  <td>{user.accountHolderName}</td>
+                  <td>{user.openaccount}</td>
+                  <td>{user.firstname}{user.lastname}</td>
                   <td>{user.userDebitCardDetails.userReason}</td>
-                  <td>{user.userEmailId}</td>
-                  <td>{user.userMobileNumber}</td>
+                  <td>{user.email}</td>
+                  <td>{user.mobilenumber}</td>
                   <td>{getStatus(user)}</td>
                   <td>
                     {user.userDebitCardDetails.reissueCard.srn && (
@@ -120,6 +120,26 @@ const ReissueCardTable = () => {
 };
 
 export default ReissueCardTable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

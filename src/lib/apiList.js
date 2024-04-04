@@ -13,6 +13,8 @@ const apiList ={
     individualrequestedetails: `${server}/admin/individualrequesteduserdetails`,
     getuserrequesteddetails: `${server}/admin/requesteduserdetails/`,
     getReissuecardDetails: `${server}/admin/trackAndReissueCard`,
+    generateReissueCard: `${server}/admin/reissue/`,
+
 
 
     // admin login ends
