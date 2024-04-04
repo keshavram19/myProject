@@ -291,8 +291,8 @@ const PersonalLoginPage = () => {
             </div>
             <div className="col-6 text-right m-auto">
               <p className="mb-0">
-                <Link to="/netbanking-corporate-login" style={{ color: '#2fb68e'}}>
-                  Login Corporate Banking
+                <Link to="/admin/login" style={{ color: '#2fb68e'}}>
+                  Login as Admin
                 </Link>
               </p>
             </div>
