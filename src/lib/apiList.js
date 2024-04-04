@@ -12,8 +12,10 @@ const apiList ={
     UserDetailsAccountOpeningVerifyOTP:`${server}/admin/verify-otp`,
     individualrequestedetails: `${server}/admin/individualrequesteduserdetails`,
     getuserrequesteddetails: `${server}/admin/requesteduserdetails/`,
-    getReissuecardDetails: `${server}/admin/trackAndReissueCard`,
+    getReissuecardDetails: `${server}/admin/trackAndReissueCard/`,
     generateReissueCard: `${server}/admin/reissue/`,
+    
+
 
 
 
