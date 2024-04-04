@@ -887,7 +887,7 @@
     padding: 1px 1px;
 }
 
-.genrate_pin_buttons {
+.genrate_credit_pin_buttons {
     outline: none;
     border: 1px solid #2fb68e;
     border-radius: 4px;
@@ -900,12 +900,12 @@
     cursor: pointer;
 }
 
-.genrate_pin_buttons:hover {
+.genrate_credit_pin_buttons:hover {
     background-color: #2fb68e;
     color: #fff;
 }
 
-.genrate_pin_submits {
+.genrate_credit_pin_submits {
     outline: none;
     border: 1px solid #2fb68e;
     border-radius: 4px;
@@ -918,7 +918,7 @@
     cursor: pointer;
 }
 
-.genrate_pin_submits:hover {
+.genrate_credit_pin_submits:hover {
     background-color: #2fb68e;
     color: #fff;
 }

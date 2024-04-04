@@ -11,6 +11,7 @@ const QuickFundTransfer = () => {
     const [userDetails, setUserDetails] = useState([]);
     const [selectedAccount, setSelectedAccount] = useState('');
     const [selectedTransferType, setSelectedTransferType] = useState('royal');
+    const [recentTransactions, setRecentTransactions] = useState([]);
     const token = sessionStorage.getItem('loginToken');
 
 
@@ -29,6 +30,17 @@ const QuickFundTransfer = () => {
                 const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
                 if (response.ok) {
                     const data = await response.json();
+                    
+                // Format dates in recentTransactions
+                const formattedTransactions = data.user.transactions.map(transaction => ({
+                    ...transaction,
+                    date: new Date(transaction.date).toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric'
+                    })
+                }));
+                setRecentTransactions(formattedTransactions);
                     setUserDetails([data.user]);
                 } else {
                     console.error('Error fetching user details:', response.statusText);
@@ -40,6 +52,8 @@ const QuickFundTransfer = () => {
 
         fetchData();
     }, []);
+
+    const latestTransactions = recentTransactions.slice().reverse();
 
     const [formData, setFormData] = useState({
         transferType: '',
@@ -67,31 +81,88 @@ const QuickFundTransfer = () => {
         });
     };
 
+
+
     const sendFormDataToServer = async () => {
         try {
-              const otpResponse = await axios.post(
+            // Check if there are recent transactions matching the current date
+            const today = new Date();
+            const todayFormatted = today.toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric'
+            });
+            
+            const transactionsToday = recentTransactions.filter(transaction => transaction.date === todayFormatted);
+            
+            // Calculate the total amount transferred today
+            const totalAmountTransferredToday = transactionsToday.reduce((total, transaction) => total + transaction.withdrawal, 0);
+            
+            // Check if total amount exceeds or equals 1,00,000
+            if (totalAmountTransferredToday >= 100000) {
+                // If transaction limit exceeded, find the last transaction time
+                const lastTransaction = transactionsToday[transactionsToday.length - 1];
+                const lastTransactionTime = new Date(lastTransaction.date);
+                
+                // Add 24 hours to the last transaction time
+                const nextTransactionTime = new Date(lastTransactionTime.getTime() + (24 * 60 * 60 * 1000));
+
+                console.log(nextTransactionTime)
+                console.log(nextTransactionTime)
+
+                console.log(today)
+                
+                // Navigate to the OTP page only if the current time is after the next transaction time
+                if (today >= nextTransactionTime) {
+                    const otpResponse = await axios.post(
+                        `${apiList.createVerificationCode}`,
+                        {
+                            accountNumber: selectedAccount,
+                            otpMethod: otpMethod,
+                        },
+                        {
+                            headers: {
+                                Authorization: `Bearer ${token}`,
+                                'Content-Type': 'application/json',
+                            },
+                        }
+                    );
+        
+                    alert("OTP generated successfully");
+        
+                    navigate('/user/fundtransfer/quickfundtransfer-otp-page', { state: formData });
+        
+                    resetFormData();
+                } else {
+                    navigate('/user/fundtransfer/limitexceed');
+                }
+            } else {
+                const otpResponse = await axios.post(
                     `${apiList.createVerificationCode}`,
                     {
-                      accountNumber: selectedAccount,
-                      otpMethod: otpMethod,
+                        accountNumber: selectedAccount,
+                        otpMethod: otpMethod,
                     },
                     {
-                      headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                      },
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            'Content-Type': 'application/json',
+                        },
                     }
-                  );
-                  
-                alert("otp generated successfully");
-
+                );
+    
+                alert("OTP generated successfully");
+    
                 navigate('/user/fundtransfer/quickfundtransfer-otp-page', { state: formData });
-
+    
                 resetFormData();
+            }
         } catch (error) {
             console.error('Error:', error);
         }
     };
+    
+    
     
     useEffect(() => {
         if (formData.transferType) {

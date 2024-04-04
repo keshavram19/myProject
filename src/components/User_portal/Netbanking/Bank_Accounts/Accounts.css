@@ -1036,11 +1036,16 @@ select.form-control.statement_select_format {
 
 
 /* manage-cardlimit-otppage starts*/
-.limit_request_confirmation_btn_logos {
+.manage_card_otp_btn_logos {
   font-size: 20px;
 }
 
-.limit_request_confirmation_btn {
+.manage_card_otp .card {
+  width: 70%;
+  height: fit-content;
+}
+
+.manage_card_otp_btn {
   color: #2fb68e;
   border: 1px solid #2fb68e;
   outline: none;
@@ -1053,22 +1058,22 @@ select.form-control.statement_select_format {
   cursor: pointer;
 }
 
-.limit_request_confirmation_btn:hover {
+.manage_card_otp_btn:hover {
   background-color: #2fb68e;
   color: #fff;
 }
 
-.limit_request_confirmation_para {
+.manage_card_otp_para {
   font-size: small;
   font-weight: 400;
 }
 
-.limit_request_confirmation_icon {
+.manage_card_otp_icon {
   display: flex;
   flex-direction: row;
 }
 
-.limit_request_confirmation_div_label {
+.manage_card_otp_div_label {
   display: flex;
   flex-direction: column;
   width: 150px;
@@ -1076,7 +1081,7 @@ select.form-control.statement_select_format {
   height: 24px;
 }
 
-.limit_request_confirmation_icon_otp {
+.manage_card_otp_icon_otp {
   border: 1px solid rgb(207, 203, 203);
   margin: 0px 5px;
   height: 25px;
@@ -1084,59 +1089,52 @@ select.form-control.statement_select_format {
   padding: 1px 1px;
 }
 
-.limit_request_confirmation_submits {
-  border: 2px solid #2fb68e;
+.manage_card_otp_submits {
+  outline: none;
+  border: 1px solid #2fb68e;
+  border-radius: 4px;
   color: #2fb68e;
   background-color: transparent;
-  padding: 5px 10px;
-  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px;
+  width: 80px;
   cursor: pointer;
 }
 
-.limit_request_confirmation_submits:hover {
+.manage_card_otp_submits:hover {
   background-color: #2fb68e;
   color: #fff;
 }
 
-.limit_request_confirmation_buttons {
+.manage_card_otp_back_buttons {
+  outline: none;
+  border: 1px solid #2fb68e;
+  border-radius: 4px;
   color: #2fb68e;
   background-color: transparent;
-  padding: 5px 10px;
-  border: 2px solid #2fb68e;
-  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px;
+  width: 60px;
   cursor: pointer;
 }
 
-.limit_request_confirmation_buttons:hover {
+.manage_card_otp_back_buttons:hover {
   background-color: #2fb68e;
   color: #fff;
 }
 
-.limit_request_confirmation_heading .card .form_container {
+.manage_card_otp_heading .card .form_container {
   font-weight: 600;
   font-size: 14px;
 }
 
-.limit_request_confirmation_heading {
+.manage_card_otp_heading {
   background-color: #faede2;
 }
 
-.request_confirmation_heading {
-  color: #ebca28;
-}
-
-.limit_request_confirmation .bacKBtn_link {
-  text-decoration: none;
-  color: #2fb68e;
-  cursor: pointer;
-}
-
-.limit_request_confirmation .bacKBtn_link:hover {
-  background-color: #2fb68e;
-  color: #fff;
-}
-
-.limit_request_confirmation .text {
+.manage_card_otp .text {
   font-size: 14px;
 }
 
@@ -1153,7 +1151,7 @@ select.form-control.statement_select_format {
 
 .bookrequest .card .checkbk_details {
   font-weight: 500;
-  font-size: 14px; 
+  font-size: 14px;
 }
 
 .bookrequest .check_book_heading {
@@ -1740,8 +1738,8 @@ body {
   border-radius: 5px;
 }
 
-.recurring_btn2:hover{
-  font-weight:600;
+.recurring_btn2:hover {
+  font-weight: 600;
   background-color: #A2E0CE;
   color: #147558;
   border: 1px solid #147558;
@@ -2153,7 +2151,8 @@ body {
   max-width: 400px;
 }
 
-.paylater_paynow ,.paylater_statement{
+.paylater_paynow,
+.paylater_statement {
   border: 1px solid #2fb68e;
   font-size: 10px;
   color: #2fb68e;
@@ -2177,12 +2176,13 @@ body {
   box-shadow: none;
 }
 
-.paylater_paynow:hover ,.paylater_statement:hover{
+.paylater_paynow:hover,
+.paylater_statement:hover {
   color: #ebca28;
   border: 1px solid #ebca28;
 }
 
-.paylater_bill:hover{
+.paylater_bill:hover {
   color: white;
   background-color: #ebca28;
 }
@@ -2219,12 +2219,13 @@ body {
   border-radius: 5px;
 }
 
-.billDetails_okbtn:hover{
-background-color: #ebca28;
-color: white;
+.billDetails_okbtn:hover {
+  background-color: #ebca28;
+  color: white;
 }
-.billDetails_input1:focus{
-outline: none;
+
+.billDetails_input1:focus {
+  outline: none;
 
 }
 
@@ -2261,11 +2262,12 @@ outline: none;
   border-radius: 5px;
 }
 
-.billDetails_backbtn:hover{
+.billDetails_backbtn:hover {
   border: 1px solid #ebca28;
   color: #ebca28;
 }
-.billDetails_pay{
+
+.billDetails_pay {
   border: none;
   background-color: #2fb68e;
   color: #fffefe;
@@ -2277,11 +2279,12 @@ outline: none;
 
 
 
-.billDetails_pay:hover{
+.billDetails_pay:hover {
   background-color: #ebca28;
   color: white;
 }
-.billDetails_link{
+
+.billDetails_link {
 
   text-decoration: none;
 }
@@ -2479,7 +2482,7 @@ outline: none;
   align-items: center;
 }
 
-.estatement_download:hover{
+.estatement_download:hover {
   background-color: #ebca28;
   color: #fff;
 }
@@ -2494,12 +2497,14 @@ outline: none;
   justify-content: center;
   margin-top: 3%;
 }
-.estatement_bankinput{
+
+.estatement_bankinput {
   padding-left: 5%;
   border: none;
   outline: none;
 }
-.estatement_periodselect1{
+
+.estatement_periodselect1 {
   padding-left: 0;
   border: none;
   outline: none;

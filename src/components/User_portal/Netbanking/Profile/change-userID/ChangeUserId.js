@@ -16,7 +16,7 @@ const ChangeUserId = () => {
             <div className="changeuserid-profile">
               <p>Update userID </p>
             </div>
-            <div className="side-headings">
+            <div className="side-headings1">
               <p className="heading">Update User ID</p>
               <p className="d-flex align-items-center">
                 <div className="">User ID </div>

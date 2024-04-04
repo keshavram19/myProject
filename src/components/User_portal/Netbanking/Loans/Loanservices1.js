@@ -1,13 +1,10 @@
-import React, { useEffect, useState ,useRef} from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import axios from "axios";
 import "./Loans.css";
-import { useReactToPrint } from 'react-to-print';
-function Loanservices1() {
-  const componentPDF = useRef();
-  const [selectedAccount, setSelectedAccount] = useState("");
 
-  
+function Loanservices1() {
+  const [selectedAccount, setSelectedAccount] = useState("");
   const [emiStatementData, setEmiStatementData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -40,12 +37,6 @@ function Loanservices1() {
       fetchEmiStatements();
     }
   }, [selectedAccount]);
-
-  const generatePDF = useReactToPrint({
-    content: () => componentPDF.current,
-    documentTitle: "userdata",
-    onAfterPrint: () => alert("Data saved in pdf")
-  });
 
   return (
     <Container>
@@ -104,7 +95,6 @@ function Loanservices1() {
           </div>
           {loading && <div className="loading-indicator">Loading...</div>}
           {error && <div className="error-message">{error}</div>}
-          <div ref={componentPDF} style={{width:'100%'}}>
            <table className="table"> 
              <thead>
               <tr> 
@@ -129,12 +119,6 @@ function Loanservices1() {
               ))}
             </tbody>
           </table>
-          </div>
-          <div className="loan_submit_container">
-            <button type="button" onClick={generatePDF}>
-              Download PDF
-            </button>
-            </div>
         </Col>
       </Row>
     </Container>

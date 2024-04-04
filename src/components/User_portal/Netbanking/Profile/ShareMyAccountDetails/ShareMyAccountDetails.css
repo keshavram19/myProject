@@ -1,0 +1,26 @@
+.share_account_details_inform{
+    margin-left: 25%;
+}
+
+.share_account_details{
+    /* text-align: center; */
+    /* border: 1px solid #2fb68e; */
+   
+    margin-left: 20%;
+    text-align: justify;
+    margin-right: 20%;
+    padding: 3%;
+}
+.share_account_details_heading{
+    background-color: #2fb68e;
+    color: white;
+    text-align: center;
+    padding: 4px;
+}
+.share_account_details_button{
+    background-color: #2fb68e;
+    color: aliceblue;
+    border: none;
+    padding: 5px;
+    font-size: 18px;
+}

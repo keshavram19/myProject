@@ -16,6 +16,8 @@ const Adminhome = () => {
   const [customerDataList, setCustomerDataList] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
+  const token = sessionStorage.getItem('adminloginToken');
+
 
 
   const applyFilters = () => {
@@ -37,12 +39,16 @@ const Adminhome = () => {
 
   const getRequestedDetailslist = async () => {
     try {
-      const response = await axios.get(apiList.getuserrequesteddetails);
+      const response = await axios.get(`${apiList.getuserrequesteddetails}`,{
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
       const filteredData = response.data.filter(
         (customer) => customer.accountNumber
       );
       setCustomerDataList(filteredData);
-      console.log(filteredData);
     } catch (err) {
       console.log("Error in getting requested details list", err);
     }
@@ -140,7 +146,9 @@ const Adminhome = () => {
                         <th>Account Type</th>
                         <th>E-mail</th>
                         <th>Phone number</th>
-                        <th>View</th>
+                        <th>Customer ID</th>
+
+                        {/* <th>View</th> */}
                       </tr>
                       {applyFilters().map((customer, index) => (
                         <tr key={index} className="admin_home_table_content">
@@ -150,7 +158,7 @@ const Adminhome = () => {
                           <td>{customer.openaccount}</td>
                           <td>{customer.email}</td>
                           <td>{customer.mobilenumber}</td>
-                          <td>View</td>
+                          <td>{customer.customerID}</td>
                         </tr>
                       ))}
                     </tbody>
