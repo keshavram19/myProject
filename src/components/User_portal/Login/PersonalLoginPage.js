@@ -20,14 +20,15 @@ const PersonalLoginPage = () => {
   const [form, setForm] = useState("login");
 
   let navigate = useNavigate();
-  const [bankUserName, setBankUserName] = useState('');
+  const[bankCustomerID, setBankCustomerID] =  useState('');
   const [bankPassword, setBankPassword] = useState('');
   const [bankMailId, setBankMailId] = useState('');
   const [bankOtp, setBankOtp] = useState('');
   const [bankNewPassword, setBankNewPassword] = useState('');
 
-  const handleUserName = (event) => {
-    setBankUserName(event.target.value)
+  
+  const handleCustomerID = (event) => {
+    setBankCustomerID(event.target.value)
   };
   const handleBankPassword = (event) => {
     setBankPassword(event.target.value)
@@ -51,7 +52,7 @@ const PersonalLoginPage = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        userId: bankUserName,
+        customerID: bankCustomerID,
         password: bankPassword
       })
     };
@@ -63,7 +64,7 @@ const PersonalLoginPage = () => {
 
         toast.success('Login Successful!', {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -81,7 +82,7 @@ const PersonalLoginPage = () => {
       } else {
         toast.error(`${data.message || 'An error occurred.'}`, { 
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -94,7 +95,7 @@ const PersonalLoginPage = () => {
       console.error('Error at Personal Banking Login:', error);
       toast.error('An unexpected error occurred.', { 
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -103,7 +104,7 @@ const PersonalLoginPage = () => {
         theme: "light"
       });
     }
-    setBankUserName('')
+    setBankCustomerID('')
     setBankPassword('')
   };
 
@@ -123,7 +124,7 @@ const PersonalLoginPage = () => {
       if (response.ok === true) {
         toast.success('OTP Sent Successfully!', {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -138,7 +139,7 @@ const PersonalLoginPage = () => {
       else {
         toast.error('Failed to send OTP!', {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -153,7 +154,7 @@ const PersonalLoginPage = () => {
       console.error('Error Sending OTP:', error);
       toast.error('Failed to send OTP!', {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -183,7 +184,7 @@ const PersonalLoginPage = () => {
       if (response.ok === true) {
         toast.success('Valid OTP!', {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -198,7 +199,7 @@ const PersonalLoginPage = () => {
       else {
         toast.error('Invalid OTP!', {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -211,7 +212,7 @@ const PersonalLoginPage = () => {
       console.error('Error Verifying OTP at Forgot Password:', error);
       toast.error('Invalid OTP!', {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -241,7 +242,7 @@ const PersonalLoginPage = () => {
       if (response.ok === true) {
         toast.success('Password Changed Successfully!', {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -256,7 +257,7 @@ const PersonalLoginPage = () => {
       else {
         toast.error('Failed to Update Password!', {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -270,7 +271,7 @@ const PersonalLoginPage = () => {
       console.error('Error at Updating Password:', error);
       toast.error('Failed to Update Password!', {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -370,10 +371,10 @@ const PersonalLoginPage = () => {
               </p> */}
               <input
                 type="text"
-                placeholder="Enter Bank Username"
+                placeholder="Enter Your CustomerID"
                 className="form-control"
-                onChange={handleUserName}
-                value={bankUserName}
+                onChange={handleCustomerID}
+                value={bankCustomerID}
                 style={{fontSize: '14px'}}
               />
               <input
