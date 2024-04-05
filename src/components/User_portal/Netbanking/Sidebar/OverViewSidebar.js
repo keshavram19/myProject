@@ -64,19 +64,26 @@ function OverviewSidebar() {
                             style={{ maxHeight: `${contentHeights[1]}px`, display: activeIndex === 1 ? 'block' : 'none' }}
                             ref={contentRefs[1]}
                         >
-                            <Link to="/user/profile/changenickname">Account Nickname</Link>
-                            <Link to="">View Customer ID</Link>
+                            {/* <Link to="/user/profile/changenickname">Account Nickname</Link> */}
+                            {/* <Link to="">View Customer ID</Link> */}
                             <Link to="/user/profile/changepassword">Change Password</Link>
-                            <Link to="/user/profile/changeformat">Date & Amount Format</Link>
-                            <Link to="">Favourite Acounts</Link>
-                            <Link to="">Favourite Activities</Link>
+
+                            {/* <Link to="/user/profile/changeformat">Date & Amount Format</Link> */}
+                            {/* <Link to="">Favourite Acounts</Link> */}
+                            {/* <Link to="">Favourite Activities</Link> */}
+                            
+
+                            
+                            
+                           
                             <Link to="/user/profile/paymenttransactionlimit">Personalize Transcation Limits</Link>
+
                             <Link to="/user/profile/updateaccountpreferences">Primary Account</Link>
                             <Link to="/user/profile/changeemail">Update email ID</Link>
                             <Link to="">Link My Account</Link>
                             <Link to="">Manage Quick Checkout</Link>
                             <Link to="/user/profile/changeuserid">update User ID</Link>
-                            <Link to="/user/profile/changeprofilephoto">Update Profile Photo</Link>
+                            {/* <Link to="/user/profile/changeprofilephoto">Update Profile Photo</Link> */}
                             <Link to="/user/profile/generatepin">Generate Debit / Credit Card PIN</Link>
                             <Link to="/user/profile/sharemyaccountdetails">Share My Account Details</Link>
                         </div>
@@ -97,21 +104,20 @@ function OverviewSidebar() {
                             <Link to="/user/accountsummary/linkaccounts">Link My Accounts</Link>
                         </div>
 
-                        <button
+                        {/* <button
                             type="button"
                             className={`collapsible sidebarButton ${activeIndex === 3 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(3)}
                         >
                             <span>  Financial Journey</span>   <span>{getButtonContent(3)}</span>
-                        </button>
-                        <div
+                        </button> */}
+                        {/* <div
                             className="content"
                             style={{ maxHeight: `${contentHeights[3]}px`, display: activeIndex === 3 ? 'block' : 'none' }}
                             ref={contentRefs[3]}
                         >
                             <Link to="">Financial Journey</Link>
-                            {/* Add more links as needed */}
-                        </div>
+                        </div> */}
 
                     </div>
                 </div>

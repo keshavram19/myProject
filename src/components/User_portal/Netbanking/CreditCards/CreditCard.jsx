@@ -19,7 +19,7 @@ import Toggle from 'react-toggle';
 import 'react-toggle/style.css';
 import { Tab, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const CreditCard = () => {

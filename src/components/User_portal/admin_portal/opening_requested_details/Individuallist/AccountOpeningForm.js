@@ -1293,18 +1293,9 @@ Bank Branch                </h6>
                   style={{ padding: "21px" }}
                   name="bankBranch" // <-- This should match the state key
                   onChange={handleChange}
-                  value={accountDetails.bankBranch} // <-- This should display the state value
+                  value={accountDetails.bankBranch}  
                   />
-                {/* <p
-                  style={{ color: "#000", fontSize: "10px" }}
-                  className="mt-1 mb-0"
-                >
-                  <b>Note</b> : UserID should have atleast 1 Uppercase,
-                  Lowercase and number, no symbols
-                </p>
-                <p style={{ color: "#000", fontSize: "10px" }}>
-                  Length should be more than 8 to have unique UserID
-                </p> */}
+                 
               </div>
             </div> 
 
