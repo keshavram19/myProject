@@ -420,8 +420,8 @@ const PersonalLoginPage = () => {
                 <p>
                   {" "}
                   By signing in, you agree to our{" "}
-                  <Link to="#">privacy policy</Link> and{" "}
-                  <Link to="#">terms of use.</Link>
+                  <Link to="/privacy-policy">privacy policy</Link> and{" "}
+                  <Link to="/termsandcondtions">terms of use.</Link>
                   <span>Need Help?</span>
                 </p>
               </div>
