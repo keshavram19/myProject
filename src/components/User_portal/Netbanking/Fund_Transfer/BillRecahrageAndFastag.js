@@ -173,13 +173,16 @@ const BillRechargeFastag = ({ onPayNowClick }) => {
           <div className='row'>
 
             <div className='col-md-6'>
-              <button onClick={() => setActiveTab("purchase")} className="bill_recharge_button" 
-            >Purchase</button>
-
+              <button onClick={() => setActiveTab("purchase")} style={{ backgroundColor: '#2fb68e', color: 'white', padding: '15px', width: '105%', borderRadius: '5px', cursor: 'pointer' }}>
+                Purchase
+              </button>
             </div>
+
             <div className='col-md-6'>
-              <button onClick={() => setActiveTab("recharge")} className="bill_recharge_button" 
-              >Recharge</button></div>
+              <button onClick={() => setActiveTab("recharge")} style={{ backgroundColor: '#2fb68e', color: 'white', padding: '15px', width: '100%', borderRadius: '5px', cursor: 'pointer' }}>
+                Recharge
+              </button>
+            </div>
           </div>
 
           <div className="card">
@@ -442,151 +445,21 @@ const BillRechargeFastag = ({ onPayNowClick }) => {
                   )}
 
 
-                  <Row>
-    <Col sm={12}>
-        <div className="form-check">
-            <input
-                type="checkbox"
-                className="form-check-input"
-                id="agreeTerms"
-                required
-                style={{ marginTop: "10px",  boxShadow: "none" }} 
-            />
-            <label
-                style={{
-                    marginTop: "10px",
-                    marginBottom: "10px",
-                    overflowY: "hidden",
-                    color: "black",
-                    fontSize: "14px",
-                }}
-                className="form-check-label"
-                htmlFor="agreeTerms"
-            >
-                I have read, understand, and agree to be bound by the terms & conditions
-            </label>
-        </div>
-    </Col>
-</Row>
-<Row>
-    <Col sm={12}>
-        <Button
-            style={{
-                marginTop: "10px",
-                marginBottom: "10px",
-                fontSize: "20px",
-                overflowY: "hidden",
-                color: "white", // Text color changed to white
-                backgroundColor: "#2fb68e", // Background color changed to #2fb68e
-                border: "none", // Remove border
-            }}
-            type="submit"
-            className="btn btn-primary btn-block mt-3"
-        >
-            PayNow
-        </Button>
-    </Col>
-</Row>
-
+                  <Form.Group as={Row}>
+                    <Col md={{ span: 6, offset: 6 }}>
+                      <Button
+                        style={{ overflow: 'hidden', overflowY: 'hidden', color: '#2FB68E', backgroundColor: '#EBCA28' }}
+                        type="submit" variant="primary" className="btn-block mt-3">
+                        Pay Now
+                      </Button>
+                    </Col>
+                  </Form.Group>
                 </Form>
               </div>
-            }
-            {activeTab === "recharge" && (
-            <div className="card-body">
-              <Form onSubmit={handleRechargeSubmit}>
-
-                {/* Row 1 */}
-                <Form.Group as={Row} className="mb-3">
-                  <Form.Label column md={6}>
-                    Recharge Type
-                  </Form.Label>
-                  <Col md={6}>
-                    <Form.Control style={{ outline: 'none' }} as="select" id="rechargeType" onChange={handleRechargeTypeChange} required>
-                      <option value="">Select Recharge Type</option>
-                      <option value="vehicle">Vehicle Recharge</option>
-                      <option value="wallet">CUG Wallet Recharge</option>
-                    </Form.Control>
-                  </Col>
-                </Form.Group>
-
-                {/* Row 2 */}
-                {(document.getElementById('rechargeType') && document.getElementById('rechargeType').value === 'vehicle') && (
-                  <>
-                    <Form.Group as={Row} className="mb-3">
-                      <Col md={6}>
-                        <Form.Label>
-                          Vehicle Registration Number
-                        </Form.Label>
-                        <Form.Control type="text" id="vehicleRegistrationNumber" placeholder="Enter vehicle registration number" required />
-                      </Col>
-                      <Col md={6}>
-                        <Form.Label>
-                          Recharge Amount 
-                        </Form.Label>
-                        <Form.Control type="number" min="1000" max="10000" id="rechargeAmount" required />
-                        (min: 1000)                           (max: 10000)
-                      </Col>
-                    </Form.Group>
-
-                    {/* Row 3 */}
-                    <Form.Group as={Row} className="mb-3">
-                      <Col md={6}>
-                        <Form.Label>
-                          Debit Account
-                        </Form.Label>
-                        <Form.Control type="text" id="debitAccount" placeholder="Enter debit account" required />
-                      </Col>
-                    </Form.Group>
-                  </>
-                )}
-
-                {/* Row 4 */}
-                {(document.getElementById('rechargeType') && document.getElementById('rechargeType').value === 'wallet') && (
-                  <>
-                    <Form.Group as={Row} className="mb-3">
-                      <Col md={6}>
-                        <Form.Label>
-                         CUG Wallet Id
-                        </Form.Label>
-                        <Form.Control type="text" id="vehicleRegistrationNumber" placeholder="Enter vehicle registration number" required />
-                      </Col>
-                      <Col md={6}>
-                      <Form.Label>
-                          Recharge Amount 
-                        </Form.Label>
-                        <Form.Control type="number" min="1000" max="10000" id="rechargeAmount" required /> (min: 1000)                   (max: 10000)
-                      </Col>
-                    </Form.Group>
-
-                    {/* Row 5 */}
-                    <Form.Group as={Row} className="mb-3">
-                      <Col md={6}>
-                        <Form.Label>
-                          Debit Account
-                        </Form.Label>
-                        <Form.Control type="text" id="debitAccount" placeholder="Enter debit account" required />
-                      </Col>
-                    </Form.Group>
-                  </>
-                )}
-
-                {/* Row 6 */}
-                <Form.Group as={Row}>
-                  <Col md={{ span: 6, offset: 6 }}>
-                    <Button
-                    
-                     type="submit" variant="primary" className="bill_recharge_button2 mt-3">
-                      Pay Now
-                    </Button>
-                  </Col>
-                </Form.Group>
-              </Form>
-            </div>
-          )}
-
+            )}
 
             {showSuccessAlert && (
-              <div className={`alert ${purchaseSuccess || rechargeSuccess ? 'alert-success' : 'alert-danger'} mt-3`} role="alert">
+              <div className={alert ${purchaseSuccess || rechargeSuccess ? 'alert-success' : 'alert-danger'} mt-3} role="alert">
                 {alertMessage}
                 <button type="button" className="close" onClick={closeSuccessAlert}>
                   <span aria-hidden="true">&times;</span>

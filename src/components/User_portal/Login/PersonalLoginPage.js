@@ -423,8 +423,8 @@ const PersonalLoginPage = () => {
                 <p>
                   {" "}
                   By signing in, you agree to our{" "}
-                  <Link to="#">privacy policy</Link> and{" "}
-                  <Link to="#">terms of use.</Link>
+                  <Link to="/privacy-policy">privacy policy</Link> and{" "}
+                  <Link to="/termsandcondtions">terms of use.</Link>
                   <span>Need Help?</span>
                 </p>
               </div>
@@ -488,6 +488,34 @@ const PersonalLoginPage = () => {
               </div>
             </div>
           )}
+
+        {form === "verifyingOTP" && (
+            <div className="col-md-7">
+              <h5>
+                <FaArrowLeftLong
+                  onClick={() => setForm("forgotpassword")}
+                  style={{ paddingRight: "5px", cursor: "pointer" }}
+                />
+                Verify OTP?
+              </h5>
+
+              <input
+                type="text"
+                placeholder="Enter OTP"
+                className="form-control"
+                onChange={handleMailOTP}
+
+              />
+
+              <div className="row ml-0">
+                <ToastContainer />
+                <button type="button" onClick={handleVerifyOTP}>Verify OTP</button>
+              </div>
+
+            </div>
+          )}
+
+
 
           {form === "forgotpassword" && (
             <div className="col-md-7">
