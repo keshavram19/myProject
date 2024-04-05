@@ -64,7 +64,7 @@
     border-radius: 7px;
   }
   
-  .overview_rcol_3_card1 button {
+  .overview_rcol_3_card1_button {
     width: fit-content;
     padding: 4px 10px;
     border: 1px solid #edb07c;
@@ -149,7 +149,7 @@
     border-radius: 7px;
   }
   
-  .overview_col_6_row1_card_1 .col-md-8 button {
+  .overview_col_6_row1_card_1 .col-md-8  {
     background-color: #f18121;
     font-size: 13px;
     padding: 5px 10px;
@@ -280,7 +280,7 @@
       border-radius: 7px;
     }
     
-    .overview_col_6_row3_card_1 .col-md-8 button {
+    .overview_col_6_row3_card_1 .col-md-8  {
       background-color: #f18121;
       font-size: 13px;
       padding: 5px 10px;

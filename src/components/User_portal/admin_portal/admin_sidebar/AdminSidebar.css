@@ -35,7 +35,7 @@
     
 }
 
-.logo-container img {
+.logo-container .admin_siderbar_logo {
     width: 170px;
     border-radius: 50%;
 }
@@ -49,17 +49,17 @@
 
 
 
-.logo img {
+.admin_siderbar_logo .admin_siderbar_logo {
     width: 60px; /* Adjust the size as needed */
     border-radius: 50%;
 }
 
 /* Show logo text on hover */
-.logo h2 {
+.admin_siderbar_logo h2 {
     display: none;
 }
 
-.admin_sidebar:hover .logo h2 {
+.admin_sidebar:hover .admin_siderbar_logo  {
     display: block;
 }
 
@@ -75,13 +75,13 @@
     display: none;
 }
 
-.links li {
+.links .admin_sidebar_li {
     display: flex;
     border-radius: 4px;
     align-items: center;
 }
 
-.links li:hover {
+.links .admin_sidebar_li:hover {
     cursor: pointer;
     background: #fff;
 }
@@ -90,14 +90,14 @@
   color: #187559;
 }
 
-.links h4 {
+.links .admin_sidebar_heading {
     color: #ebca28;
     font-weight: 500;
     display: none;
     margin-bottom: 10px;
 }
 
-.admin_sidebar:hover .links h4 {
+.admin_sidebar:hover .links .admin_sidebar_heading {
     display: block;
 }
 
@@ -110,11 +110,11 @@
     border-color: transparent;
 }
 
-.links li span {
+.links .admin_sidebar_li span {
     padding: 12px 10px;
 }
 
-.links li a {
+.links .admin_sidebar_li a {
     padding: 10px;
     color: #187559;
     display: none;
@@ -123,7 +123,7 @@
     text-decoration: none;
 }
 
-.admin_sidebar:hover .links li a {
+.admin_sidebar:hover .links .admin_sidebar_li a {
     display: block;
 }
 

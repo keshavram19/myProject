@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import apiList from '../../../../../lib/apiList';
 import OverviewSidebar from '../../Sidebar/OverViewSidebar'
-
+import "./ChangeEmail.css";
 const ChangeEmail = () => {
   const [userDetails, setUserDetails] = useState(null);
   const [newEmail, setNewEmail] = useState("");
@@ -101,27 +101,27 @@ const ChangeEmail = () => {
           </div>
           <div className="col-9 change-email">
           <div className="changePassword-profile">
-              <p>Update Email id</p>
+              <h3 className="change_update_heading3" style={{fontSize:"px"}}>Update Email id</h3>
             </div>
 
             <div className="side-headings">
-              <p className="heading">Request for email updation</p>
+              <h4 className="change_update_heading4" style={{fontSize:"18px"}}>Request for email updation</h4>
               <p className="d-flex align-items-center pb-4 m-0">
-                <div className="">Select Account </div>
+                <div className="" style={{fontSize:"16px"}}>Select Account </div>
                 {userDetails && userDetails.user && (
-                  <input className="form-control w-25" value={userDetails.user.accountNumber} />
+                  <input className="form-control w-25" style={{fontSize:"16px"}} value={userDetails.user.accountNumber} />
                 )}
               </p>
               <p className="d-flex align-items-center">
-                <div className="">Existing email </div>
+                <div className="" style={{fontSize:"16px"}} >Existing email </div>
                 {userDetails && userDetails.user && (
-                  <input className="form-control w-25" value={userDetails.user.email} />
+                  <input className="form-control w-25" style={{fontSize:"16px"}} value={userDetails.user.email} />
                 )}
               </p>
 
               <p className="d-flex align-items-center pb-4 m-0">
-                <div className="">New Email </div>
-                <input className="form-control w-25" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
+                <div className="" style={{fontSize:"16px"}}>New Email </div>
+                <input className="form-control w-25" style={{fontSize:"16px"}} value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
               </p>
 
               <button className='changeemail_butn' onClick={handleChangeEmail}>Update</button>
@@ -134,7 +134,7 @@ const ChangeEmail = () => {
           <div className="otp-popup-content">
             <span className="close" onClick={() => setShowOtpPopup(false)}>&times;</span>
             <h4>Enter OTP</h4>
-            <input type="text" value={otp} onChange={(e) => setOtp(e.target.value)} />
+            <input className="change_email_otp_input" type="text" value={otp} onChange={(e) => setOtp(e.target.value)} />
            
             {/* <button onClick={handleVerifyOTP}>Verify OTP</button> */}
             <button className='changeemail_butn' onClick={handleVerifyOTP}>Verif OTP</button>

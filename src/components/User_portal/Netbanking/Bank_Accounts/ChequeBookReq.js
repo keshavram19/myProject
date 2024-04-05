@@ -87,7 +87,7 @@ const ChequeBookReq = () => {
                 <div className="container-fluid checkbk_details p-3">
                   <div className="row mt-1">
                     <div className="col-sm-4">
-                      <label htmlFor=",">Select savings Account Number*</label>
+                      <label htmlFor="," >Select savings Account Number*</label>
                     </div>
                     <div className="col-sm-3">
                       <select

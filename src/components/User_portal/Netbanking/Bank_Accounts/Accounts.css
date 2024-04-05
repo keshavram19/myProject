@@ -23,23 +23,23 @@
 }
 
 .savings_acct_type_heading {
-  font-weight: 410;
-  font-size: 14px;
+ 
+  font-size: 18px;
   margin-right: 5px;
 }
 
 .savings_acct_type_text {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .savings_acct_avail_bal {
-  font-weight: 410;
-  font-size: 14px;
+ 
+  font-size: 16px;
   margin-right: 5px;
 }
 
 .savings_acct_avail_bal_text {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .savings_account_user_details_cont {
@@ -50,36 +50,38 @@
 }
 
 .savings_acct_user_headings {
-  font-weight: 410;
+ 
 }
 
 .account_statement_view_btn {
   border-radius: 5px;
+  background-color: #2fb68e;
+  color: #fff;
   padding: 3px 15px;
   border: 1px solid #2fb68e;
-  background: transparent;
-  font-size: 13px;
+  
+  font-size: 16px;
 }
 
-.account_statement_view_btn:hover {
+/* .account_statement_view_btn:hover {
   background-color: #2fb68e;
   color: #fff;
   border: none;
   transition: 0.8s;
-}
+} */
 
 .savings_acct_statement {
   margin: 5px 0px;
 }
 
 .savings_acc_statement_cont_heading {
-  font-weight: 410;
+ 
   font-size: 16px;
 }
 
 .acct_statement_printer_icon {
   font-size: 18px;
-  font-weight: 500;
+ 
   margin-right: 5px;
 }
 
@@ -91,8 +93,8 @@
 }
 
 .acct_statement_acct_num {
-  font-weight: 410;
-  font-size: 15px;
+ 
+  font-size: 16px;
   margin-right: 5px;
 }
 
@@ -106,13 +108,13 @@
 }
 
 .savings_acct_mybalnace {
-  font-weight: 410;
-  font-size: 14px;
+ 
+  font-size: 16px;
   margin-right: 5px;
 }
 
 .savings_acct_mybal_text {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .savings_acct_trans_table {
@@ -120,11 +122,11 @@
 }
 
 .savings_acct_trans_table_header {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .savings_acct_trans_table th {
-  font-weight: 450;
+ 
   background-color: #2fb68e !important;
   color: #fff !important;
 }
@@ -134,13 +136,13 @@
 }
 
 .savings_account_note {
-  font-weight: 450;
-  font-size: 15px;
+ 
+  font-size: 16px;
 }
 
 .savings_acct_note_points {
   margin: 5px 0px;
-  font-size: 13px;
+  font-size: 14px;
   color: #7d7d7d;
 }
 
@@ -154,8 +156,8 @@
 /* statemenst css starts */
 
 .savings_acct_statement_heading {
-  font-size: 15px;
-  font-weight: 410;
+  font-size: 16px;
+ 
   background-color: #2fb68e;
   color: #fff;
   padding: 10px 10px;
@@ -166,7 +168,7 @@
   border: 1px solid #dee2e6;
   margin-bottom: 10px;
   background-color: rgb(253, 253, 253);
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .acct_type_cont {
@@ -178,7 +180,7 @@
 
 .acct_type_text {
   width: 190px;
-  font-weight: 410;
+ 
   display: flex;
   align-items: center;
 }
@@ -197,7 +199,7 @@
 
 .acct_num_text {
   width: 190px;
-  font-weight: 410;
+ 
 }
 
 .period_cont {
@@ -240,7 +242,7 @@
 
 .show_transactions_text {
   width: 190px;
-  font-weight: 410;
+ 
 }
 
 .show_all_transa {
@@ -273,17 +275,20 @@
 .transactions_view_btn {
   border: 1px solid #2fb68e;
   outline: none;
-  padding: 3px 15px;
-  border-radius: 5px;
-  background: transparent;
-  font-size: 13px;
-}
-
-.transactions_view_btn:hover {
   background-color: #2fb68e;
   color: #fff;
-  transition: 0.4s;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 16px;
 }
+.transaction_statement_option{
+  width: 100px;
+}
+
+/* .transactions_view_btn:hover {
+ 
+  transition: 0.4s;
+} */
 
 .statement_savings_acct_num_cont {
   border: 1px solid #cec9c9;
@@ -293,52 +298,53 @@
 }
 
 .statement_savings_acct_num {
-  font-weight: 410;
+ 
   margin-right: 7px;
   color: #2fb68e;
 }
 
 .statement_savings_acct_branch {
-  font-weight: 410;
+ 
   font-size: 16px;
   color: #2fb68e;
 }
 
 .trans_statement_pages {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .tran_statement_closing_bal {
-  font-weight: 410;
-  font-size: 15px;
+ 
+  font-size: 16px;
   margin-right: 5px;
 }
 
 .tran_statement_balance {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .tran_statement_table_header th {
-  font-weight: 410;
-  font-size: 15px;
+  
+  font-size: 16px;
   background-color: #2fb68e !important;
   color: #fff !important;
 }
 
 tbody.tran_statement_table_body {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 select.form-control.statement_select_format {
-  font-size: 13px;
-  height: 30px;
+  font-size: 16px;
+  /* height: 30px; */
+  width: 250px;
 }
 
 .statement_download_btn {
   border: 1px solid #2fb68e;
   border-radius: 5px;
   padding: 3px 15px;
-  font-size: 13px;
+  font-size: 16px;
   background: transparent;
 }
 
@@ -349,8 +355,8 @@ select.form-control.statement_select_format {
 }
 
 .savings_acct_statement_note {
-  font-weight: 450;
-  font-size: 15px;
+ 
+  font-size: 16px;
 }
 
 .savings_acct_statement_note_points {
@@ -376,7 +382,7 @@ select.form-control.statement_select_format {
 .customer_account_info {
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 16px;
   margin: 10px 0px;
 }
 
@@ -389,7 +395,7 @@ select.form-control.statement_select_format {
 }
 
 .footer_info {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .footer_info_statement {
@@ -406,12 +412,12 @@ select.form-control.statement_select_format {
   background-color: rgb(254, 253, 253);
   border: 1px solid #dee2e6;
   padding: 0px 0px 20px 0px;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .savings_acct_user_auth_container_header {
   font-size: 16px;
-  font-weight: 410;
+ 
   background-color: #2fb68e;
   padding: 10px 20px;
   color: #fff;
@@ -423,13 +429,13 @@ select.form-control.statement_select_format {
 
 .savings_acct_user_auth_details_heading {
   font-size: 18px;
-  font-weight: 500;
+ 
   margin: 10px 0px;
 }
 
 .otp_code_mobile {
-  font-weight: 410;
-  font-size: 14px;
+ 
+  font-size: 16px;
 }
 
 .otp_code_box1,
@@ -467,17 +473,19 @@ select.form-control.statement_select_format {
   width: 50%;
   border: 1px solid #2fb68e;
   outline: none;
-  background: transparent;
+  background-color: #2fb68e;
+  color: #fff;
+  /* background: transparent; */
   border-radius: 5px;
   padding: 5px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
-.otp_verify_btn:hover {
+/* .otp_verify_btn:hover {
   background-color: #2fb68e;
   color: #fff;
   transition: 0.5s;
-}
+} */
 
 .savings_acct_user_auth_text1 {
   font-size: 13px;
@@ -486,18 +494,21 @@ select.form-control.statement_select_format {
 
 .savings_acct_user_auth_submit_btn {
   border: 1px solid #2fb68e;
+  background-color: #2fb68e;
+  color: #fff;
   outline: none;
   padding: 5px 15px;
+  margin-top: 10px;
   border-radius: 5px;
-  background: transparent;
-  font-size: 14px;
+  /* background: transparent; */
+  font-size: 16px;
 }
 
-.savings_acct_user_auth_submit_btn:hover {
+/* .savings_acct_user_auth_submit_btn:hover {
   background-color: #2fb68e;
   color: #fff;
   transition: 0.5s
-}
+} */
 
 /* Statement By Email CSS ends */
 
@@ -532,24 +543,24 @@ select.form-control.statement_select_format {
 }
 
 .atm_card_details_button {
-  font-size: 13px;
+  font-size: 16px;
   border: none;
   cursor: pointer;
   color: #2fb68e;
   background: none;
-  font-weight: 600;
+ 
   padding-left: 5px;
 }
 
 .atm_card_details_button_upgrade {
-  font-size: 14px;
+  font-size: 16px;
   border: none;
   cursor: pointer;
   color: #2fb68e;
   background-color: transparent;
   border: 1px solid #2fb68e;
   border-radius: 20px;
-  font-weight: 600;
+ 
   padding: 10px;
 }
 
@@ -590,8 +601,8 @@ select.form-control.statement_select_format {
   background-color: transparent;
   padding: 5px 14px;
   outline: none;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+ 
   border-radius: 10px;
 }
 
@@ -601,8 +612,8 @@ select.form-control.statement_select_format {
   background-color: transparent;
   padding: 5px 14px;
   outline: none;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+ 
   border-radius: 10px;
   white-space: nowrap;
 }
@@ -625,7 +636,7 @@ select.form-control.statement_select_format {
 }
 
 .card_details_generate_pin_notes {
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .card_details_generate_pin_input_tag .form-control:focus {
@@ -662,7 +673,7 @@ select.form-control.statement_select_format {
   align-items: center;
   background-color: none;
   font-size: 16px;
-  font-weight: 600;
+ 
   padding-left: 15px;
   padding-right: 15px;
   border-radius: 10px;
@@ -674,7 +685,7 @@ select.form-control.statement_select_format {
 }
 
 .generate_debit_pin_para {
-  font-size: small;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -721,28 +732,36 @@ select.form-control.statement_select_format {
 }
 
 .card_details_block_card_hotlisting .back {
+  border: 2px solid #2fb68e;
+  border-radius: 4px;
   color: #2fb68e;
-  border: 1px solid #2fb68e;
   background-color: transparent;
-  padding: 5px 14px;
-  outline: none;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 10px;
+  font-size: 16px;
+ 
+  padding: 4px;
+  /* width: 60px; */
+  cursor: pointer;
 }
+.card_details_block_card_hotlisting .back:hover{
+  background:#2fb68e;
+  color: white;
+}
+
 
 .card_details_block_card_hotlisting .confirm {
+  border: 2px solid #2fb68e;
+  border-radius: 4px;
   color: #2fb68e;
-  border: 1px solid #2fb68e;
   background-color: transparent;
-  padding: 5px 14px;
-  outline: none;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 10px;
+  font-size: 16px;
+ 
+  padding: 4px;
+  /* width: 60px; */
+  cursor: pointer;
 }
 
-.card_details_block_card_hotlisting .confirm:focus {
+
+.card_details_block_card_hotlisting .confirm:hover {
   background-color: #2fb68e;
   color: #fff;
 }
@@ -756,11 +775,11 @@ select.form-control.statement_select_format {
   border: 1px solid rgb(230, 221, 221);
   padding: 3px;
   align-items: center;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .card_details_notes {
-  font-size: 13px;
+  /* font-size: 14px; */
   color: #7d7d7d;
 }
 
@@ -780,12 +799,12 @@ select.form-control.statement_select_format {
 
 .reissue_card .card {
   border-radius: 10px;
-  font-weight: 500;
+ 
 }
 
 .reissue_card .card h6 {
   color: #2fb68e;
-  font-weight: 700;
+ 
 }
 
 .reissue_card_heading {
@@ -797,7 +816,7 @@ select.form-control.statement_select_format {
   border: 1px solid #2fb68e;
   background-color: transparent;
   padding: 5px 35px;
-  font-weight: 500;
+ 
   border-radius: 50px;
 }
 
@@ -878,15 +897,15 @@ select.form-control.statement_select_format {
 }
 
 .card_limit .card .form_container {
-  font-weight: 600;
-  font-size: 15px;
+ 
+  font-size: 16px;
 }
 
 .card_limit .form_input {
   width: 200px;
   padding: 4px;
   box-shadow: inset 0 0 2px rgba(131, 128, 128, 0.3);
-  font-size: 13px;
+  font-size: 16px;
   border-radius: 5px;
   border: 1px solid #cdcde7;
   outline: none;
@@ -902,7 +921,7 @@ select.form-control.statement_select_format {
   list-style-type: none;
 }
 
-.card_limit input[type="radio"] {
+.card_limit toggle_input[type="radio"] {
   margin-right: 5px;
   transform: scale(1.2);
   cursor: pointer;
@@ -933,7 +952,7 @@ select.form-control.statement_select_format {
   color: #2fb68e;
   background-color: transparent;
   font-size: 14px;
-  font-weight: 600;
+ 
   padding: 4px;
   width: 60px;
   cursor: pointer;
@@ -950,8 +969,8 @@ select.form-control.statement_select_format {
   border-radius: 4px;
   color: #2fb68e;
   background-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+ 
   padding: 4px;
   width: 80px;
   cursor: pointer;
@@ -1095,8 +1114,8 @@ select.form-control.statement_select_format {
   border-radius: 4px;
   color: #2fb68e;
   background-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+ 
   padding: 4px;
   width: 80px;
   cursor: pointer;
@@ -1113,8 +1132,8 @@ select.form-control.statement_select_format {
   border-radius: 4px;
   color: #2fb68e;
   background-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+ 
   padding: 4px;
   width: 60px;
   cursor: pointer;
@@ -1126,8 +1145,8 @@ select.form-control.statement_select_format {
 }
 
 .manage_card_otp_heading .card .form_container {
-  font-weight: 600;
-  font-size: 14px;
+ 
+  font-size: 16px;
 }
 
 .manage_card_otp_heading {
@@ -1135,7 +1154,7 @@ select.form-control.statement_select_format {
 }
 
 .manage_card_otp .text {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /* manage-cardlimit-otppage ends*/
@@ -1150,7 +1169,7 @@ select.form-control.statement_select_format {
 }
 
 .bookrequest .card .checkbk_details {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 14px;
 }
 
@@ -1167,7 +1186,7 @@ select.form-control.statement_select_format {
   width: 230px;
   padding: 4px;
   box-shadow: inset 0 0 2px rgba(131, 128, 128, 0.3);
-  font-size: 13px;
+  font-size: 16px;
   border-radius: 5px;
   border: 1px solid #cdcde7;
   outline: none;
@@ -1179,8 +1198,8 @@ select.form-control.statement_select_format {
   border-radius: 4px;
   color: #2fb68e;
   background-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+ 
   padding: 4px;
   width: 80px;
   cursor: pointer;
@@ -1197,7 +1216,7 @@ select.form-control.statement_select_format {
 
 .pancard .card {
   border: none;
-  font-weight: 400;
+  
   font-family: Poppins;
   border: 1px solid #ebeaea;
 }
@@ -1207,13 +1226,13 @@ select.form-control.statement_select_format {
 }
 
 .pancard .card .pancard_details {
-  font-weight: 600;
-  font-size: 15px;
+  
+  font-size: 16px;
 }
 
 .pancard .form-control {
   box-shadow: inset 0 0 2px rgba(131, 128, 128, 0.3);
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 5px;
   border: 1px solid #cdcde7;
   outline: none;
@@ -1224,14 +1243,14 @@ select.form-control.statement_select_format {
   width: 230px;
   padding: 4px;
   box-shadow: inset 0 0 2px rgba(131, 128, 128, 0.3);
-  font-size: 13px;
+  font-size: 16px;
   border-radius: 5px;
   border: 1px solid #cdcde7;
   outline: none;
   padding-left: 5px;
 }
 
-.pancard input[type="radio"] {
+.pancard .view_update_pan_input[type="radio"] {
   margin-right: 5px;
   transform: scale(1.2);
   cursor: pointer;
@@ -1244,11 +1263,11 @@ select.form-control.statement_select_format {
 }
 
 .pancard .mandatory_field {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .pancard .otp_container {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .pancard .pancard_notes {
@@ -1262,8 +1281,8 @@ select.form-control.statement_select_format {
   border-radius: 4px;
   color: #2fb68e;
   background-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+ 
   padding: 4px;
   width: 60px;
   cursor: pointer;
@@ -1280,8 +1299,8 @@ select.form-control.statement_select_format {
   border-radius: 4px;
   color: #2fb68e;
   background-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+ 
   padding: 4px;
   width: 80px;
   cursor: pointer;
@@ -1300,48 +1319,56 @@ select.form-control.statement_select_format {
   height: 5vh;
 }
 
-.update_form_section label {
+.update_form_section .form-inline {
   margin-top: 15px;
   margin-left: 2px;
 }
 
 .update_form_section span {
-  font-weight: 420;
-  font-size: 13px;
+  /* */
+  font-size: 16px;
 }
 
 /* .update_form_section input{
   margin-left:15px;
 } */
 .update_form_back_btn {
+  border-radius: 2px;
+  /* */
+  margin-left: 30px;
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid;
   width: auto;
   height: auto;
+  color: #2fb68e;
+  background-color: white;
+  padding: 3px;
+}
+
+.update_form_back_btn:hover {
+  background-color: #2fb68e;
   outline: none;
-  border: 1px solid rgba(144, 146, 122, 0.5);
-  background-color: rgb(177, 192, 192);
-  border-radius: 2px;
-  font-weight: 600;
-  font-size: 15px;
-  text-align: center;
+  color: white;
 }
 
 .update_form_submit_btn {
   width: auto;
   height: auto;
 
-  border: 1px solid #f18121;
+  border: 1px solid #2fb68e;
   /* background-color: rgb(37, 184, 62); */
   border-radius: 2px;
-  font-weight: 600;
-  color: #f18121;
+  /* */
+  color: #2fb68e;
   margin-left: 30px;
-  font-size: 15px;
+  font-size: 16px;
   text-align: center;
-  background-color: white;
+  background-color: transparent;
 }
 
 .update_form_submit_btn:hover {
-  background-color: #f18121;
+  background-color: #2fb68e;
   outline: none;
   color: white;
 }
@@ -1363,17 +1390,16 @@ select.form-control.statement_select_format {
   border: 1px solid #1e1e1f !important;
   border-radius: 2px;
 
-  font-size: 13px;
+  font-size: 16px;
   padding: 3px;
 
 }
 
 .update_form_sendOtp_btn {
   border-radius: 2px;
-  font-weight: 600;
-
+  /* */
   margin-left: 30px;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
   border: 1px solid;
   width: auto;
@@ -1388,13 +1414,16 @@ select.form-control.statement_select_format {
   color: white;
   outline: none;
 }
+.form-check-input{
+  border: none;
+}
 
 /* Update Form 60 css ends*/
 
 /* PMSocialSecuritySchemes css Starts */
 
 .PMSSS_update_email {
-  font-size: 10px;
+  font-size: 16px;
   text-decoration: underline;
 }
 
@@ -1405,14 +1434,14 @@ select.form-control.statement_select_format {
   border: 1px solid rgba(144, 146, 122, 0.5);
   background-color: rgb(177, 192, 192);
   border-radius: 2px;
-  font-weight: 600;
-  font-size: 15px;
+ 
+  font-size: 16px;
   text-align: center;
 }
 
 .PMSSS_form_section span {
-  font-weight: 420;
-  font-size: 15px;
+ 
+  font-size: 16px;
 }
 
 .PMSSS_form_submit_btn {
@@ -1422,17 +1451,17 @@ select.form-control.statement_select_format {
   border: 1px solid rgba(128, 123, 123, 0.5);
   /* background-color: rgb(37, 184, 62); */
   border-radius: 2px;
-  font-weight: 600;
+ 
   color: white;
   margin-left: 30px;
-  font-size: 15px;
+  font-size: 16px;
   text-align: center;
   background-color: #f18121;
 }
 
-.PMSSS_form_section label {
+.PMSSS_form_section .form-inline {
   margin-top: 15px;
-  font-weight: 500;
+ 
 }
 
 .PMSSS_main_heading2 {
@@ -1502,23 +1531,22 @@ body {
 .service_btn {
   background-color: transparent;
   border: none;
-
   border-radius: 4px;
-  color: #f18121;
-
+  color: #2fb68e;
   display: inline-block;
   font-family: revert;
   margin: 5px;
+  padding: 8px;
   text-align: center;
   text-decoration: none;
   transition-duration: 0.3s;
   transition-property: background-color, color, opacity;
   transition-timing-function: linear;
-  outline: 2px solid #f18121;
+  outline: 2px solid #2fb68e;
 }
 
 .service_btn:hover {
-  background-color: #f18121;
+  background-color: #2fb68e;
   color: white;
 }
 
@@ -1566,12 +1594,12 @@ body {
 
 .deposit_btn {
 
-  font-weight: 600;
-  font-size: 15px;
+  
+  font-size: 16px;
   text-align: center;
-  transition: transform 0.3s ease;
+  /* transition: transform 0.3s ease;
   width: auto;
-  height: auto;
+  height: auto; */
   color: #16795b;
 
   background-color: #F8F9FA;
@@ -1580,8 +1608,8 @@ body {
 }
 
 .deposit_btn_first {
-  font-weight: 600;
-  font-size: 15px;
+  
+  font-size: 16px;
   text-align: center;
   margin-left: 10px;
 
@@ -1602,17 +1630,17 @@ body {
   width: 50%;
 
   border: none;
-  font-size: 13px;
+  font-size: 16px;
 
   border-radius: 50px;
 
-  background-color: #ebca28;
-  color: #0a6348;
-  font-weight: 500;
+  background-color: #2fb68e;
+  color: white;
+ 
 }
 
 .deposit_cardbtn:hover {
-  font-weight: 600;
+  /* */
   background-color: #2fb68e;
   color: white;
 }
@@ -1649,16 +1677,16 @@ body {
   border: 1px solid;
   border-radius: 5px;
 
-  color: #2fb68e;
-  font-weight: 600;
-  background-color: white;
+  color: white;
+  
+  background-color: #2fb68e;
 
 }
 
 .deposit_btn1:hover {
-  font-weight: 600;
-  background-color: #A2E0CE;
-  color: #147558;
+  /* */
+  background-color: #2fb68e;
+  color: white;
 }
 
 .deposit_image {
@@ -1700,24 +1728,27 @@ body {
 }
 
 .recurring_btn {
-  font-weight: 600;
-  background-color: #A2E0CE;
-  color: #147558;
-  border: 1px solid #147558;
+ 
+  background-color: #2fb68e;
+  color: white;
+  border: 1px solid #2fb68e;
   outline: none;
   cursor: pointer;
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 5px;
   height: 40px;
 }
-
+.recurring_btn:hover{
+ background-color: #2fb68e;
+ color: white;
+}
 .recurring_btn1 {
-  background-color: #f8f4e0;
-  border: 1px solid #ebca28;
-  font-weight: 500;
+  background-color: transparent;
+  border: 1px solid #2fb68e;
+ 
   border-radius: 10px;
-  color: #1d7e61;
+  color: #2fb68e;
   display: inline-block;
 
   margin: auto;
@@ -1728,25 +1759,29 @@ body {
   transition-timing-function: linear;
   padding: 10px 10px;
 }
+.recurring_btn1:hover{
+  background-color: #2fb68e;
+  color: white;
+}
 
 .recurring_btn2 {
-
-  background-color: white;
-  color: #0a6348;
-  border: 1px solid #0a6348;
+  padding: 8px;
+  background-color: #2fb68e;
+  color: white;
+  border: 1px solid #2fb68e;
   cursor: pointer;
   border-radius: 5px;
 }
 
-.recurring_btn2:hover {
-  font-weight: 600;
+/* .recurring_btn2:hover {
+ 
   background-color: #A2E0CE;
   color: #147558;
   border: 1px solid #147558;
   cursor: pointer;
   width: 100%;
   border-radius: 5px;
-}
+} */
 
 .recurring_para {
   color: #2fb68e
@@ -1759,7 +1794,7 @@ body {
 
 .recurring_sideheading {
   color: #207a5f;
-  font-weight: 420;
+  
 }
 
 .recurring_background_main {
@@ -1901,41 +1936,31 @@ body {
 /* /deposite cntainer end/ */
 
 /* fixed advice start*/
-/* .Fixed_container{
-  margin-right: 300px;
-} */
+
 .fixed_deposit {
-  margin-left: 15px;
-  /* max-width: 1000px; */
-  margin: 0 auto;
-  padding: 20px;
+  padding: 8px;
   background-color: #2fb68e;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.fixed_deposit h1 {
   color: white;
-  margin-right: 650px;
-  font-size: x-large;
+ 
+  font-size: 18px;
 }
 
-.fixed_selectOption {
-  margin-right: 550px;
-  padding-top: 30px;
+
+.fixed_selectOption1 {
+  margin-left: 100px;
+  
+}
+.fixe_diposite_cls{
+  padding: 20px;
 }
 
-/* .fixed_selectOption1{
-    margin-left: 550px;
-  } */
 .fixed_container_content {
   padding: 20px;
   border: 1px solid #ddd;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   color: #fff;
-  min-height: 150px;
   border-radius: 20px;
-  padding-top: 80px;
   margin-top: 50px;
   background-color: #ffff;
 }
@@ -1997,21 +2022,21 @@ body {
   margin-right: 100px;
 }
 
-.fixed_deposit_form label {
+.fixed_deposit_form .fixed_form_container {
   margin-bottom: 10px;
 }
 
-.fixed_button_container button {
+.fixed_diposite_container_button {
   padding: 10px;
   background-color: #2fb68e;
   color: white;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
-  width: 20vh;
+  /* cursor: pointer; */
+  /* width: 20vh; */
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .fixed_button_now {
@@ -2030,15 +2055,15 @@ body {
 
 /* renew advice start*/
 .renew_container {
-  padding: 20px;
-  text-align: center;
+  padding: 8px;
+  /* text-align: center; */
   background-color: rgb(247, 242, 242);
 }
 
-.renew_container h1 {
+.renew_container_heading {
   color: #2fb68e;
-  font-size: x-large;
-  margin-right: 750px;
+  /* font-size: x-large;
+  margin-right: 750px; */
 }
 
 .renew_deposits_container {
@@ -2049,10 +2074,18 @@ body {
   color: black;
   padding-right: 80px;
 }
-
+.renew_fd_th{
+  background-color: #2fb68e;
+  color: white;
+}
 .renew_deposits_container p {
   padding-top: 10px;
   padding-left: 10px;
+}
+.Table_renewfd{
+  padding: 10px;
+  font-size: 18px;
+  
 }
 
 .renew_deposits_container i {
@@ -2070,18 +2103,18 @@ body {
 }
 
 .fixed_form_section span {
-  font-weight: 420;
-  font-size: 20px;
+ 
+  font-size: 16px;
 }
 
-.fixed_form_section label {
-  margin-top: 15px;
+.fixed_form_section .form-inline {
+  margin-top: 16px;
 
 
 }
 
-.fixed_form_section input {
-  font-size: 15px;
+.fixed_form_section .form-control .form-control-sm {
+  font-size: 16px;
 }
 
 .fixed_form_heading {
@@ -2096,13 +2129,14 @@ body {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  width: 20vh;
+  
   justify-content: center;
   align-items: center;
   overflow: hidden;
   font-size: larger;
   /* background-color: #ebca28 ; */
-  margin-left: 370px;
+  margin-left: 280px;
+  margin-bottom: 20px;
   margin-top: 20px;
 
 }
@@ -2128,15 +2162,15 @@ body {
 
 .paylater_tablehead {
   background-color: #63ab95;
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .paylater_body {
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .paylater_table {
-  margin-top: 5%;
+  margin-top: 3%;
 }
 
 .paylater_table::-webkit-scrollbar,
@@ -2154,16 +2188,18 @@ body {
 .paylater_paynow,
 .paylater_statement {
   border: 1px solid #2fb68e;
-  font-size: 10px;
+  font-size: 13px;
   color: #2fb68e;
+  padding: 8px;
   background-color: transparent;
-  height: 35px;
+  
   border-radius: 5px;
 }
 
 .paylater_bill {
-  font-size: 10px;
+  font-size: 13px;
   color: #fff;
+  padding: 8px;
   background-color: #2fb68e;
   height: 35px;
   border-radius: 5px;
@@ -2178,13 +2214,13 @@ body {
 
 .paylater_paynow:hover,
 .paylater_statement:hover {
-  color: #ebca28;
-  border: 1px solid #ebca28;
+  color: white;
+  background-color: #2fb68e;
 }
 
 .paylater_bill:hover {
   color: white;
-  background-color: #ebca28;
+  background-color: #2fb68e;
 }
 
 .paylater_transactions {
@@ -2299,7 +2335,7 @@ body {
 }
 
 .estatement_container {
-  font-size: small;
+  font-size: 14px;
 }
 
 .estatement_accountmain,
@@ -2330,7 +2366,8 @@ body {
 .estatement_option {
   width: 100%;
   padding-left: 3%;
-  border: none;
+  /* border: none; */
+  outline: none;
 }
 
 .estatement_downicon {
@@ -2367,7 +2404,8 @@ body {
 }
 
 .estatement_calenderbtn {
-  border: none;
+  /* border: none; */
+  outline: none;
   background: none;
 }
 
@@ -2438,12 +2476,11 @@ body {
   width: 60px;
   background-color: #faede2;
   border: none;
-
   width: 210px;
   border: 1px solid #2fb68e;
   border-radius: 5px;
   color: #2fb68e;
-  height: 30px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2451,22 +2488,26 @@ body {
 }
 
 .estatement_view:hover {
-  border: 1px solid #ebca28;
-  color: #ebca28;
+  background-color: #2fb68e;
+  color: white;
 }
 
 .estatement_detailstatement {
   width: 200px;
   border: 1px solid #2fb68e;
-
+  padding: 10px;
   border-radius: 5px;
   color: #2fb68e;
   background-color: transparent;
-  height: 30px;
+  
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 4%;
+}
+.estatement_detailstatement:hover{
+  color: white;
+  background: #2fb68e;
 }
 
 .estatement_download {
@@ -2500,13 +2541,13 @@ body {
 
 .estatement_bankinput {
   padding-left: 5%;
-  border: none;
+  /* border: none; */
   outline: none;
 }
 
 .estatement_periodselect1 {
   padding-left: 0;
-  border: none;
+  /* border: none; */
   outline: none;
   width: 100%;
 }
@@ -2716,7 +2757,7 @@ body {
   border-radius: 5px;
   margin-top: 50px;
   margin-left: 10px;
-  font-weight: 600;
+ 
 }
 
 .Next_Account_container:hover {
@@ -2739,7 +2780,7 @@ body {
   width: 630px;
   font-family: "Poppins";
   color: #ffff;
-  font-weight: 500;
+ 
   padding-left: 10px;
   overflow: hidden;
 }
@@ -2813,7 +2854,7 @@ body {
 }
 
 .Registered_container {
-  font-weight: bold;
+ 
   font-family: "Poppins";
   margin-left: 0px;
 }
@@ -2963,7 +3004,7 @@ body {
   border-radius: 5px;
   margin-top: 50px;
   margin-left: 10px;
-  font-weight: 600;
+ 
 }
 
 .Next_Account_container:hover {
@@ -3016,8 +3057,8 @@ body {
 .BankAccount_AccountNumber_container {
   width: 250px;
   font-family: "poppins";
-  font-weight: 500;
-  font-size: 14px;
+ 
+  font-size: 16px;
 }
 
 .BankAccount_inputAccount_container {
@@ -3030,8 +3071,8 @@ body {
 .BankAccount_AccountNickName_container {
   width: 250px;
   font-family: "poppins";
-  font-weight: 500;
-  font-size: 14px;
+  
+  font-size: 16px;
   padding-left: 16px;
 }
 
@@ -3050,8 +3091,8 @@ body {
   border: none;
   height: 35px;
   font-family: "poppins";
-  font-weight: "500";
-  font-size: 14px;
+  
+  font-size: 16px;
   border-radius: 5px;
 }
 
@@ -3064,9 +3105,9 @@ body {
   margin-top: 5px;
 }
 
-.BankAccount_download_container {
-  font-weight: 500;
-}
+/* .BankAccount_download_container {
+ 
+} */
 
 .BankAccount_selecttype_container {
   margin-left: 15px;
@@ -3098,8 +3139,8 @@ body {
 .Payment_Summary_container {
   color: orange;
   text-align: "start";
-  font-size: "15px";
-  font-weight: "600";
+  font-size: "16px";
+ 
   font-family: "poppins";
   padding-left: 5px;
 }
@@ -3134,7 +3175,7 @@ body {
 .payment_payee_container {
   padding-left: 750px;
   font-family: "poppins";
-  font-weight: 400;
+  
 }
 
 .payment_frompages_container {
@@ -3146,8 +3187,8 @@ body {
 .Payment_AccountNumber_container {
   width: 250px;
   font-family: "poppins";
-  font-weight: 500;
-  font-size: 14px;
+  
+  font-size: 16px;
 }
 
 .payment_inputAccount_container {
@@ -3160,8 +3201,8 @@ body {
 .Payment_AccountNickName_container {
   width: 250px;
   font-family: "poppins";
-  font-weight: 500;
-  font-size: 14px;
+  
+  font-size: 16px;
   padding-left: 16px;
 }
 
@@ -3175,8 +3216,8 @@ body {
 .Payment_AccountType_container {
   width: 250px;
   font-family: "poppins";
-  font-weight: 500;
-  font-size: 14px;
+  
+  font-size: 16px;
 }
 
 .payment_selecttype_container {
@@ -3192,8 +3233,8 @@ body {
 .Payment_PayeeBank_container {
   width: 250px;
   font-family: "poppins";
-  font-weight: 500;
-  font-size: 14px;
+ 
+  font-size: 16px;
 }
 
 .payment_inputPayeeBank_container {
@@ -3209,8 +3250,8 @@ body {
   font-family: "poppins";
   color: white;
   border: none;
-  font-weight: 500;
-  font-size: 14px;
+ 
+  font-size: 16px;
   height: 30px;
   border-radius: 4px;
 }
@@ -3218,8 +3259,8 @@ body {
 .Payment_AccountNumber_container {
   width: 250px;
   font-family: "poppins";
-  font-weight: 500;
-  font-size: 14px;
+  
+  font-size: 16px;
 }
 
 .payment_inputAccountNumber_container {
@@ -3235,8 +3276,8 @@ body {
 .Payment_ConfirmNumber_container {
   width: 250px;
   font-family: "poppins";
-  font-weight: 500;
-  font-size: 14px;
+  
+  font-size: 16px;
   padding-left: 18px;
 }
 
@@ -3254,15 +3295,15 @@ body {
 .Payment_PayeeTransferred_container {
   font-family: "poppins";
   margin-left: 10px;
-  font-weight: 300;
-  font-size: 14px;
+  
+  font-size: 16px;
   padding-top: 5px;
   padding-left: 8px;
   color: red;
 }
 
 .Payment_PayeeVirtualaccount_container {
-  font-weight: 500;
+ 
   font-size: 14px;
   font-family: "poppins";
   padding-left: 20px;
@@ -3271,8 +3312,8 @@ body {
 .Payment_PayeeRegistration_container {
   width: 250px;
   font-family: "poppins";
-  font-weight: 500;
-  font-size: 14px;
+ 
+  font-size: 16px;
   padding-left: 8px;
 }
 
@@ -3305,8 +3346,8 @@ body {
   width: 75px;
   height: 35px;
   font-family: "poppins";
-  font-weight: 500;
-  font-size: 14px;
+ 
+  font-size: 16px;
   border-radius: 5px;
 }
 
@@ -3319,7 +3360,7 @@ body {
   height: 35px;
   font-family: "poppins";
   font-weight: "500";
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 5px;
 }
 
@@ -3330,8 +3371,8 @@ body {
 }
 
 .Payment_Notes_container {
-  font-size: 12px;
-  font-weight: 900;
+  font-size: 16px;
+ 
   font-family: "poppins";
 }
 
@@ -3391,8 +3432,8 @@ body {
 /* .fdform_input{
  
 } */
-.fdform_main_Container label {
-  font-weight: 420;
+.fdform_main_Container .form-inline {
+ 
 }
 
 .fdform_input:focus {
@@ -3439,14 +3480,15 @@ body {
   color: #0a6348;
   border: 1px solid #0a6348;
   cursor: pointer;
-  font-weight: 600;
+ 
   border-radius: 5px;
   width: 15%;
 }
 
-.funding_para1 input {
+.funding_para1 .form-control-md {
   -webkit-box-shadow: none;
   box-shadow: none;
+  font-size: 16px;
   border: none;
   border-bottom: 1px solid rgb(61, 61, 61);
   outline: none;

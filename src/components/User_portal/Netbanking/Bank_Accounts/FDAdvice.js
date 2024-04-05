@@ -75,15 +75,17 @@ const Fdadvice = () => {
             <div >
               {/* <div className="fixed-deposit-container"> */}
               <div className="fixed_deposit">
-                <h1>Fixed Deposit Accounts</h1>
+                <h3>Fixed Deposit Accounts</h3>
               </div>
               {/* <h2>Select Fixed Deposit Account </h2> */}
-              <label className="fixed_selectOption">
+              <div className="fixe_diposite_cls ">
+              <label className="fixed_selectOption m-2">
                 Select Fixed Deposit Account{" "}
               </label>
               <select
                 className="fixed_selectOption1"
                 class="your-dropdown-class"
+                style={{marginLeft:"100px"}}
               >
                 {selectedOption === "sendAdvice" && (
                   <div>
@@ -103,18 +105,21 @@ const Fdadvice = () => {
               </select>
 
               <form onSubmit={handleSubmit} className=" fixed_deposit_form">
-                <label>
+                <label className="fixed_form_container_label">
                   <input
                     type="radio"
+                    
+                    className="m-2"
                     name="fdOption"
                     value="sendAdvice"
                     onChange={() => setSelectedOption("sendAdvice")}
-                  />
+                  />{""}
                   I want FD advice to be sent to my email
                 </label>
-                <label className=" fixed_form_container">
+                <label className=" fixed_form_container_label">
                   <input
                     type="radio"
+                    className="m-2"
                     name="fdOption"
                     value="downloadDevice"
                     onChange={() => setSelectedOption("downloadDevice")}
@@ -123,12 +128,14 @@ const Fdadvice = () => {
                 </label>
                 <br />
 
-                <div className=" fixed_button_container">
-                  <button type="submit" onSubmit={handleSubmit}>
+                <div className=" fixed_button_container_button">
+                  <button type="submit" className="fixed_diposite_container_button" onSubmit={handleSubmit}>
                     Submit
                   </button>
                 </div>
+                
               </form>
+            </div>
             </div>
             {/* </div> */}
 

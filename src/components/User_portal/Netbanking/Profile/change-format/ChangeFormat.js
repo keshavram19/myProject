@@ -41,7 +41,7 @@ const ChangeFormat = () => {
               </p>
              
 
-              <button>Update</button>
+              <button className="change_form_button">Update</button>
             </div>
             
           </div>

@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import OverviewSidebar from "../../Sidebar/OverViewSidebar";
 import 'react-toastify/dist/ReactToastify.css';
+import { FaRegEyeSlash, FaRegEye } from 'react-icons/fa';
 
 const ChangePassword = () => {
   const [form, setForm] = useState("login");
@@ -15,6 +16,7 @@ const ChangePassword = () => {
   const [bankNewPassword, setBankNewPassword] = useState('');
   const [bankMailId, setBankMailId] = useState('');
   const [reEnteredPassword, setReEnteredPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleReEnterPassword = (event) => {
     setReEnteredPassword(event.target.value);
@@ -32,7 +34,11 @@ const handleMailId = (event) => {
   };
   const handleNewPassword = (event) => {
     setBankNewPassword(event.target.value)
-  }  
+  } 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   const handleBankLogin = async () => {
     const options = {
       method: "POST",
@@ -146,51 +152,69 @@ const handleMailId = (event) => {
           {form === "login" && (
             <div className="col-9 change-password" >
               <div className="changePassword-profile">
-                <p>Edit Profile : Change Password</p>
+                <h3 className="change_password_heading3">Edit Profile : Change Password</h3>
               </div>
               <div className="side-headings">
-                <p className="heading"> Please Confirm UserID And Password</p>
+                <h4  className="change_password_heading4"> Please Confirm UserID And Password</h4>
 
                 <p className="d-flex align-items-center">           
-                  <div className="">UserName </div>
-                  <input className="form-control w-25" onChange={handleUserName} type="text" value={bankUserName}></input>
+                  <div className="change_password_divs" style={{ fontSize: "16px" }}>UserName </div>
+                  <input className="form-control change_password_input w-25" onChange={handleUserName} type="text" value={bankUserName}></input>
                 </p>
 
 
                 <p className="d-flex align-items-center">           
-                  <div className="">Password </div>
-                  <input className="form-control w-25"onChange={handleBankPassword} type="Password"  value={bankPassword}  ></input>
+
+                  <div className="change_password_divs">Password </div>
+                  <input className="form-control change_password_input w-25"onChange={handleBankPassword} type={showPassword ? "text" : "password"}  value={bankPassword}/>
+                  <span
+          className="toggle-password"
+          onClick={togglePasswordVisibility}
+        >
+          {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+        </span>
                 </p>
-               
-                <button type="button" onClick={handleBankLogin}>Change Password</button>
-              </div>
-             
-            </div>
+           <button type="button" className='change_password_button' onClick={handleBankLogin}>Change Password</button>                   
+               </div>           
+            </div> 
+
           )}
           {form === "changepassword" && (
             <div className="col-9 change-password" >
               <div className="changePassword-profile">
-                <p>Edit Profile : Change Password</p>
+                <h3 className="change_password_heading3">Edit Profile : Change Password</h3>
               </div>
               <div className="side-headings">
-                <p className="heading">Login Password</p>
+                <h4 className="change_password_heading4">Login Password</h4>
 
                 <p className="d-flex align-items-center">           
-                  <div className="">Email </div>
-                  <input className="form-control w-25" onChange={handleMailId} type="email"></input>
+                  <div className="change_password_divs" style={{ fontSize: "16px" }}>Email </div>
+                  <input className="form-control change_password_input w-25" onChange={handleMailId} type="email"></input>
                 </p>
-
-
                 <p className="d-flex align-items-center">           
-                  <div className="">New Password </div>
-                  <input className="form-control w-25" onChange={handleNewPassword} type="password"></input>
+
+                  <div className="change_password_divs">New Password </div>
+                  <input className="form-control change_password_input w-25" onChange={handleNewPassword} type="password"></input>
+                  <span
+          className="toggle-password"
+          onClick={togglePasswordVisibility}
+        >
+          {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+        </span>
                 </p>
                 <p className="d-flex align-items-center pb-4 m-0">
-                  <div className="">Re-Enter New Password </div>
-                  <input type="password"className="form-control w-25"value={reEnteredPassword}  onChange={handleReEnterPassword}></input>
+                  <div className="" style={{ fontSize: "16px" }}>Re-Enter New Password </div>
+                  <input type="password"className="form-control change_password_input w-25"value={reEnteredPassword}  onChange={handleReEnterPassword}></input>
+                  <span
+          className="toggle-password"
+          onClick={togglePasswordVisibility}
+        >
+          {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+        </span>
+                
                 </p>
                
-                <button type="button" onClick={handleUpdatePassword}>Update</button>
+                <button className="change_password_button" type="button" onClick={handleUpdatePassword}>Update</button>
               </div>
               <div className="changepassword-instructions">
                 <p>Please keep these in mind while changing your password</p>

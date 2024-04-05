@@ -61,6 +61,7 @@ const ReissueCardTable = () => {
   };
 
   return (
+
     <>
       {isAuthenticated() ? (
         <div className='row container-fluid'>

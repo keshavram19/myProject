@@ -211,7 +211,7 @@ const FixedRecurringForm = () => {
                         <div className='col-md-6 '>
                             <h4 className='mb-4 fdform_subheading ' >Your Details (First Customer)</h4>
                             <div className="p-1">
-                            <label style={{paddingRight:"15px"}}>Title:  </label>
+                            <label className="form-check-label" style={{paddingRight:"15px"}}>Title:  </label>
                             <div className="form-check-inline " style={{fontSize:"15px"}}>
                             <label className="form-check-label" for='Email'>
                             <input type='radio' name="gender" className="form-check-input " style={{marginTop:"4px"}} onChange={(e) => setFixeddepositTitle(e.target.value)} value="Mr" />Mr
@@ -370,12 +370,12 @@ const FixedRecurringForm = () => {
                     <div className='row p-4'>
                         <div className=''>
                             <h4 className='fdform_fundingheading text-center p-2' style={{backgroundColor:"#ebca28",marginBottom:"30px"}}>Funding</h4>
-                            <p className="funding_para1 p-1">Please debit my/our RIB Savings/Current Account no. <input type='text' className="w-25" onChange={(e) => setFixeddepositAccountNumber(e.target.value)} value={FixeddepositAccountNumber} /> and transfer an amount of  <input type='text' className='w-10 ' onChange={(e) => setFixeddepositAmount(e.target.value)} value={FixeddepositAmount} />to a Fixed Deposit Account as below:
+                            <p className="funding_para1 p-1">Please debit my/our RIB Savings/Current Account no. <input type='text' className=" form-control-md w-25" onChange={(e) => setFixeddepositAccountNumber(e.target.value)} value={FixeddepositAccountNumber} /> and transfer an amount of  <input type='text' className='form-control-md w-10 ' onChange={(e) => setFixeddepositAmount(e.target.value)} value={FixeddepositAmount} />to a Fixed Deposit Account as below:
                             </p>
-                            <p className="funding_para1 p-1"> <span style={{fontWeight:"420",paddingRight:"10px"}}>Terms of deposit: </span>    Years <input className='w-10 p-1' onChange={(e) => setFixeddepositTermyears(e.target.value)} value={FixeddepositTermyears} />Months <input className='w-10 p-1' onChange={(e) => setFixeddepositTermmonths(e.target.value)} value={FixeddepositTermmonths} />Days<input className='w-10 p-1' onChange={(e) => setFixeddepositTermdays(e.target.value)} value={FixeddepositTermdays} /><br></br>
+                            <p className="funding_para1 p-1"> <span style={{fontWeight:"420",paddingRight:"10px"}}>Terms of deposit: </span>    Years <input className='form-control-md w-10 p-1' onChange={(e) => setFixeddepositTermyears(e.target.value)} value={FixeddepositTermyears} />Months <input className='form-control-md w-10 p-1' onChange={(e) => setFixeddepositTermmonths(e.target.value)} value={FixeddepositTermmonths} />Days<input className='form-control-md w-10 p-1' onChange={(e) => setFixeddepositTermdays(e.target.value)} value={FixeddepositTermdays} /><br></br>
                             </p>
 
-                            <label style={{fontWeight:"420",paddingRight:"10px"}} className="p-1">Rate of interest :</label> <input className='w-10 p-1' style={{outline:"none",paddingLeft:"20px"}} onChange={(e) => setFixeddepositInterestrate(e.target.value)} value={FixeddepositInterestrate} /> %
+                            <label style={{fontWeight:"420",paddingRight:"10px"}} className="p-1">Rate of interest :</label> <input className=' form-control-md w-10 p-1' style={{outline:"none",paddingLeft:"20px"}} onChange={(e) => setFixeddepositInterestrate(e.target.value)} value={FixeddepositInterestrate} /> %
                             <div className="p-2">
                             <label style={{fontWeight:"420",paddingRight:"10px"}} className="">Frequency of interest payable (please tick one)* :</label>
                             <div className="form-check-inline " style={{fontSize:"15px"}}>
@@ -400,8 +400,8 @@ const FixedRecurringForm = () => {
                             <p style={{fontWeight:"420"}}>If (A) or (B) from funding section, Unless specified we will credit interest to your RIB UK account</p>
                             <p className="funding_para1 p-1">Please arrange to credit all or part of the interest on the fixed deposit to my / our RIB account number 
                             <input className='w-25' onChange={(e) => setFixeddepositAccountNumber(e.target.value)} value={FixeddepositAccountNumber} />
-                            Please arrange to pay an amount** of <input className='w-25' onChange={(e) => setFixeddepositAmount(e.target.value)} value={FixeddepositAmount} />
-                            to my/our account with Bank <input className='w-25' onChange={(e) => setFixeddepositBankname(e.target.value)} value={FixeddepositBankname} />
+                            Please arrange to pay an amount** of <input className=' form-control-md w-25' onChange={(e) => setFixeddepositAmount(e.target.value)} value={FixeddepositAmount} />
+                            to my/our account with Bank <input className=' form-control-md w-25' onChange={(e) => setFixeddepositBankname(e.target.value)} value={FixeddepositBankname} />
                             out of the interest credited to my / our RIB account.</p>
 
                         </div>
@@ -495,7 +495,7 @@ const FixedRecurringForm = () => {
                             <div className="row">
                             <div className="col-md-6">
                             <label className='form-inline'><span>Checked by</span></label>
-                            <input className='form-control form-control-md w-75' />
+                            <input className='form-control form-control-md  w-75' />
                             </div>
                             </div>
                         </div>

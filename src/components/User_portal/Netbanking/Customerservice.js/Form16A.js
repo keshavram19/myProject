@@ -266,7 +266,7 @@ const generatePDF = () => {
             <BankaccountSidebar />
           </div>
           <div className="col-sm-9">
-            <h2 style={{color:"#EBCA28" }}>FORM 16A</h2>
+            <h3 style={{color:"#EBCA28" }}>FORM 16A</h3>
             <div className="row mt-3">
               <div className="col-sm-3" style={{ marginLeft: "28px"}}>
                 <label htmlFor="text">PAN Number*</label>

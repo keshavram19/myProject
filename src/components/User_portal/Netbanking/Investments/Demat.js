@@ -20,7 +20,7 @@ const DematAccountPage = () => {
             <h5 className='m-5'><BsCheck2Circle size={"30px"} color='red'/>Convenient <br/> simple</h5>
             <h5 className='m-5'><SiEasyeda size={"30px"} color='red'/>Simple <br/> Processing</h5>
           </div>
-          <button onClick={handleOpenDematAccountClick}>
+          <button className="demat_button" onClick={handleOpenDematAccountClick}>
             Open Demat Account
           </button>
         </div>
