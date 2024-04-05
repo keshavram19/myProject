@@ -18,7 +18,7 @@ const Linkaccounts = () => {
             <div className="">
               <input
                 type="search"
-                className="mt-1 form-control w-75"
+                className="mt-1 form-control link_account_input w-75"
                 placeholder="search for service request"
               ></input>
             </div>

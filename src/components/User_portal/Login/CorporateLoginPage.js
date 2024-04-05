@@ -78,7 +78,7 @@ const CorporateLoginPage = () => {
             <input
               type="text"
               placeholder="Registred Mobile Number"
-              className="form-control"
+              className="form-control corporate_login_input"
             />
 
             <div className="mt-3">

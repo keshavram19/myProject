@@ -786,7 +786,7 @@
     font-size: 14px;
 }
 
-.generate_credit_pin input[type="radio"] {
+.generate_credit_pin .generate_pin_input[type="radio"] {
     margin-right: 5px;
     transform: scale(1.2);
     cursor: pointer;

@@ -371,7 +371,7 @@ const PersonalLoginPage = () => {
               <input
                 type="text"
                 placeholder="Enter Bank Username"
-                className="form-control"
+                className="form-control corporate_login_input"
                 onChange={handleUserName}
                 value={bankUserName}
                 style={{fontSize: '14px'}}
@@ -379,7 +379,7 @@ const PersonalLoginPage = () => {
               <input
                 type="Password"
                 placeholder="Enter Bank Password"
-                className="form-control"
+                className="form-control corporate_login_input"
                 onChange={handleBankPassword}
                 value={bankPassword}
                 style={{fontSize: '14px'}}
@@ -395,7 +395,7 @@ const PersonalLoginPage = () => {
               <div className="row">
                 <div className="col-md-4">
                   <ToastContainer />
-                  <button type="button" onClick={handleBankLogin}>Sign In Securly</button>
+                  <button className="personal_login_page_button" type="button" onClick={handleBankLogin}>Sign In Securly</button>
                 </div>
                 <div className="col-md-4 m-auto text-right">
                   <Link
@@ -470,7 +470,7 @@ const PersonalLoginPage = () => {
               <input
                 type="text"
                 placeholder="Registred Mobile Number"
-                className="form-control"
+                className="form-control corporate_login_input"
               />
 
               <div className="mt-3">
@@ -481,7 +481,7 @@ const PersonalLoginPage = () => {
               </div>
 
               <div className="row ml-0">
-                <button>Continue</button>
+                <button className="personal_login_page_button">Continue</button>
               </div>
             </div>
           )}
@@ -499,7 +499,7 @@ const PersonalLoginPage = () => {
               <input
                 type="email"
                 placeholder="Enter Registered Email"
-                className="form-control"
+                className="form-control corporate_login_input"
                 onChange={handleMailId}
 
               />
@@ -513,7 +513,7 @@ const PersonalLoginPage = () => {
 
               <div className="row ml-0">
                 <ToastContainer />
-                <button type="button" onClick={handleSendingOTP}>Generate OTP</button>
+                <button className="personal_login_page_button" type="button" onClick={handleSendingOTP}>Generate OTP</button>
               </div>
 
             </div>
@@ -532,14 +532,14 @@ const PersonalLoginPage = () => {
               <input
                 type="text"
                 placeholder="Enter OTP"
-                className="form-control"
+                className="form-control corporate_login_input"
                 onChange={handleMailOTP}
 
               />
 
               <div className="row ml-0">
                 <ToastContainer />
-                <button type="button" onClick={handleVerifyOTP}>Verify OTP</button>
+                <button className="personal_login_page_button" type="button" onClick={handleVerifyOTP}>Verify OTP</button>
               </div>
 
             </div>
@@ -557,13 +557,13 @@ const PersonalLoginPage = () => {
               <input
                 type="password"
                 placeholder="Enter New Password"
-                className="form-control"
+                className="form-control corporate_login_input"
                 onChange={handleNewPassword}
               />
 
               <div className="row ml-0">
                 <ToastContainer />
-                <button type="button" onClick={handleUpdatePassword}>Change Password</button>
+                <button className="personal_login_page_button" type="button" onClick={handleUpdatePassword}>Change Password</button>
               </div>
 
             </div>

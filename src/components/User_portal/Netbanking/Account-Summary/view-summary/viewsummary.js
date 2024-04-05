@@ -104,9 +104,10 @@ const Viewsummary = () => {
                     <div className="viewSummary">
                       <h1>View Account Summary</h1>
                       <p>
-                        Access my{" "}
+                        <label className="view_summary_label col-sm-4">Access my account summary:</label>
+                        
                         <select
-                         className="selectSummaryCategory"
+                         className="selectSummaryCategory col-sm-4"
                           // onChange={(e) => handleSearch(e.target.value)}
                           onChange={(e) => setSelectedOption(e.target.value)}
                           value={selectedOption}

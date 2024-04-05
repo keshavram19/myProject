@@ -197,10 +197,12 @@
   color: #2fb68e;
 }
 .completed_transactions_type{
-  background-color: rgb(247, 246, 246);
-  height: 50px;
+  background-color: #2fb68e;
+  color: white;
+  padding: 8px;
   display: flex;
   align-items: center;
+  font-size: 16px;
 }
 .completed_transaction_search{
   width:480px ;
@@ -211,7 +213,7 @@
 .completed_transaction_select1{
   height: 30px;
   width: 250px;
-  font-size: small;
+  font-size: 16px;
   outline: none;
   padding:1%;
 }
@@ -223,7 +225,7 @@
 }
 .completed_transaction_inputdate{
   height: 30px;
-  font-size: small;
+  font-size: 16px;
   outline: none;
   padding-left: 3%;
   border: none;
@@ -233,7 +235,7 @@
   border-radius: 5px;
   height: 30px;
   width: 250px;
-  font-size: small;
+  font-size: 16px;
   outline: none;
   padding-left: 3%;
   padding-right: 3%;
@@ -248,11 +250,11 @@
 }
 .completed_transaction_get{
   border: 1px solid #2fb68e;
-  background: transparent;
-  color: #2fb68e;
+  background: #2fb68e;
+  color: white;
   border-radius: 5px;
-  font-size: small;
-  height: 30px;
+  font-size: 16px;
+  padding: 8px;
   display: flex;
   align-items: center;
 
@@ -270,10 +272,7 @@
 .completed_transaction_ok:hover{
   background-color: #ebca28;
 }
-.completed_transaction_get:hover{
-background-color: #2fb68e;
-color: white;
-}
+
 .completed_transaction_details{
   display: flex;
   justify-content: flex-end;
@@ -367,27 +366,20 @@ color: white;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 .wire-transaction-container {
-    padding: 0px 0px 5px 0px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding-bottom: 10px;
     background-color: #faede2;
-    color:  #f18121;
+    padding: 15px;
+    margin-right: 20%;
+   
   }
   
-  .wire-transaction-container h1 {
+  .wire-transaction-caontainer-heading {
     font-size: 20px;
-  }
-  .wire-transaction-container header {
-    height: 50px;
-    width: 100%; /* Adjusted width to account for margin */
     padding: 10px;
-    margin-right: 15px;
-    padding-left: 5px;
-    background-color: #faede2;
-    padding-top: 10px;
-    color: #000;
-}
+    padding: 10px;
+    background-color: #2fb68e;
+    color: white;
+  }
+
 
   .transaction-form {
     display: flex;
@@ -400,20 +392,24 @@ color: white;
     margin-left: 10px;
   }
   
-  .transaction-form input,
+  .transaction-form-input,
   select {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
+ 
+    width: 200px;
+    padding: 4px;
+    box-shadow: inset 0 0 2px rgba(131, 128, 128, 0.3);
+    font-size: 13px;
     border-radius: 5px;
-    font-size: 14px;
-    margin-left: 10px;
-    margin-right: 10px;
+    border: 1px solid #cdcde7;
+    outline: none;
+    padding-left: 5px;   
+
   }
+
   
-  .transaction-form button {
-    padding: 12px;
-  background-color: #ff8c00;
+  .transaction-form-button {
+    padding: 7px;
+    background-color: #2fb68e;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -621,13 +617,22 @@ color: white;
     font-family: Poppins;
   }
    .generate_retrive_code{
-    background-color : #faede2
+    /* background-color : #faede2 */
   } 
    .generate_retrive_node{
-    color : #f18121}
+    color : white;
+    background-color: #2fb68e;
+
+  }
+  .generat_mmd_input{
+    outline: none;
+    box-shadow: none;
+  }
    .generate_retrive_mern{
-     background-color : #f18121   ;
+     background-color : #2fb68e;
+     border: 1px solid #2fb68e;
            border-radius:5px;
+           color: white;
            padding: 5px;
            border: none;
          }
@@ -672,7 +677,7 @@ color: white;
       }
       .manage_pay_cards_manage h4{
         background-color: #2fb68e;
-color: #fff;
+        color: #fff;
       }
       
       
@@ -682,8 +687,6 @@ color: #fff;
 .confirm_biller_tags{
   align-items: center;
 }
-
-
 
 .confirm_biller h6{
   color: #2fb68e;
@@ -785,10 +788,6 @@ color: #fff;
         /* color: #93ecd2; */
         /* color: #2fb68e; */
         color: #ebca28;
-
-
-                /* color: #ffd813; */
-
         width: 30px;
       margin-bottom:30px;
      }
@@ -851,15 +850,15 @@ color: #fff;
       flex-direction: row;
      }
      .Inward_sel_Inacct_numbr{
-      width: 160px;
+      
       margin-left: 5px;
       /* background-color: #f1ecec; */
       /* background-color: #ebca28; */
       /* background-color: #fff1ad; */
-      height: 25px;
+     
        outline: none;
-      font-size: small;
-      padding: 0px 0px;
+      font-size: 16px;
+      
     }
     .ptag_inward_acct_num{
       font-size: small;
@@ -952,7 +951,7 @@ margin-top: -20px;
 
  
 .acctnum_inward_head{
-  font-size: small;
+  font-size: 16px;
 }
 
 /* Styles for submit button */
@@ -961,8 +960,8 @@ margin-top: -20px;
 /* Styles for submit button */
 .Inward_remittance_Request_form_ptag{
   padding: 10px 10px;
- 
-  font-size: smaller;
+  border: 1px solid #2fb68e;
+  font-size: 16px;
   /* background-color:  #f18121 ; */
   background-color: #2fb68e;
   color: #fff;
@@ -973,8 +972,8 @@ margin-top: -20px;
   transition: background-color 0.3s ease;
 }
 
-.Inward_remittance_Request_form_ptag:hover{
-  /* background-color:  #f18121; */
+/* .Inward_remittance_Request_form_ptag:hover{
+  
   background-color: #07b17e;
   color: #000;
   width: 100%;
@@ -982,7 +981,7 @@ margin-top: -20px;
   padding: 10px 10px;
 
 
-}
+} */
 
 
 
@@ -991,55 +990,37 @@ margin-top: -20px;
   /* Tax Center css Starts */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-/* *{
-  font-family: 'Poppins';
-} */
+
 .tax_centerbank_page {
-     padding: 20px 20px;
+     padding: 20px;
   }
    
   
   .tax_center_options_pfull {
-    margin-top: 10px;
+    /* margin-top: 10px; */
      text-align: left;
      margin-left: 50px;
   }
   .ptag_view_yag_center{
-    font-size: small;
+    font-size: 14px;
   }
   
-  .user_authenti_tax_header{
-    margin-top: 30px;
-    text-align: left;
-
-  }
+ 
   .user_header_tax_color{
-    /* color : #ebca28; */
-     /* font-size: 20px; */
-      font-weight: 500;
+     padding: 8px;
+     font-size: 20px;
+      color: #2fb68e;
 
   }
-  .Tax_hrline_box_shadow{
-    box-shadow:   1px 1px 3px rgb(141, 91, 91);
-    border: none;
-  }
-  .light_bg_color_tax{
-    /* background-color:  #5dfa77; */
-    background-color: #eff5f5
-    /* background-color: #f7eaab; */
-
-   }
+ 
   .ptag_tax_center{
-     padding: 5px 10px;
-     font-weight: 400;
-    /* background-color:#fae2e5 ; */
-    /* background-color: #f1d961; */
-    background-color: #67b9a1;
-    color: #000;
+     padding: 5px;
+    background-color: #2fb68e;
+    color: white;
   }
   .Tax_ptag_please_para{
-    font-size: small;
-    font-weight:  400;
+    font-size: 16px;
+   
   }
   .otp_button_Tax_icon{
     display: flex;
@@ -1048,10 +1029,11 @@ margin-top: -20px;
   .otp_Tax_div_label{
     display: flex;
     flex-direction:column;
-    width: 150px;
-    font-size: smaller;
+    border: 1px solid #ccc;
+    padding: 4px;
+    width: 200px;
+    font-size: 14px;
     outline: none;
-    height: 24px;
 
     }
 
@@ -1073,27 +1055,26 @@ margin-top: -20px;
   .Tax_center_but_app {
     margin-bottom: 10px;
     padding: 8px;
-     color:#000000;
+     color:white;
      /* background-color:#f5b176 ; */
      background-color: #2fb68e;
-
-    cursor: pointer;
-     font-size: small;
+    /* cursor: pointer; */
+     font-size: 16px;
     margin-left: 10px;
     border: none;
     border-radius: 4px;
   }
-  .Tax_center_but_appGen:hover{
+  /* .Tax_center_but_appGen:hover{
   background-color: #07b984be;
-  }
+  } */
   .Tax_center_but_appGen{
     margin-bottom: 10px;
     padding: 8px;
-     color:#000000;
+     color:white;
      /* background-color:#f5b176 ; */
      background-color: #2fb68e;
-    cursor: pointer;
-     font-size: small;
+    /* cursor: pointer; */
+     font-size: 16px;
     margin-top: 10px;
     border: none;
     border-radius: 4px;
@@ -1108,16 +1089,54 @@ margin-top: -20px;
     color: #666565;
   }
   
-  .Tax_center_but_app:hover {
-    background-color: #07b984be;
-color: #000;     
-  } 
+ 
   .Tax_center_but_app:focus{
     outline: none;
-    border: none;
+    /* border: none; */
   }
   
   /* Tax Center CSS Ends  */
+
+ .card-button {
+  background: #2fb68e;
+  color: white;
+  border: 1px solid #2fb68e;
+  padding: 5px;
+  border-radius: 3px;
+ }
+
+
+
+
+.bill_recharge_button{
+  color: #2fb68e;
+   padding: 25px;
+   width: 100%;
+  cursor: 'pointer';
+  border-radius: 5px;
+  color: #2fb68e;
+  background-color: transparent;
+  height: 30px;
+  border: 1px solid #2fb68e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  margin-bottom: 3%;
+
+}
+.bill_recharge_button:hover{
+  color: white;
+  background: #2fb68e
+}
+.bill_recharge_button2{
+  color: white;
+  background: #2fb68e
+}
+
+
+
+
 /* MyTransaction CSS Starts */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
@@ -1125,26 +1144,27 @@ color: #000;
   font-family: 'Poppins';
  } */
 .Transaction_type_Table_row{
-   font-size: 13px;
+   font-size: 12px;
+   background-color: #2fb68e;
+   color: white;
+   width: 200%;
 }
 .Transaction_type_row_data{
-  font-size: 13px;
+  font-size: 14px;
 }
 .My_sch_transaction{
   text-align: left;
   padding: 20px 20px;
   }
   .sub_heading_myschedule_trans_htag{
-    font-weight: 300;
+   
     margin-bottom: 20px;
     font-size: 20px;
     margin-left: 30px;
   }
   .main_my_scheduled_tran{
-    /* color:    #f18121; */
-    /* color: #ebca28; */
-    /* font-size: 20px; */
-    font-weight: 500;
+    
+    color:"#2fb68e";
   }
   .my_Sch_tag_line{
     border: 1px solid  #c3ccc3;
@@ -1160,6 +1180,7 @@ color: #000;
   /* background-color: #faede2; */
 /* background-color: #ebca28; */
 background-color: #2fb68e;
+color: white;
       padding: 5px 10px;
 }
 .myalabel_trans_type_sch{
@@ -1168,34 +1189,31 @@ background-color: #2fb68e;
 }
 .mya_sch_transaction_Type{
   margin-left: 10px;
-  font-size: small;
+  font-size: 16px;
   margin-top: 12px;
   margin-bottom: 5px;
 }
 .my_Tatransaction_Type{
   margin-left:10px;
    margin-top: 10px;
-    height: 25px;
+   padding: 15px;
+    /* height: 25px; */
     padding: 0px 10px;
-    font-size: small;
+    font-size: 16px;
     outline: none;
-    width: 150px;
+    /* width: 0px; */
 }
 .mya_sch_searchbtn{
   margin:0px 8px ;
-  border: none;
   outline: none;
-  /* background-color: #f18121; */
-background-color: #2fb68e;
-  border-radius: 5px;
-  cursor: pointer;   
+  padding: 5px;
+  background-color: #2fb68e;
+  border-radius: 5px; 
+  border: 1px solid #2fb68e;  
   color: white; 
-  font-size: small;
+  font-size: 16px;
 }
-.mya_sch_searchbtn:hover{
-  /* background-color: #ff7700; */
-  background-color: #07b17e;
-}
+
 .mya_Trasch_download_detail{
   display: flex;
    flex-direction: row;
@@ -1204,27 +1222,26 @@ background-color: #2fb68e;
 }
 .my_sch_tra_label_downl{
   margin-right: 7px;
- font-size: small;
-margin-top: 3px;
+ font-size: 16px;
+ margin-top: 3px;
 }
   .my_tran_sel_downl{
     margin-right: 10px;
-    width: 150px;
+    padding: 15px;
     padding: 0px 5px;
     outline: none;
-    font-size: smaller;
-    height: 25px;
+    font-size: 16px;
+    /* height: 25px; */
    }
   .My_transac_download_ok_button{
     /* background-color:  #f18121; */
     background-color: #2fb68e;
+    border: 1px solid #2fb68e;
     color: #fff;
-    cursor: pointer;
     border-radius: 3px;
     width: 35px;
     padding: 0px 2px;
-    font-size: smaller;
-    height: 25px;
+    font-size: 16px;
     border: none;
   }
   
@@ -1238,7 +1255,7 @@ margin-top: 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 10vh;
+  /* height: 10vh; */
   font-family: 'Poppins', sans-serif;
 }
 
@@ -1252,7 +1269,7 @@ margin-top: 3px;
 }
 
 .interest_certificate_heading5 {
-  background-color: #81cfb6;
+  background-color: #2fb68e;
   color: white;
   padding: 10px;
 }
@@ -1265,9 +1282,11 @@ margin-top: 3px;
   box-shadow: none;
 }
 
-.interest_period:focus {
+.interest_period {
   border-color: initial;
   box-shadow: none;
+  padding: 3px;
+  border: 1px solid #ccc;
   outline: none;
 }
 
@@ -1284,33 +1303,26 @@ margin-top: 3px;
   padding-top: 3%;
 }
 
-/* .btn_interest_button:focus {
-  outline: none;
-  border-color: initial;
-  box-shadow: none;
-} */
-
 .btn_interest_button {
   margin: 4%;
   outline: none;
   text-align: center;
-  border: 1px solid #2fb68e;
+  background-color: #2fb68e;
+   border: 1px solid #2fb68e;
   border-radius: 4px;
-  color: #2fb68e;
-  background-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 4px;
-  cursor: pointer;
+  font-size: 16px;
+
+  color: white;
+  padding: 8px;
   margin-left: 40%;
   margin-right: 40%;
   
 }
 
-.btn_interest_button:hover {
+/* .btn_interest_button:hover {
   color: white;
   background-color: #2fb68e;
-}
+} */
   
 
 .inerest_heading6 {
@@ -1365,6 +1377,7 @@ margin-top: 3px;
 }
 .btn_Disclaimer_button{
   border-radius: 1px solid #2fb68e;
+  background-color: #2fb68e;
   font-weight: 500;
   border-style: none;
   color: white;
@@ -1374,10 +1387,10 @@ margin-top: 3px;
   border-color: initial;
   box-shadow: none;
 }
-.btn_Disclaimer_button:hover{
+/* .btn_Disclaimer_button:hover{
   color: white;
   background-color: #2fb68e;
-}
+} */
 
 /* Disclaimer css end */
 
@@ -1461,7 +1474,7 @@ padding: 2%;
   padding: 3%;
 }
 .incometax_filling_heading4{
-  background-color: #81cfb6;
+  background-color: #2fb68e;
   color: white;
   padding: 1%;
   
@@ -1485,22 +1498,21 @@ padding: 2%;
   outline: none;
   text-align: center;
   border: 1px solid #2fb68e;
+  background-color: #2fb68e;
   border-radius: 4px;
-  color: #2fb68e;
-  background-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
+  
+  font-size: 16px;
+  color: white;
   padding: 4px;
-  cursor: pointer;
   width: 90px;
   margin-left: 30px;
 
 }
 
-.Incometax_submits:hover{
+/* .Incometax_submits:hover{
   background-color: #2fb68e;
   color: #fff;
-}
+} */
 
 
 .btn_incometax_button:focus{

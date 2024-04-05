@@ -95,7 +95,7 @@ const ReissueCardTable = () => {
                   <td>{getStatus(user)}</td>
                   <td>
                     {user.userDebitCardDetails.reissueCard.srn && (
-                      <button onClick={() => onViewClick(user)}>View</button>
+                      <button className='table-container_button' onClick={() => onViewClick(user)}>View</button>
                     )}
                   </td>
                 </tr>

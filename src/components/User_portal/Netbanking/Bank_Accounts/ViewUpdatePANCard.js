@@ -191,18 +191,18 @@ const UpdatePancard = () => {
                     <h6 className="my-2 p-2">How would you like to get OTP?</h6>
                     <div className="d-flex pl-2">
                       <div className="pr-3">
-                        <input type="radio" id="sms" name="options" value="sms"
+                        <input className='view_update_pan_input' type="radio" id="sms" name="options" value="sms"
                           checked={otpMethod === 'sms'}
                           onChange={handleOtpMethodChange} /><label htmlFor="sms" >SMS</label>
                       </div>
                       <div className="pr-3">
-                        <input type="radio" name="options" id="email"
+                        <input className='view_update_pan_input' type="radio" name="options" id="email"
                           value="email"
                           checked={otpMethod === 'email'}
                           onChange={handleOtpMethodChange} /><label htmlFor="email" >Email</label>
                       </div>
                       <div>
-                        <input type="radio" id="call"
+                        <input className='view_update_pan_input' type="radio" id="call"
                           name="options"
                           value="call"
                           checked={otpMethod === 'call'}

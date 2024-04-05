@@ -183,7 +183,7 @@ const GeneratePin = () => {
                                     <div className="col-sm-6">
                                         <label htmlFor='text'>CVV Number*</label>
                                     </div>
-                                    <div className="col-sm-3">
+                                    <div className="col-sm-4">
                                         <input
                                             type='number'
                                             className='form-control'
@@ -197,7 +197,7 @@ const GeneratePin = () => {
                                     <div className="col-sm-6">
                                         <label for="text">Mobile Number*</label>
                                     </div>
-                                    <div className="col-sm-3">
+                                    <div className="col-sm-4">
                                         <input
                                             type="text"
                                             className="form-control"

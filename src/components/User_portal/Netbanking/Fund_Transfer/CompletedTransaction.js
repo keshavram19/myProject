@@ -215,7 +215,7 @@ const generateRandomTransactionId = () => {
           <h4 className='completed_transactions_head'>Completed Transactions</h4>
           <hr/>
           <div className='container-fluid completed_transactions_type '>
-            <h6>Type Of Transaction</h6>
+            <h4 >Type Of Transaction</h4>
 
           </div>
           <div className='container-fluid mt-3'>
@@ -267,7 +267,7 @@ const generateRandomTransactionId = () => {
                      />
                 </div>
               </div>
-              <p className='mt-5' style={{fontSize:'small'}}>*Mandatory</p>
+              <p className='mt-2' style={{fontSize:'small'}}>*Mandatory</p>
               <button className='mt-5 completed_transaction_get' onClick={()=>setView('get')} >GET TRANSACTIONS</button>
 
 

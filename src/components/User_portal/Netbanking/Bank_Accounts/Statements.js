@@ -370,9 +370,9 @@ const Statements = () => {
                         <div className='show_transactions_cont'>
                             <div className='show_transactions_text'>Show Transactions:</div>
                             <div className='show_all_transa'>
-                                <select className='form-control statement_select_format'
+                                <select className='form-control transaction_statement_option'
                                     disabled={accountType === 'Current'} onChange={handleTransactionType}>
-                                    <option value='allTransactions'>All Transactions</option>
+                                    <option value='allTransactions '>All Transactions</option>
                                     <option value='withdrawal'>Withdrawals</option>
                                     <option value='deposit'>Deposits</option>
                                 </select>
@@ -381,8 +381,9 @@ const Statements = () => {
 
                             <div className='per_page_tarns'>
                                 <div className='mr-2'>Transactions</div>
-                                <div>
-                                    <select className='form-control statement_select_format'
+                                <div >
+                                    <select className='form-control transaction_statement_option'
+                                    
                                         disabled={accountType === 'Current'} onChange={handlePerPageTransactions}>
                                         <option>10</option>
                                         <option>15</option>

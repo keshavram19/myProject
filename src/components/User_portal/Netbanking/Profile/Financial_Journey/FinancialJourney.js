@@ -1,8 +1,3 @@
-
-
-
-
-
 import React, { useState, useRef } from "react";
 import "./FinancialJourney.css";
 import { Link } from "react-router-dom";
@@ -50,6 +45,7 @@ const FinancialJourney = () => {
               <h6 className="mt-4"> credit cards</h6>
               <div className="d-flex">
                 <button
+                
                   onClick={() => {
                     handleHorizontalScroll(section1Ref, 25, 200, -10, setArrowDisable1);
                   }}
@@ -71,7 +67,7 @@ const FinancialJourney = () => {
                           every 3 months
                         </p>
                         <Link to="">
-                          <button>Change PIN</button>
+                          <button className="financial_journey_arrow_button">Change PIN</button>
                         </Link>
                       </div>
 
@@ -80,7 +76,7 @@ const FinancialJourney = () => {
                         <h6>Term Life Insurance</h6>
 
                         <Link to="">
-                          <button >Insure Now</button>
+                          <button className="financial_journey_arrow_button">Insure Now</button>
                         </Link>
                       </div>
                       <div className="card financial_journey_col_6_row1_card_3">
@@ -89,7 +85,7 @@ const FinancialJourney = () => {
                           Get your card unblocked digitally with ease
                         </p>
                         <Link to="">
-                          <button>Unblock now</button>
+                          <button className="financial_journey_arrow_button">Unblock now</button>
                         </Link>
                       </div>
                       <div className="card financial_journey_col_6_row1_card_3">
@@ -98,7 +94,7 @@ const FinancialJourney = () => {
                           Change your Internet banking password every 3 months
                         </p>
                         <Link to="">
-                          <button>Change Password</button>
+                          <button className="financial_journey_arrow_button">Change Password</button>
                         </Link>
                       </div>
                       <div className="card financial_journey_col_6_row1_card_3">
@@ -107,7 +103,7 @@ const FinancialJourney = () => {
                           Running out of cheque leaves ? Request for cheque book online
                         </p>
                         <Link to="">
-                          <button>Initiate Request</button>
+                          <button className="financial_journey_arrow_button">Initiate Request</button>
                         </Link>
                       </div>
                     </div>
@@ -162,7 +158,7 @@ const FinancialJourney = () => {
                           </p>
                         </div>
                         <Link to="">
-                          <button>PAY NOW </button>
+                          <button className="financial_journey_arrow_button">PAY NOW </button>
                         </Link>
                       </div>
 
@@ -180,7 +176,7 @@ const FinancialJourney = () => {
 
                         </div>
                         <Link to="">
-                          <button>PAY NOW </button>
+                          <button className="financial_journey_arrow_button">PAY NOW </button>
                         </Link>
                       </div>
 
@@ -198,7 +194,7 @@ const FinancialJourney = () => {
 
                         </div>
                         <Link to="">
-                          <button>PAY NOW </button>
+                          <button className="financial_journey_arrow_button">PAY NOW </button>
                         </Link>
                       </div>
 
@@ -216,7 +212,7 @@ const FinancialJourney = () => {
 
                         </div>
                         <Link to="">
-                          <button>PAY NOW </button>
+                          <button className="financial_journey_arrow_button">PAY NOW </button>
                         </Link>
                       </div>
 
@@ -269,7 +265,7 @@ const FinancialJourney = () => {
 
                         </div>
                         <Link to="">
-                          <button>PAY NOW </button>
+                          <button className="financial_journey_arrow_button">PAY NOW </button>
                         </Link>
                       </div>
 
@@ -288,7 +284,7 @@ const FinancialJourney = () => {
 
                         </div>
                         <Link to="">
-                          <button>PAY NOW </button>
+                          <button className="financial_journey_arrow_button">PAY NOW </button>
                         </Link>
                       </div>
 
@@ -315,7 +311,7 @@ const FinancialJourney = () => {
             <div className="card p-2">
               <div className="card financial_journey_rcol_3_card1">
                 <h6>Check your CIBIL score</h6>
-                <button>Get Report</button>
+                <button className="financial_journey_arrow_button">Get Report</button>
               </div>
 
               <div className="card financial_journey_rcol_3_card2">

@@ -69,6 +69,7 @@ const NationalpensionServiceRequestsPage = () => {
               <input
                 type="radio"
                 id="option1"
+                className="national_pension_radio"
                 name="options"
                 value="Option 1"
                 checked={selectedOption === "Option 1"}
@@ -79,6 +80,7 @@ const NationalpensionServiceRequestsPage = () => {
               </label>
               <input
                 type="radio"
+                className="national_pension_radio"
                 id="option2"
                 name="options"
                 value="Option 2"
@@ -96,7 +98,7 @@ const NationalpensionServiceRequestsPage = () => {
             <input
               type="text"
               id="fathersName"
-              className="form-control"
+              className="form-control nation_pendion_input"
               value={fathersName}
               onChange={(e) => setFathersName(e.target.value)}
             />
@@ -107,7 +109,7 @@ const NationalpensionServiceRequestsPage = () => {
             <input
               type="text"
               id="panNumber"
-              className="form-control"
+              className="form-control nation_pendion_input"
               value={panNumber}
               onChange={(e) => setPanNumber(e.target.value)}
             />
@@ -118,7 +120,7 @@ const NationalpensionServiceRequestsPage = () => {
             <input
               type="text"
               id="cityOfBirth"
-              className="form-control"
+              className="form-control nation_pendion_input"
               value={cityOfBirth}
               onChange={(e) => setCityOfBirth(e.target.value)}
             />
@@ -140,7 +142,7 @@ const NationalpensionServiceRequestsPage = () => {
             <input
               type="text"
               id="mothersName"
-              className="form-control"
+              className="form-control nation_pendion_input"
               value={mothersName}
               onChange={(e) => setMothersName(e.target.value)}
             />
@@ -175,7 +177,7 @@ const NationalpensionServiceRequestsPage = () => {
             <input
               type="text"
               id="spousesFirstName"
-              className="form-control"
+              className="form-control nation_pendion_input"
               value={spousesFirstName}
               onChange={(e) => setSpousesFirstName(e.target.value)}
             />
@@ -198,7 +200,7 @@ const NationalpensionServiceRequestsPage = () => {
             <input
               type="text"
               id="nomineeName"
-              className="form-control"
+              className="form-control nation_pendion_input"
               value={nomineeName}
               onChange={(e) => setNomineeName(e.target.value)}
             />
@@ -209,7 +211,7 @@ const NationalpensionServiceRequestsPage = () => {
             <input
               type="date"
               id="nomineeDateOfBirth"
-              className="form-control"
+              className="form-control nation_pendion_input"
               value={nomineeDateOfBirth}
               onChange={(e) => setNomineeDateOfBirth(e.target.value)}
             />
@@ -246,6 +248,7 @@ const NationalpensionServiceRequestsPage = () => {
                 <input
                   type="radio"
                   id="option1"
+                  className="national_pension_radio"
                   name="investmentOption"
                   value="active choice"
                   checked={investmentOption === "active choice"}
@@ -256,6 +259,7 @@ const NationalpensionServiceRequestsPage = () => {
                 <input
                   type="radio"
                   id="option2"
+                  className="national_pension_radio"
                   name="investmentOption"
                   value="auto choice"
                   checked={investmentOption === "auto choice"}
@@ -266,6 +270,7 @@ const NationalpensionServiceRequestsPage = () => {
                 <input
                   type="radio"
                   id="option3"
+                  className="national_pension_radio"
                   name="investmentOption"
                   value="aggressive"
                   checked={investmentOption === "aggressive"}
@@ -275,6 +280,7 @@ const NationalpensionServiceRequestsPage = () => {
 
                 <input
                   type="radio"
+                  className="national_pension_radio"
                   id="option4"
                   name="investmentOption"
                   value="moderate"
@@ -285,6 +291,7 @@ const NationalpensionServiceRequestsPage = () => {
 
                 <input
                   type="radio"
+                  className="national_pension_radio"
                   id="option5"
                   name="investmentOption"
                   value="conservative"
@@ -305,7 +312,7 @@ const NationalpensionServiceRequestsPage = () => {
               <input
                 type="number"
                 id="equityAllocation"
-                className="form-control"
+                className="form-control nation_pendion_input"
                 value={equityAllocation}
                 onChange={(e) => setEquityAllocation(e.target.value)}
               />
@@ -315,7 +322,7 @@ const NationalpensionServiceRequestsPage = () => {
               <input
                 type="number"
                 id="corporateBondsAllocation"
-                className="form-control"
+                className="form-control nation_pendion_input"
                 value={corporateBondsAllocation}
                 onChange={(e) => setCorporateBondsAllocation(e.target.value)}
               />
@@ -328,7 +335,7 @@ const NationalpensionServiceRequestsPage = () => {
               <input
                 type="number"
                 id="governmentBondsAllocation"
-                className="form-control"
+                className="form-control nation_pendion_input"
                 value={governmentBondsAllocation}
                 onChange={(e) => setGovernmentBondsAllocation(e.target.value)}
               />
@@ -342,7 +349,7 @@ const NationalpensionServiceRequestsPage = () => {
             <input
               type="tel"
               id="mobileNumber"
-              className="form-control"
+              className="form-control nation_pendion_input"
               value={mobileNumber}
               onChange={(e) => setMobileNumber(e.target.value)}
             />
@@ -353,7 +360,7 @@ const NationalpensionServiceRequestsPage = () => {
             <input
               type="email"
               id="email"
-              className="form-control"
+              className="form-control nation_pendion_input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -364,7 +371,7 @@ const NationalpensionServiceRequestsPage = () => {
               <input
                 type="file"
                 id="photo"
-                className="form-control"
+                className="form-control nation_pendion_input"
                 accept="image/*"
                 onChange={handlePhotoUpload}
               />
@@ -378,11 +385,11 @@ const NationalpensionServiceRequestsPage = () => {
               <input
                 type="file"
                 id="signature"
-                className="form-control"
+                className="form-control nation_pendion_input"
                 accept="image/*"
                 onChange={handleSignatureUpload}
               />
-              <button type="button" onClick={handleSignatureUpload}>
+              <button className="service-requests-form-group-button" type="button" onClick={handleSignatureUpload}>
                 Upload
               </button>
             </div>
