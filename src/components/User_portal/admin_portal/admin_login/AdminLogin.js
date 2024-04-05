@@ -296,6 +296,13 @@ const AdminLogin = () => {
             <div className="col-6">
               <img src={banklogo} alt="logo" style={{ width: "170px" }} />
             </div>
+            <div className="col-6 text-right m-auto">
+              <p className="mb-0">
+                <Link to="/netbanking-personal-login" style={{ color: '#2fb68e'}}>
+                  Login to personal banking
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>

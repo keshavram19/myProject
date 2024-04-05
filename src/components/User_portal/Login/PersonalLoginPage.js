@@ -481,10 +481,39 @@ const PersonalLoginPage = () => {
               </div>
 
               <div className="row ml-0">
-                <button>Continue</button>
+              <ToastContainer />
+                <button type="button" onClick={handleSendingOTP}>Continue</button>
               </div>
             </div>
           )}
+
+        {form === "verifyingOTP" && (
+            <div className="col-md-7">
+              <h5>
+                <FaArrowLeftLong
+                  onClick={() => setForm("forgotpassword")}
+                  style={{ paddingRight: "5px", cursor: "pointer" }}
+                />
+                Verify OTP?
+              </h5>
+
+              <input
+                type="text"
+                placeholder="Enter OTP"
+                className="form-control"
+                onChange={handleMailOTP}
+
+              />
+
+              <div className="row ml-0">
+                <ToastContainer />
+                <button type="button" onClick={handleVerifyOTP}>Verify OTP</button>
+              </div>
+
+            </div>
+          )}
+
+
 
           {form === "forgotpassword" && (
             <div className="col-md-7">
