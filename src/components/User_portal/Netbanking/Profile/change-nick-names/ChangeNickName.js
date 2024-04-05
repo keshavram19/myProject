@@ -44,13 +44,13 @@ const ChangeNickName = () => {
                         <input
                           value={savingsNickName}
                           onChange={(e) => setSavingsNickName(e.target.value)}
-                          className="form-control mr-5"
+                          className="form-control nick_name_input mr-5"
                         ></input>{" "}
                         <button className="mr-2 nicknames_icon_button">
                           {" "}
                           <i
                             class="ri-edit-box-fill"
-                            style={{ fontSize: "20px" }}
+                            style={{ fontSize: "25px" }}
                           ></i>{" "}
                         </button>
                         <button className="nicknames_submit_button">
@@ -66,13 +66,13 @@ const ChangeNickName = () => {
                         <input
                           value={currentNickName}
                           onChange={(e) => setCurrentNickName(e.target.value)}
-                          className="form-control mr-5"
+                          className="form-control nick_name_input mr-5"
                         ></input>{" "}
                         <button className="mr-2 nicknames_icon_button">
                           {" "}
                           <i
                             class="ri-edit-box-fill"
-                            style={{ fontSize: "20px" }}
+                            style={{ fontSize: "25px" }}
                           ></i>{" "}
                         </button>
                         <button className="nicknames_submit_button">

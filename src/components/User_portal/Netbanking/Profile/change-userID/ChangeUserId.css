@@ -1,23 +1,25 @@
 .changeuserid-profile p{
-    color: #f88d2a;
+    color: #2fb68e;
     font-size: 24px;
     font-weight: 400;
     margin: 0;
 
 }
 
-.change-userid .heading {
-    background: #d4d4d4;
+.change-userid .change_user_id_heading_pera {
+    background: #2fb68e;
+    color: white;
     margin-top: 15px;
+    font-size: 18px;
     margin-bottom: 15px;
     padding: 15px;
     line-height: 20px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .side-headings div {
     width: 200px;
-    font-size: small;
+    font-size: 16px;
 }
 
 .form-control:focus {
@@ -26,7 +28,7 @@
     border: 1px solid #ced4da !important;
     outline: 0;
     box-shadow: none !important;
-    font-size: small;
+    font-size: 16px;
   }
 
   .form-control:placeholder-shown {
@@ -35,33 +37,33 @@
     border: 1px solid #ced4da !important;
     outline: 0;
     box-shadow: none !important;
-    font-size: small;
+    font-size: 16px;
   }
 
   .form-control {
-    font-size: small;
+    font-size: 16px;
   }
 
   .side-headings1 p {
-    padding: 0px 15px;
+    padding:  8px;
   }
 
-  .side-headings1 button {
-    padding: 0px 15px;
+  .side-headings1 .change_update_button {
+    padding: 8px;
     margin-left: 15px;
 
-    font-family: Arial,Helvetica,sans-serif;
-    font-weight: 700;
-    font-size: 10px;
+    
+    font-weight: 500;
+    font-size: 16px;
     color: #FFF;
-    width: auto;
-    background: #eb6c18;
+    /* width: auto; */
+    background: #2fb68e;
     display: inline;
-    cursor: pointer;
+    /* cursor: pointer;
     text-transform: uppercase;
-    height: 24px!important;
+    height: 24px!important; */
     text-align: center;
-    border: 1px solid #ce6200;
+    border: 1px solid #2fb68e;
     /* padding-right: 8px!important;
     padding-left: 8px!important; */
     margin-right: 15px;
@@ -74,12 +76,25 @@
 }
 
 .changeuserid-instructions p {
-    font-size: 13px;
+    font-size: 16px;
+    color: red;
     margin-top: 1rem;
     margin-bottom: 4px;
 } 
 
 .changeuserid-instructions ol {
     padding: 0px 15px;
-    font-size: 12px;
+    font-size: 16px;
+}
+.change_user_id{
+  margin-left: 10px;
+}
+.change_user_id_cpr{
+  margin-left: 20%;
+}
+.change_user_id_cpr2{
+  margin-left: 15%;
+}
+.change_user_id_cpr3{
+  margin-left:  8%;
 }

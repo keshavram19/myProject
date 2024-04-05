@@ -521,11 +521,11 @@ justify-content: flex-end;
      width: 50px;
    } 
    
-  
+/*   
    .view_checkbox_container input[type="checkbox"] {
      margin-bottom: 5px;
      
-   }
+   } */
    
    
    .table_product td, .table_product th {
@@ -604,7 +604,7 @@ justify-content: flex-end;
      margin-top: 20px;
      margin-bottom: 20px;
   }
-   .loan_submit_container button {
+   .loan_submit_container_button {
     
      color: white;
      border: none;

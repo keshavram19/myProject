@@ -129,7 +129,7 @@ export default function IndividualDatalist() {
 
               <input
                 type="text"
-                className="form-control"
+                className="form-control account_opening_form_input"
                 placeholder="Enter Your Mobile Number"
                 required
                 value={individualRequesteddata.mobilenumber}
@@ -145,7 +145,7 @@ export default function IndividualDatalist() {
 
               <input
                 type="text"
-                class="form-control"
+                class="form-control account_opening_form_input"
                 placeholder="Enter Your Email"
                 value={individualRequesteddata.email}
               /> 
@@ -542,7 +542,7 @@ export default function IndividualDatalist() {
                 <label className="mb-0">First Name : </label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter Joint Account First Name"
                   name="firstname"
                   value={individualRequesteddata.firstname}
@@ -552,7 +552,7 @@ export default function IndividualDatalist() {
                 <label className="mb-0">Last Name : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter your lastName"
                   name="lastname"
                   value={individualRequesteddata.lastname}
@@ -565,7 +565,7 @@ export default function IndividualDatalist() {
                 <label className="mb-0">Aadhar Number : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter your firstName"
                   name="aadharnumber"
                   value={individualRequesteddata.aadharnumber}
@@ -575,7 +575,7 @@ export default function IndividualDatalist() {
                 <label className="mb-0">PAN Number : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter your lastName"
                   name="pannumber"
                   value={individualRequesteddata.pannumber}
@@ -585,7 +585,7 @@ export default function IndividualDatalist() {
                 <label className="mb-0">Date Of Birth : </label>
                 <input
                   type="date"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   name="dateofbirth"
                   value={individualRequesteddata.dateofbirth}
                 />
@@ -597,7 +597,7 @@ export default function IndividualDatalist() {
                 <label className="mb-0">Father Name : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter your Father Name"
                   name="fathername"
                   value={individualRequesteddata.fathername}
@@ -607,7 +607,7 @@ export default function IndividualDatalist() {
                 <label className="mb-0">Mother Name: </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter your Mother Name"
                   name="mothername"
                   value={individualRequesteddata.mothername}
@@ -622,7 +622,7 @@ export default function IndividualDatalist() {
                 </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter your Gaurdian Name"
                   name="gaurdianname"
                   value={individualRequesteddata.gaurdianname}
@@ -698,7 +698,7 @@ export default function IndividualDatalist() {
                   <label className="mb-0">First Name : </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control account_opening_form_input"
                     placeholder="Enter Joint Account First Name"
                     name="firstname"
                     value={
@@ -710,7 +710,7 @@ export default function IndividualDatalist() {
                   <label className="mb-0">Last Name : </label>
                   <input
                     type="name"
-                    className="form-control"
+                    className="form-control account_opening_form_input"
                     placeholder="Enter your lastName"
                     name="lastname"
                     required
@@ -724,7 +724,7 @@ export default function IndividualDatalist() {
                   <label className="mb-0">Aadhar Number : </label>
                   <input
                     type="name"
-                    className="form-control"
+                    className="form-control account_opening_form_input"
                     placeholder="Enter your firstName"
                     name="aadharnumber"
                     value={
@@ -736,7 +736,7 @@ export default function IndividualDatalist() {
                   <label className="mb-0">PAN Number : </label>
                   <input
                     type="name"
-                    className="form-control"
+                    className="form-control account_opening_form_input"
                     placeholder="Enter your lastName"
                     name="pannumber"
                     value={
@@ -748,7 +748,7 @@ export default function IndividualDatalist() {
                   <label className="mb-0">Date Of Birth : </label>
                   <input
                     type="date"
-                    className="form-control"
+                    className="form-control account_opening_form_input"
                     name="dateofbirth"
                     value={
                       individualRequesteddata.jointAccountDetails.dateofbirth
@@ -762,7 +762,7 @@ export default function IndividualDatalist() {
                   <label className="mb-0">Father Name : </label>
                   <input
                     type="name"
-                    className="form-control"
+                    className="form-control account_opening_form_input"
                     placeholder="Enter your Father Name"
                     name="fathername"
                     value={
@@ -774,7 +774,7 @@ export default function IndividualDatalist() {
                   <label className="mb-0">Mother Name: </label>
                   <input
                     type="name"
-                    className="form-control"
+                    className="form-control account_opening_form_input"
                     placeholder="Enter your Mother Name"
                     name="mothername"
                     value={
@@ -791,7 +791,7 @@ export default function IndividualDatalist() {
                   </label>
                   <input
                     type="name"
-                    className="form-control"
+                    className="form-control account_opening_form_input"
                     placeholder="Enter your Gaurdian Name"
                     name="gaurdianname"
                     value={
@@ -889,7 +889,7 @@ export default function IndividualDatalist() {
                 <label className="mb-0">Flat/House No : </label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter your flatnumber"
                   name="currentAddress.flatnumber"
                   value={individualRequesteddata?.currentAddress?.flatnumber}
@@ -906,7 +906,7 @@ export default function IndividualDatalist() {
                 </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter your buildingname"
                   name="currentAddress.buildingname"
                   value={individualRequesteddata?.currentAddress?.buildingname}
@@ -916,7 +916,7 @@ export default function IndividualDatalist() {
                 <label className="mb-0">Landmark : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter landmark"
                   name="currentAddress.landmark"
                   value={individualRequesteddata?.currentAddress?.landmark}
@@ -929,7 +929,7 @@ export default function IndividualDatalist() {
                 <label className="mb-0">City : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter city"
                   name="currentAddress.city"
                   value={individualRequesteddata?.currentAddress?.city}
@@ -939,7 +939,7 @@ export default function IndividualDatalist() {
                 <label className="mb-0">State: </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter State"
                   name="currentAddress.state"
                   value={individualRequesteddata?.currentAddress?.state}
@@ -949,7 +949,7 @@ export default function IndividualDatalist() {
                 <label className="mb-0">Country : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter country"
                   name="currentAddress.country"
                   value={individualRequesteddata?.currentAddress?.country}
@@ -962,7 +962,7 @@ export default function IndividualDatalist() {
                 <label className="mb-0">Pincode : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter pincode"
                   name="currentAddress.pincode"
                   value={individualRequesteddata?.currentAddress?.pincode}
@@ -1038,7 +1038,7 @@ export default function IndividualDatalist() {
                     <label className="mb-0">Flat/House No : </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_form_input"
                       placeholder="Enter your firstName"
                       name="permanentAddress.flatnumber"
                       value={
@@ -1057,7 +1057,7 @@ export default function IndividualDatalist() {
                     </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_form_input"
                       placeholder="Enter buildingname"
                       name="permanentAddress.buildingname"
                       value={
@@ -1069,7 +1069,7 @@ export default function IndividualDatalist() {
                     <label className="mb-0">Landmark : </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_form_input"
                       placeholder="Enter landmark"
                       name="permanentAddress.landmark"
                       value={individualRequesteddata?.permanentAddress?.landmark}
@@ -1082,7 +1082,7 @@ export default function IndividualDatalist() {
                     <label className="mb-0">City : </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_form_input"
                       placeholder="Enter city"
                       name="permanentAddress.city"
                       value={individualRequesteddata?.permanentAddress?.city}
@@ -1092,7 +1092,7 @@ export default function IndividualDatalist() {
                     <label className="mb-0">State: </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_form_input"
                       placeholder="Enter state"
                       name="permanentAddress.state"
                       value={individualRequesteddata?.permanentAddress?.state}
@@ -1102,7 +1102,7 @@ export default function IndividualDatalist() {
                     <label className="mb-0">Country : </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_form_input"
                       placeholder="Enter country"
                       name="permanentAddress.country"
                       value={individualRequesteddata?.permanentAddress?.country}
@@ -1115,7 +1115,7 @@ export default function IndividualDatalist() {
                     <label className="mb-0">Pincode : </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_form_input"
                       placeholder="Enter pincode"
                       name="permanentAddress.pincode"
                       value={individualRequesteddata?.permanentAddress?.pincode}
@@ -1228,7 +1228,7 @@ export default function IndividualDatalist() {
 
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Account Number generated  by system"
                   required
                   style={{ padding: "21px" }}
@@ -1248,7 +1248,7 @@ export default function IndividualDatalist() {
 
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control account_opening_form_input"
                   placeholder="Enter IFSC Code"
                   name="ifscCode"
                   onChange={handleChange}
@@ -1268,7 +1268,7 @@ export default function IndividualDatalist() {
 
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Customer ID Number generated  by system"
                   required
                   style={{ padding: "21px" }}
@@ -1287,7 +1287,7 @@ Bank Branch                </h6>
 
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter bank branch"
                   // required
                   style={{ padding: "21px" }}
@@ -1310,7 +1310,7 @@ Bank Branch                </h6>
 
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control account_opening_form_input"
                   placeholder="Enter Netbanking UserID"
                   required
                   style={{ padding: "21px" }}
@@ -1339,7 +1339,7 @@ Bank Branch                </h6>
 
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control account_opening_form_input"
                   placeholder="Enter Netbanking Password "
                   name="netBankingPassword"
                   onChange={handleChange}

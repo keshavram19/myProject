@@ -32,7 +32,7 @@
 }
 
 
-.table-container button {
+.table-container .table-container_button  {
   padding: 5px 10px;
   color: #2fb68e;
   border: 1px solid #2fb68e;
@@ -40,7 +40,7 @@
   cursor: pointer;
 }
 
-.table-container button:hover {
+.table-container .table-container_button:hover {
   background-color: #2fb68e;
   color: #fff;
 }

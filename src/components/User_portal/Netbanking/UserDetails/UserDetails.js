@@ -55,7 +55,7 @@ function Userdetails() {
                                     <div className="icon">
                                         <i className="fa-solid fa-user" style={{ fontSize: "40px" }}></i>
                                     </div>
-                                    <div className="buttons d-flex column">
+                                    <div className="user_details_buttons d-flex column">
                                         <button className="details_btn">PERSONAL DETAILS</button>
                                         <button className="details_btn">GENERATE CARD PIN</button>
                                     </div>

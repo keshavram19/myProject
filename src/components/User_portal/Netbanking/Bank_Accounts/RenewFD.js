@@ -13,15 +13,15 @@ function RenewFD() {
             <BankaccountSidebar />
           </div>
           <div className="col-9">
-            <div className="renew_container">
+            <div className="renew_container card">
               
-              <h1>Renew your fixed deposit</h1>
+              <h3 className="renew_container_heading">Renew your fixed deposit</h3>
               {/* <div className='renew_deposits_container  user d-flex justify-content-center align-item-center'>
                 <i class="fa-sharp fa-solid fa-rectangle-xmark"></i>
                      <p> you currently do not have any FDs for Renewall</p> */}
-              <table className="table table-bordered text-center">
-                <thead className="thead-light">
-                  <tr>
+              <table className="table table-bordered text-center" style={{ background:"#2fb68e", fontSize: "15px" }}>
+                <thead>
+                  <tr  style={{ background: "#2fb68e", color: "white" }}>
                     <th>Royal Islamic fixed deposit/ Card Account Number</th>
                     <th>fixed deposit Interest*</th>
                     <th>balence</th>

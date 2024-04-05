@@ -57,8 +57,8 @@ const LandingPage = () => {
               <img src={logo} alt="" style={{ width: "170px" }} />
             </Link>
           </div>
-          <input type="radio" name="slider" id="menu-btn" />
-          <input type="radio" name="slider" id="close-btn" />
+          <input className="landing_page_input" type="radio" name="slider" id="menu-btn" />
+          <input className="landing_page_input" type="radio" name="slider" id="close-btn" />
           <ul className="nav-links ml-auto">
             <label htmlFor="close-btn" className="btn close-btn">
               <i class="fa-solid fa-bars"></i>

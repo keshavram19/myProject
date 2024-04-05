@@ -302,7 +302,7 @@ nav .wrapper {
   }
 }
 
-  nav input[type=radio] {
+  nav .landing_page_input[type=radio] {
   display: none;
 }
 

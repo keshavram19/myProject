@@ -23,7 +23,7 @@ const TaxPayment = () => {
               </p>
               <div className="taxpayment_button">
               <button type="button" class="btn btn_taxpayment_button"
-               style={{ border: "1px solid #2fb68e", textAlign: "center"}}
+               style={{ border: "1px solid #2fb68e", textAlign: "center", backgroundColor:"#2fb68e", color:"white"}}
               >
                 Proceed
               </button>
