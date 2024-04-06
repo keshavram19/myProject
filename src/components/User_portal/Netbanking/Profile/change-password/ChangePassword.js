@@ -11,7 +11,7 @@ import { FaRegEyeSlash, FaRegEye } from 'react-icons/fa';
 const ChangePassword = () => {
   const [form, setForm] = useState("login");
   const navigate = useNavigate(); // Initialize navigate hook
-  const [bankUserName, setBankUserName] = useState('');
+  const[bankCustomerID, setBankCustomerID] =  useState('');
   const [bankPassword, setBankPassword] = useState('');
   const [bankNewPassword, setBankNewPassword] = useState('');
   const [bankMailId, setBankMailId] = useState('');
@@ -22,8 +22,8 @@ const ChangePassword = () => {
     setReEnteredPassword(event.target.value);
   };
 
-  const handleUserName = (event) => {
-    setBankUserName(event.target.value);
+  const handleCustomerID = (event) => {
+    setBankCustomerID(event.target.value)
   };
 
   const handleBankPassword = (event) => {
@@ -40,51 +40,50 @@ const handleMailId = (event) => {
   };
 
   const handleBankLogin = async () => {
+
     const options = {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        userId: bankUserName,
+        customerID: bankCustomerID,
         password: bankPassword
       })
     };
-  
+
     try {
       const response = await fetch(apiList.customerLogin, options);
       const data = await response.json();
-  
       if (response.status === 200) {
-        // Successful login
+        
         sessionStorage.setItem('loginToken', data.token);
         setForm("changepassword");
       } else {
-        // Handle different error cases
+       
         if (response.status === 401) {
-          // Invalid user ID or password
-          toast.error('Invalid User ID or Password! Please check your credentials and try again.', {
-            // Additional toast configuration if needed
+         
+          toast.error('Invalid Customer ID or Password! Please check your credentials and try again.', {
+         
           });
         } else {
-          // Other server errors
+         
           console.error(`${data.message || 'An error occurred.'}`);
           toast.error('An error occurred. Please try again later.', {
-            // Additional toast configuration if needed
+           
           });
         }
       }
     } catch (error) {
-      // Network or other unexpected errors
-      console.error('Error at Personal Banking Login:', error);
+     
+      console.error('Error at Confirming CustomerID and Password', error);
       toast.error('An error occurred. Please check your network connection and try again.', {
-        // Additional toast configuration if needed
+      
       });
     }
   
-    // Reset form fields
-    setBankUserName('');
-    setBankPassword('');
+    setBankCustomerID('')
+    setBankPassword('')
   };
   
 
@@ -155,11 +154,12 @@ const handleMailId = (event) => {
                 <h3 className="change_password_heading3">Edit Profile : Change Password</h3>
               </div>
               <div className="side-headings">
-                <h4  className="change_password_heading4"> Please Confirm UserID And Password</h4>
+                <h4  className="change_password_heading4"> Please Confirm CustomerID And Password</h4>
 
                 <p className="d-flex align-items-center">           
-                  <div className="change_password_divs" style={{ fontSize: "16px" }}>UserName </div>
-                  <input className="form-control change_password_input w-25" onChange={handleUserName} type="text" value={bankUserName}></input>
+                  <div className="change_password_divs" style={{ fontSize: "16px" }}>customerID </div>
+                  <input className="form-control change_password_input w-25"  onChange={handleCustomerID}
+                value={bankCustomerID} type="text" ></input>
                 </p>
 
 
