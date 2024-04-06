@@ -34,7 +34,9 @@
 }
 
 
+
 .debit_requested_list .table-container button {
+
   padding: 5px 10px;
   color: #2fb68e;
   border: 1px solid #2fb68e;
@@ -42,7 +44,9 @@
   cursor: pointer;
 }
 
+
 .debit_requested_list .table-container button:hover {
+
   background-color: #2fb68e;
   color: #fff;
 } 

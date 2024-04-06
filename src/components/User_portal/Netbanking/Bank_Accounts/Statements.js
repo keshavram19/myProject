@@ -1,26 +1,25 @@
-import './Accounts.css';
 import React, { useState, useEffect, useRef } from 'react';
+import './Accounts.css';
 import { useNavigate } from 'react-router-dom';
-
 import { IoCaretDownCircleOutline } from "react-icons/io5";
 import { FcCalendar } from "react-icons/fc";
 import { AiFillPrinter } from "react-icons/ai";
-
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import apiList from '../../../../lib/apiList';
 import banklogo from '../../../../Images/banklogo.png';
-
 import { format } from 'date-fns';
 import html2pdf from 'html2pdf.js';
 import { usePDFData } from '../../../../PDFDataContext.js';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const Statements = () => {
     const { pdfData, setPDFData } = usePDFData();
+    const datePickerRef = useRef(null);
+    const datePickerReference = useRef(null);
     const [savingsAccNumber, setAccountNumber] = useState('');
     const [accountType, setAccountType] = useState('');
     const [fromDate, setFromDate] = useState(null);
@@ -268,10 +267,36 @@ const Statements = () => {
         });
     };
 
+    const showToast = (message) => {
+        toast.error(message, {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored"
+        }); 
+    };
 
     const handleTransStatement = () => {
-        fetchTransactions()
+        if (!accountType) {
+            showToast('Please select an account type.');
+            return;
+        }
+        if (!savingsAccNumber) {
+            showToast('Please select an account number.');
+            return;
+        }
+        if (!fromDate || !toDate) {
+            showToast('Please select both from and to dates.');
+            return;
+        }
+        fetchTransactions();
     };
+
+
     const fetchTransactions = async () => {
 
         const fromDate = formattedFromDate;
@@ -321,6 +346,7 @@ const Statements = () => {
                     <BankaccountSidebar />
                 </div>
                 <div className='col-9'>
+                    <ToastContainer /> 
                     <div className='acct_statements_months_cont' >
                         <div className='savings_acct_statement_heading'>
                             Current & Previous Months Account Statements:
@@ -366,25 +392,25 @@ const Statements = () => {
                                     <div className='period_from_to'>From:</div>
                                     <div className='d-flex align-items-center'>
                                         <DatePicker
-
+                                            ref={datePickerRef}
                                             selected={fromDate} onChange={handleStartDateChange}
                                             className='from_date_period' disabled={periodRangeStatus === false}
                                             selectsStart dateFormat="dd MMM yyyy" fromDate={fromDate} toDate={toDate}
                                         />
-                                        <FcCalendar className='calender_icon' />
+                                        <FcCalendar className='calender_icon' onClick={() => datePickerRef.current.setOpen(true)} />
                                     </div>
                                 </div>
                                 <div className='d-flex align-items-center'>
                                     <div className='period_from_to'>To:</div>
                                     <div className='d-flex align-items-center'>
                                         <DatePicker
-
+                                            ref={datePickerReference}
                                             selected={toDate} dateFormat="dd MMM yyyy" onChange={handleEndDateChange}
                                             disabled={periodRangeStatus === false} selectsEnd fromDate={fromDate}
                                             toDate={toDate} minDate={fromDate} className='from_date_period'>
 
                                         </DatePicker>
-                                        <FcCalendar className='calender_icon' />
+                                        <FcCalendar className='calender_icon' onClick={() => datePickerReference.current.setOpen(true)} />
                                     </div>
                                 </div>
                             </div>
@@ -392,9 +418,9 @@ const Statements = () => {
                         <div className='show_transactions_cont'>
                             <div className='show_transactions_text'>Show Transactions:</div>
                             <div className='show_all_transa'>
-                                <select className='form-control statement_select_format'
+                                <select className='form-control transaction_statement_option'
                                     disabled={accountType === 'Current'} onChange={handleTransactionType}>
-                                    <option value='allTransactions'>All Transactions</option>
+                                    <option value='allTransactions '>All Transactions</option>
                                     <option value='withdrawal'>Withdrawals</option>
                                     <option value='deposit'>Deposits</option>
                                 </select>
@@ -403,8 +429,9 @@ const Statements = () => {
 
                             <div className='per_page_tarns'>
                                 <div className='mr-2'>Transactions</div>
-                                <div>
-                                    <select className='form-control statement_select_format'
+                                <div >
+                                    <select className='form-control transaction_statement_option'
+                                    
                                         disabled={accountType === 'Current'} onChange={handlePerPageTransactions}>
                                         <option>10</option>
                                         <option>15</option>
@@ -420,10 +447,7 @@ const Statements = () => {
                             <button className='transactions_view_btn' type='button' onClick={handleTransStatement}>
                                 View
                             </button>
-                            <button type='button' className='statement_download_btn ml-3'
-                                    onClick={handleemailotp}>
-                                    Statement by Email
-                                </button>
+                            
                         </div>
                     </div>
                     {
@@ -493,6 +517,10 @@ const Statements = () => {
                                 <button type='button' className='statement_download_btn'
                                     onClick={handleDownloadTransactions}>
                                     Download
+                                </button>
+                                <button type='button' className='statement_download_btn ml-3'
+                                    onClick={handleemailotp}>
+                                    Statement by Email
                                 </button>
                                 
                             </div>

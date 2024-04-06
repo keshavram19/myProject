@@ -459,7 +459,7 @@ const BillRechargeFastag = ({ onPayNowClick }) => {
             )}
 
             {showSuccessAlert && (
-              <div className={`alert ${purchaseSuccess || rechargeSuccess ? 'alert-success' : 'alert-danger'} mt-3`} role="alert">
+              <div className={alert ${purchaseSuccess || rechargeSuccess ? 'alert-success' : 'alert-danger'} mt-3} role="alert">
                 {alertMessage}
                 <button type="button" className="close" onClick={closeSuccessAlert}>
                   <span aria-hidden="true">&times;</span>

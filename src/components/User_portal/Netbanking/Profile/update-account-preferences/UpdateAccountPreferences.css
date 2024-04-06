@@ -4,7 +4,7 @@
     border: 1px solid #ced4da !important;
     outline: 0;
     box-shadow: none !important;
-    font-size: small;
+    font-size: 16px;
   }
   .accounts_preferences .form-control:placeholder-shown {
     color: #495057;
@@ -12,7 +12,7 @@
     border: 1px solid #ced4da !important;
     outline: 0;
     box-shadow: none !important;
-    font-size: small;
+    font-size: 16px;
   }
   .viewSummary h1 {
     font-size: 24px;
@@ -23,8 +23,8 @@
     color: #4a4a4a;
     font-family: Helvetica;
     font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 18px;
     line-height: 16px;
     letter-spacing: 0.714286px;
     margin-bottom: 14px;
@@ -34,7 +34,7 @@
   .accounts_preferences .account_preferences_table_content td {
     /* background-color: #f2f3f2; */
     width: 100%;
-    font-size: 13px;
+    font-size: 16px;
     color: #4a4a4a;
     margin-top: 0rem;
     margin-bottom: 1rem;
@@ -47,7 +47,7 @@
   .accounts_preferences .account_preferences_table_head {
     /* background-color: #f2f3f2; */
     width: 100%;
-    font-size: 13px;
+    font-size: 16px;
     color: #4a4a4a;
     margin-top: 0rem;
     margin-bottom: 1rem;
@@ -58,9 +58,10 @@
   
   .accounts_preferences .account_preferences_table_head .account_preferences_table_headings th {
     padding: 15px 8px;
-    background-color: #f2f3f2;
+    background-color: #2fb68e;
+    color: white;
     /* width: 30%; */
-    font-weight: 600;
+    font-weight: 500;
   }
   
   .accounts_preferences .account_preferences_table_content td {
@@ -76,18 +77,17 @@
 
 .account_preferences_button
 {
-    padding: 3px 15px;
+    padding: 8px 15px;
     font-weight: 500;
-    font-size: small;
+    font-size: 16px;
     color: #fff;
-    /* letter-spacing: 0.1rem; */
+   
     background: #2fb68e;
     display: inline;
-    cursor: pointer;
-    text-transform: uppercase;
+    
   
     text-align: center;
-    border: 1px solid #fff;
+    border: 1px solid #2fb68e;
 }
   
 

@@ -170,9 +170,9 @@ const Form16AOTPPage = () => {
                         onChange={handleOtpChange}
                       />
 
-                      <button className="Form16A_otp_confirmation_icon_otp">
-                        <i className="fa-solid fa-keyboard fa-xl"></i>
-                      </button>
+                      <Link className="Form16A_otp_confirmation_icon_otp">
+                      <i class="fa-solid fa-keyboard fa-xl"></i>
+                      </Link>
                       <p className="ml-1">
                         OTP has been generated with validity of 60 seconds
                       </p>

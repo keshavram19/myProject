@@ -312,7 +312,7 @@ body {
 }
 
 
-.royal_dashboard .right-side1 input[type="text"] {
+.royal_dashboard .right-side1 .search_input[type="text"] {
     padding: 5px;
     border-radius: 5px;
     border: none;

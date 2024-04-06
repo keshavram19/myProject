@@ -6,12 +6,14 @@ import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import apiList from '../../../../lib/apiList';
 import { usePDFData } from '../../../../PDFDataContext.js';
+import { useNavigate } from 'react-router-dom';
 
 
 const StatementByMail = () => {
     const [authDetails, setAuthDetails] = useState({
         email: ''
     });
+    const navigate = useNavigate();
     const { pdfData } = usePDFData();
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
     let token = sessionStorage.getItem('loginToken');
@@ -122,7 +124,7 @@ const StatementByMail = () => {
                 const data = await response.json();
                 toast.success('Successfully verified!', {
                     position: "top-center",
-                    autoClose: 5000,
+                    autoClose: 1000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -135,7 +137,7 @@ const StatementByMail = () => {
                 const data = await response.json();
                 toast.error('Invalid OTP!', {
                     position: "top-center",
-                    autoClose: 5000,
+                    autoClose: 2000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -177,13 +179,16 @@ const StatementByMail = () => {
         
             toast.success(response.data.message, {
                 position: "top-center",
-                autoClose: 5000,
+                autoClose: 1000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: "colored"
+                theme: "colored",
+                onClose: () => {
+                    navigate('/user/account/statement');
+                }
             });
         } catch (error) {
             console.error('Error sending PDF by email:', error);
@@ -259,11 +264,6 @@ const StatementByMail = () => {
                                         It's crucial not to share the OTP with anyone, even if they claim to be a Roayl Islamic bank official.
                                         For additional information, <a href='#'>click here</a>.
                                     </div>
-                                </div>
-                                <div className='d-flex justify-content-center'>
-                                    <button type='button' className='savings_acct_user_auth_submit_btn'>
-                                        Submit
-                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -1,18 +1,18 @@
-.link-accounts .form-control:focus {
+.link-accounts .link_account_input:focus {
   color: #495057;
   background-color: #fff;
   border: 1px solid #ced4da !important;
   outline: 0;
   box-shadow: none !important;
-  font-size: small;
+  font-size: 16px;
 }
-.link-accounts .form-control:placeholder-shown {
+.link-accounts .link_account_input:placeholder-shown {
   color: #495057;
   background-color: #fff;
   border: 1px solid #ced4da !important;
   outline: 0;
   box-shadow: none !important;
-  font-size: small;
+  font-size: 16px;
 }
 
 .link-accounts .services-heading {
@@ -20,7 +20,7 @@
   font-family: Helvetica;
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 16px;
   letter-spacing: 0.714286px;
   margin-bottom: 14px;
@@ -30,18 +30,17 @@
 .link-accounts .table-head {
   /* background-color: #f2f3f2; */
   width: 100%;
-  font-size: 13px;
+  font-size: 16px;
   color: #4a4a4a;
   margin-top: 0rem;
   margin-bottom: 1rem;
-
   box-shadow: 0 1.90246px 4.75615px #a8b4bf;
 }
 
 .link-accounts .table-content td {
   /* background-color: #f2f3f2; */
   width: 100%;
-  font-size: 13px;
+  font-size: 16px;
   color: #4a4a4a;
   margin-top: 0rem;
   margin-bottom: 1rem;
@@ -50,15 +49,16 @@
 }
 .link-accounts .table-head .table-headings th {
   padding: 15px 8px;
-  background-color: #f2f3f2;
-  width: 30%;
-  font-weight: 600;
+  background-color: #2fb68e;
+  color: white;
+  padding: 10px;
+  font-weight: 500;
 }
 
 .link-accounts .table-head .table-content td {
   padding: 4px 8px;
   width: 30%;
-  color: #4a4a4aa4;
+  /* color: #4a4a4aa4; */
 }
 
 .table-headings th:first-child,
@@ -68,9 +68,10 @@
 
 .deliverables-headings th {
   padding: 15px 8px;
-  background-color: #f2f3f2;
-  width: 30%;
-  font-weight: 600;
+  background-color: #2fb68e;
+  color: white;
+  padding: 10px;
+  font-weight: 500;
 }
 
 .deliverables-headings th:first-child,
@@ -81,16 +82,16 @@
 .deliverables-content td {
   padding: 4px 8px;
   width: 30%;
-  color: #4a4a4aa4;
+  /* color: #4a4a4aa4; */
 }
 
 .account-tabs .nav-tabs .nav-link.active {
-  color: #495057;
+  color: #2fb68e;
   background-color: #fff;
   border-color: #dee2e6;
 }
 .nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
+.nav-pills .show  .nav-link {
   color: #fff;
   background-color: #e7a054;
 }
@@ -112,6 +113,6 @@
     color: #495057c1;
     text-decoration: none;
     background-color: transparent;
-    font-size: small;
+    font-size: 16px;
   }
   

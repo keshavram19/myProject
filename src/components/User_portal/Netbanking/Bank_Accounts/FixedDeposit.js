@@ -31,15 +31,15 @@ import { Link, useNavigate } from "react-router-dom";
                     <div className="col-9">
                         <div className='container'>
 
-                            <div className='row'>
+                            <div className='d-flex'>
 
-                                <button className="deposit_btn col-md-3">Deposit Accounts</button>
+                                <button className="deposit_btn p-3">Deposit Accounts</button>
 
-                                <button className="deposit_btn col-md-3 ">Submit Form 15G/H</button>
+                                <button className="deposit_btn p-3 ">Submit Form 15G/H</button>
 
-                                <button className="deposit_btn col-md-3 ">Interest Certificate  <i class="fa-solid fa-arrow-down"></i></button>
+                                <button className="deposit_btn p-3 ">Interest Certificate  <i class="fa-solid fa-arrow-down"></i></button>
 
-                                <button className="deposit_btn col-md-3">Watch iplay demo</button>
+                                {/* <button className="deposit_btn col-md-3">Watch iplay demo</button> */}
                             </div>
 
                             <div className="row p-3 " style={{ marginTop: "20px" }} >
