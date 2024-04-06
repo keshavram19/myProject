@@ -156,30 +156,35 @@ const ApplyDebiCard = () => {
                   </div>
                   <hr/>
                  <h5 className='text-success'>ADDRESS</h5>
-                  <div className="row mt-3">
-                    <div className="col-sm-6">
-                      <label htmlFor="text">Flat No/Land mark</label>
-                    </div>
-                    <div className="col-sm-3">
-                      <input type="text" className="form_input" value={`${userDetails.currentAddress.flatnumber}, ${userDetails.currentAddress.landmark}`} readOnly />
-                    </div>
-                  </div>
-                  <div className="row mt-3">
-                    <div className="col-sm-6">
-                      <label htmlFor="text">Building name</label>
-                    </div>
-                    <div className="col-sm-3">
-                      <input type="text" className="form_input" value={`${userDetails.currentAddress.buildingname}`} readOnly />
-                    </div>
-                  </div>
-                  <div className="row mt-3">
-                    <div className="col-sm-6">
-                      <label htmlFor="text">City/State</label>
-                    </div>
-                    <div className="col-sm-3">
-                      <input type="text" className="form_input" value={`${userDetails.currentAddress.city}, ${userDetails.currentAddress.state}, ${userDetails.currentAddress.country}`} readOnly />
-                    </div>
-                  </div>
+                 {userDetails.currentAddress && (
+  <>
+    <div className="row mt-3">
+      <div className="col-sm-6">
+        <label htmlFor="text">Flat No/Land mark</label>
+      </div>
+      <div className="col-sm-3">
+        <input type="text" className="form_input" value={`${userDetails.currentAddress.flatnumber}, ${userDetails.currentAddress.landmark}`} readOnly />
+      </div>
+    </div>
+    <div className="row mt-3">
+      <div className="col-sm-6">
+        <label htmlFor="text">Building name</label>
+      </div>
+      <div className="col-sm-3">
+        <input type="text" className="form_input" value={`${userDetails.currentAddress.buildingname}`} readOnly />
+      </div>
+    </div>
+    <div className="row mt-3">
+      <div className="col-sm-6">
+        <label htmlFor="text">City/State</label>
+      </div>
+      <div className="col-sm-3">
+        <input type="text" className="form_input" value={`${userDetails.currentAddress.city}, ${userDetails.currentAddress.state}, ${userDetails.currentAddress.country}`} readOnly />
+      </div>
+    </div>
+  </>
+)}
+
                   
                 </div>
                 <hr />
