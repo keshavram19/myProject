@@ -1,12 +1,10 @@
-
-
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 
 import './Accounts.css';
 import { Link, useNavigate } from "react-router-dom";
 
- export const FixedDeposit = () => {
+ export const FixedDeposit = ({withinViewSummaryPage }) => {
     let navigate = useNavigate();
 
     const Recurringpage = () => {
@@ -26,7 +24,7 @@ import { Link, useNavigate } from "react-router-dom";
             <div className="container-fluid fixed_deposit_background_main pt-5" style={{ marginTop: "60px" }}>
                 <div className="row">
                     <div className='col-3'>
-                        <BankaccountSidebar />
+                    {!withinViewSummaryPage && <BankaccountSidebar />}
                     </div>
                     <div className="col-9">
                         <div className='container'>

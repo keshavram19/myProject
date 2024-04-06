@@ -48,16 +48,16 @@ const ReissueCardTable = () => {
     navigate(`/admin/reissuecardGenerateorReject?userId=${user._id}`);
   };
 
-  const getStatus = (user) => {
-    if (localStorage.getItem('generatedUsers')) {
-      const generatedUsers = JSON.parse(localStorage.getItem('generatedUsers'));
-      const generatedUser = generatedUsers.find((u) => u._id === user._id);
-      if (generatedUser && generatedUser.userDebitCardDetails) {
-        return 'generated';
-      }
-    }
-    return 'inprogress';
-  };
+  // const getStatus = (user) => {
+  //   if (localStorage.getItem('generatedUsers')) {
+  //     const generatedUsers = JSON.parse(localStorage.getItem('generatedUsers'));
+  //     const generatedUser = generatedUsers.find((u) => u._id === user._id);
+  //     if (generatedUser && generatedUser.userDebitCardDetails) {
+  //       return 'generated';
+  //     }
+  //   }
+  //   return 'inprogress';
+  // };
 
 
 
@@ -79,7 +79,7 @@ const ReissueCardTable = () => {
                     <th>Requested User</th>
                     <th>Email</th>
                     <th>User Reason</th>
-                    <th>Status</th>
+                    {/* <th>Status</th> */}
                     <th>View</th>
                   </tr>
                 </thead>
@@ -92,7 +92,7 @@ const ReissueCardTable = () => {
                         <td>{user.firstname} {user.lastname}</td>
                         <td>{user.email}</td>
                         <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userReason : ''}</td>
-                        <td>{getStatus(user)}</td>
+                        {/* <td>{getStatus(user)}</td> */}
                         <td>
                           {user.userDebitCardDetails &&
                             (user.userDebitCardDetails.debiCardSrn ||
