@@ -4,6 +4,7 @@ import { SiSpringsecurity } from "react-icons/si";
 import { TbRefresh } from "react-icons/tb";
 import { TbSettingsCog } from "react-icons/tb";
 import { CiCreditCardOff } from "react-icons/ci";
+import { BsCreditCard2FrontFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
@@ -20,6 +21,10 @@ const DebitAndAtm = () => {
                         <h6>Virtual Debit Card</h6>
                     </div>
                     <div className="card atm_card_details_debit_card  mt-2">
+                    <div className="atm_card_details_button_container">
+                            <BsCreditCard2FrontFill className='atm_card_details_logo' />
+                            <Link to='/user/account/debit-card-apply' ><button className='atm_card_details_button'>Apply Debit Card</button></Link>
+                        </div>
                         <div className="atm_card_details_button_container">
                             <SiSpringsecurity className='atm_card_details_logo' />
                             <Link to='/user/account/generate-debitcard-pin' ><button className='atm_card_details_button'>Generate Pin</button></Link>

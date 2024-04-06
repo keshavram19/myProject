@@ -1,38 +1,42 @@
-.table-container {
+  .debit_requested_list .table-container {
   width: 100%;
   border-radius: 10px;
   padding: 30px 30px;
   border: 1px solid #2fb68e;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-
-.table-container table {
-  margin-left: 10px;
-  width: 100%;
-  border-collapse: collapse;
-}
-
-
-.table-container th,
-.table-container td {
-  border: 1px solid #f2f2f2;
-  padding: 8px;
-  text-align: left;
-}
-
-.table-container td {
-  background-color: #dddddd;
-}
-
-.table-container th {
-  background-color: #40dfaf;
-  color: #fff;
   font-weight: 500;
 }
 
 
-.table-container .table-container_button  {
+.debit_requested_list .table-container table {
+  margin-left: 10px;
+  width: 100%;
+  border-collapse: collapse;
+} 
+
+
+.debit_requested_list .table-container th,
+.debit_requested_list .table-container td {
+  border: 1px solid #2fb68e;
+  padding: 8px;
+  text-align: left;
+}
+
+.debit_requested_list .table-container td {
+  background-color: #dddddd;
+}
+
+.debit_requested_list .table-container th {
+  background-color: #11eeac;
+  color: #ffffff;
+  font-weight: 500;
+
+}
+
+
+
+.debit_requested_list .table-container button {
+
   padding: 5px 10px;
   color: #2fb68e;
   border: 1px solid #2fb68e;
@@ -40,7 +44,15 @@
   cursor: pointer;
 }
 
-.table-container .table-container_button:hover {
+
+.debit_requested_list .table-container button:hover {
+
   background-color: #2fb68e;
   color: #fff;
+} 
+ 
+
+.debit_requested_list .table-container tr:nth-child(even) td {
+  background-color: #11eeac;
+  font-weight: 500;
 }
