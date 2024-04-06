@@ -19,8 +19,6 @@ const StatementByMail = () => {
     let token = sessionStorage.getItem('loginToken');
     const otpInputsRefs = useRef([]);
 
-    console.log(pdfData)
-
     useEffect(() => {
         getAuthenticatioDetails();
     }, []);
@@ -181,15 +179,17 @@ const StatementByMail = () => {
         
             toast.success(response.data.message, {
                 position: "top-center",
-                autoClose: 4000,
+                autoClose: 1000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: "colored"
+                theme: "colored",
+                onClose: () => {
+                    navigate('/user/account/statement');
+                }
             });
-            navigate('/user/account/statement')
         } catch (error) {
             console.error('Error sending PDF by email:', error);
             toast.error('Error sending PDF by email', {
