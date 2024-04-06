@@ -191,7 +191,7 @@ const allTransactionsList = [
   },
 ];
 
-const Estatement = () => {
+const Estatement = ({withinViewSummaryPage }) => {
   const [viewPdf, setViewPdf] = useState("");
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [selectedType, setSelectedType] = useState("Bank Account");
@@ -292,7 +292,7 @@ const Estatement = () => {
         <div className="row">
           <div className="col-3">
             <div>
-              <BankaccountSidebar />
+            {!withinViewSummaryPage && <BankaccountSidebar />}
             </div>
           </div>
           <div className="col-9">
