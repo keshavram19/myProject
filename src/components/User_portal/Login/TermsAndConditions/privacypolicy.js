@@ -131,7 +131,7 @@ const PrivacyPolicy = () => {
                                 user/s by any other website and information collected thereto.</p>
                         </div>
                         <div>
-                            <Link to='/netbanking-personal-login'><button className='genrate_pin_submits text-center mt-3'>I Accept</button></Link>
+                            <Link to='/netbanking-personal-login'><button className='genrate_pin_submits justify-content-center mt-3'>I Accept</button></Link>
                         </div>
                     </div>
 
