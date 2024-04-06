@@ -14,7 +14,6 @@ const ReissueCardTable = () => {
 
 
   useEffect(() => {
-    // Redirect to admin login if URL is manipulated
     if (!location.pathname.includes("/admin/")) {
       sessionStorage.removeItem("adminloginToken");
       sessionStorage.removeItem("adminexpireTime");
@@ -53,12 +52,14 @@ const ReissueCardTable = () => {
     if (localStorage.getItem('generatedUsers')) {
       const generatedUsers = JSON.parse(localStorage.getItem('generatedUsers'));
       const generatedUser = generatedUsers.find((u) => u._id === user._id);
-      if (generatedUser && generatedUser.userDebitCardDetails.cardGenerated) {
+      if (generatedUser && generatedUser.userDebitCardDetails) {
         return 'generated';
       }
     }
     return 'inprogress';
   };
+
+
 
   return (
     <>
@@ -67,18 +68,16 @@ const ReissueCardTable = () => {
           <div className='col-sm-3'>
             <AdminSidebar />
           </div>
-          <div className="col-sm-9 mt-4">
+          <div className="col-sm-9 mt-4 debit_requested_list">
             <div className="table-container">
-              <h4 className='ml-3 text-success'>Reissue Card Generated Requests</h4>
+              <h4 className='ml-3 text-success'>New Debit and Reissue Card Generated Requests</h4>
               <table>
                 <thead>
                   <tr>
                     <th>SR No.</th>
-                    <th>Account Type</th>
                     <th>Requested User</th>
+                    <th>Email</th>
                     <th>User Reason</th>
-                    <th>E-mail</th>
-                    <th>Phone Number</th>
                     <th>Status</th>
                     <th>View</th>
                   </tr>
@@ -89,19 +88,20 @@ const ReissueCardTable = () => {
                     .map((user, index) => (
                       <tr key={index}>
                         <td>{index + 1}</td>
-                        <td>{user.openaccount}</td>
-                        <td>{user.firstname}{user.lastname}</td>
-                        <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userReason : ''}</td>
+                        <td>{user.firstname} {user.lastname}</td>
                         <td>{user.email}</td>
-                        <td>{user.mobilenumber}</td>
+                        <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userReason : ''}</td>
                         <td>{getStatus(user)}</td>
                         <td>
-                          {user.userDebitCardDetails && user.userDebitCardDetails.reissueCard.srn && (
-                            <button onClick={() => onViewClick(user)}>View</button>
-                          )}
+                          {user.userDebitCardDetails &&
+                            (user.userDebitCardDetails.debiCardSrn ||
+                              (user.userDebitCardDetails.reissueCard && user.userDebitCardDetails.reissueCard.srn)) && (
+                              <button onClick={() => onViewClick(user)}>View</button>
+                            )}
                         </td>
                       </tr>
                     ))}
+
                 </tbody>
               </table>
               <ul className="pagination justify-content-center" style={{ margin: '20px 0px' }}>
@@ -122,6 +122,17 @@ const ReissueCardTable = () => {
 };
 
 export default ReissueCardTable;
+
+
+
+
+
+
+
+
+
+
+
 
 
 

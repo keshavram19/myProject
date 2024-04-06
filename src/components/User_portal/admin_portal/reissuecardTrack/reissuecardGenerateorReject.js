@@ -18,7 +18,6 @@ function ReissueGenerateOrReject() {
     const token = sessionStorage.getItem('adminloginToken');
 
     useEffect(() => {
-        // Redirect to admin login if URL is manipulated
         if (!location.pathname.includes("/admin/")) {
             navigate("/admin/login");
         }
@@ -58,14 +57,10 @@ function ReissueGenerateOrReject() {
 
     const handleReject = async () => {
         try {
-            await axios.post(`${apiList.generateReissueCard}${userDetails._id}`, { reject: true }, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json',
-                },
-            });
+            if (userDetails && userDetails.userDebitCardDetails && userDetails.userDebitCardDetails.userDebitCardStatus === 'active') {
 
-            setGeneratedUsers([...generatedUsers, userDetails]);
+                setErrorMessage('Rejected.');
+            }
         } catch (error) {
             console.error("Rejection Error:", error);
         }
@@ -74,35 +69,53 @@ function ReissueGenerateOrReject() {
     const handleGenerate = async () => {
         try {
             if (userDetails && userDetails.userDebitCardDetails) {
-                userDetails.userDebitCardDetails.userDebitCardStatus = 'active';
+                if (userDetails.userDebitCardDetails.userDebitCardStatus === 'active') {
+                    setErrorMessage('Debit card is already active');
+                    return;
+                }
                 const response = await axios.post(`${apiList.generateReissueCard}${userDetails._id}`, { generate: true }, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                         'Content-Type': 'application/json',
                     },
                 });
-                const { newDebitCardNumber, newCVV, newExpiryDate } = response.data;
 
-                const updatedUser = {
-                    ...userDetails,
-                    userDebitCardDetails: {
-                        ...userDetails.userDebitCardDetails,
-                        userDebitCardNumber: newDebitCardNumber,
-                        userDebitCardcvv: newCVV,
-                        userDebitCardExpiryDate: newExpiryDate,
-                        userDebitCardStatus: 'active'
-                    },
-                    issuedDate: getFormattedDate(new Date())
-                };
+                const { status, message, userDebitCardNumber, userCVV, userExpiryDate } = response.data;
+                if (status === 'success') {
+                    setUserDetails(prevUserDetails => ({
+                        ...prevUserDetails,
+                        userDebitCardDetails: {
+                            ...prevUserDetails.userDebitCardDetails,
+                            userDebitCardNumber,
+                            userDebitCardcvv: userCVV,
+                            userDebitCardExpiryDate: userExpiryDate,
+                            userDebitCardStatus: 'active'
+                        }
+                    }));
 
-                setGeneratedUsers([...generatedUsers, updatedUser]);
-                localStorage.setItem('generatedUsers', JSON.stringify([...generatedUsers, updatedUser]));
-                localStorage.setItem('currentDate', getFormattedDate(new Date()));
+                    const updatedUser = {
+                        ...userDetails,
+                        userDebitCardDetails: {
+                            ...userDetails.userDebitCardDetails,
+                            userDebitCardNumber,
+                            userDebitCardcvv: userCVV,
+                            userDebitCardExpiryDate: userExpiryDate,
+                            userDebitCardStatus: 'active'
+                        },
+                        issuedDate: getFormattedDate(new Date())
+                    };
+                    setGeneratedUsers([...generatedUsers, updatedUser]);
+                    localStorage.setItem('generatedUsers', JSON.stringify([...generatedUsers, updatedUser]));
+                    localStorage.setItem('currentDate', getFormattedDate(new Date()));
+                } else {
+                    setErrorMessage(message);
+                }
             }
         } catch (error) {
             console.error("Reissue Error:", error);
         }
     };
+
 
     function getFormattedDate(date) {
         const year = date.getFullYear();
@@ -134,8 +147,8 @@ function ReissueGenerateOrReject() {
                         <div className="col-sm-3">
                             <AdminSidebar />
                         </div>
-                        <div className="col-sm-9 mt-4">
-                            {errorMessage && <p>{errorMessage}</p>}
+                        <div className="col-sm-9 mt-4 generate_reject">
+
                             {userDetails && (
                                 <div className="user-details-container container">
                                     <div className='customer-details col-sm-12'>
@@ -199,13 +212,18 @@ function ReissueGenerateOrReject() {
                                         </div>
                                     )}
                                     <div className="buttons-container mt-3">
-                                        <button className="reject-button" onClick={handleReject}>Reject</button>
-                                        <button className="generate-button" onClick={handleGenerate}>Generate</button>
+                                        <div className="button-row">
+                                            <button className="reject-button" onClick={handleReject}>Reject</button>
+                                            <button className="generate-button" onClick={handleGenerate}>Generate</button>
+                                        </div>
+                                        {errorMessage && (
+                                            <p className="error-message">{errorMessage}</p>
+                                        )}
                                     </div>
                                 </div>
                             )}
                             <div className="table-container container mt-5 mb-5">
-                                <h4 className='ml-3 text-success'>Newly Issued Cards List</h4>
+                                <h4 className='text-success'>Newly Issued Cards List</h4>
                                 <table>
                                     <thead>
                                         <tr>
@@ -220,31 +238,35 @@ function ReissueGenerateOrReject() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {generatedUsers.map((user, index) => (
-    <tr key={user._id}>
-        <td>{index + 1}</td>
-        <td>{user.issuedDate}</td>
-        <td>{`${user.accountNumber} - ${user.firstname}`}</td>
-        <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardNumber : '-'}</td>
-        <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardcvv : '-'}</td>
-        <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardExpiryDate : '-'}</td>
-        <td>
-            <button
-                className={`status-button ${user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus === 'active' ? 'active' : 'inactive'}`}
-                style={{
-                    backgroundColor: user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus === 'active' ? '#09eb2f' : 'red',
-                    color: 'white',
-                    padding: '2px 4px'
-                }}
-            >
-                {user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardStatus : '-'}
-            </button>
-        </td>
-        <td>
-            <button onClick={() => handleDelete(index)}>Delete</button>
-        </td>
-    </tr>
-))}
+                                        {generatedUsers.map((user, index) => (
+                                            user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus !== 'rejected' && (
+                                                <tr key={user._id}>
+                                                    <td>{index + 1}</td>
+                                                    <td>{user.issuedDate}</td>
+                                                    <td>{`${user.accountNumber} - ${user.firstname}`}</td>
+                                                    <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardNumber : '-'}</td>
+                                                    <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardcvv : '-'}</td>
+                                                    <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardExpiryDate : '-'}</td>
+                                                    <td>
+                                                        <button
+                                                            className={`status-button ${user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus === 'active' ? 'active' : 'inactive'}`}
+                                                            style={{
+                                                                backgroundColor: user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus === 'active' ? '#09eb2f' : 'red',
+                                                                color: 'white',
+                                                                padding: '2px 4px',
+                                                                borderRadius: '6px',
+                                                                borderColor: '#1bbb35'
+                                                            }}
+                                                        >
+                                                            {user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardStatus : '-'}
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <button className='delete_btn' onClick={() => handleDelete(index)}>Delete</button>
+                                                    </td>
+                                                </tr>
+                                            )
+                                        ))}
 
                                     </tbody>
                                 </table>
@@ -267,3 +289,6 @@ function ReissueGenerateOrReject() {
 }
 
 export default ReissueGenerateOrReject;
+
+
+

@@ -14,6 +14,8 @@ const apiList ={
     getuserrequesteddetails: `${server}/admin/requesteduserdetails/`,
     getReissuecardDetails: `${server}/admin/trackAndReissueCard/`,
     generateReissueCard: `${server}/admin/reissue/`,
+   
+
     
 
 
@@ -81,7 +83,8 @@ const apiList ={
 
     changeEmail:` ${server}/api/change-email`,
     UpdateEmailverifyOTP: `${server}/api/otp-verification`,
-    sendPdfByEmail : `${server}/api/sendPdfByEmail`
+    sendPdfByEmail : `${server}/api/sendPdfByEmail`,
+    applyDebitCard: `${server}/api/apply-debitcard`
 }
 
 
