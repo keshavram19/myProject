@@ -8,9 +8,8 @@ import apiList from '../../../../lib/apiList';
 
 function ReissueGenerateOrReject() {
     const [userDetails, setUserDetails] = useState(null);
+  const [userData, setUserData] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
-    const [generatedUsers, setGeneratedUsers] = useState([]);
-    const [currentDate, setCurrentDate] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
     const queryParams = new URLSearchParams(location.search);
@@ -33,12 +32,24 @@ function ReissueGenerateOrReject() {
         }
     }, [userId]);
 
+
     useEffect(() => {
-        const storedGeneratedUsers = localStorage.getItem('generatedUsers');
-        if (storedGeneratedUsers) {
-            setGeneratedUsers(JSON.parse(storedGeneratedUsers));
-        }
-    }, []);
+        const fetchData = async () => {
+          try {
+            const response = await axios.get(`${apiList.getReissuecardDetails}`, {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+              },
+            });
+            setUserData(response.data);
+          } catch (error) {
+            console.error('Error fetching user data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     async function fetchUserDetails(id) {
         try {
@@ -58,7 +69,6 @@ function ReissueGenerateOrReject() {
     const handleReject = async () => {
         try {
             if (userDetails && userDetails.userDebitCardDetails && userDetails.userDebitCardDetails.userDebitCardStatus === 'active') {
-
                 setErrorMessage('Rejected.');
             }
         } catch (error) {
@@ -92,21 +102,6 @@ function ReissueGenerateOrReject() {
                             userDebitCardStatus: 'active'
                         }
                     }));
-
-                    const updatedUser = {
-                        ...userDetails,
-                        userDebitCardDetails: {
-                            ...userDetails.userDebitCardDetails,
-                            userDebitCardNumber,
-                            userDebitCardcvv: userCVV,
-                            userDebitCardExpiryDate: userExpiryDate,
-                            userDebitCardStatus: 'active'
-                        },
-                        issuedDate: getFormattedDate(new Date())
-                    };
-                    setGeneratedUsers([...generatedUsers, updatedUser]);
-                    localStorage.setItem('generatedUsers', JSON.stringify([...generatedUsers, updatedUser]));
-                    localStorage.setItem('currentDate', getFormattedDate(new Date()));
                 } else {
                     setErrorMessage(message);
                 }
@@ -114,29 +109,6 @@ function ReissueGenerateOrReject() {
         } catch (error) {
             console.error("Reissue Error:", error);
         }
-    };
-
-
-    function getFormattedDate(date) {
-        const year = date.getFullYear();
-        let month = date.getMonth() + 1;
-        let day = date.getDate();
-
-        if (month < 10) {
-            month = '0' + month;
-        }
-        if (day < 10) {
-            day = '0' + day;
-        }
-
-        return `${day}-${month}-${year}`;
-    }
-
-    const handleDelete = (index) => {
-        const updatedUsers = [...generatedUsers];
-        updatedUsers.splice(index, 1);
-        setGeneratedUsers(updatedUsers);
-        localStorage.setItem('generatedUsers', JSON.stringify(updatedUsers));
     };
 
     return (
@@ -238,11 +210,13 @@ function ReissueGenerateOrReject() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {generatedUsers.map((user, index) => (
+                                        {userData
+                                         .filter(user => user.userDebitCardDetails && user.userDebitCardDetails.debitcardGenerateStatus)
+                                        .map((user, index) => (
                                             user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus !== 'rejected' && (
                                                 <tr key={user._id}>
                                                     <td>{index + 1}</td>
-                                                    <td>{user.issuedDate}</td>
+                                                    <td>{user.userDebitCardDetails.debitGeneratedDate}</td>
                                                     <td>{`${user.accountNumber} - ${user.firstname}`}</td>
                                                     <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardNumber : '-'}</td>
                                                     <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardcvv : '-'}</td>
@@ -262,7 +236,7 @@ function ReissueGenerateOrReject() {
                                                         </button>
                                                     </td>
                                                     <td>
-                                                        <button className='delete_btn' onClick={() => handleDelete(index)}>Delete</button>
+                                                        <button className='delete_btn' >Delete</button>
                                                     </td>
                                                 </tr>
                                             )
