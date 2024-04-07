@@ -79,7 +79,7 @@ const ReissueCardTable = () => {
                     <th>Requested User</th>
                     <th>Email</th>
                     <th>User Reason</th>
-                    {/* <th>Status</th> */}
+                    <th>Status</th>
                     <th>View</th>
                   </tr>
                 </thead>
@@ -92,7 +92,7 @@ const ReissueCardTable = () => {
                         <td>{user.firstname} {user.lastname}</td>
                         <td>{user.email}</td>
                         <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userReason : ''}</td>
-                        {/* <td>{getStatus(user)}</td> */}
+                        <td>{user.userDebitCardDetails ? user.userDebitCardDetails.debitcardGenerateStatus : ''}</td>
                         <td>
                           {user.userDebitCardDetails &&
                             (user.userDebitCardDetails.debiCardSrn ||
