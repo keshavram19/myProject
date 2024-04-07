@@ -26,7 +26,10 @@ const Viewsummary = () => {
         const token = sessionStorage.getItem("loginToken");
         const response = await axios.get(apiList.requestedUserDetailsByEmail, {
           headers: {
-            Authorization: `Bearer ${token},`,
+
+ 
+            Authorization: `Bearer ${token}`,
+
           },
         });
         setUserDetails(response.data.user);
@@ -380,6 +383,7 @@ const Viewsummary = () => {
                       </div>
                     )}
 
+
                     {showOutput && selectedOption === "Deposit Account" && (
                       <div>
                         <FixedDeposit />
@@ -409,6 +413,42 @@ const Viewsummary = () => {
                         <Accounts />
                       </div>
                     )}
+=======
+{showOutput && selectedOption === "Deposit Account" && (
+  <div>
+    <FixedDeposit withinViewSummaryPage={true} />
+  </div>
+)}
+
+
+{showOutput && selectedOption === "Loan Account" && (
+  <div>
+    <LoanAccounts withinViewSummaryPage={true} />
+  </div>
+)}
+
+{showOutput && selectedOption === "Credit Card" && (
+  <div>
+    <CreditCard withinViewSummaryPage={true} />
+  </div>
+)}
+
+{showOutput && selectedOption === "E-Statement" && (
+  <div>
+    <Estatement withinViewSummaryPage={true} />
+  </div>
+)}             
+
+{showOutput && selectedOption === "Account Summary" && (
+  <div>
+    <Accounts withinViewSummaryPage={true} />
+  </div>
+)}
+
+
+
+                   
+
 
                     
                   </div>

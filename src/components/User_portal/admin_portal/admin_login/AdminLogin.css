@@ -5,27 +5,27 @@
     
   }
 
-  .admin_login .admin_login_coloumn img{
+  .admin_login .admin_login_coloumn .admin_images{
     height: 100vh;
     width: 120vh;
   }
   
-  .admin_login .admin_login_coloumn h2 {
+  .admin_login .admin_login_coloumn {
     font-size: 25px;
     padding-bottom: 20px;
   }
-  .admin_login .admin_login_coloumn div {
+  .admin_login .admin_login_coloumn .admin_login_coloumn_div {
     margin-top: 15px;
   }
-  .admin_login .admin_login_coloumn div h5 {
+  .admin_login .admin_login_coloumn .admin_login_coloumn_div .admin_login_heading {
     font-size: 18px;
     margin-bottom: 0px !important;
   }
-  .admin_login .admin_login_coloumn div p {
+  .admin_login .admin_login_coloumn .admin_login_coloumn_div .admin_login_pera{
     font-size: 13px;
     margin-bottom: 0px !important;
   }
-  .admin_login .admin_login_coloumn button {
+  .admin_login .admin_login_coloumn .admin_login_button {
     background-color: #fff;
     border: 1px solid #faede2;
     border-radius: 25px;
@@ -39,11 +39,11 @@
   .personal_dont_password {
     font-size: 15px;
   }
-  .admin_login .admin_login_col input {
+  .admin_login .admin_login_col .admin_opening_control {
     margin-top: 20px;
     height: 50px;
   }
-  .admin_login .admin_login_col button {
+  .admin_login .admin_login_col .admin_login_button {
     background-color: #2fb68e;
     color: #fff;
     border: none;
