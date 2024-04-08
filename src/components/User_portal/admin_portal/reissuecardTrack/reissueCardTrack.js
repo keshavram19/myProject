@@ -48,18 +48,7 @@ const ReissueCardTable = () => {
     navigate(`/admin/reissuecardGenerateorReject?userId=${user._id}`);
   };
 
-  // const getStatus = (user) => {
-  //   if (localStorage.getItem('generatedUsers')) {
-  //     const generatedUsers = JSON.parse(localStorage.getItem('generatedUsers'));
-  //     const generatedUser = generatedUsers.find((u) => u._id === user._id);
-  //     if (generatedUser && generatedUser.userDebitCardDetails) {
-  //       return 'generated';
-  //     }
-  //   }
-  //   return 'inprogress';
-  // };
-
-
+ 
 
   return (
 

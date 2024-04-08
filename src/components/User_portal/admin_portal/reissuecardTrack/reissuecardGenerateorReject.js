@@ -102,6 +102,45 @@ function ReissueGenerateOrReject() {
                             userDebitCardStatus: 'active'
                         }
                     }));
+                    const handleGenerate = async () => {
+    try {
+        if (userDetails && userDetails.userDebitCardDetails) {
+            if (userDetails.userDebitCardDetails.userDebitCardStatus === 'active') {
+                setErrorMessage('Debit card is already active');
+                return;
+            }
+            const response = await axios.post(`${apiList.generateReissueCard}${userDetails._id}`, { generate: true }, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            const { status, message, userDebitCardNumber, userCVV, userExpiryDate } = response.data;
+            if (status === 'success') {
+                setUserDetails(prevUserDetails => ({
+                    ...prevUserDetails,
+                    userDebitCardDetails: {
+                        ...prevUserDetails.userDebitCardDetails,
+                        userDebitCardNumber,
+                        userDebitCardcvv: userCVV,
+                        userDebitCardExpiryDate: userExpiryDate,
+                        userDebitCardStatus: 'active',
+                        // Preserve the original userReason if it exists
+                        userReason: prevUserDetails.userDebitCardDetails.userReason !== 'New card'
+                            ? prevUserDetails.userDebitCardDetails.userReason
+                            : prevUserDetails.userDebitCardDetails.userReason,
+                    }
+                }));
+            } else {
+                setErrorMessage(message);
+            }
+        }
+    } catch (error) {
+        console.error("Reissue Error:", error);
+    }
+};
+
                 } else {
                     setErrorMessage(message);
                 }
@@ -110,6 +149,17 @@ function ReissueGenerateOrReject() {
             console.error("Reissue Error:", error);
         }
     };
+
+
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return `${day < 10 ? '0' + day : day}-${month < 10 ? '0' + month : month}-${year}`;
+    };
+    
 
     return (
         <>
@@ -216,7 +266,7 @@ function ReissueGenerateOrReject() {
                                             user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus !== 'rejected' && (
                                                 <tr key={user._id}>
                                                     <td>{index + 1}</td>
-                                                    <td>{user.userDebitCardDetails.debitGeneratedDate}</td>
+                                                    <td>{userDetails && userDetails.userDebitCardDetails ? formatDate(userDetails.userDebitCardDetails.debitGeneratedDate) : '-'}</td>
                                                     <td>{`${user.accountNumber} - ${user.firstname}`}</td>
                                                     <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardNumber : '-'}</td>
                                                     <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardcvv : '-'}</td>
