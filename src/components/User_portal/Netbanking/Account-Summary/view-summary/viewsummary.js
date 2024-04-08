@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
-
+ 
 import "./viewsummary.css";
 import creditcardimg from "../../../../../Images/credit_card.svg";
 import OverviewSidebar from '../../Sidebar/OverViewSidebar'
