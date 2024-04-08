@@ -4,6 +4,7 @@ import Userdetails from "../UserDetails/UserDetails";
 import { Link,useLocation } from "react-router-dom";
 
 function BankaccountSidebar() {
+  
   const location = useLocation();
   const [activeIndex, setActiveIndex] = useState(() => {
     const storedIndex = parseInt(sessionStorage.getItem("activeIndex"));
@@ -41,7 +42,8 @@ function BankaccountSidebar() {
 
 
   const toggleCollapsible = (index) => {
-    setActiveIndex(index);
+    // setActiveIndex(index);
+    setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
   const isActiveLink = (to) => {
@@ -80,20 +82,22 @@ function BankaccountSidebar() {
               ref={contentRefs[0]}
             >
               <Link to="/user/account" onClick={stopPropagation}  className={isActiveLink("/user/account") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"}>Accounts</Link>
-              {/* <Link to="">View Customer ID</Link> */}
               <Link to="/user/account/statement" onClick={stopPropagation} className={isActiveLink("/user/account/statement") ? "bank_account_sidebar_link_tag" : ""}>Detailed Statement</Link>
               <Link to="/user/account/statement-by-email" onClick={stopPropagation} className={isActiveLink("/user/account/statement-by-email") ? "bank_account_sidebar_link_tag" : ""}>Account Statement by email</Link>
               <Link to="/user/account/debit-atm-card" onClick={stopPropagation} className={isActiveLink("/user/account/debit-atm-card") ? "bank_account_sidebar_link_tag" : ""}>Debit/ATM Card details</Link>
-              {/* <Link to="">Monthly Average Balance Details</Link> */}
               <Link to="/user/account/generate-debitcard-pin" onClick={stopPropagation} className={isActiveLink("/user/account/generate-debitcard-pin") ? "bank_account_sidebar_link_tag" : ""}>Generate ATM Pin Online</Link>
               <Link to="/user/account/chequebook-req" onClick={stopPropagation} className={isActiveLink("/user/account/chequebook-req") ? "bank_account_sidebar_link_tag" : ""}>Cheque Book Request</Link>
               <Link to="/user/account/view-update-pancard" onClick={stopPropagation} className={isActiveLink("/user/account/view-update-pancard") ? "bank_account_sidebar_link_tag" : ""}>View/Update PAN Card</Link>
               <Link to="/user/account/update-form60" onClick={stopPropagation} className={isActiveLink("/user/account/update-form60") ? "bank_account_sidebar_link_tag" : ""}>Update Form 60</Link>
               <Link to="/user/account/block-debit-card" onClick={stopPropagation} className={isActiveLink("/user/account/block-debit-card") ? "bank_account_sidebar_link_tag" : ""}>Block Debit/ ATM Card</Link>
+              <Link to="/user/account/service-request" onClick={stopPropagation} className={isActiveLink("/user/account/service-request") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"}>Service Requests</Link>
+
               {/* <Link to="/user/account/pmsocial-securityschmes">PM Social Security Schemes</Link> */}
               {/* <Link to="">Enroll Atal Pension Yojana</Link> */}
               {/* <Link to="/user/account/bank-rewardspoints">Bank Rewards</Link> */}
-              <Link to="/user/account/service-request" onClick={stopPropagation} className={isActiveLink("/user/account/service-request") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"}>Service Requests</Link>
+              {/* <Link to="">View Customer ID</Link> */}
+              {/* <Link to="">Monthly Average Balance Details</Link> */}
+
             </div>
 
             <button
@@ -114,10 +118,12 @@ function BankaccountSidebar() {
             >
               {" "}
               <Link to="/user/account/fixed-deposits" className={isActiveLink("/user/account/fixed-deposits") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Deposit Accounts</Link>
-              {/* <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Open Deposits</Link> */}
               <Link to="/user/account/fd-advice" className={isActiveLink("/user/account/fd-advice") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>FD Advice</Link>
-              {/* <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Service Requests</Link> */}
               <Link to="/user/account/renew-fd" className={isActiveLink("/user/account/renew-fd") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>Renew FD</Link>
+
+              {/* <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Open Deposits</Link> */}
+              {/* <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Service Requests</Link> */}
+
             </div>
             <button
               type="button"
@@ -138,6 +144,7 @@ function BankaccountSidebar() {
               {" "}
               <Link to="/user/account" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Bank Accounts</Link>
               <Link to="/user/credit-cards" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Credit Cards</Link>
+              
               {/* <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Demat</Link> */}
               {/* <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>PPF Accounts</Link> */}
             </div>

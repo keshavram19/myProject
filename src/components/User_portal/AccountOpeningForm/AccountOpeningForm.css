@@ -7,14 +7,14 @@
   border: none;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.account_opening_Identify_yourself .col-md-6 .card input {
+.account_opening_Identify_yourself .col-md-6 .card .account_opening_control {
   padding: 21px;
   color: #b9b9b9;
   font-size: 13px;
   border: none;
 }
 
-.account_opening_Identify_yourself .col-md-6 .card input::placeholder {
+.account_opening_Identify_yourself .col-md-6 .card .account_opening_control::placeholder {
   color: #b9b9b9 !important;
   font-size: 13px;
 }
@@ -76,14 +76,14 @@
   border: none;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.account_opening_personal_details_1_card input {
+.account_opening_personal_details_1_card .account_opening_control {
   color: #f18121;
   border: none;
-  font-size: 13px;
+  font-size: 16px;
 }
-.account_opening_personal_details_1_card input::placeholder {
+.account_opening_personal_details_1_card .account_opening_control::placeholder {
   color: #b9b9b9;
-  font-size: 12px;
+  font-size: 16px;
 }
 .account_opening_personal_details_1_card label {
   font-size: 12px;

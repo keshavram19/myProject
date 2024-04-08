@@ -33,7 +33,7 @@ const GenerateDebitOrCreditPin = () => {
                       Generate your ATM / Debit Card PIN online.
                     </p>
                     
-                  <Link to='/user/account/generate-debitcard-pin'style={{textDecoration:"none"}} > <button>GENERATE</button></Link>
+                  <Link to='/user/account/generate-debitcard-pin'style={{textDecoration:"none"}} > <button className="generate_pin_button">GENERATE</button></Link>
                     {/* <p className="ml-5">
                       Generate your ATM / Debit Card PIN online.
                     </p> */}
@@ -49,7 +49,7 @@ const GenerateDebitOrCreditPin = () => {
                       Generate your ATM / Debit Card PIN online.
                     </p>
                    
-                  <Link to='/user/generate-credit-card-pin' style={{textDecoration:"none"}} > <button>GENERATE</button></Link>
+                  <Link to='/user/generate-credit-card-pin' style={{textDecoration:"none"}} > <button className="generate_pin_button">GENERATE</button></Link>
                     {/* <p className="ml-5">
                       Generate your ATM / Debit Card PIN online.
                     </p> */}

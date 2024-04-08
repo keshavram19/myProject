@@ -4,7 +4,7 @@
   border: 1px solid #ced4da !important;
   outline: 0;
   box-shadow: none !important;
-  font-size: small;
+  font-size: 16px;
 }
 .accounts_nick_name .form-control:placeholder-shown {
   color: #495057;
@@ -12,15 +12,17 @@
   border: 1px solid #ced4da !important;
   outline: 0;
   box-shadow: none !important;
-  font-size: small;
+  font-size: 16px;
 }
-
+.nicknames_heading{
+  font-size: 18px;
+}
 .accounts_nick_name .nicknames_heading {
   color: #4a4a4a;
   font-family: Helvetica;
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 16px;
   letter-spacing: 0.714286px;
   margin-bottom: 14px;
@@ -30,7 +32,7 @@
 .accounts_nick_name .nicknames_table_content td {
   /* background-color: #f2f3f2; */
   width: 100%;
-  font-size: 13px;
+  font-size: 16px;
   color: #4a4a4a;
   margin-top: 0rem;
   margin-bottom: 1rem;
@@ -43,7 +45,7 @@
 .accounts_nick_name .nicknames_table_head {
   /* background-color: #f2f3f2; */
   width: 100%;
-  font-size: 13px;
+  font-size: 16px;
   color: #4a4a4a;
   margin-top: 0rem;
   margin-bottom: 1rem;
@@ -53,14 +55,15 @@
 
 
 .accounts_nick_name .nicknames_table_head .nicknames_table_headings th {
-  padding: 15px 8px;
-  background-color: #f2f3f2;
+  padding: 10px;
+  background-color: #2fb68e;
+  color:white;
   /* width: 30%; */
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .accounts_nick_name .nicknames_table_head .nicknames_table_content td {
-  padding: 4px 8px;
+  padding: 10px 8px;
   width: 23%;
   color: #4a4a4aeb;
 }
@@ -69,27 +72,32 @@
 .nicknames_table_content td:first-child {
   width: 10% !important;
 }
-
+.nick_name_input{
+  font-size: 16px;
+}
+.nick_name_input:hover{
+  font-size: 16px;
+}
 
 
 .nicknames_icon_button {
   background: none;
   border: none;
+  
 }
 
 .nicknames_submit_button {
   padding: 0px 15px;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 15px;
   color: #fff;
   letter-spacing: 0.1rem;
-  background: #eb6c18c8;
+  background: #2fb68e;
   display: inline;
   cursor: pointer;
   text-transform: uppercase;
-
   text-align: center;
-  border: 1px solid #eb6c18c8;
+  border: 1px solid #2fb68e;
   /* padding-right: 8px!important;
     padding-left: 8px!important; */
 }

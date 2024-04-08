@@ -211,6 +211,7 @@ const GenerateCreditCardPin = () => {
                                         <div className="pr-3">
                                             <input
                                                 type="radio"
+                                                className='generate_pin_input'
                                                 id="sms"
                                                 name="options"
                                                 value="sms"
@@ -224,6 +225,7 @@ const GenerateCreditCardPin = () => {
                                         <div className="pr-3">
                                             <input
                                                 type="radio"
+                                                className='generate_pin_input'
                                                 id="email"
                                                 name="options"
                                                 value="email"
@@ -237,6 +239,7 @@ const GenerateCreditCardPin = () => {
                                         <div className="pr-3">
                                             <input
                                                 type="radio"
+                                                className='generate_pin_input'
                                                 id="call"
                                                 name="options"
                                                 value="call"

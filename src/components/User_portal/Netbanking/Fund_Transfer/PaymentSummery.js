@@ -7,6 +7,8 @@ import { LiaMoneyBillSolid } from "react-icons/lia";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 import { GoDotFill } from "react-icons/go";
 import 'react-calendar/dist/Calendar.css';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
 
 const PaymentSummary = () => {
   const [date, setDate] = useState(new Date());
@@ -14,6 +16,11 @@ const PaymentSummary = () => {
   const handleDateChange = (newDate) => {
     setDate(newDate);
   };
+  const pendingDates = [
+    { title: 'payLater payment', date: '2024-04-02' },
+  ];
+
+  
   return (
     <>
       <div className='container-fluid' style={{ marginTop: "90px" }}>
@@ -27,7 +34,7 @@ const PaymentSummary = () => {
           <hr style={{border:"1px solid lightgrey"}}/>
           
             <div className='container-fluid payment_summary_cont1'>
-              <div className='payment_summary_pending'>
+              <div className='payment_summary_pending mt-3'>
                 <div className='mt-2'>
                   <p><b>TOTAL PENDING AMOUNT</b></p>
                   <p className='payment_summary_valid'>(Till 22 Mar 2024)</p>
@@ -35,15 +42,9 @@ const PaymentSummary = () => {
                 <div>
                   <p><BiRupee/>0.0</p>
                 </div>
+                
               </div>
-             
-            </div>
-            <div className='payment_summary_cont3 mt-3'>
-            <Calendar
-        onChange={handleDateChange}
-        value={date}
-        
-      />
+              <div className='payment_summary_cont3 mt-3'>
        <div className='payment_summary_cont2'>
                 <div >
                   <ul className='payment_summary_list1'>
@@ -60,6 +61,17 @@ const PaymentSummary = () => {
                 </div>
               </div>
       </div>
+            </div>
+      
+            
+      <div className='mt-3'>
+       <FullCalendar
+      plugins={[dayGridPlugin]}
+      initialView="dayGridMonth"
+      events={pendingDates}
+     
+    />
+       </div>
           </div>
           </div>
   </div>

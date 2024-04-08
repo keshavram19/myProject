@@ -1,24 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-.viewSummary_acct_sum_heading_htager {
+.viewSummary h1 {
   font-size: 24px;
   color: #f88d2a;
   font-weight: 400;
 }
 
-.viewSummary_acct_sum .selectSummaryCategory {
-  color: #000;
+.viewSummary .selectSummaryCategory {
+  
   cursor: pointer;
-
-  font-size: 12px;
-  height: 30px;
+  font-size: 16px;
   outline: medium none;
-  padding: 5px 0 0 5px;
+  /* padding: 5px 0 0 5px; */
   text-align: left;
   margin: 0px 15px;
 }
+.view_summary_label{
+  font-size: 16px;
+}
 
-.viewSummary_acct_sum .Acct_sum_View_goButton {
+.viewSummary .goButton {
   font-weight: 500;
   font-size: 10px;
   color: #fff;
@@ -29,21 +30,23 @@
   text-transform: uppercase;
   height: 24px !important;
   text-align: center;
-  background-color: #eb6c18;
-  border: 1px solid #ce6200;
+  color: white;
+  background-color: #2fb68e;
+  border: 1px solid #2fb68e;
   padding: 14px;
+  font-size: 16px;
   margin-right: 15px;
   display: flex;
   align-items: center;
 }
 
-.view_summary_acct_sum_paratager {
+.viewSummary p {
   display: flex;
   align-items: center;
   margin-top: 1.5rem;
 }
 
-.viewSummary_total_acct_sum_view {
+.viewSummary_total {
   background: #d4d4d4;
   margin-top: 15px;
 
@@ -53,13 +56,13 @@
   float: left;
 }
 
-.Acct_sum_view_sum_totalby {
+.viewSummary_total p {
   margin: 0;
   font-size: 15px;
   font-weight: 550;
 }
 
-.Acct_sum_view_Summary_totalLiabilities {
+.viewSummary_totalLiabilities {
   background: #d4d4d4;
   margin-top: 15px;
   padding: 15px;
@@ -67,14 +70,14 @@
   width: 100%;
   float: left;
 }
-.Acct_sum_view_Summary_totalParatag {
+.viewSummary_totalLiabilities p {
   margin: 0;
   font-size: 15px;
   font-weight: 550;
   text-align: center;
 }
 
-.viewSummary_Acct_sum_totalAssets {
+.viewSummary_totalAssets {
   background: #d4d4d4;
   margin-top: 15px;
   padding: 15px;
@@ -83,14 +86,14 @@
   float: left;
   border-right: 1px solid #e7e7e7;
 }
-.viewSummary_Acct_sum_totalAssets_paratager {
+.viewSummary_totalAssets p {
   margin: 0;
   font-size: 15px;
   font-weight: 550;
   text-align: center;
 }
 
-.Acct_sum_view_Summary_total_Assets_value {
+.viewSummary_totalAssets_value {
   /* background: #d4d4d4; */
   /* margin-top: 15px; */
   padding: 15px;
@@ -99,7 +102,7 @@
   float: left;
   border: 1px solid #e7e7e7;
 }
-.Acct_sum_view_Summary_total_Assets_value_pgratager {
+.viewSummary_totalAssets_value p {
   /* background: #d4d4d4; */
   /* margin-top: 15px; */
   margin: 0;
@@ -108,7 +111,7 @@
   text-align: center;
 }
 
-.Acct_sumY_view_Summary_total_Liabilities_value {
+.viewSummary_totalLiabilities_value {
   padding: 15px;
   line-height: 20px;
   width: 100%;
@@ -117,7 +120,7 @@
   border-left: none;
 }
 
-.Acct_sumY_view_Summary_total_Liabili_ptgergr {
+.viewSummary_totalLiabilities_value p {
   /* background: #d4d4d4; */
   /* margin-top: 15px; */
   margin: 0;
@@ -185,6 +188,3 @@ font-size: 11px;
 .col-3 .offer_cards{
   margin-top: 1rem;
 }
-
-
-

@@ -1,12 +1,10 @@
-
-
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 
 
 import './Accounts.css';
 import { Link, useNavigate } from "react-router-dom";
 
- export const FixedDeposit = () => {
+ export const FixedDeposit = ({withinViewSummaryPage }) => {
     let navigate = useNavigate();
 
     const Recurringpage = () => {
@@ -26,20 +24,20 @@ import { Link, useNavigate } from "react-router-dom";
             <div className="container-fluid fixed_deposit_background_main pt-5" style={{ marginTop: "60px" }}>
                 <div className="row">
                     <div className='col-3'>
-                        <BankaccountSidebar />
+                    {!withinViewSummaryPage && <BankaccountSidebar />}
                     </div>
                     <div className="col-9">
                         <div className='container'>
 
-                            <div className='row'>
+                            <div className='d-flex'>
 
-                                <button className="deposit_btn col-md-3">Deposit Accounts</button>
+                                <button className="deposit_btn p-3">Deposit Accounts</button>
 
-                                <button className="deposit_btn col-md-3 ">Submit Form 15G/H</button>
+                                <button className="deposit_btn p-3 ">Submit Form 15G/H</button>
 
-                                <button className="deposit_btn col-md-3 ">Interest Certificate  <i class="fa-solid fa-arrow-down"></i></button>
+                                <button className="deposit_btn p-3 ">Interest Certificate  <i class="fa-solid fa-arrow-down"></i></button>
 
-                                <button className="deposit_btn col-md-3">Watch iplay demo</button>
+                                {/* <button className="deposit_btn col-md-3">Watch iplay demo</button> */}
                             </div>
 
                             <div className="row p-3 " style={{ marginTop: "20px" }} >

@@ -19,7 +19,7 @@
   font-size: 13px;
   margin-bottom: 0px !important;
 }
-.personal_login .col-md-5 button {
+.personal_login .col-md-5 .personal_login_page_button{
   background-color: #fff;
   border: 1px solid #faede2;
   border-radius: 25px;
@@ -33,11 +33,11 @@
 .personal_dont_password {
   font-size: 15px;
 }
-.personal_login .col-md-7 input {
+.personal_login .col-md-7 .corporate_login_input {
   margin-top: 20px;
   height: 50px;
 }
-.personal_login .col-md-7 button {
+.personal_login .col-md-7 .personal_login_page_button {
   background-color: #2fb68e;
   color: #fff;
   border: none;

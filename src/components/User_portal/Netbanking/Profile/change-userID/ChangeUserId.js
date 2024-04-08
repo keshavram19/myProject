@@ -17,24 +17,25 @@ const ChangeUserId = () => {
               <p>Update userID </p>
             </div>
             <div className="side-headings1">
-              <p className="heading">Update User ID</p>
+              <p className="change_user_id_heading_pera">Update User ID</p>
               <p className="d-flex align-items-center">
-                <div className="">User ID </div>
-                <span>CPR7759222</span>
+                <div className="change_user_id">User ID </div>
+                <span className="change_user_id_cpr">CPR7759222</span>
               </p>
               <p className="d-flex align-items-center">
-                <div className="">New User ID*   </div>
-                <input className="form-control w-25"></input>
+                <div className="change_user_id">New User ID*   </div>
+                <input className="form-control change_user_id_cpr2 w-25"></input>
               </p>
-              <p className="d-flex align-items-center pb-4 m-0">
-                <div className="">Confirm New User ID* </div>
-                <input className="form-control w-25"></input>
+              <p className="d-flex align-items-center">
+                <div className="change_user_id">Confirm New User ID*</div>
+                <input className="form-control change_user_id_cpr3 w-25"></input>
               </p>
+              
 
-              <button>Update</button>
+              <button className="change_update_button">Update</button>
             </div>
             <div className="changeuserid-instructions">
-              <p>Please keep these in mind while changing your userid</p>
+              <p>Please keep these in mind while changing your user id</p>
               <ol>
                 <li>
                 This service allows a ONE-TIME change of your Internet Banking User ID.

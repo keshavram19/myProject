@@ -294,7 +294,14 @@ const AdminLogin = () => {
         <div className="container">
           <div className="row">
             <div className="col-6">
-              <img src={banklogo} alt="logo" style={{ width: "170px" }} />
+              <img  className="admin_images" src={banklogo} alt="logo" style={{ width: "170px" }} />
+            </div>
+            <div className="col-6 text-right m-auto">
+              <p className="mb-0">
+                <Link to="/netbanking-personal-login" style={{ color: '#2fb68e'}}>
+                  Login to personal banking
+                </Link>
+              </p>
             </div>
           </div>
         </div>
@@ -304,20 +311,20 @@ const AdminLogin = () => {
           
 
           {form === "login" && (
-            <div className="col-md-6 admin_login_col">
-              <h5>Login to Access Your Admin Portal</h5>
+            <div className="col-md-6 admin_login_col admin_login_coloumn_div">
+              <h5 className="admin_login_heading">Login to Access Your Admin Portal</h5>
              
               <input
                 type="text"
                 placeholder="Enter Bank Username"
-                className="form-control"
+                className="form-control admin_opening_control"
                 onChange={handleUserName}
                 value={bankUserName}
               />
               <input
                 type="Password"
                 placeholder="Enter Bank Password"
-                className="form-control"
+                className="form-control admin_opening_control"
                 onChange={handleBankPassword}
                 value={bankPassword}
               />
@@ -332,7 +339,7 @@ const AdminLogin = () => {
               <div className="row">
                 <div className="col-md-4">
                   <ToastContainer />
-                  <button type="button" onClick={handleBankLogin}>Sign In Securly</button>
+                  <button className="admin_login_button" type="button" onClick={handleBankLogin}>Sign In Securly</button>
                 </div>
                 <div className="col-md-4 mt-4 text-right">
                   <Link
@@ -353,8 +360,8 @@ const AdminLogin = () => {
                   </Link>
                 </div>
               </div>
-              <div className="row mt-5 admin_login_pp">
-                <p>
+              <div className="row mt-5 admin_login_pp admin_login_coloumn_div">
+                <p className="admin_login_pera">
                   {" "}
                   By signing in, you agree to our{" "}
                   <Link to="#">privacy policy</Link> and{" "}
@@ -367,8 +374,8 @@ const AdminLogin = () => {
 
 
           {form === "forgotusername" && (
-            <div className="col-md-6  admin_login_col">
-              <h5>
+            <div className="col-md-6  admin_login_col admin_login_coloumn_div">
+              <h5 className="admin_login_heading">
                 <FaArrowLeftLong
                   onClick={() => setForm("login")}
                   style={{ paddingRight: "5px", cursor: "pointer" }}
@@ -379,7 +386,7 @@ const AdminLogin = () => {
               <input
                 type="text"
                 placeholder="Registred Mobile Number"
-                className="form-control"
+                className="form-control admin_opening_control"
               />
 
               <div className="mt-3">
@@ -390,14 +397,14 @@ const AdminLogin = () => {
               </div>
 
               <div className="row ml-0">
-                <button>Continue</button>
+                <button className="admin_login_button">Continue</button>
               </div>
             </div>
           )}
 
           {form === "forgotpassword" && (
-            <div className="col-md-6  admin_login_col">
-              <h5>
+            <div className="col-md-6  admin_login_col admin_login_coloumn_div">
+              <h5 className="admin_login_heading">
                 <FaArrowLeftLong
                   onClick={() => setForm("login")}
                   style={{ paddingRight: "5px", cursor: "pointer" }}
@@ -408,7 +415,7 @@ const AdminLogin = () => {
               <input
                 type="email"
                 placeholder="Enter Registered Email"
-                className="form-control"
+                className="form-control admin_opening_control"
                 onChange={handleMailId}
 
               />
@@ -422,15 +429,15 @@ const AdminLogin = () => {
 
               <div className="row ml-0">
                 <ToastContainer />
-                <button type="button" onClick={handleSendingOTP}>Generate OTP</button>
+                <button className="admin_login_button" type="button" onClick={handleSendingOTP}>Generate OTP</button>
               </div>
 
             </div>
           )}
 
           {form === "verifyingOTP" && (
-            <div className="col-md-6  admin_login_col">
-              <h5>
+            <div className="col-md-6  admin_login_col admin_login_coloumn_div">
+              <h5 className="admin_login_heading">
                 <FaArrowLeftLong
                   onClick={() => setForm("forgotpassword")}
                   style={{ paddingRight: "5px", cursor: "pointer" }}
@@ -441,22 +448,22 @@ const AdminLogin = () => {
               <input
                 type="text"
                 placeholder="Enter OTP"
-                className="form-control"
+                className="form-control admin_opening_control"
                 onChange={handleMailOTP}
 
               />
 
               <div className="row ml-0">
                 <ToastContainer />
-                <button type="button" onClick={handleVerifyOTP}>Verify OTP</button>
+                <button className="admin_login_button" type="button" onClick={handleVerifyOTP}>Verify OTP</button>
               </div>
 
             </div>
           )}
 
           {form === 'changePassword' && (
-            <div className="col-md-6 admin_login_col">
-              <h5>
+            <div className="col-md-6 admin_login_col admin_login_coloumn_div">
+              <h5 className="admin_login_heading">
                 <FaArrowLeftLong
                   style={{ paddingRight: "5px", cursor: "pointer" }}
                 />
@@ -466,13 +473,13 @@ const AdminLogin = () => {
               <input
                 type="password"
                 placeholder="Enter New Password"
-                className="form-control"
+                className="form-control admin_opening_control"
                 onChange={handleNewPassword}
               />
 
-              <div className="row ml-0">
+              <div className="row ml-0 admin_login_coloumn_div ">
                 <ToastContainer />
-                <button type="button" onClick={handleUpdatePassword}>Change Password</button>
+                <button className="admin_login_button" type="button" onClick={handleUpdatePassword}>Change Password</button>
               </div>
 
             </div>
