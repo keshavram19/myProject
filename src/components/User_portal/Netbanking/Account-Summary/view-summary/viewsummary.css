@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-.viewSummary h1 {
+.viewSummary_acct_sum_heading_htager {
   font-size: 24px;
   color: #f88d2a;
   font-weight: 400;
 }
 
-.viewSummary .selectSummaryCategory {
+.viewSummary_acct_sum .selectSummaryCategory {
   color: #000;
   cursor: pointer;
 
@@ -18,7 +18,7 @@
   margin: 0px 15px;
 }
 
-.viewSummary .goButton {
+.viewSummary_acct_sum .Acct_sum_View_goButton {
   font-weight: 500;
   font-size: 10px;
   color: #fff;
@@ -37,13 +37,13 @@
   align-items: center;
 }
 
-.viewSummary p {
+.view_summary_acct_sum_paratager {
   display: flex;
   align-items: center;
   margin-top: 1.5rem;
 }
 
-.viewSummary_total {
+.viewSummary_total_acct_sum_view {
   background: #d4d4d4;
   margin-top: 15px;
 
@@ -53,13 +53,13 @@
   float: left;
 }
 
-.viewSummary_total p {
+.Acct_sum_view_sum_totalby {
   margin: 0;
   font-size: 15px;
   font-weight: 550;
 }
 
-.viewSummary_totalLiabilities {
+.Acct_sum_view_Summary_totalLiabilities {
   background: #d4d4d4;
   margin-top: 15px;
   padding: 15px;
@@ -67,14 +67,14 @@
   width: 100%;
   float: left;
 }
-.viewSummary_totalLiabilities p {
+.Acct_sum_view_Summary_totalParatag {
   margin: 0;
   font-size: 15px;
   font-weight: 550;
   text-align: center;
 }
 
-.viewSummary_totalAssets {
+.viewSummary_Acct_sum_totalAssets {
   background: #d4d4d4;
   margin-top: 15px;
   padding: 15px;
@@ -83,14 +83,14 @@
   float: left;
   border-right: 1px solid #e7e7e7;
 }
-.viewSummary_totalAssets p {
+.viewSummary_Acct_sum_totalAssets_paratager {
   margin: 0;
   font-size: 15px;
   font-weight: 550;
   text-align: center;
 }
 
-.viewSummary_totalAssets_value {
+.Acct_sum_view_Summary_total_Assets_value {
   /* background: #d4d4d4; */
   /* margin-top: 15px; */
   padding: 15px;
@@ -99,7 +99,7 @@
   float: left;
   border: 1px solid #e7e7e7;
 }
-.viewSummary_totalAssets_value p {
+.Acct_sum_view_Summary_total_Assets_value_pgratager {
   /* background: #d4d4d4; */
   /* margin-top: 15px; */
   margin: 0;
@@ -108,7 +108,7 @@
   text-align: center;
 }
 
-.viewSummary_totalLiabilities_value {
+.Acct_sumY_view_Summary_total_Liabilities_value {
   padding: 15px;
   line-height: 20px;
   width: 100%;
@@ -117,7 +117,7 @@
   border-left: none;
 }
 
-.viewSummary_totalLiabilities_value p {
+.Acct_sumY_view_Summary_total_Liabili_ptgergr {
   /* background: #d4d4d4; */
   /* margin-top: 15px; */
   margin: 0;
@@ -185,3 +185,6 @@ font-size: 11px;
 .col-3 .offer_cards{
   margin-top: 1rem;
 }
+
+
+

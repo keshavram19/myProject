@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import "./viewsummary.css";
 import creditcardimg from "../../../../../Images/credit_card.svg";
 import OverviewSidebar from '../../Sidebar/OverViewSidebar'
-import axios from "axios"; // Import axios for making HTTP requests
+import axios from "axios";  
 import apiList from '../../../../../lib/apiList';
 
 const Viewsummary = () => {
@@ -16,7 +16,7 @@ const Viewsummary = () => {
   });
 
   const [selectedOption, setSelectedOption] = useState(""); // State to track selected option
-  const [showOutput, setShowOutput] = useState(false); // State to control displaying output
+  const [showOutput, setShowOutput] = useState(false);  
 
 
   const handleGoButtonClick = () => {
@@ -101,9 +101,9 @@ const Viewsummary = () => {
               <section className="container-fluid ">
                 <div className="">
                   <div className="">
-                    <div className="viewSummary">
-                      <h1>View Account Summary</h1>
-                      <p>
+                    <div className="viewSummary_acct_sum">
+                      <h1 className="viewSummary_acct_sum_heading_htager">View Account Summary</h1>
+                      <p className="view_summary_acct_sum_paratager">
                         Access my{" "}
                         <select
                          className="selectSummaryCategory"
@@ -124,7 +124,7 @@ const Viewsummary = () => {
                         </select>{" "}
                         
                      {/* <button className="goButton">GO</button> */}
-                     <button className="goButton" onClick={handleGoButtonClick}>GO</button>
+                     <button className="Acct_sum_View_goButton" onClick={handleGoButtonClick}>GO</button>
 
                       </p>
                     </div>
@@ -135,8 +135,8 @@ const Viewsummary = () => {
                      <div
                       style={{ height: "1px", border: "1px solid #cdcdcd" }}
                     ></div>
-                    <div className="viewSummary_total">
-                      <p>Total By Branch</p>
+                    <div className="viewSummary_total_acct_sum_view">
+                      <p className="Acct_sum_view_sum_totalby">Total By Branch</p>
                     </div>
                     {/* <div className="container-fluid">
                       <div className="row">
@@ -156,78 +156,78 @@ const Viewsummary = () => {
                     </div> */}
                     <div className="container-fluid">
                       <div className="row">
-                        <div className="col-4 viewSummary_totalAssets">
-                          <p className="">Account Number</p>
+                        <div className="col-4 viewSummary_Acct_sum_totalAssets">
+                          <p className="viewSummary_Acct_sum_totalAssets_paratager">Account Number</p>
  
                         </div>
-                        <div className="col-4 viewSummary_totalAssets">
-                          <p className="">Branch Address</p>
+                        <div className="col-4 viewSummary_Acct_sum_totalAssets">
+                          <p className="viewSummary_Acct_sum_totalAssets_paratager">Branch Address</p>
 
                         </div>
-                        <div className="col-4 viewSummary_totalLiabilities">
-                          <p className="">IFSC Code</p>
+                        <div className="col-4 Acct_sum_view_Summary_totalLiabilities">
+                          <p className="Acct_sum_view_Summary_totalParatag">IFSC Code</p>
  
                         </div>
-                        <div className="col-4 viewSummary_totalAssets_value">
+                        <div className="col-4 Acct_sum_view_Summary_total_Assets_value">
                           {/* <p className="">38799XXXX43</p> */}
-                          <p className="">{userDetails.accountNumber}</p> {/* Display account number */}
+                          <p className="Acct_sum_view_Summary_total_Assets_value_pgratager">{userDetails.accountNumber}</p> {/* Display account number */}
 
                         </div>
-                        <div className="col-4 viewSummary_totalLiabilities_value">
+                        <div className="col-4 Acct_sumY_view_Summary_total_Liabilities_value">
                           {/* <p className="">Poranki, Vijayawada</p> */}
-                          <p className="">{userDetails.bankBranch}</p> {/* Display bank branch */}
+                          <p className="Acct_sumY_view_Summary_total_Liabili_ptgergr">{userDetails.bankBranch}</p> {/* Display bank branch */}
 
                         </div>
-                        <div className="col-4 viewSummary_totalLiabilities_value">
+                        <div className="col-4 Acct_sumY_view_Summary_total_Liabilities_value">
                           {/* <p className="">SBIN0011101</p> */}
-                          <p className="">{userDetails.ifscCode}</p> {/* Display IFSC code */}
+                          <p className="Acct_sumY_view_Summary_total_Liabili_ptgergr">{userDetails.ifscCode}</p> {/* Display IFSC code */}
 
                         </div>
                       </div>
                     </div>
                     <div className="container-fluid">
                       <div className="row">
-                        <div className="col-2 viewSummary_totalAssets">
-                          <p className="">All Bank Accounts</p>
+                        <div className="col-2 viewSummary_Acct_sum_totalAssets">
+                          <p className="viewSummary_Acct_sum_totalAssets_paratager">All Bank Accounts</p>
                         </div>
-                        <div className="col-2 viewSummary_totalAssets">
-                          <p className="">All Deposit Accounts</p>
+                        <div className="col-2 viewSummary_Acct_sum_totalAssets">
+                          <p className="viewSummary_Acct_sum_totalAssets_paratager">All Deposit Accounts</p>
                         </div>
-                        <div className="col-2 viewSummary_totalAssets">
-                          <p className="">All Demat Accounts</p>
+                        <div className="col-2 viewSummary_Acct_sum_totalAssets">
+                          <p className="viewSummary_Acct_sum_totalAssets_paratager">All Demat Accounts</p>
                         </div>
-                        <div className="col-3 viewSummary_totalAssets">
-                          <p className="">All Loan Accounts</p>
-                        </div>
-
-                        <div className="col-3 viewSummary_totalLiabilities">
-                          <p className="">All Credit card accounts</p>
+                        <div className="col-3 viewSummary_Acct_sum_totalAssets">
+                          <p className="viewSummary_Acct_sum_totalAssets_paratager">All Loan Accounts</p>
                         </div>
 
-                        <div className="col-2 viewSummary_totalAssets_value">
-                          <p className="">0.00</p>
+                        <div className="col-3 Acct_sum_view_Summary_totalLiabilities">
+                          <p className="Acct_sum_view_Summary_totalParatag">All Credit card accounts</p>
                         </div>
-                        <div className="col-2 viewSummary_totalAssets_value">
-                          <p className="">NA</p>
+
+                        <div className="col-2 Acct_sum_view_Summary_total_Assets_value">
+                          <p className="Acct_sum_view_Summary_total_Assets_value_pgratager">0.00</p>
                         </div>
-                        <div className="col-2 viewSummary_totalAssets_value">
-                          <p className="">0.00</p>
+                        <div className="col-2 Acct_sum_view_Summary_total_Assets_value">
+                          <p className="Acct_sum_view_Summary_total_Assets_value_pgratager">NA</p>
                         </div>
-                        <div className="col-3 viewSummary_totalLiabilities_value">
-                          <p className="">0.00</p>
+                        <div className="col-2 Acct_sum_view_Summary_total_Assets_value">
+                          <p className="Acct_sum_view_Summary_total_Assets_value_pgratager">0.00</p>
+                        </div>
+                        <div className="col-3 Acct_sumY_view_Summary_total_Liabilities_value">
+                          <p className="Acct_sumY_view_Summary_total_Liabili_ptgergr">0.00</p>
                         </div> 
-                         <div className="col-3 viewSummary_totalLiabilities_value">
-                          <p className="">46,522.39</p>
+                         <div className="col-3 Acct_sumY_view_Summary_total_Liabilities_value">
+                          <p className="Acct_sumY_view_Summary_total_Liabili_ptgergr">46,522.39</p>
                         </div>
                       </div>
                     </div>
                     <div
-                      className="viewSummary offers_section"
+                      className="view_Summary_offers_section"
                       style={{
                         boxShadow: "0px 2px 5px rgb(113 113 113 / 39%);",
                       }}
                     >
-                      <div className="offers_heading">
+                       <div className="offers_heading">
                         <p>Offers for you</p>
                       </div>
                       <div className="offer_cards container-fluid">
@@ -460,3 +460,16 @@ const Viewsummary = () => {
 };
 
 export default Viewsummary;
+                       
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
