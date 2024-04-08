@@ -6,7 +6,8 @@
 }
 
 .change_format .heading {
-  background: #d4d4d4;
+  background: #2fb68e;
+  color: white;
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 15px;
@@ -16,7 +17,7 @@
 
 .change_format_side_headings div {
   width: 200px;
-  font-size: small;
+  font-size: 16px;
 }
 
 .form-control:focus {
@@ -25,7 +26,7 @@
   border: 1px solid #ced4da !important;
   outline: 0;
   box-shadow: none !important;
-  font-size: small;
+  font-size: 16px;
 }
 
 .form-control:placeholder-shown {
@@ -34,35 +35,27 @@
   border: 1px solid #ced4da !important;
   outline: 0;
   box-shadow: none !important;
-  font-size: small;
+  font-size: 16px;
 }
 
 .form-control {
-  font-size: small;
+  font-size: 16px;
 }
 
 .change_format_side_headings p {
   padding: 0px 15px;
 }
 
-.change_format_side_headings button {
-  padding: 0px 15px;
+.change_format_side_headings .change_form_button {
+  padding: 8px;
   margin-left: 15px;
-
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  font-size: 10px;
+  font-weight: 500;
+  font-size: 16px;
   color: #fff;
-  width: auto;
-  background: #eb6c18;
-  display: inline;
-  cursor: pointer;
-  text-transform: uppercase;
-  height: 24px !important;
+  background: #2fb68e;
   text-align: center;
-  border: 1px solid #ce6200;
-  /* padding-right: 8px!important;
-    padding-left: 8px!important; */
+  border: 1px solid #2fb68e;
   margin-right: 15px;
 }
 
@@ -72,6 +65,6 @@
 }
 .change_format_side_headings select {
     padding: 6px 12px;
-    font-size: small;
+    font-size: 16px;
   outline: none;    
 }

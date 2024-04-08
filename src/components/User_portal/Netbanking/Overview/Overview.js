@@ -381,7 +381,7 @@ const Overview = () => {
           </div>
           <div className="col-3">
             <div className="card p-2">
-              <div className="card overview_rcol_3_card1">
+              <div className="card overview_rcol_3_card1_button">
                 <h6>Check your CIBIL score</h6>
                 <button>Get Report</button>
               </div>

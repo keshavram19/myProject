@@ -103,7 +103,7 @@ const BlockCard = () => {
                             </div>
                             <div className='row p-1 card_details_block_card_fields '>
                                 <div className="col-sm-3">
-                                    <label htmlFor="reason">Reason:</label>
+                                    <label htmlFor="reason" style={{fontSize:"15px"}}>Reason:</label>
                                 </div>
                                 <div className='col-sm-4'>
                                     <select
@@ -122,7 +122,7 @@ const BlockCard = () => {
                             </div>
                             <div className="row p-1 card_details_block_card_fields card_details_block_card_input_tag ">
                                 <div className="col-sm-3">
-                                    <label htmlFor="remarks">Remarks:</label>
+                                    <label htmlFor="remarks" style={{fontSize:"15px"}}>Remarks:</label>
 
                                 </div>
                                 <div className='col-sm-4'>

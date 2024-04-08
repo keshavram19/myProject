@@ -230,7 +230,7 @@
   background-color: #4fb697;
 } 
 
-.admin_chequeBook_pagination .pagination li.page-item button {
+.admin_chequeBook_pagination .pagination li.page-item .admin_home_Add_customer {
   
   outline: none; 
   border: none; 

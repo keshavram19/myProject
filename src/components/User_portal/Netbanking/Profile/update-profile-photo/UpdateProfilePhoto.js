@@ -30,7 +30,7 @@ const UpdateProfilePhoto = () => {
               <p>Update Profile Photo </p>
             </div>
             <div className="profile_side_headings">
-              <p className="heading">Upload Photo</p>
+              <p className="update_profile_heading_pera">Upload Photo</p>
               <div className="d-flex">
                 <div>
                   <img
@@ -49,7 +49,7 @@ const UpdateProfilePhoto = () => {
 
                   <p>File Format: JPG,GIF,BMP,PNG</p>
 
-                  <button className="" onClick={openFileInput}>
+                  <button className="update_profile_button" onClick={openFileInput}>
                     Upload
                   </button>
                   {/* Hidden file input */}

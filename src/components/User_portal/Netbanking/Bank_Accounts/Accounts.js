@@ -8,7 +8,7 @@ import Navbar from '../Overview/Navbar';
 import apiList from '../../../../lib/apiList';
 
 
-const Accounts = () => {
+const Accounts = ({withinViewSummaryPage }) => {
 
     const [viewAccStatement, setViewAccStatement] = useState();
     const [accountDetails, setAccountDetails] = useState({
@@ -61,32 +61,6 @@ const Accounts = () => {
         customerDetails()
     }, []);
 
-    // const customerDetails = async () => {
-
-    //     const options = {
-    //         method: "GET",
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': `Bearer ${logintoken}`
-    //         }
-    //     };
-
-    //     try {
-    //         const response = await fetch(apiList.customerDetails, options);
-    //         if (response.ok) {
-    //             const data = await response.json();
-    //             setAccountDetails(data.user)
-    //             setRecentTransactions(data.user.transactions)
-    //         }
-    //         else {
-    //             console.log(response);
-    //         }
-    //     }
-    //     catch (error) {
-    //         console.log(error.message);
-    //     }
-    // };
-
     const customerDetails = async () => {
         const options = {
             method: "GET",
@@ -120,14 +94,10 @@ const Accounts = () => {
             console.log(error.message);
         }
     };
-    // console.log(recentTransactions);
 
 
     const latestTransactions = recentTransactions.slice().reverse();
     const reversedArray = latestTransactions.slice(0, 3);
-
-    // const lastThreeDigits = (accountDetails.mobilenumber).slice(-4)
-    // const maskedDigits = 'X'.repeat(6);
 
 
     return (
@@ -137,7 +107,7 @@ const Accounts = () => {
                 {/* <OverviewSidebar/> */}
                 <div className="col-3">
                     <div className="">
-                        <BankaccountSidebar />
+                    {!withinViewSummaryPage && <BankaccountSidebar />}
                     </div>
                 </div>
                 <div className='col-9'>

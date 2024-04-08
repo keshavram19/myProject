@@ -1,21 +1,24 @@
-.upload_profile .heading {
-  background: #d4d4d4;
+.upload_profile .update_profile_heading_pera {
+  background: #2fb68e;
+  color: white;
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 15px;
   line-height: 20px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .upload_profile_headings p {
-  color: #f88d2a;
+  /* color: #f88d2a; */
+  color: #2fb68e;
   font-size: 24px;
   font-weight: 400;
   margin: 0;
 }
 
 .profile_side_headings div {
-  font-size: small;
+  font-size: 16px;
   padding: 0px 15px;
 }
 
@@ -28,23 +31,17 @@
   background: #f4f4f4;
   padding: 0px 0px 15px 0px;
 }
-.profile_side_headings button {
-  padding: 0px 15px;
+.profile_side_headings .update_profile_button {
+  padding: 8px;
   margin-left: 15px;
   margin-top: 15px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 10px;
   color: #fff;
-  width: auto;
-  background: #eb6c18;
+  background: #2fb68e;
   display: inline;
-  cursor: pointer;
-  text-transform: uppercase;
-  height: 24px !important;
   text-align: center;
-  border: 1px solid #ce6200;
-  /* padding-right: 8px!important;
-    padding-left: 8px!important; */
+  border: 1px solid #2fb68e;
   margin-right: 15px;
+  font-size: 16px;
 }

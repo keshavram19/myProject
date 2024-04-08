@@ -142,6 +142,7 @@ function Renewfixedform() {
                       id="DueDate"
                       name="DueDate"
                       value={formData.DueDate}
+                      style={{fontSize:"16px"}}
                       className="form-control form-control-sm  w-75"
                     />
                     </div>
@@ -253,7 +254,7 @@ function Renewfixedform() {
                       id="depositedate"
                       name="depositedate"
                       value={formData.depositedate}
-                     
+                      style={{fontSize:"16px"}}
                       className="form-control form-control-sm  w-75"
                     />
                     </div>
