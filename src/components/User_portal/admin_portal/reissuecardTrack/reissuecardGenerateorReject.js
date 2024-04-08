@@ -126,7 +126,7 @@ function ReissueGenerateOrReject() {
                         userDebitCardcvv: userCVV,
                         userDebitCardExpiryDate: userExpiryDate,
                         userDebitCardStatus: 'active',
-                        // Preserve the original userReason if it exists
+                       
                         userReason: prevUserDetails.userDebitCardDetails.userReason !== 'New card'
                             ? prevUserDetails.userDebitCardDetails.userReason
                             : prevUserDetails.userDebitCardDetails.userReason,
