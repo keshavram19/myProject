@@ -100,7 +100,7 @@ const PayLater = () => {
           </div>
           <div className='col-9'>
           <div className="paylater_container">
-        <p className="paylater_heading">View and manage my PayLater</p>
+        <h3 className="paylater_heading">View and manage my PayLater</h3>
         <hr />
         <div className="table-responsive-lg paylater_table">
           <table className="table table-bordered">

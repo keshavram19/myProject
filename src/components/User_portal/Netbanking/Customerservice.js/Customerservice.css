@@ -303,19 +303,17 @@ list-style: none;
 cursor: pointer;
 }
 .DropDown_Sub_Lists_Loan_BankingAPP{
-  color: black;
+  
+  color: #2FB68E;
   cursor: pointer;
-  padding: 5px;
+  padding: 10px;
   text-decoration: none;
-}
-.DropDown_Sub_Lists_Loan_BankingAPP:hover{
-  /* color: black; */
-  /* color : #f18121; */
-  color: #2fb68e;
+} 
 
-  padding: 5px;
-  text-decoration: none;
-}
+  .DropDown_Sub_Lists_Loan_BankingAPP:hover{    
+  
+  color: white;
+} 
 .DropDown_Direct_sub_content_BankingAPP{
   margin-top: 50px;
   margin-bottom: -210px;
@@ -411,14 +409,18 @@ display: flex;
     /* color: #f18121; */
     color: #2fb68e;
     /* border: 1px solid #f18121; */
-border: 1px solid #2fb68e;
+    border: 1px solid #2fb68e;
     border-radius: 30px;
-  text-decoration: none;
-
+   text-decoration: none;
+   background: transparent;
     margin-top: 10px;
-    
+    padding: 10px;
     margin-right: 4px;
-    font-size: 15px;
+    font-size: 16px;
+}
+.QuickLinks_buttons:hover{
+  background-color: #2FB68E;
+  color: white;
 }
 
 .drop_downs_service_request{
@@ -638,11 +640,12 @@ border: 1px solid #2fb68e;
     /* width: 200px; */
     }
   
-    .Form16A_otp_confirmation_icon_otp{
-      border: 1px solid rgb(207, 203, 203);
+    .Form16A_otp_confirmation_icon_otp {
+      /* border: 1px solid rgb(207, 203, 203); */
       margin: 0px 5px;
       height: 25px;
       width: 30px;
+    
       padding:1px 1px;
   }
   
@@ -668,16 +671,17 @@ border: 1px solid #2fb68e;
   }
   
   .Form16A_otp_confirmation_heading{
-    background-color: #81cfb6;
+    background-color: #2fb68e;
     color: white;
   }
 
   .generate_Form16A_otp_button_logos{
     font-size: 20px;
+    color: white;
   }
 
   .generate_Form16A_otp_button{
-    color: #2FB68E;
+    color: white;
     border: 1px solid #2FB68E;
     outline: none;
     align-items: center;
@@ -714,20 +718,22 @@ border: 1px solid #2fb68e;
   outline: none;
   text-align: center;
   border: 1px solid #2fb68e;
+  background-attachment: #2fb68e;
   border-radius: 4px;
   color: #2fb68e;
-  background-color: transparent;
+  /* background-color: transparent; */
   font-size: 14px;
+  color: white;
   font-weight: 600;
   padding: 4px;
   width: 100px;
-  cursor: pointer; 
+  /* cursor: pointer;  */
 }
 
-.Form16A_otp_confirmation_buttons:hover{
+/* .Form16A_otp_confirmation_buttons:hover{
   background-color: #2fb68e;
   color: #fff;
-}
+} */
 
 .Form16A_genratepdf_submits {
   outline: none;
@@ -752,20 +758,20 @@ border: 1px solid #2fb68e;
     text-align: center;
     border: 1px solid #2fb68e;
     border-radius: 4px;
-    color: #2fb68e;
-    background-color: transparent;
+    color: white;
+    background-color: #2FB68E;
     font-size: 14px;
     font-weight: 600;
     padding: 4px;
-    cursor: pointer;
+    /* cursor: pointer; */
     margin-left: 30px;
 
   }
 
-  .Form16A_genratepdf_submits2:hover{
+  /* .Form16A_genratepdf_submits2:hover{
     background-color: #2fb68e;
     color: #fff;
-  }
+  } */
 
 /* Forma16A css end */
 

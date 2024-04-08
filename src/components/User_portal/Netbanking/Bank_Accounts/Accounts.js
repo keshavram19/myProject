@@ -8,7 +8,7 @@ import Navbar from '../Overview/Navbar';
 import apiList from '../../../../lib/apiList';
 
 
-const Accounts = () => {
+const Accounts = ({withinViewSummaryPage }) => {
 
     const [viewAccStatement, setViewAccStatement] = useState();
     const [accountDetails, setAccountDetails] = useState({
@@ -107,7 +107,7 @@ const Accounts = () => {
                 {/* <OverviewSidebar/> */}
                 <div className="col-3">
                     <div className="">
-                        <BankaccountSidebar />
+                    {!withinViewSummaryPage && <BankaccountSidebar />}
                     </div>
                 </div>
                 <div className='col-9'>

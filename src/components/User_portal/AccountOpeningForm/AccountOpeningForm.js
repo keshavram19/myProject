@@ -1,3 +1,4 @@
+ 
 import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
@@ -216,7 +217,7 @@ export default function AccountOpeningForm() {
 
               <input
                 type="text"
-                className="form-control"
+                className="form-control account_opening_control"
                 placeholder="Enter Your Mobile Number"
                 required
                 name="mobilenumber"
@@ -237,7 +238,7 @@ export default function AccountOpeningForm() {
               <div className="input-group">
                 <input
                   type="email"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter Email"
                   aria-label="Recipient's username"
                   aria-describedby="basic-addon2"
@@ -287,7 +288,8 @@ export default function AccountOpeningForm() {
                                 placeholder="Enter OTP"
                                 value={otp}
                                 onChange={(e) => setOtp(e.target.value)}
-                                className="account_opening_email_otp_modal"
+                               
+                                className="account_opening_email_otp_modal account_opening_control"
                               />
                               <p>
                                 {seconds > 0 ? (
@@ -855,7 +857,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">Prefix : </label>
                 <div>
                   <select
-                    className="form-control"
+                    className="form-control account_opening_control"
                     style={{ border: "none" }}
                     onChange={handleChange}
                     name="prefix"
@@ -870,7 +872,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">First Name : </label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter Joint Account First Name"
                   name="firstname"
                   value={userData.firstname}
@@ -881,7 +883,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">Last Name : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter your lastName"
                   name="lastname"
                   value={userData.lastname}
@@ -895,7 +897,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">Aadhar Number : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter your firstName"
                   name="aadharnumber"
                   value={userData.aadharnumber}
@@ -906,7 +908,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">PAN Number : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter your lastName"
                   name="pannumber"
                   value={userData.pannumber}
@@ -917,7 +919,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">Date Of Birth : </label>
                 <input
                   type="date"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   name="dateofbirth"
                   value={userData.dateofbirth}
                   onChange={handleChange}
@@ -930,7 +932,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">Father Name : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter your Father Name"
                   name="fathername"
                   value={userData.fathername}
@@ -941,7 +943,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">Mother Name: </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter your Mother Name"
                   name="mothername"
                   value={userData.mothername}
@@ -957,7 +959,7 @@ export default function AccountOpeningForm() {
                 </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter your Gaurdian Name"
                   name="gaurdianname"
                   value={userData.gaurdianname}
@@ -1019,7 +1021,7 @@ export default function AccountOpeningForm() {
                   <label className="mb-0">Prefix : </label>
                   <div>
                     <select
-                      className="form-control"
+                      className="form-control account_opening_control"
                       style={{ border: "none" }}
                       onChange={handleJointAccountDetailsChange}
                       name="prefix"
@@ -1034,7 +1036,7 @@ export default function AccountOpeningForm() {
                   <label className="mb-0">First Name : </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control account_opening_control"
                     placeholder="Enter Joint Account First Name"
                     name="firstname"
                     value={userData.jointAccountDetails.firstname}
@@ -1045,7 +1047,7 @@ export default function AccountOpeningForm() {
                   <label className="mb-0">Last Name : </label>
                   <input
                     type="name"
-                    className="form-control"
+                    className="form-control account_opening_control"
                     placeholder="Enter your lastName"
                     name="lastname"
                     required
@@ -1060,7 +1062,7 @@ export default function AccountOpeningForm() {
                   <label className="mb-0">Aadhar Number : </label>
                   <input
                     type="name"
-                    className="form-control"
+                    className="form-control account_opening_control"
                     placeholder="Enter your firstName"
                     name="aadharnumber"
                     value={userData.jointAccountDetails.aadharnumber}
@@ -1071,7 +1073,7 @@ export default function AccountOpeningForm() {
                   <label className="mb-0">PAN Number : </label>
                   <input
                     type="name"
-                    className="form-control"
+                    className="form-control account_opening_control"
                     placeholder="Enter your lastName"
                     name="pannumber"
                     value={userData.jointAccountDetails.pannumber}
@@ -1082,7 +1084,7 @@ export default function AccountOpeningForm() {
                   <label className="mb-0">Date Of Birth : </label>
                   <input
                     type="date"
-                    className="form-control"
+                    className="form-control account_opening_control"
                     name="dateofbirth"
                     value={userData.jointAccountDetails.dateofbirth}
                     onChange={handleJointAccountDetailsChange}
@@ -1095,7 +1097,7 @@ export default function AccountOpeningForm() {
                   <label className="mb-0">Father Name : </label>
                   <input
                     type="name"
-                    className="form-control"
+                    className="form-control account_opening_control"
                     placeholder="Enter your Father Name"
                     name="fathername"
                     value={userData.jointAccountDetails.fathername}
@@ -1106,7 +1108,7 @@ export default function AccountOpeningForm() {
                   <label className="mb-0">Mother Name: </label>
                   <input
                     type="name"
-                    className="form-control"
+                    className="form-control account_opening_control"
                     placeholder="Enter your Mother Name"
                     name="mothername"
                     value={userData.jointAccountDetails.mothername}
@@ -1122,7 +1124,7 @@ export default function AccountOpeningForm() {
                   </label>
                   <input
                     type="name"
-                    className="form-control"
+                    className="form-control account_opening_control"
                     placeholder="Enter your Gaurdian Name"
                     name="gaurdianname"
                     value={userData.jointAccountDetails.gaurdianname}
@@ -1281,7 +1283,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">Flat/House No : </label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter your flatnumber"
                   name="currentAddress.flatnumber"
                   value={userData.currentAddress.flatnumber}
@@ -1297,7 +1299,7 @@ export default function AccountOpeningForm() {
                 </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter your buildingname"
                   name="currentAddress.buildingname"
                   value={userData.currentAddress.buildingname}
@@ -1308,7 +1310,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">Landmark : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter landmark"
                   name="currentAddress.landmark"
                   value={userData.currentAddress.landmark}
@@ -1322,7 +1324,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">City : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter city"
                   name="currentAddress.city"
                   value={userData.currentAddress.city}
@@ -1333,7 +1335,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">State: </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter State"
                   name="currentAddress.state"
                   value={userData.currentAddress.state}
@@ -1344,7 +1346,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">Country : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter country"
                   name="currentAddress.country"
                   value={userData.currentAddress.country}
@@ -1358,7 +1360,7 @@ export default function AccountOpeningForm() {
                 <label className="mb-0">Pincode : </label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control account_opening_control"
                   placeholder="Enter pincode"
                   name="currentAddress.pincode"
                   value={userData.currentAddress.pincode}
@@ -1428,7 +1430,7 @@ export default function AccountOpeningForm() {
                     <label className="mb-0">Flat/House No : </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_control"
                       placeholder="Enter your firstName"
                       name="permanentAddress.flatnumber"
                       value={userData.permanentAddress.flatnumber}
@@ -1446,7 +1448,7 @@ export default function AccountOpeningForm() {
                     </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_control"
                       placeholder="Enter buildingname"
                       name="permanentAddress.buildingname"
                       value={userData.permanentAddress.buildingname}
@@ -1457,7 +1459,7 @@ export default function AccountOpeningForm() {
                     <label className="mb-0">Landmark : </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_control"
                       placeholder="Enter landmark"
                       name="permanentAddress.landmark"
                       value={userData.permanentAddress.landmark}
@@ -1471,7 +1473,7 @@ export default function AccountOpeningForm() {
                     <label className="mb-0">City : </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_control"
                       placeholder="Enter city"
                       name="permanentAddress.city"
                       value={userData.permanentAddress.city}
@@ -1482,7 +1484,7 @@ export default function AccountOpeningForm() {
                     <label className="mb-0">State: </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_control"
                       placeholder="Enter state"
                       name="permanentAddress.state"
                       value={userData.permanentAddress.state}
@@ -1493,7 +1495,7 @@ export default function AccountOpeningForm() {
                     <label className="mb-0">Country : </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_control"
                       placeholder="Enter country"
                       name="permanentAddress.country"
                       value={userData.permanentAddress.country}
@@ -1507,7 +1509,7 @@ export default function AccountOpeningForm() {
                     <label className="mb-0">Pincode : </label>
                     <input
                       type="name"
-                      className="form-control"
+                      className="form-control account_opening_control"
                       placeholder="Enter pincode"
                       name="permanentAddress.pincode"
                       value={userData.permanentAddress.pincode}

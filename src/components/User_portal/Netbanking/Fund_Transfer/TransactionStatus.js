@@ -3,6 +3,7 @@ import './FundTransfer.css';
 import {useNavigate} from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
+//import { textDecorationLine } from 'html2canvas/dist/types/css/property-descriptors/text-decoration-line';
 
 function TransactionStatus() {
     const navigate=useNavigate();    
@@ -32,7 +33,7 @@ function TransactionStatus() {
                     <div className="col-md-2 d-flex justify-content-center align-items-center">
                       <button onClick ={(e)=> handleClick()}className="card-button">VIEW</button>
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-10 p-2">
                       <p className="card-text">View your Scheduled/Auto Pay transactions due for payment.</p>
                     </div>
                   </div>
@@ -47,10 +48,10 @@ function TransactionStatus() {
                   <div className='row'>
                     <div className="col-md-2 d-flex justify-content-center align-items-center">
                       
-                      <button className='card-button'><Link to="/user/fundtransfer/completed-transaction">VIEW</Link></button>
+                      <button className='card-button'><Link to="/user/fundtransfer/completed-transaction" style={{direction:"none", color:"white", textDecorationLine:"none"}}>VIEW</Link></button>
                      
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-10 p-2">
                       <p className="card-text">View status of all your transactions including scheduled transactions after due date.</p>
                     </div>
                   </div>
@@ -64,9 +65,9 @@ function TransactionStatus() {
                   <h5 className="card-title">Payment Summary</h5>
                   <div className="row">
                     <div className="col-md-2 d-flex justify-content-center align-items-center">
-                      <button className="card-button"><Link to="/user/fundtransfer/payment-summary">View</Link></button>
+                      <button className="card-button"><Link to="/user/fundtransfer/payment-summary" style={{direction:"none", color:"white", textDecorationLine:"none"}}>View</Link></button>
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-10 p-2">
                       <p className="card-text">View status of scheduled and completed transactions in a calendar view.</p>
                     </div>
                   </div>
@@ -85,7 +86,7 @@ function TransactionStatus() {
                     <div className="col-md-2 d-flex justify-content-center align-items-center">
                       <button className='card-button'>VIEW</button>
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-10 p-2">
                       <p className="card-text">View status of all your cardless cash transactions.</p>
                     </div>
                   </div>
@@ -98,9 +99,9 @@ function TransactionStatus() {
                   <h5 className="card-title">Wire Transactions</h5>
                   <div className="row">
                     <div className="col-md-2 d-flex justify-content-center align-items-center">
-                      <button className="card-button"><Link to="/user/fundtransfer/wire-transaction">View</Link></button>
+                      <button className="card-button"><Link to="/user/fundtransfer/wire-transaction" style={{direction:"none", color:"white", textDecorationLine:"none"}}>View</Link></button>
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-10 p-2">
                       <p className="card-text">View status of wire transactions/Submit one time declaration.</p>
                     </div>
                   </div>
@@ -114,9 +115,9 @@ function TransactionStatus() {
                   <h5 className="card-title">UPI Collect request status</h5>
                   <div className='row'>
                     <div className="col-md-2 d-flex justify-content-center align-items-center">
-                      <button className='card-button'><Link to="/user/fundtransfer/upi-transaction-status">View</Link></button>
+                      <button className='card-button'><Link to="/user/fundtransfer/upi-transaction-status" style={{direction:"none", color:"white", textDecorationLine:"none"}}>View</Link></button>
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-10 p-2">
                       <p className="card-text">View status of collect request transactions pending with payer. </p>
                     </div>
                   </div>

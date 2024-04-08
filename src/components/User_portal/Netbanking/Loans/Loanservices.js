@@ -55,7 +55,7 @@ function Loanservices() {
               </div>
             </div> </div>
 
-            <div className="loan_submit_container">
+            <div className="loan_submit_container_button">
                 <Link to={"/user/loanservices1"}> <button type="submit">Submit</button></Link>
             
             </div>

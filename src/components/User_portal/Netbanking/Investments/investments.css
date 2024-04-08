@@ -6,7 +6,8 @@
 }
 
 .demat-account-page-container {
-    text-align: left;.changeemail_butn button {
+    text-align: left;
+    .changeemail_butn {
       padding: 5px 10px;
       cursor: pointer;
       border: none;
@@ -21,8 +22,9 @@
     border-right:none ;
     
   }
+
   
-  button {
+  .demat_button {
     padding: 10px 10px;
     font-size: 20px;
     cursor: pointer;
@@ -32,7 +34,7 @@
     /* border-radius: 20px; */
     /* margin-left: 10px; */
 
-  }
+  } 
   
   .button-container {
     margin-top: 10px;
@@ -47,7 +49,7 @@
     justify-content: center;
     color: #f18121;
   }
-  .demat-account-page-container button{
+  .demat-account-page-container .demat_button{
     background-color: #2fb68e;
     border-radius: 40px;
     color: white;
@@ -141,7 +143,7 @@
   margin-right: 10px; 
 }
 
-.service-requests-form-group input,
+.service-requests-form-group .nation_pendion_input,
 .service-requests-form-group select,
 .service-requests-form-group textarea {
   padding: 8px;
@@ -151,11 +153,11 @@
   width: 300px; 
 }
 
-.service-requests-form-group input[type="file"] {
+.service-requests-form-group .nation_pendion_input[type="file"] {
   border: 1px solid #ccc;
 }
 
-.service-requests-form-group button {
+.service-requests-form-group-button {
   background-color: #2fb68e;
   color: white;
   border: none;
@@ -175,13 +177,13 @@
   
 }
 
-.service-requests input[type="radio"] {
+.service-requests .national_pension_radio[type="radio"] {
   margin-bottom: 5px;
   gap:20px;
   margin: 20px; 
 }
 
-
+/* 
  .investment_option {
    margin-left: 120px;
    
@@ -194,7 +196,7 @@
 
 .investment_option input[type="radio"] {
   margin-bottom: 5px;
-} 
+}  */
 
 
 

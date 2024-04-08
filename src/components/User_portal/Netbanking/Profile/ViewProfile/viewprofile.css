@@ -9,16 +9,16 @@
 }
 
 .personal_details_card .card {
-  border: 1px solid #5c5b5b;
+  /* border: 1px solid ; */
 }
 
-.personal_details_card hr {
+/* .personal_details_card hr {
   color: #000;
-}
+} */
 
 .personal_details_card .contact_details_heading {
   background-color: #2fb68e;
-  border-bottom: 1px solid #5c5b5b;
+  border-bottom: 1px solid;
   color: #fff;
 }
 
@@ -33,11 +33,11 @@
 }
 
 .personal_details_card .custom-table td {
-  border: 1px solid #5c5b5b;
+  /* border: 1px solid ; */
   padding: 8px;
 }
 
 .personal_details_card .contact_details_notes {
   font-size: 15px;
-  color: #5c5b5b;
+  /* color: #5c5b5b; */
 }

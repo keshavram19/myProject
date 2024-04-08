@@ -147,6 +147,12 @@ import LimitExceed from "./components/User_portal/Netbanking/Fund_Transfer/Limit
 import Dashboard from "./components/User_portal/Netbanking/Dashbord/Dashboard";
 import Creditcardapplication from "./components/User_portal/Netbanking/Loans/Creditcardapplication";
 
+import ApplyDebiCard from "./components/User_portal/Netbanking/Bank_Accounts/ApplyforDebitCard";
+
+import PrivacyPolicy from "./components/User_portal/Login/TermsAndConditions/privacypolicy";
+import TermsAndConditions from "./components/User_portal/Login/TermsAndConditions/TermsandConditions";
+
+
 
 
 
@@ -166,7 +172,9 @@ function App() {
     location.pathname === "/admin/reissuecard" ||
     location.pathname === "/admin/reissuecardGenerateorReject" ||
 
-    location.pathname.includes("/admin/");
+    location.pathname.includes("/admin/")||
+    location.pathname === '/privacy-policy'||
+    location.pathname === '/termsandcondtions';
 
 
 
@@ -191,6 +199,9 @@ function App() {
             path="/netbanking-corporate-login"
             element={<CorporateLoginPage />}
           />
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+          <Route path="/termsandcondtions" element={<TermsAndConditions/>} />
+
 
           {/* bank accounts */}
           <Route path="/user/overview" element={<Overview />} />
@@ -217,6 +228,9 @@ function App() {
           <Route path="/user/account/confirmpaye" element={<ConfirmPaye />} />
           <Route path="/user/account/Viewpayee" element={<ViewPayee />} />
           <Route path="/user/account/debit-atm-card" element={<DebitAndAtm />} />
+
+          <Route path="/user/account/debit-card-apply" element={<ApplyDebiCard />} />
+
           <Route
             path="/user/account/generate-debitcard-pin"
             element={<GeneratePin />}

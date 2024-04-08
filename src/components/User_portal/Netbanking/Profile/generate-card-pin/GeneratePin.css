@@ -1,6 +1,5 @@
 .generate-pin-heading  p{
     color: #2FB68E;
-
     font-size: 24px;
     font-weight: 400;
     margin: 0;
@@ -9,7 +8,6 @@
 
 .generate-pin-text span{
     color: #252525c6;
-
     font-size: small;
     font-weight: 400;
     margin: 0;
@@ -27,26 +25,26 @@
 }
 
 
-.debit-card-content button {
+.debit-card-content .generate_pin_button {
     padding: 8px 14px;
     font-weight: 600;
-    font-size: 12px;
-    color: #11664d;
-    width: max-content;
-    background: #ffff;
+    font-size: 16px;
+    color: white;
+    /* width: max-content; */
+    background: #2FB68E;
     display: inline;
-    cursor: pointer;
+    /* cursor: pointer;
     text-transform: uppercase;
-    height: fit-content;
+    height: fit-content; */
     text-align: center;
     border: 1px solid #2FB68E;
     border-radius: 5px;
     text-decoration: none;
 }
-.debit-card-content button:hover{
+/* .debit-card-content .generate_pin_button:hover{
     background-color: #A2E0CE;
     
-}
+} */
 .debit-card-inner-content{
     margin: 35px 0px 8px 0px;
 }

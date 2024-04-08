@@ -12,7 +12,13 @@ const apiList ={
     UserDetailsAccountOpeningVerifyOTP:`${server}/admin/verify-otp`,
     individualrequestedetails: `${server}/admin/individualrequesteduserdetails`,
     getuserrequesteddetails: `${server}/admin/requesteduserdetails/`,
-    getReissuecardDetails: `${server}/admin/trackAndReissueCard`,
+    getReissuecardDetails: `${server}/admin/trackAndReissueCard/`,
+    generateReissueCard: `${server}/admin/reissue/`,
+   
+
+    
+
+
 
 
     // admin login ends
@@ -76,7 +82,9 @@ const apiList ={
     customerDetails: `${server}/auth/user-account-details`,
 
     changeEmail:` ${server}/api/change-email`,
-    UpdateEmailverifyOTP: `${server}/api/otp-verification`
+    UpdateEmailverifyOTP: `${server}/api/otp-verification`,
+    sendPdfByEmail : `${server}/api/sendPdfByEmail`,
+    applyDebitCard: `${server}/api/apply-debitcard`
 }
 
 
