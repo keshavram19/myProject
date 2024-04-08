@@ -20,7 +20,6 @@ const Viewsummary = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [showOutput, setShowOutput] = useState(false);
 
-
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
@@ -63,9 +62,9 @@ const Viewsummary = () => {
               <section className="container-fluid ">
                 <div className="">
                   <div className="">
-                    <div className="viewSummary_acct_sum">
-                      <h1 className="viewSummary_acct_sum_heading_htager">View Account Summary</h1>
-                      <p className="view_summary_acct_sum_paratager">
+                    <div className="viewSummary">
+                      <h1>View Account Summary</h1>
+                      <p>
                         Access my{" "}
                         <select
                           className="selectSummaryCategory"
@@ -76,7 +75,6 @@ const Viewsummary = () => {
                           <option value="Deposit Account">
                             Deposit Account
                           </option>
-
                           <option value="Loan Account">Loan Account</option>
                           <option value="Credit Card">Credit Card</option>
                           <option value="E-Statement">E-Statement</option>
@@ -88,46 +86,12 @@ const Viewsummary = () => {
                     </div>
                     {showOutput && selectedOption === "Bank Account" && (
                       <div>
-                     <div
-                      style={{ height: "1px", border: "1px solid #cdcdcd" }}
-                    ></div>
-                    <div className="viewSummary_total_acct_sum_view">
-                      <p className="Acct_sum_view_sum_totalby">Total By Branch</p>
-                    </div>
-                    {/* <div className="container-fluid">
-                      <div className="row">
-                        <div className="col-6 viewSummary_totalAssets">
-                          <p className="">Total Assets</p>
+                        <div
+                          style={{ height: "1px", border: "1px solid #cdcdcd" }}
+                        ></div>
+                        <div className="viewSummary_total">
+                          <p>Total By Branch</p>
                         </div>
-                        <div className="col-6 viewSummary_totalLiabilities">
-                          <p className="">Total Liabilities</p>
-                        </div>
-                        <div className="col-6 viewSummary_totalAssets_value">
-                          <p className="">INR 0.00</p>
-                        </div>
-                        <div className="col-6 viewSummary_totalLiabilities_value">
-                          <p className="">INR 46,372.00</p>
-                        </div>
-                      </div>
-                    </div> */}
-                    <div className="container-fluid">
-                      <div className="row">
-                        <div className="col-4 viewSummary_Acct_sum_totalAssets">
-                          <p className="viewSummary_Acct_sum_totalAssets_paratager">Account Number</p>
- 
-                        </div>
-                        <div className="col-4 viewSummary_Acct_sum_totalAssets">
-                          <p className="viewSummary_Acct_sum_totalAssets_paratager">Branch Address</p>
-
-                        </div>
-                        <div className="col-4 Acct_sum_view_Summary_totalLiabilities">
-                          <p className="Acct_sum_view_Summary_totalParatag">IFSC Code</p>
- 
-                        </div>
-                        <div className="col-4 Acct_sum_view_Summary_total_Assets_value">
-                          {/* <p className="">38799XXXX43</p> */}
-                          <p className="Acct_sum_view_Summary_total_Assets_value_pgratager">{userDetails.accountNumber}</p> {/* Display account number */}
-
 
                         <div className="container-fluid">
                           <div className="row">
@@ -151,97 +115,27 @@ const Viewsummary = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="col-4 Acct_sumY_view_Summary_total_Liabilities_value">
-                          {/* <p className="">Poranki, Vijayawada</p> */}
-                          <p className="Acct_sumY_view_Summary_total_Liabili_ptgergr">{userDetails.bankBranch}</p> {/* Display bank branch */}
+                        <div className="container-fluid">
+                          <div className="row">
+                            <div className="col-2 viewSummary_totalAssets">
+                              <p className="">All Bank Accounts</p>
+                            </div>
+                            <div className="col-2 viewSummary_totalAssets">
+                              <p className="">All Deposit Accounts</p>
+                            </div>
+                            <div className="col-2 viewSummary_totalAssets">
+                              <p className="">All Demat Accounts</p>
+                            </div>
+                            <div className="col-3 viewSummary_totalAssets">
+                              <p className="">All Loan Accounts</p>
+                            </div>
 
-                        </div>
-                        <div className="col-4 Acct_sumY_view_Summary_total_Liabilities_value">
-                          {/* <p className="">SBIN0011101</p> */}
-                          <p className="Acct_sumY_view_Summary_total_Liabili_ptgergr">{userDetails.ifscCode}</p> {/* Display IFSC code */}
+                            <div className="col-3 viewSummary_totalLiabilities">
+                              <p className="">All Credit card accounts</p>
+                            </div>
 
-                        </div>
-                      </div>
-                    </div>
-                    <div className="container-fluid">
-                      <div className="row">
-                        <div className="col-2 viewSummary_Acct_sum_totalAssets">
-                          <p className="viewSummary_Acct_sum_totalAssets_paratager">All Bank Accounts</p>
-                        </div>
-                        <div className="col-2 viewSummary_Acct_sum_totalAssets">
-                          <p className="viewSummary_Acct_sum_totalAssets_paratager">All Deposit Accounts</p>
-                        </div>
-                        <div className="col-2 viewSummary_Acct_sum_totalAssets">
-                          <p className="viewSummary_Acct_sum_totalAssets_paratager">All Demat Accounts</p>
-                        </div>
-                        <div className="col-3 viewSummary_Acct_sum_totalAssets">
-                          <p className="viewSummary_Acct_sum_totalAssets_paratager">All Loan Accounts</p>
-                        </div>
-
-                        <div className="col-3 Acct_sum_view_Summary_totalLiabilities">
-                          <p className="Acct_sum_view_Summary_totalParatag">All Credit card accounts</p>
-                        </div>
-
-                        <div className="col-2 Acct_sum_view_Summary_total_Assets_value">
-                          <p className="Acct_sum_view_Summary_total_Assets_value_pgratager">0.00</p>
-                        </div>
-                        <div className="col-2 Acct_sum_view_Summary_total_Assets_value">
-                          <p className="Acct_sum_view_Summary_total_Assets_value_pgratager">NA</p>
-                        </div>
-                        <div className="col-2 Acct_sum_view_Summary_total_Assets_value">
-                          <p className="Acct_sum_view_Summary_total_Assets_value_pgratager">0.00</p>
-                        </div>
-                        <div className="col-3 Acct_sumY_view_Summary_total_Liabilities_value">
-                          <p className="Acct_sumY_view_Summary_total_Liabili_ptgergr">0.00</p>
-                        </div> 
-                         <div className="col-3 Acct_sumY_view_Summary_total_Liabilities_value">
-                          <p className="Acct_sumY_view_Summary_total_Liabili_ptgergr">46,522.39</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="view_Summary_offers_section"
-                      style={{
-                        boxShadow: "0px 2px 5px rgb(113 113 113 / 39%);",
-                      }}
-                    >
-                       <div className="offers_heading">
-                        <p>Offers for you</p>
-                      </div>
-                      <div className="offer_cards container-fluid">
-                        <div className="row">
-                          <div className="col-3">
-                            <div className="offer_cards">
-                              <div className="offers_top">
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                  }}
-                                >
-                                  <img
-                                    src={creditcardimg}
-                                    alt="creditcard"
-                                  ></img>
-                                  <h6>Credit Card</h6>
-                                </div>
-                                <div>
-                                  <p>
-                                    Avail upto 100% On Road Funding with Pre
-                                    approved Offer of Rs 2,50,000
-                                  </p>
-                                </div>
-                                <div>
-                                  <p>
-                                    Know More{" "}
-                                    <i class="ri-arrow-right-s-line"></i>{" "}
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="offers_bottom">
-                                <span> UPGRADE NOW</span>
-                              </div>
-
+                            <div className="col-2 viewSummary_totalAssets_value">
+                              <p className="">0.00</p>
                             </div>
                             <div className="col-2 viewSummary_totalAssets_value">
                               <p className="">NA</p>
@@ -529,16 +423,3 @@ const Viewsummary = () => {
 };
 
 export default Viewsummary;
-                       
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
-                      
