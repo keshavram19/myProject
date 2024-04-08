@@ -93,26 +93,19 @@
 .nav-pills .nav-link.active,
 .nav-pills .show  .nav-link {
   color: #fff;
-  background-color: #e7a054;
+  background-color: #2fb68e;
 }
 
-/* a {
-  color: #495057c1;
-  text-decoration: none;
-  background-color: transparent;
-  font-size: small;
-} */
-
-/* Remove hover color and text decoration for anchor tag */
-.linkAccounts  a:hover {
-    color: #272b2e; /* or any other color you want for the hover state */
-    text-decoration: none;
-  }
-
-  .linkAccounts a{
+  .components_link{
     color: #495057c1;
     text-decoration: none;
     background-color: transparent;
-    font-size: 16px;
+
+    margin-top: 8px;
   }
-  
+  .components_link:hover{
+    color: #495057c1;
+
+    font-size: 16px;
+
+  }
