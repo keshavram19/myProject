@@ -70,16 +70,8 @@ function ReissueGenerateOrReject() {
         }
     }
 
-    const handleReject = async () => {
-        try {
-            if (userDetails && userDetails.userDebitCardDetails && userDetails.userDebitCardDetails.userDebitCardStatus === 'active') {
-                setErrorMessage('Rejected.');
-            }
-        } catch (error) {
-            console.error("Rejection Error:", error);
-        }
-    };
-
+  
+    
     const handleGenerate = async () => {
         try {
             if (userDetails && userDetails.userDebitCardDetails) {
@@ -185,6 +177,29 @@ function ReissueGenerateOrReject() {
           console.error('Error deleting user debit card details:', error);
         }
       };
+
+      const handleReject = async () => {
+        try {
+           
+                const response = await axios.post(`${apiList.rejectReissueCard}${userDetails._id}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (response.status === 200) {
+                    
+                    console.log('Debit card reissue request rejected');
+                } else {
+                    setErrorMessage('Failed to reject debit card reissue request');
+                }
+            
+        } catch (error) {
+            console.error("Rejection Error:", error);
+            setErrorMessage('Failed to reject debit card reissue request');
+        }
+    };
       
 
 
@@ -262,7 +277,7 @@ function ReissueGenerateOrReject() {
                                     )}
                                     <div className="buttons-container mt-3">
                                         <div className="button-row">
-                                            <button className="reject-button" onClick={handleReject}>Reject</button>
+                                            <button className="reject-button"  onClick={handleReject}>Reject</button>
                                             <button className="generate-button" onClick={handleGenerate}>Generate</button>
                                         </div>
                                         {errorMessage && (
