@@ -56,17 +56,7 @@ const RequestedDatalist = () => {
   };
 
   const getRequestedDetailslist = async (req, res) => {
-    // try {
-    //   const token = sessionStorage.getItem('loginToken');
-
-    //    const response = await axios.get
-    //   (apiList.getuserrequesteddetails) 
-    //   // (apiList.individualrequestedetails)
-    //    const filteredData = response.data.filter(
-    //     (customer) => !customer.accountNumber || !customer.mobilenumber
-    //   );
-    //   setRequestedDataList(filteredData);
-    //   console.log(filteredData);
+    
     try {
       const token = sessionStorage.getItem('adminloginToken');
       const response = await axios.get(apiList.getuserrequesteddetails, {

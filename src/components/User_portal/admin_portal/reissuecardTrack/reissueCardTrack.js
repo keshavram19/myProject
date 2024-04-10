@@ -44,7 +44,6 @@ const ReissueCardTable = () => {
   }, []);
 
   const onViewClick = (user) => {
-    console.log('Viewing user:', user);
     navigate(`/admin/reissuecardGenerateorReject?userId=${user._id}`);
   };
 
