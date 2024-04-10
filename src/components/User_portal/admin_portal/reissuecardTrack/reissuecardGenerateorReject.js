@@ -34,6 +34,7 @@ function ReissueGenerateOrReject() {
 
 
 
+
     const fetchData = async () => {
         try {
             const response = await axios.get(`${apiList.generateddebitcard}`, {
@@ -50,6 +51,7 @@ function ReissueGenerateOrReject() {
 
 
     useEffect(() => {
+
         fetchData();
     }, []);
 
@@ -68,16 +70,8 @@ function ReissueGenerateOrReject() {
         }
     }
 
-    const handleReject = async () => {
-        try {
-            if (userDetails && userDetails.userDebitCardDetails && userDetails.userDebitCardDetails.userDebitCardStatus === 'active') {
-                setErrorMessage('Rejected.');
-            }
-        } catch (error) {
-            console.error("Rejection Error:", error);
-        }
-    };
-
+  
+    
     const handleGenerate = async () => {
         try {
             if (userDetails && userDetails.userDebitCardDetails) {
@@ -109,6 +103,7 @@ function ReissueGenerateOrReject() {
                                 : prevUserDetails.userDebitCardDetails.userReason,
                         }
                     }));
+
 
                     await saveUserDebitCardDetails({
                         ...userDetails,
@@ -151,6 +146,7 @@ function ReissueGenerateOrReject() {
                 },
             });
 
+
         } catch (error) {
             console.error("Error saving user debit card details:", error);
         }
@@ -166,6 +162,7 @@ function ReissueGenerateOrReject() {
         return `${day < 10 ? '0' + day : day}-${month < 10 ? '0' + month : month}-${year}`;
     };
 
+
     const handleDelete = async (id) => {
         try {
           const response = await axios.delete(`${apiList.generateddebitcard}${id}`, {
@@ -180,6 +177,29 @@ function ReissueGenerateOrReject() {
           console.error('Error deleting user debit card details:', error);
         }
       };
+
+      const handleReject = async () => {
+        try {
+           
+                const response = await axios.post(`${apiList.rejectReissueCard}${userDetails._id}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (response.status === 200) {
+                    
+                    console.log('Debit card reissue request rejected');
+                } else {
+                    setErrorMessage('Failed to reject debit card reissue request');
+                }
+            
+        } catch (error) {
+            console.error("Rejection Error:", error);
+            setErrorMessage('Failed to reject debit card reissue request');
+        }
+    };
       
 
 
@@ -257,7 +277,7 @@ function ReissueGenerateOrReject() {
                                     )}
                                     <div className="buttons-container mt-3">
                                         <div className="button-row">
-                                            <button className="reject-button" onClick={handleReject}>Reject</button>
+                                            <button className="reject-button"  onClick={handleReject}>Reject</button>
                                             <button className="generate-button" onClick={handleGenerate}>Generate</button>
                                         </div>
                                         {errorMessage && (
@@ -283,6 +303,7 @@ function ReissueGenerateOrReject() {
                                     </thead>
                                     <tbody>
                                         {userData
+
                                             .map((user, index) => (
                                                 (
                                                     <tr key={user._id}>
@@ -292,22 +313,27 @@ function ReissueGenerateOrReject() {
                                                         <td>{user.userDebitCardNumber}</td>
                                                         <td>{user.userDebitCardcvv}</td>
                                                         <td>{user.userDebitCardExpiryDate}</td>
+
                                                         <td>
                                                             <button
                                                                 className={`status-button ${user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus === 'active' ? 'active' : 'inactive'}`}
                                                                 style={{
+
                                                                     backgroundColor: user.userDebitCardStatus === 'active' ? '#09eb2f' : 'red',
+
                                                                     color: 'white',
                                                                     padding: '2px 4px',
                                                                     borderRadius: '6px',
                                                                     borderColor: '#1bbb35'
                                                                 }}
                                                             >
+
                                                                 {user.userDebitCardStatus}
                                                             </button>
                                                         </td>
                                                         <td>
                                                         <button className='delete_btn' onClick={() => handleDelete(user._id)}>Delete</button>
+
                                                         </td>
                                                     </tr>
                                                 )
