@@ -14,6 +14,8 @@ const apiList ={
     getuserrequesteddetails: `${server}/admin/requesteduserdetails/`,
     getReissuecardDetails: `${server}/admin/trackAndReissueCard/`,
     generateReissueCard: `${server}/admin/reissue/`,
+    rejectReissueCard: `${server}/admin/reissue-reject/`,
+
    
 
     
