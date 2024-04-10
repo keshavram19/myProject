@@ -35,19 +35,19 @@ function ReissueGenerateOrReject() {
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                const response = await axios.get(`${apiList.getReissuecardDetails}`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                setUserData(response.data);
-            } catch (error) {
-                console.error('Error fetching user data:', error);
-            }
+          try {
+            const response = await axios.get(`${apiList.getReissuecardDetails}`, {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+              },
+            });
+            setUserData(response.data);
+          } catch (error) {
+            console.error('Error fetching user data:', error);
+          }
         };
-
+    
         fetchData();
     }, []);
 
@@ -90,63 +90,68 @@ function ReissueGenerateOrReject() {
                     },
                 });
 
-                const { status, message, userDebitCardNumber, userCVV, userExpiryDate } = response.data;
+                console.log(response.data)
+
+                const { status, message, userDebitCardNumber, userDebitCardcvv, userDebitCardExpiryDate,debitcardGenerateStatus} = response.data;
                 if (status === 'success') {
                     setUserDetails(prevUserDetails => ({
                         ...prevUserDetails,
                         userDebitCardDetails: {
                             ...prevUserDetails.userDebitCardDetails,
                             userDebitCardNumber,
-                            userDebitCardcvv: userCVV,
-                            userDebitCardExpiryDate: userExpiryDate,
-                            userDebitCardStatus: 'active'
+                            userDebitCardcvv,
+                            userDebitCardExpiryDate,
+                            userDebitCardStatus: 'active',
+                            userReason: prevUserDetails.userDebitCardDetails.userReason !== 'New card'
+                                ? prevUserDetails.userDebitCardDetails.userReason
+                                : prevUserDetails.userDebitCardDetails.userReason,
                         }
                     }));
                     const handleGenerate = async () => {
-                        try {
-                            if (userDetails && userDetails.userDebitCardDetails) {
-                                if (userDetails.userDebitCardDetails.userDebitCardStatus === 'active') {
-                                    setErrorMessage('Debit card is already active');
-                                    return;
-                                }
-                                const response = await axios.post(`${apiList.generateReissueCard}${userDetails._id}`, { generate: true }, {
-                                    headers: {
-                                        Authorization: `Bearer ${token}`,
-                                        'Content-Type': 'application/json',
-                                    },
-                                });
+    try {
+        if (userDetails && userDetails.userDebitCardDetails) {
+            if (userDetails.userDebitCardDetails.userDebitCardStatus === 'active') {
+                setErrorMessage('Debit card is already active');
+                return;
+            }
+            const response = await axios.post(`${apiList.generateReissueCard}${userDetails._id}`, { generate: true }, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            });
 
-                                const { status, message, userDebitCardNumber, userCVV, userExpiryDate } = response.data;
-                                if (status === 'success') {
-                                    setUserDetails(prevUserDetails => ({
-                                        ...prevUserDetails,
-                                        userDebitCardDetails: {
-                                            ...prevUserDetails.userDebitCardDetails,
-                                            userDebitCardNumber,
-                                            userDebitCardcvv: userCVV,
-                                            userDebitCardExpiryDate: userExpiryDate,
-                                            userDebitCardStatus: 'active',
-
-                                            userReason: prevUserDetails.userDebitCardDetails.userReason !== 'New card'
-                                                ? prevUserDetails.userDebitCardDetails.userReason
-                                                : prevUserDetails.userDebitCardDetails.userReason,
-                                        }
-                                    }));
-                                } else {
-                                    setErrorMessage(message);
-                                }
-                            }
-                        } catch (error) {
-                            console.error("Reissue Error:", error);
-                        }
-                    };
+            const { status, message, userDebitCardNumber, userCVV, userExpiryDate } = response.data;
+            if (status === 'success') {
+                setUserDetails(prevUserDetails => ({
+                    ...prevUserDetails,
+                    userDebitCardDetails: {
+                        ...prevUserDetails.userDebitCardDetails,
+                        userDebitCardNumber,
+                        userDebitCardcvv: userCVV,
+                        userDebitCardExpiryDate: userExpiryDate,
+                        userDebitCardStatus: 'active',
+                       
+                        userReason: prevUserDetails.userDebitCardDetails.userReason !== 'New card'
+                            ? prevUserDetails.userDebitCardDetails.userReason
+                            : prevUserDetails.userDebitCardDetails.userReason,
+                    }
+                }));
+            } else {
+                setErrorMessage(message);
+            }
+        }
+    } catch (error) {
+        console.error("Reissue Error:", error);
+    }
+};
 
                 } else {
                     setErrorMessage(message);
                 }
             }
         } catch (error) {
-            console.error("Reissue Error:", error);
+            console.error("Error saving user debit card details:", error);
         }
     };
 
@@ -159,7 +164,7 @@ function ReissueGenerateOrReject() {
         const year = date.getFullYear();
         return `${day < 10 ? '0' + day : day}-${month < 10 ? '0' + month : month}-${year}`;
     };
-
+    
 
     return (
         <>
@@ -261,36 +266,36 @@ function ReissueGenerateOrReject() {
                                     </thead>
                                     <tbody>
                                         {userData
-                                            .filter(user => user.userDebitCardDetails && user.userDebitCardDetails.debitcardGenerateStatus)
-                                            .map((user, index) => (
-                                                user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus !== 'rejected' && (
-                                                    <tr key={user._id}>
-                                                        <td>{index + 1}</td>
-                                                        <td>{userDetails && userDetails.userDebitCardDetails ? formatDate(userDetails.userDebitCardDetails.debitGeneratedDate) : '-'}</td>
-                                                        <td>{`${user.accountNumber} - ${user.firstname}`}</td>
-                                                        <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardNumber : '-'}</td>
-                                                        <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardcvv : '-'}</td>
-                                                        <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardExpiryDate : '-'}</td>
-                                                        <td>
-                                                            <button
-                                                                className={`status-button ${user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus === 'active' ? 'active' : 'inactive'}`}
-                                                                style={{
-                                                                    backgroundColor: user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus === 'active' ? '#09eb2f' : 'red',
-                                                                    color: 'white',
-                                                                    padding: '2px 4px',
-                                                                    borderRadius: '6px',
-                                                                    borderColor: '#1bbb35'
-                                                                }}
-                                                            >
-                                                                {user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardStatus : '-'}
-                                                            </button>
-                                                        </td>
-                                                        <td>
-                                                            <button className='delete_btn' >Delete</button>
-                                                        </td>
-                                                    </tr>
-                                                )
-                                            ))}
+                                         .filter(user => user.userDebitCardDetails && user.userDebitCardDetails.debitcardGenerateStatus)
+                                        .map((user, index) => (
+                                            user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus !== 'rejected' && (
+                                                <tr key={user._id}>
+                                                    <td>{index + 1}</td>
+                                                    <td>{userDetails && userDetails.userDebitCardDetails ? formatDate(userDetails.userDebitCardDetails.debitGeneratedDate) : '-'}</td>
+                                                    <td>{`${user.accountNumber} - ${user.firstname}`}</td>
+                                                    <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardNumber : '-'}</td>
+                                                    <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardcvv : '-'}</td>
+                                                    <td>{user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardExpiryDate : '-'}</td>
+                                                    <td>
+                                                        <button
+                                                            className={`status-button ${user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus === 'active' ? 'active' : 'inactive'}`}
+                                                            style={{
+                                                                backgroundColor: user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus === 'active' ? '#09eb2f' : 'red',
+                                                                color: 'white',
+                                                                padding: '2px 4px',
+                                                                borderRadius: '6px',
+                                                                borderColor: '#1bbb35'
+                                                            }}
+                                                        >
+                                                            {user.userDebitCardDetails ? user.userDebitCardDetails.userDebitCardStatus : '-'}
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <button className='delete_btn' >Delete</button>
+                                                    </td>
+                                                </tr>
+                                            )
+                                        ))}
 
                                     </tbody>
                                 </table>
