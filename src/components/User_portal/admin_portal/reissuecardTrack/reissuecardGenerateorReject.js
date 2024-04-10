@@ -180,26 +180,29 @@ function ReissueGenerateOrReject() {
 
       const handleReject = async () => {
         try {
-           
-                const response = await axios.post(`${apiList.rejectReissueCard}${userDetails._id}`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-
-                if (response.status === 200) {
-                    
-                    console.log('Debit card reissue request rejected');
-                } else {
-                    setErrorMessage('Failed to reject debit card reissue request');
-                }
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({}) 
+            };
+    
+            const response = await fetch(`${apiList.rejectReissueCard}${userDetails._id}`, requestOptions);
             
+            if (response.status === 200) {
+                setErrorMessage('Debit card Request Rejected');
+                console.log('Debit card reissue request rejected');
+            } else {
+                setErrorMessage('Failed to reject debit card reissue request');
+            }
         } catch (error) {
             console.error("Rejection Error:", error);
             setErrorMessage('Failed to reject debit card reissue request');
         }
     };
+    
       
 
 
