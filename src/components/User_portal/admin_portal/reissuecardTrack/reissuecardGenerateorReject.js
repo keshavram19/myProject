@@ -34,6 +34,7 @@ function ReissueGenerateOrReject() {
 
 
 
+
     const fetchData = async () => {
         try {
             const response = await axios.get(`${apiList.generateddebitcard}`, {
@@ -50,6 +51,7 @@ function ReissueGenerateOrReject() {
 
 
     useEffect(() => {
+
         fetchData();
     }, []);
 
@@ -110,6 +112,7 @@ function ReissueGenerateOrReject() {
                         }
                     }));
 
+
                     await saveUserDebitCardDetails({
                         ...userDetails,
                         userDebitCardDetails: {
@@ -151,6 +154,7 @@ function ReissueGenerateOrReject() {
                 },
             });
 
+
         } catch (error) {
             console.error("Error saving user debit card details:", error);
         }
@@ -165,6 +169,7 @@ function ReissueGenerateOrReject() {
         const year = date.getFullYear();
         return `${day < 10 ? '0' + day : day}-${month < 10 ? '0' + month : month}-${year}`;
     };
+
 
     const handleDelete = async (id) => {
         try {
@@ -283,6 +288,7 @@ function ReissueGenerateOrReject() {
                                     </thead>
                                     <tbody>
                                         {userData
+
                                             .map((user, index) => (
                                                 (
                                                     <tr key={user._id}>
@@ -292,22 +298,27 @@ function ReissueGenerateOrReject() {
                                                         <td>{user.userDebitCardNumber}</td>
                                                         <td>{user.userDebitCardcvv}</td>
                                                         <td>{user.userDebitCardExpiryDate}</td>
+
                                                         <td>
                                                             <button
                                                                 className={`status-button ${user.userDebitCardDetails && user.userDebitCardDetails.userDebitCardStatus === 'active' ? 'active' : 'inactive'}`}
                                                                 style={{
+
                                                                     backgroundColor: user.userDebitCardStatus === 'active' ? '#09eb2f' : 'red',
+
                                                                     color: 'white',
                                                                     padding: '2px 4px',
                                                                     borderRadius: '6px',
                                                                     borderColor: '#1bbb35'
                                                                 }}
                                                             >
+
                                                                 {user.userDebitCardStatus}
                                                             </button>
                                                         </td>
                                                         <td>
                                                         <button className='delete_btn' onClick={() => handleDelete(user._id)}>Delete</button>
+
                                                         </td>
                                                     </tr>
                                                 )
