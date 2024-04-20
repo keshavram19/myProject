@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState, useRef, createRef } from 'react';
 import { Link, useNavigate,useLocation } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import './FundTransfer.css';
-
+import 'react-toastify/dist/ReactToastify.css';
 import { MdOutlineMessage } from "react-icons/md";
 import { MdOutlineMail } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
-import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import apiList from '../../../../lib/apiList';
+import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
 
 
 
@@ -17,14 +18,12 @@ const OTPPage = () =>{
     const formData = location ? location.state : null;
     const [userDetails, setUserDetails] = useState([]);
     const [lastFourDigits, setLastFourDigits] = useState('');
-    const [otp, setOtp] = useState('');
+    const [otp, setOtp] = useState(['', '', '', '', '', '']);
+    let token = sessionStorage.getItem('loginToken');
+    const otpInputsRefs = useRef([]);
     const [validationError, setValidationError] = useState('');
     const [timer, setTimer] = useState(100);
     const [buttonsDisabled, setButtonsDisabled] = useState(true);
-    const token = sessionStorage.getItem('loginToken');
-
-
-    console.log(formData);
 
     useEffect(() => {
 
@@ -41,7 +40,8 @@ const OTPPage = () =>{
                 const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
                 if (response.ok) {
                     const data = await response.json();
-                    setUserDetails([data.user]);
+
+                    setUserDetails(data.user);
                 } else {
                     console.error('Error fetching user details:', response.statusText);
                 }
@@ -53,10 +53,7 @@ const OTPPage = () =>{
         fetchData();
     }, []);
 
-    const handleOtpChange = (event) => {
-        setOtp(event.target.value);
-        setValidationError('');
-    };
+
 
 
     useEffect(() => {
@@ -92,49 +89,80 @@ const OTPPage = () =>{
         return ` ${firstFourDigits}${maskedDigits}${lastFourDigits}`;
     };
 
-    const handleOtpGeneration = async (chosenMethod) => {
+    const handleOtpGeneration = async () => {
         try {
-            if (Array.isArray(userDetails) && userDetails.length > 0) {
-                const otpResponse = await axios.post(
-                    `${apiList.createVerificationCode}`,
-                    {
-                        accountNumber: userDetails[0].accountNumber,
-                        debitCardNumber: formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber),
-                        mobileNumber: lastFourDigits,
-                        otpMethod: chosenMethod
-                    },
-                    {
-                      headers: {
+            const otpResponse = await axios.post(
+                `${apiList.createVerificationCode}`,
+                {
+                    accountNumber: userDetails.accountNumber,
+                    otpMethod: "sms",
+                },
+                {
+                    headers: {
                         Authorization: `Bearer ${token}`,
                         'Content-Type': 'application/json',
-                      },
-                    }
-                  );                
-                  console.log(otpResponse.data);
-                  setTimer(60);
-                  setButtonsDisabled(true);
-                  setOtp('');
-            } else {
-                console.error('Invalid user details:', userDetails);
-            }
+                    },
+                }
+            );
         } catch (error) {
             console.error('Error generating OTP:', error);
         }
     };
 
-    const handleOtpValidation = async () => {
+ 
+
+    const handleInputChange = (index, value) => {
+        const newOtp = [...otp];
+        newOtp[index] = value;
+        setOtp(newOtp);
+
+        if (value !== '' && index < otpInputsRefs.current.length - 1) {
+            otpInputsRefs.current[index + 1].focus();
+        }
+        setValidationError('');
+    };
+
+    const handleBackspace = (index, e) => {
+        if (e.keyCode === 8 && index > 0 && otp[index] === '') {
+            otpInputsRefs.current[index - 1].focus();
+        }
+    };
+
+    const handleResendOTP = async () => {
         try {
-            const AccountNumber = userDetails[0].accountNumber;
-            const response = await axios.post(`${apiList.authenticateOTP}`, { AccountNumber, otp },
+            await handleOtpGeneration();
+            toast.success('Verification Code Sent Successfully', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored"
+            });
+            setValidationError('');
+        } catch (error) {
+            console.error('Error resending OTP:', error);
+        }
+    };
+    
+
+    const verifyOTP = async () => {
+        try {
+        const otpString = otp.join('');
+            const response = await axios.post(`${apiList.authenticateOTP}`, { otp:otpString },
             {
               headers: {
                 Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json',
               },
             });
-
-            if(response.status===200){
-                const response = await fetch(`${apiList.quickFundTransfer}`, {
+       
+            
+            if (response.status === 200) {
+                
+                const res = await fetch(`${apiList.quickFundTransfer}`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -142,75 +170,105 @@ const OTPPage = () =>{
                     },
                     body: JSON.stringify(formData),
                 });
-                alert("amount transfered succesfully");
-                navigate("/user/fundtransfer/quickfundtransfer");
+                if(res.status === 200){
+                    toast.success('amount transfered succesfully', {
+                        position: "top-center",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored"
+                    });
+                    navigate("/user/fundtransfer/quickfundtransfer");
+                }     
+            } else {
+                toast.error('Invalid OTP!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored"
+                });
             }
-            console.log(response.data);
-         
         } catch (error) {
-            console.error('Error validating OTP:', error);
+            console.log('Error Verifying OTP:', error);
             setValidationError('Invalid OTP. Please try again.');
         }
+        setOtp(['', '', '', '', '', '']);
     };
+
+    const verifyCode = () => {
+        verifyOTP();
+    };
+
+    useEffect(() => {
+        otpInputsRefs.current = Array(6).fill().map((_, i) => otpInputsRefs.current[i] || createRef());
+    }, [otpInputsRefs]);
+
 
     return(
         <div className='container-fluid' style={{ marginTop: "90px" }}>
             <div className='row'>
             <div className='col-3'>
-                    <BankaccountSidebar/>
+                    <PaymentSidebar/>
                 </div>
-                <div className='col-sm-9'>
-                <p className="pl-2">Please enter these details to authorize the transaction</p>
-
-<div className=" quick_fund_transfer_para p-2">
-    <label htmlFor="otp">One Time Password</label>
-    <div className="quick_fund_transfer_icon">
-        <input
-            className="quick_fund_transfer_div_label"
-            type="text"
-            id="otp"
-            name="otp"
-            value={otp}
-            onChange={handleOtpChange}
-        />
-
-        <button className="quick_fund_transfer_icon_otp">
-            <i class="fa-solid fa-keyboard fa-xl"></i>
-        </button>
-        <p className='ml-1'>OTP has been generated with validity of 100 seconds</p>
-    </div>
-    <p>Still didn't get OTP? Resend OTP in {formatTime(timer)} seconds</p>
-</div>
-
-<div className='row  p-2' >
-    <div className='col-sm-6'>
-        <div className=''>
-            <button className='quick_fund_transfer_button ml-2' onClick={() => handleOtpGeneration('sms')} disabled={buttonsDisabled}><MdOutlineMessage className='generate_debit_pin_button_logos' /> SMS</button>
-            <button className='quick_fund_transfer_button ml-2' onClick={() => handleOtpGeneration('email')} disabled={buttonsDisabled}><MdOutlineMail className='generate_debit_pin_button_logos'/> Email</button>
-            <button className='quick_fund_transfer_button ml-2' onClick={() => handleOtpGeneration('call')} disabled={buttonsDisabled}><IoCallOutline className='generate_debit_pin_button_logos' /> Call</button>
-
-        </div>
-    </div>
-</div>
-
-<div className='mt-1 p-2'>
-    <p>If there is a delay in receipt of OTP, you can send a request to receive it. SMS IBOTP to 5676766 or 9215676766. Request should be sent from the mobile number registered in our records.</p>
-    </div>
-    <div className='p-2'>
-        <p>Please do not share OTP with anyone, even if the person claims to be an ICICI Bank official. For further details please <Link>click here.</Link></p>
-    </div>
-
-{validationError && <div style={{ color: 'red' }}>{validationError}</div>}
-
-<div className="d-flex mt-3 mb-3">
-    <button type="button" className="quick_fund_buttons ml-3">
-        BACK
-    </button>
-    <button type="button" className="quick_fund_submits ml-5" onClick={handleOtpValidation} >
-        SUBMIT
-    </button>
-</div>
-                </div>
+                <div className='col-9'>
+                        <div className='savings_acct_user_auth_container'>
+                            <div className='savings_acct_user_auth_container_header'>Quick Fund Transfer</div>
+                            <div className='savings_acct_user_auth_details_container'>
+                                <div className='d-flex justify-content-center'>
+                                    {userDetails && (
+                                        <div>
+                                            <div className='otp_code_mobile'>Enter OTP Code sent to {userDetails.mobilenumber}</div>
+                                            <div>
+                                                {Array.from({ length: 6 }, (_, index) => (
+                                                    <input
+                                                        key={index}
+                                                        ref={el => otpInputsRefs.current[index] = el}
+                                                        className={`otp_code_box otp_code_box${index + 1}`}
+                                                        type='text'
+                                                        maxLength={1}
+                                                        value={otp[index]}
+                                                        onKeyDown={(e) => handleBackspace(index, e)}
+                                                        onChange={(e) => handleInputChange(index, e.target.value)}
+                                                    />
+                                                ))}
+                                            </div>
+                                            <div className='text-center d-flex'>
+                                                <div>Don't receive OTP code?</div>
+                                                <div className='resend_code_text ml-2' onClick={handleResendOTP}>Resend Code</div>
+                                            </div>
+                                            <ToastContainer />
+                                            <div className='otp_verify_btn_container mt-2'>
+                                                <button className='otp_verify_btn' type='button' onClick={verifyCode}>
+                                                    Verify & Proceed
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                                {validationError && <div style={{ color: 'red' }}>{validationError}</div>}
+                                <div className='savings_acct_user_auth_text1 mt-2'>
+                                    <div>
+                                        The OTP code has a validity of 60 seconds and is sent to your registered email address.
+                                    </div>
+                                    <div className='my-2'>
+                                        If you experience a delay in receiving the OTP, you can request it via SMS by sending IBOTP to
+                                        either 5676766 or 92156766 from your registered mobile number.
+                                    </div>
+                                    <div>
+                                        It's crucial not to share the OTP with anyone, even if they claim to be a Roayl Islamic bank official.
+                                        For additional information, <a href='#'>click here</a>.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
             </div>
         </div>
