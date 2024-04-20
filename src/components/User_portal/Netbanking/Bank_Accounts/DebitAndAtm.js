@@ -17,10 +17,8 @@ const DebitAndAtm = () => {
                     <BankaccountSidebar />
                 </div>
                 <div className='col-9' >
-                    <div className='card atm_card_details_debit_card p-2'>
-                        <h6>Virtual Debit Card</h6>
-                    </div>
                     <div className="card atm_card_details_debit_card  mt-2">
+                    <h6>Virtual Debit Card</h6>
                     <div className="atm_card_details_button_container">
                             <BsCreditCard2FrontFill className='atm_card_details_logo' />
                             <Link to='/user/account/debit-card-apply' ><button className='atm_card_details_button'>Apply Debit Card</button></Link>
@@ -55,19 +53,7 @@ const DebitAndAtm = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='card atm_card_details_debit_card p-2 mt-2'>
-                        <div className='container-fluid'>
-                            <div className='row align-items-center'>
-                                <div className='col-sm-9'>
-                                    <h6>Manage Subscription</h6>
-                                    <p>Manage Standing instruction and recurring charges</p>
-                                </div>
-                                <div className='col-sm-3'>
-                                    <button className='atm_card_details_button_upgrade ml-4'><p className='atm_card_details_para_upgrade'>Manage Subscriptions</p></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
 

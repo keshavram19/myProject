@@ -418,7 +418,7 @@ select.form-control.statement_select_format {
 .savings_acct_user_auth_container_header {
   font-size: 16px;
  
-  background-color: #2fb68e;
+  background-color: #6b757d;
   padding: 10px 20px;
   color: #fff;
 }
@@ -452,6 +452,7 @@ select.form-control.statement_select_format {
   margin: 15px 10px;
   background-color: #dadada;
   text-align: center;
+  justify-content: center;
 }
 
 .otp_code_box1 {
@@ -471,9 +472,9 @@ select.form-control.statement_select_format {
 
 .otp_verify_btn {
   width: 50%;
-  border: 1px solid #2fb68e;
+  border: 1px solid #6b757d;
   outline: none;
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
   /* background: transparent; */
   border-radius: 5px;
@@ -529,7 +530,7 @@ select.form-control.statement_select_format {
 }
 
 .atm_card_details_debit_card h6 {
-  color: #ebca28;
+  color: #808080;
 }
 
 .atm_card_details_debit_card p {
@@ -546,7 +547,7 @@ select.form-control.statement_select_format {
   font-size: 16px;
   border: none;
   cursor: pointer;
-  color: #2fb68e;
+  color: #6b757d;
   background: none;
  
   padding-left: 5px;
@@ -556,9 +557,9 @@ select.form-control.statement_select_format {
   font-size: 16px;
   border: none;
   cursor: pointer;
-  color: #2fb68e;
+  color: #6b757d;
   background-color: transparent;
-  border: 1px solid #2fb68e;
+  border: 1px solid #6b757d;
   border-radius: 20px;
  
   padding: 10px;
@@ -570,20 +571,16 @@ select.form-control.statement_select_format {
   margin: 0;
 }
 
-.atm_card_details_button:hover {
-  border-bottom: 1px solid #2fb68e;
-  border-radius: 5px;
-}
 
 
 .atm_card_details_button_upgrade:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
 .atm_card_details_logo {
-  font-size: 30px;
-  color: #2fb68e;
+  font-size: 20px;
+  color: #6b757d;
 }
 
 /* ATMDetails.css ends */

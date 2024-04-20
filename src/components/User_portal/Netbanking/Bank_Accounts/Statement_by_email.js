@@ -239,9 +239,9 @@ const StatementByMail = () => {
                                                     />
                                                 ))}
                                             </div>
-                                            <div className='text-center'>
+                                            <div className='text-center d-flex'>
                                                 <div>Don't receive OTP code?</div>
-                                                <div className='resend_code_text' onClick={handleResendOTP}>Resend Code</div>
+                                                <div className='resend_code_text ml-2' onClick={handleResendOTP}>Resend Code</div>
                                             </div>
                                             <ToastContainer />
                                             <div className='otp_verify_btn_container'>
