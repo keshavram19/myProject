@@ -1,16 +1,19 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Sidebar.css";
 import Userdetails from "../UserDetails/UserDetails";
-import { Link,useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { FaCaretRight } from "react-icons/fa";
+import { FaCaretDown } from "react-icons/fa";
+
 
 function BankaccountSidebar() {
-  
+
   const location = useLocation();
   const [activeIndex, setActiveIndex] = useState(() => {
     const storedIndex = parseInt(sessionStorage.getItem("activeIndex"));
     return !isNaN(storedIndex) ? storedIndex : 0;
   });
-  
+
   const [contentHeights, setContentHeights] = useState([
     0, 0, 0, 0, 0, 0, 0, 0,
   ]);
@@ -23,7 +26,7 @@ function BankaccountSidebar() {
     useRef(null),
     useRef(null),
     useRef(null),
-  ]; 
+  ];
 
   useEffect(() => {
     const newHeights = contentRefs.map((ref) =>
@@ -48,28 +51,36 @@ function BankaccountSidebar() {
 
   const isActiveLink = (to) => {
     return location.pathname === to;
-  };  
+  };
+
+  // const getButtonContent = (index) => {
+  //   return activeIndex === index ? (
+  //     <i className="ri-subtract-line" style={{ fontSize: "18px" }}></i>
+  //   ) : (
+  //     <i className="ri-add-fill" style={{ fontSize: "18px" }}></i>
+  //   );
+  // };
 
   const getButtonContent = (index) => {
     return activeIndex === index ? (
-      <i className="ri-subtract-line" style={{ fontSize: "18px" }}></i>
+      <FaCaretDown style={{ fontSize: '20px' }} />
     ) : (
-      <i className="ri-add-fill" style={{ fontSize: "18px" }}></i>
-    );
+      <FaCaretRight style={{ fontSize: '20px' }} />
+    )
   };
 
 
   return (
     <div>
-      <Userdetails />
-      <div className="container ">
+      {/* <Userdetails /> */}
+      <div className="container">
         <div className="">
           <div className="">
             <button
               type="button"
               className={`collapsible sidebarButton ${activeIndex === 0 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
-               onClick={() => toggleCollapsible(0)}
+              onClick={() => toggleCollapsible(0)}
             >
               <span> Accounts </span> <span> {getButtonContent(0)} </span>
             </button>
@@ -81,7 +92,7 @@ function BankaccountSidebar() {
               }}
               ref={contentRefs[0]}
             >
-              <Link to="/user/account" onClick={stopPropagation}  className={isActiveLink("/user/account") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"}>Accounts</Link>
+              <Link to="/user/account" onClick={stopPropagation} className={isActiveLink("/user/account") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"}>Accounts</Link>
               <Link to="/user/account/statement" onClick={stopPropagation} className={isActiveLink("/user/account/statement") ? "bank_account_sidebar_link_tag" : ""}>Detailed Statement</Link>
               <Link to="/user/account/statement-by-email" onClick={stopPropagation} className={isActiveLink("/user/account/statement-by-email") ? "bank_account_sidebar_link_tag" : ""}>Account Statement by email</Link>
               <Link to="/user/account/debit-atm-card" onClick={stopPropagation} className={isActiveLink("/user/account/debit-atm-card") ? "bank_account_sidebar_link_tag" : ""}>Debit/ATM Card details</Link>
@@ -125,15 +136,16 @@ function BankaccountSidebar() {
               {/* <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Service Requests</Link> */}
 
             </div>
-            <button
+
+            {/* <button
               type="button"
               className={`collapsible sidebarButton ${activeIndex === 2 ? "active buttonActive" : ""
                 } d-flex justify-content-between sidebar_button`}
               onClick={() => toggleCollapsible(2)}
             >
               <span> e-Statements</span> <span>{getButtonContent(2)}</span>
-            </button>
-            <div
+            </button> */}
+            {/* <div
               className="content"
               style={{
                 maxHeight: `${contentHeights[2]}px`,
@@ -144,10 +156,7 @@ function BankaccountSidebar() {
               {" "}
               <Link to="/user/account" className={isActiveLink("") ? "bank_account_sidebar_link_tag mt-1" : "mt-1"} onClick={stopPropagation}>Bank Accounts</Link>
               <Link to="/user/credit-cards" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Credit Cards</Link>
-              
-              {/* <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag" : ""} onClick={stopPropagation}>Demat</Link> */}
-              {/* <Link to="" className={isActiveLink("") ? "bank_account_sidebar_link_tag mb-1" : "mb-1"} onClick={stopPropagation}>PPF Accounts</Link> */}
-            </div>
+            </div> */}
 
             {/* <button
               type="button"

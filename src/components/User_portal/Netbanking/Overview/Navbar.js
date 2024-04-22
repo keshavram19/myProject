@@ -1,134 +1,177 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
-
+import apiList from '../../../../lib/apiList';
+import { format } from 'date-fns';
+import banklogo from '../../../../Images/banklogo.png';
 
 const Navbar = () => {
 
+    const [customerDetails, setCustomerDetails] = useState({
+        prefix: '',
+        firstname: '',
+        lastname: ''
+    });
+    const [activeItem, setActiveItem] = useState(null);
+
+    let loginToekn = sessionStorage.getItem('loginToken');
     let navigate = useNavigate()
+
     const handleSessionTimeOut = () => {
         sessionStorage.removeItem('loginToken')
         sessionStorage.removeItem('expireTime')
         navigate('/netbanking-personal-login')
     };
 
+    useEffect(() => {
+        customerData()
+    }, []);
+    const customerData = async () => {
+        const options = {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${loginToekn}`
+            }
+        }
+
+        try {
+            const response = await fetch(apiList.customerDetails, options);
+            if (response.ok) {
+                const data = await response.json();
+                setCustomerDetails(data.user);
+            }
+            else {
+                console.log(response);
+            }
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+    };
+  
+    const formatedDate = format(new Date(), 'MMM dd yyyy, h:mm:ss a');
+
+    const handleClick = (index) => {
+        setActiveItem(index)
+    }
+    
+
+    {/* <Link to="" className='listItems1'>Pockets</Link> */ }
+    {/* <Link to="" className='listItems1'>PPF Accounts</Link> */ }
+    {/* <Link to="" className='listItems1'>SSy Accounts</Link> */ }
+    {/* <Link to="" className='listItems1'>iFinance</Link> */ }
+    {/* <Link to="/user/account/iwish-deposits" className='listItems1'>iWish Goals</Link> */ }
+
+    {/* <Link to="" className='listItems1'>Recharge</Link> */ }
+    {/* <Link to="" className='listItems1'>Favourites</Link> */ }
+
+    {/* <Link to="" className='listItems1'>Manage Subscription</Link> */ }
+
+    {/* <Link to="" className='listItems1'>Invest Online</Link> */ }
+    {/* <Link to="" className='listItems1'>Buy Mutual Funds</Link> */ }
+    {/* <Link to="" className='listItems1'>PPF Accounts</Link> */ }
+    {/* <Link to="" className='listItems1'>SSY Accounts</Link> */ }
+    {/* <Link to="" className='listItems1'>Retirement Journey</Link> */ }
+    {/* <Link to="" className='listItems1'>PMJJBY Scheme</Link> */ }
+
+    {/* <Link to="" className='listItems1'>Offers Near You</Link> */ }
+    {/* <Link to="" className='listItems1'>Campus Power</Link> */ }
+
     return (
-        <div>
-            <nav className='afternav fixed-top'>
-                <ul>
-                    <li className="dropdown">
-                        <Link to="/user/overview" className='navhead'>OVERVIEW</Link> <i style={{ fontSize: "12px", paddingRight: "10px", color: 'white' }} class="fa-solid fa-caret-down"></i>
-                        <div className="dropdown-content" style={{ width: "max-content" }}>
+        <div style={{marginBottom: '160px'}}>
+           
+            <nav className='afternav fixed-top row'>
+
+                <div className='col-3'>
+                    <img src={banklogo} style={{width: '200px'}}></img>
+                </div>
+
+                <div className='d-flex flex-column col-9'>
+                    <div className='d-flex align-items-center justify-content-between'>
+                        <div className='navbar_user_data'>
+                            Welcome, {customerDetails.prefix} {customerDetails.firstname} {customerDetails.lastname}
+                        </div>
+
+                        <div className='d-flex'>
                             <div>
-                                <Link to="/user/overview" className='listItems1'>My View</Link>
-                                <Link to="/user/accountsummary/viewsummary" className='listItems1'>Account Summary</Link>
-                                <Link to="/user/viewprofile" className='listItems1'>Personal Details</Link>
-                                <Link to="/user/profile/financialjourney" className='listItems1'>Financial Journey</Link>
+                                <Link to='/user/profile/changepassword' className='navbar_links' onClick={ () => handleClick(0)}>
+                                    Change Password
+                                </Link>
                             </div>
-                        </div>
-                    </li>
-                    <li className="dropdown">
-                        <Link to="" className='navhead'>BANK ACCOUNTS</Link> <i style={{ fontSize: "12px", paddingRight: "10px", color: 'white' }} class="fa-solid fa-caret-down"></i>
-                        <div className="dropdown-content" style={{ width: "max-content" }}>
+                            <div className='mx-3'>
+                                <Link to='/user/viewprofile' className='navbar_links' onClick={ () => handleClick(0)}>
+                                    User Profile
+                                </Link>
+                            </div>
                             <div>
-                                <Link to="/user/account" className='listItems1'>Accounts</Link>
-                                {/* <Link to="" className='listItems1'>Pockets</Link> */}
-                                <Link to="/user/account/paylater" className='listItems1'>PayLater</Link>
-                                {/* <Link to="" className='listItems1'>PPF Accounts</Link> */}
-                                {/* <Link to="" className='listItems1'>SSy Accounts</Link> */}
-                                <Link to="/user/account/e-statement" className='listItems1'>e-Statements and accounts</Link>
-                                {/* <Link to="" className='listItems1'>iFinance</Link> */}
-                                <Link to="/user/account/fixed-deposits" className='listItems1'>Deposits</Link>
-                                {/* <Link to="/user/account/iwish-deposits" className='listItems1'>iWish Goals</Link> */}
+                                <button type='button' className='logout_button' onClick={handleSessionTimeOut}>
+                                    Logout
+                                </button>
                             </div>
                         </div>
-                    </li>
-                    <li className="dropdown"><Link to="" className='navhead'>PAYMENTS & TRANSFER</Link> <i style={{ fontSize: "12px", paddingRight: "10px", color: 'white' }} class="fa-solid fa-caret-down"></i>
-                        <div className="dropdown-content" style={{ width: "max-content" }}>
-                            <div >
-                                <Link to="/user/account/paybills" className='listItems1'>Pay Bills</Link>
-                                {/* <Link to="" className='listItems1'>Recharge</Link> */}
-                                <Link to="/user/fundtransfer/bill-recharge" className='listItems1'>Buy/Recharge fastag</Link>
-                                <Link to="/user/fundtransfer/quickfundtransfer" className='listItems1'>Fund Transfer</Link>
-                                <Link to="/user/fundtransfer/inward-remitance" className='listItems1'>Inward Remittance</Link>
-                                <Link to="/user/account/statement" className='listItems1'>My Transcations</Link>
-                                <Link to="/user/fundtransfer/manage-payees" className='listItems1'>Manage Payees</Link>
-                                {/* <Link to="" className='listItems1'>Favourites</Link> */}
-                                <Link to="/user/fundtransfer/tax-center" className='listItems1'>Tax Centre</Link>
-
-
+                    </div>
+                    <div><p className='navbar_last_login_time'>Last Logged In: {formatedDate}</p></div>
+                    <div className='mt-2'>
+                        <div className='d-flex justify-content-between align-items-center'>
+                            <div className={activeItem === 0 ? 'active_navItem' : ''}>
+                                <Link to="/user/accountsummary/viewsummary" className='navhead' onClick={ () => handleClick(0)}>
+                                    OVERVIEW
+                                </Link>
                             </div>
-
-
-                        </div>
-                    </li>
-                    <li className="dropdown"><Link to="/user/credit-cards" className='navhead'>CARDS & LOANS</Link> <i style={{ fontSize: "12px", paddingRight: "10px", color: 'white' }} class="fa-solid fa-caret-down"></i>
-                        <div className="dropdown-content" style={{ width: "max-content" }}>
-                            <div>
-
-                                <Link to="/user/credit-cards" className='listItems1'>Credit cards</Link>
-                                <Link to="/user/account/debit-atm-card" className='listItems1'>Debit/ATM Card</Link>
-                                <Link to="/user/forexcards" className='listItems1'>Forex & Prepaid Cards</Link>
-                                <Link to="/user/prepaidcards" className='listItems1'>Prepaid Cards</Link>
-                                <Link to="/user/account/bank-rewardspoints" className='listItems1'>Bank Rewards</Link>
-                                {/* <Link to="" className='listItems1'>Manage Subscription</Link> */}
-
-
-                                <Link to="/user/loanaccounts" className='listItems1'>Loans</Link>
-                                <Link to="/user/applyonline" className='listItems1'>Apply Online</Link>
-
+                            <div className={activeItem === 1 ? 'active_navItem' : ''}>
+                                <Link to="/user/account" className='navhead' onClick={ () => handleClick(1)}>
+                                    BANK ACCOUNTS
+                                </Link>
                             </div>
-
-
-                        </div>
-                    </li>
-                    <li className="dropdown">
-                        <Link to="" className='navhead'>INVESTMENTS & INSURANCE</Link> <i style={{ fontSize: "12px", paddingRight: "10px", color: 'white' }} class="fa-solid fa-caret-down"></i>
-                        <div className="dropdown-content" style={{ width: "max-content" }}>
-                            <div >
-
-                                {/* <Link to="" className='listItems1'>Invest Online</Link> */}
-                                {/* <Link to="" className='listItems1'>Buy Mutual Funds</Link> */}
-                                <Link to="/user/demataccount" className='listItems1'>Demat</Link>
-                                <Link to="/user/nps" className='listItems1'>National Pension System</Link>
-                                {/* <Link to="" className='listItems1'>PPF Accounts</Link> */}
-                                {/* <Link to="" className='listItems1'>SSY Accounts</Link> */}
-                                <Link to="user/guranteedpensionplan" className='listItems1'>Guaranteed Pension Plan</Link>
-                                {/* <Link to="" className='listItems1'>Retirement Journey</Link> */}
-
-                                <Link to="/user/termlifeinsurance" className='listItems1'>Term Life Insurance</Link>
-                                <Link to="/user/cancercover" className='listItems1'>Cancer Cover</Link>
-                                <Link to="/user/generalinsurnace" className='listItems1'>General Insurance</Link>
-                                {/* <Link to="" className='listItems1'>PMJJBY Scheme</Link> */}
-
+                            <div className={activeItem === 2 ? 'active_navItem' : ''}>
+                                <Link to="/user/fundtransfer/mypayee" className='navhead' onClick={ () => handleClick(2)}>
+                                    PAYMENTS & TRANSFER
+                                </Link>
                             </div>
-
-
-                        </div>
-                    </li>
-                    <li className="dropdown">
-                        <Link to="" className='navhead'>CUSTOMER SERVICE</Link> <i style={{ fontSize: "12px", paddingRight: "10px", color: 'white' }} class="fa-solid fa-caret-down"></i>
-                        <div className="dropdown-content" style={{ width: "max-content" }}>
-                            <div >
-                                <Link to="/user/customerservice/servicerequests" className='listItems1'>Service Requests</Link>
-                                <Link to="/user/customerservice/mymailbox" className='listItems1'>My Mailbox</Link>
-                                <Link to="/user/customerservice/elocker" className='listItems1'>e-Locker</Link>
-                                <Link to="/user/customerservice/taxcenter" className='listItems1'>Tax Center</Link>
-                                {/* <Link to="" className='listItems1'>Offers Near You</Link> */}
-                                {/* <Link to="" className='listItems1'>Campus Power</Link> */}
-
+                            <div className={activeItem === 3 ? 'active_navItem' : ''}>
+                                <Link to="/user/credit-cards" className='navhead' onClick={ () => handleClick(3)}>CARDS & LOANS</Link>
+                                <div className="dropdown-content" style={{ width: "max-content" }}>
+                                    <div>
+                                        <Link to="/user/credit-cards" className='listItems1'>Credit cards</Link>
+                                        <Link to="/user/account/debit-atm-card" className='listItems1'>Debit/ATM Card</Link>
+                                        <Link to="/user/forexcards" className='listItems1'>Forex & Prepaid Cards</Link>
+                                        <Link to="/user/prepaidcards" className='listItems1'>Prepaid Cards</Link>
+                                        <Link to="/user/account/bank-rewardspoints" className='listItems1'>Bank Rewards</Link>
+                                        <Link to="/user/loanaccounts" className='listItems1'>Loans</Link>
+                                        <Link to="/user/applyonline" className='listItems1'>Apply Online</Link>
+                                    </div>
+                                </div>
                             </div>
-
-
+                            <div className={activeItem === 4 ? 'active_navItem' : ''}>
+                                <Link to="/user/demataccount" className='navhead' onClick={ ()=> handleClick(4)}>INVESTMENTS & INSURANCE</Link>
+                                <div className="dropdown-content" style={{ width: "max-content" }}>
+                                    <div>
+                                        <Link to="/user/demataccount" className='listItems1'>Demat</Link>
+                                        <Link to="/user/nps" className='listItems1'>National Pension System</Link>
+                                        <Link to="user/guranteedpensionplan" className='listItems1'>Guaranteed Pension Plan</Link>
+                                        <Link to="/user/termlifeinsurance" className='listItems1'>Term Life Insurance</Link>
+                                        <Link to="/user/cancercover" className='listItems1'>Cancer Cover</Link>
+                                        <Link to="/user/generalinsurnace" className='listItems1'>General Insurance</Link>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={activeItem === 5 ? 'active_navItem' : ''}>
+                                <Link to="/user/customerservice/servicerequests" className='navhead' onClick={ ()=> handleClick(5)}>CUSTOMER SERVICE</Link>
+                                <div className="dropdown-content" style={{ width: "max-content" }}>
+                                    <div>
+                                        <Link to="/user/customerservice/servicerequests" className='listItems1'>Service Requests</Link>
+                                        <Link to="/user/customerservice/mymailbox" className='listItems1'>My Mailbox</Link>
+                                        <Link to="/user/customerservice/elocker" className='listItems1'>e-Locker</Link>
+                                        <Link to="/user/customerservice/taxcenter" className='listItems1'>Tax Center</Link>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </li>
-                    <li>
-                        <button type='button' className='logout_button' onClick={handleSessionTimeOut}>
-                            Logout
-                        </button>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </nav>
+           
         </div>
     );
 };

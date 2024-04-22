@@ -43,10 +43,6 @@ const Accounts = ({withinViewSummaryPage }) => {
         }
     }, [navigate]);
 
-    // const expiredTime = sessionStorage.getItem('expireTime');
-    // console.log(new Date().getTime());
-    // console.log(parseInt(expiredTime, 10));
-
     const accountStatement = () => {
         if (viewAccStatement === 'true') {
             setViewAccStatement('false')
