@@ -157,7 +157,7 @@ const handleMailId = (event) => {
                 <h4  className="change_password_heading4"> Please Confirm CustomerID And Password</h4>
 
                 <p className="d-flex align-items-center">           
-                  <div className="change_password_divs" style={{ fontSize: "16px" }}>customerID </div>
+                  <div className="change_password_divs" style={{ fontSize: "16px" }}>CustomerID </div>
                   <input className="form-control change_password_input w-25"  onChange={handleCustomerID}
                 value={bankCustomerID} type="text" ></input>
                 </p>

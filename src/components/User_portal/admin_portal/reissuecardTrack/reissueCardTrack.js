@@ -44,22 +44,10 @@ const ReissueCardTable = () => {
   }, []);
 
   const onViewClick = (user) => {
-    console.log('Viewing user:', user);
     navigate(`/admin/reissuecardGenerateorReject?userId=${user._id}`);
   };
 
-  // const getStatus = (user) => {
-  //   if (localStorage.getItem('generatedUsers')) {
-  //     const generatedUsers = JSON.parse(localStorage.getItem('generatedUsers'));
-  //     const generatedUser = generatedUsers.find((u) => u._id === user._id);
-  //     if (generatedUser && generatedUser.userDebitCardDetails) {
-  //       return 'generated';
-  //     }
-  //   }
-  //   return 'inprogress';
-  // };
-
-
+ 
 
   return (
 

@@ -5,13 +5,12 @@ import axios from "axios";
 import apiList from "../../../../lib/apiList";
 import AdminSidebar from "../admin_sidebar/AdminSidebar";
 import { isAuthenticated, handleTokenExpiration } from "../../../ProtectedRoute/authUtils";
-// import { adminToken } from "../../../../../../Royal_Islamic_Bank_Server/middleware/AdminToken";
-
+  
 const RequestedDatalist = () => {
   const [requestedDatalist, setRequestedDataList] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
-
+ 
 
   useEffect(() => {
     // Redirect to admin login if URL is manipulated
@@ -58,18 +57,23 @@ const RequestedDatalist = () => {
   const getRequestedDetailslist = async (req, res) => {
     
     try {
-      const token = sessionStorage.getItem('adminloginToken');
-      const response = await axios.get(apiList.getuserrequesteddetails, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
+      // const token = sessionStorage.getItem('adminloginToken');
+      // console.log('Token:', token); // Log token to verify
+
+      // const response = await axios.get(apiList.getuserrequesteddetails );
+      const response = await axios.get(`${apiList.getuserrequesteddetails}`);
+
+      // {
+      //   headers: {
+      //     Authorization: `Bearer ${token}`,
+      //     'Content-Type': 'application/json'
+      //   }
+      // });
       const filteredData = response.data.filter(
         (customer) => !customer.accountNumber || !customer.mobilenumber
       );
       setRequestedDataList(filteredData);
-      console.log(filteredData);
+       console.log(filteredData);
     } catch (err) {
       console.log("Error in getting requested details list", err);
     }
@@ -80,9 +84,9 @@ const RequestedDatalist = () => {
   };
 
   useEffect(() => {
-    getRequestedDetailslist();
-  }, []);
-
+    getRequestedDetailslist( );
+  }, [ ]);
+   
   return (
     <div>
        {isAuthenticated() ? (

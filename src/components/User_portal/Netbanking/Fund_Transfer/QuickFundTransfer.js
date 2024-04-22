@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './FundTransfer.css';
 import PaymentSidebar from "../Sidebar/PaymentsAndTransferSidebar";
 import { useNavigate } from "react-router-dom";
@@ -85,7 +87,6 @@ const QuickFundTransfer = () => {
 
     const sendFormDataToServer = async () => {
         try {
-            // Check if there are recent transactions matching the current date
             const today = new Date();
             const todayFormatted = today.toLocaleDateString('en-GB', {
                 day: '2-digit',
@@ -95,24 +96,14 @@ const QuickFundTransfer = () => {
             
             const transactionsToday = recentTransactions.filter(transaction => transaction.date === todayFormatted);
             
-            // Calculate the total amount transferred today
             const totalAmountTransferredToday = transactionsToday.reduce((total, transaction) => total + transaction.withdrawal, 0);
-            
-            // Check if total amount exceeds or equals 1,00,000
+
             if (totalAmountTransferredToday >= 100000) {
-                // If transaction limit exceeded, find the last transaction time
                 const lastTransaction = transactionsToday[transactionsToday.length - 1];
                 const lastTransactionTime = new Date(lastTransaction.date);
-                
-                // Add 24 hours to the last transaction time
+
                 const nextTransactionTime = new Date(lastTransactionTime.getTime() + (24 * 60 * 60 * 1000));
 
-                console.log(nextTransactionTime)
-                console.log(nextTransactionTime)
-
-                console.log(today)
-                
-                // Navigate to the OTP page only if the current time is after the next transaction time
                 if (today >= nextTransactionTime) {
                     const otpResponse = await axios.post(
                         `${apiList.createVerificationCode}`,
@@ -128,7 +119,16 @@ const QuickFundTransfer = () => {
                         }
                     );
         
-                    alert("OTP generated successfully");
+                    toast.success("OTP generated successfully", {
+                        position: "top-center",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored"
+                    });
         
                     navigate('/user/fundtransfer/quickfundtransfer-otp-page', { state: formData });
         
@@ -151,7 +151,16 @@ const QuickFundTransfer = () => {
                     }
                 );
     
-                alert("OTP generated successfully");
+                toast.success("OTP generated successfully", {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored"
+                });
     
                 navigate('/user/fundtransfer/quickfundtransfer-otp-page', { state: formData });
     
@@ -159,6 +168,16 @@ const QuickFundTransfer = () => {
             }
         } catch (error) {
             console.error('Error:', error);
+            toast.error("An error occurred. Please try again later.", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored"
+            });
         }
     };
     
@@ -174,23 +193,52 @@ const QuickFundTransfer = () => {
     const handleFormSubmit = () => {
         const toAccountNumber = document.getElementById('toAccountNumber').value.trim();
         const confirmAccountNumber = document.getElementById('confirmAccountNumber').value.trim();
+        const payeeName = document.getElementById('payeeName').value.trim();
+        const amount = document.getElementById('amount').value.trim();
     
-        if (toAccountNumber === confirmAccountNumber) {
-            const updatedFormData = {
-                transferType: document.getElementById('royal').checked
-                    ? 'To Royal Islamic Bank Account number'
-                    : 'To Other Bank Account(using IMPS)',
-                transferForm: selectedAccount,
-                toAccountNumber: toAccountNumber,
-                confirmAccountNumber: confirmAccountNumber,
-                payeeName: document.getElementById('payeeName').value,
-                amount: parseInt(document.getElementById('amount').value, 10), 
-                remarks: document.getElementById('remarks').value,
-            };
-            setFormData(updatedFormData);
-        } else {
-            alert("Error: To Account Number and Confirm Account Number do not match.");
+        // Check if all required fields are filled
+        if (toAccountNumber === '' || confirmAccountNumber === '' || payeeName === '' || amount === '') {
+            toast.error("Please fill in all required fields.", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored"
+            });
+            return;
         }
+    
+        if (toAccountNumber !== confirmAccountNumber) {
+            toast.error("Error: To Account Number and Confirm Account Number do not match.", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored"
+            });
+            return;
+        }
+    
+        const updatedFormData = {
+            transferType: document.getElementById('royal').checked
+                ? 'To Royal Islamic Bank Account number'
+                : 'To Other Bank Account(using IMPS)',
+            transferForm: selectedAccount,
+            toAccountNumber: toAccountNumber,
+            confirmAccountNumber: confirmAccountNumber,
+            payeeName: payeeName,
+            amount: parseInt(amount, 10), 
+            remarks: document.getElementById('remarks').value,
+        };
+        setFormData(updatedFormData, () => {
+            sendFormDataToServer();
+        });
     };
     
 
@@ -199,19 +247,18 @@ const QuickFundTransfer = () => {
     };
 
     return (
-           <div className='card-details-container container-fluid' style={{ marginTop: "90px" }}>
+        <div className='card-details-container container-fluid' style={{ marginTop: "90px" }}>
+            <ToastContainer /> {/* Toast container */}
             <div className='card-details-header'></div>
             <div className='row'>
                 <div className="col-3">
                     <PaymentSidebar />
                 </div>
-                <div className='col-9 p-3 quickfund_transfer_note'>
-                    <div className=" quickfund_transfer_node">
-                        <h4 className="p-3">QuickFundTransfer</h4>
-                    </div>
-                    <div className="card p-3">
-                        <div className=" quickfund_transfer_code">
-                            <h5>Enter Transaction Details</h5>
+                <div className='col-9 p-0 card quickfund_transfer_note'>
+                    <h4 className="p-3 bg-secondary text-light mx-0">QuickFundTransfer</h4>
+                    <div className="p-3">
+                        <div className="quickfund_transfer_code bg-light">
+                            <h5 className="mt-3  text-secondary">Enter Transaction Details</h5>
                         </div>
                         <div className="p-3 d-flex ">
                             <div className="sms">
@@ -222,38 +269,34 @@ const QuickFundTransfer = () => {
                                     checked={selectedTransferType === 'royal'}
                                     onChange={handleTransferTypeChange}
                                 />
-                                <label htmlFor="royal" className="ml-2"><p>To Royal Islamic Bank Account number</p></label>
+                                <label htmlFor="royal" className="ml-2 text-secondary"><p>To Royal Islamic Bank Account number</p></label>
                             </div>
                             <div className="Email ml-3">
                                 <input
                                     type="radio"
                                     id="other"
                                     value="other"
-                                       checked={selectedTransferType === 'other'}
+                                    checked={selectedTransferType === 'other'}
                                     onChange={handleTransferTypeChange}
                                 />
-                                <label htmlFor="other" className="ml-2"><p>To Other Bank Account(using IMPS)</p></label>
+                                <label htmlFor="other" className="ml-2 text-secondary"><p>To Other Bank Account(using IMPS)</p></label>
                             </div>
                         </div>
 
                         <div className="row ">
                             <div className="col-sm-4">
-
-                                <label htmlFor="text" className="d-flex">Transaction from<p className="quick_fund_tranfer_p">*</p></label>
-
-                                
-
+                                <label htmlFor="text" className="d-flex text-secondary">Transaction from<p className="quick_fund_tranfer_p text-danger">*</p></label>
                                 <select
-                                    className="form-control"
+                                    className="form-control text-secondary"
                                     value={selectedAccount}
                                     onChange={handleAccountChange}
                                 >
                                     <option value="">Select Account Number</option>
                                     {userDetails.map((account, index) => (
-                                                <option key={index} value={account.accountNumber}>
-                                                    {account.accountNumber}
-                                                </option>
-                                            ))}
+                                        <option key={index} value={account.accountNumber}>
+                                            {account.accountNumber}
+                                        </option>
+                                    ))}
                                 </select>
                                 <p className="quick_fund_transfer_paragraph text-danger">Total Available amount is {userDetails.length > 0 && selectedAccount !== '' && (
                                     <p className="ml-1">
@@ -263,33 +306,29 @@ const QuickFundTransfer = () => {
                                 </p>
                             </div>
                             <div className="col-sm-4">
-
-                                <label htmlFor="text" className="d-flex">To Account Number <p className="quick_fund_tranfer_p">*</p></label>
+                                <label htmlFor="text" className="d-flex text-secondary">To Account Number <p className="text-danger">*</p></label>
                                 <input type="text" className="form-control" id="toAccountNumber" />
                             </div>
                             <div className="col-sm-4">
-                                <label htmlFor="text" className="d-flex">Confirm Account Number <p className="quick_fund_tranfer_p">*</p></label>
-
+                                <label htmlFor="text" className="d-flex text-secondary">Confirm Account Number <p className="text-danger">*</p></label>
                                 <input type="text" className="form-control" id="confirmAccountNumber" />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-sm-4">
-
-                                <label htmlFor="text" className="d-flex">Payee Name <p className="quick_fund_tranfer_p">*</p></label>
+                                <label htmlFor="text" className="d-flex text-secondary">Payee Name <p className="text-danger">*</p></label>
                                 <input type="text" className="form-control" id="payeeName" />
                             </div>
                             <div className="col-sm-4">
-                                <label htmlFor="text" className="d-flex">Amount <p className="quick_fund_tranfer_p">*</p></label>
+                                <label htmlFor="text" className="d-flex text-secondary">Amount <p className="text-danger">*</p></label>
                                 <input type="text" className="form-control" id="amount" />
                             </div>
                             <div className="col-sm-4">
-                                <label htmlFor="text" className="d-flex">Remarks(optional) <p className="quick_fund_tranfer_p">*</p></label>
-
+                                <label htmlFor="text" className="d-flex text-secondary">Remarks(optional) <p className="text-danger">*</p></label>
                                 <select
                                     name=""
                                     id="remarks"
-                                    className="form-control"
+                                    className="form-control text-secondary"
                                     value={formData.remarks ? { label: formData.remarks, value: formData.remarks } : null}
                                     onChange={(selectedOption) => setFormData((prevFormData) => ({ ...prevFormData, remarks: selectedOption.label }))}
                                 >
@@ -304,12 +343,12 @@ const QuickFundTransfer = () => {
                         </div>
 
                         <div className="d-flex mb-3">
-                            <button type="button" className="ml-3 mt-3  quickfund_transfer_turn">Back</button>
-                            <button type="submit" className="ml-5 mt-3  quickfund_transfer_turn" onClick={handleFormSubmit}>Proceed to Pay</button>
+                            <button type="submit" className="mt-3 btn btn-outline-secondary " onClick={handleFormSubmit}>Proceed to Pay</button>
                         </div>
                     </div>
-                    <div className="card p-3">
-                        <h6>Notes:</h6>
+                    <hr/>
+                    <div className="text-secondary quick_fund_tranfer_notes p-3">
+                        <p>Notes:</p>
                         <ol>
                             <li>As per the RBI circular dated Oct 14, 2010, transfer of funds through electronic mode will be executed only on the basis of the account number of the beneficiary provided while initiating the transaction, name will not be considered as a criterion for providing credit. Kindly ensure that you enter the correct beneficiary account number</li>
                             <li>The Funds Transfer limit per transaction is Rs 25,000</li>

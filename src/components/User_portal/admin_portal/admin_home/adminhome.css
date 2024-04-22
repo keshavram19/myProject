@@ -5,7 +5,10 @@
   outline: 0;
   box-shadow: none !important;
   font-size: small;
+ 
+
 }
+
 .accounts_admin_home .form-control:placeholder-shown {
   color: #495057;
   background-color: #fff;
@@ -160,7 +163,6 @@
   width: 100%;  */
  font-size: 13px;
  color: #383838;
- 
 
  box-shadow: none;
 }

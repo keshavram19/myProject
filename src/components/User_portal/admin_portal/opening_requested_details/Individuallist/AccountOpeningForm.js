@@ -123,16 +123,19 @@ export default function IndividualDatalist() {
           <div className="col-md-6 col-sm-12 col-12">
             <div className="card">
               <h6>
-                Mobile Number
+                {/* Mobile Number */}
+                Aadhar Number
                 {/* <span style={{ color: "red", paddingLeft: "3px" }}>*</span> */}
               </h6>
 
               <input
                 type="text"
                 className="form-control account_opening_form_input"
-                placeholder="Enter Your Mobile Number"
+                placeholder="Enter Your Aadhar Number"
                 required
-                value={individualRequesteddata.mobilenumber}
+                // value={individualRequesteddata.mobilenumber}
+                  value={individualRequesteddata.aadharnumber}
+
  />
             </div>
           </div>
@@ -234,7 +237,7 @@ export default function IndividualDatalist() {
                     <span className="pl-2">Savings</span>
                   </label>
                 </div>
-                <div className="col-3">
+                {/* <div className="col-3">
                   <label
                     htmlFor="saving-max"
                     className="account_Opening_profile_checkbox_label"
@@ -251,26 +254,26 @@ export default function IndividualDatalist() {
                     />
                     <span className="pl-2">Savings Max</span>
                   </label>
-                </div>
+                </div> */}
                 <div className="col-3">
                   <label
-                    htmlFor="saving-salary"
+                    htmlFor="salary"
                     className="account_Opening_profile_checkbox_label"
                   >
                     <input
                       type="radio"
-                      id="saving-salary"
+                      id="salary"
                       className="account_Opening_profile_checkbox_input"
                       name="openaccount"
-                      value="savings Salary"
+                      value="Salary"
                       checked={
-                        individualRequesteddata.openaccount === "savings Salary"
+                        individualRequesteddata.openaccount === "Salary"
                       }
                     />
-                    <span className="pl-2">Savings Salary</span>
+                    <span className="pl-2">Salary</span>
                   </label>
                 </div>
-                <div className="col-3">
+                {/* <div className="col-3">
                   <label
                     htmlFor="reimbursement"
                     className="account_Opening_profile_checkbox_label"
@@ -287,10 +290,10 @@ export default function IndividualDatalist() {
                     />
                     <span className="pl-2">Reimbursement</span>
                   </label>
-                </div>
+                </div> */}
               </div>
 
-              <div className="row">
+              {/* <div className="row">
                 <div className="col-3">
                   <label
                     htmlFor="current"
@@ -361,8 +364,8 @@ export default function IndividualDatalist() {
                     <span className="pl-2">KGC SB&CA</span>
                   </label>
                 </div>
-              </div>
-              <div className="row">
+              </div> */}
+              {/* <div className="row">
                 <div className="col-3">
                   <label
                     htmlFor="fd"
@@ -413,11 +416,11 @@ export default function IndividualDatalist() {
                     <span className="pl-2">PPF A/C</span>
                   </label>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
-          <div className="row mt-5">
+          {/* <div className="row mt-5">
             <div className="col-2">
               <label className="mb-0">Operating Instruction</label>
             </div>
@@ -518,10 +521,12 @@ export default function IndividualDatalist() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div>
-            <h5 className="mt-5">Personal Details - Applicant 1 :-</h5>
+            <h5 className="mt-5">Personal Details
+             {/* - Applicant 1 :- */}
+             </h5>
             <div className="row mt-3">
               <div className="col-4">
                 <label className="mb-0">Prefix : </label>
@@ -561,7 +566,7 @@ export default function IndividualDatalist() {
             </div>
 
             <div className="row mt-3">
-              <div className="col-4">
+              {/* <div className="col-4">
                 <label className="mb-0">Aadhar Number : </label>
                 <input
                   type="name"
@@ -570,7 +575,7 @@ export default function IndividualDatalist() {
                   name="aadharnumber"
                   value={individualRequesteddata.aadharnumber}
                 />
-              </div>
+              </div> */}
               <div className="col-4">
                 <label className="mb-0">PAN Number : </label>
                 <input
@@ -631,7 +636,7 @@ export default function IndividualDatalist() {
             </div>
           </div>
 
-          <p className="d-flex mt-5" style={{ fontSize: "13px" }}>
+          {/* <p className="d-flex mt-5" style={{ fontSize: "13px" }}>
             Your account is survivor/Jointly/minour account :{" "}
             <input
               type="radio"
@@ -673,9 +678,9 @@ export default function IndividualDatalist() {
             >
               NO
             </label>
-          </p>
+          </p> */}
 
-          {individualRequesteddata.jointAccountStatus === "yes" && (
+          {/* {individualRequesteddata.jointAccountStatus === "yes" && (
             <div>
               <h5 className="mt-5">Personal Details - Applicant 2 :-</h5>
               <div className="row mt-3">
@@ -801,7 +806,7 @@ export default function IndividualDatalist() {
                 </div>
               </div>
             </div>
-          )}
+          )} */}
         </div>
 
         {/* Add more form fields as needed */}
@@ -1609,7 +1614,10 @@ Bank Branch                </h6>
     <div className="container mt-5">
       <StateProvider>
         <div className="row">
-          <div className="col-12">
+        <div className="col-3">
+          <AdminSidebar />
+        </div>
+          <div className="col-9">
             <Box sx={{ width: "100%" }}>
               <Stepper activeStep={activeStep}>
                 {steps.map((label) => (

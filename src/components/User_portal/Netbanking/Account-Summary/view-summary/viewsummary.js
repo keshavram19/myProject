@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+ 
 import "./viewsummary.css";
+// import "./saiviewsum.css";
 import creditcardimg from "../../../../../Images/credit_card.svg";
 import OverviewSidebar from "../../Sidebar/OverViewSidebar";
 import axios from "axios";
@@ -17,7 +19,7 @@ const Viewsummary = () => {
     ifscCode: "",
   });
 
-  const [selectedOption, setSelectedOption] = useState(""); // Default state is empty
+  const [selectedOption, setSelectedOption] = useState("");
   const [showOutput, setShowOutput] = useState(false);
 
   useEffect(() => {
@@ -38,18 +40,17 @@ const Viewsummary = () => {
   }, []);
 
   useEffect(() => {
-    // Set default value to 'Bank Account' on initial render
+   
     if (!selectedOption) {
       setSelectedOption("Bank Account");
     }
     setShowOutput(selectedOption === selectedOption);
   }, [selectedOption]);
 
-  // Function to handle option change
+
   const handleOptionChange = (option) => {
     setSelectedOption(option);
   };
-
   return (
     <>
       <div className="" style={{ marginTop: "90px" }}>
@@ -63,14 +64,18 @@ const Viewsummary = () => {
                 <div className="">
                   <div className="">
                     <div className="viewSummary">
-                      <h1>View Account Summary</h1>
-                      <p>
+                    <h1>
+                        View Account Summary</h1>
+                
+                        <p className="view_summary_acct_sum_paratager">
                         Access my{" "}
                         <select
                           className="selectSummaryCategory"
                           value={selectedOption}
                           onChange={(e) => handleOptionChange(e.target.value)}
                         >
+                           
+
                           <option value="Bank Account">Bank Account</option>
                           <option value="Deposit Account">
                             Deposit Account
@@ -90,32 +95,34 @@ const Viewsummary = () => {
                           style={{ height: "1px", border: "1px solid #cdcdcd" }}
                         ></div>
                         <div className="viewSummary_total">
-                          <p>Total By Branch</p>
+                          <p className="">Total By Branch</p>
                         </div>
 
-                        <div className="container-fluid">
-                          <div className="row">
+                        <div className="container-fluid  ">
+                          <div className="row ">
                             <div className="col-4 viewSummary_totalAssets">
-                              <p className="">Account Number</p>
+                              <p className=" ">Account Number</p>
                             </div>
                             <div className="col-4 viewSummary_totalAssets">
                               <p className="">Branch Address</p>
                             </div>
-                            <div className="col-4 viewSummary_totalLiabilities">
+                            <div className="col-4 viewSummary_totalAssets">
                               <p className="">IFSC Code</p>
                             </div>
-                            <div className="col-4 viewSummary_totalAssets_value">
+                              
+ 
+                             <div className="col-4 viewSummary_totalAssets_value">
                               <p className="">{userDetails.accountNumber}</p>
                             </div>
-                            <div className="col-4 viewSummary_totalLiabilities_value">
+                            <div className="col-4 viewSummary_totalAssets_value">
                               <p className="">{userDetails.bankBranch}</p>
                             </div>
-                            <div className="col-4 viewSummary_totalLiabilities_value">
+                            <div className="col-4 viewSummary_totalAssets_value">
                               <p className="">{userDetails.ifscCode}</p>
                             </div>
-                          </div>
-                        </div>
-                        <div className="container-fluid">
+                             </div>
+                            </div>
+                          <div className="container-fluid">
                           <div className="row">
                             <div className="col-2 viewSummary_totalAssets">
                               <p className="">All Bank Accounts</p>
@@ -380,42 +387,46 @@ const Viewsummary = () => {
                       </div>
                     )}
 
-{showOutput && selectedOption === "Deposit Account" && (
-  <div>
-    <FixedDeposit withinViewSummaryPage={true} />
-  </div>
-)}
+                    {/* {showOutput && selectedOption === "Deposit Account" && (
+                      <div>
+                        <FixedDeposit withinViewSummaryPage={true} />
+                      </div>
+                    )} */}
+                    {showOutput && selectedOption === "Deposit Account" && (
+                      <div className="content-wrapper1">
+                        <FixedDeposit withinViewSummaryPage={true} />
+                      </div>
+                    )}
 
+                    {showOutput && selectedOption === "Loan Account" && (
+                      <div>
+                        <LoanAccounts withinViewSummaryPage={true} />
+                      </div>
+                    )}
 
-{showOutput && selectedOption === "Loan Account" && (
-  <div>
-    <LoanAccounts withinViewSummaryPage={true} />
-  </div>
-)}
+                    {showOutput && selectedOption === "Credit Card" && (
+                      <div>
+                        <CreditCard withinViewSummaryPage={true} />
+                      </div>
+                    )}
 
-{showOutput && selectedOption === "Credit Card" && (
-  <div>
-    <CreditCard withinViewSummaryPage={true} />
-  </div>
-)}
+                    {/* {showOutput && selectedOption === "E-Statement" && (
+                      <div>
+                        <Estatement withinViewSummaryPage={true} />
+                      </div>
+                    )} */}
+                    {showOutput && selectedOption === "E-Statement" && (
+                      <div className="content-wrapper">
+                        <Estatement withinViewSummaryPage={true} />
+                      </div>
+                    )}
 
-{showOutput && selectedOption === "E-Statement" && (
-  <div>
-    <Estatement withinViewSummaryPage={true} />
-  </div>
-)}             
+                    {showOutput && selectedOption === "Account Summary" && (
+                      <div className="content-wrapper">
+                        <Accounts withinViewSummaryPage={true} />
+                      </div>
+                    )}
 
-{showOutput && selectedOption === "Account Summary" && (
-  <div>
-    <Accounts withinViewSummaryPage={true} />
-  </div>
-)}
-
-
-
-                   
-
-                    
                   </div>
                 </div>
               </section>
@@ -425,6 +436,7 @@ const Viewsummary = () => {
       </div>
     </>
   );
+
 };
 
 export default Viewsummary;
