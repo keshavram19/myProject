@@ -14,13 +14,13 @@ const apiList ={
     getuserrequesteddetails: `${server}/admin/requesteduserdetails/`,
     getReissuecardDetails: `${server}/admin/trackAndReissueCard/`,
     generateReissueCard: `${server}/admin/reissue/`,
+
     checkaadharmail : `${server}/admin/check-register-eligibility`,
-   
-
-    
 
 
+    rejectReissueCard: `${server}/admin/reissue-reject/`,
 
+    generateddebitcard : `${server}/admin/userDebitCardDetails/review/`,
 
     // admin login ends
     // 
@@ -82,6 +82,7 @@ const apiList ={
 
     customerDetails: `${server}/auth/user-account-details`,
 
+    resendOTP :` ${server}/api/resend-otp`,
     changeEmail:` ${server}/api/change-email`,
     UpdateEmailverifyOTP: `${server}/api/otp-verification`,
     sendPdfByEmail : `${server}/api/sendPdfByEmail`,

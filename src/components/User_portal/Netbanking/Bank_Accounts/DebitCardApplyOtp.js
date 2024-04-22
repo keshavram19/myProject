@@ -2,23 +2,22 @@ import React, { useEffect, useState, useRef, createRef } from 'react';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import './Accounts.css';
 import { ToastContainer, toast } from 'react-toastify';
-import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 import apiList from '../../../../lib/apiList';
-import { usePDFData } from '../../../../PDFDataContext.js';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
-const StatementByMail = () => {
+const DebitCardApplyOtp = () => {
     const [authDetails, setAuthDetails] = useState({
         email: ''
     });
     const navigate = useNavigate();
-    const { pdfData } = usePDFData();
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
-    const [timer, setTimer] = useState(60);
     let token = sessionStorage.getItem('loginToken');
     const otpInputsRefs = useRef([]);
+    const { account, card } = useParams();
 
     useEffect(() => {
         getAuthenticatioDetails();
@@ -44,31 +43,6 @@ const StatementByMail = () => {
         }
     };
 
-    useEffect(() => {
-        if (authDetails.email) {
-            sendCodeToGmail();
-        }
-    }, [authDetails.email]);
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setTimer((prevTimer) => {
-                if (prevTimer > 0) {
-                    return prevTimer - 1;
-                } else {
-                    // setButtonsDisabled(false);
-                    return 0;
-                }
-            });
-        }, 1000);
-
-        return () => clearInterval(intervalId);
-    }, []);
-
-    const formatTime = (seconds) => {
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = seconds % 60;
-        return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-    };
 
     const sendCodeToGmail = async () => {
         if (!authDetails || !authDetails.email) {
@@ -141,7 +115,6 @@ const StatementByMail = () => {
         try {
             const response = await fetch(apiList.userAuthVerify, options);
             if (response.status === 200) {
-                const data = await response.json();
                 toast.success('Successfully verified!', {
                     position: "top-center",
                     autoClose: 1000,
@@ -152,7 +125,18 @@ const StatementByMail = () => {
                     progress: undefined,
                     theme: "colored"
                 });
-                await sendPdfByEmail();
+                const res = await axios.post(
+                    apiList.applyDebitCard,
+                    {cardType: card},
+                    {
+                      headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                      }
+                    }
+                  );
+
+                    navigate('/user/account/debit-card-apply/srnrequest')
             } else {
                 const data = await response.json();
                 toast.error('Invalid OTP!', {
@@ -180,53 +164,7 @@ const StatementByMail = () => {
         otpInputsRefs.current = Array(6).fill().map((_, i) => otpInputsRefs.current[i] || createRef());
     }, [otpInputsRefs]);
 
-    const sendPdfByEmail = async () => {
-        try {
-            const url = `${apiList.sendPdfByEmail}`;
-            const email = authDetails.email; 
-            
-        const decodedPdfData = atob(pdfData.split(',')[1]);
-        
-            const headers = {
-                'Content-Type': 'application/json', 
-            };
-        
-            const response = await axios.post(
-                url,
-                { email, pdfData: decodedPdfData },
-                { headers } 
-            );
-        
-            toast.success(response.data.message, {
-                position: "top-center",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                onClose: () => {
-                    navigate('/user/account/statement');
-                }
-            });
-        } catch (error) {
-            console.error('Error sending PDF by email:', error);
-            toast.error('Error sending PDF by email', {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored"
-            });
-        }
-    };
-    
-    
-    
+ 
     
 
 
@@ -259,7 +197,6 @@ const StatementByMail = () => {
                                                     />
                                                 ))}
                                             </div>
-
                                             <div className='text-center d-flex otp_code_resend'>
                                                 <div>Don't receive OTP code?</div>
                                                 <div className='resend_code_text ml-2' onClick={handleResendOTP}>Resend Code</div>
@@ -295,4 +232,4 @@ const StatementByMail = () => {
     )
 };
 
-export default StatementByMail;
+export default DebitCardApplyOtp;

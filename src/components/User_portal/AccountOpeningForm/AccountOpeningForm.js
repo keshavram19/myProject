@@ -512,69 +512,6 @@ onClick={handleCheckButtonClick}>Check</button>
                         </div>
                       </div>
                     )}
-
-                    {/* <div className="modal-header">
-                        <h4 className="modal-title">Enter OTP</h4>
-                        <button
-                          type="button"
-                          className="close"
-                          data-dismiss="modal"
-                        >
-                          &times;
-                        </button>
-                      </div>
-
-                      <div className="modal-body text-center">
-                        <input
-                          type="text"
-                          placeholder="Enter OTP"
-                          value={otp}
-                          onChange={(e) => setOtp(e.target.value)}
-                          className="account_opening_email_otp_modal"
-                        />
-                        <p>
-                          {seconds > 0 ? (
-                            `OTP will expire in: ${seconds} seconds`
-                          ) : (
-                            <p>
-                              OTP has expired{" "}
-                              <button
-                                onClick={resendOTP}
-                                className="account_opening_email_otp_resend_btn"
-                              >
-                                resend
-                              </button>
-                            </p>
-                          )}
-                        </p>
-                        {seconds === 0 && resendButton && (
-                          <button
-                            className="btn btn-primary account_opening_email_otp_resend_btn"
-                            onClick={handleResendLink}
-                          >
-                            Resend OTP
-                          </button>
-                        )}
-                        <Button
-                          variant="primary"
-                          className="account_opening_email_otp_verify_btn"
-                          onClick={handleVerifyOTP}
-                          disabled={isVerified}
-                        >
-                          {isVerified ? "Verified" : "Verify"}
-                        </Button>
-                      </div>
-
-                      <div className="modal-footer">
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-dismiss="modal"
-                          style={{ fontSize: "12px", padding: "3px 10px" }}
-                        >
-                          Close
-                        </button>
-                      </div> */}
                   </div>
                 </div>
               </div>

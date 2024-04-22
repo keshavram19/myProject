@@ -7,11 +7,14 @@ import { Link } from "react-router-dom";
 const Linkaccounts = () => {
   return (
     <div>
-      <section className="container-fluid linkAccounts" style={{marginTop:"90px"}}>
+      <section
+        className="container-fluid linkAccounts"
+        style={{ marginTop: "90px" }}
+      >
         <div className="row">
           <div className="col-3">
             <div className="">
-             <OverviewSidebar />
+              <OverviewSidebar />
             </div>
           </div>
           <div className="col-9 link-accounts">

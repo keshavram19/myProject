@@ -534,11 +534,8 @@
   }
   .quickfund_transfer_code{
   padding: 0px 0px 5px 0px;
-  border: 1px solid #ccc;
   border-radius: 10px;
   padding-bottom: 10px;
-  background-color: #faede2;
-  color: #f18121;
 }
 
 .wire-transaction-container h1 {
@@ -597,12 +594,6 @@ select {
 
 /* Upi transaction starts css*/
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-* {
-  font-family: Poppins;
-}
-
 .upi_transaction_range {
   justify-content: space-around;
   display: flex;
@@ -646,11 +637,6 @@ select {
 /* upi transaction css ends*/
 
 /* /quickfund tranfer starts css/ */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-* {
-  font-family: Poppins;
-}
 
 .quickfund_transfer_code {
 
@@ -658,39 +644,17 @@ select {
 
 }
 
-.quickfund_transfer_node h4 {
-  background-color: #2fb68e;
-  color: #fff;
-}
-
-.quickfund_transfer_turn {
-  color: #2fb68e;
-  border: 1px solid #2fb68e;
-  background-color: transparent;
-  padding: 5px 14px;
-  outline: none;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 10px;
-}
-
-.quickfund_transfer_turn:hover {
-  background-color: #2fb68e;
-  color: #fff;
-  border-radius: 10px;
+.quick_fund_tranfer_notes{
+  font-size: 12px;
 }
 
 .quick_fund_transfer_paragraph {
-  font-size: 15px;
+  font-size: 12px;
   display: flex;
   flex-direction: row;
 
 }
 
-.quick_fund_tranfer_p {
-
-  color: #2fb68e;
-}
 
 /* quickfund transfer ends */
 

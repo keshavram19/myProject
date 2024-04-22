@@ -170,9 +170,8 @@ font-size: 11px;
   margin-top: 1rem;
 }
 
-
-
-
-
-
+.content-wrapper {
+  margin-left: -250px; 
+  padding-right: 30px;
+}
 

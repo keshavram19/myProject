@@ -16,7 +16,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: #2fb68e;
+  background-color: #f4f7f6;
   color: #fff;
   border-bottom: 1px solid #cdc2c2;
   padding: 10px 5px;
@@ -26,20 +26,24 @@
  
   font-size: 18px;
   margin-right: 5px;
+  color: black;
 }
 
 .savings_acct_type_text {
   font-size: 16px;
+  color: black;
 }
 
 .savings_acct_avail_bal {
  
   font-size: 16px;
   margin-right: 5px;
+  color: black;
 }
 
 .savings_acct_avail_bal_text {
   font-size: 16px;
+  color: black;
 }
 
 .savings_account_user_details_cont {
@@ -47,11 +51,12 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 5px;
+  
 }
 
-.savings_acct_user_headings {
- 
-}
+ .savings_acct_user_headings {
+ font-weight: bold;
+} 
 
 .account_statement_view_btn {
   border-radius: 5px;
@@ -158,8 +163,8 @@
 .savings_acct_statement_heading {
   font-size: 16px;
  
-  background-color: #2fb68e;
-  color: #fff;
+  background-color:  #2fb68e;
+  color:black;
   padding: 10px 10px;
   margin-bottom: 10px;
 }
@@ -212,13 +217,14 @@
 }
 
 .period_radio_btn {
-  width: 17px;
-  height: 17px;
-  margin-right: 6px;
+  width: 15px;
+  height: 19px;
+  margin-left: 16px;
 }
 
 .period_from_to {
   width: 50px;
+  margin-left: -330px;
 }
 
 .from_date_period {
@@ -226,6 +232,8 @@
   outline: none;
   border-radius: 5px;
   padding: 3px 10px;
+  margin-left: 140px;
+  width: 250px;
 }
 
 .calender_icon {
@@ -242,14 +250,16 @@
 
 .show_transactions_text {
   width: 190px;
+  margin-left: -8px;
+  
  
 }
 
 .show_all_transa {
-  width: 190px;
+  width: 290px;
   display: flex;
   align-items: center;
-  margin-right: 40px;
+  margin-right: -50px;
 }
 
 .per_page_tarns {
@@ -265,7 +275,7 @@
 
 .page_trans_icon {
   color: #2fb68e;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .transactions_view_btn_cont {
@@ -282,7 +292,7 @@
   font-size: 16px;
 }
 .transaction_statement_option{
-  width: 100px;
+  width: 250px;
 }
 
 /* .transactions_view_btn:hover {
@@ -418,7 +428,7 @@ select.form-control.statement_select_format {
 .savings_acct_user_auth_container_header {
   font-size: 16px;
  
-  background-color: #2fb68e;
+  background-color: #6b757d;
   padding: 10px 20px;
   color: #fff;
 }
@@ -438,6 +448,13 @@ select.form-control.statement_select_format {
   font-size: 16px;
 }
 
+.otp_code_input_boxes{
+  margin-left: 40px;
+}
+.otp_code_resend{
+ margin-left: 40px;
+}
+
 .otp_code_box1,
 .otp_code_box2,
 .otp_code_box3,
@@ -450,8 +467,11 @@ select.form-control.statement_select_format {
   outline: none;
   border-radius: 5px;
   margin: 15px 10px;
-  background-color: #dadada;
+  background-color:#f1f3f5;
+  margin-left: 20px;
   text-align: center;
+  justify-content: center;
+
 }
 
 .otp_code_box1 {
@@ -471,9 +491,9 @@ select.form-control.statement_select_format {
 
 .otp_verify_btn {
   width: 50%;
-  border: 1px solid #2fb68e;
+  border: 1px solid #6b757d;
   outline: none;
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
   /* background: transparent; */
   border-radius: 5px;
@@ -529,7 +549,7 @@ select.form-control.statement_select_format {
 }
 
 .atm_card_details_debit_card h6 {
-  color: #ebca28;
+  color: #808080;
 }
 
 .atm_card_details_debit_card p {
@@ -546,7 +566,7 @@ select.form-control.statement_select_format {
   font-size: 16px;
   border: none;
   cursor: pointer;
-  color: #2fb68e;
+  color: #6b757d;
   background: none;
  
   padding-left: 5px;
@@ -556,9 +576,9 @@ select.form-control.statement_select_format {
   font-size: 16px;
   border: none;
   cursor: pointer;
-  color: #2fb68e;
+  color: #6b757d;
   background-color: transparent;
-  border: 1px solid #2fb68e;
+  border: 1px solid #6b757d;
   border-radius: 20px;
  
   padding: 10px;
@@ -570,20 +590,16 @@ select.form-control.statement_select_format {
   margin: 0;
 }
 
-.atm_card_details_button:hover {
-  border-bottom: 1px solid #2fb68e;
-  border-radius: 5px;
-}
 
 
 .atm_card_details_button_upgrade:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
 .atm_card_details_logo {
-  font-size: 30px;
-  color: #2fb68e;
+  font-size: 20px;
+  color: #6b757d;
 }
 
 /* ATMDetails.css ends */
@@ -596,8 +612,8 @@ select.form-control.statement_select_format {
 }
 
 .genrate_pin_buttons {
-  color: #2fb68e;
-  border: 1px solid #2fb68e;
+  color: #6b757d;
+  border: 1px solid #6b757d;
   background-color: transparent;
   padding: 5px 14px;
   outline: none;
@@ -607,8 +623,8 @@ select.form-control.statement_select_format {
 }
 
 .genrate_pin_submits {
-  color: #2fb68e;
-  border: 1px solid #2fb68e;
+  color: #6b757d;
+  border: 1px solid #6b757d;
   background-color: transparent;
   padding: 5px 14px;
   outline: none;
@@ -619,19 +635,19 @@ select.form-control.statement_select_format {
 }
 
 .genrate_pin_submits:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
   border-radius: 10px;
 }
 
 .genrate_pin_buttons:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
   border-radius: 10px;
 }
 
 .card_details_generate_pin_heading {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
@@ -667,8 +683,8 @@ select.form-control.statement_select_format {
 }
 
 .generate_debit_pin_button {
-  color: #2fb68e;
-  border: 1px solid #2fb68e;
+  color: #6b757d;
+  border: 1px solid #6b757d;
   outline: none;
   align-items: center;
   background-color: none;
@@ -680,7 +696,7 @@ select.form-control.statement_select_format {
 }
 
 .generate_debit_pin_button:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
@@ -728,13 +744,13 @@ select.form-control.statement_select_format {
 }
 
 .card_details_block_card_hotlisting h3 {
-  color: #2fb68e;
+  color: #6b757d;
 }
 
 .card_details_block_card_hotlisting .back {
-  border: 2px solid #2fb68e;
+  border: 2px solid #6b757d;
   border-radius: 4px;
-  color: #2fb68e;
+  color: #6b757d;
   background-color: transparent;
   font-size: 16px;
  
@@ -743,15 +759,15 @@ select.form-control.statement_select_format {
   cursor: pointer;
 }
 .card_details_block_card_hotlisting .back:hover{
-  background:#2fb68e;
+  background:#6b757d;
   color: white;
 }
 
 
 .card_details_block_card_hotlisting .confirm {
-  border: 2px solid #2fb68e;
+  border: 2px solid #6b757d;
   border-radius: 4px;
-  color: #2fb68e;
+  color: #6b757d;
   background-color: transparent;
   font-size: 16px;
  
@@ -762,12 +778,12 @@ select.form-control.statement_select_format {
 
 
 .card_details_block_card_hotlisting .confirm:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
 .card_details_block_card_hotlisting .back:focus {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
@@ -780,7 +796,7 @@ select.form-control.statement_select_format {
 
 .card_details_notes {
   /* font-size: 14px; */
-  color: #7d7d7d;
+  color: #6b757d;
 }
 
 .card_details_block_card_hotlisting .form-control:focus {
@@ -797,23 +813,19 @@ select.form-control.statement_select_format {
 
 /* Reissuecard.css starts */
 
-.reissue_card .card {
-  border-radius: 10px;
- 
-}
 
 .reissue_card .card h6 {
-  color: #2fb68e;
+  color: #6b757d;
  
 }
 
 .reissue_card_heading {
-  color: #2fb68e;
+  color: #6b757d;
 }
 
 .reissue_card_button {
-  color: #2fb68e;
-  border: 1px solid #2fb68e;
+  color: #6b757d;
+  border: 1px solid #6b757d;
   background-color: transparent;
   padding: 5px 35px;
  
@@ -821,7 +833,7 @@ select.form-control.statement_select_format {
 }
 
 .reissue_card_button:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
@@ -860,11 +872,11 @@ select.form-control.statement_select_format {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  border: 7px solid #2fb68e;
+  border: 7px solid #6b757d;
 }
 
 .reissue_card_completed .reissue_card_circle {
-  background-color: #4caf50;
+  background-color: #6b757d;
   border-color: #4caf50;
 }
 
@@ -1258,7 +1270,7 @@ select.form-control.statement_select_format {
 
 
 .pancard .pancard_heading {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
@@ -1277,9 +1289,9 @@ select.form-control.statement_select_format {
 }
 
 .pancard .back_Btn {
-  border: 2px solid #2fb68e;
+  border: 2px solid #6b757d;
   border-radius: 4px;
-  color: #2fb68e;
+  color: #6b757d;
   background-color: transparent;
   font-size: 16px;
  
@@ -1289,15 +1301,15 @@ select.form-control.statement_select_format {
 }
 
 .pancard .back_Btn:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
 .pancard .submit_Btn {
   outline: none;
-  border: 2px solid #2fb68e;
+  border: 2px solid #6b757d;
   border-radius: 4px;
-  color: #2fb68e;
+  color: #6b757d;
   background-color: transparent;
   font-size: 16px;
  
@@ -1307,7 +1319,7 @@ select.form-control.statement_select_format {
 }
 
 .pancard .submit_Btn:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
@@ -3432,9 +3444,9 @@ body {
 /* .fdform_input{
  
 } */
-.fdform_main_Container .form-inline {
+/* .fdform_main_Container .form-inline {
  
-}
+} */
 
 .fdform_input:focus {
   outline: none;

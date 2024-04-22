@@ -387,12 +387,16 @@ const Viewsummary = () => {
                       </div>
                     )}
 
-                    {showOutput && selectedOption === "Deposit Account" && (
+                    {/* {showOutput && selectedOption === "Deposit Account" && (
                       <div>
                         <FixedDeposit withinViewSummaryPage={true} />
                       </div>
+                    )} */}
+                    {showOutput && selectedOption === "Deposit Account" && (
+                      <div className="content-wrapper1">
+                        <FixedDeposit withinViewSummaryPage={true} />
+                      </div>
                     )}
-
 
                     {showOutput && selectedOption === "Loan Account" && (
                       <div>
@@ -406,14 +410,19 @@ const Viewsummary = () => {
                       </div>
                     )}
 
-                    {showOutput && selectedOption === "E-Statement" && (
+                    {/* {showOutput && selectedOption === "E-Statement" && (
                       <div>
+                        <Estatement withinViewSummaryPage={true} />
+                      </div>
+                    )} */}
+                    {showOutput && selectedOption === "E-Statement" && (
+                      <div className="content-wrapper">
                         <Estatement withinViewSummaryPage={true} />
                       </div>
                     )}
 
                     {showOutput && selectedOption === "Account Summary" && (
-                      <div>
+                      <div className="content-wrapper">
                         <Accounts withinViewSummaryPage={true} />
                       </div>
                     )}

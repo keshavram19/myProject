@@ -1614,7 +1614,10 @@ Bank Branch                </h6>
     <div className="container mt-5">
       <StateProvider>
         <div className="row">
-          <div className="col-12">
+        <div className="col-3">
+          <AdminSidebar />
+        </div>
+          <div className="col-9">
             <Box sx={{ width: "100%" }}>
               <Stepper activeStep={activeStep}>
                 {steps.map((label) => (
