@@ -1,4 +1,4 @@
-.user-details-container {
+.generate_reject .user-details-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-.customer-details p {
+.generate_reject .customer-details p {
     background-color: #23e0a8;
     font-weight: 500;
     padding: 10px;
@@ -17,7 +17,7 @@
     border-radius: 5px;
 }
 
-.debit-details p {
+.generate_reject .debit-details p {
     margin-top: 5px;
     background-color: #23e0a8;
     font-weight: 500;
@@ -27,24 +27,24 @@
 }
 
 
-.account_values {
+.generate_reject .account_values {
     display: flex;
     flex-direction: column;
 }
 
-.account_details {
+.generate_reject .account_details {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.account_details label {
+.generate_reject .account_details label {
     font-weight: 500;
     margin-top: 5px;
 }
 
-.account_input {
+.generate_reject .account_input {
     width: 250px;
     margin-bottom: 10px;
     padding: 10px;
@@ -52,24 +52,24 @@
     border-radius: 5px;
 }
 
-.debit_values {
+.generate_reject .debit_values {
     display: flex;
     flex-direction: column;
 }
 
-.debit_details {
+.generate_reject .debit_details {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.debit_details label {
+.generate_reject .debit_details label {
     font-weight: 500;
     margin-top: 5px;
 }
 
-.debitdetails_input {
+.generate_reject .debitdetails_input {
     width: 250px;
     margin-bottom: 10px;
     padding: 10px;
@@ -77,13 +77,23 @@
     border-radius: 5px;
 }
 
-.buttons-container {
-    margin-top: 5px;
+.generate_reject .buttons-container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 
-.reject-button {
+.generate_reject .button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.generate_reject .error-message {
+    color: #198754;
+    font-weight: 400;
+}
+
+.generate_reject .reject-button {
     padding: 6px 12px;
     margin-right: 15px;
     background-color: #ff6347;
@@ -95,11 +105,11 @@
     transition: background-color 0.3s ease;
 }
 
-.reject-button:hover {
+.generate_reject .reject-button:hover {
     background-color: #ff0000;
 }
 
-.generate-button {
+.generate_reject .generate-button {
     padding: 6px 12px;
     margin-right: 10px;
     background-color: #23e0b9;
@@ -112,24 +122,22 @@
     transition: background-color 0.3s ease;
 }
 
-.generate-button:hover {
+.generate_reject .generate-button:hover {
     background-color: #11eeac;
 }
 
 
-.green-status {
+.generate_reject .green-status {
     color: #09eb2f;
     font-weight: 500;
 }
 
-.gray-status {
+.generate_reject .gray-status {
     color: grey;
     font-weight: 500;
 }
 
-
-
-.table-container {
+.generate_reject .table-container {
     width: 100%;
     border-radius: 10px;
     padding: 20px 20px;
@@ -137,28 +145,36 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.table-container table {
+.generate_reject .table-container table {
     width: 100%;
     border-collapse: collapse;
     overflow: hidden;
 }
 
-.table-container th {
+.generate_reject .table-container th {
     background-color: #11eeac;
-    color: #fff;
+    color: #ffffff;
     font-weight: 500;
+    border: 1px solid #2fb68e;
+    padding: 8px;
+    text-align: left;
 }
 
-.table-container td {
-    border: 1px solid #ccc;
+.generate_reject .table-container td {
+    border: 1px solid #2fb68e;
     padding: 8px;
     text-align: left;
     font-weight: 500;
-
 }
 
-.table-container tr:nth-child(even) td {
+.generate_reject .table-container tr:nth-child(even) td {
     background-color: #11eeac;
     font-weight: 500;
+}
 
+.generate_reject .delete_btn {
+    background-color: #a3a2a2;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 2px;
 }

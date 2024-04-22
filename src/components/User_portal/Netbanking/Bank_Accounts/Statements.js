@@ -1,25 +1,25 @@
-import './Accounts.css';
 import React, { useState, useEffect, useRef } from 'react';
+import './Accounts.css';
 import { useNavigate } from 'react-router-dom';
-
 import { IoCaretDownCircleOutline } from "react-icons/io5";
 import { FcCalendar } from "react-icons/fc";
 import { AiFillPrinter } from "react-icons/ai";
-
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import apiList from '../../../../lib/apiList';
 import banklogo from '../../../../Images/banklogo.png';
-
 import { format } from 'date-fns';
 import html2pdf from 'html2pdf.js';
+import { usePDFData } from '../../../../PDFDataContext.js';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const Statements = () => {
-
+    const { pdfData, setPDFData } = usePDFData();
+    const datePickerRef = useRef(null);
+    const datePickerReference = useRef(null);
     const [savingsAccNumber, setAccountNumber] = useState('');
     const [accountType, setAccountType] = useState('');
     const [fromDate, setFromDate] = useState(null);
@@ -52,6 +52,8 @@ const Statements = () => {
     const formatTodayDate = format(new Date(), "dd MMM yyyy");
 
     let token = sessionStorage.getItem('loginToken');
+    const transactionRef = useRef(null);
+    
 
     const navigate = useNavigate();
     const isTokenExpired = () => {
@@ -131,15 +133,16 @@ const Statements = () => {
         }
     };
 
-    let transactionRef = useRef();
-    const handleDownloadTransactions = () => {
+
+    const generatePDF = () => {
+   
         const options = {
             margin: 10,
             filename: 'transactions.pdf',
             image: { type: 'jpeg', quality: 0.98 },
             html2canvas: { scale: 2 }
         };
-
+    
         const bankLogo = `
             <div class='statements_bank_logo_container'>
                 <div>
@@ -147,7 +150,7 @@ const Statements = () => {
                 </div>
             </div>    
         `;
-
+    
         const customerInfo = `
             <div class='customer_info_container'>
                 <div class='customer_account_info'>
@@ -155,64 +158,64 @@ const Statements = () => {
                     <div class='customer_details_heading_semicol'>:</div>
                     <div>${accountTypeDetails.firstname} ${accountTypeDetails.lastname}</div>
                 </div>
-
+    
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>Address</div>
                     <div class='customer_details_heading_semicol'>:</div>
                     <div>
                         ${customerAddress.flatnumber}, ${customerAddress.buildingname}, ${customerAddress.landmark}, ${customerAddress.city},
-                         ${customerAddress.state}, ${customerAddress.country} ${customerAddress.pincode}
+                        ${customerAddress.state}, ${customerAddress.country} ${customerAddress.pincode}
                     </div>
                 </div>
-
+    
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>Date</div>
                     <div class='customer_details_heading_semicol'>:</div>
                     <div>${formatTodayDate}</div>
                 </div>
-
+    
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>Account Number</div>
                     <div class='customer_details_heading_semicol'>:</div>
                     <div>${accountTypeDetails.accountNumber}</div>
                 </div>
-            
+                
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>Account Type</div>
                     <div class='customer_details_heading_semicol'>:</div>
                     <div>${accountTypeDetails.openaccount}</div>
                 </div>
-
+    
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>CIF No</div>
                     <div class='customer_details_heading_semicol'>:</div>
                     <div>90132177309</div>
                 </div>
-
+    
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>IFS Code</div>
                     <div class='customer_details_heading_semicol'>:</div>
                     <div>${accountTypeDetails.ifscCode}</div>
                 </div>
-            
+                
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>MICR Code</div>
                     <div class='customer_details_heading_semicol'>:</div>
                     <div>520002682</div>
                 </div>
-
+    
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>Balance</div>
                     <div class='customer_details_heading_semicol'>:</div>
                     <div>INR ${accountTypeDetails.userAccountBalance}</div>
                 </div>
-
+    
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>Transaction Type</div>
                     <div class='customer_details_heading_semicol'>:</div>
                     <div>${transactionType}</div>
                 </div>
-
+    
                 <div class='customer_account_info'>
                     <div class='customer_details_heading'>Search for</div>
                     <div class='customer_details_heading_semicol'>:</div>
@@ -220,7 +223,7 @@ const Statements = () => {
                 </div>
             </div>
         `;
-
+    
         const footerInfo = `
             <div class='footer_info'>
                 <div class='footer_info_statement'>
@@ -232,7 +235,8 @@ const Statements = () => {
                 </div>
             </div>
         `;
-        const transactionTableHTML = transactionRef.current.innerHTML;
+        const transactionTableHTML = transactionRef.current ? transactionRef.current.innerHTML : '';
+        
         const combinedHTML = `
             <div>
                 ${bankLogo}
@@ -241,12 +245,58 @@ const Statements = () => {
                 ${footerInfo}
             </div>
         `;
+    
+        return { options, combinedHTML };
+    };
+
+    const handleDownloadTransactions = () => {
+        const { options, combinedHTML } = generatePDF();
         html2pdf().from(combinedHTML).set(options).save();
+    };
+    const handleemailotp = async () => {
+        await fetchTransactions();
+
+        const { options, combinedHTML } = generatePDF();
+        const pdf = html2pdf().from(combinedHTML).set(options);
+    
+        pdf.outputPdf('datauristring').then(data => {
+            setPDFData(data);
+            navigate('/user/account/statement-by-email');
+        }).catch(error => {
+            console.error('Error generating PDF:', error);
+        });
+    };
+
+    const showToast = (message) => {
+        toast.error(message, {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored"
+        }); 
     };
 
     const handleTransStatement = () => {
-        fetchTransactions()
+        if (!accountType) {
+            showToast('Please select an account type.');
+            return;
+        }
+        if (!savingsAccNumber) {
+            showToast('Please select an account number.');
+            return;
+        }
+        if (!fromDate || !toDate) {
+            showToast('Please select both from and to dates.');
+            return;
+        }
+        fetchTransactions();
     };
+
+
     const fetchTransactions = async () => {
 
         const fromDate = formattedFromDate;
@@ -266,9 +316,6 @@ const Statements = () => {
         try {
             const response = await fetch(url, options);
             const responseData = await response.json();
-
-            // console.log(response);
-            // console.log(responseData);
 
             if (response.status === 200) {
                 setErrorMsgStatus('false')
@@ -299,6 +346,7 @@ const Statements = () => {
                     <BankaccountSidebar />
                 </div>
                 <div className='col-9'>
+                    <ToastContainer /> 
                     <div className='acct_statements_months_cont' >
                         <div className='savings_acct_statement_heading'>
                             Current & Previous Months Account Statements:
@@ -344,25 +392,25 @@ const Statements = () => {
                                     <div className='period_from_to'>From:</div>
                                     <div className='d-flex align-items-center'>
                                         <DatePicker
-
+                                            ref={datePickerRef}
                                             selected={fromDate} onChange={handleStartDateChange}
                                             className='from_date_period' disabled={periodRangeStatus === false}
                                             selectsStart dateFormat="dd MMM yyyy" fromDate={fromDate} toDate={toDate}
                                         />
-                                        <FcCalendar className='calender_icon' />
+                                        <FcCalendar className='calender_icon' onClick={() => datePickerRef.current.setOpen(true)} />
                                     </div>
                                 </div>
                                 <div className='d-flex align-items-center'>
                                     <div className='period_from_to'>To:</div>
                                     <div className='d-flex align-items-center'>
                                         <DatePicker
-
+                                            ref={datePickerReference}
                                             selected={toDate} dateFormat="dd MMM yyyy" onChange={handleEndDateChange}
                                             disabled={periodRangeStatus === false} selectsEnd fromDate={fromDate}
                                             toDate={toDate} minDate={fromDate} className='from_date_period'>
 
                                         </DatePicker>
-                                        <FcCalendar className='calender_icon' />
+                                        <FcCalendar className='calender_icon' onClick={() => datePickerReference.current.setOpen(true)} />
                                     </div>
                                 </div>
                             </div>
@@ -399,6 +447,7 @@ const Statements = () => {
                             <button className='transactions_view_btn' type='button' onClick={handleTransStatement}>
                                 View
                             </button>
+                            
                         </div>
                     </div>
                     {
@@ -440,7 +489,7 @@ const Statements = () => {
 
                             <div className='my-3' ref={transactionRef}>
                                 <table className='table table-bordered'>
-                                    <thead className='tran_statement_table_header'>
+                                    <thead className='tran_statement_table_header' >
                                         <tr>
                                             <th>Date</th>
                                             <th>Description</th>
@@ -469,6 +518,11 @@ const Statements = () => {
                                     onClick={handleDownloadTransactions}>
                                     Download
                                 </button>
+                                <button type='button' className='statement_download_btn ml-3'
+                                    onClick={handleemailotp}>
+                                    Statement by Email
+                                </button>
+                                
                             </div>
                         </div>)
                     }

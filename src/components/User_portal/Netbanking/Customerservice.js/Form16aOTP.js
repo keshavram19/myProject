@@ -171,7 +171,7 @@ const Form16AOTPPage = () => {
                       />
 
                       <Link className="Form16A_otp_confirmation_icon_otp">
-                      <i class="fa-solid fa-keyboard fa-xl"></i>
+                      <i style={{color:"#2fb68e"}} class="fa-solid fa-keyboard fa-xl"></i>
                       </Link>
                       <p className="ml-1">
                         OTP has been generated with validity of 60 seconds
@@ -191,8 +191,8 @@ const Form16AOTPPage = () => {
                           onClick={() => handleOtpGeneration("sms")}
                           disabled={buttonsDisabled}
                         >
-                          <MdOutlineMessage className="generate_Form16A_otp_button_logos" />{" "}
-                          SMS
+                          <MdOutlineMessage className="generate_Form16A_otp_button_logos" />
+                          <span style={{color:"#2fb68e"}}>SMS</span>
                         </button>
                       </div>
                     </div>

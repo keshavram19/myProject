@@ -677,7 +677,7 @@ display: flex;
 
   .generate_Form16A_otp_button_logos{
     font-size: 20px;
-    color: white;
+    color: #2fb68e;
   }
 
   .generate_Form16A_otp_button{
@@ -718,22 +718,21 @@ display: flex;
   outline: none;
   text-align: center;
   border: 1px solid #2fb68e;
-  background-attachment: #2fb68e;
+ 
   border-radius: 4px;
   color: #2fb68e;
-  /* background-color: transparent; */
+  background-color: transparent;
   font-size: 14px;
-  color: white;
   font-weight: 600;
   padding: 4px;
   width: 100px;
-  /* cursor: pointer;  */
+  cursor: pointer; 
 }
 
-/* .Form16A_otp_confirmation_buttons:hover{
+.Form16A_otp_confirmation_buttons:hover{
   background-color: #2fb68e;
   color: #fff;
-} */
+}
 
 .Form16A_genratepdf_submits {
   outline: none;
