@@ -14,30 +14,34 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 110px; /* Adjust the width as needed */
-    height: 100%;
+    width: 320px;
+    height: auto;
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.2);
+    background:#111111;
     backdrop-filter: blur(17px);
     --webkit-backdrop-filter: blur(17px);
     border-right: 1px solid rgba(255, 255, 255, 0.7);
     transition: width 0.3s ease;
+    
+    
 }
+
 
 .logo-container {
-    text-align: center;
+    padding-left:20px;
 }
 
-.admin_sidebar:hover {
+/* .admin_sidebar:hover {
     width: 260px;
     height: auto;
     
-}
+} */
 
 .logo-container .admin_siderbar_logo {
     width: 170px;
     border-radius: 50%;
+    
 }
 
 
@@ -56,12 +60,12 @@
 
 /* Show logo text on hover */
 .admin_siderbar_logo h2 {
-    display: none;
-}
-
-.admin_sidebar:hover .admin_siderbar_logo  {
     display: block;
 }
+
+/* .admin_sidebar:hover .admin_siderbar_logo  {
+    display: block;
+} */
 
 .admin_sidebar .links {
     list-style: none;
@@ -72,19 +76,35 @@
 }
 
 .admin_sidebar .links::-webkit-scrollbar {
-    display: none;
+    display:none;
 }
 
 .links .admin_sidebar_li {
     display: flex;
     border-radius: 4px;
     align-items: center;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 20px;
+    /* background: #fff; */
 }
-
-.links .admin_sidebar_li:hover {
+.links .admin_sidebar_li:hover{
+    border-radius: 10px; 
+    background-color: #272727;     
+}
+.admin_sidebar_li.active {
+    background-color: #fff;
+    border-radius: 9px;
+  }
+  .admin_sidebar_li.active:hover {
+    background-color: #fff;
+    border-radius: 9px;
+    
+  }
+/* .links .admin_sidebar_li:hover {
     cursor: pointer;
     background: #fff;
-}
+} */
 
 .admin_sidebar_logos{
   color: #187559;
@@ -93,22 +113,24 @@
 .links .admin_sidebar_heading {
     color: #ebca28;
     font-weight: 500;
-    display: none;
+    display: block;
     margin-bottom: 10px;
+    
 }
 
-.admin_sidebar:hover .links .admin_sidebar_heading {
+/* .admin_sidebar:hover .links .admin_sidebar_heading {
     display: block;
-}
+} */
 
 .links hr {
     margin: 10px 8px;
     border: 1px solid #4c4c4c;
-}
-
-.admin_sidebar:hover .links hr {
     border-color: transparent;
 }
+
+/* .admin_sidebar:hover .links hr {
+    border-color: transparent;
+} */
 
 .links .admin_sidebar_li span {
     padding: 12px 10px;
@@ -117,15 +139,15 @@
 .links .admin_sidebar_li a {
     padding: 10px;
     color: #187559;
-    display: none;
+    display: block;
     font-weight: 500;
     white-space: nowrap;
     text-decoration: none;
 }
 
-.admin_sidebar:hover .links .admin_sidebar_li a {
+/* .admin_sidebar:hover .links .admin_sidebar_li a {
     display: block;
-}
+} */
 
 .links .logout-link {
     margin-top: 5px;

@@ -82,7 +82,7 @@ const Adminhome = () => {
             <div className="col-3">
               <AdminSidebar />
             </div>
-            <div className="col-9 accounts_admin_home">
+            <div className="col-9 accounts_admin_home" style={{paddingTop:"70px"}}>
               <div className="">
                 <div className="row">
                   <div className="col-md-6">
@@ -94,8 +94,7 @@ const Adminhome = () => {
                     </button>
                     <button
                       className="admin_home_Add_customer"
-                      onClick={handlenavigateRequestedDetails}
-                    >
+                      onClick={handlenavigateRequestedDetails}>
                       View Account Requested Details
                     </button>
                   

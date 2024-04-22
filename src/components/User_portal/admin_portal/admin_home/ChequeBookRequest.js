@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate,Navigate,useLocation} from "react-router-dom";
 import "./adminhome.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import apiList from "../../../../lib/apiList";
-import { isAuthenticated, handleTokenExpiration } from "../../../ProtectedRoute/authUtils";
 import AdminSidebar from "../admin_sidebar/AdminSidebar";
 import {
   Button,
   TextField,
-
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
   Dialog,
   DialogTitle,
   DialogContent,
@@ -26,14 +29,12 @@ function AdminChequeBookRequest() {
   const [error, setError] = useState(null);
   const [searchAccountNo, setSearchAccountNo] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const navigate = useNavigate();
-  const location = useLocation();
   const [itemsPerPage] = useState(5); // Number of items per page
   const [selectedAccount, setSelectedAccount] = useState(null);
   const [open, setOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("");
   const [filteredAccounts, setFilteredAccounts] = useState([]); 
-  let token = sessionStorage.getItem('loginToken');
+  const token = sessionStorage.getItem('adminloginToken');
   const handleOpen = () => {
     setOpen(true);
   };
@@ -43,31 +44,12 @@ function AdminChequeBookRequest() {
   };
 
   useEffect(() => {
-    handleTokenExpiration(navigate);
-  }, [navigate]);
-
-  useEffect(() => {
-    // Redirect to admin login if URL is manipulated
-    if (!location.pathname.includes("/admin/")) {
-      sessionStorage.removeItem("adminloginToken");
-      sessionStorage.removeItem("adminexpireTime");
-      navigate("/admin/login");
-    }
-  }, [location.pathname, navigate]);
-
- 
-
-  useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get("http://localhost:4444/api/userDetails", {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
+        const response = await axios.get("http://localhost:4444/api/userDetails");
         if (response.status === 200) {
           setAccountDetails(response.data.accountDetails);
-          setFilteredAccounts(response.data.accountDetails);
+          setFilteredAccounts(response.data.accountDetails); // Initialize filteredAccounts with all accounts
           setError(null);
         } else {
           setError("Failed to fetch user details");
@@ -77,13 +59,14 @@ function AdminChequeBookRequest() {
         setError("Error fetching user details");
       }
     };
+
     fetchUserDetails();
   }, []);
 
   const handleSearch = () => {
     // Filter accountDetails based on either account number or service request number
     const filteredByAccountNumber = accountDetails.filter(
-      (account) => account.accountNumber === parseInt(searchAccountNo)
+      (account) => account.userAccountNumber === parseInt(searchAccountNo)
     );
   
     const filteredByServiceRequestNumber = accountDetails.filter((account) =>
@@ -101,7 +84,7 @@ function AdminChequeBookRequest() {
       (account, index, self) =>
         index ===
         self.findIndex(
-          (t) => t.accountNumber === account.accountNumber
+          (t) => t.userAccountNumber === account.userAccountNumber
         )
     );
   
@@ -137,28 +120,22 @@ function AdminChequeBookRequest() {
           }
         ]
       };
-  
+      
       const updatedAccounts = filteredAccounts.map(account => {
-        if (account.accountNumber === selectedAccount.accountNumber) {
+        if (account.userAccountNumber === selectedAccount.userAccountNumber) {
           return updatedAccount;
         }
         return account;
       });
   
       setFilteredAccounts(updatedAccounts);
-  
+      
       const response = await axios.put(
-        `http://localhost:4444/api/updateChequeBookRequest/${selectedAccount.accountNumber}/${selectedAccount.userChequeBookRequest[0]?.srn}`,
-        { requestStatus: selectedStatus },
-        {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        }
+        `http://localhost:4444/api/updateChequeBookRequest/${selectedAccount.userAccountNumber}/${selectedAccount.userChequeBookRequest[0]?.srn}`,
+        { requestStatus: selectedStatus }
       );
-  
+      
       console.log("Cheque book request updated:", response.data);
-  
       // Close the dialog after successful update
       handleClose();
     } catch (error) {
@@ -167,10 +144,8 @@ function AdminChequeBookRequest() {
     }
   };
   
-  
   return (
     <>
-     {isAuthenticated() ? (
       <div>
         <section className="container-fluid">
           <div className="row">
@@ -221,11 +196,11 @@ function AdminChequeBookRequest() {
                       {currentItems.map((account, index) => (
                         <tr key={index} className="admin_chequebook_content">
                           <td>{index + 1 + (currentPage - 1) * itemsPerPage}</td>
-                          <td>{account.accountNumber}</td>
-                          <td>{account.firstname}</td>
-                          <td>{account.email}</td>
-                          <td>{account.mobilenumber}</td>
-                          <td>{`${account.permanentAddress?.country}, ${account.permanentAddress?.city}, ${account.permanentAddress?.state}, ${account.permanentAddress?.pincode}`}</td>
+                          <td>{account.userAccountNumber}</td>
+                          <td>{account.accountHolderName}</td>
+                          <td>{account.userEmailId}</td>
+                          <td>{account.userMobileNumber}</td>
+                          <td>{`${account.accountHolderAddress?.village}, ${account.accountHolderAddress?.city}, ${account.accountHolderAddress?.state}, ${account.accountHolderAddress?.pincode}`}</td>
                           {account.userChequeBookRequest.map((chequeBook, index) => (
                             <td key={index}>{chequeBook.srn}</td>
                           ))}
@@ -274,9 +249,6 @@ function AdminChequeBookRequest() {
           </div>
         </section>
       </div>
-       ) : (
-        <Navigate to="/admin/login" state={{ from: location }} />
-      )}
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle className="admin_chequebook_status">
           ChequeBook Status Approval
@@ -292,7 +264,7 @@ function AdminChequeBookRequest() {
                     required
                     fullWidth
                     className="text_field"
-                    value={selectedAccount.accountNumber}
+                    value={selectedAccount.userAccountNumber}
                   />
                 </Grid>
                 <Grid item xs={6}>
@@ -302,7 +274,7 @@ function AdminChequeBookRequest() {
                     required
                     fullWidth
                     className="text_field"
-                    value={selectedAccount.firstname}
+                    value={selectedAccount.accountHolderName}
                   />
                 </Grid>
                 <Grid item xs={6}>
@@ -326,7 +298,7 @@ function AdminChequeBookRequest() {
                       onChange={(e) => setSelectedStatus(e.target.value)}
                     >
                       <MenuItem value="Approved">Approved</MenuItem>
-                           <MenuItem value="Pending">Pending</MenuItem>
+                      <MenuItem value="Pending">Pending</MenuItem>
                       <MenuItem value="Rejected">Rejected</MenuItem>
                     </Select>
                   </FormControl>
@@ -342,11 +314,15 @@ function AdminChequeBookRequest() {
           <Button color="primary" type="button"  onClick={handleSubmit} >
             Submit
           </Button>
-           </DialogActions>
+        </DialogActions>
       </Dialog>
-     
     </>
   );
 }
 
 export default AdminChequeBookRequest;
+
+
+
+//https://nicepage.com/sd/2882096/simple-contact-us-form-website-design
+//https://phppot.com/php/contact-us-page/
