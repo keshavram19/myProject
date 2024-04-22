@@ -30,7 +30,7 @@ function InvestmentSidebar() {
     return (
         <div>
             
-            <Userdetails />
+            {/* <Userdetails /> */}
             <div className='container'>
                 <div className='row'>
                    

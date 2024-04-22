@@ -9,7 +9,7 @@
   border: none;
   text-align: left;
   outline: none;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 410;
   height: 45px;
   display: flex;
@@ -56,7 +56,7 @@
 .content a {
   display: block;
   padding: 6px;
-  font-size: 12px;
+  font-size: 13px;
   text-decoration: none;
   font-family: "poppins";
   color: black;
@@ -64,18 +64,10 @@
 
 /* Change the color of the links on hover */
 .content a:hover {
-  /* color: #002970; */
   font-family: "poppins";
 }
 
 a.bank_account_sidebar_link_tag {
-  /* color: white; */
-  /* background-color: #2fb68e; */
   color: red;
   border-radius: 4px;
 }
-/* a.bank_account_sidebar_link_tag:hover {
-  color: white;
-  background-color: #2fb68e;
-  border-radius: 4px;
-} */

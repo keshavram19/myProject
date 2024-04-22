@@ -33,7 +33,7 @@ function CustomerserviceSidebar() {
         <div>
             
 
-            <Userdetails />
+            {/* <Userdetails /> */}
             <div className='container'>
                 <div className='row'>
 

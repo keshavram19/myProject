@@ -1,106 +1,109 @@
-import "./Accounts.css";
 
-import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import './Accounts.css';
 
-import BankaccountSidebar from "../Sidebar/BankaccountSidebar";
-import Navbar from "../Overview/Navbar";
-import apiList from "../../../../lib/apiList";
+import { useEffect, useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
-const Accounts = ({ withinViewSummaryPage }) => {
-  const [viewAccStatement, setViewAccStatement] = useState();
-  const [accountDetails, setAccountDetails] = useState({
-    accountNumber: "",
-    firstname: "",
-    lastname: "",
-    prefix: "",
-    dateofbirth: "",
-    pannumber: "",
-    ifscCode: "",
-    openaccount: "",
-    mobilenumber: "",
-    userAccountBalance: "",
-  });
-  const [recentTransactions, setRecentTransactions] = useState([]);
-
-  const navigate = useNavigate();
-  let logintoken = sessionStorage.getItem("loginToken");
-  const isTokenExpired = () => {
-    const expirationTime = sessionStorage.getItem("expireTime");
-    return (
-      expirationTime && new Date().getTime() > parseInt(expirationTime, 10)
-    );
-  };
-  useEffect(() => {
-    if (isTokenExpired()) {
-      sessionStorage.clear();
-      sessionStorage.removeItem("loginToken");
-      navigate("/netbanking-personal-login");
-    } else if (!logintoken) {
-      navigate("/netbanking-personal-login");
-    }
-  }, [navigate]);
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+import Navbar from '../Overview/Navbar';
+import apiList from '../../../../lib/apiList';
 
 
+const Accounts = ({withinViewSummaryPage }) => {
 
-  const accountStatement = () => {
-    if (viewAccStatement === "true") {
-      setViewAccStatement("false");
-    } else {
-      setViewAccStatement("true");
-    }
-  };
+    const [viewAccStatement, setViewAccStatement] = useState();
+    const [accountDetails, setAccountDetails] = useState({
+        accountNumber: '',
+        firstname: '',
+        lastname: '',
+        prefix: '',
+        dateofbirth: '',
+        pannumber: '',
+        ifscCode: '',
+        openaccount: '',
+        mobilenumber: '',
+        userAccountBalance: ''
+    });
+    const [recentTransactions, setRecentTransactions] = useState([]);
 
-  useEffect(() => {
-    customerDetails();
-  }, []);
 
+    const navigate = useNavigate();
+    let logintoken = sessionStorage.getItem('loginToken');
+    const isTokenExpired = () => {
+        const expirationTime = sessionStorage.getItem("expireTime");
+        return expirationTime && new Date().getTime() > parseInt(expirationTime, 10);
+    };
+    useEffect(() => {
+        if (isTokenExpired()) {
+            sessionStorage.clear();
+            sessionStorage.removeItem('loginToken');
+            navigate('/netbanking-personal-login');
+        }
+        else if (!logintoken) {
+            navigate('/netbanking-personal-login');
+        }
+    }, [navigate]);
 
-
-  const customerDetails = async () => {
-    const options = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${logintoken}`,
-      },
+    const accountStatement = () => {
+        if (viewAccStatement === 'true') {
+            setViewAccStatement('false')
+        }
+        else {
+            setViewAccStatement('true')
+        }
     };
 
-    try {
-      const response = await fetch(apiList.customerDetails, options);
-      if (response.ok) {
-        const data = await response.json();
 
-        // Format dates in recentTransactions
-        const formattedTransactions = data.user.transactions.map(
-          (transaction) => ({
-            ...transaction,
-            date: new Date(transaction.date).toLocaleDateString("en-GB", {
-              day: "2-digit",
-              month: "short",
-              year: "numeric",
-            }),
-          })
-        );
+    useEffect(() => {
+        customerDetails()
+    }, []);
+
+    const customerDetails = async () => {
+        const options = {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${logintoken}`
+            }
+        };
+
+        try {
+            const response = await fetch(apiList.customerDetails, options);
+            if (response.ok) {
+                const data = await response.json();
+
+                // Format dates in recentTransactions
+                const formattedTransactions = data.user.transactions.map(transaction => ({
+                    ...transaction,
+                    date: new Date(transaction.date).toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric'
+                    })
+                }));
+
+                setAccountDetails(data.user);
+                setRecentTransactions(formattedTransactions);
+            } else {
+                console.log(response);
+            }
+        } catch (error) {
+            console.log(error.message);
+        }
 
 
-        setAccountDetails(data.user);
-        setRecentTransactions(formattedTransactions);
-      } else {
-        console.log(response);
-      }
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-  // console.log(recentTransactions);
+
+
+
+   
+
+
 
   const latestTransactions = recentTransactions.slice().reverse();
   const reversedArray = latestTransactions.slice(0, 3);
 
 
-  // const lastThreeDigits = (accountDetails.mobilenumber).slice(-4)
-  // const maskedDigits = 'X'.repeat(6);
+
 
   return (
     <div className="container-fluid" style={{ marginTop: "90px" }}>

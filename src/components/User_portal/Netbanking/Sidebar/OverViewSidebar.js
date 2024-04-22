@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Sidebar.css'
 import Userdetails from '../UserDetails/UserDetails';
 import { Link, useLocation } from 'react-router-dom';
-
+import { FaCaretRight } from "react-icons/fa";
+import { FaCaretDown } from "react-icons/fa";
 
 function OverviewSidebar() {
 
@@ -30,10 +31,10 @@ function OverviewSidebar() {
 
     const getButtonContent = (index) => {
         return activeIndex === index ? (
-            <i className="ri-subtract-line" style={{ fontSize: '18px' }}></i>
+            <FaCaretDown style={{ fontSize: '20px'}}/>
         ) : (
-            <i className="ri-add-fill" style={{ fontSize: '18px' }}></i>
-        );
+            <FaCaretRight style={{ fontSize: '20px'}}/>
+        )
     };
 
     const isActiveLink = (to) => {
@@ -48,49 +49,28 @@ function OverviewSidebar() {
     return (
         <div>
 
-            <Userdetails />
+            {/* <Userdetails /> */}
             <div className='container'>
                 <div>
                     <div>
+
                         <button
                             type="button"
                             className={`collapsible sidebarButton ${activeIndex === 0 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
                             onClick={() => toggleCollapsible(0)}
                         >
-                            <span> My View </span> <span> {getButtonContent(0)} </span>
+                            <span>  Personal Details </span> <span> {getButtonContent(0)}</span>
                         </button>
                         <div
                             className="content"
-                            style={{ maxHeight: `${contentHeights[0]}px`, display: activeIndex === 0 ? 'block' : 'none' }}
+                            style={{ maxHeight: `${contentHeights[1]}px`, display: activeIndex === 0 ? 'block' : 'none' }}
                             ref={contentRefs[0]}
                         >
-                            <Link to="/user/overview" onClick={stopPropagation}
-                                className={isActiveLink('/user/overview') ? 'bank_account_sidebar_link_tag mt-1' : 'mt-1'}>
-                                My view
-                            </Link>
-                        </div>
 
-                        <button
-                            type="button"
-                            className={`collapsible sidebarButton ${activeIndex === 1 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
-                            onClick={() => toggleCollapsible(1)}
-                        >
-                            <span>  Personal Details </span> <span> {getButtonContent(1)}</span>
-                        </button>
-                        <div
-                            className="content"
-                            style={{ maxHeight: `${contentHeights[1]}px`, display: activeIndex === 1 ? 'block' : 'none' }}
-                            ref={contentRefs[1]}
-                        >
-                            
                             <Link to="/user/profile/changepassword" onClick={stopPropagation}
                                 className={isActiveLink('/user/profile/changepassword') ? 'bank_account_sidebar_link_tag mt-1' : 'mt-1'}>
                                 Change Password
                             </Link>
-                            {/* <Link to="/user/profile/paymenttransactionlimit" onClick={stopPropagation}
-                                className={isActiveLink('/user/profile/paymenttransactionlimit') ? 'bank_account_sidebar_link_tag' : ''}>
-                                Personalize Transcation Limits
-                            </Link> */}
                             <Link to="/user/profile/updateaccountpreferences" onClick={stopPropagation}
                                 className={isActiveLink('/user/profile/updateaccountpreferences') ? 'bank_account_sidebar_link_tag' : ''}>
                                 Primary Account
@@ -99,8 +79,6 @@ function OverviewSidebar() {
                                 className={isActiveLink('/user/profile/changeemail') ? 'bank_account_sidebar_link_tag' : ''}>
                                 Update email ID
                             </Link>
-                            <Link to="">Link My Account</Link>
-                            <Link to="">Manage Quick Checkout</Link>
                             <Link to="/user/profile/changeuserid" onClick={stopPropagation}
                                 className={isActiveLink('/user/profile/changeuserid') ? 'bank_account_sidebar_link_tag' : ''}>
                                 update User ID
@@ -114,13 +92,37 @@ function OverviewSidebar() {
                                 Share My Account Details
                             </Link>
 
+                            {/* <Link to="/user/profile/paymenttransactionlimit" onClick={stopPropagation}
+                                className={isActiveLink('/user/profile/paymenttransactionlimit') ? 'bank_account_sidebar_link_tag' : ''}>
+                                Personalize Transcation Limits
+                            </Link> */}
+                            {/* <Link to="">Link My Account</Link> */}
+                            {/* <Link to="">Manage Quick Checkout</Link> */}
                             {/* <Link to="/user/profile/changenickname">Account Nickname</Link> */}
                             {/* <Link to="">View Customer ID</Link> */}
-                             {/* <Link to="/user/profile/changeformat">Date & Amount Format</Link> */}
+                            {/* <Link to="/user/profile/changeformat">Date & Amount Format</Link> */}
                             {/* <Link to="">Favourite Acounts</Link> */}
                             {/* <Link to="">Favourite Activities</Link> */}
                             {/* <Link to="/user/profile/changeprofilephoto">Update Profile Photo</Link> */}
 
+                        </div>
+
+                        <button
+                            type="button"
+                            className={`collapsible sidebarButton ${activeIndex === 1 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
+                            onClick={() => toggleCollapsible(1)}
+                        >
+                            <span> My View </span> <span> {getButtonContent(1)} </span>
+                        </button>
+                        <div
+                            className="content"
+                            style={{ maxHeight: `${contentHeights[1]}px`, display: activeIndex === 1 ? 'block' : 'none' }}
+                            ref={contentRefs[1]}
+                        >
+                            <Link to="/user/overview" onClick={stopPropagation}
+                                className={isActiveLink('/user/overview') ? 'bank_account_sidebar_link_tag mt-1' : 'mt-1'}>
+                                My view
+                            </Link>
                         </div>
 
                         <button
@@ -144,21 +146,6 @@ function OverviewSidebar() {
                                 Link My Accounts
                             </Link>
                         </div>
-
-                        {/* <button
-                            type="button"
-                            className={`collapsible sidebarButton ${activeIndex === 3 ? 'active buttonActive' : ''} d-flex justify-content-between sidebar_button`}
-                            onClick={() => toggleCollapsible(3)}
-                        >
-                            <span>  Financial Journey</span>   <span>{getButtonContent(3)}</span>
-                        </button> */}
-                        {/* <div
-                            className="content"
-                            style={{ maxHeight: `${contentHeights[3]}px`, display: activeIndex === 3 ? 'block' : 'none' }}
-                            ref={contentRefs[3]}
-                        >
-                            <Link to="">Financial Journey</Link>
-                        </div> */}
 
                     </div>
                 </div>
