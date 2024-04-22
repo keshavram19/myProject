@@ -15,16 +15,12 @@ const apiList ={
     getReissuecardDetails: `${server}/admin/trackAndReissueCard/`,
     generateReissueCard: `${server}/admin/reissue/`,
 
+    checkaadharmail : `${server}/admin/check-register-eligibility`,
+
+
     rejectReissueCard: `${server}/admin/reissue-reject/`,
 
     generateddebitcard : `${server}/admin/userDebitCardDetails/review/`,
-
-   
-
-    
-
-
-
 
     // admin login ends
     // 
