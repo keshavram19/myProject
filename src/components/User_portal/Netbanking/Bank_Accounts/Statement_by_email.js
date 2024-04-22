@@ -16,6 +16,7 @@ const StatementByMail = () => {
     const navigate = useNavigate();
     const { pdfData } = usePDFData();
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
+    const [timer, setTimer] = useState(60);
     let token = sessionStorage.getItem('loginToken');
     const otpInputsRefs = useRef([]);
 
@@ -48,7 +49,26 @@ const StatementByMail = () => {
             sendCodeToGmail();
         }
     }, [authDetails.email]);
-    
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setTimer((prevTimer) => {
+                if (prevTimer > 0) {
+                    return prevTimer - 1;
+                } else {
+                    // setButtonsDisabled(false);
+                    return 0;
+                }
+            });
+        }, 1000);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
+    const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+    };
 
     const sendCodeToGmail = async () => {
         if (!authDetails || !authDetails.email) {
@@ -239,6 +259,7 @@ const StatementByMail = () => {
                                                     />
                                                 ))}
                                             </div>
+
                                             <div className='text-center d-flex otp_code_resend'>
                                                 <div>Don't receive OTP code?</div>
                                                 <div className='resend_code_text ml-2' onClick={handleResendOTP}>Resend Code</div>

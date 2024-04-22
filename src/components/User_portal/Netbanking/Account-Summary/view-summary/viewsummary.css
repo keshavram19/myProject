@@ -188,3 +188,8 @@ font-size: 11px;
 .col-3 .offer_cards{
   margin-top: 1rem;
 }
+
+.content-wrapper {
+  margin-left: -250px; 
+  padding-right: 30px;
+}
