@@ -86,6 +86,7 @@ const apiList ={
 
     customerDetails: `${server}/auth/user-account-details`,
 
+    resendOTP :` ${server}/api/resend-otp`,
     changeEmail:` ${server}/api/change-email`,
     UpdateEmailverifyOTP: `${server}/api/otp-verification`,
     sendPdfByEmail : `${server}/api/sendPdfByEmail`,
