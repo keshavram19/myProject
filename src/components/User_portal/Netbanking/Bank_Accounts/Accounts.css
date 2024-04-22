@@ -16,7 +16,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: #2fb68e;
+  background-color: #f4f7f6;
   color: #fff;
   border-bottom: 1px solid #cdc2c2;
   padding: 10px 5px;
@@ -26,20 +26,24 @@
  
   font-size: 18px;
   margin-right: 5px;
+  color: black;
 }
 
 .savings_acct_type_text {
   font-size: 16px;
+  color: black;
 }
 
 .savings_acct_avail_bal {
  
   font-size: 16px;
   margin-right: 5px;
+  color: black;
 }
 
 .savings_acct_avail_bal_text {
   font-size: 16px;
+  color: black;
 }
 
 .savings_account_user_details_cont {
@@ -47,11 +51,12 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 5px;
+  
 }
 
-.savings_acct_user_headings {
- 
-}
+ .savings_acct_user_headings {
+ font-weight: bold;
+} 
 
 .account_statement_view_btn {
   border-radius: 5px;
@@ -158,8 +163,8 @@
 .savings_acct_statement_heading {
   font-size: 16px;
  
-  background-color: #2fb68e;
-  color: #fff;
+  background-color:  #2fb68e;
+  color:black;
   padding: 10px 10px;
   margin-bottom: 10px;
 }
@@ -212,13 +217,14 @@
 }
 
 .period_radio_btn {
-  width: 17px;
-  height: 17px;
-  margin-right: 6px;
+  width: 15px;
+  height: 19px;
+  margin-left: 16px;
 }
 
 .period_from_to {
   width: 50px;
+  margin-left: -330px;
 }
 
 .from_date_period {
@@ -226,6 +232,8 @@
   outline: none;
   border-radius: 5px;
   padding: 3px 10px;
+  margin-left: 140px;
+  width: 250px;
 }
 
 .calender_icon {
@@ -242,14 +250,16 @@
 
 .show_transactions_text {
   width: 190px;
+  margin-left: -8px;
+  
  
 }
 
 .show_all_transa {
-  width: 190px;
+  width: 290px;
   display: flex;
   align-items: center;
-  margin-right: 40px;
+  margin-right: -50px;
 }
 
 .per_page_tarns {
@@ -265,7 +275,7 @@
 
 .page_trans_icon {
   color: #2fb68e;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .transactions_view_btn_cont {
@@ -282,7 +292,7 @@
   font-size: 16px;
 }
 .transaction_statement_option{
-  width: 100px;
+  width: 250px;
 }
 
 /* .transactions_view_btn:hover {
@@ -450,8 +460,10 @@ select.form-control.statement_select_format {
   outline: none;
   border-radius: 5px;
   margin: 15px 10px;
-  background-color: #dadada;
-  text-align: center;
+  background-color:#f1f3f5;
+  /* text-align: center; */
+  margin-left: 20px;
+ 
 }
 
 .otp_code_box1 {
@@ -3432,9 +3444,9 @@ body {
 /* .fdform_input{
  
 } */
-.fdform_main_Container .form-inline {
+/* .fdform_main_Container .form-inline {
  
-}
+} */
 
 .fdform_input:focus {
   outline: none;
