@@ -1,115 +1,71 @@
 import React, { useEffect, useState, useRef, createRef } from 'react';
-import { Link, useNavigate,useLocation } from 'react-router-dom';
+import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
+import './Accounts.css';
 import { ToastContainer, toast } from 'react-toastify';
-import axios from 'axios';
-import './FundTransfer.css';
 import 'react-toastify/dist/ReactToastify.css';
-import { MdOutlineMessage } from "react-icons/md";
-import { MdOutlineMail } from "react-icons/md";
-import { IoCallOutline } from "react-icons/io5";
+import axios from 'axios';
 import apiList from '../../../../lib/apiList';
-import PaymentSidebar from '../Sidebar/PaymentsAndTransferSidebar';
+import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
-
-const OTPPage = () =>{
-    const location = useLocation();
+const DebitCardApplyOtp = () => {
+    const [authDetails, setAuthDetails] = useState({
+        email: ''
+    });
     const navigate = useNavigate();
-    const formData = location ? location.state : null;
-    const [userDetails, setUserDetails] = useState([]);
-    const [lastFourDigits, setLastFourDigits] = useState('');
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
     let token = sessionStorage.getItem('loginToken');
     const otpInputsRefs = useRef([]);
-    const [validationError, setValidationError] = useState('');
-    const [timer, setTimer] = useState(100);
-    const [buttonsDisabled, setButtonsDisabled] = useState(true);
+    const { account, card } = useParams();
 
     useEffect(() => {
+        getAuthenticatioDetails();
+    }, []);
 
-        const fetchData = async () => {
-            try {
-              
-                const requestOptions = {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json'
-                    }
-                };
-                const response = await fetch(apiList.requestedUserDetailsByEmail, requestOptions);
-                if (response.ok) {
-                    const data = await response.json();
-
-                    setUserDetails(data.user);
-                } else {
-                    console.error('Error fetching user details:', response.statusText);
-                }
-            } catch (error) {
-                console.error('Error fetching user details:', error);
+    const getAuthenticatioDetails = async () => {
+        const options = {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             }
         };
 
-        fetchData();
-    }, []);
-
-
-
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setTimer((prevTimer) => {
-                if (prevTimer > 0) {
-                    return prevTimer - 1;
-                } else {
-                    setButtonsDisabled(false);
-                    return 0;
-                }
-            });
-        }, 1000);
-
-        return () => clearInterval(intervalId);
-    }, []);
-
-
-    const formatTime = (seconds) => {
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = seconds % 60;
-        return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-    };
-
-
-    const formatDebitCardNumber = (cardNumber) => {
-
-        const cardNumberString = String(cardNumber);
-        const firstFourDigits = cardNumberString.substring(0, 4);
-        const lastFourDigits = cardNumberString.substring(cardNumberString.length - 4);
-        const maskedDigits = 'X'.repeat(cardNumberString.length - 8);
-
-        return ` ${firstFourDigits}${maskedDigits}${lastFourDigits}`;
-    };
-
-    const handleOtpGeneration = async () => {
         try {
-            const otpResponse = await axios.post(
-                `${apiList.createVerificationCode}`,
-                {
-                    accountNumber: userDetails.accountNumber,
-                    otpMethod: "sms",
-                },
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                }
-            );
+            const response = await fetch(apiList.requestedUserDetailsByEmail, options);
+            if (response.ok) {
+                const data = await response.json();
+                setAuthDetails(data.user);
+            }
         } catch (error) {
-            console.error('Error generating OTP:', error);
+            console.log(error.message);
         }
     };
 
- 
+
+    const sendCodeToGmail = async () => {
+        if (!authDetails || !authDetails.email) {
+            console.error('User email is not available');
+            return;
+        }
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify({ email: authDetails.email }),
+        };
+
+        try {
+            const response = await fetch(apiList.userAuthentication, options);
+            
+            const result = await response.json();
+        } catch (error) {
+            console.error('Error sending OTP:', error);
+        }
+    };
 
     const handleInputChange = (index, value) => {
         const newOtp = [...otp];
@@ -119,7 +75,6 @@ const OTPPage = () =>{
         if (value !== '' && index < otpInputsRefs.current.length - 1) {
             otpInputsRefs.current[index + 1].focus();
         }
-        setValidationError('');
     };
 
     const handleBackspace = (index, e) => {
@@ -130,7 +85,7 @@ const OTPPage = () =>{
 
     const handleResendOTP = async () => {
         try {
-            await handleOtpGeneration();
+            await sendCodeToGmail();
             toast.success('Verification Code Sent Successfully', {
                 position: "top-center",
                 autoClose: 5000,
@@ -141,7 +96,6 @@ const OTPPage = () =>{
                 progress: undefined,
                 theme: "colored"
             });
-            setValidationError('');
         } catch (error) {
             console.error('Error resending OTP:', error);
         }
@@ -149,41 +103,42 @@ const OTPPage = () =>{
     
 
     const verifyOTP = async () => {
-        try {
         const otpString = otp.join('');
-            const response = await axios.post(`${apiList.authenticateOTP}`, { otp:otpString },
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
+        const options = {
+            method: 'POST',
+            headers: {
                 'Content-Type': 'application/json',
-              },
-            });
-       
-            
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify({ email: authDetails.email, gmailOTP: otpString })
+        };
+        try {
+            const response = await fetch(apiList.userAuthVerify, options);
             if (response.status === 200) {
-                
-                const res = await fetch(`${apiList.quickFundTransfer}`, {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData),
+                toast.success('Successfully verified!', {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored"
                 });
-                if(res.status === 200){
-                    toast.success('amount transfered succesfully', {
-                        position: "top-center",
-                        autoClose: 1000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "colored"
-                    });
-                    navigate("/user/fundtransfer/quickfundtransfer");
-                }     
+                const res = await axios.post(
+                    apiList.applyDebitCard,
+                    {cardType: card},
+                    {
+                      headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                      }
+                    }
+                  );
+
+                    navigate('/user/account/debit-card-apply/srnrequest')
             } else {
+                const data = await response.json();
                 toast.error('Invalid OTP!', {
                     position: "top-center",
                     autoClose: 2000,
@@ -197,7 +152,6 @@ const OTPPage = () =>{
             }
         } catch (error) {
             console.log('Error Verifying OTP:', error);
-            setValidationError('Invalid OTP. Please try again.');
         }
         setOtp(['', '', '', '', '', '']);
     };
@@ -210,21 +164,25 @@ const OTPPage = () =>{
         otpInputsRefs.current = Array(6).fill().map((_, i) => otpInputsRefs.current[i] || createRef());
     }, [otpInputsRefs]);
 
+ 
+    
 
-    return(
-        <div className='container-fluid' style={{ marginTop: "90px" }}>
-            <div className='row'>
-            <div className='col-3'>
-                    <PaymentSidebar/>
-                </div>
-                <div className='col-9'>
+
+    return (
+        <div>
+            <div className='container-fluid' style={{ marginTop: "90px" }}>
+                <div className='row'>
+                    <div className='col-3'>
+                        <BankaccountSidebar />
+                    </div>
+                    <div className='col-9'>
                         <div className='savings_acct_user_auth_container'>
-                            <div className='savings_acct_user_auth_container_header'>Quick Fund Transfer</div>
+                            <div className='savings_acct_user_auth_container_header'>Account Statement To Email:</div>
                             <div className='savings_acct_user_auth_details_container'>
                                 <div className='d-flex justify-content-center'>
-                                    {userDetails && (
+                                    {authDetails && (
                                         <div>
-                                            <div className='otp_code_mobile'>Enter OTP Code sent to {userDetails.mobilenumber}</div>
+                                            <div className='otp_code_mobile'>Enter OTP Code sent to {authDetails.email}</div>
                                             <div className='otp_code_input_boxes'>
                                                 {Array.from({ length: 6 }, (_, index) => (
                                                     <input
@@ -244,7 +202,7 @@ const OTPPage = () =>{
                                                 <div className='resend_code_text ml-2' onClick={handleResendOTP}>Resend Code</div>
                                             </div>
                                             <ToastContainer />
-                                            <div className='otp_verify_btn_container mt-2'>
+                                            <div className='otp_verify_btn_container'>
                                                 <button className='otp_verify_btn' type='button' onClick={verifyCode}>
                                                     Verify & Proceed
                                                 </button>
@@ -252,8 +210,7 @@ const OTPPage = () =>{
                                         </div>
                                     )}
                                 </div>
-                                {validationError && <div style={{ color: 'red' }}>{validationError}</div>}
-                                <div className='savings_acct_user_auth_text1 mt-2'>
+                                <div className='savings_acct_user_auth_text1'>
                                     <div>
                                         The OTP code has a validity of 60 seconds and is sent to your registered email address.
                                     </div>
@@ -269,10 +226,10 @@ const OTPPage = () =>{
                             </div>
                         </div>
                     </div>
-
+                </div>
             </div>
         </div>
     )
-}
+};
 
-export default OTPPage;
+export default DebitCardApplyOtp;

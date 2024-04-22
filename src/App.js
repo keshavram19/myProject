@@ -151,6 +151,8 @@ import ApplyDebiCard from "./components/User_portal/Netbanking/Bank_Accounts/App
 
 import PrivacyPolicy from "./components/User_portal/Login/TermsAndConditions/privacypolicy";
 import TermsAndConditions from "./components/User_portal/Login/TermsAndConditions/TermsandConditions";
+import DebitCardApplyOtp from "./components/User_portal/Netbanking/Bank_Accounts/DebitCardApplyOtp";
+import DebitcardSRN from "./components/User_portal/Netbanking/Bank_Accounts/DebitcardSRN";
 
 
 
@@ -230,6 +232,9 @@ function App() {
           <Route path="/user/account/debit-atm-card" element={<DebitAndAtm />} />
 
           <Route path="/user/account/debit-card-apply" element={<ApplyDebiCard />} />
+          <Route path="/user/account/debit-card-apply/otp" element={<DebitCardApplyOtp />} />
+          <Route path="/user/account/debit-card-apply/srnrequest" element={<DebitcardSRN />} />
+
 
           <Route
             path="/user/account/generate-debitcard-pin"

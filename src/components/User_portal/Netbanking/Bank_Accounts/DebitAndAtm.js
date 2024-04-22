@@ -40,7 +40,7 @@ const DebitAndAtm = () => {
                             <Link to="/user/account/manage-cardlimit"><button className='atm_card_details_button'>Manage Card Limit</button></Link>
                         </div>
                     </div>
-                    <div className='card atm_card_details_debit_card p-2 mt-2'>
+                    {/* <div className='card atm_card_details_debit_card p-2 mt-2'>
                         <div className='container-fluid'>
                             <div className='row align-items-center'>
                                 <div className='col-sm-10'>
@@ -52,7 +52,7 @@ const DebitAndAtm = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     
                 </div>
             </div>
