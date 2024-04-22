@@ -24,10 +24,7 @@ const AccountSuccessPage = () => {
         <label>
           Need Debit Card:
           <div>
-          {/* <button className={needDebitCard ? 'selected' : ''} onClick={() => handleDebitCardOption(true)}>Yes</button>
-          <button className={!needDebitCard ? 'selected' : ''
-        } onClick={() => handleDebitCardOption(false)}>No</button>
-         */}
+           
           <input
               type='checkbox'
               id='yesCheckbox'

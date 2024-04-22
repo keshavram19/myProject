@@ -428,7 +428,7 @@ select.form-control.statement_select_format {
 .savings_acct_user_auth_container_header {
   font-size: 16px;
  
-  background-color: #2fb68e;
+  background-color: #6b757d;
   padding: 10px 20px;
   color: #fff;
 }
@@ -448,6 +448,13 @@ select.form-control.statement_select_format {
   font-size: 16px;
 }
 
+.otp_code_input_boxes{
+  margin-left: 40px;
+}
+.otp_code_resend{
+ margin-left: 40px;
+}
+
 .otp_code_box1,
 .otp_code_box2,
 .otp_code_box3,
@@ -461,9 +468,10 @@ select.form-control.statement_select_format {
   border-radius: 5px;
   margin: 15px 10px;
   background-color:#f1f3f5;
-  /* text-align: center; */
   margin-left: 20px;
- 
+  text-align: center;
+  justify-content: center;
+
 }
 
 .otp_code_box1 {
@@ -483,9 +491,9 @@ select.form-control.statement_select_format {
 
 .otp_verify_btn {
   width: 50%;
-  border: 1px solid #2fb68e;
+  border: 1px solid #6b757d;
   outline: none;
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
   /* background: transparent; */
   border-radius: 5px;
@@ -541,7 +549,7 @@ select.form-control.statement_select_format {
 }
 
 .atm_card_details_debit_card h6 {
-  color: #ebca28;
+  color: #808080;
 }
 
 .atm_card_details_debit_card p {
@@ -558,7 +566,7 @@ select.form-control.statement_select_format {
   font-size: 16px;
   border: none;
   cursor: pointer;
-  color: #2fb68e;
+  color: #6b757d;
   background: none;
  
   padding-left: 5px;
@@ -568,9 +576,9 @@ select.form-control.statement_select_format {
   font-size: 16px;
   border: none;
   cursor: pointer;
-  color: #2fb68e;
+  color: #6b757d;
   background-color: transparent;
-  border: 1px solid #2fb68e;
+  border: 1px solid #6b757d;
   border-radius: 20px;
  
   padding: 10px;
@@ -582,20 +590,16 @@ select.form-control.statement_select_format {
   margin: 0;
 }
 
-.atm_card_details_button:hover {
-  border-bottom: 1px solid #2fb68e;
-  border-radius: 5px;
-}
 
 
 .atm_card_details_button_upgrade:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
 .atm_card_details_logo {
-  font-size: 30px;
-  color: #2fb68e;
+  font-size: 20px;
+  color: #6b757d;
 }
 
 /* ATMDetails.css ends */
@@ -608,8 +612,8 @@ select.form-control.statement_select_format {
 }
 
 .genrate_pin_buttons {
-  color: #2fb68e;
-  border: 1px solid #2fb68e;
+  color: #6b757d;
+  border: 1px solid #6b757d;
   background-color: transparent;
   padding: 5px 14px;
   outline: none;
@@ -619,8 +623,8 @@ select.form-control.statement_select_format {
 }
 
 .genrate_pin_submits {
-  color: #2fb68e;
-  border: 1px solid #2fb68e;
+  color: #6b757d;
+  border: 1px solid #6b757d;
   background-color: transparent;
   padding: 5px 14px;
   outline: none;
@@ -631,19 +635,19 @@ select.form-control.statement_select_format {
 }
 
 .genrate_pin_submits:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
   border-radius: 10px;
 }
 
 .genrate_pin_buttons:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
   border-radius: 10px;
 }
 
 .card_details_generate_pin_heading {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
@@ -679,8 +683,8 @@ select.form-control.statement_select_format {
 }
 
 .generate_debit_pin_button {
-  color: #2fb68e;
-  border: 1px solid #2fb68e;
+  color: #6b757d;
+  border: 1px solid #6b757d;
   outline: none;
   align-items: center;
   background-color: none;
@@ -692,7 +696,7 @@ select.form-control.statement_select_format {
 }
 
 .generate_debit_pin_button:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
@@ -740,13 +744,13 @@ select.form-control.statement_select_format {
 }
 
 .card_details_block_card_hotlisting h3 {
-  color: #2fb68e;
+  color: #6b757d;
 }
 
 .card_details_block_card_hotlisting .back {
-  border: 2px solid #2fb68e;
+  border: 2px solid #6b757d;
   border-radius: 4px;
-  color: #2fb68e;
+  color: #6b757d;
   background-color: transparent;
   font-size: 16px;
  
@@ -755,15 +759,15 @@ select.form-control.statement_select_format {
   cursor: pointer;
 }
 .card_details_block_card_hotlisting .back:hover{
-  background:#2fb68e;
+  background:#6b757d;
   color: white;
 }
 
 
 .card_details_block_card_hotlisting .confirm {
-  border: 2px solid #2fb68e;
+  border: 2px solid #6b757d;
   border-radius: 4px;
-  color: #2fb68e;
+  color: #6b757d;
   background-color: transparent;
   font-size: 16px;
  
@@ -774,12 +778,12 @@ select.form-control.statement_select_format {
 
 
 .card_details_block_card_hotlisting .confirm:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
 .card_details_block_card_hotlisting .back:focus {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
@@ -792,7 +796,7 @@ select.form-control.statement_select_format {
 
 .card_details_notes {
   /* font-size: 14px; */
-  color: #7d7d7d;
+  color: #6b757d;
 }
 
 .card_details_block_card_hotlisting .form-control:focus {
@@ -809,23 +813,19 @@ select.form-control.statement_select_format {
 
 /* Reissuecard.css starts */
 
-.reissue_card .card {
-  border-radius: 10px;
- 
-}
 
 .reissue_card .card h6 {
-  color: #2fb68e;
+  color: #6b757d;
  
 }
 
 .reissue_card_heading {
-  color: #2fb68e;
+  color: #6b757d;
 }
 
 .reissue_card_button {
-  color: #2fb68e;
-  border: 1px solid #2fb68e;
+  color: #6b757d;
+  border: 1px solid #6b757d;
   background-color: transparent;
   padding: 5px 35px;
  
@@ -833,7 +833,7 @@ select.form-control.statement_select_format {
 }
 
 .reissue_card_button:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
@@ -872,11 +872,11 @@ select.form-control.statement_select_format {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  border: 7px solid #2fb68e;
+  border: 7px solid #6b757d;
 }
 
 .reissue_card_completed .reissue_card_circle {
-  background-color: #4caf50;
+  background-color: #6b757d;
   border-color: #4caf50;
 }
 
@@ -1270,7 +1270,7 @@ select.form-control.statement_select_format {
 
 
 .pancard .pancard_heading {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
@@ -1289,9 +1289,9 @@ select.form-control.statement_select_format {
 }
 
 .pancard .back_Btn {
-  border: 2px solid #2fb68e;
+  border: 2px solid #6b757d;
   border-radius: 4px;
-  color: #2fb68e;
+  color: #6b757d;
   background-color: transparent;
   font-size: 16px;
  
@@ -1301,15 +1301,15 @@ select.form-control.statement_select_format {
 }
 
 .pancard .back_Btn:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 
 .pancard .submit_Btn {
   outline: none;
-  border: 2px solid #2fb68e;
+  border: 2px solid #6b757d;
   border-radius: 4px;
-  color: #2fb68e;
+  color: #6b757d;
   background-color: transparent;
   font-size: 16px;
  
@@ -1319,7 +1319,7 @@ select.form-control.statement_select_format {
 }
 
 .pancard .submit_Btn:hover {
-  background-color: #2fb68e;
+  background-color: #6b757d;
   color: #fff;
 }
 

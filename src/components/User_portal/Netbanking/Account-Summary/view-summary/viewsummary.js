@@ -17,7 +17,7 @@ const Viewsummary = () => {
     ifscCode: "",
   });
 
-  const [selectedOption, setSelectedOption] = useState(""); // Default state is empty
+  const [selectedOption, setSelectedOption] = useState("");
   const [showOutput, setShowOutput] = useState(false);
 
   useEffect(() => {
@@ -38,14 +38,14 @@ const Viewsummary = () => {
   }, []);
 
   useEffect(() => {
-    // Set default value to 'Bank Account' on initial render
+   
     if (!selectedOption) {
       setSelectedOption("Bank Account");
     }
     setShowOutput(selectedOption === selectedOption);
   }, [selectedOption]);
 
-  // Function to handle option change
+
   const handleOptionChange = (option) => {
     setSelectedOption(option);
   };
@@ -419,6 +419,7 @@ const Viewsummary = () => {
                         <Accounts withinViewSummaryPage={true} />
                       </div>
                     )}
+
                   </div>
                 </div>
               </section>

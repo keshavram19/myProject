@@ -4,8 +4,13 @@ import OverviewSidebar from "../../Sidebar/OverViewSidebar";
 import apiList from "../../../../../lib/apiList";
 import { Link } from "react-router-dom";
 
+
+
+
 const ViewProfile = () => {
   const [userDetails, setUserDetails] = useState(null);
+
+
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -32,6 +37,9 @@ const ViewProfile = () => {
 
     fetchUserDetails();
   }, []);
+
+
+
 
   return (
     <div>
@@ -91,7 +99,7 @@ const ViewProfile = () => {
                 <div className="d-flex pb-2">
                   <div className="col-sm-3">PAN Card No</div>
                   <div className="col-sm-6">{userDetails.pannumber}</div>
-                  <div><Link to={"/user/account/view-update-pancard"}>Edit PAN Number</Link></div>
+                  {/* <div><Link to={"/user/account/view-update-pancard"}>Edit PAN Number</Link></div> */}
                 </div>
               </div>
               <div className="card mt-3 pt-3">

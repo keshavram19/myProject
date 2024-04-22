@@ -41,9 +41,7 @@ const Accounts = ({ withinViewSummaryPage }) => {
     }
   }, [navigate]);
 
-  // const expiredTime = sessionStorage.getItem('expireTime');
-  // console.log(new Date().getTime());
-  // console.log(parseInt(expiredTime, 10));
+
 
   const accountStatement = () => {
     if (viewAccStatement === "true") {
@@ -57,31 +55,7 @@ const Accounts = ({ withinViewSummaryPage }) => {
     customerDetails();
   }, []);
 
-  // const customerDetails = async () => {
 
-  //     const options = {
-  //         method: "GET",
-  //         headers: {
-  //             'Content-Type': 'application/json',
-  //             'Authorization': `Bearer ${logintoken}`
-  //         }
-  //     };
-
-  //     try {
-  //         const response = await fetch(apiList.customerDetails, options);
-  //         if (response.ok) {
-  //             const data = await response.json();
-  //             setAccountDetails(data.user)
-  //             setRecentTransactions(data.user.transactions)
-  //         }
-  //         else {
-  //             console.log(response);
-  //         }
-  //     }
-  //     catch (error) {
-  //         console.log(error.message);
-  //     }
-  // };
 
   const customerDetails = async () => {
     const options = {
@@ -109,6 +83,7 @@ const Accounts = ({ withinViewSummaryPage }) => {
           })
         );
 
+
         setAccountDetails(data.user);
         setRecentTransactions(formattedTransactions);
       } else {
@@ -122,6 +97,7 @@ const Accounts = ({ withinViewSummaryPage }) => {
 
   const latestTransactions = recentTransactions.slice().reverse();
   const reversedArray = latestTransactions.slice(0, 3);
+
 
   // const lastThreeDigits = (accountDetails.mobilenumber).slice(-4)
   // const maskedDigits = 'X'.repeat(6);

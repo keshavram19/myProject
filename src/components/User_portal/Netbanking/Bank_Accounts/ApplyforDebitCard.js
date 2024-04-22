@@ -3,15 +3,20 @@ import axios from 'axios';
 import './Accounts.css';
 import BankaccountSidebar from '../Sidebar/BankaccountSidebar';
 import apiList from '../../../../lib/apiList';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ApplyDebiCard = () => {
   const [userDetails, setUserDetails] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState('');
+  const [selectedCard, setSelectedCard] = useState('');
   const [lastFourDigits, setLastFourDigits] = useState('');
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [srn, setSrn] = useState('');
+  const token = sessionStorage.getItem('loginToken');
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
@@ -19,7 +24,7 @@ const ApplyDebiCard = () => {
 
   const fetchData = async () => {
     try {
-      const token = sessionStorage.getItem('loginToken');
+      
       const requestOptions = {
         method: 'GET',
         headers: {
@@ -45,6 +50,10 @@ const ApplyDebiCard = () => {
     setSelectedAccount(event.target.value);
   };
 
+  const handlecardChange =(e) =>{
+    setSelectedCard(e.target.value);
+  }
+
   const maskEmail = (email) => {
     const atIndex = email.indexOf('@');
     const domainIndex = email.indexOf('.com');
@@ -56,23 +65,84 @@ const ApplyDebiCard = () => {
 
   const applyDebitCard = async () => {
     try {
-      const token = sessionStorage.getItem('loginToken');
-      const response = await axios.post(
-        apiList.applyDebitCard,
-        {},
-        {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          }
-        }
-      );
-      setSrn(response.data.srn);
+      if (!selectedAccount || selectedAccount === 'account' || !selectedCard || selectedCard === 'card') {
+        toast.error("Please select an account number and card type", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored"
+        });
+        return;
+      }
+  
+      if (userDetails.userDebitCardDetails && userDetails.userDebitCardDetails.userDebitCardStatus === 'active') {
+        toast.error("You have an active debit card", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored"
+        });
+        return;
+      } else {
+        sendCodeToGmail();
+      }
     } catch (error) {
-      setError('Error applying for debit card. Please try again later.');
+      toast.error(error.response.data.error, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored"
+      });
       console.error('Error applying for debit card:', error);
     }
   };
+  
+  const sendCodeToGmail = async () => {
+    if (!userDetails || !userDetails.email) {
+        console.error('User email is not available');
+        return;
+    }
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ email: userDetails.email }),
+    };
+
+    try {
+        const response = await fetch(apiList.userAuthentication, options);
+        if(response.status === 200){
+          toast.success('Otp Generated Successfully!', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored"
+        });
+          navigate(`/user/account/debit-card-apply/otp?account=${selectedAccount}&card=${selectedCard}`);
+        }
+
+    } catch (error) {
+        console.error('Error sending OTP:', error);
+    }
+};
 
   return (
     <div>
@@ -94,6 +164,7 @@ const ApplyDebiCard = () => {
                       <input type="text" className="form_input" value={`${userDetails.customerID}`} readOnly />
                     </div>
                   </div>
+                  <ToastContainer />
                   <div className="row mt-3">
                     <div className="col-sm-6">
                       <label htmlFor="text">Account Number*</label>
@@ -104,6 +175,7 @@ const ApplyDebiCard = () => {
                         value={selectedAccount}
                         onChange={handleAccountChange}
                       >
+                          <option value='account'>Select Account</option>
                         {userDetails && (
                           <option value={userDetails.accountNumber}>
                             {userDetails.accountNumber}
@@ -154,8 +226,25 @@ const ApplyDebiCard = () => {
                       />
                     </div>
                   </div>
+                  <div className="row mt-3">
+                    <div className="col-sm-6">
+                      <label htmlFor="text">Select Card Type*</label>
+                    </div>
+                    <div className="col-sm-3">
+                      <select
+                        className="form_input"
+                        value={selectedCard}
+                        onChange={handlecardChange}
+                      >
+                          <option value='card'>Select Card Type</option>
+                          <option value='visa'>Visa</option>
+                          <option value='master'>Master</option>
+                          <option value='rupay'>Rupay</option>
+                      </select>
+                    </div>
+                  </div>
                   <hr />
-                  <h5 className='text-success'>ADDRESS</h5>
+                  <h5 className='text-secondary'>ADDRESS</h5>
                   {userDetails.currentAddress && (
                     <>
                       <div className="row mt-3">
@@ -192,8 +281,12 @@ const ApplyDebiCard = () => {
                   </Link>
                   <button className='ml-3 submit_Btn' onClick={applyDebitCard}>APPLY</button>
                 </div>
-                {srn && <p className="text-success">SRN: {srn}</p>}
-                {error && <p className="text-danger">{error}</p>}
+                {error && (
+                  <p className="text-danger">
+                    {error.response ? "something went wrong" : error}
+                  </p>
+                )}
+
               </div>
             </div>
           </div>
