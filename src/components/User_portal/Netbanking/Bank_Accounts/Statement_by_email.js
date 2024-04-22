@@ -225,7 +225,7 @@ const StatementByMail = () => {
                                     {authDetails && (
                                         <div>
                                             <div className='otp_code_mobile'>Enter OTP Code sent to {authDetails.email}</div>
-                                            <div>
+                                            <div className='otp_code_input_boxes'>
                                                 {Array.from({ length: 6 }, (_, index) => (
                                                     <input
                                                         key={index}
@@ -239,7 +239,7 @@ const StatementByMail = () => {
                                                     />
                                                 ))}
                                             </div>
-                                            <div className='text-center d-flex'>
+                                            <div className='text-center d-flex otp_code_resend'>
                                                 <div>Don't receive OTP code?</div>
                                                 <div className='resend_code_text ml-2' onClick={handleResendOTP}>Resend Code</div>
                                             </div>
