@@ -90,20 +90,10 @@ const Accounts = ({withinViewSummaryPage }) => {
         } catch (error) {
             console.log(error.message);
         }
-
-
-
-
-
-   
-
-
+      }
 
   const latestTransactions = recentTransactions.slice().reverse();
   const reversedArray = latestTransactions.slice(0, 3);
-
-
-
 
   return (
     <div className="container-fluid" style={{ marginTop: "90px" }}>
@@ -254,6 +244,7 @@ const Accounts = ({withinViewSummaryPage }) => {
       </div>
     </div>
   );
-  }
 };
+
+
 export default Accounts;
