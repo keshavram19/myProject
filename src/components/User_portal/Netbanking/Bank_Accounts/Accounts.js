@@ -254,5 +254,6 @@ const Accounts = ({withinViewSummaryPage }) => {
       </div>
     </div>
   );
+  }
 };
 export default Accounts;
