@@ -1,3 +1,4 @@
+ 
 import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
@@ -13,26 +14,16 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-// const CHECK_ELIGIBILITY_API = 
-// 'http://localhost:4444/api/check-register-eligibility';
-const currentDate = new Date();
-const formattedDate = currentDate.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-});
 export default function AccountOpeningForm() {
   const [showInputs, setShowInputs] = useState(false);
   const [activeStep, setActiveStep] = React.useState(0);
   const [formData, setFormData] = React.useState({
-     
     firstName: "",
     address: "",
     accountName: "",
     // Add more fields as needed
-    
   });
-   
+
   const nextStep = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -63,13 +54,12 @@ export default function AccountOpeningForm() {
   const Step1Content = ({ nextStep, formData, setFormData }) => {
     const { userData, setUserData } = useStateValue({});
 
-     
     const handleChange = (e) => {
       setUserData({ ...userData, [e.target.name]: e.target.value });
     };
 
     const validateInputs = () => {
-      if (!userData.aadharnumber || !userData.email) {
+      if (!userData.mobilenumber || !userData.email) {
         toast.error("Please fill in all required fields.");
         return false;
       }
@@ -81,41 +71,7 @@ export default function AccountOpeningForm() {
         // Proceed to the next step
         nextStep();
       }
-    }; 
- 
-    
-
-    const [aadharValidationStatus, setAadharValidationStatus] = useState(null);
-     const validateAadharNumber = async (aadharnumber) => {
-      try {
-        const response = await axios.post(
-          'http://localhost:4444/api/validate-aadhaar',
-          { aadhaarNumber: aadharnumber }  
-        );
-        if (response.status === 200) {
-          // Aadhaar number is valid
-          setAadharValidationStatus(true);
-        } else {
-          // Aadhaar number is not valid
-          setAadharValidationStatus(false);
-        }
-      } catch (error) {
-        console.error("Error validating Aadhaar number:", error);
-        // toast.error("Error validating Aadhaar number. Please try again.");
-        setAadharValidationStatus(false);
-      }
     };
-    
-
-    // adars starts
-    
-     useEffect(() => {
-      if (userData.aadharnumber) {
-        validateAadharNumber(userData.aadharnumber);
-      }
-    }, [userData.aadharnumber]);
- 
-    // aadhar ends 
 
     // console.log(userData);
 
@@ -128,8 +84,6 @@ export default function AccountOpeningForm() {
     const [resendButton, setResendButton] = useState(false);
 
     const [ismailValid, setismailValid] = useState(false);
-   
-    // const [isEmailVerified, setIsEmailVerified] = useState(false);
 
     const handleemailerror = () => {
       toast.error("enter email address");
@@ -138,64 +92,19 @@ export default function AccountOpeningForm() {
     const [handlemodal, setmodal] = useState(false);
     const [handleDisplayContent, setdisplayContent] = useState(false);
 
-    // const [isGetOTPEnabled, setIsGetOTPEnabled] = useState(false); // Step 1
-    const [isEmailChecked, setIsEmailChecked] = useState(false);
-
-    const handleCheckEligibility = async () => {
-      try {
-          const response = await axios.post
-          ( 'http://localhost:4444/admin/check-register-eligibility', 
-          { email: userData.email ,
-            aadharnumber: userData.aadharnumber // Include Aadhaar number in the request payload
-
-          // aadharNumber: userData.AadharNumber // Add Aadhaar number to the request payload
-        });
-          if (response.status === 200 && response.data.message === 'eligible') {
-              //  setIsEmailVerified(true);
-               setIsEmailChecked(true);
-
-              // setIsGetOTPEnabled(true); // Step 2: Enable the Get OTP button
-
-              toast("welcome to ROYAL ISLAMIC BANK");
-          } else {
-            // User is not eligible, refresh the page and clear fields
-            window.location.reload();
-            // You may want to show a message to the user indicating that they are not eligible
-            toast.error("You are not eligible. Please try again.");
-          }
-      } catch (error) {
-          console.error("Error checking eligibility:", error);
-          if (error.response && error.response.data && error.response.data.error) {
-              toast.error(error.response.data.error);
-          } else {
-              toast.error("Error checking eligibility. Please try again.");
-          }
-      }
-  };
-
-
-  const handleCheckButtonClick = () => {
-    if (!userData.aadharnumber || !userData.email) {
-      toast.error("Please fill in all required fields.");
-      return;
-    }
-    handleCheckEligibility();
-  };
-
     const handleGetOTP = async () => {
       try {
         // Check if the entered email is in a valid format
         console.log("user email:" , userData.email);
-      // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      if (!emailRegex.test(userData.email)) {
-        toast.error("Please enter a valid email address.");
-        return;
-        }
-
-        // 
+    
         setismailValid(true);
-        
+         await axios.post(
+          `${apiList.Storeemail}`,
+          {
+            email: userData.email,
+          }
+        );
+        // Send a request to the backend to trigger OTP sending
         const response = await axios.post(
           `${apiList.UserDetailsAccountOpeningSendOTP}`,
           {
@@ -205,16 +114,16 @@ export default function AccountOpeningForm() {
         console.log(response);
         let data = response.status;
 
-         if (data === 200) {
+        // Update ismailValid based on the response status code
+        if (data === 200) {
           console.log("test api");
-           setmodal(true);
+          setmodal(true);
           setdisplayContent(true);
           setSeconds(60); // Reset seconds to 60 when starting
           setIsRunning(true);
         } else {
           toast.error("Invalid email address");
         }
-           
       } catch (error) {
         setmodal(true);
         console.error(
@@ -223,9 +132,7 @@ export default function AccountOpeningForm() {
         );
       }
     };
-   
-   
-    
+ 
 
     const handleVerifyOTP = async () => {
       try {
@@ -234,7 +141,7 @@ export default function AccountOpeningForm() {
           `${apiList.UserDetailsAccountOpeningVerifyOTP}`,
            {
             email: userData.email,
-            otp,
+            gmailOTP: otp,
           }
         );
 
@@ -267,7 +174,9 @@ export default function AccountOpeningForm() {
     };
 
     const handleResendLink = async () => {
-     };
+      // Implement logic to resend the verification link
+      // Similar to the logic in handleGetOTP
+    };
 
    
 
@@ -292,9 +201,6 @@ export default function AccountOpeningForm() {
       handleGetOTP();
     };
     
-    
-
-
     return (
       <div className="mt-5 account_opening">
         <h5>
@@ -306,38 +212,19 @@ export default function AccountOpeningForm() {
           <div className="col-md-6 col-sm-12 col-12">
             <div className="card">
               <h6>
-                {/* Enter Your Mobile Number  */}
-                  Enter Your Aadhaar Number 
+                Enter Your Mobile Number
                 <span style={{ color: "red", paddingLeft: "3px" }}>*</span>
               </h6>
 
               <input
                 type="text"
-                // className="form-control account_opening_control"
-                className={`form-control account_opening_control
-                 ${aadharValidationStatus === false ? 'is-invalid'
-                  : (aadharValidationStatus === true ? 'is-valid' : '')}`}
-                placeholder="Enter Your Aadhaar Number"
-
-                // placeholder="Enter Your Mobile Number"
+                className="form-control"
+                placeholder="Enter Your Mobile Number"
                 required
-                name="aadharnumber"
-                value={userData.aadharnumber}
+                name="mobilenumber"
+                value={userData.mobilenumber}
                 onChange={handleChange}
               />
-
-                 
-
-              {aadharValidationStatus === false && (
-                <div className="invalid-feedback">
-                  This Aadhaar number is not valid.
-                </div>
-              )}
-              {aadharValidationStatus === true && (
-                <div className="valid-feedback">
-                  This Aadhaar number is valid.
-                </div>
-              )}
               <p className="pb-2"></p>
               <p> </p>
             </div>
@@ -352,33 +239,19 @@ export default function AccountOpeningForm() {
               <div className="input-group">
                 <input
                   type="email"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter Email"
                   aria-label="Recipient's username"
                   aria-describedby="basic-addon2"
                   name="email"
                   value={userData.email}
                   onChange={handleChange}
-                  // disabled={!aadharValidationStatus} // Disable email input until Aadhaar validation is complete
-
                 />
-
-<button className="input-group-text account_opening_email_otp_getotp_btn"
-onClick={handleCheckButtonClick}>Check</button>
-
                 <div className="input-group-append">
-                {isEmailChecked && (
-
                   <button
                     className="input-group-text account_opening_email_otp_getotp_btn"
                     id="basic-addon2"
                     disabled={isVerified}
-                    // disabled={!isEmailChecked || isVerified}
-                    // disabled={isVerified}
-
-                    // disabled={!isVerified || !isEmailVerified} // Disable if OTP is already verified or email is not verified
-                    // disabled={!isGetOTPEnabled || isVerified} // Disable if Get OTP is not enabled or OTP is already verified
-
                     onClick={() => {
                       if (userData.email) {
                         handleGetOTP();
@@ -391,8 +264,6 @@ onClick={handleCheckButtonClick}>Check</button>
                   >
                     {isVerified ? "Verified" : "Get OTP"}
                   </button>
-                  )}
-
                 </div>
               </div>
               <div className="modal" id="myModal">
@@ -418,8 +289,7 @@ onClick={handleCheckButtonClick}>Check</button>
                                 placeholder="Enter OTP"
                                 value={otp}
                                 onChange={(e) => setOtp(e.target.value)}
-                               
-                                className="account_opening_email_otp_modal account_opening_control"
+                                className="account_opening_email_otp_modal"
                               />
                               <p>
                                 {seconds > 0 ? (
@@ -512,6 +382,69 @@ onClick={handleCheckButtonClick}>Check</button>
                         </div>
                       </div>
                     )}
+
+                    {/* <div className="modal-header">
+                        <h4 className="modal-title">Enter OTP</h4>
+                        <button
+                          type="button"
+                          className="close"
+                          data-dismiss="modal"
+                        >
+                          &times;
+                        </button>
+                      </div>
+
+                      <div className="modal-body text-center">
+                        <input
+                          type="text"
+                          placeholder="Enter OTP"
+                          value={otp}
+                          onChange={(e) => setOtp(e.target.value)}
+                          className="account_opening_email_otp_modal"
+                        />
+                        <p>
+                          {seconds > 0 ? (
+                            `OTP will expire in: ${seconds} seconds`
+                          ) : (
+                            <p>
+                              OTP has expired{" "}
+                              <button
+                                onClick={resendOTP}
+                                className="account_opening_email_otp_resend_btn"
+                              >
+                                resend
+                              </button>
+                            </p>
+                          )}
+                        </p>
+                        {seconds === 0 && resendButton && (
+                          <button
+                            className="btn btn-primary account_opening_email_otp_resend_btn"
+                            onClick={handleResendLink}
+                          >
+                            Resend OTP
+                          </button>
+                        )}
+                        <Button
+                          variant="primary"
+                          className="account_opening_email_otp_verify_btn"
+                          onClick={handleVerifyOTP}
+                          disabled={isVerified}
+                        >
+                          {isVerified ? "Verified" : "Verify"}
+                        </Button>
+                      </div>
+
+                      <div className="modal-footer">
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          data-dismiss="modal"
+                          style={{ fontSize: "12px", padding: "3px 10px" }}
+                        >
+                          Close
+                        </button>
+                      </div> */}
                   </div>
                 </div>
               </div>
@@ -552,7 +485,7 @@ onClick={handleCheckButtonClick}>Check</button>
       </div>
     );
   };
- 
+
   // Step 2 Content
 
   const Step2Content = ({ prevStep, nextStep, formData, setFormData }) => {
@@ -562,35 +495,11 @@ onClick={handleCheckButtonClick}>Check</button>
       setpersonalDetails(e.target.value === "yes");
       setUserData({ ...userData, [e.target.name]: e.target.value });
     };
-// pan starts
+
     const { userData, setUserData } = useStateValue({});
-    const [panValidationStatus, setPanValidationStatus] = useState(null); // State to store PAN validation status
-    // pan ends 
-    const handleChange = async (e) => {
-// pan validation 
-      const { name, value } = e.target;
-// pan validation 
 
-      // setUserData({ ...userData, [e.target.name]: e.target.value });
-      setUserData({ ...userData, [name]: value });
-
-            // pan ends 
-        
-  // try {
-  //   // const response = await axios.get(`/panValid/${value}`); // Send request to backend to validate PAN number
-  //   const response = await axios.get(`http://localhost:4444/api/panValid/${value}`);
-  //   
-  try {
-    const response = await axios.get(`http://localhost:4444/api/panValid/${value}`);
-    const { data } = response;
-
-    // Update PAN validation status based on response
-    setPanValidationStatus(data.data); // Assuming data.data contains the validation status
-  } catch (error) {
-    console.error('Error validating PAN:', error);
-    // Handle error (e.g., show error message)
-  }
-
+    const handleChange = (e) => {
+      setUserData({ ...userData, [e.target.name]: e.target.value });
     };
 
     const handleJointAccountDetailsChange = (e) => {
@@ -608,11 +517,11 @@ onClick={handleCheckButtonClick}>Check</button>
     const validateFields2 = () => {
       if (
         !userData.openaccount ||
-        // !userData.operatingtype ||
+        !userData.operatingtype ||
         !userData.prefix ||
         !userData.firstname ||
         !userData.lastname ||
-        // !userData.aadharnumber ||
+        !userData.aadharnumber ||
         !userData.pannumber ||
         !userData.dateofbirth ||
         !userData.fathername ||
@@ -626,7 +535,7 @@ onClick={handleCheckButtonClick}>Check</button>
         if (
           userData.jointAccountDetails.firstName === "" ||
           userData.jointAccountDetails.lastname === "" ||
-          // userData.jointAccountDetails.aadharnumber === "" ||
+          userData.jointAccountDetails.aadharnumber === "" ||
           userData.jointAccountDetails.pannumber === "" ||
           userData.jointAccountDetails.dateofbirth === "" ||
           userData.jointAccountDetails.fathername === "" ||
@@ -679,7 +588,7 @@ onClick={handleCheckButtonClick}>Check</button>
                     <span className="pl-2">Savings</span>
                   </label>
                 </div>
-                {/* <div className="col-3">
+                <div className="col-3">
                   <label
                     htmlFor="saving-max"
                     className="account_Opening_profile_checkbox_label"
@@ -694,10 +603,10 @@ onClick={handleCheckButtonClick}>Check</button>
                     />
                     <span className="pl-2">Savings Max</span>
                   </label>
-                </div> */}
+                </div>
                 <div className="col-3">
                   <label
-                    htmlFor="salary"
+                    htmlFor="saving-salary"
                     className="account_Opening_profile_checkbox_label"
                   >
                     <input
@@ -711,7 +620,7 @@ onClick={handleCheckButtonClick}>Check</button>
                     <span className="pl-2">Savings Salary</span>
                   </label>
                 </div>
-                {/* <div className="col-3">
+                <div className="col-3">
                   <label
                     htmlFor="reimbursement"
                     className="account_Opening_profile_checkbox_label"
@@ -726,10 +635,10 @@ onClick={handleCheckButtonClick}>Check</button>
                     />
                     <span className="pl-2">Reimbursement</span>
                   </label>
-                </div> */}
+                </div>
               </div>
 
-              {/* <div className="row">
+              <div className="row">
                 <div className="col-3">
                   <label
                     htmlFor="current"
@@ -794,8 +703,8 @@ onClick={handleCheckButtonClick}>Check</button>
                     <span className="pl-2">KGC SB&CA</span>
                   </label>
                 </div>
-              </div> */}
-              {/* <div className="row">
+              </div>
+              <div className="row">
                 <div className="col-3">
                   <label
                     htmlFor="fd"
@@ -812,7 +721,7 @@ onClick={handleCheckButtonClick}>Check</button>
                     <span className="pl-2">FD</span>
                   </label>
                 </div>
-                {/* <div className="col-3">
+                <div className="col-3">
                   <label
                     htmlFor="rd"
                     className="account_Opening_profile_checkbox_label"
@@ -827,8 +736,8 @@ onClick={handleCheckButtonClick}>Check</button>
                     />
                     <span className="pl-2">RD</span>
                   </label>
-                </div> */}
-                {/* <div className="col-3">
+                </div>
+                <div className="col-3">
                   <label
                     htmlFor="ppf"
                     className="account_Opening_profile_checkbox_label"
@@ -843,12 +752,12 @@ onClick={handleCheckButtonClick}>Check</button>
                     />
                     <span className="pl-2">PPF A/C</span>
                   </label>
-                </div> */}
-              {/* </div> */} 
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* <div className="row mt-5">
+          <div className="row mt-5">
             <div className="col-2">
               <label className="mb-0">Operating Instruction</label>
             </div>
@@ -939,25 +848,20 @@ onClick={handleCheckButtonClick}>Check</button>
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
 
           <div>
-            <h5 className="mt-5">Personal Details -  </h5>
+            <h5 className="mt-5">Personal Details - Applicant 1 :-</h5>
             <div className="row mt-3">
               <div className="col-4">
                 <label className="mb-0">Prefix : </label>
                 <div>
-
                   <select
-                    className="form-control account_opening_control"
+                    className="form-control"
                     style={{ border: "none" }}
                     onChange={handleChange}
                     name="prefix"
-                    // value={userData.prefix} // Ensure the selected value is controlled by state
-
                   >
-                <option value="">Select</option>
-
                     <option value="Mr">Mr</option>
                     <option value="Ms">Ms</option>
                     <option value="Miss">Miss</option>
@@ -968,7 +872,7 @@ onClick={handleCheckButtonClick}>Check</button>
                 <label className="mb-0">First Name : </label>
                 <input
                   type="text"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter Joint Account First Name"
                   name="firstname"
                   value={userData.firstname}
@@ -979,7 +883,7 @@ onClick={handleCheckButtonClick}>Check</button>
                 <label className="mb-0">Last Name : </label>
                 <input
                   type="name"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter your lastName"
                   name="lastname"
                   value={userData.lastname}
@@ -989,57 +893,33 @@ onClick={handleCheckButtonClick}>Check</button>
             </div>
 
             <div className="row mt-3">
-              {/* <div className="col-4">
+              <div className="col-4">
                 <label className="mb-0">Aadhar Number : </label>
                 <input
                   type="name"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter your firstName"
                   name="aadharnumber"
                   value={userData.aadharnumber}
                   onChange={handleChange}
                 />
-              </div> */}
+              </div>
               <div className="col-4">
                 <label className="mb-0">PAN Number : </label>
                 <input
                   type="name"
-                  // className="form-control account_opening_control"
-                  className={`form-control account_opening_control
-                   ${panValidationStatus === false ? 'is-invalid' 
-                   : (panValidationStatus === true ? 'is-valid' : '')}`}
-
-                  placeholder="Enter your PAN number"
-                  required
+                  className="form-control"
+                  placeholder="Enter your lastName"
                   name="pannumber"
                   value={userData.pannumber}
                   onChange={handleChange}
                 />
-                {panValidationStatus === false && (
-                <div className="invalid-feedback">
-                  This pan number is not valid.
-                </div>
-              )}
-              {panValidationStatus === true && (
-                <div className="valid-feedback">
-                  This pan number is valid.
-                </div>
-              )}
-                {/* {panValidationStatus !== null && (
-            <div className={`${panValidationStatus ? 'valid-feedback' : 'invalid-feedback'}`}>
-              {panValidationStatus ? 'PAN Number is valid' : 'Invalid PAN Number'}
-            </div>
-          )} */}
-                {/* Display status of PAN validation */}
-   {/* {userData.panValid !== undefined && (
-    <p>{userData.panValid ? 'PAN Number is valid' : 'Invalid PAN Number'}</p>
-  )} */}
               </div>
               <div className="col-4">
                 <label className="mb-0">Date Of Birth : </label>
                 <input
                   type="date"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   name="dateofbirth"
                   value={userData.dateofbirth}
                   onChange={handleChange}
@@ -1052,7 +932,7 @@ onClick={handleCheckButtonClick}>Check</button>
                 <label className="mb-0">Father Name : </label>
                 <input
                   type="name"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter your Father Name"
                   name="fathername"
                   value={userData.fathername}
@@ -1063,7 +943,7 @@ onClick={handleCheckButtonClick}>Check</button>
                 <label className="mb-0">Mother Name: </label>
                 <input
                   type="name"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter your Mother Name"
                   name="mothername"
                   value={userData.mothername}
@@ -1079,7 +959,7 @@ onClick={handleCheckButtonClick}>Check</button>
                 </label>
                 <input
                   type="name"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter your Gaurdian Name"
                   name="gaurdianname"
                   value={userData.gaurdianname}
@@ -1089,7 +969,7 @@ onClick={handleCheckButtonClick}>Check</button>
             </div>
           </div>
 
-          {/* <p className="d-flex mt-5" style={{ fontSize: "13px" }}>
+          <p className="d-flex mt-5" style={{ fontSize: "13px" }}>
             Your account is survivor/Jointly/minour account :{" "}
             <input
               type="radio"
@@ -1131,9 +1011,9 @@ onClick={handleCheckButtonClick}>Check</button>
             >
               NO
             </label>
-          </p> */}
+          </p>
 
-          {/* {personalDetails && (
+          {personalDetails && (
             <div>
               <h5 className="mt-5">Personal Details - Applicant 2 :-</h5>
               <div className="row mt-3">
@@ -1141,7 +1021,7 @@ onClick={handleCheckButtonClick}>Check</button>
                   <label className="mb-0">Prefix : </label>
                   <div>
                     <select
-                      className="form-control account_opening_control"
+                      className="form-control"
                       style={{ border: "none" }}
                       onChange={handleJointAccountDetailsChange}
                       name="prefix"
@@ -1156,7 +1036,7 @@ onClick={handleCheckButtonClick}>Check</button>
                   <label className="mb-0">First Name : </label>
                   <input
                     type="text"
-                    className="form-control account_opening_control"
+                    className="form-control"
                     placeholder="Enter Joint Account First Name"
                     name="firstname"
                     value={userData.jointAccountDetails.firstname}
@@ -1167,7 +1047,7 @@ onClick={handleCheckButtonClick}>Check</button>
                   <label className="mb-0">Last Name : </label>
                   <input
                     type="name"
-                    className="form-control account_opening_control"
+                    className="form-control"
                     placeholder="Enter your lastName"
                     name="lastname"
                     required
@@ -1182,7 +1062,7 @@ onClick={handleCheckButtonClick}>Check</button>
                   <label className="mb-0">Aadhar Number : </label>
                   <input
                     type="name"
-                    className="form-control account_opening_control"
+                    className="form-control"
                     placeholder="Enter your firstName"
                     name="aadharnumber"
                     value={userData.jointAccountDetails.aadharnumber}
@@ -1193,7 +1073,7 @@ onClick={handleCheckButtonClick}>Check</button>
                   <label className="mb-0">PAN Number : </label>
                   <input
                     type="name"
-                    className="form-control account_opening_control"
+                    className="form-control"
                     placeholder="Enter your lastName"
                     name="pannumber"
                     value={userData.jointAccountDetails.pannumber}
@@ -1204,7 +1084,7 @@ onClick={handleCheckButtonClick}>Check</button>
                   <label className="mb-0">Date Of Birth : </label>
                   <input
                     type="date"
-                    className="form-control account_opening_control"
+                    className="form-control"
                     name="dateofbirth"
                     value={userData.jointAccountDetails.dateofbirth}
                     onChange={handleJointAccountDetailsChange}
@@ -1217,7 +1097,7 @@ onClick={handleCheckButtonClick}>Check</button>
                   <label className="mb-0">Father Name : </label>
                   <input
                     type="name"
-                    className="form-control account_opening_control"
+                    className="form-control"
                     placeholder="Enter your Father Name"
                     name="fathername"
                     value={userData.jointAccountDetails.fathername}
@@ -1228,7 +1108,7 @@ onClick={handleCheckButtonClick}>Check</button>
                   <label className="mb-0">Mother Name: </label>
                   <input
                     type="name"
-                    className="form-control account_opening_control"
+                    className="form-control"
                     placeholder="Enter your Mother Name"
                     name="mothername"
                     value={userData.jointAccountDetails.mothername}
@@ -1244,7 +1124,7 @@ onClick={handleCheckButtonClick}>Check</button>
                   </label>
                   <input
                     type="name"
-                    className="form-control account_opening_control"
+                    className="form-control"
                     placeholder="Enter your Gaurdian Name"
                     name="gaurdianname"
                     value={userData.jointAccountDetails.gaurdianname}
@@ -1253,7 +1133,7 @@ onClick={handleCheckButtonClick}>Check</button>
                 </div>
               </div>
             </div>
-          )} */}
+          )}
         </div>
 
         {/* Add more form fields as needed */}
@@ -1267,8 +1147,6 @@ onClick={handleCheckButtonClick}>Check</button>
           <Button
             onClick={handleNextStep2}
             className="account_opening_profile_nextbtn"
-            // disabled={!userData.panValid} // Disable button if PAN is invalid
-
           >
             Next
           </Button>
@@ -1405,7 +1283,7 @@ onClick={handleCheckButtonClick}>Check</button>
                 <label className="mb-0">Flat/House No : </label>
                 <input
                   type="text"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter your flatnumber"
                   name="currentAddress.flatnumber"
                   value={userData.currentAddress.flatnumber}
@@ -1421,7 +1299,7 @@ onClick={handleCheckButtonClick}>Check</button>
                 </label>
                 <input
                   type="name"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter your buildingname"
                   name="currentAddress.buildingname"
                   value={userData.currentAddress.buildingname}
@@ -1432,7 +1310,7 @@ onClick={handleCheckButtonClick}>Check</button>
                 <label className="mb-0">Landmark : </label>
                 <input
                   type="name"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter landmark"
                   name="currentAddress.landmark"
                   value={userData.currentAddress.landmark}
@@ -1446,7 +1324,7 @@ onClick={handleCheckButtonClick}>Check</button>
                 <label className="mb-0">City : </label>
                 <input
                   type="name"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter city"
                   name="currentAddress.city"
                   value={userData.currentAddress.city}
@@ -1457,7 +1335,7 @@ onClick={handleCheckButtonClick}>Check</button>
                 <label className="mb-0">State: </label>
                 <input
                   type="name"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter State"
                   name="currentAddress.state"
                   value={userData.currentAddress.state}
@@ -1468,7 +1346,7 @@ onClick={handleCheckButtonClick}>Check</button>
                 <label className="mb-0">Country : </label>
                 <input
                   type="name"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter country"
                   name="currentAddress.country"
                   value={userData.currentAddress.country}
@@ -1482,7 +1360,7 @@ onClick={handleCheckButtonClick}>Check</button>
                 <label className="mb-0">Pincode : </label>
                 <input
                   type="name"
-                  className="form-control account_opening_control"
+                  className="form-control"
                   placeholder="Enter pincode"
                   name="currentAddress.pincode"
                   value={userData.currentAddress.pincode}
@@ -1552,7 +1430,7 @@ onClick={handleCheckButtonClick}>Check</button>
                     <label className="mb-0">Flat/House No : </label>
                     <input
                       type="name"
-                      className="form-control account_opening_control"
+                      className="form-control"
                       placeholder="Enter your firstName"
                       name="permanentAddress.flatnumber"
                       value={userData.permanentAddress.flatnumber}
@@ -1570,7 +1448,7 @@ onClick={handleCheckButtonClick}>Check</button>
                     </label>
                     <input
                       type="name"
-                      className="form-control account_opening_control"
+                      className="form-control"
                       placeholder="Enter buildingname"
                       name="permanentAddress.buildingname"
                       value={userData.permanentAddress.buildingname}
@@ -1581,7 +1459,7 @@ onClick={handleCheckButtonClick}>Check</button>
                     <label className="mb-0">Landmark : </label>
                     <input
                       type="name"
-                      className="form-control account_opening_control"
+                      className="form-control"
                       placeholder="Enter landmark"
                       name="permanentAddress.landmark"
                       value={userData.permanentAddress.landmark}
@@ -1595,7 +1473,7 @@ onClick={handleCheckButtonClick}>Check</button>
                     <label className="mb-0">City : </label>
                     <input
                       type="name"
-                      className="form-control account_opening_control"
+                      className="form-control"
                       placeholder="Enter city"
                       name="permanentAddress.city"
                       value={userData.permanentAddress.city}
@@ -1606,7 +1484,7 @@ onClick={handleCheckButtonClick}>Check</button>
                     <label className="mb-0">State: </label>
                     <input
                       type="name"
-                      className="form-control account_opening_control"
+                      className="form-control"
                       placeholder="Enter state"
                       name="permanentAddress.state"
                       value={userData.permanentAddress.state}
@@ -1617,7 +1495,7 @@ onClick={handleCheckButtonClick}>Check</button>
                     <label className="mb-0">Country : </label>
                     <input
                       type="name"
-                      className="form-control account_opening_control"
+                      className="form-control"
                       placeholder="Enter country"
                       name="permanentAddress.country"
                       value={userData.permanentAddress.country}
@@ -1631,7 +1509,7 @@ onClick={handleCheckButtonClick}>Check</button>
                     <label className="mb-0">Pincode : </label>
                     <input
                       type="name"
-                      className="form-control account_opening_control"
+                      className="form-control"
                       placeholder="Enter pincode"
                       name="permanentAddress.pincode"
                       value={userData.permanentAddress.pincode}
@@ -1986,9 +1864,7 @@ onClick={handleCheckButtonClick}>Check</button>
           <h4>Declaration : </h4>
 
           <p className="mt-3">
-            I, <b>{userData.firstname} {userData.lastname}</b>
-             {/* <b>Ramisetty Ashok kumar</b> */}
-            , hereby declare and affirm the
+            I, <b>Ramisetty Ashok kumar</b>, hereby declare and affirm the
             following statements in connection with the opening of the bank
             account with <b>Royal Islamic bank:</b>
           </p>
@@ -2034,9 +1910,7 @@ onClick={handleCheckButtonClick}>Check</button>
             and legal action.
           </p>
           <p>
-            {/* <b>Date</b> : Today's Date */}
-            <b>Date:</b> {formattedDate}
-
+            <b>Date</b> : Today's Date
           </p>
           <p>
             <b>Branch </b>:{" "}
@@ -2172,7 +2046,5 @@ onClick={handleCheckButtonClick}>Check</button>
       </StateProvider>
     </div>
   );
- };
+}
 
-
-  
