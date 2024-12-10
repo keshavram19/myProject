@@ -20,6 +20,8 @@ const OTPPage = () =>{
     const [buttonsDisabled, setButtonsDisabled] = useState(true);
     const accountNumber = 1124563456;
 
+    const accountNumber = 1124563456;
+
 
     
     const fetchData = async () => {
@@ -37,9 +39,12 @@ const OTPPage = () =>{
                 console.error('Invalid user details format:', userDetailsData);
             }
 
+
         } catch (error) {
             console.error('Error fetching user details:', error);
         }
+        console.log('User Details:', userDetails);
+
         console.log('User Details:', userDetails);
 
     };
@@ -53,6 +58,7 @@ const OTPPage = () =>{
         setOtp(event.target.value);
         setValidationError('');
     };
+
 
 
     useEffect(() => {
@@ -71,6 +77,7 @@ const OTPPage = () =>{
     }, []);
 
 
+
     const formatTime = (seconds) => {
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
@@ -78,7 +85,9 @@ const OTPPage = () =>{
     };
 
 
+
     const formatDebitCardNumber = (cardNumber) => {
+
 
         const cardNumberString = String(cardNumber);
         const firstFourDigits = cardNumberString.substring(0, 4);
@@ -93,6 +102,7 @@ const OTPPage = () =>{
             await fetchData();
 
             if (Array.isArray(userDetails) && userDetails.length > 0) {
+                const otpResponse = await axios.post(`${apiList.GenerateCardPin}`, {
                 const otpResponse = await axios.post(`${apiList.GenerateCardPin}`, {
                     accountNumber: userDetails[0].userAccountNumber,
                     debitCardNumber: formatDebitCardNumber(userDetails[0].userDebitCardDetails.userDebitCardNumber),
@@ -114,6 +124,7 @@ const OTPPage = () =>{
     };
 
 
+
     const handleOtpValidation = async () => {
         try {
             await fetchData();
@@ -122,6 +133,7 @@ const OTPPage = () =>{
             const response = await axios.post(`${apiList.authenticateOTP}`, { accountNumber, otp });
 
             console.log(response.data);
+            navigate("/user/account/generate-debit-card-pin");
             navigate("/user/account/generate-debit-card-pin");
         } catch (error) {
             console.error('Error validating OTP:', error);
@@ -185,9 +197,13 @@ const OTPPage = () =>{
 </div>
                 </div>
 
+
             </div>
         </div>
     )
 }
+    )
+}
 
+export default OTPPage;
 export default OTPPage;
